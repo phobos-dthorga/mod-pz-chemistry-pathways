@@ -1,8 +1,8 @@
 name=Phobos' Chemistry Pathways
 id=PhobosChemistryPathways
-description=Adds chemistry recipes for synthesizing sulphur, potassium nitrate, and blackpowder using zReVaccin 3 lab equipment.
+description=Complete chemistry suite for Project Zomboid Build 42: blackpowder synthesis, biodiesel production, soap-making, bone char, and advanced lab processes. Features 132 recipes, 7 sandbox options, purity tracking, and EHR health hazard integration. Requires PhobosLib and zReVaccin 3.
 poster=poster.png
 authors=phobosgekko
 versionMin=42.13.0
-modversion=1.0.0
+modversion=0.9.0
 require=\PhobosLib,\zReModVaccin30bykERHUS
