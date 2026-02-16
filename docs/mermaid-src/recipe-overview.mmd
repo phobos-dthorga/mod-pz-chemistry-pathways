@@ -1,0 +1,91 @@
+graph TB
+    subgraph INPUTS["Raw Inputs"]
+        CHARCOAL["Charcoal<br/>(foraged or crafted)"]
+        CROPS["Crops: Soybeans, Sunflower,<br/>Corn, Flax, Hemp, Peanuts"]
+        FATS["Lard / Butter / Margarine"]
+        OILS["OilVegetable / OilOlive"]
+        BONES["Animal Bones / Skulls"]
+        COMPOST["CompostBag / Animal Dung"]
+        BATTERY["Car Battery"]
+        FERT["Fertilizer"]
+        QLIME["Quicklime"]
+    end
+
+    subgraph BP["Blackpowder Pathway (Steps 1-7)"]
+        CRUSH["CrushedCharcoal"]
+        PURIFY["PurifiedCharcoal"]
+        POTASH["Potash"]
+        KNO3["KNO3 Powder"]
+        SULPHUR["SulphurPowder"]
+        GUNPOWDER["GunPowder"]
+    end
+
+    subgraph BD["Biodiesel Pathway (Steps 1-5)"]
+        CRUDE_OIL["CrudeVegetableOil"]
+        RENDERED["RenderedFat"]
+        METHANOL["WoodMethanol"]
+        KOH["KOH"]
+        CRUDE_BD["CrudeBiodiesel"]
+        WASHED_BD["WashedBiodiesel"]
+        REFINED_BD["RefinedBiodieselCan<br/>(5L Petrol)"]
+    end
+
+    subgraph BY["By-Products"]
+        WOODTAR["WoodTar"]
+        CALCITE["Calcite"]
+        GLYCEROL["Glycerol"]
+        SOAP["CrudeSoap"]
+    end
+
+    subgraph BC["Bone Char"]
+        BONECHAR["BoneChar"]
+    end
+
+    subgraph UTIL["Utility"]
+        DCOMPOST["DilutedCompost"]
+        H2SO4["SulphuricAcid"]
+        LEAD["LeadScrap"]
+    end
+
+    CHARCOAL --> CRUSH
+    CRUSH --> PURIFY
+    PURIFY -.-> POTASH
+    COMPOST --> DCOMPOST
+    DCOMPOST --> KNO3
+    FERT --> KNO3
+    PURIFY --> KNO3
+    BATTERY --> H2SO4
+    H2SO4 --> SULPHUR
+    PURIFY --> SULPHUR
+    KNO3 --> GUNPOWDER
+    SULPHUR --> GUNPOWDER
+    PURIFY --> GUNPOWDER
+
+    CROPS --> CRUDE_OIL
+    OILS --> CRUDE_OIL
+    FATS --> RENDERED
+    CHARCOAL --> METHANOL
+    POTASH --> KOH
+    QLIME --> KOH
+    CRUDE_OIL --> CRUDE_BD
+    RENDERED --> CRUDE_BD
+    METHANOL --> CRUDE_BD
+    KOH --> CRUDE_BD
+    CRUDE_BD --> WASHED_BD
+    WASHED_BD --> REFINED_BD
+
+    METHANOL -.-> WOODTAR
+    KOH -.-> CALCITE
+    CRUDE_BD -.-> GLYCEROL
+    GLYCEROL --> SOAP
+    RENDERED --> SOAP
+
+    BONES --> BONECHAR
+    BONECHAR -.->|"alt for PurifiedCharcoal"| PURIFY
+
+    BATTERY --> LEAD
+
+    style GUNPOWDER fill:#c44,color:#fff
+    style REFINED_BD fill:#4a4,color:#fff
+    style SOAP fill:#48c,color:#fff
+    style BONECHAR fill:#864,color:#fff

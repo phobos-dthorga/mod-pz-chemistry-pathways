@@ -1,0 +1,24 @@
+graph TB
+    subgraph OCC["Occupations"]
+        CHEM["Chemist<br/>Cost: -4 points<br/>AC: 3, Doctor: 1<br/>13 granted recipes"]
+        PHARM["Pharmacist<br/>Cost: -2 points<br/>AC: 2, Doctor: 2<br/>5 granted recipes"]
+    end
+
+    subgraph TRAITS["Traits"]
+        ENT["Chemistry Enthusiast<br/>Cost: +4 points<br/>AC: +1<br/>2 granted recipes"]
+        AVR["Chemical Aversion<br/>Cost: -2 points<br/>AC: -1"]
+        PROF["Chemist Profession Trait<br/>(auto-granted, not selectable)"]
+    end
+
+    ENT <-.->|"mutually exclusive"| AVR
+    CHEM -->|"auto-grants"| PROF
+
+    subgraph START["Starting Skill Levels"]
+        CS["Chemist start:<br/>AC 3 + trait bonuses"]
+        PS["Pharmacist start:<br/>AC 2 + trait bonuses"]
+        DS["Default start:<br/>AC 0 + trait bonuses"]
+    end
+
+    CHEM --> CS
+    PHARM --> PS
+    ENT -.-> DS

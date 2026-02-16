@@ -1,0 +1,21 @@
+graph LR
+    subgraph INPUT["Bone Sources"]
+        SB["SmallAnimalBone"]
+        AB["AnimalBone"]
+        LB["LargeAnimalBone"]
+        SK["Animal Skulls<br/>(any skull tag)"]
+        SF["SharpBoneFragment"]
+    end
+
+    subgraph PROCESS["B1. Pyrolyse Bones<br/>Metal Drum | AC:2"]
+        SB --> PY["Pyrolysis<br/>(3-8 bones per craft)"]
+        AB --> PY
+        LB --> PY
+        SK --> PY
+        SF --> PY
+        PY --> BC["BoneChar"]
+    end
+
+    subgraph USE["Usage"]
+        BC --> ALT["Accepted wherever<br/>PurifiedCharcoal is used"]
+    end

@@ -1,0 +1,7 @@
+graph LR
+    SRC["Source Recipe<br/>(assigns base purity)"] --> PROP["Propagation Recipe<br/>(reads input, applies<br/>equipment factor)"]
+    PROP --> TERM["Terminal Recipe<br/>(propagation + yield penalty)"]
+
+    SRC --- S_NOTE["Mortar: 30-50<br/>Lab: 50-70<br/>Bulk: 40-60"]
+    PROP --- P_NOTE["Lab: x1.00<br/>Bulk: x0.95<br/>Centrifuge: x1.10<br/>Chromatograph: x1.25"]
+    TERM --- T_NOTE["Low purity = reduced<br/>Petrol or GunPowder output"]

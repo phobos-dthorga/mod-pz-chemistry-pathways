@@ -1,0 +1,32 @@
+graph LR
+    subgraph S1["1. Crush Charcoal<br/>Mortar | AC:0"]
+        C1["2x Charcoal"] --> CC["6x CrushedCharcoal"]
+    end
+
+    subgraph S2a["2a. Purify (Water Wash)<br/>Chemistry Set | AC:1"]
+        CC2a["4x CrushedCharcoal<br/>+ Water"] --> PC2a["2x PurifiedCharcoal<br/>+ 1x Potash"]
+    end
+
+    subgraph S2b["2b. Purify (Alkaline Wash)<br/>Chemistry Set | AC:2"]
+        CC2b["4x CrushedCharcoal<br/>+ NaOH"] --> PC2b["6x PurifiedCharcoal<br/>+ 3x Potash"]
+    end
+
+    subgraph S3["3. Compost Preparation<br/>Surface | AC:1"]
+        COMP["10x CompostBag<br/>or Dung"] --> DC["3-4x DilutedCompost"]
+    end
+
+    subgraph S4["4. Battery Acid<br/>Chemistry Set | AC:2"]
+        BAT["1x CarBattery<br/>+ Empty Jars"] --> ACID["SulphuricAcid Jars<br/>+ 3x LeadScrap"]
+    end
+
+    subgraph S5["5. Extract Sulphur<br/>Chemistry Set | AC:3"]
+        EXT["H2SO4 + 2x PurifiedCharcoal"] --> SUL["4x SulphurPowder"]
+    end
+
+    subgraph S6["6. Synthesize KNO3<br/>Chemistry Set | AC:4"]
+        SYN["Fertilizer or DilutedCompost<br/>+ NaOH + PurifiedCharcoal"] --> KNO3_OUT["4-6x KNO3"]
+    end
+
+    subgraph S7["7. Mix Blackpowder<br/>Chemistry Set | AC:4"]
+        MIX["5x KNO3 + 2x Sulphur<br/>+ 2x PurifiedCharcoal"] --> GP["10x GunPowder"]
+    end

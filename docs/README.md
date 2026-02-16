@@ -12,3 +12,11 @@ Visual guides for understanding mod systems, recipe chains, and configuration op
 | [Architecture](diagrams/architecture.md) | Dependency graph, PhobosLib modules, and cross-mod integration |
 
 All diagrams use [Mermaid.js](https://mermaid.js.org/) syntax and render natively on GitHub.
+
+## Exported Images
+
+Pre-rendered PNG versions of all diagrams are in [`images/`](images/) for use in Steam Workshop descriptions and Discord.
+
+## Mermaid Sources
+
+Standalone `.mmd` source files for CLI re-rendering are in [`mermaid-src/`](mermaid-src/). See the [README](mermaid-src/README.md) for batch render instructions.

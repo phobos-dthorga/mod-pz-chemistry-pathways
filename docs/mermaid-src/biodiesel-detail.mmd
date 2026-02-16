@@ -1,0 +1,59 @@
+graph TB
+    subgraph EXTRACT["Step 1: Oil Extraction"]
+        direction LR
+        M["Mortar<br/>AC:0 | 1 jar"]
+        L["Chemistry Set<br/>AC:2 | 2 jars"]
+        B["Metal Drum<br/>AC:2 | 1 bucket"]
+    end
+
+    subgraph FEED["Feedstock"]
+        OIL_CONV["Convert Bottled Oil<br/>AC:0"]
+        FAT_REND["Render Fat<br/>AC:1"]
+        M --> OIL["CrudeVegetableOil"]
+        L --> OIL
+        B --> OIL
+        OIL_CONV --> OIL
+        FAT_REND --> FAT["RenderedFat"]
+    end
+
+    subgraph REAGENT["Step 2: Reagent Production"]
+        DIST["Distill Methanol<br/>AC:3"] --> METH["WoodMethanol"]
+        DIST -.-> TAR["WoodTar (by-product)"]
+        SYNKOH["Synthesize KOH<br/>AC:3<br/>Potash + Quicklime"] --> KOH_OUT["KOH"]
+        SYNKOH -.-> CALC_OUT["Calcite (by-product)"]
+    end
+
+    subgraph TRANS["Step 3: Transesterification (AC:4)"]
+        OIL --> T["Transesterify<br/>(KOH or NaOH catalyst)"]
+        FAT --> T
+        METH --> T
+        KOH_OUT --> T
+        T --> CBD["CrudeBiodiesel"]
+        T -.-> GLYC["Glycerol (by-product)"]
+    end
+
+    subgraph PURIFY["Steps 4-5: Purification"]
+        CBD --> W["Wash Biodiesel<br/>AC:3"]
+        W --> WBD["WashedBiodiesel"]
+        WBD --> R["Refine Biodiesel<br/>AC:4"]
+        R --> RBD["RefinedBiodieselCan<br/>5L Petrol"]
+    end
+
+    subgraph ADVANCED["Advanced Equipment (AC:5)"]
+        CBD --> CW["Centrifuge Wash"]
+        CW --> WBD
+        WBD --> CR["Chromatograph Refine"]
+        CR --> RBD
+        CBD -.-> CG["Centrifuge Glycerol<br/>Separation"]
+        CG --> GLYC
+    end
+
+    subgraph SOAP_PATH["Soap By-Products"]
+        GLYC --> SG["Glycerol Soap<br/>AC:2"]
+        FAT --> SF["Fat-Based Soap<br/>AC:2"]
+        SG --> SOAP["CrudeSoap"]
+        SF --> SOAP
+    end
+
+    style RBD fill:#4a4,color:#fff
+    style SOAP fill:#48c,color:#fff

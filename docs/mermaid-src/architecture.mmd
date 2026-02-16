@@ -1,0 +1,36 @@
+graph TB
+    subgraph HARD["Hard Dependencies (mod.info require)"]
+        PL["PhobosLib v1.1.0+<br/>7 utility modules"]
+        ZR["zReVaccin 3<br/>Lab equipment entities"]
+    end
+
+    subgraph PCP["PhobosChemistryPathways v0.10.0"]
+        CORE["Core"]
+        REC["132 Recipes<br/>4 recipe files"]
+        ITEMS["39 Items<br/>+ 5 Skill Books"]
+        FLUIDS["8 Fluids"]
+        SB["7 Sandbox Options"]
+        PURITY["Purity System<br/>PCP_PuritySystem.lua"]
+        HAZARD["Hazard System<br/>PCP_HazardSystem.lua"]
+        SKILL["Skill System<br/>perks + professions + traits"]
+        CALLBACKS["122 OnCreate Callbacks<br/>PCP_RecipeCallbacks.lua"]
+    end
+
+    subgraph SOFT["Soft Dependencies (runtime-detected)"]
+        ZSS["ZScienceSkill<br/>Science, Bitch!"]
+        EHR["EHR v2.8.1<br/>Extensive Health Rework"]
+    end
+
+    PL --> CORE
+    ZR --> REC
+
+    PURITY -->|"delegates to<br/>PhobosLib_Quality"| PL
+    HAZARD -->|"delegates to<br/>PhobosLib_Hazard"| PL
+    SKILL -->|"delegates to<br/>PhobosLib_Skill"| PL
+    CALLBACKS -->|"uses<br/>PhobosLib_Sandbox<br/>PhobosLib_Fluid"| PL
+
+    HAZARD -.->|"EHR.Disease.TryContract<br/>(pcall-wrapped)"| EHR
+    SKILL -.->|"registerXPMirror<br/>AC to Science at 50%"| ZSS
+
+    style HARD fill:#264,color:#fff
+    style SOFT fill:#446,color:#fff
