@@ -1,0 +1,102 @@
+module PhobosChemistryPathways
+{
+    /*  =============================================================
+        Applied Chemistry Skill Books — 5 volumes covering levels 1-10.
+        Green-tinted books using the generic tintable model.
+        ============================================================= */
+
+    /* ----- Volume 1: Levels 1-2 ----- */
+    item BookAppliedChemistry1
+    {
+        DisplayCategory = SkillBook,
+        ItemType = base:literature,
+        Weight = 1.0,
+        Icon = Book_Generic,
+        IconColorMask = Book_Generic_Mask,
+        ColorRed = 80,
+        ColorGreen = 200,
+        ColorBlue = 80,
+        LvlSkillTrained = 1,
+        NumLevelsTrained = 2,
+        NumberOfPages = 220,
+        SkillTrained = AppliedChemistry,
+        StaticModel = BookOpenTINT,
+        WorldStaticModel = BookClosedTINT_Ground,
+    }
+
+    /* ----- Volume 2: Levels 3-4 ----- */
+    item BookAppliedChemistry2
+    {
+        DisplayCategory = SkillBook,
+        ItemType = base:literature,
+        Weight = 1.0,
+        Icon = Book_Generic,
+        IconColorMask = Book_Generic_Mask,
+        ColorRed = 80,
+        ColorGreen = 200,
+        ColorBlue = 80,
+        LvlSkillTrained = 3,
+        NumLevelsTrained = 2,
+        NumberOfPages = 260,
+        SkillTrained = AppliedChemistry,
+        StaticModel = BookOpenTINT,
+        WorldStaticModel = BookClosedTINT_Ground,
+    }
+
+    /* ----- Volume 3: Levels 5-6 ----- */
+    item BookAppliedChemistry3
+    {
+        DisplayCategory = SkillBook,
+        ItemType = base:literature,
+        Weight = 1.0,
+        Icon = Book_Generic,
+        IconColorMask = Book_Generic_Mask,
+        ColorRed = 80,
+        ColorGreen = 200,
+        ColorBlue = 80,
+        LvlSkillTrained = 5,
+        NumLevelsTrained = 2,
+        NumberOfPages = 300,
+        SkillTrained = AppliedChemistry,
+        StaticModel = BookOpenTINT,
+        WorldStaticModel = BookClosedTINT_Ground,
+    }
+
+    /* ----- Volume 4: Levels 7-8 ----- */
+    item BookAppliedChemistry4
+    {
+        DisplayCategory = SkillBook,
+        ItemType = base:literature,
+        Weight = 1.0,
+        Icon = Book_Generic,
+        IconColorMask = Book_Generic_Mask,
+        ColorRed = 80,
+        ColorGreen = 200,
+        ColorBlue = 80,
+        LvlSkillTrained = 7,
+        NumLevelsTrained = 2,
+        NumberOfPages = 340,
+        SkillTrained = AppliedChemistry,
+        StaticModel = BookOpenTINT,
+        WorldStaticModel = BookClosedTINT_Ground,
+    }
+
+    /* ----- Volume 5: Levels 9-10 ----- */
+    item BookAppliedChemistry5
+    {
+        DisplayCategory = SkillBook,
+        ItemType = base:literature,
+        Weight = 1.0,
+        Icon = Book_Generic,
+        IconColorMask = Book_Generic_Mask,
+        ColorRed = 80,
+        ColorGreen = 200,
+        ColorBlue = 80,
+        LvlSkillTrained = 9,
+        NumLevelsTrained = 2,
+        NumberOfPages = 380,
+        SkillTrained = AppliedChemistry,
+        StaticModel = BookOpenTINT,
+        WorldStaticModel = BookClosedTINT_Ground,
+    }
+}

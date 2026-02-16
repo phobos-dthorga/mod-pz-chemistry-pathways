@@ -44,4 +44,11 @@ ItemName_EN = {
 
     /* ===== Biodiesel Pathway Items — Soap ===== */
     ItemName_PhobosChemistryPathways.CrudeSoap = "Crude Lye Soap",
+
+    /* ===== Skill Books ===== */
+    ItemName_PhobosChemistryPathways.BookAppliedChemistry1 = "Applied Chemistry Vol. 1",
+    ItemName_PhobosChemistryPathways.BookAppliedChemistry2 = "Applied Chemistry Vol. 2",
+    ItemName_PhobosChemistryPathways.BookAppliedChemistry3 = "Applied Chemistry Vol. 3",
+    ItemName_PhobosChemistryPathways.BookAppliedChemistry4 = "Applied Chemistry Vol. 4",
+    ItemName_PhobosChemistryPathways.BookAppliedChemistry5 = "Applied Chemistry Vol. 5",
 }

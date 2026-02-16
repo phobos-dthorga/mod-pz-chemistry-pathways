@@ -6,6 +6,30 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.10.0] - 2026-02-17
+
+### Added
+- **Applied Chemistry Skill System** — Complete custom skill (perk) for chemistry crafting
+  - Custom `AppliedChemistry` perk under Crafting parent with steeper XP curve (75-9000)
+  - **Chemist** occupation (Cost -4, Applied Chemistry 3, Doctor 1, 13 granted recipes)
+  - **Pharmacist** occupation (Cost -2, Applied Chemistry 2, Doctor 2, 5 granted recipes)
+  - **Chemistry Enthusiast** trait (+4 cost, Applied Chemistry +1, 2 granted recipes)
+  - **Chemical Aversion** trait (-2 cost, Applied Chemistry -1)
+  - 5 skill book volumes (Applied Chemistry Vol. 1-5, levels 1-10 in pairs)
+  - Skill book loot distributions (Vol 1-2 common, Vol 3-4 rare, Vol 5 very rare)
+
+### Changed
+- **All 132 recipes migrated** from Doctor XP to Applied Chemistry XP
+  - 7 tiers of skill requirements (Tier 0-7) with AutoLearnAll thresholds
+  - PCPCutPlasticScrap unchanged (remains Maintenance:5)
+- Handbook tooltip updated with Applied Chemistry skill progression guide
+
+### Added (Cross-Mod)
+- **ZScienceSkill integration** — When "Science, Bitch!" mod is active:
+  - Applied Chemistry XP mirrors to Science at 50% rate via PhobosLib.registerXPMirror
+  - 16 PCP chemical items registered as researchable microscope specimens
+- **Requires PhobosLib 1.1.0+** for PhobosLib_Skill module
+
 ## [0.9.0] - 2026-02-17
 ### Added
 - **Blackpowder Pathway** (7 steps): Crush charcoal, purify (water/alkaline wash), prepare diluted compost, extract battery acid, extract sulphur, synthesize KNO3, mix blackpowder.

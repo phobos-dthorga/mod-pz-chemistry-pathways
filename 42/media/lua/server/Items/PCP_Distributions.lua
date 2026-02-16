@@ -337,3 +337,61 @@ table.insert(ProceduralDistributions.list["ShelfGeneric"].items, 0.1)
 -- Survivalist stash (handmade soap)
 table.insert(VehicleDistributions.SurvivalistTruckBed.items, "PhobosChemistryPathways.CrudeSoap")
 table.insert(VehicleDistributions.SurvivalistTruckBed.items, 0.2)
+
+
+-----------------------------------------------------
+-------- APPLIED CHEMISTRY SKILL BOOKS -------------
+-----------------------------------------------------
+-- Vol 1-2: Bookstores, classrooms, medical offices
+-- Vol 3-4: Medical offices, labs (rare)
+-- Vol 5:   Medical storage only (very rare)
+
+-- ===== Volume 1 (Levels 1-2) =====
+table.insert(ProceduralDistributions.list["BookstoreBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry1")
+table.insert(ProceduralDistributions.list["BookstoreBooks"].items, 1.5)
+
+table.insert(ProceduralDistributions.list["ClassroomShelves"].items, "PhobosChemistryPathways.BookAppliedChemistry1")
+table.insert(ProceduralDistributions.list["ClassroomShelves"].items, 0.8)
+
+table.insert(ProceduralDistributions.list["CrateBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry1")
+table.insert(ProceduralDistributions.list["CrateBooks"].items, 0.5)
+
+table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry1")
+table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, 1)
+
+table.insert(ProceduralDistributions.list["ShelfGeneric"].items, "PhobosChemistryPathways.BookAppliedChemistry1")
+table.insert(ProceduralDistributions.list["ShelfGeneric"].items, 0.3)
+
+-- ===== Volume 2 (Levels 3-4) =====
+table.insert(ProceduralDistributions.list["BookstoreBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry2")
+table.insert(ProceduralDistributions.list["BookstoreBooks"].items, 1)
+
+table.insert(ProceduralDistributions.list["ClassroomShelves"].items, "PhobosChemistryPathways.BookAppliedChemistry2")
+table.insert(ProceduralDistributions.list["ClassroomShelves"].items, 0.5)
+
+table.insert(ProceduralDistributions.list["CrateBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry2")
+table.insert(ProceduralDistributions.list["CrateBooks"].items, 0.3)
+
+table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry2")
+table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, 1)
+
+-- ===== Volume 3 (Levels 5-6) =====
+table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry3")
+table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, 0.5)
+
+table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.BookAppliedChemistry3")
+table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.3)
+
+table.insert(ProceduralDistributions.list["BookstoreBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry3")
+table.insert(ProceduralDistributions.list["BookstoreBooks"].items, 0.5)
+
+-- ===== Volume 4 (Levels 7-8) =====
+table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry4")
+table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, 0.3)
+
+table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.BookAppliedChemistry4")
+table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.2)
+
+-- ===== Volume 5 (Levels 9-10) =====
+table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.BookAppliedChemistry5")
+table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.1)

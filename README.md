@@ -1,12 +1,15 @@
 # PhobosChemistryPathways
 
-**Version:** 0.9.0 | **Requires:** Project Zomboid Build 42.13.0+ | PhobosLib | zReVaccin 3
+**Version:** 0.10.0 | **Requires:** Project Zomboid Build 42.13.0+ | PhobosLib 1.1.0+ | zReVaccin 3
 
 A complete chemistry suite for Project Zomboid Build 42, adding realistic crafting pathways for blackpowder, biodiesel, soap, bone char, and advanced laboratory processes.
 
 This project is open-source, but the Steam Workshop upload is the official distribution channel. The goal of this repository is to allow collaboration, compatibility extensions, and dependency usage while preserving authorship identity.
 
 ## Features
+
+### Applied Chemistry Skill System
+Custom `AppliedChemistry` perk under the Crafting parent with a steeper XP curve (75-9000). Two occupations (Chemist and Pharmacist) and two traits (Chemistry Enthusiast and Chemical Aversion) provide starting skill bonuses. Five skill book volumes cover levels 1-10, distributed in loot from common (Vol 1-2) to very rare (Vol 5). All 132 recipes award Applied Chemistry XP with 7 tiers of skill requirements.
 
 ### Blackpowder Pathway
 Seven-step chain from raw charcoal to gunpowder: crush, purify (water or alkaline wash), prepare compost, extract battery acid, extract sulphur, synthesize potassium nitrate, and mix blackpowder.
@@ -32,13 +35,18 @@ Optional modData-backed purity tracking (0-100 scale) through recipe chains. Equ
 ### Health Hazard System
 Optional hazard system for 10 dangerous chemistry recipes. Each splits into Protected (mask + goggles required, filter degrades) and Unprotected (risk of disease or stat penalties) variants. Integrates with EHR (Extensive Health Rework) when available, with vanilla stat fallback.
 
+### Cross-Mod Integration
+- **ZScienceSkill** ("Science, Bitch!"): When active, Applied Chemistry XP mirrors to Science at 50% rate, and 16 PCP chemical items are registered as researchable microscope specimens.
+- **EHR** (Extensive Health Rework): When active, health hazard recipes dispatch EHR diseases instead of vanilla stat penalties.
+
 ## Requirements
 
 | Dependency | Purpose |
 |------------|---------|
-| **PhobosLib** | Shared utility library (sandbox access, fluid helpers, quality tracking, hazard dispatch) |
+| **PhobosLib 1.1.0+** | Shared utility library (sandbox access, fluid helpers, quality tracking, hazard dispatch, skill XP mirroring) |
 | **zReVaccin 3** (zReModVaccin30bykERHUS) | Lab equipment entities (chemistry set, centrifuge, chromatograph, microscope, spectrometer) |
 | **EHR** (optional) | Disease system for health hazard integration; vanilla stat penalties used as fallback |
+| **ZScienceSkill** (optional) | Science skill XP mirroring and microscope specimen registration |
 
 ## Sandbox Options
 
@@ -56,6 +64,8 @@ Optional hazard system for 10 dangerous chemistry recipes. Each splits into Prot
 
 - **132 recipes** across blackpowder, biodiesel, soap, bone char, utility, and advanced lab pathways
 - **34 items** including chemical reagents, intermediates, and container variants (jar, clay jar, bucket)
+- **5 skill books** covering Applied Chemistry levels 1-10
+- **2 occupations** (Chemist, Pharmacist) and **2 traits** (Chemistry Enthusiast, Chemical Aversion)
 - **8 fluids** with Build 42 FluidContainer integration and poison profiles
 - **7 sandbox options** for gameplay customization
 - **122 OnCreate callbacks** for purity tracking and propane partial consumption

@@ -34,7 +34,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:60,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:30,
+        AutoLearnAll = AppliedChemistry:6,
 
         inputs
         {
@@ -69,7 +71,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:60,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:30,
+        AutoLearnAll = AppliedChemistry:6,
 
         inputs
         {
@@ -102,7 +106,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:60,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:30,
+        AutoLearnAll = AppliedChemistry:6,
 
         inputs
         {
@@ -136,7 +142,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:60,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:30,
+        AutoLearnAll = AppliedChemistry:6,
 
         inputs
         {
@@ -173,7 +181,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:80,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:35,
+        AutoLearnAll = AppliedChemistry:6,
 
         inputs
         {
@@ -208,7 +218,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:80,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:35,
+        AutoLearnAll = AppliedChemistry:6,
 
         inputs
         {
@@ -241,7 +253,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:80,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:35,
+        AutoLearnAll = AppliedChemistry:6,
 
         inputs
         {
@@ -275,7 +289,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:80,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:35,
+        AutoLearnAll = AppliedChemistry:6,
 
         inputs
         {
@@ -312,7 +328,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:60,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:40,
+        AutoLearnAll = AppliedChemistry:6,
 
         inputs
         {
@@ -346,7 +364,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:60,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:40,
+        AutoLearnAll = AppliedChemistry:6,
 
         inputs
         {
@@ -378,7 +398,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:60,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:40,
+        AutoLearnAll = AppliedChemistry:6,
 
         inputs
         {
@@ -411,7 +433,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:60,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:40,
+        AutoLearnAll = AppliedChemistry:6,
 
         inputs
         {
@@ -447,7 +471,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:60,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:40,
+        AutoLearnAll = AppliedChemistry:6,
 
         inputs
         {
@@ -480,7 +506,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:60,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:40,
+        AutoLearnAll = AppliedChemistry:6,
 
         inputs
         {
@@ -511,7 +539,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:60,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:40,
+        AutoLearnAll = AppliedChemistry:6,
 
         inputs
         {
@@ -543,7 +573,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:60,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:40,
+        AutoLearnAll = AppliedChemistry:6,
 
         inputs
         {
@@ -578,7 +610,9 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:40,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -607,7 +641,9 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:40,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -639,7 +675,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:40,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20;Electricity:10,
+        AutoLearnAll = AppliedChemistry:5,
 
         inputs
         {
@@ -671,7 +709,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:40,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20;Electricity:10,
+        AutoLearnAll = AppliedChemistry:5,
 
         inputs
         {

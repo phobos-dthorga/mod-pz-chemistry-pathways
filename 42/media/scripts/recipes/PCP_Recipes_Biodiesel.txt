@@ -7,7 +7,7 @@ module Base
 
 /* ----- PRESS SOYBEAN OIL (Mortar & Pestle) ----- */
 /*  Cold-press soybeans with a mortar and pestle to extract crude vegetable oil.
-    Low yield — soybeans are ~18-20% oil by weight.                                     */
+    Low yield Ã¢â‚¬â€ soybeans are ~18-20% oil by weight.                                     */
 
     craftRecipe PCPPressOilSoybeansMortar
     {
@@ -18,7 +18,8 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = MixingMortarPestle,
-        xpAward = Doctor:20,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:2,
 
         inputs
         {
@@ -35,7 +36,7 @@ module Base
 
 
 /* ----- PRESS SUNFLOWER OIL (Mortar & Pestle) ----- */
-/*  Cold-press sunflower seeds. Better yield than soybeans — sunflower seeds
+/*  Cold-press sunflower seeds. Better yield than soybeans Ã¢â‚¬â€ sunflower seeds
     are 40-50% oil by weight.                                                           */
 
     craftRecipe PCPPressOilSunflowerMortar
@@ -47,7 +48,8 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = MixingMortarPestle,
-        xpAward = Doctor:20,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:2,
 
         inputs
         {
@@ -64,7 +66,7 @@ module Base
 
 
 /* ----- PRESS CORN OIL (Mortar & Pestle) ----- */
-/*  Cold-press corn kernels. Worst yield — corn germ is only ~4-5% oil
+/*  Cold-press corn kernels. Worst yield Ã¢â‚¬â€ corn germ is only ~4-5% oil
     by whole kernel weight.                                                             */
 
     craftRecipe PCPPressOilCornMortar
@@ -76,7 +78,8 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = MixingMortarPestle,
-        xpAward = Doctor:20,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:2,
 
         inputs
         {
@@ -93,7 +96,7 @@ module Base
 
 
 /* ----- PRESS FLAX OIL (Mortar & Pestle) ----- */
-/*  Cold-press flax seeds (linseed). Decent yield — flax seeds are ~40% oil
+/*  Cold-press flax seeds (linseed). Decent yield Ã¢â‚¬â€ flax seeds are ~40% oil
     by weight, but the tiny seeds (0.02 each) require many to fill a jar.                 */
 
     craftRecipe PCPPressOilFlaxMortar
@@ -105,7 +108,8 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = MixingMortarPestle,
-        xpAward = Doctor:20,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:2,
 
         inputs
         {
@@ -134,7 +138,8 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = MixingMortarPestle,
-        xpAward = Doctor:20,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:2,
 
         inputs
         {
@@ -163,7 +168,8 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = MixingMortarPestle,
-        xpAward = Doctor:20,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:2,
 
         inputs
         {
@@ -197,7 +203,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -227,7 +235,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -260,7 +270,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -290,7 +302,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -323,7 +337,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -353,7 +369,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -386,7 +404,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -416,7 +436,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -449,7 +471,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -479,7 +503,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -512,7 +538,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -542,7 +570,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -579,7 +609,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:40,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:25,
+        AutoLearnAll = AppliedChemistry:5,
 
         inputs
         {
@@ -604,7 +636,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:40,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:25,
+        AutoLearnAll = AppliedChemistry:5,
 
         inputs
         {
@@ -629,7 +663,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:40,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:25,
+        AutoLearnAll = AppliedChemistry:5,
 
         inputs
         {
@@ -655,7 +691,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:40,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:25,
+        AutoLearnAll = AppliedChemistry:5,
 
         inputs
         {
@@ -681,7 +719,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:40,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:25,
+        AutoLearnAll = AppliedChemistry:5,
 
         inputs
         {
@@ -707,7 +747,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:40,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:25,
+        AutoLearnAll = AppliedChemistry:5,
 
         inputs
         {
@@ -727,7 +769,7 @@ module Base
 
 /* ----- CONVERT BOTTLED VEGETABLE OIL ----- */
 /*  Pour commercially bottled cooking oil into jars for use in the
-    biodiesel process. Already extracted — generous yield.                              */
+    biodiesel process. Already extracted Ã¢â‚¬â€ generous yield.                              */
 
     craftRecipe PCPConvertVegetableOil
     {
@@ -738,7 +780,8 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:5,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:2,
 
         inputs
         {
@@ -767,7 +810,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:10,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:15,
+        AutoLearnAll = AppliedChemistry:3,
 
         inputs
         {
@@ -797,7 +842,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:10,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:15,
+        AutoLearnAll = AppliedChemistry:3,
 
         inputs
         {
@@ -825,7 +872,7 @@ module Base
 /*  Destructive distillation of charcoal in a sealed lab flask. Heat drives off
     volatile compounds: methanol vapor condenses into collection bottles, while
     thick wood tar remains as residue.
-    CH3OH is EXTREMELY TOXIC — ingestion causes blindness and death.                    */
+    CH3OH is EXTREMELY TOXIC Ã¢â‚¬â€ ingestion causes blindness and death.                    */
 
     craftRecipe PCPDistillMethanol
     {
@@ -837,7 +884,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:60,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:30,
+        AutoLearnAll = AppliedChemistry:6,
 
         inputs
         {
@@ -868,7 +917,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:60,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:30,
+        AutoLearnAll = AppliedChemistry:6,
 
         inputs
         {
@@ -897,7 +948,7 @@ module Base
 /*  React potash (K2CO3) with quicklime (CaO) in water. The quicklime hydrates
     in situ to slaked lime Ca(OH)2, which then reacts with potash:
     K2CO3 + Ca(OH)2 -> 2 KOH + CaCO3
-    Highly exothermic — goggles and gloves required. KOH is a powerful
+    Highly exothermic Ã¢â‚¬â€ goggles and gloves required. KOH is a powerful
     caustic alkali used as the transesterification catalyst.                             */
 
     craftRecipe PCPSynthesizeKOH
@@ -910,7 +961,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:80,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:35,
+        AutoLearnAll = AppliedChemistry:6,
 
         inputs
         {
@@ -942,7 +995,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:80,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:35,
+        AutoLearnAll = AppliedChemistry:6,
 
         inputs
         {
@@ -985,7 +1040,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:125,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1019,7 +1076,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:125,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1045,7 +1104,7 @@ module Base
 
 /* ----- TRANSESTERIFY RENDERED FAT ----- */
 /*  Same transesterification reaction using rendered animal fat instead of
-    vegetable oil. Chemically identical — triglyceride + methanol + KOH.                */
+    vegetable oil. Chemically identical Ã¢â‚¬â€ triglyceride + methanol + KOH.                */
 
     craftRecipe PCPTransesterifyFat
     {
@@ -1057,7 +1116,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:125,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1091,7 +1152,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:125,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1122,7 +1185,7 @@ module Base
 /* ----- BULK TRANSESTERIFY VEGETABLE OIL ----- */
 /*  Industrial-scale transesterification in a metal drum reactor.
     Slightly better efficiency at scale (0.80 vs 0.75 oil-to-biodiesel ratio).
-    Reaction requires ~60°C — wood charcoal or coke stoked under the drum.                */
+    Reaction requires ~60Ã‚Â°C Ã¢â‚¬â€ wood charcoal or coke stoked under the drum.                */
 
     craftRecipe PCPTransesterifyOilBulk
     {
@@ -1134,7 +1197,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:150,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1163,7 +1228,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:150,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1192,7 +1259,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:150,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1221,7 +1290,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:150,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1252,7 +1323,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:150,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1281,7 +1354,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:150,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1310,7 +1385,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:150,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1339,7 +1416,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:150,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1377,7 +1456,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:125,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1411,7 +1492,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:125,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1447,7 +1530,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:125,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1481,7 +1566,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:125,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1511,7 +1598,7 @@ module Base
 
 /* ----- BULK TRANSESTERIFY VEGETABLE OIL (NaOH) ----- */
 /*  Industrial-scale NaOH transesterification in a metal drum reactor.
-    Reaction requires ~60°C — a propane torch heats the drum.                             */
+    Reaction requires ~60Ã‚Â°C Ã¢â‚¬â€ a propane torch heats the drum.                             */
 
     craftRecipe PCPTransesterifyOilBulkNaOH
     {
@@ -1523,7 +1610,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:150,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1552,7 +1641,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:150,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1581,7 +1672,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:150,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1610,7 +1703,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:150,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1641,7 +1736,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:150,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1670,7 +1767,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:150,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1699,7 +1798,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:150,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1728,7 +1829,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:150,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1755,7 +1858,7 @@ module Base
 /*  Wash crude biodiesel with hot water to dissolve glycerol and soap residue.
     The aqueous layer (containing impurities) is discarded. The washed biodiesel
     in its jars is ready for the settling/refining step.
-    1:1 conversion — same number of jars in and out.                                    */
+    1:1 conversion Ã¢â‚¬â€ same number of jars in and out.                                    */
 
     craftRecipe PCPWashBiodiesel
     {
@@ -1767,7 +1870,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:40,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:30,
+        AutoLearnAll = AppliedChemistry:6,
 
         inputs
         {
@@ -1795,7 +1900,9 @@ module Base
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:40,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:30,
+        AutoLearnAll = AppliedChemistry:6,
 
         inputs
         {
@@ -1827,7 +1934,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:50,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:35,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1852,7 +1961,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:50,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:35,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1877,7 +1988,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:50,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:35,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1902,7 +2015,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:50,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:35,
+        AutoLearnAll = AppliedChemistry:7,
 
         inputs
         {
@@ -1931,7 +2046,9 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:60,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:40,
+        AutoLearnAll = AppliedChemistry:8,
 
         inputs
         {
@@ -1951,8 +2068,8 @@ module Base
 
 /* ----- CENTRIFUGE-WASH CRUDE BIODIESEL ----- */
 /*  Use the centrifuge to rapidly separate glycerol and soap residue from
-    crude biodiesel. More efficient than water-washing — better yield
-    (4 crude → 4 washed vs 3 → 3 at chemistry set).                                      */
+    crude biodiesel. More efficient than water-washing Ã¢â‚¬â€ better yield
+    (4 crude Ã¢â€ â€™ 4 washed vs 3 Ã¢â€ â€™ 3 at chemistry set).                                      */
 
     craftRecipe PCPWashBiodieselCentrifuge
     {
@@ -1963,7 +2080,9 @@ module Base
 
         Tags = zReVAC2:Centrifuge;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:50,
+        SkillRequired = AppliedChemistry:5,
+        xpAward = AppliedChemistry:35,
+        AutoLearnAll = AppliedChemistry:8,
 
         inputs
         {
@@ -1992,7 +2111,9 @@ module Base
 
         Tags = zReVAC2:Centrifuge;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:40,
+        SkillRequired = AppliedChemistry:5,
+        xpAward = AppliedChemistry:40,
+        AutoLearnAll = AppliedChemistry:8,
 
         inputs
         {
@@ -2016,8 +2137,8 @@ module Base
 
 /* ----- PURIFY BIODIESEL (Chromatograph) ----- */
 /*  Precision chromatographic purification of washed biodiesel. Superior
-    separation produces higher-grade fuel — 4 washed biodiesel yields
-    2 gas cans (10L fuel) vs 3→1 at standard refining.                                    */
+    separation produces higher-grade fuel Ã¢â‚¬â€ 4 washed biodiesel yields
+    2 gas cans (10L fuel) vs 3Ã¢â€ â€™1 at standard refining.                                    */
 
     craftRecipe PCPPurifyBiodieselChromatograph
     {
@@ -2028,7 +2149,9 @@ module Base
 
         Tags = zReVAC2:Chromatograph;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:80,
+        SkillRequired = AppliedChemistry:5,
+        xpAward = AppliedChemistry:50,
+        AutoLearnAll = AppliedChemistry:9,
 
         inputs
         {
@@ -2047,7 +2170,7 @@ module Base
 
 /* ----- PURIFY METHANOL (Chromatograph) ----- */
 /*  Chromatographic fractional distillation of charcoal produces purer methanol
-    with higher yield — 4 charcoal → 3 methanol (vs 2 at chemistry set).                 */
+    with higher yield Ã¢â‚¬â€ 4 charcoal Ã¢â€ â€™ 3 methanol (vs 2 at chemistry set).                 */
 
     craftRecipe PCPPurifyMethanolChromatograph
     {
@@ -2059,7 +2182,9 @@ module Base
 
         Tags = zReVAC2:Chromatograph;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:70,
+        SkillRequired = AppliedChemistry:5,
+        xpAward = AppliedChemistry:45,
+        AutoLearnAll = AppliedChemistry:9,
 
         inputs
         {
@@ -2090,7 +2215,9 @@ module Base
 
         Tags = zReVAC2:Chromatograph;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:70,
+        SkillRequired = AppliedChemistry:5,
+        xpAward = AppliedChemistry:45,
+        AutoLearnAll = AppliedChemistry:9,
 
         inputs
         {
@@ -2117,7 +2244,7 @@ module Base
 
 /* ----- ANALYZE OIL QUALITY (Microscope) ----- */
 /*  Microscopic analysis of vegetable oil quality. When performed before
-    transesterification, the insights improve reaction efficiency — bonus
+    transesterification, the insights improve reaction efficiency Ã¢â‚¬â€ bonus
     output jar of crude biodiesel from the same feedstock.
     Sandbox-gated: requires EnableAdvancedLabRecipes = true.                               */
 
@@ -2131,7 +2258,8 @@ module Base
 
         Tags = zReVAC2:Microscope;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:100,
+        SkillRequired = AppliedChemistry:7,
+        xpAward = AppliedChemistry:80,
 
         inputs
         {
@@ -2161,8 +2289,8 @@ module Base
 
 /* ----- TEST FUEL PURITY (Spectrometer) ----- */
 /*  Spectroscopic analysis of washed biodiesel purity. The precision testing
-    allows more efficient fuel decanting — 4 washed → 2 gas cans (10L fuel)
-    vs 3→1 at standard refining.
+    allows more efficient fuel decanting Ã¢â‚¬â€ 4 washed Ã¢â€ â€™ 2 gas cans (10L fuel)
+    vs 3Ã¢â€ â€™1 at standard refining.
     Sandbox-gated: requires EnableAdvancedLabRecipes = true.                               */
 
     craftRecipe PCPTestFuelSpectrometer
@@ -2175,7 +2303,8 @@ module Base
 
         Tags = zReVAC2:Spectrometer;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
-        xpAward = Doctor:100,
+        SkillRequired = AppliedChemistry:7,
+        xpAward = AppliedChemistry:80,
 
         inputs
         {
@@ -2211,7 +2340,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2236,7 +2367,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2261,7 +2394,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2274,7 +2409,7 @@ module Base
         }
     }
 
-/* ----- PRODUCE BONE CHAR (Simplified — No Fuel) ----- */
+/* ----- PRODUCE BONE CHAR (Simplified Ã¢â‚¬â€ No Fuel) ----- */
 
     craftRecipe PCPProduceBoneCharSimple
     {
@@ -2286,7 +2421,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2313,7 +2450,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2338,7 +2477,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2363,7 +2504,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2376,7 +2519,7 @@ module Base
         }
     }
 
-/* ----- PRODUCE BONE CHAR FROM SKULLS (Simplified — No Fuel) ----- */
+/* ----- PRODUCE BONE CHAR FROM SKULLS (Simplified Ã¢â‚¬â€ No Fuel) ----- */
 
     craftRecipe PCPProduceBoneCharSkullSimple
     {
@@ -2388,7 +2531,9 @@ module Base
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2419,7 +2564,9 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2445,7 +2592,9 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2471,7 +2620,9 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2497,7 +2648,9 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2527,7 +2680,9 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2553,7 +2708,9 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2579,7 +2736,9 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2605,7 +2764,9 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2622,7 +2783,7 @@ module Base
 
 
 /* ----- MAKE CRUDE SOAP FROM FAT (KOH, Charcoal) ----- */
-/*  Traditional fat saponification — combine animal fat directly with potassium
+/*  Traditional fat saponification Ã¢â‚¬â€ combine animal fat directly with potassium
     hydroxide over heat. The oldest known method of soap-making, predating
     glycerol-based routes by millennia. Lower yield than glycerol since raw
     fat requires more lye to fully saponify.                                             */
@@ -2637,7 +2798,9 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2665,7 +2828,9 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2693,7 +2858,9 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2709,7 +2876,7 @@ module Base
         }
     }
 
-/* ----- MAKE CRUDE SOAP FROM FAT (KOH, Simplified — No Fuel) ----- */
+/* ----- MAKE CRUDE SOAP FROM FAT (KOH, Simplified Ã¢â‚¬â€ No Fuel) ----- */
 
     craftRecipe PCPMakeSoapFatSimple
     {
@@ -2721,7 +2888,9 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2751,7 +2920,9 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2779,7 +2950,9 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2807,7 +2980,9 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {
@@ -2823,7 +2998,7 @@ module Base
         }
     }
 
-/* ----- MAKE CRUDE SOAP FROM FAT (NaOH, Simplified — No Fuel) ----- */
+/* ----- MAKE CRUDE SOAP FROM FAT (NaOH, Simplified Ã¢â‚¬â€ No Fuel) ----- */
 
     craftRecipe PCPMakeSoapFatNaOHSimple
     {
@@ -2835,7 +3010,9 @@ module Base
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
-        xpAward = Doctor:30,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
 
         inputs
         {

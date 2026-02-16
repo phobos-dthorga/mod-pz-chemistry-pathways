@@ -1,0 +1,38 @@
+module Base
+{
+    /*  =============================================================
+        Chemist — Applied Chemistry specialist
+        Cost -4 (comparable to Electrician).
+        Starts with AppliedChemistry 3, Doctor 1.
+        Grants mortar-tier oil presses, basic charcoal/oil conversion,
+        and blackpowder mixing.
+        ============================================================= */
+    character_profession_definition base:pcp_chemist
+    {
+        CharacterProfession = base:pcp_chemist,
+        Cost = -4,
+        UIName = UI_prof_pcp_chemist,
+        UIDescription = UI_profdesc_pcp_chemist,
+        IconPathName = profession_pcp_chemist,
+        GrantedTraits = base:pcp_chemist_trait,
+        XPBoosts = AppliedChemistry=3;Doctor=1,
+        GrantedRecipes = PCPPressOilSoybeansMortar;PCPPressOilSunflowerMortar;PCPPressOilCornMortar;PCPPressOilFlaxMortar;PCPPressOilHempMortar;PCPPressOilPeanutMortar;PCPCrushCharcoal;PCPConvertVegetableOil;PCPMixBlackpowder;PCPPrepareDilutedCompost;PCPPrepareDilutedCompostDung;PCPRenderFat;PCPRenderFatSimple,
+    }
+
+    /*  =============================================================
+        Pharmacist — Medically-oriented chemistry background
+        Cost -2 (lighter than Chemist, heavier Doctor focus).
+        Starts with AppliedChemistry 2, Doctor 2.
+        Grants basic charcoal and oil conversion recipes.
+        ============================================================= */
+    character_profession_definition base:pcp_pharmacist
+    {
+        CharacterProfession = base:pcp_pharmacist,
+        Cost = -2,
+        UIName = UI_prof_pcp_pharmacist,
+        UIDescription = UI_profdesc_pcp_pharmacist,
+        IconPathName = profession_pcp_pharmacist,
+        XPBoosts = AppliedChemistry=2;Doctor=2,
+        GrantedRecipes = PCPCrushCharcoal;PCPConvertVegetableOil;PCPPressOilSoybeansMortar;PCPPressOilSunflowerMortar;PCPPressOilCornMortar,
+    }
+}

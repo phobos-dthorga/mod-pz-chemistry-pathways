@@ -1,4 +1,21 @@
 IGUI_EN = {
 	/* ===== Crafting Category ===== */
 	IGUI_CraftCategory_PhobosChemistry = "Phobos' Chemistry Recipes",
+
+	/* ===== Perk / Skill ===== */
+	IGUI_perks_AppliedChemistry = "Applied Chemistry",
+
+	/* ===== Professions ===== */
+	UI_prof_pcp_chemist = "Chemist",
+	UI_profdesc_pcp_chemist = "Trained in laboratory chemistry and chemical synthesis. Starts with knowledge of basic oil pressing, charcoal processing, and blackpowder mixing.",
+	UI_prof_pcp_pharmacist = "Pharmacist",
+	UI_profdesc_pcp_pharmacist = "Background in pharmaceutical compounding and chemical preparation. Familiar with basic charcoal processing and oil extraction.",
+
+	/* ===== Traits ===== */
+	UI_trait_pcp_chemist_trait = "Chemist",
+	UI_trait_pcp_chemist_trait_desc = "Formal training in applied chemistry. Understands laboratory procedures and chemical safety protocols.",
+	UI_trait_pcp_chemistry_enthusiast = "Chemistry Enthusiast",
+	UI_trait_pcp_chemistry_enthusiast_desc = "Hobby interest in chemistry grants a head start in Applied Chemistry and basic recipe knowledge.",
+	UI_trait_pcp_chem_aversion = "Chemical Aversion",
+	UI_trait_pcp_chem_aversion_desc = "Uncomfortable around chemicals. Slower to learn Applied Chemistry techniques.",
 }

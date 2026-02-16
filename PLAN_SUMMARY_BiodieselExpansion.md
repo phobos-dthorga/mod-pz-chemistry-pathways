@@ -162,3 +162,30 @@ CrudeVegetableOil, RenderedFat, WoodMethanol, WoodTar, CrudeBiodiesel, Glycerol,
 - [x] Handbook LearnedRecipes updated to 132 IDs
 - [x] Sandbox options: 7 total (3 original + 3 purity + 1 health hazard)
 - [x] Total: 34 items, 132 recipes, 8 fluids, 7 sandbox options, 122 OnCreate callbacks
+
+## Applied Chemistry Skill System (2026-02-17)
+- [x] PhobosLib_Skill.lua: NEW — 6 generic skill functions (perkExists, getPerkLevel, addXP, getXP, mirrorXP, registerXPMirror)
+- [x] PhobosLib.lua: Added `require "PhobosLib_Skill"`, bumped VERSION to 1.1.0
+- [x] PhobosLib mod.info: bumped modversion to 1.1.0 (root + 42/mod.info)
+- [x] perks.txt: NEW — AppliedChemistry perk (parent=Crafting, steeper XP curve: 75-9000)
+- [x] PCP_Professions.txt: NEW — Chemist (Cost -4, AC 3, Doctor 1, 13 recipes) + Pharmacist (Cost -2, AC 2, Doctor 2, 5 recipes)
+- [x] PCP_Traits.txt: NEW — pcp_chemist_trait (profession), pcp_chemistry_enthusiast (+4 cost, AC +1), pcp_chem_aversion (-2 cost, AC -1)
+- [x] PCP_SkillBooks.txt: NEW — 5 skill book volumes (levels 1-10, green-tinted generic books)
+- [x] IG_UI_EN.txt: Perk, profession, and trait translations added
+- [x] ItemName_EN.txt: 5 skill book name translations added
+- [x] Tooltip_EN.txt: Handbook tooltip updated with Applied Chemistry skill section
+- [x] PCP_Distributions.lua: Skill book loot distributions (Vol 1-2 common, Vol 3-4 rare, Vol 5 very rare)
+- [x] ALL 132 recipes migrated: xpAward Doctor → AppliedChemistry, SkillRequired + AutoLearnAll added per tier
+  - Tier 0 (7 recipes): No SkillRequired, AC:10 XP, AutoLearnAll AC:2
+  - Tier 1 (6 recipes): AC:1 required, AC:10-15 XP, AutoLearnAll AC:3
+  - Tier 2 (55 recipes): AC:2 required, AC:20-25 XP, AutoLearnAll AC:4-5
+  - Tier 3 (26 recipes): AC:3 required, AC:30-40 XP, AutoLearnAll AC:6-7
+  - Tier 4 (30 recipes): AC:4 required, AC:40-90 XP, AutoLearnAll AC:7-8
+  - Tier 5 (5 recipes): AC:5 required, AC:35-50 XP, AutoLearnAll AC:8-9
+  - Tier 7 (2 recipes): AC:7 required, AC:80 XP, no AutoLearnAll
+  - PCPCutPlasticScrap: unchanged (Maintenance:5)
+- [x] PCP_SkillXP.lua: NEW — ZScienceSkill XP mirror (Applied Chemistry → Science at 50%)
+- [x] PCP_ZScienceData.lua: NEW — 16 PCP items registered as ZScienceSkill researchable specimens
+- [x] PCP_SandboxIntegration.lua: ZScienceSkill comment updated (no longer dormant)
+- [x] Profession placeholder icons created (profession_pcp_chemist.png, profession_pcp_pharmacist.png)
+- [x] Total: 39 items (34 + 5 skill books), 132 recipes, 8 fluids, 7 sandbox options, 122 OnCreate callbacks

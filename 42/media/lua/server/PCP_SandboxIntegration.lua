@@ -52,9 +52,9 @@ end
 ---------------------------------------------------------------
 -- Cross-Mod Integration: ZScienceSkill ("Science, Bitch!" mod)
 -- Detected at runtime via PhobosLib.isModActive().
--- When active, Phase 2 (Applied Chemistry skill) will award
--- Science XP alongside chemistry XP at 50% rate.
--- Currently dormant — detection function only.
+-- When active, Applied Chemistry XP mirrors to Science at 50%
+-- rate (see PCP_SkillXP.lua) and PCP items become researchable
+-- specimens at the microscope (see PCP_ZScienceData.lua).
 ---------------------------------------------------------------
 
 --- Check if the "Science, Bitch!" (ZScienceSkill) mod is active.
