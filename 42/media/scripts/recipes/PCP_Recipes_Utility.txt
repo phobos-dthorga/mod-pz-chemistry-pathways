@@ -1,0 +1,72 @@
+module Base
+{
+
+/* ==================================================================================== */
+/* ============================== MATERIAL PREPARATION ================================= */
+/* ==================================================================================== */
+
+/* ----- CUT PLASTIC SCRAP ----- */
+/*  Slice plastic containers (bottles, canteens, etc.) into small plastic scraps
+    using any blade. These scraps can be used as insulating material in battery
+    construction or as general crafting components.                                       */
+
+    craftRecipe PCPCutPlasticScrap
+    {
+        time = 60,
+        category = PhobosChemistry,
+        NeedToBeLearn = false,
+
+        Tags = AnySurfaceCraft,
+        timedAction = Making_Surface,
+        xpAward = Maintenance:5,
+
+        inputs
+        {
+            item 1 [Base.WaterBottle;Base.Pop;Base.Pop2;Base.Pop3;Base.PopBottle;Base.Canteen;Base.Bleach;Base.Disinfectant] mode:destroy flags[IsEmpty],
+            item 1 tags[base:smallblade;base:largeblade] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.PlasticScrap,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== ACID-WASHED ELECTRONICS ============================== */
+/* ==================================================================================== */
+
+/* ----- ACID-WASH ELECTRONICS ----- */
+/*  Treat electronic scrap with dilute sulphuric acid to dissolve oxide layers
+    and corrosion, recovering higher-purity copper traces and components.
+    Doubles the effective yield of electronics scrap for precision assembly.
+    Requires the Chemistry Pathways handbook.                                            */
+
+    craftRecipe PCPAcidWashElectronics
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:40,
+
+        inputs
+        {
+            item 2 [Base.ElectronicsScrap],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [*],
+            -fluid 0.3 [SulphuricAcid],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.AcidWashedElectronics,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+}

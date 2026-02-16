@@ -1,0 +1,8 @@
+name=Phobos' Chemistry Pathways
+id=PhobosChemistryPathways
+description=Adds chemistry recipes for synthesizing sulphur, potassium nitrate, and blackpowder using zReVaccin 3 lab equipment.
+poster=poster.png
+authors=phobosgekko
+versionMin=42.13.0
+modversion=1.0.0
+require=\PhobosLib,\zReModVaccin30bykERHUS

@@ -1,0 +1,599 @@
+module PhobosChemistryPathways {
+	imports {
+		Base
+	}
+
+/* ============================== INTERMEDIATE MATERIALS ============================== */
+
+	item CrushedCharcoal {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_CrushedCharcoal,
+		Weight = 0.3,
+		Tooltip = Tooltip_PCP_CrushedCharcoal,
+		WorldStaticModel = Charcoal_Ground,
+	}
+
+	item PurifiedCharcoal {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_purified_charcoal,
+		Weight = 0.2,
+		Tooltip = Tooltip_PCP_PurifiedCharcoal,
+		WorldStaticModel = Charcoal_Ground,
+	}
+
+	item BoneChar {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_BoneChar,
+		Weight = 0.3,
+		Tooltip = Tooltip_PCP_BoneChar,
+		WorldStaticModel = Charcoal_Ground,
+	}
+
+	item Potash {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_raw_potash,
+		Weight = 0.2,
+		Tooltip = Tooltip_PCP_Potash,
+		WorldStaticModel = GunpowderJar,
+	}
+
+	item DilutedCompost {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_DilutedCompost,
+		Weight = 2.0,
+		Tooltip = Tooltip_PCP_DilutedCompost,
+		WorldStaticModel = CompostBag,
+	}
+
+/* ============================== SALVAGE MATERIALS ============================== */
+/*  By-products from chemical extraction processes. These intermediate materials
+    bridge chemistry with other crafting disciplines (e.g. electronics assembly). */
+
+	item LeadScrap {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_LeadScrap,
+		Weight = 1.5,
+		Tooltip = Tooltip_PCP_LeadScrap,
+		WorldStaticModel = ScrapMetal_Ground,
+		MetalValue = 5,
+	}
+
+	item PlasticScrap {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_PlasticScrap,
+		Weight = 0.1,
+		Tooltip = Tooltip_PCP_PlasticScrap,
+		WorldStaticModel = PlasticBag_Ground,
+	}
+
+	item AcidWashedElectronics {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_AcidWashedElectronics,
+		Weight = 0.2,
+		Tooltip = Tooltip_PCP_AcidWashedElectronics,
+		WorldStaticModel = ElectronicsScrap_Ground,
+	}
+
+/* ============================== CHEMICAL PRODUCTS ============================== */
+
+	item SulphurPowder {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_purified_powdered_sulphur,
+		Weight = 0.3,
+		Tooltip = Tooltip_PCP_SulphurPowder,
+		WorldStaticModel = GunpowderJar,
+	}
+
+	item PotassiumNitratePowder {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_purified_powdered_kno3,
+		Weight = 0.3,
+		Tooltip = Tooltip_PCP_PotassiumNitratePowder,
+		WorldStaticModel = GunpowderJar,
+	}
+
+/* ============================== SULPHURIC ACID CONTAINERS ============================== */
+/*  Acid-resistant vessels: glazed ceramic and borosilicate glass only.
+    Unglazed pottery would be corroded; plastic would melt.                */
+
+	item SulphuricAcidJar {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Weight = 1.8,
+		Icon = PCP_extracted_h2so4_mason_jar,
+		IconFluidMask = Jar_Mask,
+		FillFromDispenserSound = GetWaterFromDispenserGlass,
+		FillFromTapSound = GetWaterFromTapGlass,
+		StaticModel = Jar,
+		WorldStaticModel = Jar,
+		Tooltip = Tooltip_PCP_SulphuricAcidVessel,
+		Tags = base:glass,
+		component FluidContainer
+		{
+			ContainerName = JarGlass,
+			Capacity = 1.0,
+			CustomDrinkSound = DrinkingFromBottleGlass,
+			Fluids
+			{
+				fluid = SulphuricAcid:1.0,
+			}
+		}
+	}
+
+	item SulphuricAcidBottle {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Weight = 1.5,
+		Icon = PCP_extracted_h2so4_glass_bottle,
+		IconFluidMask = BottleCrafted_Mask,
+		FillFromDispenserSound = GetWaterFromDispenserGlass,
+		FillFromTapSound = GetWaterFromTapGlass,
+		StaticModel = BottleCrafted,
+		WorldStaticModel = BottleCrafted,
+		Tooltip = Tooltip_PCP_SulphuricAcidVessel,
+		Tags = base:glass,
+		component FluidContainer
+		{
+			ContainerName = BottleGlass,
+			Capacity = 1.0,
+			CustomDrinkSound = DrinkingFromBottleGlass,
+			Fluids
+			{
+				fluid = SulphuricAcid:1.0,
+			}
+		}
+	}
+
+	item SulphuricAcidCrucible {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Weight = 2.5,
+		Icon = PCP_extracted_h2so4_porcelain_crucible,
+		IconFluidMask = Crucible_Mask,
+		StaticModel = SmallCrucibleFired,
+		WorldStaticModel = SmallCrucibleFired_Ground,
+		Tooltip = Tooltip_PCP_SulphuricAcidVessel,
+		component FluidContainer
+		{
+			ContainerName = CrucibleSmall,
+			Capacity = 1.5,
+			Fluids
+			{
+				fluid = SulphuricAcid:1.0,
+			}
+		}
+	}
+
+	item SulphuricAcidClayJar {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Weight = 4.0,
+		Icon = PCP_extracted_h2so4_clay_jar,
+		StaticModel = ClayJarGlazed,
+		WorldStaticModel = ClayJarGlazed_Ground,
+		Tooltip = Tooltip_PCP_SulphuricAcidVessel,
+		component FluidContainer
+		{
+			ContainerName = ClayJar,
+			Capacity = 2.5,
+			Fluids
+			{
+				fluid = SulphuricAcid:1.0,
+			}
+		}
+	}
+
+/* ============================== BIODIESEL PATHWAY - OIL & FAT ============================== */
+/*  Crude vegetable oil pressed or extracted from crops, and rendered animal fat.
+    Both serve as triglyceride feedstock for transesterification into biodiesel.   */
+
+	item CrudeVegetableOil {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_CrudeVegetableOil,
+		IconFluidMask = Jar_Mask,
+		Weight = 1.0,
+		Tooltip = Tooltip_PCP_CrudeVegetableOil,
+		FillFromDispenserSound = GetWaterFromDispenserGlass,
+		FillFromTapSound = GetWaterFromTapGlass,
+		StaticModel = Jar,
+		WorldStaticModel = Jar,
+		Tags = base:glass,
+		component FluidContainer
+		{
+			ContainerName = JarGlass,
+			Capacity = 1.0,
+			CustomDrinkSound = DrinkingFromBottleGlass,
+			Fluids
+			{
+				fluid = CrudeVegetableOil:1.0,
+			}
+		}
+	}
+
+	item CrudeVegetableOilClayJar {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_CrudeVegetableOil,
+		Weight = 2.5,
+		Tooltip = Tooltip_PCP_CrudeVegetableOil,
+		StaticModel = ClayJarGlazed,
+		WorldStaticModel = ClayJarGlazed_Ground,
+		component FluidContainer
+		{
+			ContainerName = ClayJar,
+			Capacity = 2.5,
+			Fluids
+			{
+				fluid = CrudeVegetableOil:1.0,
+			}
+		}
+	}
+
+	item CrudeVegetableOilBucket {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_CrudeVegetableOil,
+		Weight = 9.0,
+		Tooltip = Tooltip_PCP_CrudeVegetableOil,
+		StaticModel = Bucket,
+		WorldStaticModel = Bucket_Ground,
+		component FluidContainer
+		{
+			ContainerName = Bucket,
+			Capacity = 10.0,
+			Fluids
+			{
+				fluid = CrudeVegetableOil:1.0,
+			}
+		}
+	}
+
+	item RenderedFat {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_RenderedFat,
+		IconFluidMask = Jar_Mask,
+		Weight = 1.0,
+		Tooltip = Tooltip_PCP_RenderedFat,
+		FillFromDispenserSound = GetWaterFromDispenserGlass,
+		FillFromTapSound = GetWaterFromTapGlass,
+		StaticModel = Jar,
+		WorldStaticModel = Jar,
+		Tags = base:glass,
+		component FluidContainer
+		{
+			ContainerName = JarGlass,
+			Capacity = 1.0,
+			CustomDrinkSound = DrinkingFromBottleGlass,
+			Fluids
+			{
+				fluid = RenderedFat:1.0,
+			}
+		}
+	}
+
+	item RenderedFatClayJar {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_RenderedFat,
+		Weight = 2.5,
+		Tooltip = Tooltip_PCP_RenderedFat,
+		StaticModel = ClayJarGlazed,
+		WorldStaticModel = ClayJarGlazed_Ground,
+		component FluidContainer
+		{
+			ContainerName = ClayJar,
+			Capacity = 2.5,
+			Fluids
+			{
+				fluid = RenderedFat:1.0,
+			}
+		}
+	}
+
+	item RenderedFatBucket {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_RenderedFat,
+		Weight = 9.0,
+		Tooltip = Tooltip_PCP_RenderedFat,
+		StaticModel = Bucket,
+		WorldStaticModel = Bucket_Ground,
+		component FluidContainer
+		{
+			ContainerName = Bucket,
+			Capacity = 10.0,
+			Fluids
+			{
+				fluid = RenderedFat:1.0,
+			}
+		}
+	}
+
+/* ============================== BIODIESEL PATHWAY - METHANOL & TAR ============================== */
+/*  Wood methanol obtained by destructive distillation of charcoal.
+    Wood tar is a useful by-product of the same process.                          */
+
+	item WoodMethanol {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_WoodMethanol,
+		IconFluidMask = BottleCrafted_Mask,
+		Weight = 0.7,
+		Tooltip = Tooltip_PCP_WoodMethanol,
+		FillFromDispenserSound = GetWaterFromDispenserGlass,
+		FillFromTapSound = GetWaterFromTapGlass,
+		StaticModel = BottleCrafted,
+		WorldStaticModel = BottleCrafted,
+		Tags = base:glass,
+		component FluidContainer
+		{
+			ContainerName = BottleGlass,
+			Capacity = 0.75,
+			CustomDrinkSound = DrinkingFromBottleGlass,
+			Fluids
+			{
+				fluid = WoodMethanol:1.0,
+			}
+		}
+	}
+
+	item WoodTar {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_WoodTar,
+		IconFluidMask = Jar_Mask,
+		Weight = 0.7,
+		Tooltip = Tooltip_PCP_WoodTar,
+		FillFromDispenserSound = GetWaterFromDispenserGlass,
+		FillFromTapSound = GetWaterFromTapGlass,
+		StaticModel = Jar,
+		WorldStaticModel = Jar,
+		Tags = base:glass,
+		component FluidContainer
+		{
+			ContainerName = JarGlass,
+			Capacity = 0.5,
+			CustomDrinkSound = DrinkingFromBottleGlass,
+			Fluids
+			{
+				fluid = WoodTar:1.0,
+			}
+		}
+	}
+
+/* ============================== BIODIESEL PATHWAY - KOH CATALYST ============================== */
+/*  Potassium hydroxide (caustic potash) synthesized from potash and quicklime.
+    Calcium carbonate (calcite) is a by-product of the synthesis.                 */
+
+	item PotassiumHydroxide {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_PotassiumHydroxide,
+		Weight = 0.3,
+		Tooltip = Tooltip_PCP_PotassiumHydroxide,
+		WorldStaticModel = GunpowderJar,
+	}
+
+	item Calcite {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_Calcite,
+		Weight = 0.4,
+		Tooltip = Tooltip_PCP_Calcite,
+		WorldStaticModel = GunpowderJar,
+	}
+
+/* ============================== BIODIESEL PATHWAY - TRANSESTERIFICATION ============================== */
+/*  Crude biodiesel (fatty acid methyl esters) from transesterification.
+    Glycerol is a valuable by-product used in soap-making and medicine.           */
+
+	item CrudeBiodiesel {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_CrudeBiodiesel,
+		IconFluidMask = Jar_Mask,
+		Weight = 1.2,
+		Tooltip = Tooltip_PCP_CrudeBiodiesel,
+		FillFromDispenserSound = GetWaterFromDispenserGlass,
+		FillFromTapSound = GetWaterFromTapGlass,
+		StaticModel = Jar,
+		WorldStaticModel = Jar,
+		Tags = base:glass,
+		component FluidContainer
+		{
+			ContainerName = JarGlass,
+			Capacity = 1.0,
+			CustomDrinkSound = DrinkingFromBottleGlass,
+			Fluids
+			{
+				fluid = CrudeBiodiesel:1.0,
+			}
+		}
+	}
+
+	item CrudeBiodieselClayJar {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_CrudeBiodiesel,
+		Weight = 2.8,
+		Tooltip = Tooltip_PCP_CrudeBiodiesel,
+		StaticModel = ClayJarGlazed,
+		WorldStaticModel = ClayJarGlazed_Ground,
+		component FluidContainer
+		{
+			ContainerName = ClayJar,
+			Capacity = 2.5,
+			Fluids
+			{
+				fluid = CrudeBiodiesel:1.0,
+			}
+		}
+	}
+
+	item CrudeBiodieselBucket {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_CrudeBiodiesel,
+		Weight = 9.5,
+		Tooltip = Tooltip_PCP_CrudeBiodiesel,
+		StaticModel = Bucket,
+		WorldStaticModel = Bucket_Ground,
+		component FluidContainer
+		{
+			ContainerName = Bucket,
+			Capacity = 10.0,
+			Fluids
+			{
+				fluid = CrudeBiodiesel:1.0,
+			}
+		}
+	}
+
+	item Glycerol {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_Glycerol,
+		IconFluidMask = BottleCrafted_Mask,
+		Weight = 0.6,
+		Tooltip = Tooltip_PCP_Glycerol,
+		FillFromDispenserSound = GetWaterFromDispenserGlass,
+		FillFromTapSound = GetWaterFromTapGlass,
+		StaticModel = BottleCrafted,
+		WorldStaticModel = BottleCrafted,
+		Tags = base:glass,
+		component FluidContainer
+		{
+			ContainerName = BottleGlass,
+			Capacity = 0.5,
+			CustomDrinkSound = DrinkingFromBottleGlass,
+			Fluids
+			{
+				fluid = Glycerol:1.0,
+			}
+		}
+	}
+
+/* ============================== BIODIESEL PATHWAY - PURIFICATION ============================== */
+/*  Washed and refined biodiesel. The final product is chemically equivalent
+    to petrol for engine use in the game world.                                   */
+
+	item WashedBiodiesel {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_WashedBiodiesel,
+		IconFluidMask = Jar_Mask,
+		Weight = 1.0,
+		Tooltip = Tooltip_PCP_WashedBiodiesel,
+		FillFromDispenserSound = GetWaterFromDispenserGlass,
+		FillFromTapSound = GetWaterFromTapGlass,
+		StaticModel = Jar,
+		WorldStaticModel = Jar,
+		Tags = base:glass,
+		component FluidContainer
+		{
+			ContainerName = JarGlass,
+			Capacity = 1.0,
+			CustomDrinkSound = DrinkingFromBottleGlass,
+			Fluids
+			{
+				fluid = WashedBiodiesel:1.0,
+			}
+		}
+	}
+
+	item WashedBiodieselClayJar {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_WashedBiodiesel,
+		Weight = 2.5,
+		Tooltip = Tooltip_PCP_WashedBiodiesel,
+		StaticModel = ClayJarGlazed,
+		WorldStaticModel = ClayJarGlazed_Ground,
+		component FluidContainer
+		{
+			ContainerName = ClayJar,
+			Capacity = 2.5,
+			Fluids
+			{
+				fluid = WashedBiodiesel:1.0,
+			}
+		}
+	}
+
+	item WashedBiodieselBucket {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_WashedBiodiesel,
+		Weight = 9.0,
+		Tooltip = Tooltip_PCP_WashedBiodiesel,
+		StaticModel = Bucket,
+		WorldStaticModel = Bucket_Ground,
+		component FluidContainer
+		{
+			ContainerName = Bucket,
+			Capacity = 10.0,
+			Fluids
+			{
+				fluid = WashedBiodiesel:1.0,
+			}
+		}
+	}
+
+	item RefinedBiodieselCan {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Weight = 3.0,
+		Icon = PCP_RefinedBiodieselCan,
+		StaticModel = GasCan,
+		WorldStaticModel = GasCan,
+		Tooltip = Tooltip_PCP_RefinedBiodieselCan,
+		component FluidContainer
+		{
+			ContainerName = GasCan,
+			Capacity = 5.0,
+			Fluids
+			{
+				fluid = Petrol:1.0,
+			}
+		}
+	}
+
+/* ============================== BIODIESEL PATHWAY - BY-PRODUCTS ============================== */
+/*  Crude lye soap made from glycerol and caustic alkali (KOH or NaOH).
+    Effective for cleaning and hygiene.                                           */
+
+	item CrudeSoap {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_CrudeSoap,
+		Weight = 0.3,
+		Tooltip = Tooltip_PCP_CrudeSoap,
+		WorldStaticModel = Soap_Ground,
+	}
+
+/* ============================== BOOKS ============================== */
+
+	item BkChemistryPathways {
+		DisplayCategory = SkillBook,
+		ItemType = base:literature,
+		Weight = 1.0,
+		Icon = PCP_BkChemistryPathways,
+		NumberOfPages = 480,
+		LearnedRecipes = PCPCrushCharcoal;PCPPurifyCharcoalWater;PCPPurifyCharcoalWaterSimple;PCPPurifyCharcoalNaOH;PCPPurifyCharcoalNaOHSimple;PCPPrepareDilutedCompost;PCPExtractBatteryAcid;PCPExtractSulphurFromAcidCan;PCPExtractSulphurFromAcidCanSimple;PCPExtractSulphurFromAcidFluid;PCPExtractSulphurFromAcidFluidSimple;PCPSynthesizeKNO3Fertilizer;PCPSynthesizeKNO3FertilizerSimple;PCPSynthesizeKNO3Compost;PCPSynthesizeKNO3CompostSimple;PCPMixBlackpowder;PCPCutPlasticScrap;PCPAcidWashElectronics;PCPPressOilSoybeansMortar;PCPPressOilSunflowerMortar;PCPPressOilCornMortar;PCPPressOilFlaxMortar;PCPPressOilHempMortar;PCPPressOilPeanutMortar;PCPPressOilSoybeansLab;PCPPressOilSoybeansLabSimple;PCPPressOilSunflowerLab;PCPPressOilSunflowerLabSimple;PCPPressOilCornLab;PCPPressOilCornLabSimple;PCPPressOilFlaxLab;PCPPressOilFlaxLabSimple;PCPPressOilHempLab;PCPPressOilHempLabSimple;PCPPressOilPeanutLab;PCPPressOilPeanutLabSimple;PCPPressOilSoybeansBulk;PCPPressOilSunflowerBulk;PCPPressOilCornBulk;PCPPressOilFlaxBulk;PCPPressOilHempBulk;PCPPressOilPeanutBulk;PCPConvertVegetableOil;PCPRenderFat;PCPRenderFatSimple;PCPDistillMethanol;PCPDistillMethanolSimple;PCPSynthesizeKOH;PCPSynthesizeKOHSimple;PCPTransesterifyOil;PCPTransesterifyOilSimple;PCPTransesterifyFat;PCPTransesterifyFatSimple;PCPTransesterifyOilBulk;PCPTransesterifyOilBulkCoke;PCPTransesterifyOilBulkSimple;PCPTransesterifyFatBulk;PCPTransesterifyFatBulkCoke;PCPTransesterifyFatBulkSimple;PCPTransesterifyOilNaOH;PCPTransesterifyOilNaOHSimple;PCPTransesterifyFatNaOH;PCPTransesterifyFatNaOHSimple;PCPTransesterifyOilBulkNaOH;PCPTransesterifyOilBulkNaOHCoke;PCPTransesterifyOilBulkNaOHSimple;PCPTransesterifyFatBulkNaOH;PCPTransesterifyFatBulkNaOHCoke;PCPTransesterifyFatBulkNaOHSimple;PCPWashBiodiesel;PCPWashBiodieselSimple;PCPWashBiodieselBulk;PCPWashBiodieselBulkCoke;PCPWashBiodieselBulkSimple;PCPWashBiodieselCentrifuge;PCPSeparateGlycerolCentrifuge;PCPPurifyBiodieselChromatograph;PCPPurifyMethanolChromatograph;PCPPurifyMethanolChromatographSimple;PCPAnalyzeOilMicroscope;PCPTestFuelSpectrometer;PCPRefineBiodiesel;PCPMakeSoap;PCPMakeSoapCoke;PCPMakeSoapSimple;PCPMakeSoapNaOH;PCPMakeSoapNaOHCoke;PCPMakeSoapNaOHSimple;PCPProduceBoneChar;PCPProduceBoneCharCoke;PCPProduceBoneCharSimple;PCPProduceBoneCharSkull;PCPProduceBoneCharSkullCoke;PCPProduceBoneCharSkullSimple;PCPMakeSoapFat;PCPMakeSoapFatCoke;PCPMakeSoapFatSimple;PCPMakeSoapFatNaOH;PCPMakeSoapFatNaOHCoke;PCPMakeSoapFatNaOHSimple,
+		StaticModel = Book,
+		WorldStaticModel = BookClosedRedPink_Ground,
+		Tooltip = Tooltip_PCP_BkChemistryPathways,
+	}
+}

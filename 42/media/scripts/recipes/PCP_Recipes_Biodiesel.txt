@@ -1,0 +1,2472 @@
+module Base
+{
+
+/* ==================================================================================== */
+/* ============================== OIL EXTRACTION (TIER 1: MORTAR) ===================== */
+/* ==================================================================================== */
+
+/* ----- PRESS SOYBEAN OIL (Mortar & Pestle) ----- */
+/*  Cold-press soybeans with a mortar and pestle to extract crude vegetable oil.
+    Low yield — soybeans are ~18-20% oil by weight.                                     */
+
+    craftRecipe PCPPressOilSoybeansMortar
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = MixingMortarPestle,
+        xpAward = Doctor:20,
+
+        inputs
+        {
+            item 1 tags[base:mortarpestle] mode:keep flags[MayDegradeLight],
+            item 8 [Base.Soybeans],
+            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.JarLid] mode:destroy,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeVegetableOil,
+        }
+    }
+
+
+/* ----- PRESS SUNFLOWER OIL (Mortar & Pestle) ----- */
+/*  Cold-press sunflower seeds. Better yield than soybeans — sunflower seeds
+    are 40-50% oil by weight.                                                           */
+
+    craftRecipe PCPPressOilSunflowerMortar
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = MixingMortarPestle,
+        xpAward = Doctor:20,
+
+        inputs
+        {
+            item 1 tags[base:mortarpestle] mode:keep flags[MayDegradeLight],
+            item 6 [Base.SunflowerSeeds],
+            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.JarLid] mode:destroy,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeVegetableOil,
+        }
+    }
+
+
+/* ----- PRESS CORN OIL (Mortar & Pestle) ----- */
+/*  Cold-press corn kernels. Worst yield — corn germ is only ~4-5% oil
+    by whole kernel weight.                                                             */
+
+    craftRecipe PCPPressOilCornMortar
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = MixingMortarPestle,
+        xpAward = Doctor:20,
+
+        inputs
+        {
+            item 1 tags[base:mortarpestle] mode:keep flags[MayDegradeLight],
+            item 10 [Base.Corn],
+            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.JarLid] mode:destroy,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeVegetableOil,
+        }
+    }
+
+
+/* ----- PRESS FLAX OIL (Mortar & Pestle) ----- */
+/*  Cold-press flax seeds (linseed). Decent yield — flax seeds are ~40% oil
+    by weight, but the tiny seeds (0.02 each) require many to fill a jar.                 */
+
+    craftRecipe PCPPressOilFlaxMortar
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = MixingMortarPestle,
+        xpAward = Doctor:20,
+
+        inputs
+        {
+            item 1 tags[base:mortarpestle] mode:keep flags[MayDegradeLight],
+            item 30 [Base.FlaxSeed],
+            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.JarLid] mode:destroy,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeVegetableOil,
+        }
+    }
+
+
+/* ----- PRESS HEMP OIL (Mortar & Pestle) ----- */
+/*  Cold-press hemp seeds. Lower oil content (~30%) than flax, requiring
+    the same quantity of tiny seeds for one jar of oil.                                   */
+
+    craftRecipe PCPPressOilHempMortar
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = MixingMortarPestle,
+        xpAward = Doctor:20,
+
+        inputs
+        {
+            item 1 tags[base:mortarpestle] mode:keep flags[MayDegradeLight],
+            item 30 [Base.HempSeed],
+            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.JarLid] mode:destroy,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeVegetableOil,
+        }
+    }
+
+
+/* ----- PRESS PEANUT OIL (Mortar & Pestle) ----- */
+/*  Cold-press peanuts. Excellent oil content (~50%) and heavier nuts
+    (0.2 each) make peanuts one of the best mortar-tier oil sources.                      */
+
+    craftRecipe PCPPressOilPeanutMortar
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = MixingMortarPestle,
+        xpAward = Doctor:20,
+
+        inputs
+        {
+            item 1 tags[base:mortarpestle] mode:keep flags[MayDegradeLight],
+            item 4 [Base.Peanuts],
+            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.JarLid] mode:destroy,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeVegetableOil,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== OIL EXTRACTION (TIER 2: CHEMISTRY SET) ============== */
+/* ==================================================================================== */
+
+/* ----- EXTRACT SOYBEAN OIL (Chemistry Set) ----- */
+/*  Hot-water solvent extraction of soybean oil using lab equipment.
+    Double yield compared to mortar pressing.                                           */
+
+    craftRecipe PCPPressOilSoybeansLab
+    {
+        time = 200,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 8 [Base.Soybeans],
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrudeVegetableOil,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+    craftRecipe PCPPressOilSoybeansLabSimple
+    {
+        time = 200,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 8 [Base.Soybeans],
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrudeVegetableOil,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ----- EXTRACT SUNFLOWER OIL (Chemistry Set) ----- */
+/*  Hot-water solvent extraction of sunflower seed oil.                                 */
+
+    craftRecipe PCPPressOilSunflowerLab
+    {
+        time = 200,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 6 [Base.SunflowerSeeds],
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrudeVegetableOil,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+    craftRecipe PCPPressOilSunflowerLabSimple
+    {
+        time = 200,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 6 [Base.SunflowerSeeds],
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrudeVegetableOil,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ----- EXTRACT CORN OIL (Chemistry Set) ----- */
+/*  Hot-water solvent extraction of corn oil.                                           */
+
+    craftRecipe PCPPressOilCornLab
+    {
+        time = 200,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 10 [Base.Corn],
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrudeVegetableOil,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+    craftRecipe PCPPressOilCornLabSimple
+    {
+        time = 200,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 10 [Base.Corn],
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrudeVegetableOil,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ----- EXTRACT FLAX OIL (Chemistry Set) ----- */
+/*  Hot-water solvent extraction of flax seed (linseed) oil.                             */
+
+    craftRecipe PCPPressOilFlaxLab
+    {
+        time = 200,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 30 [Base.FlaxSeed],
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrudeVegetableOil,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+    craftRecipe PCPPressOilFlaxLabSimple
+    {
+        time = 200,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 30 [Base.FlaxSeed],
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrudeVegetableOil,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ----- EXTRACT HEMP OIL (Chemistry Set) ----- */
+/*  Hot-water solvent extraction of hemp seed oil.                                       */
+
+    craftRecipe PCPPressOilHempLab
+    {
+        time = 200,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 30 [Base.HempSeed],
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrudeVegetableOil,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+    craftRecipe PCPPressOilHempLabSimple
+    {
+        time = 200,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 30 [Base.HempSeed],
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrudeVegetableOil,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ----- EXTRACT PEANUT OIL (Chemistry Set) ----- */
+/*  Hot-water solvent extraction of peanut oil.                                          */
+
+    craftRecipe PCPPressOilPeanutLab
+    {
+        time = 200,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 4 [Base.Peanuts],
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrudeVegetableOil,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+    craftRecipe PCPPressOilPeanutLabSimple
+    {
+        time = 200,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 4 [Base.Peanuts],
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrudeVegetableOil,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== OIL EXTRACTION (TIER 3: BULK BARREL) ================ */
+/* ==================================================================================== */
+
+/* ----- BULK PRESS SOYBEAN OIL (Barrel) ----- */
+/*  Industrial-scale oil extraction using a metal drum as a press vessel
+    and a bucket to collect the oil. Highest yield per crop input.                      */
+
+    craftRecipe PCPPressOilSoybeansBulk
+    {
+        time = 350,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:40,
+
+        inputs
+        {
+            item 20 [Base.Soybeans],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeVegetableOilBucket,
+        }
+    }
+
+
+/* ----- BULK PRESS SUNFLOWER OIL (Barrel) ----- */
+
+    craftRecipe PCPPressOilSunflowerBulk
+    {
+        time = 350,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:40,
+
+        inputs
+        {
+            item 15 [Base.SunflowerSeeds],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeVegetableOilBucket,
+        }
+    }
+
+
+/* ----- BULK PRESS CORN OIL (Barrel) ----- */
+
+    craftRecipe PCPPressOilCornBulk
+    {
+        time = 350,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:40,
+
+        inputs
+        {
+            item 25 [Base.Corn],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeVegetableOilBucket,
+        }
+    }
+
+
+/* ----- BULK PRESS FLAX OIL (Metal Drum) ----- */
+/*  Industrial-scale flax seed oil extraction using a metal drum reactor.                 */
+
+    craftRecipe PCPPressOilFlaxBulk
+    {
+        time = 350,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:40,
+
+        inputs
+        {
+            item 75 [Base.FlaxSeed],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeVegetableOilBucket,
+        }
+    }
+
+
+/* ----- BULK PRESS HEMP OIL (Metal Drum) ----- */
+/*  Industrial-scale hemp seed oil extraction using a metal drum reactor.                 */
+
+    craftRecipe PCPPressOilHempBulk
+    {
+        time = 350,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:40,
+
+        inputs
+        {
+            item 75 [Base.HempSeed],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeVegetableOilBucket,
+        }
+    }
+
+
+/* ----- BULK PRESS PEANUT OIL (Metal Drum) ----- */
+/*  Industrial-scale peanut oil extraction using a metal drum reactor.                    */
+
+    craftRecipe PCPPressOilPeanutBulk
+    {
+        time = 350,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:40,
+
+        inputs
+        {
+            item 10 [Base.Peanuts],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeVegetableOilBucket,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== DIRECT OIL CONVERSION =============================== */
+/* ==================================================================================== */
+
+/* ----- CONVERT BOTTLED VEGETABLE OIL ----- */
+/*  Pour commercially bottled cooking oil into jars for use in the
+    biodiesel process. Already extracted — generous yield.                              */
+
+    craftRecipe PCPConvertVegetableOil
+    {
+        time = 40,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:5,
+
+        inputs
+        {
+            item 1 [Base.OilVegetable;Base.OilOlive],
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrudeVegetableOil,
+        }
+    }
+
+
+/* ----- RENDER ANIMAL FAT ----- */
+/*  Melt and render lard into a clean, usable fat suitable for
+    transesterification. Requires heat from the chemistry set.                          */
+
+    craftRecipe PCPRenderFat
+    {
+        time = 120,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:10,
+
+        inputs
+        {
+            item 2 [Base.Lard;Base.Butter;Base.Margarine],
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.RenderedFat,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+    craftRecipe PCPRenderFatSimple
+    {
+        time = 120,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:10,
+
+        inputs
+        {
+            item 2 [Base.Lard;Base.Butter;Base.Margarine],
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.RenderedFat,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== METHANOL PRODUCTION ================================= */
+/* ==================================================================================== */
+
+/* ----- DISTILL WOOD METHANOL ----- */
+/*  Destructive distillation of charcoal in a sealed lab flask. Heat drives off
+    volatile compounds: methanol vapor condenses into collection bottles, while
+    thick wood tar remains as residue.
+    CH3OH is EXTREMELY TOXIC — ingestion causes blindness and death.                    */
+
+    craftRecipe PCPDistillMethanol
+    {
+        time = 400,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:60,
+
+        inputs
+        {
+            item 4 tags[base:charcoal],
+            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.JarLid] mode:destroy,
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.WoodMethanol,
+            item 1 PhobosChemistryPathways.WoodTar,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+    craftRecipe PCPDistillMethanolSimple
+    {
+        time = 400,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:60,
+
+        inputs
+        {
+            item 4 tags[base:charcoal],
+            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.JarLid] mode:destroy,
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.WoodMethanol,
+            item 1 PhobosChemistryPathways.WoodTar,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== KOH CATALYST SYNTHESIS ============================== */
+/* ==================================================================================== */
+
+/* ----- SYNTHESIZE POTASSIUM HYDROXIDE ----- */
+/*  React potash (K2CO3) with quicklime (CaO) in water. The quicklime hydrates
+    in situ to slaked lime Ca(OH)2, which then reacts with potash:
+    K2CO3 + Ca(OH)2 -> 2 KOH + CaCO3
+    Highly exothermic — goggles and gloves required. KOH is a powerful
+    caustic alkali used as the transesterification catalyst.                             */
+
+    craftRecipe PCPSynthesizeKOH
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:80,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.Potash],
+            item 2 [Base.Quicklime],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [*],
+            -fluid 1.0 [Water],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.PotassiumHydroxide,
+            item 2 PhobosChemistryPathways.Calcite,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+    craftRecipe PCPSynthesizeKOHSimple
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:80,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.Potash],
+            item 2 [Base.Quicklime],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [*],
+            -fluid 1.0 [Water],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.PotassiumHydroxide,
+            item 2 PhobosChemistryPathways.Calcite,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== TRANSESTERIFICATION (LAB SCALE) ===================== */
+/* ==================================================================================== */
+
+/* ----- TRANSESTERIFY VEGETABLE OIL ----- */
+/*  The core biodiesel reaction. Triglycerides in the oil react with methanol
+    in the presence of KOH catalyst to produce fatty acid methyl esters (FAME)
+    and glycerol:
+    Triglyceride + 3 CH3OH --(KOH)--> 3 FAME + Glycerol
+    The KOH is consumed (forms soap residue in the crude biodiesel).                    */
+
+    craftRecipe PCPTransesterifyOil
+    {
+        time = 350,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:125,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.CrudeVegetableOil],
+            item 2 [PhobosChemistryPathways.WoodMethanol],
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
+            item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 3 [Base.JarLid] mode:destroy,
+            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.CrudeBiodiesel,
+            item 2 PhobosChemistryPathways.Glycerol,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+    craftRecipe PCPTransesterifyOilSimple
+    {
+        time = 350,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:125,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.CrudeVegetableOil],
+            item 2 [PhobosChemistryPathways.WoodMethanol],
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
+            item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 3 [Base.JarLid] mode:destroy,
+            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.CrudeBiodiesel,
+            item 2 PhobosChemistryPathways.Glycerol,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ----- TRANSESTERIFY RENDERED FAT ----- */
+/*  Same transesterification reaction using rendered animal fat instead of
+    vegetable oil. Chemically identical — triglyceride + methanol + KOH.                */
+
+    craftRecipe PCPTransesterifyFat
+    {
+        time = 350,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:125,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.RenderedFat],
+            item 2 [PhobosChemistryPathways.WoodMethanol],
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
+            item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 3 [Base.JarLid] mode:destroy,
+            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.CrudeBiodiesel,
+            item 2 PhobosChemistryPathways.Glycerol,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+    craftRecipe PCPTransesterifyFatSimple
+    {
+        time = 350,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:125,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.RenderedFat],
+            item 2 [PhobosChemistryPathways.WoodMethanol],
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
+            item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 3 [Base.JarLid] mode:destroy,
+            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.CrudeBiodiesel,
+            item 2 PhobosChemistryPathways.Glycerol,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== TRANSESTERIFICATION (BULK BARREL) =================== */
+/* ==================================================================================== */
+
+/* ----- BULK TRANSESTERIFY VEGETABLE OIL ----- */
+/*  Industrial-scale transesterification in a metal drum reactor.
+    Slightly better efficiency at scale (0.80 vs 0.75 oil-to-biodiesel ratio).
+    Reaction requires ~60°C — wood charcoal or coke stoked under the drum.                */
+
+    craftRecipe PCPTransesterifyOilBulk
+    {
+        time = 500,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:150,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.CrudeVegetableOilBucket],
+            item 5 [PhobosChemistryPathways.WoodMethanol],
+            item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
+            item 5 PhobosChemistryPathways.Glycerol,
+        }
+    }
+
+    craftRecipe PCPTransesterifyOilBulkCoke
+    {
+        time = 500,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:150,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.CrudeVegetableOilBucket],
+            item 5 [PhobosChemistryPathways.WoodMethanol],
+            item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.Coke] mode:destroy,
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
+            item 5 PhobosChemistryPathways.Glycerol,
+        }
+    }
+
+    craftRecipe PCPTransesterifyOilBulkSimple
+    {
+        time = 500,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:150,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.CrudeVegetableOilBucket],
+            item 5 [PhobosChemistryPathways.WoodMethanol],
+            item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
+            item 5 PhobosChemistryPathways.Glycerol,
+        }
+    }
+
+
+/* ----- BULK TRANSESTERIFY RENDERED FAT ----- */
+
+    craftRecipe PCPTransesterifyFatBulk
+    {
+        time = 500,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:150,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.RenderedFatBucket],
+            item 5 [PhobosChemistryPathways.WoodMethanol],
+            item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
+            item 5 PhobosChemistryPathways.Glycerol,
+        }
+    }
+
+    craftRecipe PCPTransesterifyFatBulkCoke
+    {
+        time = 500,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:150,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.RenderedFatBucket],
+            item 5 [PhobosChemistryPathways.WoodMethanol],
+            item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.Coke] mode:destroy,
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
+            item 5 PhobosChemistryPathways.Glycerol,
+        }
+    }
+
+    craftRecipe PCPTransesterifyFatBulkSimple
+    {
+        time = 500,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:150,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.RenderedFatBucket],
+            item 5 [PhobosChemistryPathways.WoodMethanol],
+            item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
+            item 5 PhobosChemistryPathways.Glycerol,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== TRANSESTERIFICATION (NaOH LAB SCALE) ================ */
+/* ==================================================================================== */
+
+/* ----- TRANSESTERIFY VEGETABLE OIL (NaOH) ----- */
+/*  Same transesterification reaction using sodium hydroxide (NaOH) from the
+    zReVaccin lab supply instead of potassium hydroxide. Chemically equivalent
+    but uses the pre-packaged NaOH bags from the lab equipment mod.                       */
+
+    craftRecipe PCPTransesterifyOilNaOH
+    {
+        time = 350,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:125,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.CrudeVegetableOil],
+            item 2 [PhobosChemistryPathways.WoodMethanol],
+            item 1 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 3 [Base.JarLid] mode:destroy,
+            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.CrudeBiodiesel,
+            item 2 PhobosChemistryPathways.Glycerol,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+    craftRecipe PCPTransesterifyOilNaOHSimple
+    {
+        time = 350,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:125,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.CrudeVegetableOil],
+            item 2 [PhobosChemistryPathways.WoodMethanol],
+            item 1 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 3 [Base.JarLid] mode:destroy,
+            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.CrudeBiodiesel,
+            item 2 PhobosChemistryPathways.Glycerol,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ----- TRANSESTERIFY RENDERED FAT (NaOH) ----- */
+
+    craftRecipe PCPTransesterifyFatNaOH
+    {
+        time = 350,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:125,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.RenderedFat],
+            item 2 [PhobosChemistryPathways.WoodMethanol],
+            item 1 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 3 [Base.JarLid] mode:destroy,
+            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.CrudeBiodiesel,
+            item 2 PhobosChemistryPathways.Glycerol,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+    craftRecipe PCPTransesterifyFatNaOHSimple
+    {
+        time = 350,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:125,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.RenderedFat],
+            item 2 [PhobosChemistryPathways.WoodMethanol],
+            item 1 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 3 [Base.JarLid] mode:destroy,
+            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.CrudeBiodiesel,
+            item 2 PhobosChemistryPathways.Glycerol,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== TRANSESTERIFICATION (NaOH BULK) ===================== */
+/* ==================================================================================== */
+
+/* ----- BULK TRANSESTERIFY VEGETABLE OIL (NaOH) ----- */
+/*  Industrial-scale NaOH transesterification in a metal drum reactor.
+    Reaction requires ~60°C — a propane torch heats the drum.                             */
+
+    craftRecipe PCPTransesterifyOilBulkNaOH
+    {
+        time = 500,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:150,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.CrudeVegetableOilBucket],
+            item 5 [PhobosChemistryPathways.WoodMethanol],
+            item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
+            item 5 PhobosChemistryPathways.Glycerol,
+        }
+    }
+
+    craftRecipe PCPTransesterifyOilBulkNaOHCoke
+    {
+        time = 500,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:150,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.CrudeVegetableOilBucket],
+            item 5 [PhobosChemistryPathways.WoodMethanol],
+            item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.Coke] mode:destroy,
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
+            item 5 PhobosChemistryPathways.Glycerol,
+        }
+    }
+
+    craftRecipe PCPTransesterifyOilBulkNaOHSimple
+    {
+        time = 500,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:150,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.CrudeVegetableOilBucket],
+            item 5 [PhobosChemistryPathways.WoodMethanol],
+            item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
+            item 5 PhobosChemistryPathways.Glycerol,
+        }
+    }
+
+
+/* ----- BULK TRANSESTERIFY RENDERED FAT (NaOH) ----- */
+
+    craftRecipe PCPTransesterifyFatBulkNaOH
+    {
+        time = 500,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:150,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.RenderedFatBucket],
+            item 5 [PhobosChemistryPathways.WoodMethanol],
+            item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
+            item 5 PhobosChemistryPathways.Glycerol,
+        }
+    }
+
+    craftRecipe PCPTransesterifyFatBulkNaOHCoke
+    {
+        time = 500,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:150,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.RenderedFatBucket],
+            item 5 [PhobosChemistryPathways.WoodMethanol],
+            item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.Coke] mode:destroy,
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
+            item 5 PhobosChemistryPathways.Glycerol,
+        }
+    }
+
+    craftRecipe PCPTransesterifyFatBulkNaOHSimple
+    {
+        time = 500,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:150,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.RenderedFatBucket],
+            item 5 [PhobosChemistryPathways.WoodMethanol],
+            item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
+            item 5 PhobosChemistryPathways.Glycerol,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== PURIFICATION ======================================== */
+/* ==================================================================================== */
+
+/* ----- WATER-WASH CRUDE BIODIESEL ----- */
+/*  Wash crude biodiesel with hot water to dissolve glycerol and soap residue.
+    The aqueous layer (containing impurities) is discarded. The washed biodiesel
+    in its jars is ready for the settling/refining step.
+    1:1 conversion — same number of jars in and out.                                    */
+
+    craftRecipe PCPWashBiodiesel
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:40,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.CrudeBiodiesel],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [*],
+            -fluid 2.0 [Water],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.WashedBiodiesel,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+    craftRecipe PCPWashBiodieselSimple
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:40,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.CrudeBiodiesel],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [*],
+            -fluid 2.0 [Water],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.WashedBiodiesel,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ----- BULK WATER-WASH CRUDE BIODIESEL ----- */
+/*  Industrial-scale hot-water washing using a metal drum.
+    Hot water improves glycerol and soap separation efficiency.                           */
+
+    craftRecipe PCPWashBiodieselBulk
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:50,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.CrudeBiodieselBucket],
+            item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
+            item 1 [*],
+            -fluid 5.0 [Water],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.WashedBiodieselBucket,
+        }
+    }
+
+    craftRecipe PCPWashBiodieselBulkCoke
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:50,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.CrudeBiodieselBucket],
+            item 1 [Base.Coke] mode:destroy,
+            item 1 [*],
+            -fluid 5.0 [Water],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.WashedBiodieselBucket,
+        }
+    }
+
+    craftRecipe PCPWashBiodieselBulkSimple
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:50,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.CrudeBiodieselBucket],
+            item 1 [*],
+            -fluid 5.0 [Water],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.WashedBiodieselBucket,
+        }
+    }
+
+
+/* ----- REFINE BIODIESEL INTO FUEL ----- */
+/*  Settle and decant washed biodiesel into a gas can. After settling, the
+    biodiesel is chemically equivalent to petrol for engine use.
+    The empty gas can is consumed and returned filled with 5L of usable fuel.            */
+
+    craftRecipe PCPRefineBiodiesel
+    {
+        time = 200,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:60,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.WashedBiodiesel],
+            item 1 [Base.PetrolCan] mode:destroy flags[IsEmpty],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.RefinedBiodieselCan,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== ADVANCED EQUIPMENT: CENTRIFUGE ======================= */
+/* ==================================================================================== */
+
+/* ----- CENTRIFUGE-WASH CRUDE BIODIESEL ----- */
+/*  Use the centrifuge to rapidly separate glycerol and soap residue from
+    crude biodiesel. More efficient than water-washing — better yield
+    (4 crude → 4 washed vs 3 → 3 at chemistry set).                                      */
+
+    craftRecipe PCPWashBiodieselCentrifuge
+    {
+        time = 180,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = zReVAC2:Centrifuge;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:50,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.CrudeBiodiesel],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.WashedBiodiesel,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ----- SEPARATE GLYCEROL (Centrifuge) ----- */
+/*  Centrifuge separation extracts bonus glycerol from transesterification
+    waste layers. Uses the crude biodiesel's dissolved glycerol.                           */
+
+    craftRecipe PCPSeparateGlycerolCentrifuge
+    {
+        time = 120,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = zReVAC2:Centrifuge;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:40,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.CrudeBiodiesel],
+            item 3 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.WashedBiodiesel,
+            item 3 PhobosChemistryPathways.Glycerol,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== ADVANCED EQUIPMENT: CHROMATOGRAPH ==================== */
+/* ==================================================================================== */
+
+/* ----- PURIFY BIODIESEL (Chromatograph) ----- */
+/*  Precision chromatographic purification of washed biodiesel. Superior
+    separation produces higher-grade fuel — 4 washed biodiesel yields
+    2 gas cans (10L fuel) vs 3→1 at standard refining.                                    */
+
+    craftRecipe PCPPurifyBiodieselChromatograph
+    {
+        time = 300,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = zReVAC2:Chromatograph;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:80,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.WashedBiodiesel],
+            item 2 [Base.PetrolCan] mode:destroy flags[IsEmpty],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.RefinedBiodieselCan,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ----- PURIFY METHANOL (Chromatograph) ----- */
+/*  Chromatographic fractional distillation of charcoal produces purer methanol
+    with higher yield — 4 charcoal → 3 methanol (vs 2 at chemistry set).                 */
+
+    craftRecipe PCPPurifyMethanolChromatograph
+    {
+        time = 350,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = zReVAC2:Chromatograph;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:70,
+
+        inputs
+        {
+            item 4 tags[base:charcoal],
+            item 3 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.JarLid] mode:destroy,
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.WoodMethanol,
+            item 1 PhobosChemistryPathways.WoodTar,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+    craftRecipe PCPPurifyMethanolChromatographSimple
+    {
+        time = 350,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = zReVAC2:Chromatograph;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:70,
+
+        inputs
+        {
+            item 4 tags[base:charcoal],
+            item 3 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.JarLid] mode:destroy,
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.WoodMethanol,
+            item 1 PhobosChemistryPathways.WoodTar,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== ADVANCED EQUIPMENT: MICROSCOPE (SANDBOX-GATED) ====== */
+/* ==================================================================================== */
+
+/* ----- ANALYZE OIL QUALITY (Microscope) ----- */
+/*  Microscopic analysis of vegetable oil quality. When performed before
+    transesterification, the insights improve reaction efficiency — bonus
+    output jar of crude biodiesel from the same feedstock.
+    Sandbox-gated: requires EnableAdvancedLabRecipes = true.                               */
+
+    craftRecipe PCPAnalyzeOilMicroscope
+    {
+        time = 200,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpAdvancedLabCheck,
+
+        Tags = zReVAC2:Microscope;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:100,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.CrudeVegetableOil],
+            item 2 [PhobosChemistryPathways.WoodMethanol],
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide;zReLabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 4 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 4 [Base.JarLid] mode:destroy,
+            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.CrudeBiodiesel,
+            item 2 PhobosChemistryPathways.Glycerol,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== ADVANCED EQUIPMENT: SPECTROMETER (SANDBOX-GATED) ==== */
+/* ==================================================================================== */
+
+/* ----- TEST FUEL PURITY (Spectrometer) ----- */
+/*  Spectroscopic analysis of washed biodiesel purity. The precision testing
+    allows more efficient fuel decanting — 4 washed → 2 gas cans (10L fuel)
+    vs 3→1 at standard refining.
+    Sandbox-gated: requires EnableAdvancedLabRecipes = true.                               */
+
+    craftRecipe PCPTestFuelSpectrometer
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpAdvancedLabCheck,
+
+        Tags = zReVAC2:Spectrometer;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:100,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.WashedBiodiesel],
+            item 2 [Base.PetrolCan] mode:destroy flags[IsEmpty],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.RefinedBiodieselCan,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== BONE CHAR PRODUCTION ================================ */
+/* ==================================================================================== */
+
+/* ----- PRODUCE BONE CHAR (Charcoal Fuel) ----- */
+/*  Pyrolyse animal bones in a sealed metal drum at high heat. The organic
+    components carbonise while the mineral matrix (calcium phosphate) is preserved,
+    creating a highly porous filtration medium with superior adsorption properties.     */
+
+    craftRecipe PCPProduceBoneChar
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 5 [Base.SmallAnimalBone;Base.SharpBoneFragment;Base.AnimalBone;Base.LargeAnimalBone],
+            item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.BoneChar,
+        }
+    }
+
+/* ----- PRODUCE BONE CHAR (Coke Fuel) ----- */
+
+    craftRecipe PCPProduceBoneCharCoke
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 5 [Base.SmallAnimalBone;Base.SharpBoneFragment;Base.AnimalBone;Base.LargeAnimalBone],
+            item 1 [Base.Coke] mode:destroy,
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.BoneChar,
+        }
+    }
+
+/* ----- PRODUCE BONE CHAR (Simplified — No Fuel) ----- */
+
+    craftRecipe PCPProduceBoneCharSimple
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 5 [Base.SmallAnimalBone;Base.SharpBoneFragment;Base.AnimalBone;Base.LargeAnimalBone],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.BoneChar,
+        }
+    }
+
+/* ----- PRODUCE BONE CHAR FROM SKULLS (Charcoal Fuel) ----- */
+/*  Skulls are larger and denser than small bone fragments, yielding more
+    bone char per batch. The sealed drum provides the low-oxygen environment
+    needed for proper carbonisation.                                                    */
+
+    craftRecipe PCPProduceBoneCharSkull
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 3 tags[base:animalskull],
+            item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.BoneChar,
+        }
+    }
+
+/* ----- PRODUCE BONE CHAR FROM SKULLS (Coke Fuel) ----- */
+
+    craftRecipe PCPProduceBoneCharSkullCoke
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 3 tags[base:animalskull],
+            item 1 [Base.Coke] mode:destroy,
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.BoneChar,
+        }
+    }
+
+/* ----- PRODUCE BONE CHAR FROM SKULLS (Simplified — No Fuel) ----- */
+
+    craftRecipe PCPProduceBoneCharSkullSimple
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 3 tags[base:animalskull],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.BoneChar,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== BY-PRODUCTS: SOAP =================================== */
+/* ==================================================================================== */
+
+/* ----- MAKE CRUDE SOAP (KOH) ----- */
+/*  Saponification of glycerol with potassium hydroxide. Requires heat to
+    drive the reaction. Produces a soft potassium soap.                                  */
+
+    craftRecipe PCPMakeSoap
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.Glycerol],
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide],
+            item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.CrudeSoap,
+        }
+    }
+
+    craftRecipe PCPMakeSoapCoke
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.Glycerol],
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide],
+            item 1 [Base.Coke] mode:destroy,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.CrudeSoap,
+        }
+    }
+
+    craftRecipe PCPMakeSoapSimple
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.Glycerol],
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.CrudeSoap,
+        }
+    }
+
+
+/* ----- MAKE CRUDE SOAP (NaOH) ----- */
+/*  Alternative saponification using sodium hydroxide. Requires heat.
+    Produces a harder sodium soap compared to the KOH variant.                            */
+
+    craftRecipe PCPMakeSoapNaOH
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.Glycerol],
+            item 1 [zReLabItems.ChSodiumHydroxideBag],
+            item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.CrudeSoap,
+        }
+    }
+
+    craftRecipe PCPMakeSoapNaOHCoke
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.Glycerol],
+            item 1 [zReLabItems.ChSodiumHydroxideBag],
+            item 1 [Base.Coke] mode:destroy,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.CrudeSoap,
+        }
+    }
+
+    craftRecipe PCPMakeSoapNaOHSimple
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.Glycerol],
+            item 1 [zReLabItems.ChSodiumHydroxideBag],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.CrudeSoap,
+        }
+    }
+
+
+/* ----- MAKE CRUDE SOAP FROM FAT (KOH, Charcoal) ----- */
+/*  Traditional fat saponification — combine animal fat directly with potassium
+    hydroxide over heat. The oldest known method of soap-making, predating
+    glycerol-based routes by millennia. Lower yield than glycerol since raw
+    fat requires more lye to fully saponify.                                             */
+
+    craftRecipe PCPMakeSoapFat
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 2 [Base.Lard;Base.Butter;Base.Margarine],
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide],
+            item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.CrudeSoap,
+        }
+    }
+
+/* ----- MAKE CRUDE SOAP FROM FAT (KOH, Coke) ----- */
+
+    craftRecipe PCPMakeSoapFatCoke
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 2 [Base.Lard;Base.Butter;Base.Margarine],
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide],
+            item 1 [Base.Coke] mode:destroy,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.CrudeSoap,
+        }
+    }
+
+/* ----- MAKE CRUDE SOAP FROM FAT (KOH, Simplified — No Fuel) ----- */
+
+    craftRecipe PCPMakeSoapFatSimple
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 2 [Base.Lard;Base.Butter;Base.Margarine],
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.CrudeSoap,
+        }
+    }
+
+
+/* ----- MAKE CRUDE SOAP FROM FAT (NaOH, Charcoal) ----- */
+/*  Traditional fat saponification using sodium hydroxide instead of KOH.
+    Produces a harder bar soap compared to the softer KOH variant.                       */
+
+    craftRecipe PCPMakeSoapFatNaOH
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 2 [Base.Lard;Base.Butter;Base.Margarine],
+            item 1 [zReLabItems.ChSodiumHydroxideBag],
+            item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.CrudeSoap,
+        }
+    }
+
+/* ----- MAKE CRUDE SOAP FROM FAT (NaOH, Coke) ----- */
+
+    craftRecipe PCPMakeSoapFatNaOHCoke
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 2 [Base.Lard;Base.Butter;Base.Margarine],
+            item 1 [zReLabItems.ChSodiumHydroxideBag],
+            item 1 [Base.Coke] mode:destroy,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.CrudeSoap,
+        }
+    }
+
+/* ----- MAKE CRUDE SOAP FROM FAT (NaOH, Simplified — No Fuel) ----- */
+
+    craftRecipe PCPMakeSoapFatNaOHSimple
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:30,
+
+        inputs
+        {
+            item 2 [Base.Lard;Base.Butter;Base.Margarine],
+            item 1 [zReLabItems.ChSodiumHydroxideBag],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.CrudeSoap,
+        }
+    }
+
+}

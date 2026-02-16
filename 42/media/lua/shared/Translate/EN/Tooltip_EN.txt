@@ -1,0 +1,28 @@
+Tooltip_EN = {
+    /* ===== Tooltips ===== */
+    Tooltip_PCP_CrushedCharcoal = "Finely ground charcoal powder, ready for purification.<br>Produced by crushing wood charcoal in a mortar and pestle.",
+    Tooltip_PCP_PurifiedCharcoal = "High-purity carbon powder with mineral impurities removed.<br>Essential reagent for chemical synthesis.",
+    Tooltip_PCP_Potash = "Potassium carbonate (K2CO3) extracted from charcoal during<br>purification. Combined with quicklime to synthesize<br>potassium hydroxide (KOH) for biodiesel production.",
+    Tooltip_PCP_DilutedCompost = "Compost dissolved in water, forming a nitrate-rich slurry.<br>Can be processed into potassium nitrate.",
+    Tooltip_PCP_SulphurPowder = "A fine yellow granular powder of elemental sulphur.<br>Used in the production of blackpowder.",
+    Tooltip_PCP_PotassiumNitratePowder = "White crystalline granular powder of potassium nitrate (saltpeter).<br>The primary oxidiser in blackpowder.",
+    Tooltip_PCP_SulphuricAcidVessel = "Concentrated sulphuric acid (H2SO4) in an acid-resistant vessel.<br><RGB:1,0.2,0.2> EXTREMELY CORROSIVE. Ingestion is fatal. <RGB:1,1,1><br>Handle only with protective gloves and eyewear.",
+    Tooltip_PCP_LeadScrap = "Salvaged lead plates from a dismantled car battery.<br>Heavy but valuable for constructing deep-cycle batteries<br>or melting down for other uses.",
+    Tooltip_PCP_PlasticScrap = "Small pieces of cut plastic salvaged from bottles and containers.<br>Can be shaped into battery casings or used as insulation.",
+    Tooltip_PCP_AcidWashedElectronics = "Electronic components cleaned with dilute sulphuric acid.<br>Oxide layers and corrosion removed, exposing pristine<br>copper traces. Superior quality for precision assembly.",
+    Tooltip_PCP_BkChemistryPathways = "A technical handbook covering charcoal purification, sulphur<br>extraction, potassium nitrate synthesis, blackpowder production,<br>biodiesel synthesis from vegetable oils, and soap-making.",
+
+    /* ===== Biodiesel Pathway Tooltips ===== */
+    Tooltip_PCP_CrudeVegetableOil = "Crude pressed oil from seeds or beans, cloudy with plant matter.<br>Suitable for transesterification into biodiesel.",
+    Tooltip_PCP_RenderedFat = "Animal fat rendered down to a clean, usable form.<br>Can substitute for vegetable oil in biodiesel production.",
+    Tooltip_PCP_WoodMethanol = "Methanol (wood alcohol) obtained by destructive distillation.<br><RGB:1,0.2,0.2> EXTREMELY TOXIC. Ingestion causes blindness and death. <RGB:1,1,1><br>Essential reagent for biodiesel transesterification.",
+    Tooltip_PCP_WoodTar = "Thick, dark tar condensed during wood distillation.<br>Useful as a waterproofing sealant or fuel supplement.",
+    Tooltip_PCP_PotassiumHydroxide = "Potassium hydroxide (KOH), a powerful caustic alkali.<br><RGB:1,0.2,0.2> Causes severe chemical burns on contact. <RGB:1,1,1><br>Catalyst for transesterification of fats into biodiesel.",
+    Tooltip_PCP_Calcite = "Calcium carbonate (chalk/calcite) precipitated during<br>KOH synthesis. Useful as a soil amendment or abrasive.",
+    Tooltip_PCP_CrudeBiodiesel = "Raw biodiesel (fatty acid methyl esters) freshly produced<br>by transesterification. Contains dissolved glycerol and<br>soap residue. Must be washed before use as fuel.",
+    Tooltip_PCP_Glycerol = "Glycerol (glycerine) separated during transesterification.<br>A versatile by-product for soap-making and medicine.",
+    Tooltip_PCP_WashedBiodiesel = "Water-washed biodiesel with soap and glycerol removed.<br>After settling, this is ready to be decanted as usable fuel.",
+    Tooltip_PCP_RefinedBiodieselCan = "Home-refined biodiesel, suitable for use in engines.<br>Produced through transesterification and water-washing<br>of vegetable oil or animal fat.",
+    Tooltip_PCP_BoneChar = "Porous carbon produced by pyrolysing animal bones in a sealed vessel.<br>Retains calcium phosphate matrix, giving it superior adsorption<br>properties compared to wood charcoal. Historically used for<br>sugar refining and water purification.",
+    Tooltip_PCP_CrudeSoap = "Crude lye soap made from glycerol and caustic alkali.<br>Not pretty, but effective for cleaning and hygiene.",
+}

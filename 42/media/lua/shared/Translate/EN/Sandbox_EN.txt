@@ -1,0 +1,12 @@
+Sandbox_EN = {
+    Sandbox_PCP_Sandbox = "Phobos' Chemistry Pathways",
+
+    Sandbox_PCP_YieldMultiplier = "YIELD MULTIPLIER:",
+    Sandbox_PCP_YieldMultiplier_tooltip = "Global multiplier applied to all chemistry recipe output quantities.<br> <INDENT:20>-0.25 = quarter yield (hardcore);<br> <INDENT:20>-1.00 = default yields;<br> <INDENT:20>-2.00 = double yields;<br> <INDENT:20>-4.00 = quadruple yields (easy mode).<br>",
+
+    Sandbox_PCP_EnableAdvancedLabRecipes = "ENABLE ADVANCED LAB RECIPES:",
+    Sandbox_PCP_EnableAdvancedLabRecipes_tooltip = "Unlocks additional recipes using the Microscope and Spectrometer lab stations from zReVaccin.<br> <INDENT:20>-Microscope: Analyze oil quality for bonus transesterification yields;<br> <INDENT:20>-Spectrometer: Test fuel purity for bonus refinement output.<br> <INDENT:20>-Disabled by default. Centrifuge and Chromatograph recipes are always available.<br><br> <RGB:1,0.6,0.2> Requires a game restart to take effect. <RGB:1,1,1>",
+
+    Sandbox_PCP_RequireHeatSources = "REQUIRE HEAT SOURCES:",
+    Sandbox_PCP_RequireHeatSources_tooltip = "When enabled, recipes that require heat need an appropriate fuel source.<br> <INDENT:20>-Chemistry Set recipes: require a propane tank to fuel the Bunsen burner;<br> <INDENT:20>-Bulk reactions (Metal Drum): require wood charcoal (x3) or coke (x1) to stoke a fire;<br> <INDENT:20>-Surface craft (soap): require wood charcoal (x3) or coke (x1).<br><br> <INDENT:20>-ON (default): Realistic mode. Heat-driven reactions require fuel;<br> <INDENT:20>-OFF: Simplified mode. No fuel sources required.<br><br> <RGB:1,0.6,0.2> Requires a game restart to take effect. <RGB:1,1,1>",
+}

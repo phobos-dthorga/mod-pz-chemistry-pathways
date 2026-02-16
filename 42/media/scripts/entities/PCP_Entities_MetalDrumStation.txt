@@ -1,0 +1,40 @@
+-----------------------------------------------------
+-- Phobos' Chemistry Pathways - Metal Drum Station
+-----------------------------------------------------
+-- Defines the Metal Drum as a CraftBench workstation
+-- so that bulk biodiesel recipes can be performed by
+-- standing NEAR a placed drum (within ~1 tile) rather
+-- than carrying it in the player's inventory.
+--
+-- Uses the same sprite as Base.MetalDrum so that any
+-- placed drum automatically becomes this workstation.
+-----------------------------------------------------
+
+module Base
+{
+    entity PCP_MetalDrumStation
+    {
+        component UiConfig
+        {
+            xuiSkin = default,
+            entityStyle = ES_PCP_MetalDrumStation,
+            uiEnabled = true,
+        }
+        component CraftBench
+        {
+            Recipes = PCP:MetalDrumStation,
+        }
+        component SpriteConfig
+        {
+            health = 200,
+            skillBaseHealth = 0,
+            face SINGLE
+            {
+                layer
+                {
+                    row = crafted_01_32,
+                }
+            }
+        }
+    }
+}

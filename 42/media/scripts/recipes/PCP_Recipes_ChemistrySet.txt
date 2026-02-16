@@ -1,0 +1,521 @@
+module Base
+{
+
+/* ==================================================================================== */
+/* ============================== CHARCOAL PREPARATION ================================ */
+/* ==================================================================================== */
+
+/* ----- STEP 1: CRUSH CHARCOAL ----- */
+/*  Grind wood charcoal in a mortar and pestle to produce a fine carbon powder
+    suitable for chemical reactions and purification.                                    */
+
+    craftRecipe PCPCrushCharcoal
+    {
+        time = 80,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = MixingMortarPestle,
+        xpAward = Doctor:15,
+
+        inputs
+        {
+            item 1 tags[base:mortarpestle] mode:keep flags[MayDegradeLight],
+            item 2 tags[base:charcoal],
+        }
+        outputs
+        {
+            item 6 PhobosChemistryPathways.CrushedCharcoal,
+        }
+    }
+
+
+/* ----- STEP 2a: PURIFY CHARCOAL (Water Wash) ----- */
+/*  Wash crushed charcoal with hot water to remove soluble impurities.
+    Yields purified carbon and a small amount of potash as a by-product.                */
+
+    craftRecipe PCPPurifyCharcoalWater
+    {
+        time = 120,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:15,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.CrushedCharcoal],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.PurifiedCharcoal,
+            item 1 PhobosChemistryPathways.Potash,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+    craftRecipe PCPPurifyCharcoalWaterSimple
+    {
+        time = 120,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:15,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.CrushedCharcoal],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.PurifiedCharcoal,
+            item 1 PhobosChemistryPathways.Potash,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ----- STEP 2b: PURIFY CHARCOAL (NaOH Alkaline Wash) ----- */
+/*  Treat crushed charcoal with sodium hydroxide solution for deep purification.
+    The alkaline wash dissolves far more mineral content, yielding triple the
+    purified charcoal and potash compared to a simple water wash.                       */
+
+    craftRecipe PCPPurifyCharcoalNaOH
+    {
+        time = 180,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:40,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.CrushedCharcoal],
+            item 1 [zReLabItems.ChSodiumHydroxideBag],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 6 PhobosChemistryPathways.PurifiedCharcoal,
+            item 3 PhobosChemistryPathways.Potash,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+    craftRecipe PCPPurifyCharcoalNaOHSimple
+    {
+        time = 180,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:40,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.CrushedCharcoal],
+            item 1 [zReLabItems.ChSodiumHydroxideBag],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 6 PhobosChemistryPathways.PurifiedCharcoal,
+            item 3 PhobosChemistryPathways.Potash,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== DILUTED COMPOST ===================================== */
+/* ==================================================================================== */
+
+/* ----- PREPARE DILUTED COMPOST ----- */
+/*  Dissolve compost in a large volume of water to create a nitrate-rich slurry.
+    10 uses of compost bag + 10 litres of water.                                        */
+
+    craftRecipe PCPPrepareDilutedCompost
+    {
+        time = 100,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:15,
+
+        inputs
+        {
+            item 10 [Base.CompostBag],
+            item 1 [*],
+            -fluid 10.0 [Water],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.DilutedCompost,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== SULPHURIC ACID EXTRACTION ============================ */
+/* ==================================================================================== */
+
+/* ----- EXTRACT ACID FROM CAR BATTERY ----- */
+/*  Carefully drain sulphuric acid electrolyte from a car battery into an
+    acid-resistant glass or ceramic vessel. Requires protective equipment.
+    The battery is consumed; lead plates are salvaged as lead scrap.                     */
+
+    craftRecipe PCPExtractBatteryAcid
+    {
+        time = 200,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:40,
+
+        inputs
+        {
+            item 1 tags[base:carbattery] mode:destroy,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] mode:destroy flags[IsEmpty],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.SulphuricAcidJar,
+            item 3 PhobosChemistryPathways.LeadScrap,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== SULPHUR EXTRACTION ================================== */
+/* ==================================================================================== */
+
+/* ----- EXTRACT SULPHUR (from zReVaccin acid can) ----- */
+/*  Reduce sulfuric acid with purified charcoal to yield elemental sulphur.
+    H2SO4 + C -> S + CO2 + 2H2O (simplified)
+    Uses the zReVaccin acid can (drainable item).                                        */
+
+    craftRecipe PCPExtractSulphurFromAcidCan
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:60,
+
+        inputs
+        {
+            item 1 [zReLabItems.ChSulfuricAcidCan],
+            item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [*],
+            -fluid 0.2 [Water],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.SulphurPowder,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+    craftRecipe PCPExtractSulphurFromAcidCanSimple
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:60,
+
+        inputs
+        {
+            item 1 [zReLabItems.ChSulfuricAcidCan],
+            item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [*],
+            -fluid 0.2 [Water],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.SulphurPowder,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ----- EXTRACT SULPHUR (from our own SulphuricAcid fluid) ----- */
+/*  Same reaction using our mod's SulphuricAcid fluid from car batteries.
+    Consumes 1.0L of acid from the vessel.                                               */
+
+    craftRecipe PCPExtractSulphurFromAcidFluid
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:60,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [*],
+            -fluid 1.0 [SulphuricAcid],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.SulphurPowder,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+    craftRecipe PCPExtractSulphurFromAcidFluidSimple
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:60,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [*],
+            -fluid 1.0 [SulphuricAcid],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.SulphurPowder,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== POTASSIUM NITRATE SYNTHESIS ========================== */
+/* ==================================================================================== */
+
+/* ----- KNO3 FROM FERTILIZER + NaOH ----- */
+/*  Leach potassium nitrate from commercial fertilizer using sodium hydroxide.
+    The NaOH assists in converting ammonium nitrate to potassium nitrate and
+    purified charcoal acts as a filtration medium.                                       */
+
+    craftRecipe PCPSynthesizeKNO3Fertilizer
+    {
+        time = 300,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:100,
+
+        inputs
+        {
+            item 2 [Base.Fertilizer],
+            item 3 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
+            item 1 [zReLabItems.ChSodiumHydroxideBag],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 6 PhobosChemistryPathways.PotassiumNitratePowder,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+    craftRecipe PCPSynthesizeKNO3FertilizerSimple
+    {
+        time = 300,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:100,
+
+        inputs
+        {
+            item 2 [Base.Fertilizer],
+            item 3 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
+            item 1 [zReLabItems.ChSodiumHydroxideBag],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 6 PhobosChemistryPathways.PotassiumNitratePowder,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ----- KNO3 FROM DILUTED COMPOST ----- */
+/*  Extract potassium nitrate from nitrate-rich diluted compost slurry.
+    A more primitive but viable pathway. Lower yield than the fertilizer route
+    since the compost must be further purified through charcoal filtration.               */
+
+    craftRecipe PCPSynthesizeKNO3Compost
+    {
+        time = 350,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:100,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.DilutedCompost],
+            item 3 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.PotassiumNitratePowder,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+    craftRecipe PCPSynthesizeKNO3CompostSimple
+    {
+        time = 350,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:100,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.DilutedCompost],
+            item 3 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.PotassiumNitratePowder,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== BLACKPOWDER MIXING ================================== */
+/* ==================================================================================== */
+
+/* ----- MIX BLACKPOWDER ----- */
+/*  Combine potassium nitrate (75%), charcoal (15%), and sulphur (10%) in the
+    classic deflagrating mixture ratio. Careful wet-mixing in the flask prevents
+    accidental ignition. Yields a batch of usable blackpowder.
+    75 KNO3 + 15 C + 10 S -> Black Powder                                               */
+
+    craftRecipe PCPMixBlackpowder
+    {
+        time = 200,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:125,
+
+        inputs
+        {
+            item 5 [PhobosChemistryPathways.PotassiumNitratePowder],
+            item 2 [PhobosChemistryPathways.SulphurPowder],
+            item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 10 Base.GunPowder,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+}

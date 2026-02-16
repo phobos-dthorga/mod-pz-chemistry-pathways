@@ -1,0 +1,47 @@
+ItemName_EN = {
+    /* ===== Item Names ===== */
+    ItemName_PhobosChemistryPathways.CrushedCharcoal = "Crushed Charcoal",
+    ItemName_PhobosChemistryPathways.PurifiedCharcoal = "Purified Charcoal",
+    ItemName_PhobosChemistryPathways.BoneChar = "Bone Char",
+    ItemName_PhobosChemistryPathways.Potash = "Potash",
+    ItemName_PhobosChemistryPathways.DilutedCompost = "Diluted Compost",
+    ItemName_PhobosChemistryPathways.SulphurPowder = "Sulphur Powder",
+    ItemName_PhobosChemistryPathways.PotassiumNitratePowder = "Potassium Nitrate Powder",
+    ItemName_PhobosChemistryPathways.SulphuricAcidJar = "Jar of Sulphuric Acid",
+    ItemName_PhobosChemistryPathways.SulphuricAcidBottle = "Bottle of Sulphuric Acid",
+    ItemName_PhobosChemistryPathways.SulphuricAcidCrucible = "Crucible of Sulphuric Acid",
+    ItemName_PhobosChemistryPathways.SulphuricAcidClayJar = "Clay Jar of Sulphuric Acid",
+    ItemName_PhobosChemistryPathways.LeadScrap = "Lead Scrap",
+    ItemName_PhobosChemistryPathways.PlasticScrap = "Plastic Scrap",
+    ItemName_PhobosChemistryPathways.AcidWashedElectronics = "Acid-Washed Electronics",
+    ItemName_PhobosChemistryPathways.BkChemistryPathways = "Chemistry Pathways Handbook",
+
+    /* ===== Biodiesel Pathway Items — Oil & Fat ===== */
+    ItemName_PhobosChemistryPathways.CrudeVegetableOil = "Jar of Crude Vegetable Oil",
+    ItemName_PhobosChemistryPathways.CrudeVegetableOilClayJar = "Clay Jar of Crude Vegetable Oil",
+    ItemName_PhobosChemistryPathways.CrudeVegetableOilBucket = "Bucket of Crude Vegetable Oil",
+    ItemName_PhobosChemistryPathways.RenderedFat = "Jar of Rendered Fat",
+    ItemName_PhobosChemistryPathways.RenderedFatClayJar = "Clay Jar of Rendered Fat",
+    ItemName_PhobosChemistryPathways.RenderedFatBucket = "Bucket of Rendered Fat",
+
+    /* ===== Biodiesel Pathway Items — Methanol & Tar ===== */
+    ItemName_PhobosChemistryPathways.WoodMethanol = "Bottle of Wood Methanol",
+    ItemName_PhobosChemistryPathways.WoodTar = "Jar of Wood Tar",
+
+    /* ===== Biodiesel Pathway Items — Catalyst & By-Products ===== */
+    ItemName_PhobosChemistryPathways.PotassiumHydroxide = "Potassium Hydroxide",
+    ItemName_PhobosChemistryPathways.Calcite = "Calcite",
+    ItemName_PhobosChemistryPathways.Glycerol = "Bottle of Glycerol",
+
+    /* ===== Biodiesel Pathway Items — Biodiesel ===== */
+    ItemName_PhobosChemistryPathways.CrudeBiodiesel = "Jar of Crude Biodiesel",
+    ItemName_PhobosChemistryPathways.CrudeBiodieselClayJar = "Clay Jar of Crude Biodiesel",
+    ItemName_PhobosChemistryPathways.CrudeBiodieselBucket = "Bucket of Crude Biodiesel",
+    ItemName_PhobosChemistryPathways.WashedBiodiesel = "Jar of Washed Biodiesel",
+    ItemName_PhobosChemistryPathways.WashedBiodieselClayJar = "Clay Jar of Washed Biodiesel",
+    ItemName_PhobosChemistryPathways.WashedBiodieselBucket = "Bucket of Washed Biodiesel",
+    ItemName_PhobosChemistryPathways.RefinedBiodieselCan = "Refined Biodiesel Can",
+
+    /* ===== Biodiesel Pathway Items — Soap ===== */
+    ItemName_PhobosChemistryPathways.CrudeSoap = "Crude Lye Soap",
+}

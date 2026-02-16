@@ -1,0 +1,19 @@
+VERSION = 1,
+
+option PCP.YieldMultiplier
+{
+	type = double, min = 0.25, max = 4.00, default = 1.00,
+	page = PCP_Sandbox, translation = PCP_YieldMultiplier,
+}
+
+option PCP.EnableAdvancedLabRecipes
+{
+	type = boolean, default = false,
+	page = PCP_Sandbox, translation = PCP_EnableAdvancedLabRecipes,
+}
+
+option PCP.RequireHeatSources
+{
+	type = boolean, default = true,
+	page = PCP_Sandbox, translation = PCP_RequireHeatSources,
+}

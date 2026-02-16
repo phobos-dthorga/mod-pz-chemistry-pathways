@@ -1,0 +1,262 @@
+module Base
+{
+
+/* ============================== SULPHURIC ACID ============================== */
+/*  Concentrated sulphuric acid (H2SO4). Extremely corrosive.
+    Ingestion causes severe internal chemical burns and rapid death.
+    Must be stored in chemically resistant glass or glazed ceramic vessels. */
+
+    fluid SulphuricAcid
+    {
+        ColorReference = LimeGreen,
+        DisplayName = Fluid_Name_PCP_SulphuricAcid,
+        Categories
+        {
+            Hazardous,
+            Industrial,
+        }
+        Poison
+        {
+            maxEffect = Deadly,
+            minAmount = 0.1,
+            diluteRatio = 0.3,
+        }
+        BlendWhiteList
+        {
+            whitelist = true,
+            categories
+            {
+                Beverage,
+            }
+        }
+    }
+
+/* ============================== CRUDE VEGETABLE OIL ============================== */
+/*  Crude pressed oil from seeds or beans. Edible but unpleasant raw.
+    Very calorie-dense — emergency food source in survival situations.
+    Primary triglyceride feedstock for biodiesel transesterification.      */
+
+    fluid CrudeVegetableOil
+    {
+        ColorReference = Gold,
+        DisplayName = Fluid_Name_PCP_CrudeVegetableOil,
+        Categories
+        {
+            Food,
+            Industrial,
+        }
+        Properties
+        {
+            HungerChange = -30.0,
+            ThirstChange = 5.0,
+            Calories = 2200.0,
+            Carbohydrates = 0.0,
+            Lipids = 130.0,
+            Proteins = 0.0,
+            UnhappyChange = 10.0,
+        }
+        BlendWhiteList
+        {
+            whitelist = true,
+            categories
+            {
+                Beverage,
+            }
+        }
+    }
+
+/* ============================== RENDERED FAT ============================== */
+/*  Animal fat rendered down to a clean, liquid form.
+    Edible but very unpleasant to consume raw. Extremely calorie-dense.
+    Alternative triglyceride feedstock for biodiesel production.            */
+
+    fluid RenderedFat
+    {
+        ColorReference = Tan,
+        DisplayName = Fluid_Name_PCP_RenderedFat,
+        Categories
+        {
+            Food,
+            Industrial,
+        }
+        Properties
+        {
+            HungerChange = -35.0,
+            ThirstChange = 5.0,
+            Calories = 2400.0,
+            Carbohydrates = 0.0,
+            Lipids = 150.0,
+            Proteins = 0.0,
+            UnhappyChange = 15.0,
+        }
+        BlendWhiteList
+        {
+            whitelist = true,
+            categories
+            {
+                Beverage,
+            }
+        }
+    }
+
+/* ============================== WOOD METHANOL ============================== */
+/*  Methanol (CH3OH) obtained by destructive distillation of wood/charcoal.
+    EXTREMELY TOXIC: 10ml causes blindness, 30ml is lethal.
+    Essential reagent for biodiesel transesterification.                     */
+
+    fluid WoodMethanol
+    {
+        ColorReference = PaleTurquoise,
+        DisplayName = Fluid_Name_PCP_WoodMethanol,
+        Categories
+        {
+            Hazardous,
+            Industrial,
+        }
+        Poison
+        {
+            maxEffect = Deadly,
+            minAmount = 0.05,
+            diluteRatio = 0.2,
+        }
+        BlendWhiteList
+        {
+            whitelist = true,
+            categories
+            {
+                Beverage,
+            }
+        }
+    }
+
+/* ============================== WOOD TAR ============================== */
+/*  Thick, dark tar condensed during wood/charcoal distillation.
+    Contains phenols and polycyclic aromatic hydrocarbons (PAHs).
+    Useful as a waterproofing sealant or fuel supplement.                  */
+
+    fluid WoodTar
+    {
+        ColorReference = SaddleBrown,
+        DisplayName = Fluid_Name_PCP_WoodTar,
+        Categories
+        {
+            Hazardous,
+            Industrial,
+        }
+        Poison
+        {
+            maxEffect = Heavy,
+            minAmount = 0.2,
+            diluteRatio = 0.5,
+        }
+        BlendWhiteList
+        {
+            whitelist = true,
+            categories
+            {
+                Beverage,
+            }
+        }
+    }
+
+/* ============================== CRUDE BIODIESEL ============================== */
+/*  Raw biodiesel (fatty acid methyl esters) freshly produced by
+    transesterification. Contains dissolved glycerol, soap residue,
+    and trace methanol. Must be washed before use as fuel.                 */
+
+    fluid CrudeBiodiesel
+    {
+        ColorReference = DarkKhaki,
+        DisplayName = Fluid_Name_PCP_CrudeBiodiesel,
+        Categories
+        {
+            Hazardous,
+            Industrial,
+        }
+        Poison
+        {
+            maxEffect = Heavy,
+            minAmount = 0.15,
+            diluteRatio = 0.3,
+        }
+        BlendWhiteList
+        {
+            whitelist = true,
+            categories
+            {
+                Beverage,
+            }
+        }
+    }
+
+/* ============================== GLYCEROL ============================== */
+/*  Glycerol (glycerine) separated during transesterification.
+    Food-grade glycerol (E422) is edible with a sweet taste.
+    Excessive ingestion causes nausea and gastrointestinal distress.
+    Versatile by-product used in soap-making and medicine.                 */
+
+    fluid Glycerol
+    {
+        ColorReference = FloralWhite,
+        DisplayName = Fluid_Name_PCP_Glycerol,
+        Categories
+        {
+            Food,
+            Industrial,
+        }
+        Poison
+        {
+            maxEffect = Light,
+            minAmount = 0.5,
+            diluteRatio = 0.8,
+        }
+        Properties
+        {
+            HungerChange = -15.0,
+            ThirstChange = -10.0,
+            Calories = 400.0,
+            Carbohydrates = 50.0,
+            Lipids = 0.0,
+            Proteins = 0.0,
+        }
+        BlendWhiteList
+        {
+            whitelist = true,
+            categories
+            {
+                Beverage,
+            }
+        }
+    }
+
+/* ============================== WASHED BIODIESEL ============================== */
+/*  Water-washed biodiesel with soap and glycerol residue removed.
+    Still a hazardous hydrocarbon — not safe for ingestion.
+    After settling, ready to be decanted as usable engine fuel.            */
+
+    fluid WashedBiodiesel
+    {
+        ColorReference = Khaki,
+        DisplayName = Fluid_Name_PCP_WashedBiodiesel,
+        Categories
+        {
+            Hazardous,
+            Industrial,
+        }
+        Poison
+        {
+            maxEffect = Medium,
+            minAmount = 0.2,
+            diluteRatio = 0.4,
+        }
+        BlendWhiteList
+        {
+            whitelist = true,
+            categories
+            {
+                Beverage,
+            }
+        }
+    }
+
+}

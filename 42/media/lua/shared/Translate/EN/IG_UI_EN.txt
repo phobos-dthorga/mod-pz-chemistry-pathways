@@ -1,0 +1,4 @@
+IGUI_EN = {
+	/* ===== Crafting Category ===== */
+	IGUI_CraftCategory_PhobosChemistry = "Phobos' Chemistry Recipes",
+}

@@ -1,0 +1,11 @@
+Fluids_EN = {
+    /* ===== Fluid Names ===== */
+    Fluid_Name_PCP_SulphuricAcid = "Sulphuric Acid",
+    Fluid_Name_PCP_CrudeVegetableOil = "Crude Vegetable Oil",
+    Fluid_Name_PCP_RenderedFat = "Rendered Fat",
+    Fluid_Name_PCP_WoodMethanol = "Wood Methanol",
+    Fluid_Name_PCP_WoodTar = "Wood Tar",
+    Fluid_Name_PCP_CrudeBiodiesel = "Crude Biodiesel",
+    Fluid_Name_PCP_Glycerol = "Glycerol",
+    Fluid_Name_PCP_WashedBiodiesel = "Washed Biodiesel",
+}
