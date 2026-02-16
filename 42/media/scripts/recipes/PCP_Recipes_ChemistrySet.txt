@@ -187,6 +187,35 @@ module Base
     }
 
 
+/* ----- PREPARE DILUTED COMPOST (Animal Dung) ----- */
+/*  Dissolve animal dung in water to create a nitrate-rich slurry. Historically,
+    aged manure was the PRIMARY source of saltpeter (KNO3) — bacteria in decomposing
+    waste convert nitrogen compounds into nitrates. Lower yield than processed
+    compost fertiliser, but readily available from animal husbandry.                    */
+
+    craftRecipe PCPPrepareDilutedCompostDung
+    {
+        time = 120,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:15,
+
+        inputs
+        {
+            item 10 tags[base:iscompostable],
+            item 1 [*],
+            -fluid 10.0 [Water],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.DilutedCompost,
+        }
+    }
+
+
 /* ==================================================================================== */
 /* ============================== SULPHURIC ACID EXTRACTION ============================ */
 /* ==================================================================================== */

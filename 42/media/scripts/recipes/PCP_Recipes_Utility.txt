@@ -23,7 +23,7 @@ module Base
         inputs
         {
             item 1 [Base.WaterBottle;Base.Pop;Base.Pop2;Base.Pop3;Base.PopBottle;Base.Canteen;Base.Bleach;Base.Disinfectant] mode:destroy flags[IsEmpty],
-            item 1 tags[base:smallblade;base:largeblade] mode:keep flags[NoBrokenItems;MayDegradeLight],
+            item 1 tags[base:smallblade] mode:keep flags[NoBrokenItems;MayDegradeLight],
         }
         outputs
         {

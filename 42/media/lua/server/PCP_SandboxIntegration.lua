@@ -49,6 +49,20 @@ function PCP_Sandbox.onTestNoHeatRequired(recipe, player)
     return not PCP_Sandbox.isHeatRequired()
 end
 
+---------------------------------------------------------------
+-- Cross-Mod Integration: ZScienceSkill ("Science, Bitch!" mod)
+-- Detected at runtime via PhobosLib.isModActive().
+-- When active, Phase 2 (Applied Chemistry skill) will award
+-- Science XP alongside chemistry XP at 50% rate.
+-- Currently dormant — detection function only.
+---------------------------------------------------------------
+
+--- Check if the "Science, Bitch!" (ZScienceSkill) mod is active.
+-- @return boolean  true if ZScienceSkill is loaded
+function PCP_Sandbox.isZScienceActive()
+    return PhobosLib.isModActive("ZScienceSkill")
+end
+
 -- Register the OnTest functions globally so recipes can reference them.
 if not RecipeCodeOnTest then RecipeCodeOnTest = {} end
 RecipeCodeOnTest.pcpAdvancedLabCheck = PCP_Sandbox.onTestAdvancedLab
