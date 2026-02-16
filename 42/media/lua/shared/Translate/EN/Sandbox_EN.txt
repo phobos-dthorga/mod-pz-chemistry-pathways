@@ -9,4 +9,16 @@ Sandbox_EN = {
 
     Sandbox_PCP_RequireHeatSources = "REQUIRE HEAT SOURCES:",
     Sandbox_PCP_RequireHeatSources_tooltip = "When enabled, recipes that require heat need an appropriate fuel source.<br> <INDENT:20>-Chemistry Set recipes: require a propane tank to fuel the Bunsen burner;<br> <INDENT:20>-Bulk reactions (Metal Drum): require wood charcoal (x3) or coke (x1) to stoke a fire;<br> <INDENT:20>-Surface craft (soap): require wood charcoal (x3) or coke (x1).<br><br> <INDENT:20>-ON (default): Realistic mode. Heat-driven reactions require fuel;<br> <INDENT:20>-OFF: Simplified mode. No fuel sources required.<br><br> <RGB:1,0.6,0.2> Requires a game restart to take effect. <RGB:1,1,1>",
+
+    Sandbox_PCP_EnableImpuritySystem = "ENABLE IMPURITY SYSTEM:",
+    Sandbox_PCP_EnableImpuritySystem_tooltip = "Enables the chemistry purity/impurity tracking system.<br> <INDENT:20>-All crafted chemistry items track a purity percentage (0-100%);<br> <INDENT:20>-Lower-tier equipment produces lower purity output;<br> <INDENT:20>-Advanced lab equipment (Chromatograph, Centrifuge) can raise purity;<br> <INDENT:20>-Impure biodiesel yields less fuel; impure blackpowder yields less gunpowder.<br><br> <INDENT:20>-OFF (default): No purity tracking. All recipes behave normally.<br> <INDENT:20>-ON: Purity is tracked and affects yields.<br><br> <RGB:1,0.6,0.2> Safe to enable mid-save. Existing items treated as Standard (50%) purity. <RGB:1,1,1>",
+
+    Sandbox_PCP_ImpuritySeverity = "IMPURITY SEVERITY:",
+    Sandbox_PCP_ImpuritySeverity_tooltip = "Controls how harshly impurities affect yields and how much advanced equipment helps.<br> <INDENT:20>-1 = Mild: Equipment improvements amplified, degradation halved;<br> <INDENT:20>-2 = Standard: Normal purity curves (default);<br> <INDENT:20>-3 = Harsh: Equipment improvements halved, degradation amplified.<br><br> <RGB:0.7,0.7,0.7> Only applies when Impurity System is enabled. <RGB:1,1,1>",
+    Sandbox_PCP_ImpuritySeverity1 = "Mild",
+    Sandbox_PCP_ImpuritySeverity2 = "Standard",
+    Sandbox_PCP_ImpuritySeverity3 = "Harsh",
+
+    Sandbox_PCP_ShowPurityOnCraft = "SHOW PURITY ON CRAFT:",
+    Sandbox_PCP_ShowPurityOnCraft_tooltip = "When enabled, the player character announces the purity tier of crafted items via speech bubble.<br> <INDENT:20>-ON (default): Shows e.g. 'Purity: Pure (72%)';<br> <INDENT:20>-OFF: Silent crafting, check purity via tooltip only.<br><br> <RGB:0.7,0.7,0.7> Only applies when Impurity System is enabled. <RGB:1,1,1>",
 }

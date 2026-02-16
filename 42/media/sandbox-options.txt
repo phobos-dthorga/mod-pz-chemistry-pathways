@@ -17,3 +17,21 @@ option PCP.RequireHeatSources
 	type = boolean, default = true,
 	page = PCP_Sandbox, translation = PCP_RequireHeatSources,
 }
+
+option PCP.EnableImpuritySystem
+{
+	type = boolean, default = false,
+	page = PCP_Sandbox, translation = PCP_EnableImpuritySystem,
+}
+
+option PCP.ImpuritySeverity
+{
+	type = enum, numValues = 3, default = 2,
+	page = PCP_Sandbox, translation = PCP_ImpuritySeverity,
+}
+
+option PCP.ShowPurityOnCraft
+{
+	type = boolean, default = true,
+	page = PCP_Sandbox, translation = PCP_ShowPurityOnCraft,
+}

@@ -14,6 +14,7 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = MixingMortarPestle,
@@ -42,6 +43,7 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = MixingMortarPestle,
@@ -70,6 +72,7 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = MixingMortarPestle,
@@ -98,6 +101,7 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = MixingMortarPestle,
@@ -126,6 +130,7 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = MixingMortarPestle,
@@ -154,6 +159,7 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = MixingMortarPestle,
@@ -187,6 +193,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -216,6 +223,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -248,6 +256,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -277,6 +286,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -309,6 +319,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -338,6 +349,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -370,6 +382,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -399,6 +412,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -431,6 +445,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -460,6 +475,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -492,6 +508,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -521,6 +538,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -557,6 +575,7 @@ module Base
         time = 350,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -581,6 +600,7 @@ module Base
         time = 350,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -605,6 +625,7 @@ module Base
         time = 350,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -630,6 +651,7 @@ module Base
         time = 350,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -655,6 +677,7 @@ module Base
         time = 350,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -680,6 +703,7 @@ module Base
         time = 350,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -710,6 +734,7 @@ module Base
         time = 40,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpConvertOilPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
@@ -738,6 +763,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpRenderFatPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -767,6 +793,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpRenderFatPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -806,6 +833,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -836,6 +864,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -877,6 +906,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -908,6 +938,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -950,6 +981,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -983,6 +1015,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -1020,6 +1053,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -1053,6 +1087,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -1095,6 +1130,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -1123,6 +1159,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -1151,7 +1188,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
-        OnCreate = PCP_RecipeCallbacks.pcpReturnPartialPropane,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyOilBulkPropanePurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -1180,6 +1217,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -1210,6 +1248,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -1238,6 +1277,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -1266,7 +1306,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
-        OnCreate = PCP_RecipeCallbacks.pcpReturnPartialPropane,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyFatBulkPropanePurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -1295,6 +1335,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -1332,6 +1373,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -1365,6 +1407,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -1400,6 +1443,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -1433,6 +1477,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -1474,6 +1519,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -1502,6 +1548,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -1530,7 +1577,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
-        OnCreate = PCP_RecipeCallbacks.pcpReturnPartialPropane,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyOilBulkPropanePurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -1559,6 +1606,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -1589,6 +1637,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -1617,6 +1666,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -1645,7 +1695,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
-        OnCreate = PCP_RecipeCallbacks.pcpReturnPartialPropane,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyFatBulkPropanePurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -1674,6 +1724,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -1712,6 +1763,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -1739,6 +1791,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -1770,6 +1823,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -1794,6 +1848,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -1818,7 +1873,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
-        OnCreate = PCP_RecipeCallbacks.pcpReturnPartialPropane,
+        OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselBulkPropanePurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -1843,6 +1898,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -1871,6 +1927,7 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpRefineBiodieselPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
@@ -1902,6 +1959,7 @@ module Base
         time = 180,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpCentrifugeWashPurity,
 
         Tags = zReVAC2:Centrifuge;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -1930,6 +1988,7 @@ module Base
         time = 120,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpCentrifugeGlycerolPurity,
 
         Tags = zReVAC2:Centrifuge;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -1965,6 +2024,7 @@ module Base
         time = 300,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpChromatographBiodieselPurity,
 
         Tags = zReVAC2:Chromatograph;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -1995,6 +2055,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpChromatographMethanolPurity,
 
         Tags = zReVAC2:Chromatograph;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -2025,6 +2086,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpChromatographMethanolPurity,
 
         Tags = zReVAC2:Chromatograph;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -2065,6 +2127,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpAdvancedLabCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpMicroscopeAnalyzePurity,
 
         Tags = zReVAC2:Microscope;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -2108,6 +2171,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpAdvancedLabCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpSpectrometerTestPurity,
 
         Tags = zReVAC2:Spectrometer;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -2143,6 +2207,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2167,6 +2232,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2191,7 +2257,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
-        OnCreate = PCP_RecipeCallbacks.pcpReturnPartialPropane,
+        OnCreate = PCP_RecipeCallbacks.pcpBoneCharPropanePurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2216,6 +2282,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2242,6 +2309,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2266,6 +2334,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2290,7 +2359,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
-        OnCreate = PCP_RecipeCallbacks.pcpReturnPartialPropane,
+        OnCreate = PCP_RecipeCallbacks.pcpBoneCharSkullPropanePurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2315,6 +2384,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2345,6 +2415,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2370,6 +2441,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2395,7 +2467,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
-        OnCreate = PCP_RecipeCallbacks.pcpReturnPartialPropane,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPropanePurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2421,6 +2493,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2450,6 +2523,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2475,6 +2549,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2500,7 +2575,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
-        OnCreate = PCP_RecipeCallbacks.pcpReturnPartialPropane,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPropanePurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2526,6 +2601,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2557,6 +2633,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2584,6 +2661,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2611,7 +2689,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
-        OnCreate = PCP_RecipeCallbacks.pcpReturnPartialPropane,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapFatPropanePurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2639,6 +2717,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2668,6 +2747,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2695,6 +2775,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2722,7 +2803,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
-        OnCreate = PCP_RecipeCallbacks.pcpReturnPartialPropane,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapFatPropanePurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
@@ -2750,6 +2831,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,

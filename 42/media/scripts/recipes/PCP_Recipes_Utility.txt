@@ -15,6 +15,7 @@ module Base
         time = 60,
         category = PhobosChemistry,
         NeedToBeLearn = false,
+        OnCreate = PCP_RecipeCallbacks.pcpCutPlasticPurity,
 
         Tags = AnySurfaceCraft,
         timedAction = Making_Surface,
@@ -47,6 +48,7 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpAcidWashPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,

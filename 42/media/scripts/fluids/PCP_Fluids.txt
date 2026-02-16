@@ -145,7 +145,7 @@ module Base
         }
         Poison
         {
-            maxEffect = Heavy,
+            maxEffect = Severe,
             minAmount = 0.2,
             diluteRatio = 0.5,
         }
@@ -175,7 +175,7 @@ module Base
         }
         Poison
         {
-            maxEffect = Heavy,
+            maxEffect = Severe,
             minAmount = 0.15,
             diluteRatio = 0.3,
         }
@@ -206,7 +206,7 @@ module Base
         }
         Poison
         {
-            maxEffect = Light,
+            maxEffect = Mild,
             minAmount = 0.5,
             diluteRatio = 0.8,
         }

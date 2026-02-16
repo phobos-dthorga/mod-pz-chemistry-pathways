@@ -131,3 +131,18 @@ CrudeVegetableOil, RenderedFat, WoodMethanol, WoodTar, CrudeBiodiesel, Glycerol,
 - [x] ZScienceSkill detection function added to PCP_SandboxIntegration.lua (dormant, Phase 2 integration)
 - [x] Handbook LearnedRecipes updated to 112 IDs
 - [x] Total verified: 34 items, 112 recipes, 112 translations, 112 handbook IDs
+
+## Impurity/Purity System (2026-02-17)
+- [x] PCP_Fluids.txt: Fixed 3 invalid maxEffect values (Heavy→Severe, Light→Mild)
+- [x] PhobosLib_Util.lua: 3 modData helpers (getModData, getModDataValue, setModDataValue)
+- [x] PhobosLib_Quality.lua: NEW — 12 generic quality/purity functions (reusable across mods)
+- [x] PhobosLib.lua: Added `require "PhobosLib_Quality"`
+- [x] PCP_PuritySystem.lua: NEW — PCP-specific config + wrappers (tiers, factors, yield table)
+- [x] sandbox-options.txt: 3 new options (EnableImpuritySystem, ImpuritySeverity, ShowPurityOnCraft)
+- [x] Sandbox_EN.txt: 3 new option translations + 3 enum labels
+- [x] PCP_RecipeCallbacks.lua: 37 new purity callbacks (9 source + 15 propagation + 4 terminal + 2 utility + 7 combined propane+purity)
+- [x] All 112 recipes have OnCreate callbacks (82 new + 11 replaced propane callbacks + 19 ChemistrySet/Utility)
+- [x] PCP_PurityTooltip.lua: NEW client-side tooltip hook (pcall-wrapped, best-effort)
+- [x] Handbook tooltip updated with purity system note
+- [x] Sandbox options: 6 total (3 original + 3 purity system)
+- [x] Total: 34 items, 112 recipes, 8 fluids, 6 sandbox options, 112 OnCreate callbacks

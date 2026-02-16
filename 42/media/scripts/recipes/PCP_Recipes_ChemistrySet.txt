@@ -14,6 +14,7 @@ module Base
         time = 80,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpCrushCharcoalPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = MixingMortarPestle,
@@ -41,6 +42,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -69,6 +71,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -102,6 +105,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalNaOHPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -132,6 +136,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalNaOHPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -169,6 +174,7 @@ module Base
         time = 100,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpCompostPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -198,6 +204,7 @@ module Base
         time = 120,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpCompostPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -230,6 +237,7 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpExtractAcidPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
         timedAction = Making_Surface,
@@ -265,6 +273,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -295,6 +304,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -329,6 +339,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -358,6 +369,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -396,6 +408,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3Purity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -426,6 +439,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3Purity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -461,6 +475,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3Purity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -489,6 +504,7 @@ module Base
         category = PhobosChemistry,
         NeedToBeLearn = true,
         OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3Purity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -526,6 +542,7 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpMixBlackpowderPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
