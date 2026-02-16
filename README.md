@@ -79,6 +79,17 @@ This project uses dual licensing:
 
 Forks and addons are encouraged. Code is permissively licensed for integration. Assets are protected from unauthorized redistribution.
 
+## Documentation
+
+Visual guides for understanding recipe chains, sandbox settings, and mod architecture:
+
+- [Recipe Pathways](docs/diagrams/recipe-pathways.md) — Complete crafting chain flowcharts for all 6 pathways
+- [Sandbox Settings Guide](docs/diagrams/sandbox-gating.md) — How 7 sandbox options control recipe visibility and behavior
+- [Skill Progression](docs/diagrams/skill-progression.md) — Applied Chemistry skill tiers, XP curve, occupations, and traits
+- [Architecture & Dependencies](docs/diagrams/architecture.md) — Dependency graph, PhobosLib modules, and cross-mod integration
+
+See [docs/README.md](docs/README.md) for the full index.
+
 ## Further Reading
 - [PROJECT_IDENTITY.md](PROJECT_IDENTITY.md) — Authorship and fork policy
 - [MODDING_PERMISSION.md](MODDING_PERMISSION.md) — What you can and cannot do with this mod
