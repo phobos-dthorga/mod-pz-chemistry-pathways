@@ -236,6 +236,7 @@ module Base
     {
         time = 200,
         category = PhobosChemistry,
+        OnTest = pcpNoHazardCheck,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractAcidPurity,
 
@@ -272,7 +273,7 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = pcpHeatRequiredCheck,
+        OnTest = pcpHeatAndNoHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -303,7 +304,7 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = pcpNoHeatRequiredCheck,
+        OnTest = pcpNoHeatAndNoHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -338,7 +339,7 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = pcpHeatRequiredCheck,
+        OnTest = pcpHeatAndNoHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -368,7 +369,7 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = pcpNoHeatRequiredCheck,
+        OnTest = pcpNoHeatAndNoHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,

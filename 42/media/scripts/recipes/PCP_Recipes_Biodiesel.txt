@@ -832,7 +832,7 @@ module Base
         time = 400,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = pcpHeatRequiredCheck,
+        OnTest = pcpHeatAndNoHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -863,7 +863,7 @@ module Base
         time = 400,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = pcpNoHeatRequiredCheck,
+        OnTest = pcpNoHeatAndNoHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -905,7 +905,7 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = pcpHeatRequiredCheck,
+        OnTest = pcpHeatAndNoHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -937,7 +937,7 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = pcpNoHeatRequiredCheck,
+        OnTest = pcpNoHeatAndNoHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,

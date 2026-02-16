@@ -21,4 +21,7 @@ Sandbox_EN = {
 
     Sandbox_PCP_ShowPurityOnCraft = "SHOW PURITY ON CRAFT:",
     Sandbox_PCP_ShowPurityOnCraft_tooltip = "When enabled, the player character announces the purity tier of crafted items via speech bubble.<br> <INDENT:20>-ON (default): Shows e.g. 'Purity: Pure (72%)';<br> <INDENT:20>-OFF: Silent crafting, check purity via tooltip only.<br><br> <RGB:0.7,0.7,0.7> Only applies when Impurity System is enabled. <RGB:1,1,1>",
+
+    Sandbox_PCP_EnableHealthHazards = "ENABLE HEALTH HAZARDS:",
+    Sandbox_PCP_EnableHealthHazards_tooltip = "Adds health consequences for working with hazardous chemicals without respiratory protection.<br><br> <INDENT:20>-Hazardous recipes (methanol distillation, acid work, KOH synthesis, sulphur extraction) gain Safe/Unsafe variants;<br> <INDENT:20>-SAFE recipes require a gas mask or respirator with filter — filter degrades per craft (~40 crafts per filter);<br> <INDENT:20>-UNSAFE recipes impose health penalties when crafting without protection;<br> <INDENT:20>-With 'Extensive Health Rework' (EHR) mod: triggers realistic diseases (corpse sickness, pneumonia, wound infection);<br> <INDENT:20>-Without EHR: applies vanilla stat penalties (sickness, pain, stress).<br><br> <INDENT:20>-OFF (default): No health hazards. Recipes unchanged.<br> <INDENT:20>-ON: Hazardous recipes split into Protected/Unprotected variants.<br><br> <RGB:1,0.6,0.2> Requires a game restart to take effect. <RGB:1,1,1>",
 }

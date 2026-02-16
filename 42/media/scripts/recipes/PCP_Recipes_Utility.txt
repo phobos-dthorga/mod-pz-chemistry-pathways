@@ -47,6 +47,7 @@ module Base
     {
         time = 150,
         category = PhobosChemistry,
+        OnTest = pcpNoHazardCheck,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpAcidWashPurity,
 

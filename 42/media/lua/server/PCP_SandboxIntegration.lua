@@ -63,8 +63,68 @@ function PCP_Sandbox.isZScienceActive()
     return PhobosLib.isModActive("ZScienceSkill")
 end
 
+---------------------------------------------------------------
+-- Health Hazard Integration
+---------------------------------------------------------------
+
+--- Check if health hazards are enabled.
+-- @return boolean  true if enabled (default false)
+function PCP_Sandbox.isHealthHazardsEnabled()
+    return PhobosLib.getSandboxVar("PCP", "EnableHealthHazards", false) == true
+end
+
+--- OnTest: shows recipe when hazards ARE enabled.
+function PCP_Sandbox.onTestHazardEnabled(recipe, player)
+    return PCP_Sandbox.isHealthHazardsEnabled()
+end
+
+--- OnTest: shows recipe when hazards are NOT enabled (originals).
+function PCP_Sandbox.onTestNoHazard(recipe, player)
+    return not PCP_Sandbox.isHealthHazardsEnabled()
+end
+
+--- OnTest: heat required AND hazards enabled.
+function PCP_Sandbox.onTestHeatAndHazard(recipe, player)
+    return PCP_Sandbox.isHeatRequired() and PCP_Sandbox.isHealthHazardsEnabled()
+end
+
+--- OnTest: no heat required AND hazards enabled.
+function PCP_Sandbox.onTestNoHeatAndHazard(recipe, player)
+    return (not PCP_Sandbox.isHeatRequired()) and PCP_Sandbox.isHealthHazardsEnabled()
+end
+
+--- OnTest: heat required AND hazards NOT enabled.
+function PCP_Sandbox.onTestHeatAndNoHazard(recipe, player)
+    return PCP_Sandbox.isHeatRequired() and (not PCP_Sandbox.isHealthHazardsEnabled())
+end
+
+--- OnTest: no heat required AND hazards NOT enabled.
+function PCP_Sandbox.onTestNoHeatAndNoHazard(recipe, player)
+    return (not PCP_Sandbox.isHeatRequired()) and (not PCP_Sandbox.isHealthHazardsEnabled())
+end
+
+---------------------------------------------------------------
+-- Cross-Mod Integration: EHR (Extensive Health Rework)
+-- Detected at runtime via PhobosLib.isModActive("EHR").
+-- When active and EnableHealthHazards is ON, unsafe recipes
+-- trigger EHR diseases. Without EHR, vanilla stat fallback.
+---------------------------------------------------------------
+
+--- Check if EHR mod is active (convenience wrapper).
+-- @return boolean  true if EHR is loaded and disease system enabled
+function PCP_Sandbox.isEHRActive()
+    return PhobosLib.isEHRActive()
+end
+
+
 -- Register the OnTest functions globally so recipes can reference them.
 if not RecipeCodeOnTest then RecipeCodeOnTest = {} end
 RecipeCodeOnTest.pcpAdvancedLabCheck = PCP_Sandbox.onTestAdvancedLab
 RecipeCodeOnTest.pcpHeatRequiredCheck = PCP_Sandbox.onTestHeatRequired
 RecipeCodeOnTest.pcpNoHeatRequiredCheck = PCP_Sandbox.onTestNoHeatRequired
+RecipeCodeOnTest.pcpHazardEnabledCheck = PCP_Sandbox.onTestHazardEnabled
+RecipeCodeOnTest.pcpNoHazardCheck = PCP_Sandbox.onTestNoHazard
+RecipeCodeOnTest.pcpHeatAndHazardCheck = PCP_Sandbox.onTestHeatAndHazard
+RecipeCodeOnTest.pcpNoHeatAndHazardCheck = PCP_Sandbox.onTestNoHeatAndHazard
+RecipeCodeOnTest.pcpHeatAndNoHazardCheck = PCP_Sandbox.onTestHeatAndNoHazard
+RecipeCodeOnTest.pcpNoHeatAndNoHazardCheck = PCP_Sandbox.onTestNoHeatAndNoHazard

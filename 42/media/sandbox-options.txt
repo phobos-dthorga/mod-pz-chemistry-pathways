@@ -35,3 +35,9 @@ option PCP.ShowPurityOnCraft
 	type = boolean, default = true,
 	page = PCP_Sandbox, translation = PCP_ShowPurityOnCraft,
 }
+
+option PCP.EnableHealthHazards
+{
+	type = boolean, default = false,
+	page = PCP_Sandbox, translation = PCP_EnableHealthHazards,
+}

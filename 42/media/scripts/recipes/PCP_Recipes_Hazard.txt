@@ -1,0 +1,692 @@
+module Base
+{
+
+/* ==================================================================================== */
+/* ============================== HEALTH HAZARD RECIPE VARIANTS ======================== */
+/* ==================================================================================== */
+/*  When SandboxVars.PCP.EnableHealthHazards is ON, the 10 original hazardous recipes
+    are hidden (via modified OnTest) and replaced by these 20 Safe/Unsafe twins.
+
+    SAFE (Protected):
+      - Requires gas mask or respirator WITH filter + goggles + gloves
+      - Filter degrades 0.025 per craft (~40 crafts to exhaust a standard filter)
+      - No health effects
+
+    UNSAFE (No Mask!):
+      - Requires gloves only (no mask, no goggles)
+      - Triggers EHR disease (if EHR mod active) or vanilla stat penalties (fallback)
+      - Partial protection scaling if player happens to be wearing a mask              */
+
+
+/* ==================================================================================== */
+/* ============================== METHANOL DISTILLATION (HAZARD) ====================== */
+/* ==================================================================================== */
+
+/* ----- DISTILL METHANOL — SAFE (with heat) ----- */
+
+    craftRecipe PCPDistillMethanolSafe
+    {
+        time = 400,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatAndHazardCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolSafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:60,
+
+        inputs
+        {
+            item 4 tags[base:charcoal],
+            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.JarLid] mode:destroy,
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask] mode:keep flags[NoBrokenItems],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.WoodMethanol,
+            item 1 PhobosChemistryPathways.WoodTar,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+/* ----- DISTILL METHANOL — UNSAFE (with heat) ----- */
+
+    craftRecipe PCPDistillMethanolUnsafe
+    {
+        time = 400,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatAndHazardCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolUnsafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:60,
+
+        inputs
+        {
+            item 4 tags[base:charcoal],
+            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.JarLid] mode:destroy,
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.WoodMethanol,
+            item 1 PhobosChemistryPathways.WoodTar,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+/* ----- DISTILL METHANOL — SAFE (simple, no heat) ----- */
+
+    craftRecipe PCPDistillMethanolSimpleSafe
+    {
+        time = 400,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatAndHazardCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolSafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:60,
+
+        inputs
+        {
+            item 4 tags[base:charcoal],
+            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.JarLid] mode:destroy,
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.WoodMethanol,
+            item 1 PhobosChemistryPathways.WoodTar,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+/* ----- DISTILL METHANOL — UNSAFE (simple, no heat) ----- */
+
+    craftRecipe PCPDistillMethanolSimpleUnsafe
+    {
+        time = 400,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatAndHazardCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolUnsafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:60,
+
+        inputs
+        {
+            item 4 tags[base:charcoal],
+            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.JarLid] mode:destroy,
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.WoodMethanol,
+            item 1 PhobosChemistryPathways.WoodTar,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== KOH SYNTHESIS (HAZARD) =============================== */
+/* ==================================================================================== */
+
+/* ----- SYNTHESIZE KOH — SAFE (with heat) ----- */
+
+    craftRecipe PCPSynthesizeKOHSafe
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatAndHazardCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHSafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:80,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.Potash],
+            item 2 [Base.Quicklime],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask] mode:keep flags[NoBrokenItems],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [*],
+            -fluid 1.0 [Water],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.PotassiumHydroxide,
+            item 2 PhobosChemistryPathways.Calcite,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+/* ----- SYNTHESIZE KOH — UNSAFE (with heat) ----- */
+
+    craftRecipe PCPSynthesizeKOHUnsafe
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatAndHazardCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHUnsafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:80,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.Potash],
+            item 2 [Base.Quicklime],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [*],
+            -fluid 1.0 [Water],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.PotassiumHydroxide,
+            item 2 PhobosChemistryPathways.Calcite,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+/* ----- SYNTHESIZE KOH — SAFE (simple, no heat) ----- */
+
+    craftRecipe PCPSynthesizeKOHSimpleSafe
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatAndHazardCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHSafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:80,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.Potash],
+            item 2 [Base.Quicklime],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask] mode:keep flags[NoBrokenItems],
+            item 1 [*],
+            -fluid 1.0 [Water],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.PotassiumHydroxide,
+            item 2 PhobosChemistryPathways.Calcite,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+/* ----- SYNTHESIZE KOH — UNSAFE (simple, no heat) ----- */
+
+    craftRecipe PCPSynthesizeKOHSimpleUnsafe
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatAndHazardCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHUnsafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:80,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.Potash],
+            item 2 [Base.Quicklime],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [*],
+            -fluid 1.0 [Water],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.PotassiumHydroxide,
+            item 2 PhobosChemistryPathways.Calcite,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== SULPHUR EXTRACTION — ACID CAN (HAZARD) ============== */
+/* ==================================================================================== */
+
+/* ----- EXTRACT SULPHUR (Acid Can) — SAFE (with heat) ----- */
+
+    craftRecipe PCPExtractSulphurFromAcidCanSafe
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatAndHazardCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurSafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:60,
+
+        inputs
+        {
+            item 1 [zReLabItems.ChSulfuricAcidCan],
+            item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask] mode:keep flags[NoBrokenItems],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [*],
+            -fluid 0.2 [Water],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.SulphurPowder,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+/* ----- EXTRACT SULPHUR (Acid Can) — UNSAFE (with heat) ----- */
+
+    craftRecipe PCPExtractSulphurFromAcidCanUnsafe
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatAndHazardCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurUnsafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:60,
+
+        inputs
+        {
+            item 1 [zReLabItems.ChSulfuricAcidCan],
+            item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [*],
+            -fluid 0.2 [Water],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.SulphurPowder,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+/* ----- EXTRACT SULPHUR (Acid Can) — SAFE (simple, no heat) ----- */
+
+    craftRecipe PCPExtractSulphurFromAcidCanSimpleSafe
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatAndHazardCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurSafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:60,
+
+        inputs
+        {
+            item 1 [zReLabItems.ChSulfuricAcidCan],
+            item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask] mode:keep flags[NoBrokenItems],
+            item 1 [*],
+            -fluid 0.2 [Water],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.SulphurPowder,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+/* ----- EXTRACT SULPHUR (Acid Can) — UNSAFE (simple, no heat) ----- */
+
+    craftRecipe PCPExtractSulphurFromAcidCanSimpleUnsafe
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatAndHazardCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurUnsafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:60,
+
+        inputs
+        {
+            item 1 [zReLabItems.ChSulfuricAcidCan],
+            item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [*],
+            -fluid 0.2 [Water],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.SulphurPowder,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== SULPHUR EXTRACTION — ACID FLUID (HAZARD) ============ */
+/* ==================================================================================== */
+
+/* ----- EXTRACT SULPHUR (Acid Fluid) — SAFE (with heat) ----- */
+
+    craftRecipe PCPExtractSulphurFromAcidFluidSafe
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatAndHazardCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurSafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:60,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask] mode:keep flags[NoBrokenItems],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [*],
+            -fluid 1.0 [SulphuricAcid],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.SulphurPowder,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+/* ----- EXTRACT SULPHUR (Acid Fluid) — UNSAFE (with heat) ----- */
+
+    craftRecipe PCPExtractSulphurFromAcidFluidUnsafe
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatAndHazardCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurUnsafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:60,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [*],
+            -fluid 1.0 [SulphuricAcid],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.SulphurPowder,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+/* ----- EXTRACT SULPHUR (Acid Fluid) — SAFE (simple, no heat) ----- */
+
+    craftRecipe PCPExtractSulphurFromAcidFluidSimpleSafe
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatAndHazardCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurSafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:60,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask] mode:keep flags[NoBrokenItems],
+            item 1 [*],
+            -fluid 1.0 [SulphuricAcid],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.SulphurPowder,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+/* ----- EXTRACT SULPHUR (Acid Fluid) — UNSAFE (simple, no heat) ----- */
+
+    craftRecipe PCPExtractSulphurFromAcidFluidSimpleUnsafe
+    {
+        time = 250,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatAndHazardCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurUnsafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:60,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [*],
+            -fluid 1.0 [SulphuricAcid],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.SulphurPowder,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== BATTERY ACID EXTRACTION (HAZARD) ==================== */
+/* ==================================================================================== */
+
+/* ----- EXTRACT BATTERY ACID — SAFE ----- */
+
+    craftRecipe PCPExtractBatteryAcidSafe
+    {
+        time = 200,
+        category = PhobosChemistry,
+        OnTest = pcpHazardEnabledCheck,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpExtractAcidSafePurity,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:40,
+
+        inputs
+        {
+            item 1 tags[base:carbattery] mode:destroy,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] mode:destroy flags[IsEmpty],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.SulphuricAcidJar,
+            item 3 PhobosChemistryPathways.LeadScrap,
+        }
+    }
+
+/* ----- EXTRACT BATTERY ACID — UNSAFE ----- */
+
+    craftRecipe PCPExtractBatteryAcidUnsafe
+    {
+        time = 200,
+        category = PhobosChemistry,
+        OnTest = pcpHazardEnabledCheck,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpExtractAcidUnsafePurity,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = Doctor:40,
+
+        inputs
+        {
+            item 1 tags[base:carbattery] mode:destroy,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] mode:destroy flags[IsEmpty],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.SulphuricAcidJar,
+            item 3 PhobosChemistryPathways.LeadScrap,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== ACID WASH ELECTRONICS (HAZARD) ====================== */
+/* ==================================================================================== */
+
+/* ----- ACID WASH ELECTRONICS — SAFE ----- */
+
+    craftRecipe PCPAcidWashElectronicsSafe
+    {
+        time = 150,
+        category = PhobosChemistry,
+        OnTest = pcpHazardEnabledCheck,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpAcidWashSafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:40,
+
+        inputs
+        {
+            item 2 [Base.ElectronicsScrap],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask] mode:keep flags[NoBrokenItems],
+            item 1 [*],
+            -fluid 0.3 [SulphuricAcid],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.AcidWashedElectronics,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+/* ----- ACID WASH ELECTRONICS — UNSAFE ----- */
+
+    craftRecipe PCPAcidWashElectronicsUnsafe
+    {
+        time = 150,
+        category = PhobosChemistry,
+        OnTest = pcpHazardEnabledCheck,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpAcidWashUnsafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        xpAward = Doctor:40,
+
+        inputs
+        {
+            item 2 [Base.ElectronicsScrap],
+            item 1 [zReLabItems.LabFlask],
+            item 1 [zReLabItems.LabCorks],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [*],
+            -fluid 0.3 [SulphuricAcid],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.AcidWashedElectronics,
+            item 1 zReLabItems.LabFlaskDirty,
+        }
+    }
+
+}

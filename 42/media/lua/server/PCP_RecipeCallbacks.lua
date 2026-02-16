@@ -10,6 +10,7 @@
 
 require "PhobosLib"
 require "PCP_PuritySystem"
+require "PCP_HazardSystem"
 
 PCP_RecipeCallbacks = {}
 
@@ -376,4 +377,76 @@ function PCP_RecipeCallbacks.pcpMakeSoapFatPropanePurity(items, result, player)
     local input = PCP_PuritySystem.averageInputPurity(items)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet)
     _stampAndAnnounce(result, player, purity)
+end
+
+
+---------------------------------------------------------------
+-- HEALTH HAZARD CALLBACKS (20)
+-- Safe variants: purity + filter degradation
+-- Unsafe variants: purity + hazard effect dispatch
+---------------------------------------------------------------
+
+--- DRY helper: wrap an existing purity callback with safe filter degradation.
+local function _safeWrapper(purityFn, items, result, player)
+    purityFn(items, result, player)
+    if PCP_HazardSystem.isEnabled() then
+        PCP_HazardSystem.degradeFilterFromInputs(items)
+    end
+end
+
+--- DRY helper: wrap an existing purity callback with unsafe hazard dispatch.
+local function _unsafeWrapper(purityFn, hazardId, items, result, player)
+    purityFn(items, result, player)
+    PCP_HazardSystem.applyUnsafeEffect(player, hazardId)
+end
+
+
+-- Distill Methanol — Safe (filter degrade)
+function PCP_RecipeCallbacks.pcpDistillMethanolSafePurity(items, result, player)
+    _safeWrapper(PCP_RecipeCallbacks.pcpDistillMethanolPurity, items, result, player)
+end
+
+-- Distill Methanol — Unsafe (methanol_vapor)
+function PCP_RecipeCallbacks.pcpDistillMethanolUnsafePurity(items, result, player)
+    _unsafeWrapper(PCP_RecipeCallbacks.pcpDistillMethanolPurity, "methanol_vapor", items, result, player)
+end
+
+-- Synthesize KOH — Safe (filter degrade)
+function PCP_RecipeCallbacks.pcpSynthesizeKOHSafePurity(items, result, player)
+    _safeWrapper(PCP_RecipeCallbacks.pcpSynthesizeKOHPurity, items, result, player)
+end
+
+-- Synthesize KOH — Unsafe (caustic_vapor)
+function PCP_RecipeCallbacks.pcpSynthesizeKOHUnsafePurity(items, result, player)
+    _unsafeWrapper(PCP_RecipeCallbacks.pcpSynthesizeKOHPurity, "caustic_vapor", items, result, player)
+end
+
+-- Extract Sulphur — Safe (filter degrade)
+function PCP_RecipeCallbacks.pcpExtractSulphurSafePurity(items, result, player)
+    _safeWrapper(PCP_RecipeCallbacks.pcpExtractSulphurPurity, items, result, player)
+end
+
+-- Extract Sulphur — Unsafe (acid_fumes)
+function PCP_RecipeCallbacks.pcpExtractSulphurUnsafePurity(items, result, player)
+    _unsafeWrapper(PCP_RecipeCallbacks.pcpExtractSulphurPurity, "acid_fumes", items, result, player)
+end
+
+-- Extract Battery Acid — Safe (filter degrade)
+function PCP_RecipeCallbacks.pcpExtractAcidSafePurity(items, result, player)
+    _safeWrapper(PCP_RecipeCallbacks.pcpExtractAcidPurity, items, result, player)
+end
+
+-- Extract Battery Acid — Unsafe (acid_mist)
+function PCP_RecipeCallbacks.pcpExtractAcidUnsafePurity(items, result, player)
+    _unsafeWrapper(PCP_RecipeCallbacks.pcpExtractAcidPurity, "acid_mist", items, result, player)
+end
+
+-- Acid Wash Electronics — Safe (filter degrade)
+function PCP_RecipeCallbacks.pcpAcidWashSafePurity(items, result, player)
+    _safeWrapper(PCP_RecipeCallbacks.pcpAcidWashPurity, items, result, player)
+end
+
+-- Acid Wash Electronics — Unsafe (acid_mist)
+function PCP_RecipeCallbacks.pcpAcidWashUnsafePurity(items, result, player)
+    _unsafeWrapper(PCP_RecipeCallbacks.pcpAcidWashPurity, "acid_mist", items, result, player)
 end

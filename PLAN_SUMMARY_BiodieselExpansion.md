@@ -146,3 +146,19 @@ CrudeVegetableOil, RenderedFat, WoodMethanol, WoodTar, CrudeBiodiesel, Glycerol,
 - [x] Handbook tooltip updated with purity system note
 - [x] Sandbox options: 6 total (3 original + 3 purity system)
 - [x] Total: 34 items, 112 recipes, 8 fluids, 6 sandbox options, 112 OnCreate callbacks
+
+## EHR Health Hazard Integration (2026-02-17)
+- [x] PhobosLib_Hazard.lua: NEW — 6 generic PPE detection + hazard dispatch functions (reusable across mods)
+- [x] PhobosLib.lua: Added `require "PhobosLib_Hazard"`
+- [x] PCP_HazardSystem.lua: NEW — PCP-specific hazard config (4 hazard profiles, mask types, filter degrade constants)
+- [x] sandbox-options.txt: 1 new option (EnableHealthHazards, boolean, default false)
+- [x] Sandbox_EN.txt: EnableHealthHazards translation + tooltip (Safe/Unsafe variants, EHR/vanilla fallback)
+- [x] PCP_SandboxIntegration.lua: 6 new combined OnTest functions (heat×hazard matrix) + isEHRActive() + isHealthHazardsEnabled()
+- [x] 10 original hazardous recipes modified: OnTest changed to hide when hazards ON
+- [x] PCP_Recipes_Hazard.txt: NEW — 20 new recipes (10 Safe + 10 Unsafe twins)
+- [x] PCP_RecipeCallbacks.lua: 10 new callbacks (5 safe + 5 unsafe) via DRY _safeWrapper/_unsafeWrapper helpers
+- [x] Recipes_EN.txt: 20 new display name translations (Protected/No Mask! naming)
+- [x] Handbook tooltip updated with Health Hazards section
+- [x] Handbook LearnedRecipes updated to 132 IDs
+- [x] Sandbox options: 7 total (3 original + 3 purity + 1 health hazard)
+- [x] Total: 34 items, 132 recipes, 8 fluids, 7 sandbox options, 122 OnCreate callbacks
