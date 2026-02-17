@@ -72,7 +72,7 @@ module Base
         {
             item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
             item 3 tags[base:charcoal] mode:destroy,
-            item 1 tags[base:startfire] mode:destroy,
+            item 1 tags[base:startfire],
         }
         outputs
         {
@@ -100,7 +100,7 @@ module Base
         {
             item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
             item 1 [Base.Coke] mode:destroy,
-            item 1 tags[base:startfire] mode:destroy,
+            item 1 tags[base:startfire],
         }
         outputs
         {

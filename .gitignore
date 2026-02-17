@@ -42,3 +42,6 @@ luac.out
 # Private development notes
 MEMORY.md
 
+# Source art (1024x1024 PNGs) — stored on art-assets branch
+42/media/textures/Image_PCP_*.png
+
