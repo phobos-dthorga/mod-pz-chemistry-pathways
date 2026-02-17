@@ -1,6 +1,6 @@
 # Recipe Pathways
 
-Complete crafting chains from raw materials to final products. PCP adds 132 recipes across 6 pathways.
+Complete crafting chains from raw materials to final products. PCP adds 150 recipes across 7 pathways.
 
 ## Overview
 
@@ -54,6 +54,19 @@ graph TB
         DCOMPOST["DilutedCompost"]
         H2SO4["SulphuricAcid"]
         LEAD["LeadScrap"]
+        PLASTIC["PlasticScrap"]
+        ACIDWASH["AcidWashedElectronics"]
+    end
+
+    subgraph RC["Recycling Pathway (R1-R8)"]
+        WOODGLUE["WoodGlue (R1)"]
+        QLIME_OUT["Quicklime (R2)"]
+        FERT_OUT["Fertilizer (R3)"]
+        SOAP2["Soap (R4)"]
+        BANDAGE["Sterilized Bandages (R5)"]
+        TACKLE["FishingTackle (R6)"]
+        GLUE["Glue (R7)"]
+        TRANSISTOR["Transistor + Amplifier (R8)"]
     end
 
     %% Blackpowder chain
@@ -99,10 +112,21 @@ graph TB
     %% Utility
     BATTERY --> LEAD
 
+    %% Recycling chain
+    WOODTAR --> WOODGLUE
+    CALCITE --> QLIME_OUT
+    CALCITE --> FERT_OUT
+    SOAP --> SOAP2
+    SOAP --> BANDAGE
+    LEAD --> TACKLE
+    PLASTIC --> GLUE
+    ACIDWASH --> TRANSISTOR
+
     style GUNPOWDER fill:#c44,color:#fff
     style REFINED_BD fill:#4a4,color:#fff
     style SOAP fill:#48c,color:#fff
     style BONECHAR fill:#864,color:#fff
+    style RC fill:#654,color:#fff
 ```
 
 ---
@@ -192,7 +216,7 @@ graph TB
     subgraph PURIFY["Steps 4-5: Purification"]
         CBD --> W["Wash Biodiesel<br/>AC:3"]
         W --> WBD["WashedBiodiesel"]
-        WBD --> R["Refine Biodiesel<br/>AC:4"]
+        WBD --> R["Refine Biodiesel<br/>AC:4 | Jar + Bulk"]
         R --> RBD["RefinedBiodieselCan<br/>5L Petrol"]
     end
 
@@ -231,6 +255,9 @@ graph TB
 | Chromatograph | zReVaccin Chromatograph | `zReVAC2:Chromatograph` | Varies | Varies | None |
 | Microscope | zReVaccin Microscope | `zReVAC2:Microscope` | N/A | N/A | None |
 | Spectrometer | zReVaccin Spectrometer | `zReVAC2:Spectrometer` | N/A | N/A | None |
+| Charcoal Kiln | Charcoal Pit / Burner / Dome Kiln | `WoodCharcoal` | N/A | N/A | Charcoal x3 / Coke x1 / Propane |
+| Dome Kiln | Dome Kiln only | `DomeKiln` | N/A | N/A | Charcoal x3 / Coke x1 / Propane |
+| Primitive Furnace | Primitive / Smelting / Blast Furnace | `PrimitiveFurnace` | N/A | N/A | Charcoal x3 / Coke x1 / Propane |
 
 > **Container variants**: Many recipes support Mason Jar (1L), Clay Jar (2.5L), and Bucket (10L) alternatives. Container is consumed as input and becomes part of the output.
 
@@ -238,7 +265,7 @@ graph TB
 
 ## Bone Char Pathway
 
-Animal bones and skulls are pyrolysed in a Metal Drum to produce BoneChar, which substitutes for PurifiedCharcoal in filtration and reagent recipes.
+Animal bones and skulls are pyrolysed in a charcoal kiln (Charcoal Pit, Charcoal Burner, or Dome Kiln) to produce BoneChar, which substitutes for PurifiedCharcoal in filtration and reagent recipes.
 
 ```mermaid
 graph LR
@@ -250,7 +277,7 @@ graph LR
         SF["SharpBoneFragment"]
     end
 
-    subgraph PROCESS["B1. Pyrolyse Bones<br/>Metal Drum | AC:2"]
+    subgraph PROCESS["B1. Pyrolyse Bones<br/>Charcoal Pit / Burner / Kiln | AC:2"]
         SB --> PY["Pyrolysis<br/>(3-8 bones per craft)"]
         AB --> PY
         LB --> PY

@@ -22,8 +22,8 @@ graph TB
     S2 -->|"TRUE"| A_ON["Microscope + Spectrometer<br/>recipes unlocked (AC:7)"]
     S2 -->|"FALSE"| A_OFF["Microscope + Spectrometer<br/>recipes hidden"]
 
-    S3 -->|"TRUE"| Z_ON["10 originals HIDDEN<br/>20 Safe/Unsafe twins VISIBLE"]
-    S3 -->|"FALSE"| Z_OFF["10 originals VISIBLE<br/>20 twins HIDDEN"]
+    S3 -->|"TRUE"| Z_ON["11 originals HIDDEN<br/>22 Safe/Unsafe twins VISIBLE"]
+    S3 -->|"FALSE"| Z_OFF["11 originals VISIBLE<br/>22 twins HIDDEN"]
 
     S4 -->|"TRUE"| P_ON["Purity tracking ACTIVE<br/>37+ OnCreate callbacks fire"]
     S4 -->|"FALSE"| P_OFF["All purity logic bypassed<br/>Zero performance impact"]
@@ -65,7 +65,7 @@ When **FALSE**, simplified versions of all heated recipes appear with no fuel in
 
 ## EnableHealthHazards (Hazard Gating)
 
-When **TRUE**, 10 dangerous chemistry recipes are replaced by 20 Safe/Unsafe twin variants:
+When **TRUE**, 11 dangerous chemistry recipes are replaced by 22 Safe/Unsafe twin variants:
 
 | Original Recipe | Safe Variant | Unsafe Variant |
 |----------------|-------------|----------------|
@@ -74,6 +74,7 @@ When **TRUE**, 10 dangerous chemistry recipes are replaced by 20 Safe/Unsafe twi
 | Synthesize KOH (x2 variants) | + Gas Mask + Goggles | No mask required |
 | Purify Charcoal NaOH (x2 variants) | + Gas Mask + Goggles | No mask required |
 | Extract Battery Acid | + Gas Mask + Goggles | No mask required |
+| Melt Plastic Scrap (R7) | + Gas Mask + Goggles | No mask required |
 
 **Safe recipes**: Require a gas mask (GasMask, NBCmask, BuildersRespirator, or ImprovisedGasMask) and goggles (SafetyGoggles or SkiGoggles). Filter degrades by 0.025 per craft (~40 crafts to exhaust a standard filter). DustMask is NOT accepted.
 
@@ -87,6 +88,7 @@ When **TRUE**, 10 dangerous chemistry recipes are replaced by 20 Safe/Unsafe twi
 | `acid_fumes` | Extract Sulphur | corpse_sickness (45%) | pneumonia (10%) | 0.10 |
 | `caustic_vapor` | Synthesize KOH, Purify NaOH | corpse_sickness (35%) | none | 0.15 |
 | `acid_mist` | Extract Battery Acid | wound_infection (40%) | corpse_sickness (15%) | 0.10 |
+| `plastic_fumes` | Melt Plastic (R7) | corpse_sickness (40%) | pneumonia (8%) | 0.12 |
 
 ---
 

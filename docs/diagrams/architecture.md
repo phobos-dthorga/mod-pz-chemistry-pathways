@@ -11,16 +11,16 @@ graph TB
         ZR["zReVaccin 3<br/>Lab equipment entities"]
     end
 
-    subgraph PCP["PhobosChemistryPathways v0.10.0"]
+    subgraph PCP["PhobosChemistryPathways v0.11.0"]
         CORE["Core"]
-        REC["132 Recipes<br/>4 recipe files"]
+        REC["150 Recipes<br/>5 recipe files"]
         ITEMS["39 Items<br/>+ 5 Skill Books"]
         FLUIDS["8 Fluids"]
         SB["7 Sandbox Options"]
         PURITY["Purity System<br/>PCP_PuritySystem.lua"]
         HAZARD["Hazard System<br/>PCP_HazardSystem.lua"]
         SKILL["Skill System<br/>perks + professions + traits"]
-        CALLBACKS["122 OnCreate Callbacks<br/>PCP_RecipeCallbacks.lua"]
+        CALLBACKS["135 OnCreate Callbacks<br/>PCP_RecipeCallbacks.lua"]
     end
 
     subgraph SOFT["Soft Dependencies (runtime-detected)"]
@@ -95,7 +95,7 @@ graph TB
     START --> CHECK_EHR{"isModActive<br/>EHR?"}
 
     CHECK_ZSS -->|"Yes"| ZSS_INIT["Register XP Mirror<br/>AC -> Science at 50%<br/>(PCP_SkillXP.lua)"]
-    CHECK_ZSS -->|"Yes"| ZSS_DATA["Register 16 Specimens<br/>at Microscope<br/>(PCP_ZScienceData.lua)"]
+    CHECK_ZSS -->|"Yes"| ZSS_DATA["Register 33 Item + 8 Fluid<br/>Specimens | API: ZScienceSkill.Data.add<br/>(PCP_ZScienceData.lua)"]
     CHECK_ZSS -->|"No"| ZSS_SKIP["No action<br/>Zero errors"]
 
     CHECK_EHR -->|"Yes"| EHR_INIT["Hazard callbacks use<br/>EHR.Disease.TryContract<br/>(pcall-wrapped)"]
@@ -106,7 +106,7 @@ graph TB
 
 | Dependency | Mod ID | Detection | When Active | When Inactive |
 |-----------|--------|-----------|-------------|---------------|
-| **ZScienceSkill** | `ZScienceSkill` | `isModActive` + `perkExists("Science")` | Applied Chemistry XP mirrors to Science at 50% rate. 16 PCP chemical items registered as researchable microscope specimens. | No XP mirroring. No specimen registration. Zero errors. |
+| **ZScienceSkill** | `ZScienceSkill` | `isModActive` + `pcall` API check | Applied Chemistry XP mirrors to Science at 50% rate. 33 item specimens + 8 fluid specimens registered via `ZScienceSkill.Data.add()` with dual Science+AppliedChemistry XP. | No XP mirroring. No specimen registration. Zero errors. |
 | **EHR** | `EHR` | `isModActive` + `pcall(EHR.Disease.IsEnabled)` | Unsafe hazard recipes trigger EHR diseases with protection scaling (corpse_sickness, pneumonia, wound_infection). | Unsafe recipes fall back to vanilla stat penalties (CharacterStat.SICKNESS/PAIN/STRESS). |
 
 ### ZScienceSkill XP Mirroring
@@ -147,3 +147,15 @@ graph LR
 ```
 
 > **No NearItem property**: Build 42 `craftRecipe` does not have NearItem. Proximity is handled entirely through the Tags + CraftBench entity binding system.
+
+### Additional Workstation Tags (v0.11.0)
+
+PCP also uses vanilla workstation tags for recipes that don't need the custom MetalDrum entity:
+
+| Tag | Workstations | Used By |
+|-----|-------------|---------|
+| `WoodCharcoal` | Charcoal Pit, Charcoal Burner, Dome Kiln | Bone char pyrolysis (B1) |
+| `DomeKiln` | Dome Kiln only | Calcite calcination (R2) |
+| `PrimitiveFurnace` | Primitive, Smelting, Blast Furnace | Lead casting (R6) |
+
+> **Bone char migration**: In v0.11.0, bone char recipes moved from the custom `PCP:MetalDrumStation` tag to the vanilla `WoodCharcoal` tag. This allows players to use any charcoal-producing kiln, not just the metal drum.

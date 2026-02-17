@@ -6,6 +6,35 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.11.0] - 2026-02-17
+
+### Added
+- **Recycling Pathway (R1-R8)** — 18 new recipes in `PCP_Recipes_Recycling.txt`
+  - R1: WoodTar → WoodGlue (tar pitch adhesive, AnySurfaceCraft)
+  - R2: Calcite → Quicklime (calcination, DomeKiln, 4 heat variants)
+  - R3: Calcite → Fertilizer (agricultural lime + compost, AnySurfaceCraft)
+  - R4: CrudeSoap → Soap2 (cure and shape usable soap bars, AnySurfaceCraft)
+  - R5: CrudeSoap → Sterilized Bandages (lye antiseptic, ChemistrySet, 2 variants)
+  - R6: LeadScrap → FishingTackle (lead casting, PrimitiveFurnace, 4 heat variants)
+  - R7: PlasticScrap → Glue (melt plastic, ChemistrySet, + 2 hazard twins)
+  - R8: AcidWashedElectronics → Transistor + Amplifier (component recovery, AnySurfaceCraft)
+- **plastic_fumes hazard profile** for R7 PlasticScrap → Glue recipe
+- **PCPRefineBiodieselBulk** — WashedBiodieselBucket → 2× RefinedBiodieselCan (bulk biodiesel chain completion)
+
+### Changed
+- **Bone char workstation migrated**: 8 bone char recipes moved from `PCP:MetalDrumStation` to `WoodCharcoal` tag (Charcoal Pit, Charcoal Burner, Dome Kiln)
+- **Health hazard gating**: 11 originals / 22 Safe+Unsafe twins (was 10/20, R7 adds one)
+
+### Fixed
+- **ZScienceSkill integration rewrite** — corrected broken API
+  - Old: `ZScienceData.addSpecimen` (nonexistent). New: `ZScienceSkill.Data.add()`
+  - 16 items → 33 item specimens + 8 fluid specimens
+  - Dual-perk XP (Science + AppliedChemistry) on all specimens
+  - Container variant deduplication keys
+
+### Summary
+- **150 recipes** (was 132), **39 items**, **8 fluids**, **7 sandbox options**, **135 OnCreate callbacks** (was 122)
+
 ## [0.10.0] - 2026-02-17
 
 ### Added
