@@ -6,3 +6,5 @@ authors=phobosgekko
 versionMin=42.13.0
 modversion=0.12.0
 require=\PhobosLib,\zReModVaccin30bykERHUS
+loadModAfter=\PhobosLib,\zReModVaccin30bykERHUS,\ZScienceSkill,\EHR
+category=features
