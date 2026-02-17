@@ -56,7 +56,9 @@ function PCP_RecipeCallbacks.pcpReturnPartialPropane(items, result, player)
     local newTank = instanceItem("Base.PropaneTank")
     if newTank then
         PhobosLib.pcallMethod(newTank, "setDelta", remaining)
-        player:getInventory():AddItem(newTank)
+        if player then
+            player:getInventory():AddItem(newTank)
+        end
     end
 end
 

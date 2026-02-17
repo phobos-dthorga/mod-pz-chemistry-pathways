@@ -159,3 +159,40 @@ PCP also uses vanilla workstation tags for recipes that don't need the custom Me
 | `PrimitiveFurnace` | Primitive, Smelting, Blast Furnace | Lead casting (R6) |
 
 > **Bone char migration**: In v0.11.0, bone char recipes moved from the custom `PCP:MetalDrumStation` tag to the vanilla `WoodCharcoal` tag. This allows players to use any charcoal-producing kiln, not just the metal drum.
+
+---
+
+## Multiplayer & NPC Safety
+
+PhobosChemistryPathways and PhobosLib are designed to be safe in multiplayer
+and NPC-mod environments (e.g. Knox Event Expanded).
+
+### Architecture Decisions
+
+| Decision | Rationale |
+|----------|-----------|
+| No `getPlayer()` calls | All functions receive `player` as a parameter from the engine |
+| All methods on `IsoGameCharacter` | `getInventory()`, `getWornItems()`, `getStats()`, `Say()` exist on the base class shared by IsoPlayer and IsoNpcPlayer |
+| Item modData for state | Purity values stored in item modData, which auto-syncs between server and clients |
+| SandboxVars via wrapper | `PhobosLib.getSandboxVar()` reads server-authoritative values |
+| pcall on all cross-mod calls | EHR, ZScienceSkill API calls wrapped for safety if mod is removed mid-save |
+| `isClient()` guards on init | OnGameStart hooks skip client-side to avoid redundant registration |
+| Client code in `client/` only | Tooltip rendering is the only client-side code; all gameplay logic is in `server/` |
+
+### For Server Administrators
+
+- All sandbox options are **server-authoritative** — clients cannot cheat them
+- Purity metadata travels with items via modData (no custom networking)
+- Startup logs include `[server]` or `[local]` context tags for debugging
+- ZScienceSkill and EHR integrations are runtime-detected and pcall-wrapped — safe to add or remove mid-save
+
+### For NPC Mod Authors
+
+PhobosLib utility functions accept any `IsoGameCharacter` (not just `IsoPlayer`):
+- `PhobosLib.say(character, msg)` — speech bubble, works for NPCs
+- `PhobosLib.getRespiratoryProtection(character)` — scans worn items, works for NPCs
+- `PhobosLib.addXP(character, perk, amount)` — pcall-wrapped, fails silently if NPC cannot gain XP
+
+Recipe OnCreate callbacks receive the crafting character as `player`. If future NPC mods
+allow NPCs to craft, PCP callbacks will work correctly since all called methods exist on
+`IsoGameCharacter`.

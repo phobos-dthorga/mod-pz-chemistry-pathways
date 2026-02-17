@@ -128,3 +128,5 @@ RecipeCodeOnTest.pcpHeatAndHazardCheck = PCP_Sandbox.onTestHeatAndHazard
 RecipeCodeOnTest.pcpNoHeatAndHazardCheck = PCP_Sandbox.onTestNoHeatAndHazard
 RecipeCodeOnTest.pcpHeatAndNoHazardCheck = PCP_Sandbox.onTestHeatAndNoHazard
 RecipeCodeOnTest.pcpNoHeatAndNoHazardCheck = PCP_Sandbox.onTestNoHeatAndNoHazard
+
+print("[PCP] Sandbox: 9 OnTest callbacks registered [" .. (isServer() and "server" or "local") .. "]")

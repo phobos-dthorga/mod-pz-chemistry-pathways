@@ -21,6 +21,7 @@
 require "PhobosLib"
 
 local function registerPCPSpecimens()
+    if isClient() then return end  -- MP: only register on server or singleplayer
     -- Guard: only register if ZScienceSkill is loaded
     if not PhobosLib.isModActive("ZScienceSkill") then return end
 
@@ -135,9 +136,9 @@ local function registerPCPSpecimens()
     end)
 
     if success then
-        print("[PCP] ZScienceSkill integration: registered specimens and fluids for microscope research")
+        print("[PCP] ZScienceSkill: 33 items + 8 fluids registered [" .. (isServer() and "server" or "local") .. "]")
     else
-        print("[PCP] ZScienceSkill integration: registration failed — " .. tostring(err))
+        print("[PCP] ZScienceSkill: registration failed — " .. tostring(err))
     end
 end
 
