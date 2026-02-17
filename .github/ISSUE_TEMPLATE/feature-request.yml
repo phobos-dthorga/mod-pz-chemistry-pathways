@@ -1,0 +1,39 @@
+name: Feature Request
+description: Suggest a new recipe, pathway, item, or system
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: What would you like to see added?
+      description: Describe the feature, recipe, or system you are suggesting.
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: What area does this relate to?
+      options:
+        - New recipe or recipe chain
+        - New item
+        - New sandbox option
+        - Balance adjustment
+        - Cross-mod compatibility
+        - Skill system / occupations / traits
+        - UI / tooltip / translation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Why is this useful?
+      description: How does this fit into the mod's chemistry/crafting theme?
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Implementation ideas (optional)
+      description: |
+        If you have thoughts on how this could work
+        (recipe inputs/outputs, skill requirements, sandbox gating), share them here.

@@ -45,4 +45,18 @@ MEMORY.md
 # Source art (1024x1024 PNGs) — stored on art-assets branch
 42/media/textures/Image_PCP_*.png
 
+# IDE / editor files
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS files
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Development planning artifacts
+PLAN_SUMMARY_*.md
+
 .claude/
