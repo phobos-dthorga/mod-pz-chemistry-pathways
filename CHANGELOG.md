@@ -6,6 +6,29 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.12.0] - 2026-02-18
+
+### Added
+- **Tiered Reset/Cleanup System** — 5 one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" settings page
+  - Tier 1: Strip Purity Data — removes PCP_Purity modData from all items (deep inventory scan)
+  - Tier 2: Forget PCP Recipes — removes all learned PCP recipes from known recipe list
+  - Tier 3: Reset Applied Chemistry XP — resets skill to level 0 / 0 XP
+  - Tier 4: Remove All PCP Items — permanently removes all PhobosChemistryPathways items from inventory
+  - Tier 5: Nuclear Reset — executes all four tiers in sequence
+- **Client-side reset notifications** via `PCP_ResetNotify.lua`
+  - Success: HaloTextHelper green on-screen text with sound
+  - Failure: ISModalRichText modal dialog that blocks game until acknowledged
+  - Server→client messaging via `sendServerCommand` / `Events.OnServerCommand`
+- **World modData execution guard** — each reset executes exactly once, guarded by `getGameTime():getModData()` flags
+- **Auto-reset** — sandbox options automatically reset to OFF after execution
+- **5 new sandbox options** (12 total): ResetStripPurity, ResetForgetRecipes, ResetSkillXP, ResetNuclearRemove, ResetNuclearAll
+
+### Changed
+- Requires **PhobosLib 1.2.0+** (PhobosLib_Reset module + setSandboxVar)
+
+### Summary
+- **150 recipes**, **39 items**, **8 fluids**, **12 sandbox options**, **135 OnCreate callbacks**
+
 ## [0.11.0] - 2026-02-17
 
 ### Added

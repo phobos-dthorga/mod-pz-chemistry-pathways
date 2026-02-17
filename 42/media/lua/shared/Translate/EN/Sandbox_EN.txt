@@ -24,4 +24,21 @@ Sandbox_EN = {
 
     Sandbox_PCP_EnableHealthHazards = "ENABLE HEALTH HAZARDS:",
     Sandbox_PCP_EnableHealthHazards_tooltip = "Adds health consequences for working with hazardous chemicals without respiratory protection.<br><br> <INDENT:20>-Hazardous recipes (methanol distillation, acid work, KOH synthesis, sulphur extraction) gain Safe/Unsafe variants;<br> <INDENT:20>-SAFE recipes require a gas mask or respirator with filter — filter degrades per craft (~40 crafts per filter);<br> <INDENT:20>-UNSAFE recipes impose health penalties when crafting without protection;<br> <INDENT:20>-With 'Extensive Health Rework' (EHR) mod: triggers realistic diseases (corpse sickness, pneumonia, wound infection);<br> <INDENT:20>-Without EHR: applies vanilla stat penalties (sickness, pain, stress).<br><br> <INDENT:20>-OFF (default): No health hazards. Recipes unchanged.<br> <INDENT:20>-ON: Hazardous recipes split into Protected/Unprotected variants.<br><br> <RGB:1,0.6,0.2> Requires a game restart to take effect. <RGB:1,1,1>",
+
+    Sandbox_PCP_Reset = "PCP - Maintenance / Reset",
+
+    Sandbox_PCP_ResetStripPurity = "STRIP PURITY DATA:",
+    Sandbox_PCP_ResetStripPurity_tooltip = "Removes purity tracking data (PCP_Purity) from ALL items in every player's inventory, including items inside bags and backpacks.<br><br> <INDENT:20>-Items revert to default (untracked) purity;<br> <INDENT:20>-No items are destroyed — only the purity metadata is removed;<br> <INDENT:20>-Useful after disabling the Impurity System or upgrading to a new PCP version.<br><br> <RGB:1,0.6,0.2> Requires a game restart. Executes once on next game load, then resets to OFF. <RGB:1,1,1>",
+
+    Sandbox_PCP_ResetForgetRecipes = "FORGET PCP RECIPES:",
+    Sandbox_PCP_ResetForgetRecipes_tooltip = "Removes all learned PCP recipes from every player's known recipe list.<br><br> <INDENT:20>-Players will need to re-learn recipes from the Chemistry Pathways Handbook;<br> <INDENT:20>-Profession/trait granted recipes will re-apply on next character load;<br> <INDENT:20>-Useful after major recipe overhauls or version upgrades.<br><br> <RGB:1,0.6,0.2> Requires a game restart. Executes once on next game load, then resets to OFF. <RGB:1,1,1>",
+
+    Sandbox_PCP_ResetSkillXP = "RESET APPLIED CHEMISTRY XP:",
+    Sandbox_PCP_ResetSkillXP_tooltip = "Resets the Applied Chemistry skill to level 0 / 0 XP for every player.<br><br> <INDENT:20>-All skill progress is lost permanently;<br> <INDENT:20>-Profession/trait skill bonuses will re-apply on next character load;<br> <INDENT:20>-Useful after XP curve rebalances or major version upgrades.<br><br> <RGB:1,0.6,0.2> Requires a game restart. Executes once on next game load, then resets to OFF. <RGB:1,1,1>",
+
+    Sandbox_PCP_ResetNuclearRemove = "REMOVE ALL PCP ITEMS:",
+    Sandbox_PCP_ResetNuclearRemove_tooltip = "Permanently removes ALL PhobosChemistryPathways items from every player's inventory, including items inside bags and backpacks.<br><br> <RGB:1,0.2,0.2> WARNING: This is destructive and cannot be undone! <RGB:1,1,1> <br><br> <INDENT:20>-Chemistry reagents, by-products, containers with PCP fluids, skill books — ALL removed;<br> <INDENT:20>-Vanilla items are NOT affected;<br> <INDENT:20>-Useful before uninstalling the mod or performing a clean reset.<br><br> <RGB:1,0.6,0.2> Requires a game restart. Executes once on next game load, then resets to OFF. <RGB:1,1,1>",
+
+    Sandbox_PCP_ResetNuclearAll = "NUCLEAR RESET (ALL OF THE ABOVE):",
+    Sandbox_PCP_ResetNuclearAll_tooltip = "Executes ALL four reset operations in sequence: strip purity, forget recipes, reset skill XP, and remove all PCP items.<br><br> <RGB:1,0.2,0.2> WARNING: This is the most destructive option! All PCP data, items, recipes, and skill progress will be permanently erased. This cannot be undone! <RGB:1,1,1> <br><br> <INDENT:20>-Equivalent to enabling all four individual reset options at once;<br> <INDENT:20>-Individual reset options are ignored when this is enabled;<br> <INDENT:20>-Useful for complete mod removal or fresh start.<br><br> <RGB:1,0.6,0.2> Requires a game restart. Executes once on next game load, then resets to OFF. <RGB:1,1,1>",
 }

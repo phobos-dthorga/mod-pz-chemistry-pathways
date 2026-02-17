@@ -41,3 +41,33 @@ option PCP.EnableHealthHazards
 	type = boolean, default = false,
 	page = PCP_Sandbox, translation = PCP_EnableHealthHazards,
 }
+
+option PCP.ResetStripPurity
+{
+	type = boolean, default = false,
+	page = PCP_Reset, translation = PCP_ResetStripPurity,
+}
+
+option PCP.ResetForgetRecipes
+{
+	type = boolean, default = false,
+	page = PCP_Reset, translation = PCP_ResetForgetRecipes,
+}
+
+option PCP.ResetSkillXP
+{
+	type = boolean, default = false,
+	page = PCP_Reset, translation = PCP_ResetSkillXP,
+}
+
+option PCP.ResetNuclearRemove
+{
+	type = boolean, default = false,
+	page = PCP_Reset, translation = PCP_ResetNuclearRemove,
+}
+
+option PCP.ResetNuclearAll
+{
+	type = boolean, default = false,
+	page = PCP_Reset, translation = PCP_ResetNuclearAll,
+}
