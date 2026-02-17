@@ -137,6 +137,30 @@ Recipes_EN = {
     Recipe_PCPMakeSoapFatNaOHPropane = "S2. Make Fat Soap (NaOH, Propane)",
     Recipe_PCPMakeSoapFatNaOHSimple = "S2. Make Fat Soap (NaOH)",
 
+    /* ===== Biodiesel Pathway — Step 5: Bulk Refining (Bug Fix) ===== */
+    Recipe_PCPRefineBiodieselBulk = "5. Bulk Refine Biodiesel into Fuel",
+
+    /* ===== Recycling & Downstream Recipes ===== */
+    Recipe_PCPMakeWoodGlue = "R1. Make Wood Glue (Tar Pitch)",
+    Recipe_PCPCalcineCalcite = "R2. Calcine Calcite (Charcoal)",
+    Recipe_PCPCalcineCalciteCoke = "R2. Calcine Calcite (Coke)",
+    Recipe_PCPCalcineCalcitePropane = "R2. Calcine Calcite (Propane)",
+    Recipe_PCPCalcineCalciteSimple = "R2. Calcine Calcite",
+    Recipe_PCPCalciteFertilizer = "R3. Prepare Calcite Fertilizer",
+    Recipe_PCPCureSoap = "R4. Cure and Shape Soap",
+    Recipe_PCPSterilizeBandageRipped = "R5. Sterilize Ripped Sheets (Lye Soap)",
+    Recipe_PCPSterilizeBandage = "R5. Sterilize Bandage (Lye Soap)",
+    Recipe_PCPCastFishingWeights = "R6. Cast Lead Fishing Weights (Charcoal)",
+    Recipe_PCPCastFishingWeightsCoke = "R6. Cast Lead Fishing Weights (Coke)",
+    Recipe_PCPCastFishingWeightsPropane = "R6. Cast Lead Fishing Weights (Propane)",
+    Recipe_PCPCastFishingWeightsSimple = "R6. Cast Lead Fishing Weights",
+    Recipe_PCPMeltPlasticToGlue = "R7. Melt Plastic into Glue",
+    Recipe_PCPRecoverComponents = "R8. Recover Precision Components",
+
+    /* ===== Recycling Hazard Variants ===== */
+    Recipe_PCPMeltPlasticToGlueSafe = "R7. Melt Plastic into Glue (Protected)",
+    Recipe_PCPMeltPlasticToGlueUnsafe = "R7. Melt Plastic into Glue (No Mask!)",
+
     /* ===== Health Hazard Variants ===== */
     Recipe_PCPDistillMethanolSafe = "2a. Distill Wood Methanol (Protected)",
     Recipe_PCPDistillMethanolUnsafe = "2a. Distill Wood Methanol (No Mask!)",

@@ -1,10 +1,21 @@
 ---------------------------------------------------------------
 -- PCP_ZScienceData.lua
--- ZScienceSkill specimen registration for PhobosChemistryPathways.
--- Registers PCP chemical items as researchable specimens when
--- the "Science, Bitch!" (ZScienceSkill) mod is active.
+-- ZScienceSkill specimen and fluid registration for
+-- PhobosChemistryPathways.
+--
+-- Registers PCP chemical items as researchable microscope
+-- specimens and PCP fluids as analysable fluid specimens
+-- when the "Science, Bitch!" (ZScienceSkill) mod is active.
+--
+-- Uses the correct ZScienceSkill.Data.add() API:
+--   ZScienceSkill.Data.add({ specimens = { ... }, fluids = { ... } })
+--
+-- Each specimen awards both Science and AppliedChemistry XP.
+-- Container variants (ClayJar, Bucket) share a deduplication key
+-- with the base item so only one research credit per substance.
 --
 -- Only runs when PhobosLib.isModActive("ZScienceSkill") is true.
+-- All calls pcall-wrapped for safety if mod is removed mid-save.
 ---------------------------------------------------------------
 
 require "PhobosLib"
@@ -13,70 +24,120 @@ local function registerPCPSpecimens()
     -- Guard: only register if ZScienceSkill is loaded
     if not PhobosLib.isModActive("ZScienceSkill") then return end
 
-    -- Guard: check that the ZScienceSkill registration API exists
-    local ok, ZScience = pcall(function()
-        return ZScienceData or nil
+    -- Guard: verify the real API exists
+    local ok = pcall(function()
+        return ZScienceSkill and ZScienceSkill.Data and ZScienceSkill.Data.add
     end)
-    if not ok or not ZScience then
-        -- Try alternative API name
-        ok, ZScience = pcall(function()
-            return ZScienceSpecimens or nil
-        end)
+    if not ok then return end
+    if not ZScienceSkill or not ZScienceSkill.Data or not ZScienceSkill.Data.add then return end
+
+    -- Guard: verify AppliedChemistry perk exists (it should, from our perks.txt)
+    local acPerk = "AppliedChemistry"
+    local hasPerk = pcall(function() return Perks[acPerk] end)
+    if not hasPerk or not Perks[acPerk] then
+        -- Fallback: award Science only if our perk isn't loaded yet
+        acPerk = nil
     end
 
-    -- If no registration API found, try the simpler pattern used by many mods:
-    -- ZScienceSkill stores specimen data in a global table that the microscope reads.
-    -- We'll attempt to register items via the most common patterns.
-    local registered = 0
-
-    -- Attempt to use the ZScience API if available
-    local function tryRegister(itemType, scienceXP, description)
-        -- Pattern 1: ZScienceData.addSpecimen (most common)
-        local success = pcall(function()
-            if ZScienceData and ZScienceData.addSpecimen then
-                ZScienceData.addSpecimen(itemType, scienceXP, description)
-                registered = registered + 1
-                return
-            end
-        end)
-        if success then return end
-
-        -- Pattern 2: Direct table insertion
-        success = pcall(function()
-            if ZScienceSpecimens then
-                ZScienceSpecimens[itemType] = {
-                    xp = scienceXP,
-                    desc = description,
-                }
-                registered = registered + 1
-            end
-        end)
+    -- Helper: build XP table with Science + AppliedChemistry (if available)
+    local function xp(scienceAmt, chemAmt, dedupKey)
+        local t = { Science = scienceAmt }
+        if acPerk then
+            t[acPerk] = chemAmt
+        end
+        if dedupKey then
+            t.key = dedupKey
+        end
+        return t
     end
 
-    -- Chemical reagents and intermediates
-    tryRegister("PhobosChemistryPathways.SulphurPowder",       25, "Elemental sulphur powder — extracted via acid reduction")
-    tryRegister("PhobosChemistryPathways.PotassiumNitratePowder", 30, "Potassium nitrate — synthesized from compost or fertilizer leaching")
-    tryRegister("PhobosChemistryPathways.PotassiumHydroxide",   20, "Potassium hydroxide (KOH) — alkali catalyst for transesterification")
-    tryRegister("PhobosChemistryPathways.Potash",               15, "Potash (K2CO3) — by-product of charcoal purification")
-    tryRegister("PhobosChemistryPathways.Calcite",              10, "Calcite (CaCO3) — calcium carbonate mineral")
-    tryRegister("PhobosChemistryPathways.PurifiedCharcoal",     20, "Purified activated carbon — filtration and reagent grade")
-    tryRegister("PhobosChemistryPathways.BoneChar",             20, "Bone char — pyrolysed animal bone carbon")
-    tryRegister("PhobosChemistryPathways.CrushedCharcoal",      10, "Crushed charcoal — ground carbon for chemical reactions")
+    local success, err = pcall(function()
+        ZScienceSkill.Data.add({
 
-    -- Biodiesel pathway products
-    tryRegister("PhobosChemistryPathways.CrudeVegetableOil",    15, "Crude vegetable oil — mechanically pressed from oilseed crops")
-    tryRegister("PhobosChemistryPathways.WoodMethanol",         25, "Wood methanol — destructively distilled from timber")
-    tryRegister("PhobosChemistryPathways.WoodTar",              15, "Wood tar — by-product of methanol distillation")
-    tryRegister("PhobosChemistryPathways.Glycerol",             20, "Glycerol — by-product of transesterification")
-    tryRegister("PhobosChemistryPathways.CrudeBiodiesel",       25, "Crude biodiesel — raw FAME from transesterification")
-    tryRegister("PhobosChemistryPathways.WashedBiodiesel",      30, "Washed biodiesel — water-washed to remove residual catalyst")
-    tryRegister("PhobosChemistryPathways.CrudeSoap",            15, "Crude lye soap — saponification product")
+            -------------------------------------------------------
+            -- ITEM SPECIMENS
+            -------------------------------------------------------
+            specimens = {
 
-    -- Acid specimens
-    tryRegister("PhobosChemistryPathways.SulphuricAcidJar",     35, "Sulphuric acid (H2SO4) — extracted from car battery electrolyte")
+                -- Blackpowder pathway reagents & intermediates
+                ["PhobosChemistryPathways.SulphurPowder"]          = xp(25, 20),
+                ["PhobosChemistryPathways.PotassiumNitratePowder"] = xp(30, 25),
+                ["PhobosChemistryPathways.PotassiumHydroxide"]     = xp(25, 20),
+                ["PhobosChemistryPathways.Potash"]                 = xp(15, 10),
+                ["PhobosChemistryPathways.Calcite"]                = xp(10, 8),
 
-    if registered > 0 then
-        print("[PCP] ZScienceSkill integration: " .. registered .. " specimens registered for microscope research")
+                -- Carbon materials
+                ["PhobosChemistryPathways.CrushedCharcoal"]        = xp(10, 8),
+                ["PhobosChemistryPathways.PurifiedCharcoal"]       = xp(20, 15),
+                ["PhobosChemistryPathways.BoneChar"]               = xp(20, 15),
+
+                -- Compost
+                ["PhobosChemistryPathways.DilutedCompost"]         = xp(10, 8),
+
+                -- Biodiesel pathway — oils (container variants share dedup key)
+                ["PhobosChemistryPathways.CrudeVegetableOil"]         = xp(15, 12, "PCP.CrudeVegetableOil"),
+                ["PhobosChemistryPathways.CrudeVegetableOilClayJar"]  = xp(15, 12, "PCP.CrudeVegetableOil"),
+                ["PhobosChemistryPathways.CrudeVegetableOilBucket"]   = xp(15, 12, "PCP.CrudeVegetableOil"),
+
+                -- Biodiesel pathway — rendered fat (container variants share dedup key)
+                ["PhobosChemistryPathways.RenderedFat"]               = xp(15, 12, "PCP.RenderedFat"),
+                ["PhobosChemistryPathways.RenderedFatClayJar"]        = xp(15, 12, "PCP.RenderedFat"),
+                ["PhobosChemistryPathways.RenderedFatBucket"]         = xp(15, 12, "PCP.RenderedFat"),
+
+                -- Biodiesel pathway — methanol and tar
+                ["PhobosChemistryPathways.WoodMethanol"]           = xp(25, 20),
+                ["PhobosChemistryPathways.WoodTar"]                = xp(15, 12),
+
+                -- Biodiesel pathway — transesterification products (container variants share dedup key)
+                ["PhobosChemistryPathways.CrudeBiodiesel"]            = xp(25, 20, "PCP.CrudeBiodiesel"),
+                ["PhobosChemistryPathways.CrudeBiodieselClayJar"]     = xp(25, 20, "PCP.CrudeBiodiesel"),
+                ["PhobosChemistryPathways.CrudeBiodieselBucket"]      = xp(25, 20, "PCP.CrudeBiodiesel"),
+
+                ["PhobosChemistryPathways.WashedBiodiesel"]           = xp(30, 25, "PCP.WashedBiodiesel"),
+                ["PhobosChemistryPathways.WashedBiodieselClayJar"]    = xp(30, 25, "PCP.WashedBiodiesel"),
+                ["PhobosChemistryPathways.WashedBiodieselBucket"]     = xp(30, 25, "PCP.WashedBiodiesel"),
+
+                ["PhobosChemistryPathways.RefinedBiodieselCan"]    = xp(35, 30),
+
+                -- Biodiesel pathway — by-products
+                ["PhobosChemistryPathways.Glycerol"]               = xp(20, 15),
+                ["PhobosChemistryPathways.CrudeSoap"]              = xp(15, 12),
+
+                -- Acid specimens (container variants share dedup key)
+                ["PhobosChemistryPathways.SulphuricAcidJar"]       = xp(35, 30, "PCP.SulphuricAcid"),
+                ["PhobosChemistryPathways.SulphuricAcidBottle"]    = xp(35, 30, "PCP.SulphuricAcid"),
+                ["PhobosChemistryPathways.SulphuricAcidCrucible"]  = xp(35, 30, "PCP.SulphuricAcid"),
+                ["PhobosChemistryPathways.SulphuricAcidClayJar"]   = xp(35, 30, "PCP.SulphuricAcid"),
+
+                -- Salvage materials
+                ["PhobosChemistryPathways.LeadScrap"]              = xp(15, 10),
+                ["PhobosChemistryPathways.PlasticScrap"]           = xp(10, 8),
+                ["PhobosChemistryPathways.AcidWashedElectronics"]  = xp(25, 20),
+            },
+
+            -------------------------------------------------------
+            -- FLUID SPECIMENS
+            -- Keyed by bare fluid type name (no "Base." prefix).
+            -- Player puts any container with the fluid under the
+            -- microscope. Deduplication is automatic per fluid.
+            -------------------------------------------------------
+            fluids = {
+                ["SulphuricAcid"]     = xp(40, 30),
+                ["CrudeVegetableOil"] = xp(15, 12),
+                ["RenderedFat"]       = xp(15, 12),
+                ["WoodMethanol"]      = xp(30, 25),
+                ["WoodTar"]           = xp(20, 15),
+                ["CrudeBiodiesel"]    = xp(30, 25),
+                ["Glycerol"]          = xp(20, 15),
+                ["WashedBiodiesel"]   = xp(35, 30),
+            },
+        })
+    end)
+
+    if success then
+        print("[PCP] ZScienceSkill integration: registered specimens and fluids for microscope research")
+    else
+        print("[PCP] ZScienceSkill integration: registration failed — " .. tostring(err))
     end
 end
 

@@ -729,4 +729,69 @@ module Base
         }
     }
 
+
+/* ==================================================================================== */
+/* ====================== PLASTIC MELTING HAZARD VARIANTS ============================== */
+/* ==================================================================================== */
+/*  Melting plastic releases toxic fumes (HCl from PVC, styrene from PS).
+    Base recipe in PCP_Recipes_Recycling.txt is hidden when hazards are ON.            */
+
+/* ----- MELT PLASTIC INTO GLUE — SAFE ----- */
+
+    craftRecipe PCPMeltPlasticToGlueSafe
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHazardEnabledCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpMeltPlasticGlueSafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 6 [PhobosChemistryPathways.PlasticScrap] mode:destroy,
+            item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 1 Base.Glue,
+        }
+    }
+
+/* ----- MELT PLASTIC INTO GLUE — UNSAFE ----- */
+
+    craftRecipe PCPMeltPlasticToGlueUnsafe
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHazardEnabledCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpMeltPlasticGlueUnsafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 6 [PhobosChemistryPathways.PlasticScrap] mode:destroy,
+            item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 1 Base.Glue,
+        }
+    }
+
 }

@@ -80,6 +80,16 @@ PCP_HazardSystem.HAZARDS = {
         vanillaStress   = 0.10,
         warningMsg      = "*wince* Acid mist!",
     },
+    plastic_fumes = {
+        ehrDisease     = "corpse_sickness",
+        ehrChance      = 0.40,
+        ehrSevere      = "pneumonia",
+        ehrSevereChance = 0.08,
+        vanillaSickness = 0.10,
+        vanillaPain     = 0.05,
+        vanillaStress   = 0.12,
+        warningMsg      = "*cough* Toxic plastic fumes!",
+    },
 }
 
 

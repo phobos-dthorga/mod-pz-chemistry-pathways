@@ -1,0 +1,485 @@
+module Base
+{
+
+/* ==================================================================================== */
+/* ========================= RECYCLING & DOWNSTREAM RECIPES ============================ */
+/* ==================================================================================== */
+/*  These recipes consume by-products and dead-end items from the main chemistry
+    pathways, converting them into useful vanilla items. Every dead-end item in
+    PCP now has at least one meaningful downstream use.                                  */
+
+
+/* ==================================================================================== */
+/* ============================== R1: WOOD TAR -> WOOD GLUE ============================ */
+/* ==================================================================================== */
+
+/* ----- MAKE WOOD GLUE (TAR PITCH) ----- */
+/*  Mix wood tar with powdered carbon filler and water to create a viscous
+    pitch adhesive. Tar-based adhesives date to the Neolithic period and
+    remain effective for wood repair and bonding.                                        */
+
+    craftRecipe PCPMakeWoodGlue
+    {
+        time = 120,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeWoodGluePurity,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.WoodTar] mode:destroy,
+            item 1 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar] mode:destroy,
+            item 1 [*],
+            -fluid 0.2 [Water],
+        }
+        outputs
+        {
+            item 2 Base.Woodglue,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ======================== R2: CALCITE -> QUICKLIME (DOME KILN) ====================== */
+/* ==================================================================================== */
+
+/* ----- CALCINE CALCITE (Charcoal Fuel) ----- */
+/*  Calcination: CaCO3 -> CaO + CO2 at ~900C. One of the oldest known
+    chemical processes. Requires a dome kiln or equivalent high-temperature
+    vessel to sustain the reaction.                                                     */
+
+    craftRecipe PCPCalcineCalcite
+    {
+        time = 200,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpCalcineCalcitePurity,
+
+        Tags = DomeKiln;CannotBeResearched,
+        timedAction = Making_With_Kiln,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:5,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
+            item 3 tags[base:charcoal] mode:destroy,
+            item 1 tags[base:startfire] mode:destroy,
+        }
+        outputs
+        {
+            item 2 Base.Quicklime,
+        }
+    }
+
+/* ----- CALCINE CALCITE (Coke Fuel) ----- */
+
+    craftRecipe PCPCalcineCalciteCoke
+    {
+        time = 200,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpCalcineCalcitePurity,
+
+        Tags = DomeKiln;CannotBeResearched,
+        timedAction = Making_With_Kiln,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:5,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
+            item 1 [Base.Coke] mode:destroy,
+            item 1 tags[base:startfire] mode:destroy,
+        }
+        outputs
+        {
+            item 2 Base.Quicklime,
+        }
+    }
+
+/* ----- CALCINE CALCITE (Propane) ----- */
+
+    craftRecipe PCPCalcineCalcitePropane
+    {
+        time = 200,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpCalcineCalcitePropanePurity,
+
+        Tags = DomeKiln;CannotBeResearched,
+        timedAction = Making_With_Kiln,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:5,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
+            item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
+        }
+        outputs
+        {
+            item 2 Base.Quicklime,
+        }
+    }
+
+/* ----- CALCINE CALCITE (Simplified -- No Fuel) ----- */
+
+    craftRecipe PCPCalcineCalciteSimple
+    {
+        time = 200,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpCalcineCalcitePurity,
+
+        Tags = DomeKiln;CannotBeResearched,
+        timedAction = Making_With_Kiln,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:5,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
+        }
+        outputs
+        {
+            item 2 Base.Quicklime,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ======================== R3: CALCITE -> FERTILIZER ================================== */
+/* ==================================================================================== */
+
+/* ----- PREPARE CALCITE FERTILIZER ----- */
+/*  Calcium carbonate is a standard agricultural lime for soil amendment.
+    Mixed with diluted compost, it creates a calcium-enriched fertilizer
+    that adjusts soil pH and promotes plant growth.                                     */
+
+    craftRecipe PCPCalciteFertilizer
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpCalciteFertilizerPurity,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.Calcite] mode:destroy,
+            item 1 [PhobosChemistryPathways.DilutedCompost] mode:destroy,
+            item 1 [*],
+            -fluid 1.0 [Water],
+        }
+        outputs
+        {
+            item 2 Base.Fertilizer,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ======================== R4: CRUDE SOAP -> SOAP2 ==================================== */
+/* ==================================================================================== */
+
+/* ----- CURE AND SHAPE SOAP ----- */
+/*  Wash crude lye soap with clean water to remove excess alkali, then
+    shape into usable bars. Standard soap-curing process.                               */
+
+    craftRecipe PCPCureSoap
+    {
+        time = 100,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpCureSoapPurity,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:5,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.CrudeSoap] mode:destroy,
+            item 1 [*],
+            -fluid 0.3 [Water],
+        }
+        outputs
+        {
+            item 1 Base.Soap2,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ===================== R5: CRUDE SOAP -> STERILIZED BANDAGE ========================== */
+/* ==================================================================================== */
+
+/* ----- STERILIZE RIPPED SHEETS (LYE SOAP) ----- */
+/*  Boil ripped sheets in hot lye soap solution to destroy bacteria.
+    Standard field hospital sterilisation practice through WWI.
+    Produces alcohol-equivalent sterilised bandages without requiring
+    scarce distilled spirits.                                                           */
+
+    craftRecipe PCPSterilizeBandageRipped
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpSterilizeBandagePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        SkillRequired = AppliedChemistry:1;Doctor:1,
+        xpAward = AppliedChemistry:10;Doctor:5,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 1 [Base.RippedSheets] mode:destroy,
+            item 1 [PhobosChemistryPathways.CrudeSoap] mode:destroy,
+            item 1 [*],
+            -fluid 0.3 [Water],
+        }
+        outputs
+        {
+            item 1 Base.AlcoholRippedSheets,
+        }
+    }
+
+/* ----- STERILIZE BANDAGE (LYE SOAP) ----- */
+
+    craftRecipe PCPSterilizeBandage
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpSterilizeBandagePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        SkillRequired = AppliedChemistry:1;Doctor:1,
+        xpAward = AppliedChemistry:10;Doctor:5,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 1 [Base.Bandage] mode:destroy,
+            item 1 [PhobosChemistryPathways.CrudeSoap] mode:destroy,
+            item 1 [*],
+            -fluid 0.3 [Water],
+        }
+        outputs
+        {
+            item 1 Base.AlcoholBandage,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ================== R6: LEAD SCRAP -> FISHING TACKLE (FURNACE) ====================== */
+/* ==================================================================================== */
+
+/* ----- CAST LEAD FISHING WEIGHTS (Charcoal Fuel) ----- */
+/*  Melt lead scrap from battery extraction and cast into fishing sinkers
+    using simple sand moulds. Lead melts at 327C, easily achieved in
+    a primitive furnace.                                                                */
+
+    craftRecipe PCPCastFishingWeights
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpCastFishingWeightsPurity,
+
+        Tags = PrimitiveFurnace;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10;Fishing:5,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.LeadScrap] mode:destroy,
+            item 4 tags[base:charcoal] mode:destroy,
+        }
+        outputs
+        {
+            item 4 Base.FishingTackle,
+        }
+    }
+
+/* ----- CAST LEAD FISHING WEIGHTS (Coke Fuel) ----- */
+
+    craftRecipe PCPCastFishingWeightsCoke
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpCastFishingWeightsPurity,
+
+        Tags = PrimitiveFurnace;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10;Fishing:5,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.LeadScrap] mode:destroy,
+            item 1 [Base.Coke] mode:destroy,
+        }
+        outputs
+        {
+            item 4 Base.FishingTackle,
+        }
+    }
+
+/* ----- CAST LEAD FISHING WEIGHTS (Propane) ----- */
+
+    craftRecipe PCPCastFishingWeightsPropane
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpCastFishingWeightsPropanePurity,
+
+        Tags = PrimitiveFurnace;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10;Fishing:5,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.LeadScrap] mode:destroy,
+            item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
+        }
+        outputs
+        {
+            item 4 Base.FishingTackle,
+        }
+    }
+
+/* ----- CAST LEAD FISHING WEIGHTS (Simplified -- No Fuel) ----- */
+
+    craftRecipe PCPCastFishingWeightsSimple
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHeatRequiredCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpCastFishingWeightsPurity,
+
+        Tags = PrimitiveFurnace;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10;Fishing:5,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.LeadScrap] mode:destroy,
+        }
+        outputs
+        {
+            item 4 Base.FishingTackle,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* =================== R7: PLASTIC SCRAP -> GLUE (CHEMISTRY SET) ====================== */
+/* ==================================================================================== */
+
+/* ----- MELT PLASTIC INTO GLUE ----- */
+/*  Melt thermoplastic scraps (PET, PE, PP) at 150-260C into a viscous
+    hot-melt adhesive collected in a glass bottle. Burning plastic releases
+    toxic fumes (HCl from PVC, styrene from PS) -- hazard variants exist.               */
+
+    craftRecipe PCPMeltPlasticToGlue
+    {
+        time = 150,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnTest = pcpNoHazardCheck,
+        OnCreate = PCP_RecipeCallbacks.pcpMeltPlasticGluePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 6 [PhobosChemistryPathways.PlasticScrap] mode:destroy,
+            item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+        }
+        outputs
+        {
+            item 1 Base.Glue,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ================ R8: ACID-WASHED ELECTRONICS -> COMPONENTS ========================== */
+/* ==================================================================================== */
+
+/* ----- RECOVER PRECISION COMPONENTS ----- */
+/*  Carefully desolder and extract intact semiconductor components from
+    acid-washed circuit boards. The acid wash removes oxide layers,
+    exposing functional transistors and amplifier ICs for recovery.                      */
+
+    craftRecipe PCPRecoverComponents
+    {
+        time = 200,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpRecoverComponentsPurity,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:2;Electricity:2,
+        xpAward = AppliedChemistry:15;Electricity:15,
+        AutoLearnAll = AppliedChemistry:5,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.AcidWashedElectronics] mode:destroy,
+            item 1 [Base.Screwdriver] mode:keep flags[NoBrokenItems;MayDegradeLight],
+            item 1 [Base.Pliers] mode:keep flags[NoBrokenItems;MayDegradeLight],
+        }
+        outputs
+        {
+            item 1 Base.Transistor,
+            item 1 Base.Amplifier,
+        }
+    }
+
+}

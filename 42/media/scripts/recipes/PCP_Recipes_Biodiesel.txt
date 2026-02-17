@@ -2061,6 +2061,34 @@ module Base
         }
     }
 
+/* ----- BULK REFINE BIODIESEL ----- */
+/*  Settle and decant washed biodiesel from a bucket into gas cans.
+    The final step of the bulk biodiesel chain — produces engine-ready fuel.            */
+
+    craftRecipe PCPRefineBiodieselBulk
+    {
+        time = 200,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpRefineBiodieselBulkPurity,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:40,
+        AutoLearnAll = AppliedChemistry:8,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.WashedBiodieselBucket] mode:destroy,
+            item 2 [Base.PetrolCan] mode:destroy flags[IsEmpty],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.RefinedBiodieselCan,
+        }
+    }
+
 
 /* ==================================================================================== */
 /* ============================== ADVANCED EQUIPMENT: CENTRIFUGE ======================= */
@@ -2338,8 +2366,8 @@ module Base
         OnTest = pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = WoodCharcoal;CannotBeResearched,
+        timedAction = Making_With_Kiln,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -2365,8 +2393,8 @@ module Base
         OnTest = pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = WoodCharcoal;CannotBeResearched,
+        timedAction = Making_With_Kiln,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -2392,8 +2420,8 @@ module Base
         OnTest = pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPropanePurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = WoodCharcoal;CannotBeResearched,
+        timedAction = Making_With_Kiln,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -2419,8 +2447,8 @@ module Base
         OnTest = pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = WoodCharcoal;CannotBeResearched,
+        timedAction = Making_With_Kiln,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -2448,8 +2476,8 @@ module Base
         OnTest = pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = WoodCharcoal;CannotBeResearched,
+        timedAction = Making_With_Kiln,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -2475,8 +2503,8 @@ module Base
         OnTest = pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = WoodCharcoal;CannotBeResearched,
+        timedAction = Making_With_Kiln,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -2502,8 +2530,8 @@ module Base
         OnTest = pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharSkullPropanePurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = WoodCharcoal;CannotBeResearched,
+        timedAction = Making_With_Kiln,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -2529,8 +2557,8 @@ module Base
         OnTest = pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = WoodCharcoal;CannotBeResearched,
+        timedAction = Making_With_Kiln,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,

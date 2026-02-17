@@ -450,3 +450,92 @@ end
 function PCP_RecipeCallbacks.pcpAcidWashUnsafePurity(items, result, player)
     _unsafeWrapper(PCP_RecipeCallbacks.pcpAcidWashPurity, "acid_mist", items, result, player)
 end
+
+
+---------------------------------------------------------------
+-- RECYCLING RECIPE CALLBACKS (12)
+-- New downstream recipes for by-products and dead-end items.
+---------------------------------------------------------------
+
+--- R1: Make Wood Glue from tar (surface, source 40-60)
+function PCP_RecipeCallbacks.pcpMakeWoodGluePurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(40, 60))
+end
+
+--- R2: Calcine Calcite into Quicklime (DomeKiln, source 40-60)
+function PCP_RecipeCallbacks.pcpCalcineCalcitePurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(40, 60))
+end
+
+--- R2: Calcine Calcite + propane (DomeKiln, source 40-60)
+function PCP_RecipeCallbacks.pcpCalcineCalcitePropanePurity(items, result, player)
+    PCP_RecipeCallbacks.pcpReturnPartialPropane(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(40, 60))
+end
+
+--- R3: Calcite Fertilizer (surface, source 30-50)
+function PCP_RecipeCallbacks.pcpCalciteFertilizerPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(30, 50))
+end
+
+--- R4: Cure Soap (surface, source 50-70)
+function PCP_RecipeCallbacks.pcpCureSoapPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(50, 70))
+end
+
+--- R5: Sterilize Bandage (ChemistrySet, propagation 1.00)
+function PCP_RecipeCallbacks.pcpSterilizeBandagePurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    local input = PCP_PuritySystem.averageInputPurity(items)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet)
+    _stampAndAnnounce(result, player, purity)
+end
+
+--- R6: Cast Fishing Weights (Furnace, source 40-60)
+function PCP_RecipeCallbacks.pcpCastFishingWeightsPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(40, 60))
+end
+
+--- R6: Cast Fishing Weights + propane (Furnace, source 40-60)
+function PCP_RecipeCallbacks.pcpCastFishingWeightsPropanePurity(items, result, player)
+    PCP_RecipeCallbacks.pcpReturnPartialPropane(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(40, 60))
+end
+
+--- R7: Melt Plastic into Glue (ChemistrySet, source 50-70)
+function PCP_RecipeCallbacks.pcpMeltPlasticGluePurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(50, 70))
+end
+
+-- R7: Melt Plastic into Glue — Safe (filter degrade)
+function PCP_RecipeCallbacks.pcpMeltPlasticGlueSafePurity(items, result, player)
+    _safeWrapper(PCP_RecipeCallbacks.pcpMeltPlasticGluePurity, items, result, player)
+end
+
+-- R7: Melt Plastic into Glue — Unsafe (plastic_fumes)
+function PCP_RecipeCallbacks.pcpMeltPlasticGlueUnsafePurity(items, result, player)
+    _unsafeWrapper(PCP_RecipeCallbacks.pcpMeltPlasticGluePurity, "plastic_fumes", items, result, player)
+end
+
+--- R8: Recover Precision Components (surface, source 60-80)
+function PCP_RecipeCallbacks.pcpRecoverComponentsPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(60, 80))
+end
+
+--- Bug fix: Bulk Refine Biodiesel (surface, propagation 0.95)
+function PCP_RecipeCallbacks.pcpRefineBiodieselBulkPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    local input = PCP_PuritySystem.averageInputPurity(items)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.metalDrum)
+    _stampAndAnnounce(result, player, purity)
+    PCP_PuritySystem.applyFuelPenalty(result, purity)
+end
