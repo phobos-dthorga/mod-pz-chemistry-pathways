@@ -45,6 +45,19 @@ graph TB
         DCOMPOST["DilutedCompost"]
         H2SO4["SulphuricAcid"]
         LEAD["LeadScrap"]
+        PLASTIC["PlasticScrap"]
+        ACIDWASH["AcidWashedElectronics"]
+    end
+
+    subgraph RC["Recycling Pathway (R1-R8)"]
+        WOODGLUE["WoodGlue (R1)"]
+        QLIME_OUT["Quicklime (R2)"]
+        FERT_OUT["Fertilizer (R3)"]
+        SOAP2["Soap (R4)"]
+        BANDAGE["Sterilized Bandages (R5)"]
+        TACKLE["FishingTackle (R6)"]
+        GLUE["Glue (R7)"]
+        TRANSISTOR["Transistor + Amplifier (R8)"]
     end
 
     CHARCOAL --> CRUSH
@@ -85,7 +98,18 @@ graph TB
 
     BATTERY --> LEAD
 
+    %% Recycling chain
+    WOODTAR --> WOODGLUE
+    CALCITE --> QLIME_OUT
+    CALCITE --> FERT_OUT
+    SOAP --> SOAP2
+    SOAP --> BANDAGE
+    LEAD --> TACKLE
+    PLASTIC --> GLUE
+    ACIDWASH --> TRANSISTOR
+
     style GUNPOWDER fill:#c44,color:#fff
     style REFINED_BD fill:#4a4,color:#fff
     style SOAP fill:#48c,color:#fff
     style BONECHAR fill:#864,color:#fff
+    style RC fill:#654,color:#fff

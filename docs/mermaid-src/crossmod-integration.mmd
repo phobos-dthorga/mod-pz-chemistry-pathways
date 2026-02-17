@@ -3,7 +3,7 @@ graph TB
     START --> CHECK_EHR{"isModActive<br/>EHR?"}
 
     CHECK_ZSS -->|"Yes"| ZSS_INIT["Register XP Mirror<br/>AC -> Science at 50%<br/>(PCP_SkillXP.lua)"]
-    CHECK_ZSS -->|"Yes"| ZSS_DATA["Register 16 Specimens<br/>at Microscope<br/>(PCP_ZScienceData.lua)"]
+    CHECK_ZSS -->|"Yes"| ZSS_DATA["Register 33 Item + 8 Fluid<br/>Specimens | API: ZScienceSkill.Data.add<br/>(PCP_ZScienceData.lua)"]
     CHECK_ZSS -->|"No"| ZSS_SKIP["No action<br/>Zero errors"]
 
     CHECK_EHR -->|"Yes"| EHR_INIT["Hazard callbacks use<br/>EHR.Disease.TryContract<br/>(pcall-wrapped)"]
