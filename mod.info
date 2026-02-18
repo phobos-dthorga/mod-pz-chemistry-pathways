@@ -2,6 +2,7 @@ name=Phobos' Chemistry Pathways
 id=PhobosChemistryPathways
 description=Complete chemistry suite for Project Zomboid Build 42: blackpowder synthesis, biodiesel production, soap-making, bone char, recycling, and advanced lab processes. Features 150 recipes, 12 sandbox options, purity tracking, tiered reset system, and EHR health hazard integration. Requires PhobosLib and zReVaccin 3.
 poster=poster.png
+icon=icon.png
 url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668197831
 authors=phobosgekko
 versionMin=42.14.0
