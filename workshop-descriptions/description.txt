@@ -1,0 +1,100 @@
+[h1]Phobos' Chemistry Pathways[/h1]
+A complete chemistry crafting suite for Project Zomboid Build 42. Turn raw materials into gunpowder, biodiesel fuel, soap, and more through realistic multi-step processes.
+
+[b]150 recipes[/b] across 7 crafting pathways, a custom [b]Applied Chemistry[/b] skill, 2 occupations, 2 traits, and [b]12 sandbox options[/b] for full server control.
+
+[hr][/hr]
+[h2]Recipe Pathways[/h2]
+[img]https://is.gd/PCP_recipes[/img]
+[i]Full recipe overview — [url=https://is.gd/PhobosChemDocs]view all diagrams on GitHub[/url][/i]
+
+[list]
+[*][b]Blackpowder Synthesis[/b] — 7-step chain: crush charcoal, purify, extract sulphur from battery acid, synthesize KNO3 from compost, mix gunpowder
+[*][b]Biodiesel Production[/b] — 5-step chain: press oils, render fat, distill methanol, transesterify, wash and refine into 5L petrol cans
+[*][b]Soap-Making[/b] — Glycerol soap from biodiesel by-products, fat-based soap from rendered fat + KOH
+[*][b]Bone Char[/b] — Pyrolyse animal bones into bone char (substitutes for purified charcoal)
+[*][b]Recycling[/b] — 8 recipes: wood tar to glue, calcite to quicklime/fertilizer, soap to bandages, lead to fishing tackle, plastics to glue, acid-wash electronics for transistors
+[*][b]Advanced Lab[/b] — Centrifuge and chromatograph recipes for higher purity yields (requires zReVaccin 3 lab equipment)
+[*][b]Fat Rendering & Oil Conversion[/b] — Convert cooking oils and animal fats into feedstock
+[/list]
+
+[h3]Blackpowder Pathway[/h3]
+[img]https://is.gd/PCP_blackpowder[/img]
+
+[h3]Biodiesel Pathway[/h3]
+[img]https://is.gd/PCP_biodiesel[/img]
+
+[hr][/hr]
+[h2]Skill System[/h2]
+[img]https://is.gd/PCP_skills[/img]
+
+[b]Applied Chemistry (AC)[/b] — custom skill from level 0 to 10. Recipes unlock as you level up. Higher tiers require the Chemistry Pathways Handbook (lootable).
+
+[list]
+[*][b]Chemist[/b] occupation — starts at AC 3, 13 pre-learned recipes
+[*][b]Pharmacist[/b] occupation — starts at AC 2, 5 pre-learned recipes
+[*][b]Chemistry Enthusiast[/b] trait — +1 AC, 2 bonus recipes (+4 points)
+[*][b]Chemical Aversion[/b] trait — -1 AC (-2 points)
+[*]5 skill books (Vol 1-5) distributed across bookshelves
+[/list]
+
+[hr][/hr]
+[h2]Sandbox Options (12)[/h2]
+Full control for server admins and singleplayer alike:
+[list]
+[*]Enable/disable health hazards (PPE system with safe/unsafe recipe variants)
+[*]Enable/disable advanced lab equipment recipes
+[*]Toggle heat source requirements
+[*]Enable/disable impurity tracking system with 3 severity levels
+[*]Yield multiplier (0.25x to 4.0x)
+[*]Purity feedback display
+[*]5 tiered reset options (strip purity data, forget recipes, reset XP, remove items, nuclear reset)
+[/list]
+[i][url=https://is.gd/PhobosChemDocs]Full sandbox documentation on GitHub[/url][/i]
+
+[hr][/hr]
+[h2]Cross-Mod Compatibility[/h2]
+[list]
+[*][b]EHR (Extensive Health Rework)[/b] — If installed, hazardous recipes dispatch EHR diseases instead of vanilla stat penalties. Auto-detected, no config needed.
+[*][b]ZScienceSkill[/b] — If installed, mirrors 50% of Applied Chemistry XP to Science skill + registers 33 items and 8 fluids as specimens. Auto-detected.
+[/list]
+No errors if these mods are absent — everything degrades gracefully to vanilla behaviour.
+
+[hr][/hr]
+[h2]Requirements[/h2]
+[list]
+[*][url=https://is.gd/PhobosLibPZ][b]Phobos Shared Library (PhobosLib)[/b][/url] — Required dependency
+[*][b]zReVaccin 3[/b] — Required for lab equipment entities (chemistry set, centrifuge, etc.)
+[*]Project Zomboid Build 42.13.0+
+[/list]
+
+[hr][/hr]
+[h2]Links[/h2]
+[table]
+[tr]
+[th]Resource[/th]
+[th]Link[/th]
+[/tr]
+[tr]
+[td]Source Code & Full Docs[/td]
+[td][url=https://is.gd/PhobosChemGH]GitHub Repository[/url][/td]
+[/tr]
+[tr]
+[td]Bug Reports & Feature Requests[/td]
+[td][url=https://is.gd/PhobosChemBugs]GitHub Issues[/url] (preferred)[/td]
+[/tr]
+[tr]
+[td]Diagrams & Architecture[/td]
+[td][url=https://is.gd/PhobosChemDocs]Documentation[/url][/td]
+[/tr]
+[tr]
+[td]PhobosLib (dependency)[/td]
+[td][url=https://is.gd/PhobosLibPZ]Steam Workshop[/url] | [url=https://is.gd/PhobosLibGH]GitHub[/url][/td]
+[/tr]
+[/table]
+
+[i]For modders and developers: source code, changelogs, API docs, contribution guidelines, and architecture diagrams are all on [url=https://is.gd/PhobosChemGH]GitHub[/url]. Please file bugs and feature requests there rather than in Workshop comments.[/i]
+
+[hr][/hr]
+[b]Version:[/b] 0.12.0 | [b]Build:[/b] 42.13.0+ | [b]License:[/b] MIT (code) / CC BY-NC-SA (assets)
+[i]by phobosgekko[/i]
