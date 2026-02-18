@@ -53,7 +53,7 @@ local function showFailure(msg)
             500,
             240,
             text,
-            true  -- yes button only
+            false  -- OK button only
         )
         modal:initialise()
         modal:addToUIManager()

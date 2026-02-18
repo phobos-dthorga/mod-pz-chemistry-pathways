@@ -6,6 +6,18 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.13.2] - 2026-02-19
+
+### Fixed
+- **Recipe OnTest gating** — All 121 OnTest references across 5 recipe files now use `RecipeCodeOnTest.` table-qualified names (e.g., `RecipeCodeOnTest.pcpHeatRequiredCheck`); bare function names were silently ignored by PZ 42, causing all sandbox-gated recipes to always be visible
+- **Perk translation** — Added missing `name = AppliedChemistry` field in `perks.txt`; PZ 42.14.x showed raw key `IGUI_perks_Applied` instead of "Applied Chemistry" in the skills panel
+- **Perk description keys** — Added fallback perk name variants and `_Description` keys covering all PZ lookup patterns
+- **Persistent reset clearing** — Reset system now uses `PhobosLib.consumeSandboxFlag()` instead of `setSandboxVar()`; sandbox checkboxes stay OFF after game restart
+- **Reset notification dialog** — Changed from Yes/No to single OK button; informational notifications should not present a yes/no choice
+
+### Changed
+- Requires **PhobosLib 1.4.1+** (consumeSandboxFlag for persistent sandbox reset)
+
 ## [0.13.1] - 2026-02-19
 
 ### Fixed

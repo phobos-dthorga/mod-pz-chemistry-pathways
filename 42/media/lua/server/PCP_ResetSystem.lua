@@ -5,7 +5,7 @@
 -- requested tier, guards against re-execution via world modData,
 -- and sends result notifications to the client.
 --
--- Requires: PhobosLib >= 1.2.0 (Reset + Sandbox modules)
+-- Requires: PhobosLib >= 1.4.1 (Reset + Sandbox modules)
 ---------------------------------------------------------------
 
 require "PhobosLib"
@@ -211,7 +211,7 @@ local function onGameStart()
         end
 
         setWorldFlag(nuclearFlag, true)
-        PhobosLib.setSandboxVar("PCP", nuclearVar, false)
+        PhobosLib.consumeSandboxFlag("PCP", nuclearVar)
     else
         -- Check individual tiers
         for _, tier in ipairs(PCP_Reset.TIERS) do
@@ -238,7 +238,7 @@ local function onGameStart()
                 end
 
                 setWorldFlag(worldFlag, true)
-                PhobosLib.setSandboxVar("PCP", tier.sandboxVar, false)
+                PhobosLib.consumeSandboxFlag("PCP", tier.sandboxVar)
             end
         end
     end

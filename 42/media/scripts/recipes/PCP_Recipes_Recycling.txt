@@ -59,7 +59,7 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = pcpHeatRequiredCheck,
+        OnTest = RecipeCodeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpCalcineCalcitePurity,
 
         Tags = DomeKiln;CannotBeResearched,
@@ -87,7 +87,7 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = pcpHeatRequiredCheck,
+        OnTest = RecipeCodeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpCalcineCalcitePurity,
 
         Tags = DomeKiln;CannotBeResearched,
@@ -115,7 +115,7 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = pcpHeatRequiredCheck,
+        OnTest = RecipeCodeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpCalcineCalcitePropanePurity,
 
         Tags = DomeKiln;CannotBeResearched,
@@ -142,7 +142,7 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = pcpNoHeatRequiredCheck,
+        OnTest = RecipeCodeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpCalcineCalcitePurity,
 
         Tags = DomeKiln;CannotBeResearched,
@@ -311,7 +311,7 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = pcpHeatRequiredCheck,
+        OnTest = RecipeCodeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpCastFishingWeightsPurity,
 
         Tags = PrimitiveFurnace;CannotBeResearched,
@@ -338,7 +338,7 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = pcpHeatRequiredCheck,
+        OnTest = RecipeCodeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpCastFishingWeightsPurity,
 
         Tags = PrimitiveFurnace;CannotBeResearched,
@@ -365,7 +365,7 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = pcpHeatRequiredCheck,
+        OnTest = RecipeCodeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpCastFishingWeightsPropanePurity,
 
         Tags = PrimitiveFurnace;CannotBeResearched,
@@ -392,7 +392,7 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = pcpNoHeatRequiredCheck,
+        OnTest = RecipeCodeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpCastFishingWeightsPurity,
 
         Tags = PrimitiveFurnace;CannotBeResearched,
@@ -426,7 +426,7 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = pcpNoHazardCheck,
+        OnTest = RecipeCodeOnTest.pcpNoHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpMeltPlasticGluePurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,

@@ -7,11 +7,11 @@ How PCP connects to its dependencies and optional cross-mod integrations.
 ```mermaid
 graph TB
     subgraph HARD["Hard Dependencies (mod.info require)"]
-        PL["PhobosLib v1.4.0+<br/>9 utility modules"]
+        PL["PhobosLib v1.4.1+<br/>9 utility modules"]
         ZR["zReVaccin 3<br/>Lab equipment entities"]
     end
 
-    subgraph PCP["PhobosChemistryPathways v0.13.1"]
+    subgraph PCP["PhobosChemistryPathways v0.13.2"]
         CORE["Core"]
         REC["150 Recipes<br/>5 recipe files"]
         ITEMS["39 Items<br/>+ 5 Skill Books"]
@@ -49,7 +49,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph LIB["PhobosLib v1.4.0"]
+    subgraph LIB["PhobosLib v1.4.1"]
         INIT["PhobosLib.lua<br/>(aggregator)"]
 
         UTIL["Util<br/>pcallMethod, probeMethod<br/>findItemByKeywords<br/>matchesKeywords, say"]
@@ -58,7 +58,7 @@ graph LR
 
         WORLD["World<br/>scanNearbySquares<br/>findNearbyObjectByKeywords"]
 
-        SANDBOX["Sandbox<br/>getSandboxVar, isModActive<br/>applyYieldMultiplier"]
+        SANDBOX["Sandbox<br/>getSandboxVar, isModActive<br/>applyYieldMultiplier<br/>consumeSandboxFlag"]
 
         QUALITY["Quality<br/>getQuality, setQuality<br/>calculateOutputQuality<br/>getTier, adjustBySeverity"]
 

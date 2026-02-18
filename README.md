@@ -1,6 +1,6 @@
 # PhobosChemistryPathways
 
-**Version:** 0.13.1 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.4.0+ | zReVaccin 3
+**Version:** 0.13.2 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.4.1+ | zReVaccin 3
 
 > **Players:** Subscribe on [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3668197831) for easy installation. This GitHub repo is for source code, documentation, and development.
 >
@@ -45,7 +45,7 @@ Eight-step recycling chain (R1-R8): wood tar to wood glue, calcite to quicklime 
 Optional hazard system for 11 dangerous chemistry recipes. Each splits into Protected (mask + goggles required, filter degrades) and Unprotected (risk of disease or stat penalties) variants. Integrates with EHR (Extensive Health Rework) when available, with vanilla stat fallback.
 
 ### Tiered Reset/Cleanup System
-Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" settings page for version upgrades and mod removal. Strip purity data, forget recipes, reset skill XP, remove all PCP items, or execute all four as a nuclear reset. Each option executes once on game load, then auto-resets to OFF with persistent notifications.
+Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" settings page for version upgrades and mod removal. Strip purity data, forget recipes, reset skill XP, remove all PCP items, or execute all four as a nuclear reset. Each option executes once on game load, then auto-resets to OFF with persistent notifications. Reset flags persist across game restarts via world modData.
 
 ### Cross-Mod Integration
 - **ZScienceSkill** ("Science, Bitch!"): When active, Applied Chemistry XP mirrors to Science at 50% rate, and 33 items + 8 fluids are registered as researchable microscope specimens.
@@ -55,7 +55,7 @@ Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" setting
 
 | Dependency | Purpose |
 |------------|---------|
-| **PhobosLib 1.4.0+** | Shared utility library (sandbox access, fluid helpers, quality tracking, hazard dispatch, skill XP mirroring, reset utilities, startup validation) |
+| **PhobosLib 1.4.1+** | Shared utility library (sandbox access, fluid helpers, quality tracking, hazard dispatch, skill XP mirroring, reset utilities, startup validation) |
 | **zReVaccin 3** (zReModVaccin30bykERHUS) | Lab equipment entities (chemistry set, centrifuge, chromatograph, microscope, spectrometer) |
 | **EHR** (optional) | Disease system for health hazard integration; vanilla stat penalties used as fallback |
 | **ZScienceSkill** (optional) | Science skill XP mirroring and microscope specimen registration |

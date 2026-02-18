@@ -2,6 +2,7 @@ VERSION = 1,
 
 perk AppliedChemistry
 {
+    name = AppliedChemistry,
     translation = AppliedChemistry,
     parent = Crafting,
     xp1 = 75,
