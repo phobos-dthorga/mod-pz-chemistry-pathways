@@ -15,9 +15,9 @@ Sandbox_EN = {
 
     Sandbox_PCP_ImpuritySeverity = "IMPURITY SEVERITY:",
     Sandbox_PCP_ImpuritySeverity_tooltip = "Controls how harshly impurities affect yields and how much advanced equipment helps.<br> <INDENT:20>-1 = Mild: Equipment improvements amplified, degradation halved;<br> <INDENT:20>-2 = Standard: Normal purity curves (default);<br> <INDENT:20>-3 = Harsh: Equipment improvements halved, degradation amplified.<br><br> <RGB:0.7,0.7,0.7> Only applies when Impurity System is enabled. <RGB:1,1,1>",
-    Sandbox_PCP_ImpuritySeverity1 = "Mild",
-    Sandbox_PCP_ImpuritySeverity2 = "Standard",
-    Sandbox_PCP_ImpuritySeverity3 = "Harsh",
+    Sandbox_PCP_ImpuritySeverity_option1 = "Mild",
+    Sandbox_PCP_ImpuritySeverity_option2 = "Standard",
+    Sandbox_PCP_ImpuritySeverity_option3 = "Harsh",
 
     Sandbox_PCP_ShowPurityOnCraft = "SHOW PURITY ON CRAFT:",
     Sandbox_PCP_ShowPurityOnCraft_tooltip = "When enabled, the player character announces the purity tier of crafted items via speech bubble.<br> <INDENT:20>-ON (default): Shows e.g. 'Purity: Pure (72%)';<br> <INDENT:20>-OFF: Silent crafting, check purity via tooltip only.<br><br> <RGB:0.7,0.7,0.7> Only applies when Impurity System is enabled. <RGB:1,1,1>",

@@ -9,10 +9,10 @@
 ]]
 
 -- Character Traits
-CharacterTrait.register("base:pcp_chemist_trait")
-CharacterTrait.register("base:pcp_chemistry_enthusiast")
-CharacterTrait.register("base:pcp_chem_aversion")
+CharacterTrait.register("pcp:pcp_chemist_trait")
+CharacterTrait.register("pcp:pcp_chemistry_enthusiast")
+CharacterTrait.register("pcp:pcp_chem_aversion")
 
 -- Character Professions
-CharacterProfession.register("base:pcp_chemist")
-CharacterProfession.register("base:pcp_pharmacist")
+CharacterProfession.register("pcp:pcp_chemist")
+CharacterProfession.register("pcp:pcp_pharmacist")

@@ -4,11 +4,11 @@ module Base
         Chemist Profession Trait — Paired with pcp_chemist profession.
         IsProfessionTrait = true means it cannot be freely selected.
         ============================================================= */
-    character_trait_definition base:pcp_chemist_trait
+    character_trait_definition pcp:pcp_chemist_trait
     {
         IsProfessionTrait = true,
         DisabledInMultiplayer = false,
-        CharacterTrait = base:pcp_chemist_trait,
+        CharacterTrait = pcp:pcp_chemist_trait,
         Cost = 0,
         UIName = UI_trait_pcp_chemist_trait,
         UIDescription = UI_trait_pcp_chemist_trait_desc,
@@ -19,16 +19,16 @@ module Base
         Grants AppliedChemistry +1 and 2 basic recipes.
         Mutually exclusive with Chemical Aversion.
         ============================================================= */
-    character_trait_definition base:pcp_chemistry_enthusiast
+    character_trait_definition pcp:pcp_chemistry_enthusiast
     {
         IsProfessionTrait = false,
         DisabledInMultiplayer = false,
-        CharacterTrait = base:pcp_chemistry_enthusiast,
+        CharacterTrait = pcp:pcp_chemistry_enthusiast,
         Cost = 4,
         UIName = UI_trait_pcp_chemistry_enthusiast,
         UIDescription = UI_trait_pcp_chemistry_enthusiast_desc,
         XPBoosts = AppliedChemistry=1,
-        MutuallyExclusiveTraits = base:pcp_chem_aversion,
+        MutuallyExclusiveTraits = pcp:pcp_chem_aversion,
         GrantedRecipes = PCPCrushCharcoal;PCPConvertVegetableOil,
     }
 
@@ -37,15 +37,15 @@ module Base
         AppliedChemistry -1 penalty.
         Mutually exclusive with Chemistry Enthusiast.
         ============================================================= */
-    character_trait_definition base:pcp_chem_aversion
+    character_trait_definition pcp:pcp_chem_aversion
     {
         IsProfessionTrait = false,
         DisabledInMultiplayer = false,
-        CharacterTrait = base:pcp_chem_aversion,
+        CharacterTrait = pcp:pcp_chem_aversion,
         Cost = -2,
         UIName = UI_trait_pcp_chem_aversion,
         UIDescription = UI_trait_pcp_chem_aversion_desc,
         XPBoosts = AppliedChemistry=-1,
-        MutuallyExclusiveTraits = base:pcp_chemistry_enthusiast,
+        MutuallyExclusiveTraits = pcp:pcp_chemistry_enthusiast,
     }
 }

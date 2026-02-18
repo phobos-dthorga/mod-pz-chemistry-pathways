@@ -6,6 +6,13 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.13.1] - 2026-02-19
+
+### Fixed
+- **Registry namespace** — Changed `base:` → `pcp:` for all trait/profession identifiers; `base:` is reserved for vanilla PZ and caused a fatal crash in debug mode
+- **ImpuritySeverity translations** — Enum dropdown labels now display correctly (Mild/Standard/Harsh); key format changed to `_option<N>` per PZ convention
+- **Recipe sandbox gating** — Moved `PCP_SandboxIntegration.lua` from `server/` to `shared/` so `OnTest` callbacks register client-side; fixes all recipes being visible regardless of sandbox settings
+
 ## [0.13.0] - 2026-02-19
 
 ### Added

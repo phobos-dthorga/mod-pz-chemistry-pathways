@@ -7,14 +7,14 @@ module Base
         Grants mortar-tier oil presses, basic charcoal/oil conversion,
         and blackpowder mixing.
         ============================================================= */
-    character_profession_definition base:pcp_chemist
+    character_profession_definition pcp:pcp_chemist
     {
-        CharacterProfession = base:pcp_chemist,
+        CharacterProfession = pcp:pcp_chemist,
         Cost = -4,
         UIName = UI_prof_pcp_chemist,
         UIDescription = UI_profdesc_pcp_chemist,
         IconPathName = profession_pcp_chemist,
-        GrantedTraits = base:pcp_chemist_trait,
+        GrantedTraits = pcp:pcp_chemist_trait,
         XPBoosts = AppliedChemistry=3;Doctor=1,
         GrantedRecipes = PCPPressOilSoybeansMortar;PCPPressOilSunflowerMortar;PCPPressOilCornMortar;PCPPressOilFlaxMortar;PCPPressOilHempMortar;PCPPressOilPeanutMortar;PCPCrushCharcoal;PCPConvertVegetableOil;PCPMixBlackpowder;PCPPrepareDilutedCompost;PCPPrepareDilutedCompostDung;PCPRenderFat;PCPRenderFatSimple,
     }
@@ -25,9 +25,9 @@ module Base
         Starts with AppliedChemistry 2, Doctor 2.
         Grants basic charcoal and oil conversion recipes.
         ============================================================= */
-    character_profession_definition base:pcp_pharmacist
+    character_profession_definition pcp:pcp_pharmacist
     {
-        CharacterProfession = base:pcp_pharmacist,
+        CharacterProfession = pcp:pcp_pharmacist,
         Cost = -2,
         UIName = UI_prof_pcp_pharmacist,
         UIDescription = UI_profdesc_pcp_pharmacist,
