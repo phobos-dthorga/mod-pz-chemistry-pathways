@@ -5,7 +5,7 @@ poster=poster.png
 url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668197831
 authors=phobosgekko
 versionMin=42.14.0
-modversion=0.12.0
+modversion=0.12.1
 require=\PhobosLib,\zReModVaccin30bykERHUS
 loadModAfter=\PhobosLib,\zReModVaccin30bykERHUS,\ZScienceSkill,\EHR
 category=features
