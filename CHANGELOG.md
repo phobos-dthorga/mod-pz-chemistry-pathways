@@ -6,6 +6,15 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.13.3] - 2026-02-19
+
+### Fixed
+- **Perk description key** — Added `IGUI_perks_Applied Chemistry_Description` with literal space matching vanilla PZ pattern; PZ constructs description keys from `perk:getName()` which returns the display name with spaces
+- **Recipe OnTest gating** — Moved 9 OnTest callbacks from Java-side `RecipeCodeOnTest` table to PCP-owned `PCP_RecipeOnTest` Lua table via `PhobosLib.registerOnTest()`; `RecipeCodeOnTest` is Java-exposed and Lua additions are invisible to the engine's `callLuaBool()` resolver; all 121 recipe references updated
+
+### Changed
+- Requires **PhobosLib 1.4.2+** (createCallbackTable / registerOnTest)
+
 ## [0.13.2] - 2026-02-19
 
 ### Fixed

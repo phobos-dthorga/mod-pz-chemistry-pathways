@@ -2,7 +2,7 @@
 -- PCP_SandboxIntegration.lua
 -- Server-side sandbox variable integration for PhobosChemistryPathways.
 -- Reads SandboxVars.PCP.* and provides recipe callbacks.
--- Requires PhobosLib for safe sandbox access.
+-- Requires PhobosLib >= 1.4.2 for safe sandbox access and callback tables.
 ---------------------------------------------------------------
 
 require "PhobosLib"
@@ -117,16 +117,17 @@ function PCP_Sandbox.isEHRActive()
 end
 
 
--- Register the OnTest functions globally so recipes can reference them.
-if not RecipeCodeOnTest then RecipeCodeOnTest = {} end
-RecipeCodeOnTest.pcpAdvancedLabCheck = PCP_Sandbox.onTestAdvancedLab
-RecipeCodeOnTest.pcpHeatRequiredCheck = PCP_Sandbox.onTestHeatRequired
-RecipeCodeOnTest.pcpNoHeatRequiredCheck = PCP_Sandbox.onTestNoHeatRequired
-RecipeCodeOnTest.pcpHazardEnabledCheck = PCP_Sandbox.onTestHazardEnabled
-RecipeCodeOnTest.pcpNoHazardCheck = PCP_Sandbox.onTestNoHazard
-RecipeCodeOnTest.pcpHeatAndHazardCheck = PCP_Sandbox.onTestHeatAndHazard
-RecipeCodeOnTest.pcpNoHeatAndHazardCheck = PCP_Sandbox.onTestNoHeatAndHazard
-RecipeCodeOnTest.pcpHeatAndNoHazardCheck = PCP_Sandbox.onTestHeatAndNoHazard
-RecipeCodeOnTest.pcpNoHeatAndNoHazardCheck = PCP_Sandbox.onTestNoHeatAndNoHazard
+-- Register OnTest functions in a PCP-owned global Lua table.
+-- RecipeCodeOnTest is Java-exposed; Lua additions are invisible to callLuaBool().
+-- PhobosLib.registerOnTest creates the table and registers each callback.
+PhobosLib.registerOnTest("PCP_RecipeOnTest", "pcpAdvancedLabCheck",        PCP_Sandbox.onTestAdvancedLab)
+PhobosLib.registerOnTest("PCP_RecipeOnTest", "pcpHeatRequiredCheck",       PCP_Sandbox.onTestHeatRequired)
+PhobosLib.registerOnTest("PCP_RecipeOnTest", "pcpNoHeatRequiredCheck",     PCP_Sandbox.onTestNoHeatRequired)
+PhobosLib.registerOnTest("PCP_RecipeOnTest", "pcpHazardEnabledCheck",      PCP_Sandbox.onTestHazardEnabled)
+PhobosLib.registerOnTest("PCP_RecipeOnTest", "pcpNoHazardCheck",           PCP_Sandbox.onTestNoHazard)
+PhobosLib.registerOnTest("PCP_RecipeOnTest", "pcpHeatAndHazardCheck",      PCP_Sandbox.onTestHeatAndHazard)
+PhobosLib.registerOnTest("PCP_RecipeOnTest", "pcpNoHeatAndHazardCheck",    PCP_Sandbox.onTestNoHeatAndHazard)
+PhobosLib.registerOnTest("PCP_RecipeOnTest", "pcpHeatAndNoHazardCheck",    PCP_Sandbox.onTestHeatAndNoHazard)
+PhobosLib.registerOnTest("PCP_RecipeOnTest", "pcpNoHeatAndNoHazardCheck",  PCP_Sandbox.onTestNoHeatAndNoHazard)
 
-print("[PCP] Sandbox: 9 OnTest callbacks registered [" .. (isServer() and "server" or "local") .. "]")
+print("[PCP] Sandbox: 9 OnTest callbacks registered in PCP_RecipeOnTest [" .. (isServer() and "server" or "local") .. "]")

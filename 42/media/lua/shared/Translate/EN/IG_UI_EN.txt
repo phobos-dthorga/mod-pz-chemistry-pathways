@@ -9,6 +9,7 @@ IGUI_EN = {
 	IGUI_perks_AppliedChemistry_Description = "Knowledge of chemical processes and laboratory techniques. Higher levels unlock advanced synthesis recipes.",
 	IGUI_perks_Applied_Chemistry_Description = "Knowledge of chemical processes and laboratory techniques. Higher levels unlock advanced synthesis recipes.",
 	IGUI_perks_Applied_Description = "Knowledge of chemical processes and laboratory techniques. Higher levels unlock advanced synthesis recipes.",
+	IGUI_perks_Applied Chemistry_Description = "Knowledge of chemical processes and laboratory techniques. Higher levels unlock advanced synthesis recipes.",
 
 	/* ===== Professions ===== */
 	UI_prof_pcp_chemist = "Chemist",

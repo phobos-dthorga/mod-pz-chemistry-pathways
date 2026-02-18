@@ -42,7 +42,7 @@ module Base
         time = 120,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = RecipeCodeOnTest.pcpHeatRequiredCheck,
+        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -73,7 +73,7 @@ module Base
         time = 120,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = RecipeCodeOnTest.pcpNoHeatRequiredCheck,
+        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -109,7 +109,7 @@ module Base
         time = 180,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = RecipeCodeOnTest.pcpHeatRequiredCheck,
+        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalNaOHPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -142,7 +142,7 @@ module Base
         time = 180,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = RecipeCodeOnTest.pcpNoHeatRequiredCheck,
+        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalNaOHPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -249,7 +249,7 @@ module Base
     {
         time = 200,
         category = PhobosChemistry,
-        OnTest = RecipeCodeOnTest.pcpNoHazardCheck,
+        OnTest = PCP_RecipeOnTest.pcpNoHazardCheck,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractAcidPurity,
 
@@ -288,7 +288,7 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = RecipeCodeOnTest.pcpHeatAndNoHazardCheck,
+        OnTest = PCP_RecipeOnTest.pcpHeatAndNoHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -321,7 +321,7 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = RecipeCodeOnTest.pcpNoHeatAndNoHazardCheck,
+        OnTest = PCP_RecipeOnTest.pcpNoHeatAndNoHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -358,7 +358,7 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = RecipeCodeOnTest.pcpHeatAndNoHazardCheck,
+        OnTest = PCP_RecipeOnTest.pcpHeatAndNoHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -390,7 +390,7 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = RecipeCodeOnTest.pcpNoHeatAndNoHazardCheck,
+        OnTest = PCP_RecipeOnTest.pcpNoHeatAndNoHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -431,7 +431,7 @@ module Base
         time = 300,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = RecipeCodeOnTest.pcpHeatRequiredCheck,
+        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3Purity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -464,7 +464,7 @@ module Base
         time = 300,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = RecipeCodeOnTest.pcpNoHeatRequiredCheck,
+        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3Purity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -502,7 +502,7 @@ module Base
         time = 350,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = RecipeCodeOnTest.pcpHeatRequiredCheck,
+        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3Purity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -533,7 +533,7 @@ module Base
         time = 350,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = RecipeCodeOnTest.pcpNoHeatRequiredCheck,
+        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3Purity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
