@@ -8,7 +8,6 @@ module Base
     pathways, converting them into useful vanilla items. Every dead-end item in
     PCP now has at least one meaningful downstream use.                                  */
 
-
 /* ==================================================================================== */
 /* ============================== R1: WOOD TAR -> WOOD GLUE ============================ */
 /* ==================================================================================== */
@@ -44,7 +43,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ======================== R2: CALCITE -> QUICKLIME (DOME KILN) ====================== */
 /* ==================================================================================== */
@@ -59,7 +57,6 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpCalcineCalcitePurity,
 
         Tags = DomeKiln;CannotBeResearched,
@@ -87,7 +84,6 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpCalcineCalcitePurity,
 
         Tags = DomeKiln;CannotBeResearched,
@@ -115,7 +111,6 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpCalcineCalcitePropanePurity,
 
         Tags = DomeKiln;CannotBeResearched,
@@ -142,7 +137,6 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpCalcineCalcitePurity,
 
         Tags = DomeKiln;CannotBeResearched,
@@ -160,7 +154,6 @@ module Base
             item 2 Base.Quicklime,
         }
     }
-
 
 /* ==================================================================================== */
 /* ======================== R3: CALCITE -> FERTILIZER ================================== */
@@ -197,7 +190,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ======================== R4: CRUDE SOAP -> SOAP2 ==================================== */
 /* ==================================================================================== */
@@ -230,7 +222,6 @@ module Base
             item 1 Base.Soap2,
         }
     }
-
 
 /* ==================================================================================== */
 /* ===================== R5: CRUDE SOAP -> STERILIZED BANDAGE ========================== */
@@ -296,7 +287,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ================== R6: LEAD SCRAP -> FISHING TACKLE (FURNACE) ====================== */
 /* ==================================================================================== */
@@ -311,7 +301,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpCastFishingWeightsPurity,
 
         Tags = PrimitiveFurnace;CannotBeResearched,
@@ -338,7 +327,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpCastFishingWeightsPurity,
 
         Tags = PrimitiveFurnace;CannotBeResearched,
@@ -365,7 +353,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpCastFishingWeightsPropanePurity,
 
         Tags = PrimitiveFurnace;CannotBeResearched,
@@ -392,7 +379,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpCastFishingWeightsPurity,
 
         Tags = PrimitiveFurnace;CannotBeResearched,
@@ -411,7 +397,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* =================== R7: PLASTIC SCRAP -> GLUE (CHEMISTRY SET) ====================== */
 /* ==================================================================================== */
@@ -426,7 +411,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpMeltPlasticGluePurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -445,7 +429,6 @@ module Base
             item 1 Base.Glue,
         }
     }
-
 
 /* ==================================================================================== */
 /* ================ R8: ACID-WASHED ELECTRONICS -> COMPONENTS ========================== */

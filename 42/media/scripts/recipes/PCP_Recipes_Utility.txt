@@ -32,7 +32,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ============================== ACID-WASHED ELECTRONICS ============================== */
 /* ==================================================================================== */
@@ -47,7 +46,6 @@ module Base
     {
         time = 150,
         category = PhobosChemistry,
-        OnTest = PCP_RecipeOnTest.pcpNoHazardCheck,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpAcidWashPurity,
 

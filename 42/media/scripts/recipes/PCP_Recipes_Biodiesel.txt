@@ -34,7 +34,6 @@ module Base
         }
     }
 
-
 /* ----- PRESS SUNFLOWER OIL (Mortar & Pestle) ----- */
 /*  Cold-press sunflower seeds. Better yield than soybeans Ã¢â‚¬â€ sunflower seeds
     are 40-50% oil by weight.                                                           */
@@ -63,7 +62,6 @@ module Base
             item 1 PhobosChemistryPathways.CrudeVegetableOil,
         }
     }
-
 
 /* ----- PRESS CORN OIL (Mortar & Pestle) ----- */
 /*  Cold-press corn kernels. Worst yield Ã¢â‚¬â€ corn germ is only ~4-5% oil
@@ -94,7 +92,6 @@ module Base
         }
     }
 
-
 /* ----- PRESS FLAX OIL (Mortar & Pestle) ----- */
 /*  Cold-press flax seeds (linseed). Decent yield Ã¢â‚¬â€ flax seeds are ~40% oil
     by weight, but the tiny seeds (0.02 each) require many to fill a jar.                 */
@@ -123,7 +120,6 @@ module Base
             item 1 PhobosChemistryPathways.CrudeVegetableOil,
         }
     }
-
 
 /* ----- PRESS HEMP OIL (Mortar & Pestle) ----- */
 /*  Cold-press hemp seeds. Lower oil content (~30%) than flax, requiring
@@ -154,7 +150,6 @@ module Base
         }
     }
 
-
 /* ----- PRESS PEANUT OIL (Mortar & Pestle) ----- */
 /*  Cold-press peanuts. Excellent oil content (~50%) and heavier nuts
     (0.2 each) make peanuts one of the best mortar-tier oil sources.                      */
@@ -184,7 +179,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ============================== OIL EXTRACTION (TIER 2: CHEMISTRY SET) ============== */
 /* ==================================================================================== */
@@ -198,7 +192,6 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -230,7 +223,6 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -256,7 +248,6 @@ module Base
         }
     }
 
-
 /* ----- EXTRACT SUNFLOWER OIL (Chemistry Set) ----- */
 /*  Hot-water solvent extraction of sunflower seed oil.                                 */
 
@@ -265,7 +256,6 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -297,7 +287,6 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -323,7 +312,6 @@ module Base
         }
     }
 
-
 /* ----- EXTRACT CORN OIL (Chemistry Set) ----- */
 /*  Hot-water solvent extraction of corn oil.                                           */
 
@@ -332,7 +320,6 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -364,7 +351,6 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -390,7 +376,6 @@ module Base
         }
     }
 
-
 /* ----- EXTRACT FLAX OIL (Chemistry Set) ----- */
 /*  Hot-water solvent extraction of flax seed (linseed) oil.                             */
 
@@ -399,7 +384,6 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -431,7 +415,6 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -457,7 +440,6 @@ module Base
         }
     }
 
-
 /* ----- EXTRACT HEMP OIL (Chemistry Set) ----- */
 /*  Hot-water solvent extraction of hemp seed oil.                                       */
 
@@ -466,7 +448,6 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -498,7 +479,6 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -524,7 +504,6 @@ module Base
         }
     }
 
-
 /* ----- EXTRACT PEANUT OIL (Chemistry Set) ----- */
 /*  Hot-water solvent extraction of peanut oil.                                          */
 
@@ -533,7 +512,6 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -565,7 +543,6 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -590,7 +567,6 @@ module Base
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
-
 
 /* ==================================================================================== */
 /* ============================== OIL EXTRACTION (TIER 3: BULK BARREL) ================ */
@@ -624,7 +600,6 @@ module Base
         }
     }
 
-
 /* ----- BULK PRESS SUNFLOWER OIL (Barrel) ----- */
 
     craftRecipe PCPPressOilSunflowerBulk
@@ -651,7 +626,6 @@ module Base
         }
     }
 
-
 /* ----- BULK PRESS CORN OIL (Barrel) ----- */
 
     craftRecipe PCPPressOilCornBulk
@@ -677,7 +651,6 @@ module Base
             item 1 PhobosChemistryPathways.CrudeVegetableOilBucket,
         }
     }
-
 
 /* ----- BULK PRESS FLAX OIL (Metal Drum) ----- */
 /*  Industrial-scale flax seed oil extraction using a metal drum reactor.                 */
@@ -706,7 +679,6 @@ module Base
         }
     }
 
-
 /* ----- BULK PRESS HEMP OIL (Metal Drum) ----- */
 /*  Industrial-scale hemp seed oil extraction using a metal drum reactor.                 */
 
@@ -734,7 +706,6 @@ module Base
         }
     }
 
-
 /* ----- BULK PRESS PEANUT OIL (Metal Drum) ----- */
 /*  Industrial-scale peanut oil extraction using a metal drum reactor.                    */
 
@@ -761,7 +732,6 @@ module Base
             item 1 PhobosChemistryPathways.CrudeVegetableOilBucket,
         }
     }
-
 
 /* ==================================================================================== */
 /* ============================== DIRECT OIL CONVERSION =============================== */
@@ -795,7 +765,6 @@ module Base
         }
     }
 
-
 /* ----- RENDER ANIMAL FAT ----- */
 /*  Melt and render lard into a clean, usable fat suitable for
     transesterification. Requires heat from the chemistry set.                          */
@@ -805,7 +774,6 @@ module Base
         time = 120,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpRenderFatPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -837,7 +805,6 @@ module Base
         time = 120,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpRenderFatPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -863,7 +830,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ============================== METHANOL PRODUCTION ================================= */
 /* ==================================================================================== */
@@ -879,7 +845,6 @@ module Base
         time = 400,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatAndNoHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -912,7 +877,6 @@ module Base
         time = 400,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatAndNoHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -939,7 +903,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ============================== KOH CATALYST SYNTHESIS ============================== */
 /* ==================================================================================== */
@@ -956,7 +919,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatAndNoHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -990,7 +952,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatAndNoHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -1018,7 +979,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ============================== TRANSESTERIFICATION (LAB SCALE) ===================== */
 /* ==================================================================================== */
@@ -1035,7 +995,6 @@ module Base
         time = 350,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -1071,7 +1030,6 @@ module Base
         time = 350,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -1101,7 +1059,6 @@ module Base
         }
     }
 
-
 /* ----- TRANSESTERIFY RENDERED FAT ----- */
 /*  Same transesterification reaction using rendered animal fat instead of
     vegetable oil. Chemically identical Ã¢â‚¬â€ triglyceride + methanol + KOH.                */
@@ -1111,7 +1068,6 @@ module Base
         time = 350,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -1147,7 +1103,6 @@ module Base
         time = 350,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -1177,7 +1132,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ============================== TRANSESTERIFICATION (BULK BARREL) =================== */
 /* ==================================================================================== */
@@ -1192,7 +1146,6 @@ module Base
         time = 500,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
@@ -1223,7 +1176,6 @@ module Base
         time = 500,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
@@ -1254,7 +1206,6 @@ module Base
         time = 500,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyOilBulkPropanePurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
@@ -1285,7 +1236,6 @@ module Base
         time = 500,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
@@ -1310,7 +1260,6 @@ module Base
         }
     }
 
-
 /* ----- BULK TRANSESTERIFY RENDERED FAT ----- */
 
     craftRecipe PCPTransesterifyFatBulk
@@ -1318,7 +1267,6 @@ module Base
         time = 500,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
@@ -1349,7 +1297,6 @@ module Base
         time = 500,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
@@ -1380,7 +1327,6 @@ module Base
         time = 500,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyFatBulkPropanePurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
@@ -1411,7 +1357,6 @@ module Base
         time = 500,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
@@ -1436,7 +1381,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ============================== TRANSESTERIFICATION (NaOH LAB SCALE) ================ */
 /* ==================================================================================== */
@@ -1451,7 +1395,6 @@ module Base
         time = 350,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -1487,7 +1430,6 @@ module Base
         time = 350,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -1517,7 +1459,6 @@ module Base
         }
     }
 
-
 /* ----- TRANSESTERIFY RENDERED FAT (NaOH) ----- */
 
     craftRecipe PCPTransesterifyFatNaOH
@@ -1525,7 +1466,6 @@ module Base
         time = 350,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -1561,7 +1501,6 @@ module Base
         time = 350,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -1591,7 +1530,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ============================== TRANSESTERIFICATION (NaOH BULK) ===================== */
 /* ==================================================================================== */
@@ -1605,7 +1543,6 @@ module Base
         time = 500,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
@@ -1636,7 +1573,6 @@ module Base
         time = 500,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
@@ -1667,7 +1603,6 @@ module Base
         time = 500,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyOilBulkPropanePurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
@@ -1698,7 +1633,6 @@ module Base
         time = 500,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
@@ -1723,7 +1657,6 @@ module Base
         }
     }
 
-
 /* ----- BULK TRANSESTERIFY RENDERED FAT (NaOH) ----- */
 
     craftRecipe PCPTransesterifyFatBulkNaOH
@@ -1731,7 +1664,6 @@ module Base
         time = 500,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
@@ -1762,7 +1694,6 @@ module Base
         time = 500,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
@@ -1793,7 +1724,6 @@ module Base
         time = 500,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyFatBulkPropanePurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
@@ -1824,7 +1754,6 @@ module Base
         time = 500,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
@@ -1849,7 +1778,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ============================== PURIFICATION ======================================== */
 /* ==================================================================================== */
@@ -1865,7 +1793,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -1895,7 +1822,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselLabPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -1919,7 +1845,6 @@ module Base
         }
     }
 
-
 /* ----- BULK WATER-WASH CRUDE BIODIESEL ----- */
 /*  Industrial-scale hot-water washing using a metal drum.
     Hot water improves glycerol and soap separation efficiency.                           */
@@ -1929,7 +1854,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
@@ -1956,7 +1880,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
@@ -1983,7 +1906,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselBulkPropanePurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
@@ -2010,7 +1932,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselBulkPurity,
 
         Tags = PCP:MetalDrumStation;CannotBeResearched,
@@ -2030,7 +1951,6 @@ module Base
             item 1 PhobosChemistryPathways.WashedBiodieselBucket,
         }
     }
-
 
 /* ----- REFINE BIODIESEL INTO FUEL ----- */
 /*  Settle and decant washed biodiesel into a gas can. After settling, the
@@ -2089,7 +2009,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ============================== ADVANCED EQUIPMENT: CENTRIFUGE ======================= */
 /* ==================================================================================== */
@@ -2125,7 +2044,6 @@ module Base
         }
     }
 
-
 /* ----- SEPARATE GLYCEROL (Centrifuge) ----- */
 /*  Centrifuge separation extracts bonus glycerol from transesterification
     waste layers. Uses the crude biodiesel's dissolved glycerol.                           */
@@ -2157,7 +2075,6 @@ module Base
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
-
 
 /* ==================================================================================== */
 /* ============================== ADVANCED EQUIPMENT: CHROMATOGRAPH ==================== */
@@ -2195,7 +2112,6 @@ module Base
         }
     }
 
-
 /* ----- PURIFY METHANOL (Chromatograph) ----- */
 /*  Chromatographic fractional distillation of charcoal produces purer methanol
     with higher yield Ã¢â‚¬â€ 4 charcoal Ã¢â€ â€™ 3 methanol (vs 2 at chemistry set).                 */
@@ -2205,7 +2121,6 @@ module Base
         time = 350,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpChromatographMethanolPurity,
 
         Tags = zReVAC2:Chromatograph;CannotBeResearched,
@@ -2238,7 +2153,6 @@ module Base
         time = 350,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpChromatographMethanolPurity,
 
         Tags = zReVAC2:Chromatograph;CannotBeResearched,
@@ -2265,7 +2179,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ============================== ADVANCED EQUIPMENT: MICROSCOPE (SANDBOX-GATED) ====== */
 /* ==================================================================================== */
@@ -2281,7 +2194,6 @@ module Base
         time = 200,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpAdvancedLabCheck,
         OnCreate = PCP_RecipeCallbacks.pcpMicroscopeAnalyzePurity,
 
         Tags = zReVAC2:Microscope;CannotBeResearched,
@@ -2310,7 +2222,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ============================== ADVANCED EQUIPMENT: SPECTROMETER (SANDBOX-GATED) ==== */
 /* ==================================================================================== */
@@ -2326,7 +2237,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpAdvancedLabCheck,
         OnCreate = PCP_RecipeCallbacks.pcpSpectrometerTestPurity,
 
         Tags = zReVAC2:Spectrometer;CannotBeResearched,
@@ -2348,7 +2258,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ============================== BONE CHAR PRODUCTION ================================ */
 /* ==================================================================================== */
@@ -2363,7 +2272,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
         Tags = WoodCharcoal;CannotBeResearched,
@@ -2390,7 +2298,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
         Tags = WoodCharcoal;CannotBeResearched,
@@ -2417,7 +2324,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPropanePurity,
 
         Tags = WoodCharcoal;CannotBeResearched,
@@ -2444,7 +2350,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
         Tags = WoodCharcoal;CannotBeResearched,
@@ -2473,7 +2378,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
         Tags = WoodCharcoal;CannotBeResearched,
@@ -2500,7 +2404,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
         Tags = WoodCharcoal;CannotBeResearched,
@@ -2527,7 +2430,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharSkullPropanePurity,
 
         Tags = WoodCharcoal;CannotBeResearched,
@@ -2554,7 +2456,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
         Tags = WoodCharcoal;CannotBeResearched,
@@ -2573,7 +2474,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ============================== BY-PRODUCTS: SOAP =================================== */
 /* ==================================================================================== */
@@ -2587,7 +2487,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
@@ -2615,7 +2514,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
@@ -2643,7 +2541,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPropanePurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
@@ -2671,7 +2568,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
@@ -2693,7 +2589,6 @@ module Base
         }
     }
 
-
 /* ----- MAKE CRUDE SOAP (NaOH) ----- */
 /*  Alternative saponification using sodium hydroxide. Requires heat.
     Produces a harder sodium soap compared to the KOH variant.                            */
@@ -2703,7 +2598,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
@@ -2731,7 +2625,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
@@ -2759,7 +2652,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPropanePurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
@@ -2787,7 +2679,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
@@ -2809,7 +2700,6 @@ module Base
         }
     }
 
-
 /* ----- MAKE CRUDE SOAP FROM FAT (KOH, Charcoal) ----- */
 /*  Traditional fat saponification Ã¢â‚¬â€ combine animal fat directly with potassium
     hydroxide over heat. The oldest known method of soap-making, predating
@@ -2821,7 +2711,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
@@ -2851,7 +2740,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
@@ -2881,7 +2769,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapFatPropanePurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
@@ -2911,7 +2798,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
@@ -2933,7 +2819,6 @@ module Base
         }
     }
 
-
 /* ----- MAKE CRUDE SOAP FROM FAT (NaOH, Charcoal) ----- */
 /*  Traditional fat saponification using sodium hydroxide instead of KOH.
     Produces a harder bar soap compared to the softer KOH variant.                       */
@@ -2943,7 +2828,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
@@ -2973,7 +2857,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
@@ -3003,7 +2886,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapFatPropanePurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
@@ -3033,7 +2915,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
         Tags = AnySurfaceCraft;CannotBeResearched,

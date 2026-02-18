@@ -17,7 +17,6 @@ module Base
       - Triggers EHR disease (if EHR mod active) or vanilla stat penalties (fallback)
       - Partial protection scaling if player happens to be wearing a mask              */
 
-
 /* ==================================================================================== */
 /* ============================== METHANOL DISTILLATION (HAZARD) ====================== */
 /* ==================================================================================== */
@@ -29,7 +28,6 @@ module Base
         time = 400,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatAndHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolSafePurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -66,7 +64,6 @@ module Base
         time = 400,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatAndHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolUnsafePurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -101,7 +98,6 @@ module Base
         time = 400,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatAndHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolSafePurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -137,7 +133,6 @@ module Base
         time = 400,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatAndHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolUnsafePurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -164,7 +159,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ============================== KOH SYNTHESIS (HAZARD) =============================== */
 /* ==================================================================================== */
@@ -176,7 +170,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatAndHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHSafePurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -213,7 +206,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatAndHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHUnsafePurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -248,7 +240,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatAndHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHSafePurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -284,7 +275,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatAndHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHUnsafePurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -311,7 +301,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ============================== SULPHUR EXTRACTION — ACID CAN (HAZARD) ============== */
 /* ==================================================================================== */
@@ -323,7 +312,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatAndHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurSafePurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -359,7 +347,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatAndHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurUnsafePurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -393,7 +380,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatAndHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurSafePurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -428,7 +414,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatAndHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurUnsafePurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -454,7 +439,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ============================== SULPHUR EXTRACTION — ACID FLUID (HAZARD) ============ */
 /* ==================================================================================== */
@@ -466,7 +450,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatAndHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurSafePurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -501,7 +484,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatAndHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurUnsafePurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -534,7 +516,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatAndHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurSafePurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -568,7 +549,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatAndHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurUnsafePurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -593,7 +573,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ============================== BATTERY ACID EXTRACTION (HAZARD) ==================== */
 /* ==================================================================================== */
@@ -604,7 +583,6 @@ module Base
     {
         time = 200,
         category = PhobosChemistry,
-        OnTest = PCP_RecipeOnTest.pcpHazardEnabledCheck,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractAcidSafePurity,
 
@@ -635,7 +613,6 @@ module Base
     {
         time = 200,
         category = PhobosChemistry,
-        OnTest = PCP_RecipeOnTest.pcpHazardEnabledCheck,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractAcidUnsafePurity,
 
@@ -658,7 +635,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ============================== ACID WASH ELECTRONICS (HAZARD) ====================== */
 /* ==================================================================================== */
@@ -669,7 +645,6 @@ module Base
     {
         time = 150,
         category = PhobosChemistry,
-        OnTest = PCP_RecipeOnTest.pcpHazardEnabledCheck,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpAcidWashSafePurity,
 
@@ -703,7 +678,6 @@ module Base
     {
         time = 150,
         category = PhobosChemistry,
-        OnTest = PCP_RecipeOnTest.pcpHazardEnabledCheck,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpAcidWashUnsafePurity,
 
@@ -729,7 +703,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ====================== PLASTIC MELTING HAZARD VARIANTS ============================== */
 /* ==================================================================================== */
@@ -743,7 +716,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHazardEnabledCheck,
         OnCreate = PCP_RecipeCallbacks.pcpMeltPlasticGlueSafePurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -773,7 +745,6 @@ module Base
         time = 150,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHazardEnabledCheck,
         OnCreate = PCP_RecipeCallbacks.pcpMeltPlasticGlueUnsafePurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,

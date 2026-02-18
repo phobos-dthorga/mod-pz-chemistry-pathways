@@ -32,7 +32,6 @@ module Base
         }
     }
 
-
 /* ----- STEP 2a: PURIFY CHARCOAL (Water Wash) ----- */
 /*  Wash crushed charcoal with hot water to remove soluble impurities.
     Yields purified carbon and a small amount of potash as a by-product.                */
@@ -42,7 +41,6 @@ module Base
         time = 120,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -73,7 +71,6 @@ module Base
         time = 120,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -98,7 +95,6 @@ module Base
         }
     }
 
-
 /* ----- STEP 2b: PURIFY CHARCOAL (NaOH Alkaline Wash) ----- */
 /*  Treat crushed charcoal with sodium hydroxide solution for deep purification.
     The alkaline wash dissolves far more mineral content, yielding triple the
@@ -109,7 +105,6 @@ module Base
         time = 180,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalNaOHPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -142,7 +137,6 @@ module Base
         time = 180,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalNaOHPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -168,7 +162,6 @@ module Base
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
-
 
 /* ==================================================================================== */
 /* ============================== DILUTED COMPOST ===================================== */
@@ -203,7 +196,6 @@ module Base
         }
     }
 
-
 /* ----- PREPARE DILUTED COMPOST (Animal Dung) ----- */
 /*  Dissolve animal dung in water to create a nitrate-rich slurry. Historically,
     aged manure was the PRIMARY source of saltpeter (KNO3) — bacteria in decomposing
@@ -235,7 +227,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ============================== SULPHURIC ACID EXTRACTION ============================ */
 /* ==================================================================================== */
@@ -249,7 +240,6 @@ module Base
     {
         time = 200,
         category = PhobosChemistry,
-        OnTest = PCP_RecipeOnTest.pcpNoHazardCheck,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractAcidPurity,
 
@@ -273,7 +263,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ============================== SULPHUR EXTRACTION ================================== */
 /* ==================================================================================== */
@@ -288,7 +277,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatAndNoHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -321,7 +309,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatAndNoHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -348,7 +335,6 @@ module Base
         }
     }
 
-
 /* ----- EXTRACT SULPHUR (from our own SulphuricAcid fluid) ----- */
 /*  Same reaction using our mod's SulphuricAcid fluid from car batteries.
     Consumes 1.0L of acid from the vessel.                                               */
@@ -358,7 +344,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatAndNoHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -390,7 +375,6 @@ module Base
         time = 250,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatAndNoHazardCheck,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -416,7 +400,6 @@ module Base
         }
     }
 
-
 /* ==================================================================================== */
 /* ============================== POTASSIUM NITRATE SYNTHESIS ========================== */
 /* ==================================================================================== */
@@ -431,7 +414,6 @@ module Base
         time = 300,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3Purity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -464,7 +446,6 @@ module Base
         time = 300,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3Purity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -491,7 +472,6 @@ module Base
         }
     }
 
-
 /* ----- KNO3 FROM DILUTED COMPOST ----- */
 /*  Extract potassium nitrate from nitrate-rich diluted compost slurry.
     A more primitive but viable pathway. Lower yield than the fertilizer route
@@ -502,7 +482,6 @@ module Base
         time = 350,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3Purity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -533,7 +512,6 @@ module Base
         time = 350,
         category = PhobosChemistry,
         NeedToBeLearn = true,
-        OnTest = PCP_RecipeOnTest.pcpNoHeatRequiredCheck,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3Purity,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
@@ -557,7 +535,6 @@ module Base
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
-
 
 /* ==================================================================================== */
 /* ============================== BLACKPOWDER MIXING ================================== */

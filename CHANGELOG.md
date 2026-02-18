@@ -6,6 +6,34 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.14.0] - 2026-02-19
+
+### Fixed
+- **Recipe sandbox gating (definitive fix)** — B42 `craftRecipe` `OnTest` is a **server-side execution gate**, NOT a UI visibility gate. `getOnAddToMenu()` returns nil for ALL craftRecipe objects (including vanilla). Previous versions (0.13.1-0.13.4) incorrectly assumed OnTest controlled crafting menu visibility. Fix: client-side UI override via `PhobosLib.registerRecipeFilter()` that injects filter checks into `ISRecipeScrollingListBox:addGroup()` and `ISTiledIconPanel:setDataList()`
+
+### Added
+- **`PCP_RecipeFilter.lua`** (client/) — Registers 121 recipe visibility filters for 3 sandbox gates:
+  - `RequireHeatSources` — 56 heated + 30 simplified variants
+  - `EnableHealthHazards` — 6 hazard-enabled + 3 no-hazard originals + 20 combined heat/hazard variants
+  - `EnableAdvancedLabRecipes` — 2 microscope/spectrometer recipes
+
+### Removed
+- All 121 `OnTest = RecipeCodeOnTest.pcpXxx` lines from recipe scripts (no effect on craftRecipe visibility)
+- `RecipeCodeOnTest.*` callback assignments from `PCP_SandboxIntegration.lua`
+- Diagnostic `getOnAddToMenu()` dump from `PCP_SandboxIntegration.lua`
+- Unused OnTest callback functions (`onTestHeatRequired`, `onTestNoHeatRequired`, etc.)
+
+### Changed
+- `PCP_Sandbox` table is now global (was local) so client-side `PCP_RecipeFilter.lua` can access sandbox queries
+- Requires **PhobosLib 1.5.0+** (PhobosLib_RecipeFilter)
+
+## [0.13.4] - 2026-02-19
+
+### Fixed
+- **Recipe OnTest gating (root cause)** — Java script parser for craftRecipe `OnTest` only recognises callbacks registered on `RecipeCodeOnTest` (the Java-exposed table); custom Lua table names like `PCP_RecipeOnTest` are silently dropped during script parsing, causing `getOnAddToMenu()` to return nil. Fix: register all 9 callbacks directly on `RecipeCodeOnTest` from Lua (which IS accessible — proven by vanilla `Fish.lua`), and update all 121 recipe script references back to `RecipeCodeOnTest.pcpXxx`
+- **OnTest callback signature** — Aligned all 9 callbacks to vanilla `(param)` single-table signature (was `(recipe, player)` positional args)
+- Removed debug diagnostic logging from v0.13.3
+
 ## [0.13.3] - 2026-02-19
 
 ### Fixed
