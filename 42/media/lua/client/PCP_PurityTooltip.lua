@@ -13,7 +13,10 @@
 
 local PCP_PURITY_KEY = "PCP_Purity"
 
---- Tier definitions (must match PCP_PuritySystem.TIERS on server).
+--- Tier definitions — DUPLICATED from PCP_PuritySystem.lua (server).
+--- Client cannot require server modules, so tiers are defined in both places.
+--- ⚠ If you change tiers here, update PCP_PuritySystem.lua to match (and vice versa).
+--- See GitHub Issue: "refactor: Extract shared constants (purity tiers)"
 local TIERS = {
     {name = "Lab-Grade",     min = 80, r = 0.4, g = 0.6, b = 1.0},
     {name = "Pure",          min = 60, r = 0.6, g = 1.0, b = 0.6},

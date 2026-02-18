@@ -26,6 +26,8 @@ PCP_PuritySystem.DEFAULT = 50
 
 --- Purity tier definitions (sorted highest-min first).
 --- Each tier has: name, min threshold, and RGB colour.
+--- ⚠ DUPLICATED in PCP_PurityTooltip.lua (client) — keep both in sync.
+--- See GitHub Issue: "refactor: Extract shared constants (purity tiers)"
 PCP_PuritySystem.TIERS = {
     {name = "Lab-Grade",     min = 80, r = 0.4, g = 0.6, b = 1.0},  -- blue
     {name = "Pure",          min = 60, r = 0.6, g = 1.0, b = 0.6},  -- green
