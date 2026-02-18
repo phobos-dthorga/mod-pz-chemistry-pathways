@@ -65,7 +65,7 @@ No errors if these mods are absent — everything degrades gracefully to vanilla
 [list]
 [*][url=https://is.gd/PhobosLibPZ][b]Phobos Shared Library (PhobosLib)[/b][/url] — Required dependency
 [*][b]zReVaccin 3[/b] — Required for lab equipment entities (chemistry set, centrifuge, etc.)
-[*]Project Zomboid Build 42.13.0+
+[*]Project Zomboid Build 42.14.0+
 [/list]
 
 [hr][/hr]
@@ -96,5 +96,5 @@ No errors if these mods are absent — everything degrades gracefully to vanilla
 [i]For modders and developers: source code, changelogs, API docs, contribution guidelines, and architecture diagrams are all on [url=https://is.gd/PhobosChemGH]GitHub[/url]. Please file bugs and feature requests there rather than in Workshop comments.[/i]
 
 [hr][/hr]
-[b]Version:[/b] 0.12.0 | [b]Build:[/b] 42.13.0+ | [b]License:[/b] MIT (code) / CC BY-NC-SA (assets)
+[b]Version:[/b] 0.12.0 | [b]Build:[/b] 42.14.0+ | [b]License:[/b] MIT (code) / CC BY-NC-SA (assets)
 [i]by phobosgekko[/i]
