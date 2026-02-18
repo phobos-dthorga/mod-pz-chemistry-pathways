@@ -327,7 +327,7 @@ module Base
         }
         outputs
         {
-            item 4 Base.FishingTackle,
+            item 4 Base.FishingHook_Forged,
         }
     }
 
@@ -354,7 +354,7 @@ module Base
         }
         outputs
         {
-            item 4 Base.FishingTackle,
+            item 4 Base.FishingHook_Forged,
         }
     }
 
@@ -381,7 +381,7 @@ module Base
         }
         outputs
         {
-            item 4 Base.FishingTackle,
+            item 4 Base.FishingHook_Forged,
         }
     }
 
@@ -407,7 +407,7 @@ module Base
         }
         outputs
         {
-            item 4 Base.FishingTackle,
+            item 4 Base.FishingHook_Forged,
         }
     }
 
