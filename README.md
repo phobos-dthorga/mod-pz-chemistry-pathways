@@ -1,6 +1,6 @@
 # PhobosChemistryPathways
 
-**Version:** 0.13.0 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.4.0+ | zReVaccin 3
+**Version:** 0.13.1 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.4.0+ | zReVaccin 3
 
 > **Players:** Subscribe on [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3668197831) for easy installation. This GitHub repo is for source code, documentation, and development.
 >

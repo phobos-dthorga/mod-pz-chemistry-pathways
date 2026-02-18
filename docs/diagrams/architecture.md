@@ -7,16 +7,16 @@ How PCP connects to its dependencies and optional cross-mod integrations.
 ```mermaid
 graph TB
     subgraph HARD["Hard Dependencies (mod.info require)"]
-        PL["PhobosLib v1.1.0+<br/>7 utility modules"]
+        PL["PhobosLib v1.4.0+<br/>9 utility modules"]
         ZR["zReVaccin 3<br/>Lab equipment entities"]
     end
 
-    subgraph PCP["PhobosChemistryPathways v0.11.0"]
+    subgraph PCP["PhobosChemistryPathways v0.13.1"]
         CORE["Core"]
         REC["150 Recipes<br/>5 recipe files"]
         ITEMS["39 Items<br/>+ 5 Skill Books"]
         FLUIDS["8 Fluids"]
-        SB["7 Sandbox Options"]
+        SB["12 Sandbox Options"]
         PURITY["Purity System<br/>PCP_PuritySystem.lua"]
         HAZARD["Hazard System<br/>PCP_HazardSystem.lua"]
         SKILL["Skill System<br/>perks + professions + traits"]
@@ -49,7 +49,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph LIB["PhobosLib v1.1.0"]
+    subgraph LIB["PhobosLib v1.4.0"]
         INIT["PhobosLib.lua<br/>(aggregator)"]
 
         UTIL["Util<br/>pcallMethod, probeMethod<br/>findItemByKeywords<br/>matchesKeywords, say"]
@@ -65,6 +65,10 @@ graph LR
         HAZ["Hazard<br/>getRespiratoryProtection<br/>applyHazardEffect<br/>degradeFilterFromInputs<br/>isEHRActive, warnHazard"]
 
         SKL["Skill<br/>perkExists, getPerkLevel<br/>addXP, getXP<br/>mirrorXP, registerXPMirror"]
+
+        RST["Reset<br/>iterateInventoryDeep<br/>stripModDataKey, forgetRecipesByPrefix<br/>resetPerkXP, removeItemsByModule<br/>getWorldModDataValue, stripWorldModDataKeys"]
+
+        VAL["Validate<br/>expectItem, expectFluid<br/>expectPerk<br/>validateDependencies"]
     end
 
     INIT --> UTIL
@@ -74,6 +78,8 @@ graph LR
     INIT --> QUALITY
     INIT --> HAZ
     INIT --> SKL
+    INIT --> RST
+    INIT --> VAL
 ```
 
 > **Usage**: `require "PhobosLib"` loads all modules into the global `PhobosLib` table. Individual modules cannot be loaded independently.
@@ -177,7 +183,7 @@ and NPC-mod environments (e.g. Knox Event Expanded).
 | SandboxVars via wrapper | `PhobosLib.getSandboxVar()` reads server-authoritative values |
 | pcall on all cross-mod calls | EHR, ZScienceSkill API calls wrapped for safety if mod is removed mid-save |
 | `isClient()` guards on init | OnGameStart hooks skip client-side to avoid redundant registration |
-| Client code in `client/` only | Tooltip rendering is the only client-side code; all gameplay logic is in `server/` |
+| Client code in `client/` only; sandbox gating in `shared/` | Tooltip rendering is the only client-only code; OnTest callbacks (`PCP_SandboxIntegration.lua`) are in `shared/` for client+server access; remaining gameplay logic is in `server/` |
 
 ### For Server Administrators
 

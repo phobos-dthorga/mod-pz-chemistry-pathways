@@ -1,6 +1,8 @@
 # Sandbox Settings Gating
 
-PCP provides 7 sandbox options that control recipe visibility, system behavior, and output scaling. Server admins configure these in the sandbox settings panel under the **PCP_Sandbox** page.
+PCP provides 12 sandbox options that control recipe visibility, system behavior, output scaling, and maintenance. Server admins configure these in the sandbox settings panel under the **PCP_Sandbox** and **PCP_Reset** pages.
+
+> The 7 gameplay options shown below control recipe visibility and behavior. Five additional reset/maintenance options (on a separate sandbox page) are described in the main [README](../../README.md#sandbox-options).
 
 ## Settings Overview
 
