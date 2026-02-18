@@ -1,12 +1,8 @@
 graph TB
-    subgraph OPTIONS["Sandbox Options"]
+    subgraph OPTIONS["Recipe Gating Options"]
         S1["RequireHeatSources<br/>default: TRUE"]
         S2["EnableAdvancedLabRecipes<br/>default: FALSE"]
         S3["EnableHealthHazards<br/>default: FALSE"]
-        S4["EnableImpuritySystem<br/>default: FALSE"]
-        S5["ImpuritySeverity<br/>default: 2 (Standard)"]
-        S6["ShowPurityOnCraft<br/>default: TRUE"]
-        S7["YieldMultiplier<br/>default: 1.00"]
     end
 
     S1 -->|"TRUE"| H_ON["Heated recipes visible<br/>Fuel inputs required"]
@@ -18,24 +14,9 @@ graph TB
     S3 -->|"TRUE"| Z_ON["11 originals HIDDEN<br/>22 Safe/Unsafe twins VISIBLE"]
     S3 -->|"FALSE"| Z_OFF["11 originals VISIBLE<br/>22 twins HIDDEN"]
 
-    S4 -->|"TRUE"| P_ON["Purity tracking ACTIVE<br/>37+ OnCreate callbacks fire"]
-    S4 -->|"FALSE"| P_OFF["All purity logic bypassed<br/>Zero performance impact"]
-
-    P_ON --> S5
-    S5 -->|"1 Mild"| SEV1["Improvements amplified<br/>Degradation halved"]
-    S5 -->|"2 Standard"| SEV2["Neutral processing"]
-    S5 -->|"3 Harsh"| SEV3["Improvements halved<br/>Degradation amplified"]
-
-    P_ON --> S6
-    S6 -->|"TRUE"| ANN_ON["Purity tier shown as<br/>speech bubble after craft"]
-    S6 -->|"FALSE"| ANN_OFF["Silent tracking<br/>(tooltip only)"]
-
-    S7 --> YIELD["All recipe output quantities<br/>scaled by multiplier<br/>(0.25x to 4.0x)"]
-
     Z_ON --> SAFE["SAFE variant:<br/>Mask + Goggles required<br/>Filter degrades 0.025/craft"]
     Z_ON --> UNSAFE["UNSAFE variant:<br/>No PPE required<br/>Disease or stat penalty"]
 
     style H_ON fill:#c84,color:#fff
     style A_ON fill:#84c,color:#fff
     style Z_ON fill:#c44,color:#fff
-    style P_ON fill:#4a8,color:#fff

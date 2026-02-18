@@ -1,19 +1,19 @@
 graph TB
     subgraph HARD["Hard Dependencies (mod.info require)"]
-        PL["PhobosLib v1.1.0+<br/>7 utility modules"]
+        PL["PhobosLib v1.2.0+<br/>8 utility modules"]
         ZR["zReVaccin 3<br/>Lab equipment entities"]
     end
 
-    subgraph PCP["PhobosChemistryPathways v0.11.0"]
+    subgraph PCP["PhobosChemistryPathways v0.12.0"]
         CORE["Core"]
         REC["150 Recipes<br/>5 recipe files"]
         ITEMS["39 Items<br/>+ 5 Skill Books"]
         FLUIDS["8 Fluids"]
-        SB["7 Sandbox Options"]
+        SB["12 Sandbox Options"]
         PURITY["Purity System<br/>PCP_PuritySystem.lua"]
         HAZARD["Hazard System<br/>PCP_HazardSystem.lua"]
         SKILL["Skill System<br/>perks + professions + traits"]
-        CALLBACKS["135 OnCreate Callbacks<br/>PCP_RecipeCallbacks.lua"]
+        CALLBACKS["150 OnCreate Callbacks<br/>PCP_RecipeCallbacks.lua"]
     end
 
     subgraph SOFT["Soft Dependencies (runtime-detected)"]

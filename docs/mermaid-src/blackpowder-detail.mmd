@@ -1,4 +1,4 @@
-graph LR
+graph TB
     subgraph S1["1. Crush Charcoal<br/>Mortar | AC:0"]
         C1["2x Charcoal"] --> CC["6x CrushedCharcoal"]
     end
@@ -30,3 +30,14 @@ graph LR
     subgraph S7["7. Mix Blackpowder<br/>Chemistry Set | AC:4"]
         MIX["5x KNO3 + 2x Sulphur<br/>+ 2x PurifiedCharcoal"] --> GP["10x GunPowder"]
     end
+
+    %% Chain subgraphs vertically (Step 1 at top, Step 7 at bottom)
+    S1 --> S2a
+    S1 --> S2b
+    S2a --> S5
+    S2b --> S5
+    S1 --> S3
+    S3 --> S6
+    S4 --> S5
+    S5 --> S7
+    S6 --> S7

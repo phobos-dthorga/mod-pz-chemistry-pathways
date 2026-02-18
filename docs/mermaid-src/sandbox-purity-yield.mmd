@@ -1,0 +1,21 @@
+graph TB
+    subgraph OPTIONS["Purity & Yield Options"]
+        S4["EnableImpuritySystem<br/>default: FALSE"]
+        S7["YieldMultiplier<br/>default: 1.00"]
+    end
+
+    S4 -->|"TRUE"| P_ON["Purity tracking ACTIVE<br/>37+ OnCreate callbacks fire"]
+    S4 -->|"FALSE"| P_OFF["All purity logic bypassed<br/>Zero performance impact"]
+
+    P_ON --> S5["ImpuritySeverity<br/>default: 2 (Standard)"]
+    S5 -->|"1 Mild"| SEV1["Improvements amplified<br/>Degradation halved"]
+    S5 -->|"2 Standard"| SEV2["Neutral processing"]
+    S5 -->|"3 Harsh"| SEV3["Improvements halved<br/>Degradation amplified"]
+
+    P_ON --> S6["ShowPurityOnCraft<br/>default: TRUE"]
+    S6 -->|"TRUE"| ANN_ON["Purity tier shown as<br/>speech bubble after craft"]
+    S6 -->|"FALSE"| ANN_OFF["Silent tracking<br/>(tooltip only)"]
+
+    S7 --> YIELD["All recipe output quantities<br/>scaled by multiplier<br/>(0.25x to 4.0x)"]
+
+    style P_ON fill:#4a8,color:#fff
