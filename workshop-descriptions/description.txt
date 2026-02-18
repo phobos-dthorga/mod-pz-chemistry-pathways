@@ -5,8 +5,8 @@ A complete chemistry crafting suite for Project Zomboid Build 42. Turn raw mater
 
 [hr][/hr]
 [h2]Recipe Pathways[/h2]
-[img]https://is.gd/PCP_recipes[/img]
-[i]Full recipe overview — [url=https://is.gd/PhobosChemDocs]view all diagrams on GitHub[/url][/i]
+[img]https://raw.githubusercontent.com/phobos-dthorga/mod-pz-chemistry-pathways/main/docs/images/recipe-overview.png[/img]
+[i]Full recipe overview — [url=https://github.com/phobos-dthorga/mod-pz-chemistry-pathways/tree/main/docs]view all diagrams on GitHub[/url][/i]
 
 [list]
 [*][b]Blackpowder Synthesis[/b] — 7-step chain: crush charcoal, purify, extract sulphur from battery acid, synthesize KNO3 from compost, mix gunpowder
@@ -19,14 +19,14 @@ A complete chemistry crafting suite for Project Zomboid Build 42. Turn raw mater
 [/list]
 
 [h3]Blackpowder Pathway[/h3]
-[img]https://is.gd/PCP_blackpowder[/img]
+[img]https://raw.githubusercontent.com/phobos-dthorga/mod-pz-chemistry-pathways/main/docs/images/blackpowder-detail.png[/img]
 
 [h3]Biodiesel Pathway[/h3]
-[img]https://is.gd/PCP_biodiesel[/img]
+[img]https://raw.githubusercontent.com/phobos-dthorga/mod-pz-chemistry-pathways/main/docs/images/biodiesel-detail.png[/img]
 
 [hr][/hr]
 [h2]Skill System[/h2]
-[img]https://is.gd/PCP_skills[/img]
+[img]https://raw.githubusercontent.com/phobos-dthorga/mod-pz-chemistry-pathways/main/docs/images/skill-progression.png[/img]
 
 [b]Applied Chemistry (AC)[/b] — custom skill from level 0 to 10. Recipes unlock as you level up. Higher tiers require the Chemistry Pathways Handbook (lootable).
 
@@ -50,7 +50,7 @@ Full control for server admins and singleplayer alike:
 [*]Purity feedback display
 [*]5 tiered reset options (strip purity data, forget recipes, reset XP, remove items, nuclear reset)
 [/list]
-[i][url=https://is.gd/PhobosChemDocs]Full sandbox documentation on GitHub[/url][/i]
+[i][url=https://github.com/phobos-dthorga/mod-pz-chemistry-pathways/tree/main/docs]Full sandbox documentation on GitHub[/url][/i]
 
 [hr][/hr]
 [h2]Cross-Mod Compatibility[/h2]
@@ -63,7 +63,7 @@ No errors if these mods are absent — everything degrades gracefully to vanilla
 [hr][/hr]
 [h2]Requirements[/h2]
 [list]
-[*][url=https://is.gd/PhobosLibPZ][b]Phobos Shared Library (PhobosLib)[/b][/url] — Required dependency
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865][b]Phobos Shared Library (PhobosLib)[/b][/url] — Required dependency
 [*][b]zReVaccin 3[/b] — Required for lab equipment entities (chemistry set, centrifuge, etc.)
 [*]Project Zomboid Build 42.14.0+
 [/list]
@@ -77,23 +77,23 @@ No errors if these mods are absent — everything degrades gracefully to vanilla
 [/tr]
 [tr]
 [td]Source Code & Full Docs[/td]
-[td][url=https://is.gd/PhobosChemGH]GitHub Repository[/url][/td]
+[td][url=https://github.com/phobos-dthorga/mod-pz-chemistry-pathways]GitHub Repository[/url][/td]
 [/tr]
 [tr]
 [td]Bug Reports & Feature Requests[/td]
-[td][url=https://is.gd/PhobosChemBugs]GitHub Issues[/url] (preferred)[/td]
+[td][url=https://github.com/phobos-dthorga/mod-pz-chemistry-pathways/issues]GitHub Issues[/url] (preferred)[/td]
 [/tr]
 [tr]
 [td]Diagrams & Architecture[/td]
-[td][url=https://is.gd/PhobosChemDocs]Documentation[/url][/td]
+[td][url=https://github.com/phobos-dthorga/mod-pz-chemistry-pathways/tree/main/docs]Documentation[/url][/td]
 [/tr]
 [tr]
 [td]PhobosLib (dependency)[/td]
-[td][url=https://is.gd/PhobosLibPZ]Steam Workshop[/url] | [url=https://is.gd/PhobosLibGH]GitHub[/url][/td]
+[td][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865]Steam Workshop[/url] | [url=https://github.com/phobos-dthorga/mod-pz-phobos-lib]GitHub[/url][/td]
 [/tr]
 [/table]
 
-[i]For modders and developers: source code, changelogs, API docs, contribution guidelines, and architecture diagrams are all on [url=https://is.gd/PhobosChemGH]GitHub[/url]. Please file bugs and feature requests there rather than in Workshop comments.[/i]
+[i]For modders and developers: source code, changelogs, API docs, contribution guidelines, and architecture diagrams are all on [url=https://github.com/phobos-dthorga/mod-pz-chemistry-pathways]GitHub[/url]. Please file bugs and feature requests there rather than in Workshop comments.[/i]
 
 [hr][/hr]
 [b]Version:[/b] 0.12.0 | [b]Build:[/b] 42.14.0+ | [b]License:[/b] MIT (code) / CC BY-NC-SA (assets)
