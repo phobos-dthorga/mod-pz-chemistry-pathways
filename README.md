@@ -2,7 +2,13 @@
 
 **Version:** 0.12.0 | **Requires:** Project Zomboid Build 42.13.0+ | PhobosLib 1.2.0+ | zReVaccin 3
 
+> **Players:** Subscribe on [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3668197831) for easy installation. This GitHub repo is for source code, documentation, and development.
+>
+> **Modders & Developers:** Bug reports, feature requests, and contributions are welcome via [GitHub Issues](https://github.com/phobos-dthorga/mod-pz-chemistry-pathways/issues).
+
 A complete chemistry suite for Project Zomboid Build 42, adding realistic crafting pathways for blackpowder, biodiesel, soap, bone char, and advanced laboratory processes.
+
+**Dependencies:** [PhobosLib](https://github.com/phobos-dthorga/mod-pz-phobos-lib) ([Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865)) | zReVaccin 3
 
 This project is open-source, but the Steam Workshop upload is the official distribution channel. The goal of this repository is to allow collaboration, compatibility extensions, and dependency usage while preserving authorship identity.
 
