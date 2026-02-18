@@ -1,6 +1,6 @@
 # PhobosChemistryPathways
 
-**Version:** 0.12.0 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.2.0+ | zReVaccin 3
+**Version:** 0.13.0 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.4.0+ | zReVaccin 3
 
 > **Players:** Subscribe on [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3668197831) for easy installation. This GitHub repo is for source code, documentation, and development.
 >
@@ -55,7 +55,7 @@ Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" setting
 
 | Dependency | Purpose |
 |------------|---------|
-| **PhobosLib 1.2.0+** | Shared utility library (sandbox access, fluid helpers, quality tracking, hazard dispatch, skill XP mirroring, reset utilities) |
+| **PhobosLib 1.4.0+** | Shared utility library (sandbox access, fluid helpers, quality tracking, hazard dispatch, skill XP mirroring, reset utilities, startup validation) |
 | **zReVaccin 3** (zReModVaccin30bykERHUS) | Lab equipment entities (chemistry set, centrifuge, chromatograph, microscope, spectrometer) |
 | **EHR** (optional) | Disease system for health hazard integration; vanilla stat penalties used as fallback |
 | **ZScienceSkill** (optional) | Science skill XP mirroring and microscope specimen registration |
@@ -106,6 +106,18 @@ Visual guides for understanding recipe chains, sandbox settings, and mod archite
 - [Architecture & Dependencies](docs/diagrams/architecture.md) — Dependency graph, PhobosLib modules, and cross-mod integration
 
 See [docs/README.md](docs/README.md) for the full index.
+
+## Verification Checklist
+
+After each intermediate or major version bump, verify:
+
+- [ ] No `FluidCategory` enum errors in `console.txt` (all PCP fluids use valid B42 categories)
+- [ ] No `CharacterTrait.*null` errors — all 3 traits + 2 professions load (check character creation screen)
+- [ ] No `item not found` errors for recipe outputs (grep `console.txt` for `PCP`)
+- [ ] `registries.lua` registers all traits/professions (no "removing script due to load error" for PCP entries)
+- [ ] `[PhobosLib:Validate]` shows no MISSING entries for PCP dependencies
+- [ ] Custom `AppliedChemistry` perk appears in skills panel
+- [ ] At least one recipe per pathway is craftable (smoke test)
 
 ## Further Reading
 - [PROJECT_IDENTITY.md](PROJECT_IDENTITY.md) — Authorship and fork policy

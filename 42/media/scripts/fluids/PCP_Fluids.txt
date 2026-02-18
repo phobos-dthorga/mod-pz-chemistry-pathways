@@ -42,7 +42,7 @@ module Base
         DisplayName = Fluid_Name_PCP_CrudeVegetableOil,
         Categories
         {
-            Food,
+            Beverage,
             Industrial,
         }
         Properties
@@ -76,7 +76,7 @@ module Base
         DisplayName = Fluid_Name_PCP_RenderedFat,
         Categories
         {
-            Food,
+            Beverage,
             Industrial,
         }
         Properties
@@ -201,7 +201,7 @@ module Base
         DisplayName = Fluid_Name_PCP_Glycerol,
         Categories
         {
-            Food,
+            Beverage,
             Industrial,
         }
         Poison
