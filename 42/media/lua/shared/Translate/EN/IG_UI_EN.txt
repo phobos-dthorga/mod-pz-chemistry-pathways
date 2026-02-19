@@ -1,6 +1,8 @@
 IGUI_EN = {
 	/* ===== Crafting Category ===== */
-	IGUI_CraftCategory_PhobosChemistry = "Phobos' Chemistry Recipes",
+	IGUI_CraftCategory_PhobosLabChem = "Phobos' Lab Chemistry",
+	IGUI_CraftCategory_PhobosKitchenChem = "Phobos' Kitchen Chemistry",
+	IGUI_CraftCategory_PhobosFieldChem = "Phobos' Field Chemistry",
 
 	/* ===== Perk / Skill ===== */
 	IGUI_perks_AppliedChemistry = "Applied Chemistry",

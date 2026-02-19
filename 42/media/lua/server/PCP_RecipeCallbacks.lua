@@ -559,3 +559,51 @@ function PCP_RecipeCallbacks.pcpRefineBiodieselBulkPurity(items, result, player)
     _stampAndAnnounce(result, player, purity)
     PCP_PuritySystem.applyFuelPenalty(result, purity)
 end
+
+
+---------------------------------------------------------------
+-- COOKING POT SOURCE CALLBACKS (3) — Lower purity for pot tier
+---------------------------------------------------------------
+
+--- Cooking pot oil extraction: 40-60
+function PCP_RecipeCallbacks.pcpOilLabPotPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(40, 60))
+end
+
+--- Render fat (Cooking Pot): 30-50
+function PCP_RecipeCallbacks.pcpRenderFatPotPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(30, 50))
+end
+
+
+---------------------------------------------------------------
+-- COOKING POT PROPAGATION CALLBACKS (3) — Lower factor for pot tier
+---------------------------------------------------------------
+
+--- Purify charcoal water/NaOH (Cooking Pot): 60-80
+function PCP_RecipeCallbacks.pcpPurifyCharcoalPotPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(60, 80))
+end
+
+--- Synthesize KNO3 fertilizer (Cooking Pot): 35-55
+function PCP_RecipeCallbacks.pcpSynthesizeKNO3PotPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(35, 55))
+end
+
+--- Synthesize KNO3 compost (Cooking Pot): 30-50
+function PCP_RecipeCallbacks.pcpSynthesizeKNO3CompostPotPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(30, 50))
+end
+
+--- Wash biodiesel (Cooking Pot, factor 0.90)
+function PCP_RecipeCallbacks.pcpWashBiodieselPotPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    local input = PCP_PuritySystem.averageInputPurity(items)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, 0.90)
+    _stampAndAnnounce(result, player, purity)
+end

@@ -12,7 +12,7 @@ module Base
     craftRecipe PCPCrushCharcoal
     {
         time = 80,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCrushCharcoalPurity,
 
@@ -39,7 +39,7 @@ module Base
     craftRecipe PCPPurifyCharcoalWater
     {
         time = 120,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalPurity,
 
@@ -69,7 +69,7 @@ module Base
     craftRecipe PCPPurifyCharcoalWaterSimple
     {
         time = 120,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalPurity,
 
@@ -95,6 +95,37 @@ module Base
         }
     }
 
+/* ----- STEP 2a-POT: PURIFY CHARCOAL (Water Wash, Cooking Pot) ----- */
+/*  Kitchen alternative: wash crushed charcoal with hot water in a cooking pot
+    on a stove. Lower purity than lab glassware but no ChemistrySet required.    */
+
+    craftRecipe PCPPurifyCharcoalWaterPot
+    {
+        time = 150,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalPotPurity,
+
+        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:15,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.CrushedCharcoal],
+            item 1 [Base.Pot] mode:keep,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.PurifiedCharcoal,
+            item 1 PhobosChemistryPathways.Potash,
+        }
+    }
+
 /* ----- STEP 2b: PURIFY CHARCOAL (NaOH Alkaline Wash) ----- */
 /*  Treat crushed charcoal with sodium hydroxide solution for deep purification.
     The alkaline wash dissolves far more mineral content, yielding triple the
@@ -103,7 +134,7 @@ module Base
     craftRecipe PCPPurifyCharcoalNaOH
     {
         time = 180,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalNaOHPurity,
 
@@ -135,7 +166,7 @@ module Base
     craftRecipe PCPPurifyCharcoalNaOHSimple
     {
         time = 180,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalNaOHPurity,
 
@@ -163,6 +194,39 @@ module Base
         }
     }
 
+/* ----- STEP 2b-POT: PURIFY CHARCOAL (NaOH Alkaline Wash, Cooking Pot) ----- */
+/*  Kitchen alternative: alkaline wash in a cooking pot. Still needs NaOH and
+    gloves (caustic reagent), but no ChemistrySet required.                      */
+
+    craftRecipe PCPPurifyCharcoalNaOHPot
+    {
+        time = 210,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalPotPurity,
+
+        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:25,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.CrushedCharcoal],
+            item 1 [zReLabItems.ChSodiumHydroxideBag],
+            item 1 [Base.Pot] mode:keep,
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 6 PhobosChemistryPathways.PurifiedCharcoal,
+            item 3 PhobosChemistryPathways.Potash,
+        }
+    }
+
 /* ==================================================================================== */
 /* ============================== DILUTED COMPOST ===================================== */
 /* ==================================================================================== */
@@ -174,7 +238,7 @@ module Base
     craftRecipe PCPPrepareDilutedCompost
     {
         time = 100,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCompostPurity,
 
@@ -205,7 +269,7 @@ module Base
     craftRecipe PCPPrepareDilutedCompostDung
     {
         time = 120,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCompostPurity,
 
@@ -239,7 +303,7 @@ module Base
     craftRecipe PCPExtractBatteryAcid
     {
         time = 200,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractAcidPurity,
 
@@ -275,7 +339,7 @@ module Base
     craftRecipe PCPExtractSulphurFromAcidCan
     {
         time = 250,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
@@ -307,7 +371,7 @@ module Base
     craftRecipe PCPExtractSulphurFromAcidCanSimple
     {
         time = 250,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
@@ -342,7 +406,7 @@ module Base
     craftRecipe PCPExtractSulphurFromAcidFluid
     {
         time = 250,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
@@ -373,7 +437,7 @@ module Base
     craftRecipe PCPExtractSulphurFromAcidFluidSimple
     {
         time = 250,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
@@ -412,7 +476,7 @@ module Base
     craftRecipe PCPSynthesizeKNO3Fertilizer
     {
         time = 300,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3Purity,
 
@@ -444,7 +508,7 @@ module Base
     craftRecipe PCPSynthesizeKNO3FertilizerSimple
     {
         time = 300,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3Purity,
 
@@ -472,6 +536,39 @@ module Base
         }
     }
 
+/* ----- KNO3 FROM FERTILIZER (Cooking Pot) ----- */
+/*  Kitchen alternative: evaporative crystallization of KNO3 from fertilizer
+    in a cooking pot. Still needs NaOH and gloves. Lower purity than lab.        */
+
+    craftRecipe PCPSynthesizeKNO3FertilizerPot
+    {
+        time = 330,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3PotPurity,
+
+        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:60,
+        AutoLearnAll = AppliedChemistry:7,
+
+        inputs
+        {
+            item 2 [Base.Fertilizer],
+            item 3 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
+            item 1 [zReLabItems.ChSodiumHydroxideBag],
+            item 1 [Base.Pot] mode:keep,
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 6 PhobosChemistryPathways.PotassiumNitratePowder,
+        }
+    }
+
 /* ----- KNO3 FROM DILUTED COMPOST ----- */
 /*  Extract potassium nitrate from nitrate-rich diluted compost slurry.
     A more primitive but viable pathway. Lower yield than the fertilizer route
@@ -480,7 +577,7 @@ module Base
     craftRecipe PCPSynthesizeKNO3Compost
     {
         time = 350,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3Purity,
 
@@ -510,7 +607,7 @@ module Base
     craftRecipe PCPSynthesizeKNO3CompostSimple
     {
         time = 350,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3Purity,
 
@@ -536,6 +633,37 @@ module Base
         }
     }
 
+/* ----- KNO3 FROM DILUTED COMPOST (Cooking Pot) ----- */
+/*  Kitchen alternative: evaporative crystallization of KNO3 from compost
+    in a cooking pot. No NaOH or gloves needed (compost route).                  */
+
+    craftRecipe PCPSynthesizeKNO3CompostPot
+    {
+        time = 380,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3CompostPotPurity,
+
+        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:60,
+        AutoLearnAll = AppliedChemistry:7,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.DilutedCompost],
+            item 3 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
+            item 1 [Base.Pot] mode:keep,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.PotassiumNitratePowder,
+        }
+    }
+
 /* ==================================================================================== */
 /* ============================== BLACKPOWDER MIXING ================================== */
 /* ==================================================================================== */
@@ -549,7 +677,7 @@ module Base
     craftRecipe PCPMixBlackpowder
     {
         time = 200,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMixBlackpowderPurity,
 

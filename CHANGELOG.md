@@ -6,6 +6,33 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.18.0] - 2026-02-20
+
+### Added
+- **12 cooking-pot alternative recipes** — Low-heat ChemistrySet operations (charcoal purification, KNO3 synthesis, oil extraction, fat rendering, biodiesel washing) can now be performed with a cooking pot on a stove. Lower purity than lab versions but no chemistry set required. All use `AnySurfaceCraft;Cooking` tags
+  - `PCPPurifyCharcoalWaterPot`, `PCPPurifyCharcoalNaOHPot` (purity 60-80)
+  - `PCPSynthesizeKNO3FertilizerPot` (purity 35-55), `PCPSynthesizeKNO3CompostPot` (purity 30-50)
+  - `PCPPressOil{Soybeans,Sunflower,Corn,Flax,Hemp,Peanut}LabPot` (purity 40-60)
+  - `PCPRenderFatPot` (purity 30-50), `PCPWashBiodieselPot` (purity 35-55)
+- **Migration system** (`PCP_MigrationSystem.lua`, `PCP_MigrateNotify.lua`) — Existing saves automatically teach pot-alternative and surviving soap recipes to players who knew the corresponding lab or deleted variants. Uses PhobosLib_Migrate framework with world modData guards
+- **`PCPRenderFatPot` added to Chemist profession** granted recipes
+
+### Changed
+- **Category split**: Single `PhobosChemistry` crafting category replaced by 3 equipment-based categories:
+  - **Phobos' Lab Chemistry** (72 recipes) — ChemistrySet, Centrifuge, Chromatograph, Microscope, Spectrometer
+  - **Phobos' Kitchen Chemistry** (19 recipes) — Cooking pot on stove (`AnySurfaceCraft;Cooking`)
+  - **Phobos' Field Chemistry** (63 recipes) — Mortar, kiln, furnace, metal drum, hand-craft
+- **Soap recipes collapsed** (16 → 4) — Fuel variants (Charcoal/Coke/Propane/Simple) removed; 4 surviving base recipes (`PCPMakeSoap`, `PCPMakeSoapNaOH`, `PCPMakeSoapFat`, `PCPMakeSoapFatNaOH`) converted to cooking-pot Kitchen recipes. Soap no longer requires explicit fuel or chemistry set
+- **Bandage sterilization converted** — `PCPSterilizeBandageRipped` and `PCPSterilizeBandage` moved from ChemistrySet to cooking-pot Kitchen category
+- Requires **PhobosLib 1.8.0+** (PhobosLib_Migrate framework)
+
+### Removed
+- 12 soap fuel-variant recipes (Coke, Propane, Simple for each of 4 soap bases)
+- 16 soap recipe filter entries (no longer sandbox-gated)
+
+### Summary
+- **154 recipes** (net zero: +12 pot, -12 soap), **39 items**, **5 skill books**, **8 fluids**, **12 sandbox options**, **144 OnCreate callbacks**
+
 ## [0.17.1] - 2026-02-20
 
 ### Fixed

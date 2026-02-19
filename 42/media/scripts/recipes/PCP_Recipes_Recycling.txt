@@ -20,7 +20,7 @@ module Base
     craftRecipe PCPMakeWoodGlue
     {
         time = 120,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeWoodGluePurity,
 
@@ -55,7 +55,7 @@ module Base
     craftRecipe PCPCalcineCalcite
     {
         time = 200,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCalcineCalcitePurity,
 
@@ -82,7 +82,7 @@ module Base
     craftRecipe PCPCalcineCalciteCoke
     {
         time = 200,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCalcineCalcitePurity,
 
@@ -109,7 +109,7 @@ module Base
     craftRecipe PCPCalcineCalcitePropane
     {
         time = 200,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCalcineCalcitePropanePurity,
 
@@ -135,7 +135,7 @@ module Base
     craftRecipe PCPCalcineCalciteSimple
     {
         time = 200,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCalcineCalcitePurity,
 
@@ -167,7 +167,7 @@ module Base
     craftRecipe PCPCalciteFertilizer
     {
         time = 150,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCalciteFertilizerPurity,
 
@@ -198,7 +198,7 @@ module Base
     craftRecipe PCPCalciteFertilizerSulphur
     {
         time = 180,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCalciteFertilizerSulphurPurity,
 
@@ -230,7 +230,7 @@ module Base
     craftRecipe PCPPotashFertilizer
     {
         time = 120,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpPotashFertilizerPurity,
 
@@ -264,7 +264,7 @@ module Base
     craftRecipe PCPCureSoap
     {
         time = 100,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCureSoapPurity,
 
@@ -299,12 +299,12 @@ module Base
     craftRecipe PCPSterilizeBandageRipped
     {
         time = 150,
-        category = PhobosChemistry,
+        category = PhobosKitchenChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSterilizeBandagePurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
+        timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:1;Doctor:1,
         xpAward = AppliedChemistry:10;Doctor:5,
         AutoLearnAll = AppliedChemistry:3,
@@ -313,6 +313,7 @@ module Base
         {
             item 1 [Base.RippedSheets] mode:destroy,
             item 1 [PhobosChemistryPathways.CrudeSoap] mode:destroy,
+            item 1 [Base.Pot] mode:keep,
             item 1 [*],
             -fluid 0.3 [Water],
         }
@@ -327,12 +328,12 @@ module Base
     craftRecipe PCPSterilizeBandage
     {
         time = 150,
-        category = PhobosChemistry,
+        category = PhobosKitchenChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSterilizeBandagePurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
+        timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:1;Doctor:1,
         xpAward = AppliedChemistry:10;Doctor:5,
         AutoLearnAll = AppliedChemistry:3,
@@ -341,6 +342,7 @@ module Base
         {
             item 1 [Base.Bandage] mode:destroy,
             item 1 [PhobosChemistryPathways.CrudeSoap] mode:destroy,
+            item 1 [Base.Pot] mode:keep,
             item 1 [*],
             -fluid 0.3 [Water],
         }
@@ -362,7 +364,7 @@ module Base
     craftRecipe PCPCastFishingWeights
     {
         time = 150,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCastFishingWeightsPurity,
 
@@ -388,7 +390,7 @@ module Base
     craftRecipe PCPCastFishingWeightsCoke
     {
         time = 150,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCastFishingWeightsPurity,
 
@@ -414,7 +416,7 @@ module Base
     craftRecipe PCPCastFishingWeightsPropane
     {
         time = 150,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCastFishingWeightsPropanePurity,
 
@@ -440,7 +442,7 @@ module Base
     craftRecipe PCPCastFishingWeightsSimple
     {
         time = 150,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCastFishingWeightsPurity,
 
@@ -472,7 +474,7 @@ module Base
     craftRecipe PCPMeltPlasticToGlue
     {
         time = 150,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMeltPlasticGluePurity,
 
@@ -505,7 +507,7 @@ module Base
     craftRecipe PCPRecoverComponents
     {
         time = 200,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpRecoverComponentsPurity,
 
@@ -540,7 +542,7 @@ module Base
     craftRecipe PCPMakeTarTorch
     {
         time = 60,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeTarTorchPurity,
 

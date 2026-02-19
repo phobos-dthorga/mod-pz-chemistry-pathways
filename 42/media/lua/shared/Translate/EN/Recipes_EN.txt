@@ -3,8 +3,10 @@ Recipes_EN = {
     Recipe_PCPCrushCharcoal = "1. Crush Charcoal",
     Recipe_PCPPurifyCharcoalWater = "2a. Purify Charcoal (Water Wash)",
     Recipe_PCPPurifyCharcoalWaterSimple = "2a. Purify Charcoal (Water Wash)",
+    Recipe_PCPPurifyCharcoalWaterPot = "2a. Purify Charcoal (Water Wash, Cooking Pot)",
     Recipe_PCPPurifyCharcoalNaOH = "2b. Purify Charcoal (Alkaline Wash)",
     Recipe_PCPPurifyCharcoalNaOHSimple = "2b. Purify Charcoal (Alkaline Wash)",
+    Recipe_PCPPurifyCharcoalNaOHPot = "2b. Purify Charcoal (Alkaline Wash, Cooking Pot)",
     Recipe_PCPPrepareDilutedCompost = "3a. Prepare Diluted Compost (Fertiliser)",
     Recipe_PCPPrepareDilutedCompostDung = "3b. Prepare Diluted Compost (Animal Waste)",
     Recipe_PCPExtractBatteryAcid = "4. Extract Battery Acid",
@@ -14,8 +16,10 @@ Recipes_EN = {
     Recipe_PCPExtractSulphurFromAcidFluidSimple = "5b. Extract Sulphur (Sulphuric Acid)",
     Recipe_PCPSynthesizeKNO3Fertilizer = "6a. Synthesize Potassium Nitrate (Fertilizer)",
     Recipe_PCPSynthesizeKNO3FertilizerSimple = "6a. Synthesize Potassium Nitrate (Fertilizer)",
+    Recipe_PCPSynthesizeKNO3FertilizerPot = "6a. Synthesize Potassium Nitrate (Fertilizer, Cooking Pot)",
     Recipe_PCPSynthesizeKNO3Compost = "6b. Synthesize Potassium Nitrate (Compost)",
     Recipe_PCPSynthesizeKNO3CompostSimple = "6b. Synthesize Potassium Nitrate (Compost)",
+    Recipe_PCPSynthesizeKNO3CompostPot = "6b. Synthesize Potassium Nitrate (Compost, Cooking Pot)",
     Recipe_PCPMixBlackpowder = "7. Mix Blackpowder",
 
     /* ===== Utility Recipes ===== */
@@ -31,16 +35,22 @@ Recipes_EN = {
     Recipe_PCPPressOilPeanutMortar = "1. Press Peanut Oil (Mortar & Pestle)",
     Recipe_PCPPressOilSoybeansLab = "1. Extract Soybean Oil (Chemistry Set)",
     Recipe_PCPPressOilSoybeansLabSimple = "1. Extract Soybean Oil (Chemistry Set)",
+    Recipe_PCPPressOilSoybeansLabPot = "1. Extract Soybean Oil (Cooking Pot)",
     Recipe_PCPPressOilSunflowerLab = "1. Extract Sunflower Oil (Chemistry Set)",
     Recipe_PCPPressOilSunflowerLabSimple = "1. Extract Sunflower Oil (Chemistry Set)",
+    Recipe_PCPPressOilSunflowerLabPot = "1. Extract Sunflower Oil (Cooking Pot)",
     Recipe_PCPPressOilCornLab = "1. Extract Corn Oil (Chemistry Set)",
     Recipe_PCPPressOilCornLabSimple = "1. Extract Corn Oil (Chemistry Set)",
+    Recipe_PCPPressOilCornLabPot = "1. Extract Corn Oil (Cooking Pot)",
     Recipe_PCPPressOilFlaxLab = "1. Extract Flax Oil (Chemistry Set)",
     Recipe_PCPPressOilFlaxLabSimple = "1. Extract Flax Oil (Chemistry Set)",
+    Recipe_PCPPressOilFlaxLabPot = "1. Extract Flax Oil (Cooking Pot)",
     Recipe_PCPPressOilHempLab = "1. Extract Hemp Oil (Chemistry Set)",
     Recipe_PCPPressOilHempLabSimple = "1. Extract Hemp Oil (Chemistry Set)",
+    Recipe_PCPPressOilHempLabPot = "1. Extract Hemp Oil (Cooking Pot)",
     Recipe_PCPPressOilPeanutLab = "1. Extract Peanut Oil (Chemistry Set)",
     Recipe_PCPPressOilPeanutLabSimple = "1. Extract Peanut Oil (Chemistry Set)",
+    Recipe_PCPPressOilPeanutLabPot = "1. Extract Peanut Oil (Cooking Pot)",
     Recipe_PCPPressOilSoybeansBulk = "1. Bulk Press Soybean Oil (Metal Drum)",
     Recipe_PCPPressOilSunflowerBulk = "1. Bulk Press Sunflower Oil (Metal Drum)",
     Recipe_PCPPressOilCornBulk = "1. Bulk Press Corn Oil (Metal Drum)",
@@ -52,6 +62,7 @@ Recipes_EN = {
     Recipe_PCPConvertVegetableOil = "1. Convert Bottled Oil",
     Recipe_PCPRenderFat = "1. Render Animal Fat",
     Recipe_PCPRenderFatSimple = "1. Render Animal Fat",
+    Recipe_PCPRenderFatPot = "1. Render Animal Fat (Cooking Pot)",
     Recipe_PCPRenderFatFromMeat = "1. Render Fat from Meat",
 
     /* ===== Biodiesel Pathway — Step 2: Methanol & KOH ===== */
@@ -91,6 +102,7 @@ Recipes_EN = {
     /* ===== Biodiesel Pathway — Step 4: Purification ===== */
     Recipe_PCPWashBiodiesel = "4. Water-Wash Crude Biodiesel",
     Recipe_PCPWashBiodieselSimple = "4. Water-Wash Crude Biodiesel",
+    Recipe_PCPWashBiodieselPot = "4. Water-Wash Crude Biodiesel (Cooking Pot)",
     Recipe_PCPWashBiodieselBulk = "4. Bulk Water-Wash Crude Biodiesel (Charcoal)",
     Recipe_PCPWashBiodieselBulkCoke = "4. Bulk Water-Wash Crude Biodiesel (Coke)",
     Recipe_PCPWashBiodieselBulkPropane = "4. Bulk Water-Wash Crude Biodiesel (Propane)",
@@ -118,25 +130,11 @@ Recipes_EN = {
     Recipe_PCPProduceBoneCharSkullPropane = "B1. Produce Bone Char from Skulls (Propane)",
     Recipe_PCPProduceBoneCharSkullSimple = "B1. Produce Bone Char from Skulls",
 
-    /* ===== By-Products: Crude Soap (Glycerol) ===== */
-    Recipe_PCPMakeSoap = "S1. Make Crude Soap (KOH, Charcoal)",
-    Recipe_PCPMakeSoapCoke = "S1. Make Crude Soap (KOH, Coke)",
-    Recipe_PCPMakeSoapPropane = "S1. Make Crude Soap (KOH, Propane)",
-    Recipe_PCPMakeSoapSimple = "S1. Make Crude Soap (KOH)",
-    Recipe_PCPMakeSoapNaOH = "S1. Make Crude Soap (NaOH, Charcoal)",
-    Recipe_PCPMakeSoapNaOHCoke = "S1. Make Crude Soap (NaOH, Coke)",
-    Recipe_PCPMakeSoapNaOHPropane = "S1. Make Crude Soap (NaOH, Propane)",
-    Recipe_PCPMakeSoapNaOHSimple = "S1. Make Crude Soap (NaOH)",
-
-    /* ===== By-Products: Traditional Fat Soap ===== */
-    Recipe_PCPMakeSoapFat = "S2. Make Fat Soap (KOH, Charcoal)",
-    Recipe_PCPMakeSoapFatCoke = "S2. Make Fat Soap (KOH, Coke)",
-    Recipe_PCPMakeSoapFatPropane = "S2. Make Fat Soap (KOH, Propane)",
-    Recipe_PCPMakeSoapFatSimple = "S2. Make Fat Soap (KOH)",
-    Recipe_PCPMakeSoapFatNaOH = "S2. Make Fat Soap (NaOH, Charcoal)",
-    Recipe_PCPMakeSoapFatNaOHCoke = "S2. Make Fat Soap (NaOH, Coke)",
-    Recipe_PCPMakeSoapFatNaOHPropane = "S2. Make Fat Soap (NaOH, Propane)",
-    Recipe_PCPMakeSoapFatNaOHSimple = "S2. Make Fat Soap (NaOH)",
+    /* ===== By-Products: Soap ===== */
+    Recipe_PCPMakeSoap = "S1. Make Crude Soap (KOH)",
+    Recipe_PCPMakeSoapNaOH = "S1. Make Crude Soap (NaOH)",
+    Recipe_PCPMakeSoapFat = "S2. Make Fat Soap (KOH)",
+    Recipe_PCPMakeSoapFatNaOH = "S2. Make Fat Soap (NaOH)",
 
     /* ===== Biodiesel Pathway — Step 5: Bulk Refining (Bug Fix) ===== */
     Recipe_PCPRefineBiodieselBulk = "5. Bulk Refine Biodiesel into Fuel",

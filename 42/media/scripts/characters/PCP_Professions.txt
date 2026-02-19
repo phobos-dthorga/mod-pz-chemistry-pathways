@@ -16,7 +16,7 @@ module Base
         IconPathName = profession_pcp_chemist,
         GrantedTraits = pcp:pcp_chemist_trait,
         XPBoosts = AppliedChemistry=3;Doctor=1,
-        GrantedRecipes = PCPPressOilSoybeansMortar;PCPPressOilSunflowerMortar;PCPPressOilCornMortar;PCPPressOilFlaxMortar;PCPPressOilHempMortar;PCPPressOilPeanutMortar;PCPCrushCharcoal;PCPConvertVegetableOil;PCPMixBlackpowder;PCPPrepareDilutedCompost;PCPPrepareDilutedCompostDung;PCPRenderFat;PCPRenderFatSimple,
+        GrantedRecipes = PCPPressOilSoybeansMortar;PCPPressOilSunflowerMortar;PCPPressOilCornMortar;PCPPressOilFlaxMortar;PCPPressOilHempMortar;PCPPressOilPeanutMortar;PCPCrushCharcoal;PCPConvertVegetableOil;PCPMixBlackpowder;PCPPrepareDilutedCompost;PCPPrepareDilutedCompostDung;PCPRenderFat;PCPRenderFatSimple;PCPRenderFatPot,
     }
 
     /*  =============================================================

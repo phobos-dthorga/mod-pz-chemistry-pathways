@@ -12,7 +12,7 @@ module Base
     craftRecipe PCPPressOilSoybeansMortar
     {
         time = 150,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
@@ -41,7 +41,7 @@ module Base
     craftRecipe PCPPressOilSunflowerMortar
     {
         time = 150,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
@@ -70,7 +70,7 @@ module Base
     craftRecipe PCPPressOilCornMortar
     {
         time = 150,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
@@ -99,7 +99,7 @@ module Base
     craftRecipe PCPPressOilFlaxMortar
     {
         time = 150,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
@@ -128,7 +128,7 @@ module Base
     craftRecipe PCPPressOilHempMortar
     {
         time = 150,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
@@ -157,7 +157,7 @@ module Base
     craftRecipe PCPPressOilPeanutMortar
     {
         time = 150,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
@@ -190,7 +190,7 @@ module Base
     craftRecipe PCPPressOilSoybeansLab
     {
         time = 200,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -221,7 +221,7 @@ module Base
     craftRecipe PCPPressOilSoybeansLabSimple
     {
         time = 200,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -254,7 +254,7 @@ module Base
     craftRecipe PCPPressOilSunflowerLab
     {
         time = 200,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -285,7 +285,7 @@ module Base
     craftRecipe PCPPressOilSunflowerLabSimple
     {
         time = 200,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -318,7 +318,7 @@ module Base
     craftRecipe PCPPressOilCornLab
     {
         time = 200,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -349,7 +349,7 @@ module Base
     craftRecipe PCPPressOilCornLabSimple
     {
         time = 200,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -382,7 +382,7 @@ module Base
     craftRecipe PCPPressOilFlaxLab
     {
         time = 200,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -413,7 +413,7 @@ module Base
     craftRecipe PCPPressOilFlaxLabSimple
     {
         time = 200,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -446,7 +446,7 @@ module Base
     craftRecipe PCPPressOilHempLab
     {
         time = 200,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -477,7 +477,7 @@ module Base
     craftRecipe PCPPressOilHempLabSimple
     {
         time = 200,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -510,7 +510,7 @@ module Base
     craftRecipe PCPPressOilPeanutLab
     {
         time = 200,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -541,7 +541,7 @@ module Base
     craftRecipe PCPPressOilPeanutLabSimple
     {
         time = 200,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -569,6 +569,192 @@ module Base
     }
 
 /* ==================================================================================== */
+/* ============================== OIL EXTRACTION (TIER 2B: COOKING POT) ============== */
+/* ==================================================================================== */
+
+/* ----- EXTRACT SOYBEAN OIL (Cooking Pot) ----- */
+/*  Heat soybeans in a cooking pot on a stove to extract oil. Lower purity
+    than lab equipment but requires no chemistry set.                                    */
+
+    craftRecipe PCPPressOilSoybeansLabPot
+    {
+        time = 230,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
+
+        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 8 [Base.Soybeans],
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+            item 1 [Base.Pot] mode:keep,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrudeVegetableOil,
+        }
+    }
+
+/* ----- EXTRACT SUNFLOWER OIL (Cooking Pot) ----- */
+
+    craftRecipe PCPPressOilSunflowerLabPot
+    {
+        time = 230,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
+
+        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 6 [Base.SunflowerSeeds],
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+            item 1 [Base.Pot] mode:keep,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrudeVegetableOil,
+        }
+    }
+
+/* ----- EXTRACT CORN OIL (Cooking Pot) ----- */
+
+    craftRecipe PCPPressOilCornLabPot
+    {
+        time = 230,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
+
+        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 10 [Base.Corn],
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+            item 1 [Base.Pot] mode:keep,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrudeVegetableOil,
+        }
+    }
+
+/* ----- EXTRACT FLAX OIL (Cooking Pot) ----- */
+
+    craftRecipe PCPPressOilFlaxLabPot
+    {
+        time = 230,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
+
+        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 30 [Base.FlaxSeed],
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+            item 1 [Base.Pot] mode:keep,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrudeVegetableOil,
+        }
+    }
+
+/* ----- EXTRACT HEMP OIL (Cooking Pot) ----- */
+
+    craftRecipe PCPPressOilHempLabPot
+    {
+        time = 230,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
+
+        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 30 [Base.HempSeed],
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+            item 1 [Base.Pot] mode:keep,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrudeVegetableOil,
+        }
+    }
+
+/* ----- EXTRACT PEANUT OIL (Cooking Pot) ----- */
+
+    craftRecipe PCPPressOilPeanutLabPot
+    {
+        time = 230,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
+
+        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 4 [Base.Peanuts],
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+            item 1 [Base.Pot] mode:keep,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrudeVegetableOil,
+        }
+    }
+
+/* ==================================================================================== */
 /* ============================== OIL EXTRACTION (TIER 3: BULK BARREL) ================ */
 /* ==================================================================================== */
 
@@ -579,7 +765,7 @@ module Base
     craftRecipe PCPPressOilSoybeansBulk
     {
         time = 350,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
@@ -605,7 +791,7 @@ module Base
     craftRecipe PCPPressOilSunflowerBulk
     {
         time = 350,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
@@ -631,7 +817,7 @@ module Base
     craftRecipe PCPPressOilCornBulk
     {
         time = 350,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
@@ -658,7 +844,7 @@ module Base
     craftRecipe PCPPressOilFlaxBulk
     {
         time = 350,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
@@ -685,7 +871,7 @@ module Base
     craftRecipe PCPPressOilHempBulk
     {
         time = 350,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
@@ -712,7 +898,7 @@ module Base
     craftRecipe PCPPressOilPeanutBulk
     {
         time = 350,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
@@ -744,7 +930,7 @@ module Base
     craftRecipe PCPConvertVegetableOil
     {
         time = 40,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpConvertOilPurity,
 
@@ -772,7 +958,7 @@ module Base
     craftRecipe PCPRenderFat
     {
         time = 120,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpRenderFatPurity,
 
@@ -803,7 +989,7 @@ module Base
     craftRecipe PCPRenderFatSimple
     {
         time = 120,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpRenderFatPurity,
 
@@ -830,6 +1016,38 @@ module Base
         }
     }
 
+/* ----- RENDER ANIMAL FAT (Cooking Pot) ----- */
+/*  Melt and render lard in a cooking pot on a stove. Lower purity than lab
+    equipment but accessible with basic kitchen tools.                                   */
+
+    craftRecipe PCPRenderFatPot
+    {
+        time = 150,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpRenderFatPotPurity,
+
+        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:15,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 2 [Base.Lard;Base.Butter;Base.Margarine],
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+            item 1 [Base.Pot] mode:keep,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.RenderedFat,
+        }
+    }
+
 /* ----- RENDER FAT FROM MEAT ----- */
 /*  Slow-cook butchered meat in a pot of water to separate and collect rendered
     fat. Real-world fat rendering produces liquid fat (tallow/schmaltz/lard),
@@ -841,7 +1059,7 @@ module Base
     craftRecipe PCPRenderFatFromMeat
     {
         time = 180,
-        category = Cooking,
+        category = PhobosKitchenChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpRenderFatPurity,
 
@@ -880,7 +1098,7 @@ module Base
     craftRecipe PCPDistillMethanol
     {
         time = 400,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolPurity,
 
@@ -913,7 +1131,7 @@ module Base
     craftRecipe PCPDistillMethanolSimple
     {
         time = 400,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolPurity,
 
@@ -956,7 +1174,7 @@ module Base
     craftRecipe PCPSynthesizeKOH
     {
         time = 250,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHPurity,
 
@@ -989,7 +1207,7 @@ module Base
     craftRecipe PCPSynthesizeKOHSimple
     {
         time = 250,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHPurity,
 
@@ -1032,7 +1250,7 @@ module Base
     craftRecipe PCPTransesterifyOil
     {
         time = 350,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -1067,7 +1285,7 @@ module Base
     craftRecipe PCPTransesterifyOilSimple
     {
         time = 350,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -1105,7 +1323,7 @@ module Base
     craftRecipe PCPTransesterifyFat
     {
         time = 350,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -1140,7 +1358,7 @@ module Base
     craftRecipe PCPTransesterifyFatSimple
     {
         time = 350,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -1183,7 +1401,7 @@ module Base
     craftRecipe PCPTransesterifyOilBulk
     {
         time = 500,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
@@ -1213,7 +1431,7 @@ module Base
     craftRecipe PCPTransesterifyOilBulkCoke
     {
         time = 500,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
@@ -1243,7 +1461,7 @@ module Base
     craftRecipe PCPTransesterifyOilBulkPropane
     {
         time = 500,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyOilBulkPropanePurity,
 
@@ -1273,7 +1491,7 @@ module Base
     craftRecipe PCPTransesterifyOilBulkSimple
     {
         time = 500,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -1304,7 +1522,7 @@ module Base
     craftRecipe PCPTransesterifyFatBulk
     {
         time = 500,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
@@ -1334,7 +1552,7 @@ module Base
     craftRecipe PCPTransesterifyFatBulkCoke
     {
         time = 500,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
@@ -1364,7 +1582,7 @@ module Base
     craftRecipe PCPTransesterifyFatBulkPropane
     {
         time = 500,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyFatBulkPropanePurity,
 
@@ -1394,7 +1612,7 @@ module Base
     craftRecipe PCPTransesterifyFatBulkSimple
     {
         time = 500,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -1432,7 +1650,7 @@ module Base
     craftRecipe PCPTransesterifyOilNaOH
     {
         time = 350,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -1467,7 +1685,7 @@ module Base
     craftRecipe PCPTransesterifyOilNaOHSimple
     {
         time = 350,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -1503,7 +1721,7 @@ module Base
     craftRecipe PCPTransesterifyFatNaOH
     {
         time = 350,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -1538,7 +1756,7 @@ module Base
     craftRecipe PCPTransesterifyFatNaOHSimple
     {
         time = 350,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -1580,7 +1798,7 @@ module Base
     craftRecipe PCPTransesterifyOilBulkNaOH
     {
         time = 500,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
@@ -1610,7 +1828,7 @@ module Base
     craftRecipe PCPTransesterifyOilBulkNaOHCoke
     {
         time = 500,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
@@ -1640,7 +1858,7 @@ module Base
     craftRecipe PCPTransesterifyOilBulkNaOHPropane
     {
         time = 500,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyOilBulkPropanePurity,
 
@@ -1670,7 +1888,7 @@ module Base
     craftRecipe PCPTransesterifyOilBulkNaOHSimple
     {
         time = 500,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -1701,7 +1919,7 @@ module Base
     craftRecipe PCPTransesterifyFatBulkNaOH
     {
         time = 500,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
@@ -1731,7 +1949,7 @@ module Base
     craftRecipe PCPTransesterifyFatBulkNaOHCoke
     {
         time = 500,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
@@ -1761,7 +1979,7 @@ module Base
     craftRecipe PCPTransesterifyFatBulkNaOHPropane
     {
         time = 500,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyFatBulkPropanePurity,
 
@@ -1791,7 +2009,7 @@ module Base
     craftRecipe PCPTransesterifyFatBulkNaOHSimple
     {
         time = 500,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -1830,7 +2048,7 @@ module Base
     craftRecipe PCPWashBiodiesel
     {
         time = 150,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselLabPurity,
 
@@ -1859,7 +2077,7 @@ module Base
     craftRecipe PCPWashBiodieselSimple
     {
         time = 150,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselLabPurity,
 
@@ -1884,6 +2102,36 @@ module Base
         }
     }
 
+/* ----- WATER-WASH CRUDE BIODIESEL (Cooking Pot) ----- */
+/*  Wash crude biodiesel with hot water in a cooking pot on a stove. Lower purity
+    than lab equipment but accessible with basic kitchen tools.                           */
+
+    craftRecipe PCPWashBiodieselPot
+    {
+        time = 180,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselPotPurity,
+
+        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:30,
+        AutoLearnAll = AppliedChemistry:6,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.CrudeBiodiesel],
+            item 1 [Base.Pot] mode:keep,
+            item 1 [*],
+            -fluid 2.0 [Water],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.WashedBiodiesel,
+        }
+    }
+
 /* ----- BULK WATER-WASH CRUDE BIODIESEL ----- */
 /*  Industrial-scale hot-water washing using a metal drum.
     Hot water improves glycerol and soap separation efficiency.                           */
@@ -1891,7 +2139,7 @@ module Base
     craftRecipe PCPWashBiodieselBulk
     {
         time = 250,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselBulkPurity,
 
@@ -1917,7 +2165,7 @@ module Base
     craftRecipe PCPWashBiodieselBulkCoke
     {
         time = 250,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselBulkPurity,
 
@@ -1943,7 +2191,7 @@ module Base
     craftRecipe PCPWashBiodieselBulkPropane
     {
         time = 250,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselBulkPropanePurity,
 
@@ -1969,7 +2217,7 @@ module Base
     craftRecipe PCPWashBiodieselBulkSimple
     {
         time = 250,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselBulkPurity,
 
@@ -1999,7 +2247,7 @@ module Base
     craftRecipe PCPRefineBiodiesel
     {
         time = 200,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpRefineBiodieselPurity,
 
@@ -2027,7 +2275,7 @@ module Base
     craftRecipe PCPRefineBiodieselBulk
     {
         time = 200,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpRefineBiodieselBulkPurity,
 
@@ -2060,7 +2308,7 @@ module Base
     craftRecipe PCPWashBiodieselCentrifuge
     {
         time = 180,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCentrifugeWashPurity,
 
@@ -2090,7 +2338,7 @@ module Base
     craftRecipe PCPSeparateGlycerolCentrifuge
     {
         time = 120,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCentrifugeGlycerolPurity,
 
@@ -2127,7 +2375,7 @@ module Base
     craftRecipe PCPPurifyBiodieselChromatograph
     {
         time = 300,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpChromatographBiodieselPurity,
 
@@ -2158,7 +2406,7 @@ module Base
     craftRecipe PCPPurifyMethanolChromatograph
     {
         time = 350,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpChromatographMethanolPurity,
 
@@ -2191,7 +2439,7 @@ module Base
     craftRecipe PCPPurifyMethanolChromatographSimple
     {
         time = 350,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpChromatographMethanolPurity,
 
@@ -2233,7 +2481,7 @@ module Base
     craftRecipe PCPAnalyzeOilMicroscope
     {
         time = 200,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMicroscopeAnalyzePurity,
 
@@ -2276,7 +2524,7 @@ module Base
     craftRecipe PCPTestFuelSpectrometer
     {
         time = 250,
-        category = PhobosChemistry,
+        category = PhobosLabChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSpectrometerTestPurity,
 
@@ -2311,7 +2559,7 @@ module Base
     craftRecipe PCPProduceBoneChar
     {
         time = 250,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
@@ -2337,7 +2585,7 @@ module Base
     craftRecipe PCPProduceBoneCharCoke
     {
         time = 250,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
@@ -2363,7 +2611,7 @@ module Base
     craftRecipe PCPProduceBoneCharPropane
     {
         time = 250,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPropanePurity,
 
@@ -2389,7 +2637,7 @@ module Base
     craftRecipe PCPProduceBoneCharSimple
     {
         time = 250,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
@@ -2417,7 +2665,7 @@ module Base
     craftRecipe PCPProduceBoneCharSkull
     {
         time = 250,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
@@ -2443,7 +2691,7 @@ module Base
     craftRecipe PCPProduceBoneCharSkullCoke
     {
         time = 250,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
@@ -2469,7 +2717,7 @@ module Base
     craftRecipe PCPProduceBoneCharSkullPropane
     {
         time = 250,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharSkullPropanePurity,
 
@@ -2495,7 +2743,7 @@ module Base
     craftRecipe PCPProduceBoneCharSkullSimple
     {
         time = 250,
-        category = PhobosChemistry,
+        category = PhobosFieldChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
@@ -2525,12 +2773,12 @@ module Base
 
     craftRecipe PCPMakeSoap
     {
-        time = 150,
-        category = PhobosChemistry,
+        time = 180,
+        category = PhobosKitchenChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
-        Tags = AnySurfaceCraft;CannotBeResearched,
+        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
@@ -2540,87 +2788,7 @@ module Base
         {
             item 2 [PhobosChemistryPathways.Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide],
-            item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
-            item 1 [*],
-            -fluid 0.5 [Water],
-        }
-        outputs
-        {
-            item 4 PhobosChemistryPathways.CrudeSoap,
-        }
-    }
-
-    craftRecipe PCPMakeSoapCoke
-    {
-        time = 150,
-        category = PhobosChemistry,
-        NeedToBeLearn = true,
-        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
-
-        Tags = AnySurfaceCraft;CannotBeResearched,
-        timedAction = Making_Surface,
-        SkillRequired = AppliedChemistry:2,
-        xpAward = AppliedChemistry:20,
-        AutoLearnAll = AppliedChemistry:4,
-
-        inputs
-        {
-            item 2 [PhobosChemistryPathways.Glycerol],
-            item 1 [PhobosChemistryPathways.PotassiumHydroxide],
-            item 1 [Base.Coke] mode:destroy,
-            item 1 [*],
-            -fluid 0.5 [Water],
-        }
-        outputs
-        {
-            item 4 PhobosChemistryPathways.CrudeSoap,
-        }
-    }
-
-    craftRecipe PCPMakeSoapPropane
-    {
-        time = 150,
-        category = PhobosChemistry,
-        NeedToBeLearn = true,
-        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPropanePurity,
-
-        Tags = AnySurfaceCraft;CannotBeResearched,
-        timedAction = Making_Surface,
-        SkillRequired = AppliedChemistry:2,
-        xpAward = AppliedChemistry:20,
-        AutoLearnAll = AppliedChemistry:4,
-
-        inputs
-        {
-            item 2 [PhobosChemistryPathways.Glycerol],
-            item 1 [PhobosChemistryPathways.PotassiumHydroxide],
-            item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
-            item 1 [*],
-            -fluid 0.5 [Water],
-        }
-        outputs
-        {
-            item 4 PhobosChemistryPathways.CrudeSoap,
-        }
-    }
-
-    craftRecipe PCPMakeSoapSimple
-    {
-        time = 150,
-        category = PhobosChemistry,
-        NeedToBeLearn = true,
-        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
-
-        Tags = AnySurfaceCraft;CannotBeResearched,
-        timedAction = Making_Surface,
-        SkillRequired = AppliedChemistry:2,
-        xpAward = AppliedChemistry:20,
-        AutoLearnAll = AppliedChemistry:4,
-
-        inputs
-        {
-            item 2 [PhobosChemistryPathways.Glycerol],
-            item 1 [PhobosChemistryPathways.PotassiumHydroxide],
+            item 1 [Base.Pot] mode:keep,
             item 1 [*],
             -fluid 0.5 [Water],
         }
@@ -2636,12 +2804,12 @@ module Base
 
     craftRecipe PCPMakeSoapNaOH
     {
-        time = 150,
-        category = PhobosChemistry,
+        time = 180,
+        category = PhobosKitchenChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
-        Tags = AnySurfaceCraft;CannotBeResearched,
+        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
@@ -2651,7 +2819,7 @@ module Base
         {
             item 2 [PhobosChemistryPathways.Glycerol],
             item 1 [zReLabItems.ChSodiumHydroxideBag],
-            item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
+            item 1 [Base.Pot] mode:keep,
             item 1 [*],
             -fluid 0.5 [Water],
         }
@@ -2661,87 +2829,7 @@ module Base
         }
     }
 
-    craftRecipe PCPMakeSoapNaOHCoke
-    {
-        time = 150,
-        category = PhobosChemistry,
-        NeedToBeLearn = true,
-        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
-
-        Tags = AnySurfaceCraft;CannotBeResearched,
-        timedAction = Making_Surface,
-        SkillRequired = AppliedChemistry:2,
-        xpAward = AppliedChemistry:20,
-        AutoLearnAll = AppliedChemistry:4,
-
-        inputs
-        {
-            item 2 [PhobosChemistryPathways.Glycerol],
-            item 1 [zReLabItems.ChSodiumHydroxideBag],
-            item 1 [Base.Coke] mode:destroy,
-            item 1 [*],
-            -fluid 0.5 [Water],
-        }
-        outputs
-        {
-            item 4 PhobosChemistryPathways.CrudeSoap,
-        }
-    }
-
-    craftRecipe PCPMakeSoapNaOHPropane
-    {
-        time = 150,
-        category = PhobosChemistry,
-        NeedToBeLearn = true,
-        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPropanePurity,
-
-        Tags = AnySurfaceCraft;CannotBeResearched,
-        timedAction = Making_Surface,
-        SkillRequired = AppliedChemistry:2,
-        xpAward = AppliedChemistry:20,
-        AutoLearnAll = AppliedChemistry:4,
-
-        inputs
-        {
-            item 2 [PhobosChemistryPathways.Glycerol],
-            item 1 [zReLabItems.ChSodiumHydroxideBag],
-            item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
-            item 1 [*],
-            -fluid 0.5 [Water],
-        }
-        outputs
-        {
-            item 4 PhobosChemistryPathways.CrudeSoap,
-        }
-    }
-
-    craftRecipe PCPMakeSoapNaOHSimple
-    {
-        time = 150,
-        category = PhobosChemistry,
-        NeedToBeLearn = true,
-        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
-
-        Tags = AnySurfaceCraft;CannotBeResearched,
-        timedAction = Making_Surface,
-        SkillRequired = AppliedChemistry:2,
-        xpAward = AppliedChemistry:20,
-        AutoLearnAll = AppliedChemistry:4,
-
-        inputs
-        {
-            item 2 [PhobosChemistryPathways.Glycerol],
-            item 1 [zReLabItems.ChSodiumHydroxideBag],
-            item 1 [*],
-            -fluid 0.5 [Water],
-        }
-        outputs
-        {
-            item 4 PhobosChemistryPathways.CrudeSoap,
-        }
-    }
-
-/* ----- MAKE CRUDE SOAP FROM FAT (KOH, Charcoal) ----- */
+/* ----- MAKE CRUDE SOAP FROM FAT (KOH) ----- */
 /*  Traditional fat saponification -- combine animal fat directly with potassium
     hydroxide over heat. The oldest known method of soap-making, predating
     glycerol-based routes by millennia. Lower yield than glycerol since raw
@@ -2749,12 +2837,12 @@ module Base
 
     craftRecipe PCPMakeSoapFat
     {
-        time = 150,
-        category = PhobosChemistry,
+        time = 180,
+        category = PhobosKitchenChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
-        Tags = AnySurfaceCraft;CannotBeResearched,
+        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
@@ -2764,7 +2852,7 @@ module Base
         {
             item 2 [Base.Lard;Base.Butter;Base.Margarine],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide],
-            item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
+            item 1 [Base.Pot] mode:keep,
             item 1 [*],
             -fluid 0.5 [Water],
         }
@@ -2774,104 +2862,18 @@ module Base
         }
     }
 
-/* ----- MAKE CRUDE SOAP FROM FAT (KOH, Coke) ----- */
-
-    craftRecipe PCPMakeSoapFatCoke
-    {
-        time = 150,
-        category = PhobosChemistry,
-        NeedToBeLearn = true,
-        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
-
-        Tags = AnySurfaceCraft;CannotBeResearched,
-        timedAction = Making_Surface,
-        SkillRequired = AppliedChemistry:2,
-        xpAward = AppliedChemistry:20,
-        AutoLearnAll = AppliedChemistry:4,
-
-        inputs
-        {
-            item 2 [Base.Lard;Base.Butter;Base.Margarine],
-            item 1 [PhobosChemistryPathways.PotassiumHydroxide],
-            item 1 [Base.Coke] mode:destroy,
-            item 1 [*],
-            -fluid 0.5 [Water],
-        }
-        outputs
-        {
-            item 3 PhobosChemistryPathways.CrudeSoap,
-        }
-    }
-
-/* ----- MAKE CRUDE SOAP FROM FAT (KOH, Propane) ----- */
-
-    craftRecipe PCPMakeSoapFatPropane
-    {
-        time = 150,
-        category = PhobosChemistry,
-        NeedToBeLearn = true,
-        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapFatPropanePurity,
-
-        Tags = AnySurfaceCraft;CannotBeResearched,
-        timedAction = Making_Surface,
-        SkillRequired = AppliedChemistry:2,
-        xpAward = AppliedChemistry:20,
-        AutoLearnAll = AppliedChemistry:4,
-
-        inputs
-        {
-            item 2 [Base.Lard;Base.Butter;Base.Margarine],
-            item 1 [PhobosChemistryPathways.PotassiumHydroxide],
-            item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
-            item 1 [*],
-            -fluid 0.5 [Water],
-        }
-        outputs
-        {
-            item 3 PhobosChemistryPathways.CrudeSoap,
-        }
-    }
-
-/* ----- MAKE CRUDE SOAP FROM FAT (KOH, Simplified -- No Fuel) ----- */
-
-    craftRecipe PCPMakeSoapFatSimple
-    {
-        time = 150,
-        category = PhobosChemistry,
-        NeedToBeLearn = true,
-        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
-
-        Tags = AnySurfaceCraft;CannotBeResearched,
-        timedAction = Making_Surface,
-        SkillRequired = AppliedChemistry:2,
-        xpAward = AppliedChemistry:20,
-        AutoLearnAll = AppliedChemistry:4,
-
-        inputs
-        {
-            item 2 [Base.Lard;Base.Butter;Base.Margarine],
-            item 1 [PhobosChemistryPathways.PotassiumHydroxide],
-            item 1 [*],
-            -fluid 0.5 [Water],
-        }
-        outputs
-        {
-            item 3 PhobosChemistryPathways.CrudeSoap,
-        }
-    }
-
-/* ----- MAKE CRUDE SOAP FROM FAT (NaOH, Charcoal) ----- */
+/* ----- MAKE CRUDE SOAP FROM FAT (NaOH) ----- */
 /*  Traditional fat saponification using sodium hydroxide instead of KOH.
     Produces a harder bar soap compared to the softer KOH variant.                       */
 
     craftRecipe PCPMakeSoapFatNaOH
     {
-        time = 150,
-        category = PhobosChemistry,
+        time = 180,
+        category = PhobosKitchenChem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
-        Tags = AnySurfaceCraft;CannotBeResearched,
+        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
@@ -2881,93 +2883,7 @@ module Base
         {
             item 2 [Base.Lard;Base.Butter;Base.Margarine],
             item 1 [zReLabItems.ChSodiumHydroxideBag],
-            item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
-            item 1 [*],
-            -fluid 0.5 [Water],
-        }
-        outputs
-        {
-            item 3 PhobosChemistryPathways.CrudeSoap,
-        }
-    }
-
-/* ----- MAKE CRUDE SOAP FROM FAT (NaOH, Coke) ----- */
-
-    craftRecipe PCPMakeSoapFatNaOHCoke
-    {
-        time = 150,
-        category = PhobosChemistry,
-        NeedToBeLearn = true,
-        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
-
-        Tags = AnySurfaceCraft;CannotBeResearched,
-        timedAction = Making_Surface,
-        SkillRequired = AppliedChemistry:2,
-        xpAward = AppliedChemistry:20,
-        AutoLearnAll = AppliedChemistry:4,
-
-        inputs
-        {
-            item 2 [Base.Lard;Base.Butter;Base.Margarine],
-            item 1 [zReLabItems.ChSodiumHydroxideBag],
-            item 1 [Base.Coke] mode:destroy,
-            item 1 [*],
-            -fluid 0.5 [Water],
-        }
-        outputs
-        {
-            item 3 PhobosChemistryPathways.CrudeSoap,
-        }
-    }
-
-/* ----- MAKE CRUDE SOAP FROM FAT (NaOH, Propane) ----- */
-
-    craftRecipe PCPMakeSoapFatNaOHPropane
-    {
-        time = 150,
-        category = PhobosChemistry,
-        NeedToBeLearn = true,
-        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapFatPropanePurity,
-
-        Tags = AnySurfaceCraft;CannotBeResearched,
-        timedAction = Making_Surface,
-        SkillRequired = AppliedChemistry:2,
-        xpAward = AppliedChemistry:20,
-        AutoLearnAll = AppliedChemistry:4,
-
-        inputs
-        {
-            item 2 [Base.Lard;Base.Butter;Base.Margarine],
-            item 1 [zReLabItems.ChSodiumHydroxideBag],
-            item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
-            item 1 [*],
-            -fluid 0.5 [Water],
-        }
-        outputs
-        {
-            item 3 PhobosChemistryPathways.CrudeSoap,
-        }
-    }
-
-/* ----- MAKE CRUDE SOAP FROM FAT (NaOH, Simplified -- No Fuel) ----- */
-
-    craftRecipe PCPMakeSoapFatNaOHSimple
-    {
-        time = 150,
-        category = PhobosChemistry,
-        NeedToBeLearn = true,
-        OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
-
-        Tags = AnySurfaceCraft;CannotBeResearched,
-        timedAction = Making_Surface,
-        SkillRequired = AppliedChemistry:2,
-        xpAward = AppliedChemistry:20,
-        AutoLearnAll = AppliedChemistry:4,
-
-        inputs
-        {
-            item 2 [Base.Lard;Base.Butter;Base.Margarine],
-            item 1 [zReLabItems.ChSodiumHydroxideBag],
+            item 1 [Base.Pot] mode:keep,
             item 1 [*],
             -fluid 0.5 [Water],
         }
