@@ -6,6 +6,15 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.17.1] - 2026-02-20
+
+### Fixed
+- **PCPRenderFatFromMeat missing from handbook** — Recipe was not listed in `BkChemistryPathways` LearnedRecipes, so reading the Chemistry Pathways Handbook would not teach it. Added to the Fat Rendering group.
+- **PCPRenderFatFromMeat missing translation** — No `Recipe_PCPRenderFatFromMeat` entry in `Recipes_EN.txt`, causing the crafting menu to display the raw recipe key instead of "1. Render Fat from Meat".
+
+### Changed
+- Requires **PhobosLib 1.7.1+** (fluid validation API fix)
+
 ## [0.17.0] - 2026-02-20
 
 ### Added
