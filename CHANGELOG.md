@@ -6,6 +6,18 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.14.1] - 2026-02-19
+
+### Fixed
+- **Profession/trait translations** — Moved `UI_prof_*`, `UI_profdesc_*`, `UI_trait_*` keys from `IG_UI_EN.txt` to new `UI_EN.txt`. PZ B42 resolves character creation UI keys from the `UI_EN` translation table, not `IGUI_EN`. Raw keys were showing instead of display names.
+
+### Added
+- **Profession placeholder icons** — Replaced identical powder-pile textures with proper 64×64 profession icons (flask for Chemist, mortar & pestle for Pharmacist) in `media/textures/`
+- **Trait placeholder icons** — Added 24×24 trait icons in new `media/ui/Traits/` directory: blue star (Chemist profession trait), green plus (Chemistry Enthusiast), red minus (Chemical Aversion)
+
+### Changed
+- Requires **PhobosLib 1.5.1+** (recipe filter load-order fix)
+
 ## [0.14.0] - 2026-02-19
 
 ### Fixed
