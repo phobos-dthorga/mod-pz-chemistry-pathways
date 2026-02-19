@@ -835,9 +835,9 @@ module Base
 /* ==================================================================================== */
 
 /* ----- DISTILL WOOD METHANOL ----- */
-/*  Destructive distillation of charcoal in a sealed lab flask. Heat drives off
+/*  Destructive distillation of raw wood in a sealed lab flask. Heat drives off
     volatile compounds: methanol vapor condenses into collection bottles, while
-    thick wood tar remains as residue.
+    thick wood tar remains as liquid residue and charcoal forms as the solid product.
     CH3OH is EXTREMELY TOXIC Ã¢â‚¬â€ ingestion causes blindness and death.                    */
 
     craftRecipe PCPDistillMethanol
@@ -855,7 +855,7 @@ module Base
 
         inputs
         {
-            item 4 tags[base:charcoal],
+            item 4 [Base.Plank;Base.Firewood] mode:destroy,
             item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
             item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 1 [Base.JarLid] mode:destroy,
@@ -868,6 +868,7 @@ module Base
         {
             item 2 PhobosChemistryPathways.WoodMethanol,
             item 1 PhobosChemistryPathways.WoodTar,
+            item 2 Base.Charcoal,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -887,7 +888,7 @@ module Base
 
         inputs
         {
-            item 4 tags[base:charcoal],
+            item 4 [Base.Plank;Base.Firewood] mode:destroy,
             item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
             item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 1 [Base.JarLid] mode:destroy,
@@ -899,6 +900,7 @@ module Base
         {
             item 2 PhobosChemistryPathways.WoodMethanol,
             item 1 PhobosChemistryPathways.WoodTar,
+            item 2 Base.Charcoal,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -2113,8 +2115,8 @@ module Base
     }
 
 /* ----- PURIFY METHANOL (Chromatograph) ----- */
-/*  Chromatographic fractional distillation of charcoal produces purer methanol
-    with higher yield Ã¢â‚¬â€ 4 charcoal Ã¢â€ â€™ 3 methanol (vs 2 at chemistry set).                 */
+/*  Chromatographic fractional distillation of raw wood produces purer methanol
+    with higher yield -- 4 wood planks -> 3 methanol (vs 2 at chemistry set).            */
 
     craftRecipe PCPPurifyMethanolChromatograph
     {
@@ -2131,7 +2133,7 @@ module Base
 
         inputs
         {
-            item 4 tags[base:charcoal],
+            item 4 [Base.Plank;Base.Firewood] mode:destroy,
             item 3 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
             item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 1 [Base.JarLid] mode:destroy,
@@ -2144,6 +2146,7 @@ module Base
         {
             item 3 PhobosChemistryPathways.WoodMethanol,
             item 1 PhobosChemistryPathways.WoodTar,
+            item 2 Base.Charcoal,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -2163,7 +2166,7 @@ module Base
 
         inputs
         {
-            item 4 tags[base:charcoal],
+            item 4 [Base.Plank;Base.Firewood] mode:destroy,
             item 3 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
             item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 1 [Base.JarLid] mode:destroy,
@@ -2175,6 +2178,7 @@ module Base
         {
             item 3 PhobosChemistryPathways.WoodMethanol,
             item 1 PhobosChemistryPathways.WoodTar,
+            item 2 Base.Charcoal,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }

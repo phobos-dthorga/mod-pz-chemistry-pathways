@@ -322,8 +322,8 @@ module PhobosChemistryPathways {
 	}
 
 /* ============================== BIODIESEL PATHWAY - METHANOL & TAR ============================== */
-/*  Wood methanol obtained by destructive distillation of charcoal.
-    Wood tar is a useful by-product of the same process.                          */
+/*  Wood methanol obtained by destructive distillation of raw wood.
+    Wood tar and charcoal are by-products of the same process.                    */
 
 	item WoodMethanol {
 		ItemType = base:normal,

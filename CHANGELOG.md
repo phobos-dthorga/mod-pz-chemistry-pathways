@@ -6,6 +6,11 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.16.3] - 2026-02-20
+
+### Fixed
+- **Methanol distillation feedstock** -- All 8 methanol-producing recipes (6 chemistry set + 2 chromatograph) now require raw wood (`Base.Plank` or `Base.Firewood`) instead of charcoal as input, matching real-world destructive distillation chemistry. Charcoal (`Base.Charcoal` x2) added as output byproduct alongside methanol and tar. Updated recipe comments and item description comments.
+
 ## [0.16.2] - 2026-02-19
 
 ### Fixed
