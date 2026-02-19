@@ -73,6 +73,7 @@ local function installTooltipHook()
 
             -- Condition = purity directly (ConditionMax = 100)
             local purity = item:getCondition()
+            if purity >= maxCond then return end  -- Skip unstamped items (default full condition)
             local tier = getTier(purity)
 
             -- Build the coloured purity line
