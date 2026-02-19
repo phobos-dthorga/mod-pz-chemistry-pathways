@@ -190,6 +190,69 @@ module Base
         }
     }
 
+/* ----- PREPARE SULPHUR-ENHANCED FERTILIZER ----- */
+/*  Sulphur is a plant macronutrient that improves nutrient uptake in alkaline soils.
+    Combined with calcite and compost, it creates a balanced soil amendment with
+    higher yield than the basic calcite fertilizer recipe.                               */
+
+    craftRecipe PCPCalciteFertilizerSulphur
+    {
+        time = 180,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpCalciteFertilizerSulphurPurity,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:15,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
+            item 1 [PhobosChemistryPathways.SulphurPowder] mode:destroy,
+            item 1 [PhobosChemistryPathways.DilutedCompost] mode:destroy,
+            item 1 [*],
+            -fluid 1.0 [Water],
+        }
+        outputs
+        {
+            item 3 Base.Fertilizer,
+        }
+    }
+
+/* ----- PREPARE POTASH FERTILIZER ----- */
+/*  Potash (K2CO3) is a historical agricultural staple — wood ash has been used
+    as fertiliser since antiquity. Mixed with compost, it provides potassium
+    and raises soil pH without requiring lab-grade calcite.                               */
+
+    craftRecipe PCPPotashFertilizer
+    {
+        time = 120,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpPotashFertilizerPurity,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:8,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.Potash] mode:destroy,
+            item 1 [PhobosChemistryPathways.DilutedCompost] mode:destroy,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 Base.Fertilizer,
+        }
+    }
+
 /* ==================================================================================== */
 /* ======================== R4: CRUDE SOAP -> SOAP2 ==================================== */
 /* ==================================================================================== */
@@ -462,6 +525,40 @@ module Base
         {
             item 1 Base.Amplifier,
             item 1 Base.Amplifier,
+        }
+    }
+
+/* ==================================================================================== */
+/* ===================== R9: WOOD TAR -> TAR-PITCH TORCH =============================== */
+/* ==================================================================================== */
+
+/* ----- MAKE TAR-PITCH TORCH ----- */
+/*  Wood tar pitch has been used as torch fuel since antiquity. Coat a cloth-wrapped
+    branch in wood tar for a long-burning, weather-resistant light source.
+    Gives wood tar a second downstream use beyond wood glue.                             */
+
+    craftRecipe PCPMakeTarTorch
+    {
+        time = 60,
+        category = PhobosChemistry,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeTarTorchPurity,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:5,
+        AutoLearnAll = AppliedChemistry:1,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.WoodTar] mode:destroy,
+            item 1 [Base.TreeBranch] mode:destroy,
+            item 1 [Base.RippedSheets;Base.DirtyRag;Base.Rag] mode:destroy,
+        }
+        outputs
+        {
+            item 2 Base.Torch,
         }
     }
 

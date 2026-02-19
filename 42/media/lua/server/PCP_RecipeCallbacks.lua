@@ -484,6 +484,18 @@ function PCP_RecipeCallbacks.pcpCalciteFertilizerPurity(items, result, player)
     _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(30, 50))
 end
 
+--- R3b: Sulphur-Enhanced Calcite Fertilizer (surface, source 35-55)
+function PCP_RecipeCallbacks.pcpCalciteFertilizerSulphurPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(35, 55))
+end
+
+--- R3c: Potash Fertilizer (surface, source 30-50)
+function PCP_RecipeCallbacks.pcpPotashFertilizerPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(30, 50))
+end
+
 --- R4: Cure Soap (surface, source 50-70)
 function PCP_RecipeCallbacks.pcpCureSoapPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
@@ -531,6 +543,12 @@ end
 function PCP_RecipeCallbacks.pcpRecoverComponentsPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(60, 80))
+end
+
+--- R9: Make Tar-Pitch Torch (surface, source 40-60)
+function PCP_RecipeCallbacks.pcpMakeTarTorchPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(40, 60))
 end
 
 --- Bug fix: Bulk Refine Biodiesel (surface, propagation 0.95)

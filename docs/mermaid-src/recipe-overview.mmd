@@ -49,15 +49,18 @@ graph TB
         ACIDWASH["AcidWashedElectronics"]
     end
 
-    subgraph RC["Recycling Pathway (R1-R8)"]
+    subgraph RC["Recycling Pathway (R1-R9)"]
         WOODGLUE["WoodGlue (R1)"]
         QLIME_OUT["Quicklime (R2)"]
         FERT_OUT["Fertilizer (R3)"]
+        FERT_S_OUT["Fertilizer ×3 (R3b)<br/>Sulphur-Enhanced"]
+        FERT_P_OUT["Fertilizer ×2 (R3c)<br/>Potash"]
         SOAP2["Soap (R4)"]
         BANDAGE["Sterilized Bandages (R5)"]
         TACKLE["FishingHook_Forged (R6)"]
         GLUE["Glue (R7)"]
         TRANSISTOR["Transistor + Amplifier (R8)"]
+        TORCH_OUT["Torch ×2 (R9)"]
     end
 
     CHARCOAL --> CRUSH
@@ -100,8 +103,12 @@ graph TB
 
     %% Recycling chain
     WOODTAR --> WOODGLUE
+    WOODTAR --> TORCH_OUT
     CALCITE --> QLIME_OUT
     CALCITE --> FERT_OUT
+    CALCITE --> FERT_S_OUT
+    SULPHUR --> FERT_S_OUT
+    POTASH --> FERT_P_OUT
     SOAP --> SOAP2
     SOAP --> BANDAGE
     LEAD --> TACKLE

@@ -1,6 +1,6 @@
 # PhobosChemistryPathways
 
-**Version:** 0.15.0 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.6.0+ | zReVaccin 3
+**Version:** 0.16.0 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.7.0+ | zReVaccin 3
 
 > **Players:** Subscribe on [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3668197831) for easy installation. This GitHub repo is for source code, documentation, and development.
 >
@@ -39,7 +39,7 @@ Centrifuge, chromatograph, microscope, and spectrometer recipes for enhanced pro
 Optional modData-backed purity tracking (0-100 scale) through recipe chains. Equipment quality factors, severity scaling, yield penalties, and player feedback via speech bubbles and tooltips.
 
 ### Recycling Pathway
-Eight-step recycling chain (R1-R8): wood tar to wood glue, calcite to quicklime and fertilizer, crude soap to usable bars and sterilized bandages, lead scrap to fishing tackle, plastic scrap to glue (with hazard variants), and acid-washed electronics to precision components.
+Nine-step recycling chain (R1-R9): wood tar to wood glue and tar-pitch torches, calcite to quicklime and fertilizer (with sulphur-enhanced and potash variants), crude soap to usable bars and sterilized bandages, lead scrap to fishing tackle, plastic scrap to glue (with hazard variants), and acid-washed electronics to precision components.
 
 ### Health Hazard System
 Optional hazard system for 11 dangerous chemistry recipes. Each splits into Protected (mask + goggles required, filter degrades) and Unprotected (risk of disease or stat penalties) variants. Integrates with EHR (Extensive Health Rework) when available, with vanilla stat fallback.
@@ -50,15 +50,17 @@ Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" setting
 ### Cross-Mod Integration
 - **ZScienceSkill** ("Science, Bitch!"): When active, Applied Chemistry XP mirrors to Science at 50% rate, and 33 items + 8 fluids are registered as researchable microscope specimens.
 - **EHR** (Extensive Health Rework): When active, health hazard recipes dispatch EHR diseases instead of vanilla stat penalties.
+- **Dynamic Trading** (DynamicTradingCommon): When active, 23 PCP items are registered for NPC trading with a custom "Chemical" tag and "PCP_Chemist" trader archetype via PhobosLib_Trading.
 
 ## Requirements
 
 | Dependency | Purpose |
 |------------|---------|
-| **PhobosLib 1.6.0+** | Shared utility library (sandbox access, fluid helpers, quality tracking, hazard dispatch, skill XP mirroring, reset utilities, startup validation, recipe visibility filters) |
+| **PhobosLib 1.7.0+** | Shared utility library (sandbox access, fluid helpers, quality tracking, hazard dispatch, skill XP mirroring, reset utilities, startup validation, recipe visibility filters, Dynamic Trading wrapper) |
 | **zReVaccin 3** (zReModVaccin30bykERHUS) | Lab equipment entities (chemistry set, centrifuge, chromatograph, microscope, spectrometer) |
 | **EHR** (optional) | Disease system for health hazard integration; vanilla stat penalties used as fallback |
 | **ZScienceSkill** (optional) | Science skill XP mirroring and microscope specimen registration |
+| **Dynamic Trading** (optional) | NPC trader item registration with custom tag and archetype |
 
 ## Sandbox Options
 
@@ -79,7 +81,7 @@ Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" setting
 
 ## Content Summary
 
-- **150 recipes** across blackpowder, biodiesel, soap, bone char, recycling, utility, and advanced lab pathways
+- **153 recipes** across blackpowder, biodiesel, soap, bone char, recycling, utility, and advanced lab pathways
 - **39 items** including chemical reagents, intermediates, and container variants (jar, clay jar, bucket)
 - **5 skill books** covering Applied Chemistry levels 1-10
 - **2 occupations** (Chemist, Pharmacist) and **2 traits** (Chemistry Enthusiast, Chemical Aversion)

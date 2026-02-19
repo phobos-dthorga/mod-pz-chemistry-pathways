@@ -147,6 +147,8 @@ Recipes_EN = {
     Recipe_PCPCalcineCalcitePropane = "R2. Calcine Calcite (Propane)",
     Recipe_PCPCalcineCalciteSimple = "R2. Calcine Calcite",
     Recipe_PCPCalciteFertilizer = "R3. Prepare Calcite Fertilizer",
+    Recipe_PCPCalciteFertilizerSulphur = "R3b. Prepare Sulphur-Enhanced Fertilizer",
+    Recipe_PCPPotashFertilizer = "R3c. Prepare Potash Fertilizer",
     Recipe_PCPCureSoap = "R4. Cure and Shape Soap",
     Recipe_PCPSterilizeBandageRipped = "R5. Sterilize Ripped Sheets (Lye Soap)",
     Recipe_PCPSterilizeBandage = "R5. Sterilize Bandage (Lye Soap)",
@@ -156,6 +158,7 @@ Recipes_EN = {
     Recipe_PCPCastFishingWeightsSimple = "R6. Cast Lead Fishing Weights",
     Recipe_PCPMeltPlasticToGlue = "R7. Melt Plastic into Glue",
     Recipe_PCPRecoverComponents = "R8. Recover Precision Components",
+    Recipe_PCPMakeTarTorch = "R9. Make Tar-Pitch Torch",
 
     /* ===== Recycling Hazard Variants ===== */
     Recipe_PCPMeltPlasticToGlueSafe = "R7. Melt Plastic into Glue (Protected)",

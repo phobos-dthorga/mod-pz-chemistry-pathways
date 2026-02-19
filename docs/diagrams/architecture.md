@@ -7,25 +7,27 @@ How PCP connects to its dependencies and optional cross-mod integrations.
 ```mermaid
 graph TB
     subgraph HARD["Hard Dependencies (mod.info require)"]
-        PL["PhobosLib v1.6.0+<br/>10 utility modules"]
+        PL["PhobosLib v1.7.0+<br/>11 utility modules"]
         ZR["zReVaccin 3<br/>Lab equipment entities"]
     end
 
-    subgraph PCP["PhobosChemistryPathways v0.15.0"]
+    subgraph PCP["PhobosChemistryPathways v0.16.0"]
         CORE["Core"]
-        REC["150 Recipes<br/>5 recipe files"]
+        REC["153 Recipes<br/>5 recipe files"]
         ITEMS["39 Items<br/>+ 5 Skill Books"]
         FLUIDS["8 Fluids"]
         SB["12 Sandbox Options"]
         PURITY["Purity System<br/>PCP_PuritySystem.lua"]
         HAZARD["Hazard System<br/>PCP_HazardSystem.lua"]
         SKILL["Skill System<br/>perks + professions + traits"]
-        CALLBACKS["135 OnCreate Callbacks<br/>PCP_RecipeCallbacks.lua"]
+        CALLBACKS["138 OnCreate Callbacks<br/>PCP_RecipeCallbacks.lua"]
+        TRADING["DT Integration<br/>PCP_DynamicTradingData.lua"]
     end
 
     subgraph SOFT["Soft Dependencies (runtime-detected)"]
         ZSS["ZScienceSkill<br/>Science, Bitch!"]
         EHR["EHR v2.8.1<br/>Extensive Health Rework"]
+        DT["DynamicTradingCommon<br/>NPC Trading"]
     end
 
     PL --> CORE
@@ -35,9 +37,11 @@ graph TB
     HAZARD -->|"delegates to<br/>PhobosLib_Hazard"| PL
     SKILL -->|"delegates to<br/>PhobosLib_Skill"| PL
     CALLBACKS -->|"uses<br/>PhobosLib_Sandbox<br/>PhobosLib_Fluid"| PL
+    TRADING -->|"uses<br/>PhobosLib_Trading"| PL
 
     HAZARD -.->|"EHR.Disease.TryContract<br/>(pcall-wrapped)"| EHR
     SKILL -.->|"registerXPMirror<br/>AC to Science at 50%"| ZSS
+    TRADING -.->|"registerTradeItems<br/>(23 items, 1 tag, 1 archetype)"| DT
 
     style HARD fill:#264,color:#fff
     style SOFT fill:#446,color:#fff
@@ -49,7 +53,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph LIB["PhobosLib v1.6.0"]
+    subgraph LIB["PhobosLib v1.7.0"]
         INIT["PhobosLib.lua<br/>(aggregator)"]
 
         UTIL["Util<br/>pcallMethod, probeMethod<br/>findItemByKeywords<br/>matchesKeywords, say"]
@@ -69,6 +73,8 @@ graph LR
         RST["Reset<br/>iterateInventoryDeep<br/>stripModDataKey, forgetRecipesByPrefix<br/>resetPerkXP, removeItemsByModule<br/>getWorldModDataValue, stripWorldModDataKeys"]
 
         VAL["Validate<br/>expectItem, expectFluid<br/>expectPerk<br/>validateDependencies"]
+
+        TRD["Trading<br/>isDynamicTradingActive<br/>registerTradeTag<br/>registerTradeArchetype<br/>registerTradeItems"]
     end
 
     subgraph CLIENT["Client-side"]
@@ -84,9 +90,10 @@ graph LR
     INIT --> SKL
     INIT --> RST
     INIT --> VAL
+    INIT --> TRD
 ```
 
-> **Usage**: `require "PhobosLib"` loads all 9 shared modules into the global `PhobosLib` table. The RecipeFilter module is loaded separately by PZ from `client/` and also attaches to the `PhobosLib` table.
+> **Usage**: `require "PhobosLib"` loads all 10 shared modules into the global `PhobosLib` table. The RecipeFilter module is loaded separately by PZ from `client/` and also attaches to the `PhobosLib` table.
 
 ---
 
@@ -103,6 +110,7 @@ All soft dependencies use the same pattern:
 graph TB
     START["Game Start"] --> CHECK_ZSS{"isModActive<br/>ZScienceSkill?"}
     START --> CHECK_EHR{"isModActive<br/>EHR?"}
+    START --> CHECK_DT{"isDynamicTradingActive?"}
 
     CHECK_ZSS -->|"Yes"| ZSS_INIT["Register XP Mirror<br/>AC -> Science at 50%<br/>(PCP_SkillXP.lua)"]
     CHECK_ZSS -->|"Yes"| ZSS_DATA["Register 33 Item + 8 Fluid<br/>Specimens | API: ZScienceSkill.Data.add<br/>(PCP_ZScienceData.lua)"]
@@ -110,6 +118,9 @@ graph TB
 
     CHECK_EHR -->|"Yes"| EHR_INIT["Hazard callbacks use<br/>EHR.Disease.TryContract<br/>(pcall-wrapped)"]
     CHECK_EHR -->|"No"| EHR_SKIP["Hazard callbacks use<br/>vanilla stat penalties<br/>(Sickness, Pain, Stress)"]
+
+    CHECK_DT -->|"Yes"| DT_INIT["Register 1 tag + 1 archetype<br/>+ 23 items via PhobosLib_Trading<br/>(PCP_DynamicTradingData.lua)"]
+    CHECK_DT -->|"No"| DT_SKIP["No action<br/>Zero errors"]
 ```
 
 ### Soft Dependency Behavior
@@ -118,6 +129,7 @@ graph TB
 |-----------|--------|-----------|-------------|---------------|
 | **ZScienceSkill** | `ZScienceSkill` | `isModActive` + `pcall` API check | Applied Chemistry XP mirrors to Science at 50% rate. 33 item specimens + 8 fluid specimens registered via `ZScienceSkill.Data.add()` with dual Science+AppliedChemistry XP. | No XP mirroring. No specimen registration. Zero errors. |
 | **EHR** | `EHR` | `isModActive` + `pcall(EHR.Disease.IsEnabled)` | Unsafe hazard recipes trigger EHR diseases with protection scaling (corpse_sickness, pneumonia, wound_infection). | Unsafe recipes fall back to vanilla stat penalties (CharacterStat.SICKNESS/PAIN/STRESS). |
+| **Dynamic Trading** | `DynamicTradingCommon` | `PhobosLib.isDynamicTradingActive()` (lazy) | 23 PCP items registered for NPC trading with custom "Chemical" tag (1.3× price, weight 15) and "PCP_Chemist" archetype. Includes reagents, intermediates, fuel, acid, salvage, and 6 skill books. | No registration. Zero errors. All PhobosLib_Trading calls are no-ops. |
 
 ### ZScienceSkill XP Mirroring
 

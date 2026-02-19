@@ -6,6 +6,20 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.16.0] - 2026-02-19
+
+### Added
+- **R3b: Sulphur-Enhanced Fertilizer** (`PCPCalciteFertilizerSulphur`) — 3 Calcite + 1 Sulphur + 1 Diluted Compost + water → 3 Fertilizer. Sulphur improves nutrient uptake; +50% yield over R3. Requires AC:2, auto-learns at AC:4
+- **R3c: Potash Fertilizer** (`PCPPotashFertilizer`) — 3 Potash + 1 Diluted Compost + water → 2 Fertilizer. Bypasses Calcite requirement for players without lab equipment. Requires AC:1, auto-learns at AC:2
+- **R9: Tar-Pitch Torch** (`PCPMakeTarTorch`) — 1 Wood Tar + 1 Tree Branch + 1 cloth → 2 Torch. Second downstream use for Wood Tar (alongside R1 wood glue). Requires AC:1, auto-learns at AC:1
+- **Dynamic Trading integration** (`PCP_DynamicTradingData.lua`) — When Dynamic Trading mod is installed, registers 23 PCP items for NPC trading via PhobosLib_Trading wrapper, including a custom "Chemical" tag and "PCP_Chemist" trader archetype. All registrations are no-ops when DT is absent
+- All 3 new recipes added to handbook (`BkChemistryPathways`) LearnedRecipes
+- Purity callbacks for all 3 new recipes (R3b: source 35-55, R3c: source 30-50, R9: source 40-60)
+
+### Changed
+- Requires **PhobosLib 1.7.0+** (PhobosLib_Trading module)
+- Recipe count: 150 → 153
+
 ## [0.15.0] - 2026-02-19
 
 ### Fixed
