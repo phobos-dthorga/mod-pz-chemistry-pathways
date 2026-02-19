@@ -554,7 +554,7 @@ module Base
         {
             item 1 [PhobosChemistryPathways.WoodTar] mode:destroy,
             item 1 [Base.TreeBranch2;Base.WoodenStick2] mode:destroy,
-            item 1 [Base.RippedSheets;Base.DirtyRag;Base.Rag] mode:destroy,
+            item 1 [Base.RippedSheets;Base.RippedSheetsDirty] mode:destroy,
         }
         outputs
         {

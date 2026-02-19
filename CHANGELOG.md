@@ -6,6 +6,11 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.16.2] - 2026-02-19
+
+### Fixed
+- **R9 Tar-Pitch Torch world-load crash (continued)** — `Base.DirtyRag` and `Base.Rag` do not exist in Build 42; replaced with `Base.RippedSheets;Base.RippedSheetsDirty` to match vanilla item registry
+
 ## [0.16.1] - 2026-02-19
 
 ### Fixed
