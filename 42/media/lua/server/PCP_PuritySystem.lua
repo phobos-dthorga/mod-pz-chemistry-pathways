@@ -1,13 +1,13 @@
 ---------------------------------------------------------------
 -- PCP_PuritySystem.lua
 -- PCP-specific purity/impurity tracking system.
--- Thin wrapper around PhobosLib.Quality with PCP constants,
--- sandbox integration, and convenience methods.
+-- Purity is stored as item condition (ConditionMax = 100).
+-- Condition maps 1:1 to purity (condition 80 = purity 80%).
 --
--- All generic quality logic lives in PhobosLib_Quality.lua.
--- This file provides PCP-specific configuration only.
+-- Previous versions used modData["PCP_Purity"]; v0.19.0
+-- migrates to condition and removes the modData key.
 --
--- Requires: PhobosLib (with Quality module)
+-- Requires: PhobosLib (for sandbox helpers and utility methods)
 ---------------------------------------------------------------
 
 require "PhobosLib"
@@ -18,15 +18,12 @@ PCP_PuritySystem = {}
 -- Constants
 ---------------------------------------------------------------
 
---- modData key used to store purity on items.
-PCP_PuritySystem.KEY = "PCP_Purity"
-
 --- Default purity for items without tracking (mid-save safe).
 PCP_PuritySystem.DEFAULT = 50
 
 --- Purity tier definitions (sorted highest-min first).
 --- Each tier has: name, min threshold, and RGB colour.
---- ⚠ DUPLICATED in PCP_PurityTooltip.lua (client) — keep both in sync.
+--- DUPLICATED in PCP_PurityTooltip.lua (client) -- keep both in sync.
 --- See GitHub Issue: "refactor: Extract shared constants (purity tiers)"
 PCP_PuritySystem.TIERS = {
     {name = "Lab-Grade",     min = 80, r = 0.4, g = 0.6, b = 1.0},  -- blue
@@ -58,7 +55,7 @@ PCP_PuritySystem.EQUIP_FACTORS = {
     chromatograph = 1.25,  -- significant improvement
 }
 
---- Random variance range (±5 per craft).
+--- Random variance range (+/-5 per craft).
 PCP_PuritySystem.VARIANCE = 5
 
 
@@ -86,22 +83,40 @@ end
 
 
 ---------------------------------------------------------------
--- Convenience Wrappers (delegate to PhobosLib)
+-- Condition-Based Purity (ConditionMax = 100 -> 1:1 mapping)
 ---------------------------------------------------------------
 
---- Get purity of an item (default 50 = Standard).
+--- Get purity of an item from its condition.
+--- Returns DEFAULT (50) if item has no ConditionMax.
 ---@param item any
----@return number
+---@return number  purity 0-100
 function PCP_PuritySystem.getPurity(item)
-    return PhobosLib.getQuality(item, PCP_PuritySystem.KEY, PCP_PuritySystem.DEFAULT)
+    if not item then return PCP_PuritySystem.DEFAULT end
+    local ok, result = pcall(function()
+        local maxCond = item:getConditionMax()
+        if not maxCond or maxCond <= 0 then return PCP_PuritySystem.DEFAULT end
+        return item:getCondition()
+    end)
+    if ok then return result end
+    return PCP_PuritySystem.DEFAULT
 end
 
---- Set purity on an item (clamped 0-100).
+--- Set purity on an item via condition (clamped 0-100).
+--- No-op if impurity system is disabled or item has no ConditionMax.
 ---@param item any
----@param value number
+---@param value number  purity 0-100
 ---@return boolean
 function PCP_PuritySystem.setPurity(item, value)
-    return PhobosLib.setQuality(item, PCP_PuritySystem.KEY, value)
+    if not PCP_PuritySystem.isEnabled() then return false end
+    if not item then return false end
+    value = math.max(0, math.min(100, math.floor(value + 0.5)))
+    local ok = pcall(function()
+        local maxCond = item:getConditionMax()
+        if maxCond and maxCond > 0 then
+            item:setCondition(value)
+        end
+    end)
+    return ok
 end
 
 --- Get tier info for a purity value.
@@ -111,11 +126,32 @@ function PCP_PuritySystem.getTierInfo(value)
     return PhobosLib.getQualityTier(value, PCP_PuritySystem.TIERS)
 end
 
---- Average purity across recipe input items.
+--- Average purity across recipe input items via condition.
+--- Items without ConditionMax are counted as DEFAULT.
 ---@param items any  Java ArrayList from OnCreate
 ---@return number
 function PCP_PuritySystem.averageInputPurity(items)
-    return PhobosLib.averageInputQuality(items, PCP_PuritySystem.KEY, PCP_PuritySystem.DEFAULT)
+    if not items then return PCP_PuritySystem.DEFAULT end
+    local total = 0
+    local count = 0
+    local ok, _ = pcall(function()
+        for i = 0, items:size() - 1 do
+            local item = items:get(i)
+            if item then
+                local maxCond = item:getConditionMax()
+                if maxCond and maxCond > 0 then
+                    total = total + item:getCondition()
+                    count = count + 1
+                else
+                    -- Item has no ConditionMax; count as default
+                    total = total + PCP_PuritySystem.DEFAULT
+                    count = count + 1
+                end
+            end
+        end
+    end)
+    if count == 0 then return PCP_PuritySystem.DEFAULT end
+    return total / count
 end
 
 --- Calculate output purity with severity-adjusted equipment factor.
@@ -165,10 +201,30 @@ function PCP_PuritySystem.removeExcess(player, itemType, baseCount, purity)
     PhobosLib.removeExcessItems(player, itemType, baseCount, keepCount)
 end
 
---- Stamp purity on all unstamped copies of a result type.
+--- Stamp purity (condition) on all unstamped copies of a result type.
+--- "Unstamped" = condition at ConditionMax (freshly created items).
 ---@param player any
 ---@param resultType string
----@param value number
+---@param value number  purity 0-100
 function PCP_PuritySystem.stampOutputs(player, resultType, value)
-    PhobosLib.stampAllOutputs(player, resultType, PCP_PuritySystem.KEY, value)
+    if not PCP_PuritySystem.isEnabled() then return end
+    if not player then return end
+    value = math.max(0, math.min(100, math.floor(value + 0.5)))
+    pcall(function()
+        local inv = player:getInventory()
+        if not inv then return end
+        local items = inv:getItems()
+        for i = 0, items:size() - 1 do
+            local it = items:get(i)
+            if it and it:getFullType() == resultType then
+                local maxCond = it:getConditionMax()
+                if maxCond and maxCond > 0 then
+                    -- Unstamped = condition equals ConditionMax (fresh from craft)
+                    if it:getCondition() == maxCond then
+                        it:setCondition(value)
+                    end
+                end
+            end
+        end
+    end)
 end

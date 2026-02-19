@@ -4,6 +4,9 @@
 -- Displays purity tier and percentage on crafted items when
 -- the Impurity System sandbox option is enabled.
 --
+-- Purity is read from item condition (ConditionMax = 100).
+-- Condition maps 1:1 to purity (condition 80 = purity 80%).
+--
 -- Best-effort: entirely wrapped in pcall for B42 resilience.
 -- If the tooltip API changes, this fails silently and the
 -- player:Say() speech bubble remains the primary feedback.
@@ -11,11 +14,9 @@
 -- Runs client-side only (42/media/lua/client/).
 ---------------------------------------------------------------
 
-local PCP_PURITY_KEY = "PCP_Purity"
-
---- Tier definitions — DUPLICATED from PCP_PuritySystem.lua (server).
+--- Tier definitions -- DUPLICATED from PCP_PuritySystem.lua (server).
 --- Client cannot require server modules, so tiers are defined in both places.
---- ⚠ If you change tiers here, update PCP_PuritySystem.lua to match (and vice versa).
+--- If you change tiers here, update PCP_PuritySystem.lua to match (and vice versa).
 --- See GitHub Issue: "refactor: Extract shared constants (purity tiers)"
 local TIERS = {
     {name = "Lab-Grade",     min = 80, r = 0.4, g = 0.6, b = 1.0},
@@ -35,7 +36,7 @@ end
 
 
 --- Hook into ISToolTipInv to append purity info.
---- Wrapped entirely in pcall — if anything fails, tooltip just
+--- Wrapped entirely in pcall -- if anything fails, tooltip just
 --- won't show purity (no error, no crash).
 local _hookInstalled = false
 
@@ -61,14 +62,17 @@ local function installTooltipHook()
 
             -- Get the item being hovered
             local item = self.item
-            if not item or not item.getModData then return end
+            if not item then return end
 
-            local md = item:getModData()
-            if not md or md[PCP_PURITY_KEY] == nil then return end
+            -- Only for PCP items with ConditionMax
+            local fullType = item:getFullType()
+            if not fullType or not string.find(fullType, "PhobosChemistryPathways.", 1, true) then return end
 
-            local purity = md[PCP_PURITY_KEY]
-            if type(purity) ~= "number" then return end
+            local maxCond = item:getConditionMax()
+            if not maxCond or maxCond <= 0 then return end
 
+            -- Condition = purity directly (ConditionMax = 100)
+            local purity = item:getCondition()
             local tier = getTier(purity)
 
             -- Build the coloured purity line

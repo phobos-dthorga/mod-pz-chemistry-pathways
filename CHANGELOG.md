@@ -6,6 +6,30 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.19.0] - 2026-02-20
+
+### Added
+- **Multi-vendor Dynamic Trading integration** — PCP items now appear at 8 existing DT vendor archetypes via Chemical allocation injection:
+  - Pharmacist (+2): acids, KOH, soap
+  - Survivalist (+2): charcoal, bone char
+  - Herbalist (+2): oils, rendered fat, glycerol
+  - Farmer (+2): potash, calcite, compost
+  - Doctor (+1), Brewer (+1), Smuggler (+1), General (+1)
+- **4 new tradeable items** — CrushedCharcoal, DilutedCompost, PlasticScrap, AcidWashedElectronics (27 total)
+- **Per-vendor DT tags** — Items tagged with Medical, Survival, Farming, Herb, Alcohol, Fuel for targeted vendor stock
+- **Chemist expertTags** — Chemist vendor guarantees 100% condition on Chemical-tagged items
+- **v0.19.0 save migration** — Converts legacy `modData["PCP_Purity"]` to item condition; removes old modData key
+
+### Changed
+- **Purity system rewritten** — Purity now stored as item condition (`ConditionMax = 100`), replacing `modData["PCP_Purity"]`. Condition maps 1:1 to purity (condition 80 = purity 80%). No scaling math needed
+- **13 solid items gain ConditionMax = 100** — CrushedCharcoal, PurifiedCharcoal, BoneChar, Potash, DilutedCompost, LeadScrap, PlasticScrap, AcidWashedElectronics, SulphurPowder, PotassiumNitratePowder, PotassiumHydroxide, Calcite, CrudeSoap
+- **DT archetype ID fixed** — `"PCP_Chemist"` renamed to `"Chemist"`, fixing the "Find a PCP_Chemist" UI bug in DT V1
+- **Tooltip reads condition** — PCP_PurityTooltip.lua reads item condition directly instead of modData
+- **DT purchased items have meaningful quality** — Items bought from vendors arrive with 20-100% condition (= purity). Any vendor can roll up to 100%
+
+### Summary
+- **154 recipes**, **39 items**, **27 tradeable items** (was 23), **5 skill books**, **8 fluids**, **12 sandbox options**, **144 OnCreate callbacks**
+
 ## [0.18.0] - 2026-02-20
 
 ### Added

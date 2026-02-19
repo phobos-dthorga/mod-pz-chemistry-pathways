@@ -10,6 +10,7 @@ module PhobosChemistryPathways {
 		DisplayCategory = Material,
 		Icon = PCP_CrushedCharcoal,
 		Weight = 0.3,
+		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_CrushedCharcoal,
 		WorldStaticModel = Charcoal_Ground,
 	}
@@ -19,6 +20,7 @@ module PhobosChemistryPathways {
 		DisplayCategory = Material,
 		Icon = PCP_purified_charcoal,
 		Weight = 0.2,
+		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_PurifiedCharcoal,
 		WorldStaticModel = Charcoal_Ground,
 	}
@@ -28,6 +30,7 @@ module PhobosChemistryPathways {
 		DisplayCategory = Material,
 		Icon = PCP_BoneChar,
 		Weight = 0.3,
+		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_BoneChar,
 		WorldStaticModel = Charcoal_Ground,
 	}
@@ -37,6 +40,7 @@ module PhobosChemistryPathways {
 		DisplayCategory = Material,
 		Icon = PCP_raw_potash,
 		Weight = 0.2,
+		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_Potash,
 		WorldStaticModel = GunpowderJar,
 	}
@@ -46,6 +50,7 @@ module PhobosChemistryPathways {
 		DisplayCategory = Material,
 		Icon = PCP_DilutedCompost,
 		Weight = 2.0,
+		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_DilutedCompost,
 		WorldStaticModel = CompostBag,
 	}
@@ -59,6 +64,7 @@ module PhobosChemistryPathways {
 		DisplayCategory = Material,
 		Icon = PCP_LeadScrap,
 		Weight = 1.5,
+		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_LeadScrap,
 		WorldStaticModel = ScrapMetal_Ground,
 		MetalValue = 5,
@@ -69,6 +75,7 @@ module PhobosChemistryPathways {
 		DisplayCategory = Material,
 		Icon = PCP_PlasticScrap,
 		Weight = 0.1,
+		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_PlasticScrap,
 		WorldStaticModel = PlasticBag_Ground,
 	}
@@ -78,6 +85,7 @@ module PhobosChemistryPathways {
 		DisplayCategory = Material,
 		Icon = PCP_AcidWashedElectronics,
 		Weight = 0.2,
+		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_AcidWashedElectronics,
 		WorldStaticModel = ElectronicsScrap_Ground,
 	}
@@ -89,6 +97,7 @@ module PhobosChemistryPathways {
 		DisplayCategory = Material,
 		Icon = PCP_purified_powdered_sulphur,
 		Weight = 0.3,
+		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_SulphurPowder,
 		WorldStaticModel = GunpowderJar,
 	}
@@ -98,6 +107,7 @@ module PhobosChemistryPathways {
 		DisplayCategory = Material,
 		Icon = PCP_purified_powdered_kno3,
 		Weight = 0.3,
+		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_PotassiumNitratePowder,
 		WorldStaticModel = GunpowderJar,
 	}
@@ -382,6 +392,7 @@ module PhobosChemistryPathways {
 		DisplayCategory = Material,
 		Icon = PCP_PotassiumHydroxide,
 		Weight = 0.3,
+		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_PotassiumHydroxide,
 		WorldStaticModel = GunpowderJar,
 	}
@@ -391,6 +402,7 @@ module PhobosChemistryPathways {
 		DisplayCategory = Material,
 		Icon = PCP_Calcite,
 		Weight = 0.4,
+		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_Calcite,
 		WorldStaticModel = GunpowderJar,
 	}
@@ -579,6 +591,7 @@ module PhobosChemistryPathways {
 		DisplayCategory = Material,
 		Icon = PCP_CrudeSoap,
 		Weight = 0.3,
+		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_CrudeSoap,
 		WorldStaticModel = Soap_Ground,
 	}

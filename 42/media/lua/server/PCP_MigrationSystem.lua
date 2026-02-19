@@ -7,13 +7,17 @@
 --   - Teach pot-alternative recipes to players who know lab versions
 --   - Teach surviving soap recipes to players who knew deleted variants
 --
+-- v0.19.0 migration:
+--   - Convert modData["PCP_Purity"] to item condition for all PCP items
+--   - Remove old PCP_Purity modData key after conversion
+--
 -- Requires: PhobosLib >= 1.8.0
 ---------------------------------------------------------------
 
 require "PhobosLib"
 
 local MOD_ID      = "PCP"
-local MOD_VERSION = "0.18.0"
+local MOD_VERSION = "0.19.0"
 
 ---------------------------------------------------------------
 -- Helpers
@@ -112,7 +116,54 @@ local function migrate_0_18_0(player)
 end
 
 ---------------------------------------------------------------
--- Register migration
+-- v0.19.0 Migration
+---------------------------------------------------------------
+
+--- Convert modData["PCP_Purity"] to item condition for all PCP items.
+--- After v0.19.0, purity is stored as item condition (ConditionMax = 100).
+--- This migration preserves purity values from pre-0.19.0 saves.
+---@param player any  IsoGameCharacter
+---@return boolean ok, string msg
+local function migrate_0_19_0(player)
+    local inv = player:getInventory()
+    if not inv then return false, "Could not access player inventory." end
+
+    local items = inv:getItems()
+    if not items then return false, "Could not access inventory items." end
+
+    local converted = 0
+
+    for i = 0, items:size() - 1 do
+        local item = items:get(i)
+        if item then
+            local fullType = item:getFullType()
+            if fullType and string.find(fullType, "PhobosChemistryPathways.", 1, true) then
+                local md = item:getModData()
+                if md then
+                    local purity = md["PCP_Purity"]
+                    if purity and type(purity) == "number" then
+                        local maxCond = item:getConditionMax()
+                        if maxCond and maxCond > 0 then
+                            -- ConditionMax = 100, so purity maps directly to condition
+                            local cond = math.max(0, math.min(maxCond, math.floor(purity + 0.5)))
+                            item:setCondition(cond)
+                            converted = converted + 1
+                        end
+                        md["PCP_Purity"] = nil  -- Remove old modData key
+                    end
+                end
+            end
+        end
+    end
+
+    if converted == 0 then
+        return true, "No purity data to convert."
+    end
+    return true, "Converted " .. converted .. " item(s) from modData purity to condition."
+end
+
+---------------------------------------------------------------
+-- Register migrations
 ---------------------------------------------------------------
 
 PhobosLib.registerMigration(
@@ -121,6 +172,14 @@ PhobosLib.registerMigration(
     "0.18.0",    -- to: this version
     migrate_0_18_0,
     "PCP v0.18.0: Teach pot-alternative and surviving soap recipes"
+)
+
+PhobosLib.registerMigration(
+    MOD_ID,
+    "0.18.0",    -- from: v0.18.0
+    "0.19.0",    -- to: this version
+    migrate_0_19_0,
+    "PCP v0.19.0: Convert modData purity to item condition"
 )
 
 ---------------------------------------------------------------
