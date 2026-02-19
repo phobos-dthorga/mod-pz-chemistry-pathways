@@ -7,11 +7,11 @@ How PCP connects to its dependencies and optional cross-mod integrations.
 ```mermaid
 graph TB
     subgraph HARD["Hard Dependencies (mod.info require)"]
-        PL["PhobosLib v1.4.2+<br/>9 utility modules"]
+        PL["PhobosLib v1.6.0+<br/>10 utility modules"]
         ZR["zReVaccin 3<br/>Lab equipment entities"]
     end
 
-    subgraph PCP["PhobosChemistryPathways v0.13.3"]
+    subgraph PCP["PhobosChemistryPathways v0.15.0"]
         CORE["Core"]
         REC["150 Recipes<br/>5 recipe files"]
         ITEMS["39 Items<br/>+ 5 Skill Books"]
@@ -49,7 +49,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph LIB["PhobosLib v1.4.2"]
+    subgraph LIB["PhobosLib v1.6.0"]
         INIT["PhobosLib.lua<br/>(aggregator)"]
 
         UTIL["Util<br/>pcallMethod, probeMethod<br/>findItemByKeywords<br/>matchesKeywords, say"]
@@ -58,7 +58,7 @@ graph LR
 
         WORLD["World<br/>scanNearbySquares<br/>findNearbyObjectByKeywords"]
 
-        SANDBOX["Sandbox<br/>getSandboxVar, isModActive<br/>applyYieldMultiplier<br/>consumeSandboxFlag<br/>createCallbackTable"]
+        SANDBOX["Sandbox<br/>getSandboxVar, isModActive<br/>applyYieldMultiplier<br/>consumeSandboxFlag"]
 
         QUALITY["Quality<br/>getQuality, setQuality<br/>calculateOutputQuality<br/>getTier, adjustBySeverity"]
 
@@ -69,6 +69,10 @@ graph LR
         RST["Reset<br/>iterateInventoryDeep<br/>stripModDataKey, forgetRecipesByPrefix<br/>resetPerkXP, removeItemsByModule<br/>getWorldModDataValue, stripWorldModDataKeys"]
 
         VAL["Validate<br/>expectItem, expectFluid<br/>expectPerk<br/>validateDependencies"]
+    end
+
+    subgraph CLIENT["Client-side"]
+        RF["RecipeFilter<br/>registerRecipeFilter<br/>registerRecipeFilters<br/>(vanilla + Neat Crafting)"]
     end
 
     INIT --> UTIL
@@ -82,7 +86,7 @@ graph LR
     INIT --> VAL
 ```
 
-> **Usage**: `require "PhobosLib"` loads all modules into the global `PhobosLib` table. Individual modules cannot be loaded independently.
+> **Usage**: `require "PhobosLib"` loads all 9 shared modules into the global `PhobosLib` table. The RecipeFilter module is loaded separately by PZ from `client/` and also attaches to the `PhobosLib` table.
 
 ---
 
@@ -183,7 +187,7 @@ and NPC-mod environments (e.g. Knox Event Expanded).
 | SandboxVars via wrapper | `PhobosLib.getSandboxVar()` reads server-authoritative values |
 | pcall on all cross-mod calls | EHR, ZScienceSkill API calls wrapped for safety if mod is removed mid-save |
 | `isClient()` guards on init | OnGameStart hooks skip client-side to avoid redundant registration |
-| Client code in `client/` only; sandbox gating in `shared/` | Tooltip rendering is the only client-only code; OnTest callbacks (`PCP_SandboxIntegration.lua`) are in `shared/` for client+server access; remaining gameplay logic is in `server/` |
+| Client code in `client/` only; sandbox gating in `shared/` | Tooltip rendering and recipe filter registration (`PCP_RecipeFilter.lua`) are client-only; sandbox query functions (`PCP_SandboxIntegration.lua`) are in `shared/` for client+server access; remaining gameplay logic is in `server/` |
 
 ### For Server Administrators
 

@@ -6,6 +6,14 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.15.0] - 2026-02-19
+
+### Fixed
+- **Recipe sandbox gating with Neat Crafting** — Neat Crafting mod completely replaces the vanilla crafting window (`ISEntityUI.OpenHandcraftWindow()` → `NC_HandcraftWindow`), so the vanilla `ISRecipeScrollingListBox:addGroup()` override was never called. PhobosLib 1.6.0 now hooks `NC_FilterBar:shouldIncludeRecipe()` for Neat Crafting compatibility alongside the existing vanilla UI overrides. All 121 recipe filters now work correctly in both vanilla and Neat Crafting crafting windows.
+
+### Changed
+- Requires **PhobosLib 1.6.0+** (Neat Crafting recipe filter compatibility)
+
 ## [0.14.1] - 2026-02-19
 
 ### Fixed

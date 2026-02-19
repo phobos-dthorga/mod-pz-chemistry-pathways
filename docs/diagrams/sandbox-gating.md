@@ -94,23 +94,29 @@ When **TRUE**, 11 dangerous chemistry recipes are replaced by 22 Safe/Unsafe twi
 
 ---
 
-## OnTest Function Matrix
+## Recipe Visibility Filter Matrix
 
-Recipe visibility is controlled by `OnTest` functions that check sandbox state. The RequireHeatSources and EnableHealthHazards options create a 2-axis matrix:
+Recipe visibility is controlled by **client-side UI filter functions** registered via `PhobosLib.registerRecipeFilter()` in `PCP_RecipeFilter.lua`. Each filter function checks sandbox state and returns `true` (show) or `false` (hide).
 
-| OnTest Function | RequireHeatSources | EnableHealthHazards | Used By |
+> **Note**: B42 `craftRecipe` `OnTest` is a server-side execution gate, NOT a UI visibility gate. `getOnAddToMenu()` returns nil for all craftRecipe objects. Recipe hiding is implemented via PhobosLib_RecipeFilter, which overrides the crafting UI to inject filter checks. Supports vanilla list view, vanilla grid view, and Neat Crafting (`NC_FilterBar:shouldIncludeRecipe()`).
+
+The RequireHeatSources and EnableHealthHazards options create a 2-axis matrix of 121 recipe filters:
+
+| Filter Function | RequireHeatSources | EnableHealthHazards | Used By |
 |---|---|---|---|
-| `pcpHeatRequiredCheck` | TRUE | — | Standard heated recipes (non-hazardous) |
-| `pcpNoHeatRequiredCheck` | FALSE | — | Simplified recipes (non-hazardous) |
-| `pcpHeatAndNoHazardCheck` | TRUE | FALSE | Hazardous originals with heat |
-| `pcpNoHeatAndNoHazardCheck` | FALSE | FALSE | Hazardous originals without heat |
-| `pcpHeatAndHazardCheck` | TRUE | TRUE | Safe/Unsafe twins with heat |
-| `pcpNoHeatAndHazardCheck` | FALSE | TRUE | Safe/Unsafe twins without heat |
+| `isHeatRequired()` | TRUE | — | Standard heated recipes (non-hazardous) |
+| `not isHeatRequired()` | FALSE | — | Simplified recipes (non-hazardous) |
+| `isHeatRequired() and not isHazard()` | TRUE | FALSE | Hazardous originals with heat |
+| `not isHeatRequired() and not isHazard()` | FALSE | FALSE | Hazardous originals without heat |
+| `isHeatRequired() and isHazard()` | TRUE | TRUE | Safe/Unsafe twins with heat |
+| `not isHeatRequired() and isHazard()` | FALSE | TRUE | Safe/Unsafe twins without heat |
 
-Additional standalone checks:
-- `pcpHazardEnabledCheck` — TRUE when EnableHealthHazards is ON (gates twin recipes)
-- `pcpNoHazardCheck` — TRUE when EnableHealthHazards is OFF (gates original recipes)
-- `pcpAdvancedLabCheck` — TRUE when EnableAdvancedLabRecipes is ON (gates Microscope + Spectrometer)
+Additional standalone filters:
+- `isHealthHazardsEnabled()` — TRUE when EnableHealthHazards is ON (gates twin recipes)
+- `not isHealthHazardsEnabled()` — TRUE when EnableHealthHazards is OFF (gates original recipes)
+- `isAdvancedLabEnabled()` — TRUE when EnableAdvancedLabRecipes is ON (gates Microscope + Spectrometer)
+
+All filter functions are defined in `PCP_SandboxIntegration.lua` (shared/) and called from `PCP_RecipeFilter.lua` (client/).
 
 ---
 
