@@ -6,6 +6,11 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.16.1] - 2026-02-19
+
+### Fixed
+- **R9 Tar-Pitch Torch world-load crash** — `Base.TreeBranch` does not exist in Build 42; replaced with `Base.TreeBranch2;Base.WoodenStick2` to match vanilla recipe conventions
+
 ## [0.16.0] - 2026-02-19
 
 ### Added
