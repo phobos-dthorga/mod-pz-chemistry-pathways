@@ -7,7 +7,7 @@ module Base
 
 /* ----- PRESS SOYBEAN OIL (Mortar & Pestle) ----- */
 /*  Cold-press soybeans with a mortar and pestle to extract crude vegetable oil.
-    Low yield Ã¢â‚¬â€ soybeans are ~18-20% oil by weight.                                     */
+    Low yield -- soybeans are ~18-20% oil by weight.                                     */
 
     craftRecipe PCPPressOilSoybeansMortar
     {
@@ -35,7 +35,7 @@ module Base
     }
 
 /* ----- PRESS SUNFLOWER OIL (Mortar & Pestle) ----- */
-/*  Cold-press sunflower seeds. Better yield than soybeans Ã¢â‚¬â€ sunflower seeds
+/*  Cold-press sunflower seeds. Better yield than soybeans -- sunflower seeds
     are 40-50% oil by weight.                                                           */
 
     craftRecipe PCPPressOilSunflowerMortar
@@ -64,7 +64,7 @@ module Base
     }
 
 /* ----- PRESS CORN OIL (Mortar & Pestle) ----- */
-/*  Cold-press corn kernels. Worst yield Ã¢â‚¬â€ corn germ is only ~4-5% oil
+/*  Cold-press corn kernels. Worst yield -- corn germ is only ~4-5% oil
     by whole kernel weight.                                                             */
 
     craftRecipe PCPPressOilCornMortar
@@ -93,7 +93,7 @@ module Base
     }
 
 /* ----- PRESS FLAX OIL (Mortar & Pestle) ----- */
-/*  Cold-press flax seeds (linseed). Decent yield Ã¢â‚¬â€ flax seeds are ~40% oil
+/*  Cold-press flax seeds (linseed). Decent yield -- flax seeds are ~40% oil
     by weight, but the tiny seeds (0.02 each) require many to fill a jar.                 */
 
     craftRecipe PCPPressOilFlaxMortar
@@ -739,7 +739,7 @@ module Base
 
 /* ----- CONVERT BOTTLED VEGETABLE OIL ----- */
 /*  Pour commercially bottled cooking oil into jars for use in the
-    biodiesel process. Already extracted Ã¢â‚¬â€ generous yield.                              */
+    biodiesel process. Already extracted -- generous yield.                              */
 
     craftRecipe PCPConvertVegetableOil
     {
@@ -830,6 +830,43 @@ module Base
         }
     }
 
+/* ----- RENDER FAT FROM MEAT ----- */
+/*  Slow-cook butchered meat in a pot of water to separate and collect rendered
+    fat. Real-world fat rendering produces liquid fat (tallow/schmaltz/lard),
+    bone scraps from trimming, and cracklings (protein residue). The rendered
+    fat is collected in glass jars for use in biodiesel transesterification
+    or soap-making. Accepts any butchered meat cut -- 6 pieces yield 2 jars
+    of rendered fat plus bone scraps that feed the Bone Char pathway.          */
+
+    craftRecipe PCPRenderFatFromMeat
+    {
+        time = 180,
+        category = Cooking,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpRenderFatPurity,
+
+        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:15,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 6 [Base.Steak;Base.Beef;Base.Pork;Base.PorkChop;Base.MuttonChop;Base.Venison;Base.Chicken;Base.ChickenFillet;Base.ChickenWhole;Base.ChickenWings;Base.TurkeyWhole;Base.Rabbitmeat;Base.Smallanimalmeat;Base.Smallbirdmeat;Base.FrogMeat;Base.MeatPatty;Base.MincedMeat;Base.Bacon;Base.BaconRashers;Base.Sausage;Base.Salami] mode:destroy,
+            item 1 [Base.Pot] mode:keep,
+            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 2 [Base.JarLid] mode:destroy,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.RenderedFat,
+            item 2 Base.SmallAnimalBone,
+        }
+    }
+
 /* ==================================================================================== */
 /* ============================== METHANOL PRODUCTION ================================= */
 /* ==================================================================================== */
@@ -838,7 +875,7 @@ module Base
 /*  Destructive distillation of raw wood in a sealed lab flask. Heat drives off
     volatile compounds: methanol vapor condenses into collection bottles, while
     thick wood tar remains as liquid residue and charcoal forms as the solid product.
-    CH3OH is EXTREMELY TOXIC Ã¢â‚¬â€ ingestion causes blindness and death.                    */
+    CH3OH is EXTREMELY TOXIC -- ingestion causes blindness and death.                    */
 
     craftRecipe PCPDistillMethanol
     {
@@ -913,7 +950,7 @@ module Base
 /*  React potash (K2CO3) with quicklime (CaO) in water. The quicklime hydrates
     in situ to slaked lime Ca(OH)2, which then reacts with potash:
     K2CO3 + Ca(OH)2 -> 2 KOH + CaCO3
-    Highly exothermic Ã¢â‚¬â€ goggles and gloves required. KOH is a powerful
+    Highly exothermic -- goggles and gloves required. KOH is a powerful
     caustic alkali used as the transesterification catalyst.                             */
 
     craftRecipe PCPSynthesizeKOH
@@ -1063,7 +1100,7 @@ module Base
 
 /* ----- TRANSESTERIFY RENDERED FAT ----- */
 /*  Same transesterification reaction using rendered animal fat instead of
-    vegetable oil. Chemically identical Ã¢â‚¬â€ triglyceride + methanol + KOH.                */
+    vegetable oil. Chemically identical -- triglyceride + methanol + KOH.                */
 
     craftRecipe PCPTransesterifyFat
     {
@@ -1141,7 +1178,7 @@ module Base
 /* ----- BULK TRANSESTERIFY VEGETABLE OIL ----- */
 /*  Industrial-scale transesterification in a metal drum reactor.
     Slightly better efficiency at scale (0.80 vs 0.75 oil-to-biodiesel ratio).
-    Reaction requires ~60Ã‚Â°C Ã¢â‚¬â€ wood charcoal or coke stoked under the drum.                */
+    Reaction requires ~60degC -- wood charcoal or coke stoked under the drum.                */
 
     craftRecipe PCPTransesterifyOilBulk
     {
@@ -1538,7 +1575,7 @@ module Base
 
 /* ----- BULK TRANSESTERIFY VEGETABLE OIL (NaOH) ----- */
 /*  Industrial-scale NaOH transesterification in a metal drum reactor.
-    Reaction requires ~60Ã‚Â°C Ã¢â‚¬â€ a propane torch heats the drum.                             */
+    Reaction requires ~60degC -- a propane torch heats the drum.                             */
 
     craftRecipe PCPTransesterifyOilBulkNaOH
     {
@@ -1788,7 +1825,7 @@ module Base
 /*  Wash crude biodiesel with hot water to dissolve glycerol and soap residue.
     The aqueous layer (containing impurities) is discarded. The washed biodiesel
     in its jars is ready for the settling/refining step.
-    1:1 conversion Ã¢â‚¬â€ same number of jars in and out.                                    */
+    1:1 conversion -- same number of jars in and out.                                    */
 
     craftRecipe PCPWashBiodiesel
     {
@@ -1985,7 +2022,7 @@ module Base
 
 /* ----- BULK REFINE BIODIESEL ----- */
 /*  Settle and decant washed biodiesel from a bucket into gas cans.
-    The final step of the bulk biodiesel chain — produces engine-ready fuel.            */
+    The final step of the bulk biodiesel chain -- produces engine-ready fuel.            */
 
     craftRecipe PCPRefineBiodieselBulk
     {
@@ -2017,8 +2054,8 @@ module Base
 
 /* ----- CENTRIFUGE-WASH CRUDE BIODIESEL ----- */
 /*  Use the centrifuge to rapidly separate glycerol and soap residue from
-    crude biodiesel. More efficient than water-washing Ã¢â‚¬â€ better yield
-    (4 crude Ã¢â€ â€™ 4 washed vs 3 Ã¢â€ â€™ 3 at chemistry set).                                      */
+    crude biodiesel. More efficient than water-washing -- better yield
+    (4 crude ' 4 washed vs 3 ' 3 at chemistry set).                                      */
 
     craftRecipe PCPWashBiodieselCentrifuge
     {
@@ -2084,8 +2121,8 @@ module Base
 
 /* ----- PURIFY BIODIESEL (Chromatograph) ----- */
 /*  Precision chromatographic purification of washed biodiesel. Superior
-    separation produces higher-grade fuel Ã¢â‚¬â€ 4 washed biodiesel yields
-    2 gas cans (10L fuel) vs 3Ã¢â€ â€™1 at standard refining.                                    */
+    separation produces higher-grade fuel -- 4 washed biodiesel yields
+    2 gas cans (10L fuel) vs 3'1 at standard refining.                                    */
 
     craftRecipe PCPPurifyBiodieselChromatograph
     {
@@ -2189,7 +2226,7 @@ module Base
 
 /* ----- ANALYZE OIL QUALITY (Microscope) ----- */
 /*  Microscopic analysis of vegetable oil quality. When performed before
-    transesterification, the insights improve reaction efficiency Ã¢â‚¬â€ bonus
+    transesterification, the insights improve reaction efficiency -- bonus
     output jar of crude biodiesel from the same feedstock.
     Sandbox-gated: requires EnableAdvancedLabRecipes = true.                               */
 
@@ -2232,8 +2269,8 @@ module Base
 
 /* ----- TEST FUEL PURITY (Spectrometer) ----- */
 /*  Spectroscopic analysis of washed biodiesel purity. The precision testing
-    allows more efficient fuel decanting Ã¢â‚¬â€ 4 washed Ã¢â€ â€™ 2 gas cans (10L fuel)
-    vs 3Ã¢â€ â€™1 at standard refining.
+    allows more efficient fuel decanting -- 4 washed ' 2 gas cans (10L fuel)
+    vs 3'1 at standard refining.
     Sandbox-gated: requires EnableAdvancedLabRecipes = true.                               */
 
     craftRecipe PCPTestFuelSpectrometer
@@ -2347,7 +2384,7 @@ module Base
         }
     }
 
-/* ----- PRODUCE BONE CHAR (Simplified Ã¢â‚¬â€ No Fuel) ----- */
+/* ----- PRODUCE BONE CHAR (Simplified -- No Fuel) ----- */
 
     craftRecipe PCPProduceBoneCharSimple
     {
@@ -2453,7 +2490,7 @@ module Base
         }
     }
 
-/* ----- PRODUCE BONE CHAR FROM SKULLS (Simplified Ã¢â‚¬â€ No Fuel) ----- */
+/* ----- PRODUCE BONE CHAR FROM SKULLS (Simplified -- No Fuel) ----- */
 
     craftRecipe PCPProduceBoneCharSkullSimple
     {
@@ -2705,7 +2742,7 @@ module Base
     }
 
 /* ----- MAKE CRUDE SOAP FROM FAT (KOH, Charcoal) ----- */
-/*  Traditional fat saponification Ã¢â‚¬â€ combine animal fat directly with potassium
+/*  Traditional fat saponification -- combine animal fat directly with potassium
     hydroxide over heat. The oldest known method of soap-making, predating
     glycerol-based routes by millennia. Lower yield than glycerol since raw
     fat requires more lye to fully saponify.                                             */
@@ -2795,7 +2832,7 @@ module Base
         }
     }
 
-/* ----- MAKE CRUDE SOAP FROM FAT (KOH, Simplified Ã¢â‚¬â€ No Fuel) ----- */
+/* ----- MAKE CRUDE SOAP FROM FAT (KOH, Simplified -- No Fuel) ----- */
 
     craftRecipe PCPMakeSoapFatSimple
     {
@@ -2912,7 +2949,7 @@ module Base
         }
     }
 
-/* ----- MAKE CRUDE SOAP FROM FAT (NaOH, Simplified Ã¢â‚¬â€ No Fuel) ----- */
+/* ----- MAKE CRUDE SOAP FROM FAT (NaOH, Simplified -- No Fuel) ----- */
 
     craftRecipe PCPMakeSoapFatNaOHSimple
     {

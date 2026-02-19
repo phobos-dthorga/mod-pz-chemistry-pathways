@@ -22,7 +22,7 @@ PCP adds a custom **Applied Chemistry** perk under the Crafting parent. Recipes 
 |-------|---|---|---|---|---|---|---|---|---|---|
 | XP Required | 75 | 150 | 300 | 750 | 1,500 | 3,000 | 4,500 | 6,000 | 7,500 | 9,000 |
 
-The curve is steeper than vanilla Crafting perks. With 150 recipes awarding XP, this prevents trivial levelling from grinding a single recipe.
+The curve is steeper than vanilla Crafting perks. With 154 recipes awarding XP, this prevents trivial levelling from grinding a single recipe.
 
 ---
 
@@ -97,14 +97,14 @@ Five volumes of "Applied Chemistry" skill books, green-tinted, distributed in lo
 
 All PCP recipes require `NeedToBeLearn = true`. Recipes can be learned through:
 
-1. **Handbook** (`BkChemistryPathways`): Teaches ALL 150 recipes when read. Found in loot.
+1. **Handbook** (`BkChemistryPathways`): Teaches ALL 154 recipes when read. Found in loot.
 2. **AutoLearnAll**: Recipes auto-unlock at the specified Applied Chemistry level (most recipes).
 3. **Occupation/Trait grants**: Specific recipes are pre-learned at character creation.
 4. **Exception**: Tier 7 recipes (Microscope, Spectrometer) have NO AutoLearnAll and can ONLY be learned from the handbook.
 
 ```mermaid
 graph LR
-    HB["Find Handbook<br/>(loot)"] --> LEARN["Learn all 150 recipes"]
+    HB["Find Handbook<br/>(loot)"] --> LEARN["Learn all 154 recipes"]
     LEVEL["Reach AutoLearnAll level"] --> AUTO["Recipes auto-unlock<br/>(most tiers)"]
     CREATE["Choose Occupation/Trait"] --> GRANT["Pre-learned recipes<br/>(character creation)"]
     T7["Tier 7 recipes"] --> HB_ONLY["Handbook ONLY<br/>(no AutoLearnAll)"]

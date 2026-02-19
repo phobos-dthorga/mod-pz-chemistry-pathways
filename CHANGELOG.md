@@ -6,6 +6,20 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.17.0] - 2026-02-20
+
+### Added
+- **Fat rendering from meat** (`PCPRenderFatFromMeat`) — Slow-cook 6 butchered meat cuts in a cooking pot with water to produce 2 jars of RenderedFat + 2 SmallAnimalBone. Accepts 21 meat item types (all butcherable cuts, whole poultry, and packaged meat). Uses `AnySurfaceCraft;Cooking` tags — no chemistry set or fuel required. Provides a renewable source of fat from animal husbandry for the biodiesel and soap chains.
+- **Recipe variants guide** (`docs/diagrams/recipe-variants.md`) — Newcomer-friendly guide explaining why PCP recipes have multiple versions, naming conventions (Simple, Safe, Unsafe, etc.), sandbox gating, and troubleshooting.
+
+### Fixed
+- **Mojibake in biodiesel recipe comments** — Replaced 26 corrupted multi-byte UTF-8 sequences (triple-encoded em-dashes, smart quotes) with clean ASCII equivalents in `PCP_Recipes_Biodiesel.txt`
+- **Stale recipe overview diagram** — Added MEAT and WOOD input nodes; corrected methanol pathway (WOOD→METHANOL, charcoal as byproduct instead of feedstock)
+- **Stale counts across documentation** — Updated recipe count (153→154), callback count (135→138), pathway count (6→7) in all docs, diagrams, and mod.info files
+
+### Changed
+- Recipe count: 153 → 154
+
 ## [0.16.3] - 2026-02-20
 
 ### Fixed

@@ -7,6 +7,7 @@ Visual guides for understanding mod systems, recipe chains, and configuration op
 | Diagram | Description |
 |---------|-------------|
 | [Recipe Pathways](diagrams/recipe-pathways.md) | Complete crafting chain flowcharts for all 7 pathways |
+| [Recipe Variants](diagrams/recipe-variants.md) | Why recipes have multiple versions, naming conventions, and sandbox gating |
 | [Sandbox Gating](diagrams/sandbox-gating.md) | How 12 sandbox options control recipe visibility and behavior |
 | [Skill Progression](diagrams/skill-progression.md) | Applied Chemistry skill tiers, XP curve, occupations, and traits |
 | [Architecture](diagrams/architecture.md) | Dependency graph, PhobosLib modules, and cross-mod integration |

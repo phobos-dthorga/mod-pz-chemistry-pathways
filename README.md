@@ -1,6 +1,6 @@
 # PhobosChemistryPathways
 
-**Version:** 0.16.3 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.7.0+ | zReVaccin 3
+**Version:** 0.17.0 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.7.0+ | zReVaccin 3
 
 > **Players:** Subscribe on [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3668197831) for easy installation. This GitHub repo is for source code, documentation, and development.
 >
@@ -15,7 +15,7 @@ This project is open-source, but the Steam Workshop upload is the official distr
 ## Features
 
 ### Applied Chemistry Skill System
-Custom `AppliedChemistry` perk under the Crafting parent with a steeper XP curve (75-9000). Two occupations (Chemist and Pharmacist) and two traits (Chemistry Enthusiast and Chemical Aversion) provide starting skill bonuses. Five skill book volumes cover levels 1-10, distributed in loot from common (Vol 1-2) to very rare (Vol 5). All 150 recipes award Applied Chemistry XP with 7 tiers of skill requirements.
+Custom `AppliedChemistry` perk under the Crafting parent with a steeper XP curve (75-9000). Two occupations (Chemist and Pharmacist) and two traits (Chemistry Enthusiast and Chemical Aversion) provide starting skill bonuses. Five skill book volumes cover levels 1-10, distributed in loot from common (Vol 1-2) to very rare (Vol 5). All 154 recipes award Applied Chemistry XP with 7 tiers of skill requirements.
 
 ### Blackpowder Pathway
 Seven-step chain from raw charcoal to gunpowder: crush, purify (water or alkaline wash), prepare compost, extract battery acid, extract sulphur, synthesize potassium nitrate, and mix blackpowder.
@@ -24,7 +24,7 @@ Seven-step chain from raw charcoal to gunpowder: crush, purify (water or alkalin
 Five-step chain from raw crops to refined fuel. Extract oil from 6 crop types (soybeans, sunflower, corn, flax, hemp, peanuts) using 3 equipment tiers (mortar and pestle, chemistry set, metal drum). Transesterify with methanol and KOH or NaOH catalyst, water-wash, and refine into usable vehicle fuel.
 
 ### Fat Rendering and Oil Conversion
-Render lard, butter, or margarine into biodiesel feedstock. Convert bottled vegetable or olive oil directly.
+Render lard, butter, or margarine into biodiesel feedstock. Or slow-cook any butchered meat cut (6 pieces → 2 jars of rendered fat + bone scraps) in a cooking pot — a renewable source of fat from animal husbandry. Convert bottled vegetable or olive oil directly.
 
 ### Soap-Making
 Two soap pathways: glycerol-based crude soap from biodiesel by-products, and traditional fat-based soap from rendered animal fats. Both support KOH and NaOH catalysts.
@@ -81,13 +81,13 @@ Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" setting
 
 ## Content Summary
 
-- **153 recipes** across blackpowder, biodiesel, soap, bone char, recycling, utility, and advanced lab pathways
+- **154 recipes** across blackpowder, biodiesel, soap, bone char, recycling, utility, and advanced lab pathways
 - **39 items** including chemical reagents, intermediates, and container variants (jar, clay jar, bucket)
 - **5 skill books** covering Applied Chemistry levels 1-10
 - **2 occupations** (Chemist, Pharmacist) and **2 traits** (Chemistry Enthusiast, Chemical Aversion)
 - **8 fluids** with Build 42 FluidContainer integration and poison profiles
 - **12 sandbox options** for gameplay customization and maintenance
-- **135 OnCreate callbacks** for purity tracking and propane partial consumption
+- **138 OnCreate callbacks** for purity tracking and propane partial consumption
 - **1 handbook** (lootable) teaching all recipes with a coloured pathway guide
 
 ## License
@@ -102,7 +102,7 @@ Forks and addons are encouraged. Code is permissively licensed for integration. 
 
 Visual guides for understanding recipe chains, sandbox settings, and mod architecture:
 
-- [Recipe Pathways](docs/diagrams/recipe-pathways.md) — Complete crafting chain flowcharts for all 6 pathways
+- [Recipe Pathways](docs/diagrams/recipe-pathways.md) — Complete crafting chain flowcharts for all 7 pathways
 - [Sandbox Settings Guide](docs/diagrams/sandbox-gating.md) — How 12 sandbox options control recipe visibility, behavior, and maintenance
 - [Skill Progression](docs/diagrams/skill-progression.md) — Applied Chemistry skill tiers, XP curve, occupations, and traits
 - [Architecture & Dependencies](docs/diagrams/architecture.md) — Dependency graph, PhobosLib modules, and cross-mod integration

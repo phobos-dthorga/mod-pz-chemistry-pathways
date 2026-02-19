@@ -1,6 +1,6 @@
 # Recipe Pathways
 
-Complete crafting chains from raw materials to final products. PCP adds 150 recipes across 7 pathways.
+Complete crafting chains from raw materials to final products. PCP adds 154 recipes across 7 pathways.
 
 ## Overview
 
@@ -9,10 +9,12 @@ All pathways share common raw materials and produce interconnected intermediates
 ```mermaid
 graph TB
     subgraph INPUTS["Raw Inputs"]
-        CHARCOAL["Charcoal<br/>(foraged or crafted)"]
+        CHARCOAL["Charcoal<br/>(foraged, crafted,<br/>or methanol byproduct)"]
         CROPS["Crops: Soybeans, Sunflower,<br/>Corn, Flax, Hemp, Peanuts"]
         FATS["Lard / Butter / Margarine"]
         OILS["OilVegetable / OilOlive"]
+        MEAT["Butchered Meat<br/>(any cut)"]
+        WOOD["Wood<br/>(Plank / Firewood)"]
         BONES["Animal Bones / Skulls"]
         COMPOST["CompostBag / Animal Dung"]
         BATTERY["Car Battery"]
@@ -91,7 +93,9 @@ graph TB
     CROPS --> CRUDE_OIL
     OILS --> CRUDE_OIL
     FATS --> RENDERED
-    CHARCOAL --> METHANOL
+    MEAT --> RENDERED
+    WOOD --> METHANOL
+    METHANOL -.-> CHARCOAL
     POTASH --> KOH
     QLIME --> KOH
     CRUDE_OIL --> CRUDE_BD
@@ -247,7 +251,7 @@ graph TB
     style SOAP fill:#48c,color:#fff
 ```
 
-> **6 crop types** each have Mortar, Chemistry Set, and Metal Drum press recipes. **Fat rendering** accepts Lard, Butter, or Margarine. **NaOH** (from zReVaccin) is an alternative catalyst to KOH for transesterification and soap.
+> **6 crop types** each have Mortar, Chemistry Set, and Metal Drum press recipes. **Fat rendering** accepts Lard, Butter, or Margarine (loot) or any butchered meat cut (6 meat → 2 RenderedFat via cooking pot). **NaOH** (from zReVaccin) is an alternative catalyst to KOH for transesterification and soap.
 
 ---
 

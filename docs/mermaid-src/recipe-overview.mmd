@@ -1,9 +1,11 @@
 graph TB
     subgraph INPUTS["Raw Inputs"]
-        CHARCOAL["Charcoal<br/>(foraged or crafted)"]
+        CHARCOAL["Charcoal<br/>(foraged, crafted,<br/>or methanol byproduct)"]
         CROPS["Crops: Soybeans, Sunflower,<br/>Corn, Flax, Hemp, Peanuts"]
         FATS["Lard / Butter / Margarine"]
         OILS["OilVegetable / OilOlive"]
+        MEAT["Butchered Meat<br/>(any cut)"]
+        WOOD["Wood<br/>(Plank / Firewood)"]
         BONES["Animal Bones / Skulls"]
         COMPOST["CompostBag / Animal Dung"]
         BATTERY["Car Battery"]
@@ -80,7 +82,9 @@ graph TB
     CROPS --> CRUDE_OIL
     OILS --> CRUDE_OIL
     FATS --> RENDERED
-    CHARCOAL --> METHANOL
+    MEAT --> RENDERED
+    WOOD --> METHANOL
+    METHANOL -.-> CHARCOAL
     POTASH --> KOH
     QLIME --> KOH
     CRUDE_OIL --> CRUDE_BD

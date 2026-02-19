@@ -7,7 +7,7 @@ These are the same diagrams embedded in [`../diagrams/*.md`](../diagrams/), extr
 
 | File | Diagram |
 |------|---------|
-| `recipe-overview.mmd` | All 6 crafting pathways (top-level overview) |
+| `recipe-overview.mmd` | All 7 crafting pathways (top-level overview) |
 | `blackpowder-detail.mmd` | Blackpowder chain steps 1-7 with quantities |
 | `biodiesel-detail.mmd` | Biodiesel pipeline with 3 equipment tiers |
 | `sandbox-gating.mmd` | 7 sandbox options decision tree |
