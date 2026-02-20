@@ -23,6 +23,11 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.21.2] - 2026-02-21
+
+### Fixed
+- **Purity not visible immediately after crafting** — `setPurity()` and `stampOutputs()` called `setCondition()` server-side but never synced to the client via `sendItemStats()`. The inventory UI only learned about the changed condition on the next automatic sync cycle, causing a long visible delay before purity appeared on crafted items. Now calls `pcall(sendItemStats, item)` after each `setCondition()`, matching the pattern used by PhobosLib_LazyStamp and PhobosLib_VesselReplace.
+
 ## [0.21.1] - 2026-02-21
 
 ### Fixed
