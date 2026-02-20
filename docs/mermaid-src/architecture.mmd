@@ -1,10 +1,10 @@
 graph TB
     subgraph HARD["Hard Dependencies (mod.info require)"]
-        PL["PhobosLib v1.7.0+<br/>11 utility modules"]
+        PL["PhobosLib v1.8.0+<br/>12 utility modules"]
         ZR["zReVaccin 3<br/>Lab equipment entities"]
     end
 
-    subgraph PCP["PhobosChemistryPathways v0.17.0"]
+    subgraph PCP["PhobosChemistryPathways v0.19.1"]
         CORE["Core"]
         REC["154 Recipes<br/>5 recipe files"]
         ITEMS["39 Items<br/>+ 5 Skill Books"]
@@ -13,7 +13,7 @@ graph TB
         PURITY["Purity System<br/>PCP_PuritySystem.lua"]
         HAZARD["Hazard System<br/>PCP_HazardSystem.lua"]
         SKILL["Skill System<br/>perks + professions + traits"]
-        CALLBACKS["138 OnCreate Callbacks<br/>PCP_RecipeCallbacks.lua"]
+        CALLBACKS["144 OnCreate Callbacks<br/>PCP_RecipeCallbacks.lua"]
         TRADING["DT Integration<br/>PCP_DynamicTradingData.lua"]
     end
 
@@ -34,7 +34,7 @@ graph TB
 
     HAZARD -.->|"EHR.Disease.TryContract<br/>(pcall-wrapped)"| EHR
     SKILL -.->|"registerXPMirror<br/>AC to Science at 50%"| ZSS
-    TRADING -.->|"registerTradeItems<br/>(23 items, 1 tag, 1 archetype)"| DT
+    TRADING -.->|"registerTradeItems<br/>(27 items, 1 tag, 1 archetype)"| DT
 
     style HARD fill:#264,color:#fff
     style SOFT fill:#446,color:#fff

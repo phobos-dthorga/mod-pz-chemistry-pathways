@@ -1,3 +1,19 @@
+--  ________________________________________________________________________
+-- / Copyright (c) 2026 Phobos A. D'thorga                                \
+-- |                                                                        |
+-- |           /\_/\                                                         |
+-- |         =/ o o \=    Phobos' PZ Modding                                |
+-- |          (  V  )     All rights reserved.                              |
+-- |     /\  / \   / \                                                      |
+-- |    /  \/   '-'   \   This source code is part of the Phobos            |
+-- |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+-- |  (__/    \_/ \/  \__)                                                  |
+-- |     |   | |  | |     Unauthorised copying, modification, or            |
+-- |     |___|_|  |_|     distribution of this file is prohibited.          |
+-- |                                                                        |
+-- \________________________________________________________________________/
+--
+
 ---------------------------------------------------------------
 -- PCP_MigrationSystem.lua
 -- Server-side versioned migrations for PhobosChemistryPathways.
@@ -11,13 +27,17 @@
 --   - Convert modData["PCP_Purity"] to item condition for all PCP items
 --   - Remove old PCP_Purity modData key after conversion
 --
+-- v0.19.1 migration:
+--   - Rename "PCP_Chemist" → "Chemist" in DynamicTrading save data
+--     (traders spawned before v0.19.0 ID rename)
+--
 -- Requires: PhobosLib >= 1.8.0
 ---------------------------------------------------------------
 
 require "PhobosLib"
 
 local MOD_ID      = "PCP"
-local MOD_VERSION = "0.19.0"
+local MOD_VERSION = "0.19.1"
 
 ---------------------------------------------------------------
 -- Helpers
@@ -163,6 +183,56 @@ local function migrate_0_19_0(player)
 end
 
 ---------------------------------------------------------------
+-- v0.19.1 Migration
+---------------------------------------------------------------
+
+--- Rename "PCP_Chemist" → "Chemist" in DynamicTrading save data.
+--- Traders spawned before v0.19.0 have the old archetype ID baked
+--- into DT's ModData. The radio panel falls back to the raw string
+--- when it can't find DynamicTrading.Archetypes["PCP_Chemist"].
+--- This is a world-level migration (player param unused).
+---@param player any  IsoGameCharacter (unused — operates on world ModData)
+---@return boolean ok, string msg
+local function migrate_0_19_1(player)
+    -- Skip if DynamicTrading is not installed
+    local dtActive = false
+    pcall(function()
+        dtActive = PhobosLib.isDynamicTradingActive()
+    end)
+    if not dtActive then
+        return true, "DynamicTrading not active, skipped."
+    end
+
+    -- Access DT's live ModData
+    local data = nil
+    pcall(function()
+        data = DynamicTrading.Manager.GetData()
+    end)
+    if not data or not data.Traders then
+        return true, "No DT trader data found, skipped."
+    end
+
+    local patched = 0
+    for id, trader in pairs(data.Traders) do
+        if trader.archetype == "PCP_Chemist" then
+            trader.archetype = "Chemist"
+            patched = patched + 1
+        end
+    end
+
+    if patched > 0 then
+        pcall(function()
+            ModData.transmit("DynamicTrading_Engine_v1.3")
+        end)
+    end
+
+    if patched == 0 then
+        return true, "No DT traders to patch."
+    end
+    return true, "Renamed " .. patched .. " trader(s) from PCP_Chemist to Chemist."
+end
+
+---------------------------------------------------------------
 -- Register migrations
 ---------------------------------------------------------------
 
@@ -180,6 +250,14 @@ PhobosLib.registerMigration(
     "0.19.0",    -- to: this version
     migrate_0_19_0,
     "PCP v0.19.0: Convert modData purity to item condition"
+)
+
+PhobosLib.registerMigration(
+    MOD_ID,
+    "0.19.0",    -- from: v0.19.0
+    "0.19.1",    -- to: this version
+    migrate_0_19_1,
+    "PCP v0.19.1: Rename PCP_Chemist to Chemist in DynamicTrading"
 )
 
 ---------------------------------------------------------------

@@ -1,6 +1,23 @@
+<!--
+  ________________________________________________________________________
+ / Copyright (c) 2026 Phobos A. D'thorga                                \
+ |                                                                        |
+ |           /\_/\                                                         |
+ |         =/ o o \=    Phobos' PZ Modding                                |
+ |          (  V  )     All rights reserved.                              |
+ |     /\  / \   / \                                                      |
+ |    /  \/   '-'   \   This source code is part of the Phobos            |
+ |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+ |  (__/    \_/ \/  \__)                                                  |
+ |     |   | |  | |     Unauthorised copying, modification, or            |
+ |     |___|_|  |_|     distribution of this file is prohibited.          |
+ |                                                                        |
+ \________________________________________________________________________/
+-->
+
 # PhobosChemistryPathways
 
-**Version:** 0.17.0 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.7.0+ | zReVaccin 3
+**Version:** 0.19.1 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.8.0+ | zReVaccin 3
 
 > **Players:** Subscribe on [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3668197831) for easy installation. This GitHub repo is for source code, documentation, and development.
 >
@@ -50,13 +67,13 @@ Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" setting
 ### Cross-Mod Integration
 - **ZScienceSkill** ("Science, Bitch!"): When active, Applied Chemistry XP mirrors to Science at 50% rate, and 33 items + 8 fluids are registered as researchable microscope specimens.
 - **EHR** (Extensive Health Rework): When active, health hazard recipes dispatch EHR diseases instead of vanilla stat penalties.
-- **Dynamic Trading** (DynamicTradingCommon): When active, 23 PCP items are registered for NPC trading with a custom "Chemical" tag and "PCP_Chemist" trader archetype via PhobosLib_Trading.
+- **Dynamic Trading** (DynamicTradingCommon): When active, 27 PCP items are registered for NPC trading with a custom "Chemical" tag and "Chemist" trader archetype (with chemistry-themed dialogue) via PhobosLib_Trading. Chemical allocations injected into 8 existing DT archetypes.
 
 ## Requirements
 
 | Dependency | Purpose |
 |------------|---------|
-| **PhobosLib 1.7.0+** | Shared utility library (sandbox access, fluid helpers, quality tracking, hazard dispatch, skill XP mirroring, reset utilities, startup validation, recipe visibility filters, Dynamic Trading wrapper) |
+| **PhobosLib 1.8.0+** | Shared utility library (sandbox access, fluid helpers, quality tracking, hazard dispatch, skill XP mirroring, reset utilities, startup validation, recipe visibility filters, Dynamic Trading wrapper, versioned migration framework) |
 | **zReVaccin 3** (zReModVaccin30bykERHUS) | Lab equipment entities (chemistry set, centrifuge, chromatograph, microscope, spectrometer) |
 | **EHR** (optional) | Disease system for health hazard integration; vanilla stat penalties used as fallback |
 | **ZScienceSkill** (optional) | Science skill XP mirroring and microscope specimen registration |
@@ -87,7 +104,7 @@ Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" setting
 - **2 occupations** (Chemist, Pharmacist) and **2 traits** (Chemistry Enthusiast, Chemical Aversion)
 - **8 fluids** with Build 42 FluidContainer integration and poison profiles
 - **12 sandbox options** for gameplay customization and maintenance
-- **138 OnCreate callbacks** for purity tracking and propane partial consumption
+- **144 OnCreate callbacks** for purity tracking and propane partial consumption
 - **1 handbook** (lootable) teaching all recipes with a coloured pathway guide
 
 ## License

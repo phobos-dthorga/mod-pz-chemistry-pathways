@@ -1,3 +1,20 @@
+<!--
+  ________________________________________________________________________
+ / Copyright (c) 2026 Phobos A. D'thorga                                \
+ |                                                                        |
+ |           /\_/\                                                         |
+ |         =/ o o \=    Phobos' PZ Modding                                |
+ |          (  V  )     All rights reserved.                              |
+ |     /\  / \   / \                                                      |
+ |    /  \/   '-'   \   This source code is part of the Phobos            |
+ |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+ |  (__/    \_/ \/  \__)                                                  |
+ |     |   | |  | |     Unauthorised copying, modification, or            |
+ |     |___|_|  |_|     distribution of this file is prohibited.          |
+ |                                                                        |
+ \________________________________________________________________________/
+-->
+
 # Architecture & Dependencies
 
 How PCP connects to its dependencies and optional cross-mod integrations.
@@ -7,11 +24,11 @@ How PCP connects to its dependencies and optional cross-mod integrations.
 ```mermaid
 graph TB
     subgraph HARD["Hard Dependencies (mod.info require)"]
-        PL["PhobosLib v1.7.0+<br/>11 utility modules"]
+        PL["PhobosLib v1.8.0+<br/>12 utility modules"]
         ZR["zReVaccin 3<br/>Lab equipment entities"]
     end
 
-    subgraph PCP["PhobosChemistryPathways v0.17.0"]
+    subgraph PCP["PhobosChemistryPathways v0.19.1"]
         CORE["Core"]
         REC["154 Recipes<br/>5 recipe files"]
         ITEMS["39 Items<br/>+ 5 Skill Books"]
@@ -20,7 +37,7 @@ graph TB
         PURITY["Purity System<br/>PCP_PuritySystem.lua"]
         HAZARD["Hazard System<br/>PCP_HazardSystem.lua"]
         SKILL["Skill System<br/>perks + professions + traits"]
-        CALLBACKS["138 OnCreate Callbacks<br/>PCP_RecipeCallbacks.lua"]
+        CALLBACKS["144 OnCreate Callbacks<br/>PCP_RecipeCallbacks.lua"]
         TRADING["DT Integration<br/>PCP_DynamicTradingData.lua"]
     end
 

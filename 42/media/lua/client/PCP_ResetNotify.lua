@@ -1,64 +1,88 @@
+--  ________________________________________________________________________
+-- / Copyright (c) 2026 Phobos A. D'thorga                                \
+-- |                                                                        |
+-- |           /\_/\                                                         |
+-- |         =/ o o \=    Phobos' PZ Modding                                |
+-- |          (  V  )     All rights reserved.                              |
+-- |     /\  / \   / \                                                      |
+-- |    /  \/   '-'   \   This source code is part of the Phobos            |
+-- |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+-- |  (__/    \_/ \/  \__)                                                  |
+-- |     |   | |  | |     Unauthorised copying, modification, or            |
+-- |     |___|_|  |_|     distribution of this file is prohibited.          |
+-- |                                                                        |
+-- \________________________________________________________________________/
+--
+
 ---------------------------------------------------------------
 -- PCP_ResetNotify.lua
--- Client-side listener for reset result notifications.
--- Provides persistent messaging that cannot be missed even
--- at accelerated game speed.
+-- Client-side listener for PCP reset result notifications.
+-- Always shows a modal dialog since resets run after a world
+-- restart and the user needs clear confirmation of what happened.
 --
--- Success: HaloTextHelper green on-screen text + sound.
--- Failure: ISModalRichText modal dialog that blocks game.
+-- Success: green-header modal with reset summary.
+-- Failure: red-header modal with error details.
 ---------------------------------------------------------------
 
 local PCP_ResetNotify = {}
 
 ---------------------------------------------------------------
--- Success Notification (HaloText)
+-- Modal Dialog
 ---------------------------------------------------------------
 
---- Show a green on-screen success message with sound.
----@param player any
----@param msg string
-local function showSuccess(player, msg)
-    pcall(function()
-        if HaloTextHelper and HaloTextHelper.addTextWithArrow then
-            HaloTextHelper.addTextWithArrow(
-                player,
-                true,  -- good (green)
-                msg
-            )
-        elseif HaloTextHelper and HaloTextHelper.addText then
-            HaloTextHelper.addText(player, msg, HaloTextHelper.getColorGreen())
-        end
-    end)
-    print("[PCP] ResetNotify: SUCCESS → " .. msg)
-end
-
----------------------------------------------------------------
--- Failure Notification (Modal Dialog)
----------------------------------------------------------------
-
---- Show a modal dialog that blocks the game until OK is clicked.
+--- Show a modal dialog with reset results.
 --- Cannot be missed at any game speed.
 ---@param msg string
-local function showFailure(msg)
+---@param isOk boolean
+local function showModal(msg, isOk)
     pcall(function()
-        local text = " <SIZE:medium> <RGB:1,0.3,0.3> PCP Reset Warning <RGB:1,1,1> <LINE> <LINE> "
-            .. msg
-            .. " <LINE> <LINE> <SIZE:small> This operation did not complete as expected. "
-            .. "Your save is not corrupted, but the requested reset may be incomplete. "
-            .. "Check the console log for details."
+        local header
+        if isOk then
+            header = " <SIZE:medium> <RGB:0.3,0.8,0.3> PCP Reset Complete <RGB:1,1,1> "
+        else
+            header = " <SIZE:medium> <RGB:1,0.3,0.3> PCP Reset Warning <RGB:1,1,1> "
+        end
+
+        -- Replace newlines with <LINE> tags for ISModalRichText
+        local body = string.gsub(msg, "\n", " <LINE> ")
+
+        local text = header
+            .. " <LINE> <LINE> <SIZE:small> "
+            .. body
+            .. " <LINE> <LINE> "
+            .. " <RGB:0.6,0.6,0.6> Check the console log (press ~ or F3) for full details. <RGB:1,1,1> "
 
         local modal = ISModalRichText:new(
-            getCore():getScreenWidth() / 2 - 250,
-            getCore():getScreenHeight() / 2 - 120,
-            500,
-            240,
+            getCore():getScreenWidth() / 2 - 280,
+            getCore():getScreenHeight() / 2 - 150,
+            560,
+            300,
             text,
-            false  -- OK button only
+            true  -- OK button only
         )
         modal:initialise()
         modal:addToUIManager()
     end)
-    print("[PCP] ResetNotify: FAILURE → " .. msg)
+
+    local prefix = isOk and "SUCCESS" or "WARNING"
+    print("[PCP] ResetNotify: " .. prefix .. " -> " .. msg)
+end
+
+---------------------------------------------------------------
+-- HaloText (supplemental)
+---------------------------------------------------------------
+
+--- Show a green on-screen halo text as a quick visual indicator.
+---@param player any
+---@param msg string
+local function showHaloText(player, msg)
+    pcall(function()
+        if HaloTextHelper and HaloTextHelper.addTextWithArrow then
+            HaloTextHelper.addTextWithArrow(player, true, msg)
+        elseif HaloTextHelper and HaloTextHelper.addText then
+            HaloTextHelper.addText(player, msg, HaloTextHelper.getColorGreen())
+        end
+    end)
 end
 
 ---------------------------------------------------------------
@@ -69,22 +93,21 @@ local function onServerCommand(module, command, args)
     if module ~= "PCP" or command ~= "resetResult" then return end
     if not args then return end
 
-    local player = nil
-    pcall(function()
-        player = getSpecificPlayer(0)
-    end)
-
     local msg = args.msg or "Reset operation completed."
-    local tier = args.tier or "unknown"
+    local isOk = (args.status == "ok")
 
-    if args.status == "ok" then
+    -- Always show modal for reset results
+    showModal(msg, isOk)
+
+    -- Also show halo text if player exists and it was successful
+    if isOk then
+        local player = nil
+        pcall(function()
+            player = getSpecificPlayer(0)
+        end)
         if player then
-            showSuccess(player, "[PCP] " .. msg)
-        else
-            print("[PCP] ResetNotify: success but no local player → " .. msg)
+            showHaloText(player, "[PCP] Reset complete!")
         end
-    else
-        showFailure(msg)
     end
 end
 

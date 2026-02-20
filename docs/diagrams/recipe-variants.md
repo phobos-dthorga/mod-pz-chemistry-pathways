@@ -1,3 +1,20 @@
+<!--
+  ________________________________________________________________________
+ / Copyright (c) 2026 Phobos A. D'thorga                                \
+ |                                                                        |
+ |           /\_/\                                                         |
+ |         =/ o o \=    Phobos' PZ Modding                                |
+ |          (  V  )     All rights reserved.                              |
+ |     /\  / \   / \                                                      |
+ |    /  \/   '-'   \   This source code is part of the Phobos            |
+ |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+ |  (__/    \_/ \/  \__)                                                  |
+ |     |   | |  | |     Unauthorised copying, modification, or            |
+ |     |___|_|  |_|     distribution of this file is prohibited.          |
+ |                                                                        |
+ \________________________________________________________________________/
+-->
+
 # Recipe Variants
 
 PCP uses **recipe variants** to support sandbox settings without runtime scripting. Each sandbox toggle (like `RequireHeatSources` or `EnableHealthHazards`) controls which version of a recipe the player sees in the crafting menu.
@@ -132,7 +149,7 @@ Some recipes support different container sizes:
 
 ---
 
-## Variant Counts (v0.17.0)
+## Variant Counts (v0.19.1)
 
 | Suffix | Count | Controlled By |
 |--------|-------|---------------|

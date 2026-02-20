@@ -1,3 +1,20 @@
+<!--
+  ________________________________________________________________________
+ / Copyright (c) 2026 Phobos A. D'thorga                                \
+ |                                                                        |
+ |           /\_/\                                                         |
+ |         =/ o o \=    Phobos' PZ Modding                                |
+ |          (  V  )     All rights reserved.                              |
+ |     /\  / \   / \                                                      |
+ |    /  \/   '-'   \   This source code is part of the Phobos            |
+ |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+ |  (__/    \_/ \/  \__)                                                  |
+ |     |   | |  | |     Unauthorised copying, modification, or            |
+ |     |___|_|  |_|     distribution of this file is prohibited.          |
+ |                                                                        |
+ \________________________________________________________________________/
+-->
+
 # Changelog (PhobosChemistryPathways)
 
 All notable changes to this project will be documented in this file.
@@ -5,6 +22,17 @@ All notable changes to this project will be documented in this file.
 The format is based on Keep a Changelog, and this project follows Semantic Versioning.
 
 ## [Unreleased]
+
+## [0.19.1] - 2026-02-20
+
+### Fixed
+- **DT Radio panel showing "PCP_Chemist"** — Traders spawned before v0.19.0 had `archetype="PCP_Chemist"` baked into DT save data (`DynamicTrading_Engine_v1.3` ModData). The radio panel falls back to the raw archetype string when the lookup fails. Fix: v0.19.1 save-data migration patches `trader.archetype` from `"PCP_Chemist"` to `"Chemist"` in all existing DT traders. Idempotent; skips gracefully when DynamicTrading is not installed.
+- **Migration notification uses ISModalRichText modal** — Was ephemeral HaloText, invisible during game start when the UI hasn't fully loaded
+- **Reset success notification uses ISModalRichText modal** — Was ephemeral HaloText, missed after world restart. Now matches the EPRC gold-standard notification pattern with persistent modal.
+
+### Added
+- **Chemist archetype dialogue for Dynamic Trading** — 6 dialogue types (Greetings, Buying, Selling, Sell_ask, Idle, Request) with chemistry-themed lines registered via `DynamicTrading.RegisterDialogue()`. Post-apocalyptic chemist voice: pragmatic, detail-oriented, references reagent purity, pH levels, titration, and safety protocols.
+- **Copyright headers** on all source files (dragon cat ASCII art)
 
 ## [0.19.0] - 2026-02-20
 
