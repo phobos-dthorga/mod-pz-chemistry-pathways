@@ -23,38 +23,24 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
-## [0.19.3] - 2026-02-20
-
-### Fixed
-- **Purity tooltip not showing** — `PCP_PurityTooltip.lua` used `self:addLine()` / `self.description` which don't exist on `ISToolTipInv` (thin Lua wrapper around Java `ObjectTooltip`). Rewrote using new `PhobosLib.registerTooltipProvider()` API which draws coloured text below the vanilla tooltip via `self:drawText()`. Purity line now appears for all stamped PCP items (e.g. "Purity: Lab-Grade (99%)").
-- **Raw RGB tags in item tooltips** — `<RGB:r,g,b>` tags in `Tooltip_EN.txt` appeared as literal text because Java `ObjectTooltip` doesn't parse them (only works in ISModalRichText). Removed all `<RGB>` tags from 4 tooltip entries (SulphuricAcid, Handbook, WoodMethanol, PotassiumHydroxide). Hazard warnings now use plain `WARNING:` prefix.
-- **Migration only scanned main inventory** — v0.19.2 migration used `player:getInventory():getItems()` which only covers the main 40-slot inventory. Added v0.19.3 migration using `PhobosLib.iterateInventoryDeep()` to recurse into worn backpacks and bags.
-
-### Added
-- **Lazy container purity stamper** — PCP items in safehouse containers, vehicle trunks, and other world containers that couldn't be reached by the OnGameStart migration are now stamped when the player first opens them. Uses new `PhobosLib.registerLazyConditionStamp()` API.
-- **Requires PhobosLib >= 1.9.0** (new tooltip and lazy stamper APIs)
-
-## [0.19.2] - 2026-02-20
-
-### Fixed
-- **Skill books still not readable (load-order fix)** — `PCP_SkillBookData.lua` was in `shared/`, which loads *before* vanilla's `XPSystem_SkillBook.lua` resets `SkillBook = {}`. Moved to `server/` so the registration persists after vanilla's table init. (Matches how Science, Bitch! solves the same problem.)
-- **DT-purchased items had no purity label** — DT's `GenerateItemCondition()` priority chain skips condition for FluidContainers (sets `fluidAmount` instead) and books (no customData). Expert items arrive at 100% condition, which the tooltip hides as "unstamped". Monkey-patches `DynamicTrading.ServerHelpers.AddItemWithCondition` to stamp condition 99 (Lab-Grade) on PCP items at ConditionMax. Non-expert Normal items keep DT's rolled condition as-is.
-
-### Added
-- **Purity migration (v0.19.2)** — One-time migration stamps all existing PCP items at condition 100 to 99 (Lab-Grade). Covers DT purchases, loot, and expert items that were invisible to the purity tooltip.
-- **`PCP_DynamicTradingStamp.lua`** — Server-side monkey-patch for ongoing DT purity stamping on future purchases.
-
 ## [0.19.1] - 2026-02-20
 
 ### Fixed
-- **Skill books not readable** — Applied Chemistry Vol 1–5 could not be read (no "Read" context menu option). Root cause: missing `SkillBook["AppliedChemistry"]` registration in the PZ XP system global table. Books have been non-functional since v0.10.0.
-- **DT Radio panel showing "PCP_Chemist"** — Traders spawned before v0.19.0 had `archetype="PCP_Chemist"` baked into DT save data (`DynamicTrading_Engine_v1.3` ModData). The radio panel falls back to the raw archetype string when the lookup fails. Fix: v0.19.1 save-data migration patches `trader.archetype` from `"PCP_Chemist"` to `"Chemist"` in all existing DT traders. Idempotent; skips gracefully when DynamicTrading is not installed.
-- **Migration notification uses ISModalRichText modal** — Was ephemeral HaloText, invisible during game start when the UI hasn't fully loaded
-- **Reset success notification uses ISModalRichText modal** — Was ephemeral HaloText, missed after world restart. Now matches the EPRC gold-standard notification pattern with persistent modal.
+- **Skill books not readable** — Applied Chemistry Vol 1-5 could not be read (no "Read" context menu option). Root cause: missing `SkillBook["AppliedChemistry"]` registration, compounded by load-order issue (`shared/` loads before vanilla resets `SkillBook = {}`). Moved `PCP_SkillBookData.lua` to `server/` so registration persists after vanilla's table init.
+- **DT Radio panel showing "PCP_Chemist"** — Traders spawned before v0.19.0 had the old archetype ID baked into DT save data. Save-data migration patches `trader.archetype` from `"PCP_Chemist"` to `"Chemist"`. Idempotent; skips gracefully when DynamicTrading is not installed.
+- **DT-purchased items had no purity label** — DT's condition logic skips FluidContainers and books. Expert items arrive at 100% condition, hidden as "unstamped". Monkey-patches `DynamicTrading.ServerHelpers.AddItemWithCondition` to stamp condition 99 (Lab-Grade) on PCP items at ConditionMax.
+- **Raw RGB tags in item tooltips** — `<RGB:r,g,b>` tags in `Tooltip_EN.txt` appeared as literal text because Java `ObjectTooltip` doesn't parse them. Removed all `<RGB>` tags from 4 tooltip entries. Hazard warnings now use plain `WARNING:` prefix.
+- **Purity tooltip not showing** — Rewrote `PCP_PurityTooltip.lua` using new `PhobosLib.registerTooltipProvider()` API which uses a full render replacement to draw coloured text below the vanilla tooltip. Purity line now appears for all stamped PCP items (e.g. "Purity: Lab-Grade (99%)").
+- **Migration only scanned main inventory** — Previous migration used `player:getInventory():getItems()` which only covers the main 40-slot inventory. Now uses `PhobosLib.iterateInventoryDeep()` to recurse into worn backpacks and bags.
+- **Migration/reset notifications use ISModalRichText modal** — Was ephemeral HaloText, invisible during game start when UI hasn't fully loaded.
 
 ### Added
-- **Chemist archetype dialogue for Dynamic Trading** — 6 dialogue types (Greetings, Buying, Selling, Sell_ask, Idle, Request) with chemistry-themed lines registered via `DynamicTrading.RegisterDialogue()`. Post-apocalyptic chemist voice: pragmatic, detail-oriented, references reagent purity, pH levels, titration, and safety protocols.
+- **Chemist archetype dialogue for Dynamic Trading** — 6 dialogue types with chemistry-themed lines registered via `DynamicTrading.RegisterDialogue()`.
+- **`PCP_DynamicTradingStamp.lua`** — Server-side monkey-patch for ongoing DT purity stamping on future purchases.
+- **Purity migration (v0.19.1)** — One-time migration stamps all existing PCP items at condition 100 to 99 (Lab-Grade), renames DT traders, and deep-scans backpacks/bags. Covers DT purchases, loot, and expert items.
+- **Lazy container purity stamper** — PCP items in safehouse containers, vehicle trunks, and other world containers are now stamped when the player first opens them. Uses new `PhobosLib.registerLazyConditionStamp()` API.
 - **Copyright headers** on all source files (dragon cat ASCII art)
+- Requires **PhobosLib >= 1.9.0** (tooltip, lazy stamper, and migration APIs)
 
 ## [0.19.0] - 2026-02-20
 

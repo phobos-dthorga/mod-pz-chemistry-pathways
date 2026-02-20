@@ -27,17 +27,10 @@
 --   - Convert modData["PCP_Purity"] to item condition for all PCP items
 --   - Remove old PCP_Purity modData key after conversion
 --
--- v0.19.1 migration:
+-- v0.19.1 migrations (internally chained as 0.19.1 → 0.19.2 → 0.19.3):
 --   - Rename "PCP_Chemist" → "Chemist" in DynamicTrading save data
---     (traders spawned before v0.19.0 ID rename)
---
--- v0.19.2 migration:
 --   - Stamp purity on all unstamped PCP items (condition 100 -> 99)
---   - Covers DT purchases, loot, and expert items that were hidden
---
--- v0.19.3 migration:
 --   - Deep scan: stamp unstamped PCP items including backpacks/bags
---   - v0.19.2 only scanned main inventory; this catches sub-containers
 --   - World containers handled by client-side lazy stamper (PhobosLib)
 --
 -- Requires: PhobosLib >= 1.9.0
@@ -46,7 +39,7 @@
 require "PhobosLib"
 
 local MOD_ID      = "PCP"
-local MOD_VERSION = "0.19.3"
+local MOD_VERSION = "0.19.1"
 
 ---------------------------------------------------------------
 -- Helpers
