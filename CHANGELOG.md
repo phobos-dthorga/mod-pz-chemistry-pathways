@@ -26,6 +26,7 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 ## [0.19.1] - 2026-02-20
 
 ### Fixed
+- **Skill books not readable** — Applied Chemistry Vol 1–5 could not be read (no "Read" context menu option). Root cause: missing `SkillBook["AppliedChemistry"]` registration in the PZ XP system global table. Books have been non-functional since v0.10.0.
 - **DT Radio panel showing "PCP_Chemist"** — Traders spawned before v0.19.0 had `archetype="PCP_Chemist"` baked into DT save data (`DynamicTrading_Engine_v1.3` ModData). The radio panel falls back to the raw archetype string when the lookup fails. Fix: v0.19.1 save-data migration patches `trader.archetype` from `"PCP_Chemist"` to `"Chemist"` in all existing DT traders. Idempotent; skips gracefully when DynamicTrading is not installed.
 - **Migration notification uses ISModalRichText modal** — Was ephemeral HaloText, invisible during game start when the UI hasn't fully loaded
 - **Reset success notification uses ISModalRichText modal** — Was ephemeral HaloText, missed after world restart. Now matches the EPRC gold-standard notification pattern with persistent modal.
