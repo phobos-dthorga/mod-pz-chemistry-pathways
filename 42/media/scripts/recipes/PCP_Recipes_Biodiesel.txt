@@ -599,8 +599,10 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
 
-        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.openFire,
+        Tooltip = Tooltip_Recipe_OpenFire,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -611,8 +613,6 @@ module Base
             item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 2 [Base.JarLid] mode:destroy,
             item 1 [Base.Pot] mode:keep,
-            item 1 [*],
-            -fluid 0.5 [Water],
         }
         outputs
         {
@@ -629,8 +629,10 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
 
-        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.openFire,
+        Tooltip = Tooltip_Recipe_OpenFire,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -641,8 +643,6 @@ module Base
             item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 2 [Base.JarLid] mode:destroy,
             item 1 [Base.Pot] mode:keep,
-            item 1 [*],
-            -fluid 0.5 [Water],
         }
         outputs
         {
@@ -659,8 +659,10 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
 
-        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.openFire,
+        Tooltip = Tooltip_Recipe_OpenFire,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -671,8 +673,6 @@ module Base
             item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 2 [Base.JarLid] mode:destroy,
             item 1 [Base.Pot] mode:keep,
-            item 1 [*],
-            -fluid 0.5 [Water],
         }
         outputs
         {
@@ -689,8 +689,10 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
 
-        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.openFire,
+        Tooltip = Tooltip_Recipe_OpenFire,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -701,8 +703,6 @@ module Base
             item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 2 [Base.JarLid] mode:destroy,
             item 1 [Base.Pot] mode:keep,
-            item 1 [*],
-            -fluid 0.5 [Water],
         }
         outputs
         {
@@ -719,8 +719,10 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
 
-        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.openFire,
+        Tooltip = Tooltip_Recipe_OpenFire,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -731,8 +733,6 @@ module Base
             item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 2 [Base.JarLid] mode:destroy,
             item 1 [Base.Pot] mode:keep,
-            item 1 [*],
-            -fluid 0.5 [Water],
         }
         outputs
         {
@@ -749,8 +749,10 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
 
-        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.openFire,
+        Tooltip = Tooltip_Recipe_OpenFire,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -761,8 +763,6 @@ module Base
             item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 2 [Base.JarLid] mode:destroy,
             item 1 [Base.Pot] mode:keep,
-            item 1 [*],
-            -fluid 0.5 [Water],
         }
         outputs
         {
@@ -1043,8 +1043,10 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpRenderFatPotPurity,
 
-        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.openFire,
+        Tooltip = Tooltip_Recipe_OpenFire,
         SkillRequired = AppliedChemistry:1,
         xpAward = AppliedChemistry:15,
         AutoLearnAll = AppliedChemistry:3,
@@ -1055,8 +1057,6 @@ module Base
             item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 2 [Base.JarLid] mode:destroy,
             item 1 [Base.Pot] mode:keep,
-            item 1 [*],
-            -fluid 0.5 [Water],
         }
         outputs
         {
@@ -1079,8 +1079,10 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpRenderFatPurity,
 
-        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
         SkillRequired = AppliedChemistry:1,
         xpAward = AppliedChemistry:15,
         AutoLearnAll = AppliedChemistry:3,
@@ -1088,7 +1090,6 @@ module Base
         inputs
         {
             item 6 [Base.Steak;Base.Beef;Base.Pork;Base.PorkChop;Base.MuttonChop;Base.Venison;Base.Chicken;Base.ChickenFillet;Base.ChickenWhole;Base.ChickenWings;Base.TurkeyWhole;Base.Rabbitmeat;Base.Smallanimalmeat;Base.Smallbirdmeat;Base.FrogMeat;Base.MeatPatty;Base.MincedMeat;Base.Bacon;Base.BaconRashers;Base.Sausage;Base.Salami] mode:destroy,
-            item 1 [Base.Pot] mode:keep,
             item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 2 [Base.JarLid] mode:destroy,
             item 1 [*],
@@ -2129,8 +2130,10 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselPotPurity,
 
-        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
         SkillRequired = AppliedChemistry:3,
         xpAward = AppliedChemistry:30,
         AutoLearnAll = AppliedChemistry:6,
@@ -2138,7 +2141,6 @@ module Base
         inputs
         {
             item 3 [PhobosChemistryPathways.CrudeBiodiesel],
-            item 1 [Base.Pot] mode:keep,
             item 1 [*],
             -fluid 2.0 [Water],
         }
@@ -2794,8 +2796,10 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
-        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -2804,7 +2808,6 @@ module Base
         {
             item 2 [PhobosChemistryPathways.Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide],
-            item 1 [Base.Pot] mode:keep,
             item 1 [*],
             -fluid 0.5 [Water],
         }
@@ -2825,8 +2828,10 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
-        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -2835,7 +2840,6 @@ module Base
         {
             item 2 [PhobosChemistryPathways.Glycerol],
             item 1 [zReLabItems.ChSodiumHydroxideBag],
-            item 1 [Base.Pot] mode:keep,
             item 1 [*],
             -fluid 0.5 [Water],
         }
@@ -2858,8 +2862,10 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
-        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -2868,7 +2874,6 @@ module Base
         {
             item 2 [Base.Lard;Base.Butter;Base.Margarine],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide],
-            item 1 [Base.Pot] mode:keep,
             item 1 [*],
             -fluid 0.5 [Water],
         }
@@ -2889,8 +2894,10 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
-        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -2899,7 +2906,6 @@ module Base
         {
             item 2 [Base.Lard;Base.Butter;Base.Margarine],
             item 1 [zReLabItems.ChSodiumHydroxideBag],
-            item 1 [Base.Pot] mode:keep,
             item 1 [*],
             -fluid 0.5 [Water],
         }

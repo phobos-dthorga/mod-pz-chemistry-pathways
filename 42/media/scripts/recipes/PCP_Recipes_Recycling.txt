@@ -314,8 +314,10 @@ module Base
         category = PhobosKitchenChem,
         NeedToBeLearn = true,
 
-        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
         SkillRequired = AppliedChemistry:1;Doctor:1,
         xpAward = AppliedChemistry:10;Doctor:5,
         AutoLearnAll = AppliedChemistry:3,
@@ -324,7 +326,6 @@ module Base
         {
             item 1 [Base.RippedSheets] mode:destroy,
             item 1 [PhobosChemistryPathways.CrudeSoap] mode:destroy,
-            item 1 [Base.Pot] mode:keep,
             item 1 [*],
             -fluid 0.3 [Water],
         }
@@ -342,8 +343,10 @@ module Base
         category = PhobosKitchenChem,
         NeedToBeLearn = true,
 
-        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
         SkillRequired = AppliedChemistry:1;Doctor:1,
         xpAward = AppliedChemistry:10;Doctor:5,
         AutoLearnAll = AppliedChemistry:3,
@@ -352,7 +355,6 @@ module Base
         {
             item 1 [Base.Bandage] mode:destroy,
             item 1 [PhobosChemistryPathways.CrudeSoap] mode:destroy,
-            item 1 [Base.Pot] mode:keep,
             item 1 [*],
             -fluid 0.3 [Water],
         }

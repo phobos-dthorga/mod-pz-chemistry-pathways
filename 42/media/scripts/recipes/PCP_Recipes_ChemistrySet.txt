@@ -122,8 +122,10 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalPotPurity,
 
-        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
         SkillRequired = AppliedChemistry:1,
         xpAward = AppliedChemistry:15,
         AutoLearnAll = AppliedChemistry:3,
@@ -131,7 +133,6 @@ module Base
         inputs
         {
             item 4 [PhobosChemistryPathways.CrushedCharcoal],
-            item 1 [Base.Pot] mode:keep,
             item 1 [*],
             -fluid 0.5 [Water],
         }
@@ -221,8 +222,10 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalPotPurity,
 
-        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:25,
         AutoLearnAll = AppliedChemistry:4,
@@ -231,7 +234,6 @@ module Base
         {
             item 4 [PhobosChemistryPathways.CrushedCharcoal],
             item 1 [zReLabItems.ChSodiumHydroxideBag],
-            item 1 [Base.Pot] mode:keep,
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -563,8 +565,10 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3PotPurity,
 
-        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:60,
         AutoLearnAll = AppliedChemistry:7,
@@ -574,7 +578,6 @@ module Base
             item 2 [Base.Fertilizer],
             item 3 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
             item 1 [zReLabItems.ChSodiumHydroxideBag],
-            item 1 [Base.Pot] mode:keep,
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -660,8 +663,10 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3CompostPotPurity,
 
-        Tags = AnySurfaceCraft;Cooking;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:60,
         AutoLearnAll = AppliedChemistry:7,
@@ -670,7 +675,6 @@ module Base
         {
             item 2 [PhobosChemistryPathways.DilutedCompost],
             item 3 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
-            item 1 [Base.Pot] mode:keep,
             item 1 [*],
             -fluid 0.5 [Water],
         }
