@@ -132,6 +132,7 @@ function PCP_PuritySystem.setPurity(item, value)
             local scaledValue = math.floor(value / 100 * maxCond + 0.5)
             scaledValue = math.max(0, math.min(maxCond, scaledValue))
             item:setCondition(scaledValue)
+            pcall(sendItemStats, item)  -- sync to client for immediate UI refresh
         end
     end)
     return ok
@@ -243,6 +244,7 @@ function PCP_PuritySystem.stampOutputs(player, resultType, value)
                         local scaledValue = math.floor(value / 100 * maxCond + 0.5)
                         scaledValue = math.max(0, math.min(maxCond - 1, scaledValue))
                         it:setCondition(scaledValue)
+                        pcall(sendItemStats, it)  -- sync to client for immediate UI refresh
                     end
                 end
             end
