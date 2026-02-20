@@ -84,9 +84,13 @@ end
 ---------------------------------------------------------------
 
 --- Stamp purity on result + all same-type outputs, then announce.
+--- Silently no-ops for non-PCP items (vanilla items don't support condition-as-purity).
 local function _stampAndAnnounce(result, player, purity)
+    if not result then return end
+    local ok, ft = pcall(result.getFullType, result)
+    if not ok or not ft or not string.find(ft, "PhobosChemistryPathways.", 1, true) then return end
     PCP_PuritySystem.setPurity(result, purity)
-    PCP_PuritySystem.stampOutputs(player, result:getFullType(), purity)
+    PCP_PuritySystem.stampOutputs(player, ft, purity)
     PCP_PuritySystem.announcePurity(player, purity)
 end
 
@@ -494,77 +498,16 @@ function PCP_RecipeCallbacks.pcpCalcineCalcitePropanePurity(items, result, playe
     _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(40, 60))
 end
 
---- R3: Calcite Fertilizer (surface, source 30-50)
-function PCP_RecipeCallbacks.pcpCalciteFertilizerPurity(items, result, player)
-    if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(30, 50))
+--- R7: Melt Plastic into Glue — Safe (filter degrade only, no purity on vanilla output)
+function PCP_RecipeCallbacks.pcpMeltPlasticGlueSafe(items, result, player)
+    if PCP_HazardSystem.isEnabled() then
+        PCP_HazardSystem.degradeFilterFromInputs(items)
+    end
 end
 
---- R3b: Sulphur-Enhanced Calcite Fertilizer (surface, source 35-55)
-function PCP_RecipeCallbacks.pcpCalciteFertilizerSulphurPurity(items, result, player)
-    if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(35, 55))
-end
-
---- R3c: Potash Fertilizer (surface, source 30-50)
-function PCP_RecipeCallbacks.pcpPotashFertilizerPurity(items, result, player)
-    if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(30, 50))
-end
-
---- R4: Cure Soap (surface, source 50-70)
-function PCP_RecipeCallbacks.pcpCureSoapPurity(items, result, player)
-    if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(50, 70))
-end
-
---- R5: Sterilize Bandage (ChemistrySet, propagation 1.00)
-function PCP_RecipeCallbacks.pcpSterilizeBandagePurity(items, result, player)
-    if not PCP_PuritySystem.isEnabled() then return end
-    local input = PCP_PuritySystem.averageInputPurity(items)
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet)
-    _stampAndAnnounce(result, player, purity)
-end
-
---- R6: Cast Fishing Weights (Furnace, source 40-60)
-function PCP_RecipeCallbacks.pcpCastFishingWeightsPurity(items, result, player)
-    if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(40, 60))
-end
-
---- R6: Cast Fishing Weights + propane (Furnace, source 40-60)
-function PCP_RecipeCallbacks.pcpCastFishingWeightsPropanePurity(items, result, player)
-    PCP_RecipeCallbacks.pcpReturnPartialPropane(items, result, player)
-    if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(40, 60))
-end
-
---- R7: Melt Plastic into Glue (ChemistrySet, source 50-70)
-function PCP_RecipeCallbacks.pcpMeltPlasticGluePurity(items, result, player)
-    if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(50, 70))
-end
-
--- R7: Melt Plastic into Glue — Safe (filter degrade)
-function PCP_RecipeCallbacks.pcpMeltPlasticGlueSafePurity(items, result, player)
-    _safeWrapper(PCP_RecipeCallbacks.pcpMeltPlasticGluePurity, items, result, player)
-end
-
--- R7: Melt Plastic into Glue — Unsafe (plastic_fumes)
-function PCP_RecipeCallbacks.pcpMeltPlasticGlueUnsafePurity(items, result, player)
-    _unsafeWrapper(PCP_RecipeCallbacks.pcpMeltPlasticGluePurity, "plastic_fumes", items, result, player)
-end
-
---- R8: Recover Precision Components (surface, source 60-80)
-function PCP_RecipeCallbacks.pcpRecoverComponentsPurity(items, result, player)
-    if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(60, 80))
-end
-
---- R9: Make Tar-Pitch Torch (surface, source 40-60)
-function PCP_RecipeCallbacks.pcpMakeTarTorchPurity(items, result, player)
-    if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(40, 60))
+--- R7: Melt Plastic into Glue — Unsafe (plastic_fumes only, no purity on vanilla output)
+function PCP_RecipeCallbacks.pcpMeltPlasticGlueUnsafe(items, result, player)
+    PCP_HazardSystem.applyUnsafeEffect(player, "plastic_fumes")
 end
 
 --- Bug fix: Bulk Refine Biodiesel (surface, propagation 0.95)

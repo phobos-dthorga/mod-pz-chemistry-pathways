@@ -736,7 +736,7 @@ module Base
         time = 150,
         category = PhobosLabChem,
         NeedToBeLearn = true,
-        OnCreate = PCP_RecipeCallbacks.pcpMeltPlasticGlueSafePurity,
+        OnCreate = PCP_RecipeCallbacks.pcpMeltPlasticGlueSafe,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
@@ -765,7 +765,7 @@ module Base
         time = 150,
         category = PhobosLabChem,
         NeedToBeLearn = true,
-        OnCreate = PCP_RecipeCallbacks.pcpMeltPlasticGlueUnsafePurity,
+        OnCreate = PCP_RecipeCallbacks.pcpMeltPlasticGlueUnsafe,
 
         Tags = zReVAC2:ChemistrySet;CannotBeResearched,
         timedAction = zReVAC2TimedActionChem1,
