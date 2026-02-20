@@ -23,6 +23,25 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.21.1] - 2026-02-21
+
+### Fixed
+- **Cooking-pot recipes craftable cold** — The `Cooking` tag in `Tags = AnySurfaceCraft;Cooking` is purely cosmetic in B42 — it has zero functional heat enforcement. All 19 PhobosKitchenChem cooking-pot recipes could be crafted cold with no heat source. Now uses vanilla heat-gating patterns:
+  - 12 wet-heat recipes (water-as-reagent: charcoal purification, KNO3 synthesis, fat-from-meat rendering, biodiesel washing, soap-making, bandage sterilisation) use `OnTest = RecipeCodeOnTest.hotFluidContainer` — player must heat the pot on a stove first. Tooltip: "Water container needs to be very hot."
+  - 7 dry-heat recipes (oil pressing, fat melting) use `OnTest = RecipeCodeOnTest.openFire` — player must stand near a burning campfire, fireplace, or stove. Tooltip: open fire indicator.
+  - All 19 recipes: `AnySurfaceCraft;Cooking` → `InHandCraft;CanBeDoneFromFloor;CannotBeResearched`, `Making_Surface` → `Making`.
+- **Purity crash on vanilla-output recipes** — Recycling recipes outputting vanilla items (`Base.Fertilizer`, `Base.Soap2`, `Base.Glue`, etc.) crashed with "Object tried to call nil" when purity callbacks called `setPurity()` on items that don't support condition-as-purity. Hardened `_stampAndAnnounce` with module-prefix guard; deleted 10 dead purity-only callbacks; rewrote R7 MeltPlasticGlue Safe/Unsafe as hazard-only; removed OnCreate from 11 vanilla-output recycling recipes.
+
+## [0.21.0] - 2026-02-20
+
+### Added
+- **Empty vessel replacement** (`PCP_VesselReplacement.lua`, client/) — Registers 20 FluidContainer→vessel mappings with PhobosLib. When a player opens a container, empty PCP FluidContainers are automatically replaced with their vanilla vessel equivalents (EmptyJar, EmptyPetrolCan, Bucket, etc.). 6 jar-type mappings return both `Base.EmptyJar` and `Base.JarLid` as bonus. Gated by `PCP.EnableVesselReplacement` sandbox option (default: true).
+- **Vanilla JarLid override** (`PCP_VanillaOverrides.txt`) — Overrides `Base.JarLid` ConditionMax from 10 → 100 so condition values directly match `Base.EmptyJar`.
+- **`EnableVesselReplacement` sandbox option** (13 total) — Server admins can disable vessel replacement if experiencing MP sync issues. Tooltip documents jar lid return, empty-only replacement, and MP sync considerations.
+
+### Changed
+- Requires **PhobosLib 1.10.0+** (PhobosLib_VesselReplace module)
+
 ## [0.20.0] - 2026-02-20
 
 ### Fixed
