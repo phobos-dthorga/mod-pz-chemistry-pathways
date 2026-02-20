@@ -23,6 +23,21 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.20.0] - 2026-02-20
+
+### Fixed
+- **FluidContainer purity broken** — FluidContainer items (acids, oils, fats, biodiesel, glycerol, methanol, tar) defaulted to `ConditionMax = 10` in PZ B42 (not 100 as assumed). With condition 3 out of max 10, purity displayed as 30% instead of the correct value. All 20 FluidContainer items now have explicit `ConditionMax = 100` in item scripts.
+- **Purity system normalised for any ConditionMax** — All condition-purity conversions (`getPurity`, `setPurity`, `averageInputPurity`, `stampOutputs`, tooltip display, DT stamp, lazy stamper) now normalise to 0-100% using `condition / maxCond * 100` for reads and `value / 100 * maxCond` for writes. System is now resilient regardless of item ConditionMax.
+- **DT stamp scaling** — `PCP_DynamicTradingStamp.lua` now scales the 99% stamp value to the item's ConditionMax instead of setting raw condition 99.
+- **Tooltip diagnostic logging removed** — Cleaned up debug print statements from `PCP_PurityTooltip.lua`.
+
+### Added
+- **v0.20.0 save migration** — Rescales condition values on 20 FluidContainer items from the old max-10 range to the new max-100 range (e.g. condition 3 to 30). Uses a static set of known FluidContainer fullTypes for identification.
+- **Explicit ConditionMax on all items** — All 33 PCP items (20 FluidContainer + 13 solid) now declare `ConditionMax = 100` in their item scripts, ensuring consistent purity behaviour regardless of PZ defaults.
+
+### Changed
+- Requires **PhobosLib 1.9.1+** (LazyStamp ConditionMax scaling fix)
+
 ## [0.19.1] - 2026-02-20
 
 ### Fixed

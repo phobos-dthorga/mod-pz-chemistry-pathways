@@ -25,8 +25,8 @@
 -- Also registers a lazy condition stamper to stamp unstamped PCP
 -- items in world containers when the player opens them.
 --
--- Purity is read from item condition (ConditionMax = 100).
--- Condition maps 1:1 to purity (condition 80 = purity 80%).
+-- Purity is read from item condition, normalised to 0-100%.
+-- With ConditionMax = 100: condition 80 = purity 80%.
 -- Items at condition == ConditionMax are considered unstamped
 -- and are hidden from the purity display.
 --
@@ -65,8 +65,7 @@ end
 ---------------------------------------------------------------
 
 local function isPurityEnabled()
-    return SandboxVars and SandboxVars.PCP
-       and SandboxVars.PCP.EnableImpuritySystem == true
+    return PhobosLib.getSandboxVar("PCP", "EnableImpuritySystem", false) == true
 end
 
 ---------------------------------------------------------------
@@ -80,12 +79,15 @@ PhobosLib.registerTooltipProvider("PhobosChemistryPathways.", function(item)
     local maxCond = item:getConditionMax()
     if not maxCond or maxCond <= 0 then return nil end
 
-    local purity = item:getCondition()
-    if purity >= maxCond then return nil end  -- Skip unstamped (condition == ConditionMax)
+    local condition = item:getCondition()
+    if condition >= maxCond then return nil end  -- unstamped
 
+    -- Normalise condition to 0-100% purity (defensive for any ConditionMax)
+    local purity = math.floor(condition / maxCond * 100 + 0.5)
     local tier = getTier(purity)
+    local text = "Purity: " .. tier.name .. " (" .. purity .. "%)"
     return {{
-        text = "Purity: " .. tier.name .. " (" .. math.floor(purity) .. "%)",
+        text = text,
         r = tier.r,
         g = tier.g,
         b = tier.b,

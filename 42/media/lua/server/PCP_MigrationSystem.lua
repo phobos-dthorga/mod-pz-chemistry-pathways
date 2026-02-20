@@ -33,13 +33,19 @@
 --   - Deep scan: stamp unstamped PCP items including backpacks/bags
 --   - World containers handled by client-side lazy stamper (PhobosLib)
 --
+-- v0.20.0 migration:
+--   - Rescale FluidContainer item conditions from old max-10 to max-100
+--   - FluidContainer items previously defaulted to ConditionMax=10 in B42;
+--     now explicitly set to 100 in PCP_Items.txt. Existing items need
+--     their condition values multiplied by 10 to map correctly.
+--
 -- Requires: PhobosLib >= 1.9.0
 ---------------------------------------------------------------
 
 require "PhobosLib"
 
 local MOD_ID      = "PCP"
-local MOD_VERSION = "0.19.1"
+local MOD_VERSION = "0.20.0"
 
 ---------------------------------------------------------------
 -- Helpers
@@ -323,6 +329,76 @@ local function migrate_0_19_3(player)
 end
 
 ---------------------------------------------------------------
+-- v0.20.0 Migration
+---------------------------------------------------------------
+
+--- Known PCP FluidContainer item fullTypes.
+--- Used by the v0.20.0 migration to identify items that previously
+--- had ConditionMax = 10 (B42 FluidContainer default) and need
+--- their condition rescaled to the new ConditionMax = 100.
+local FLUID_ITEMS = {
+    ["PhobosChemistryPathways.SulphuricAcidJar"] = true,
+    ["PhobosChemistryPathways.SulphuricAcidBottle"] = true,
+    ["PhobosChemistryPathways.SulphuricAcidCrucible"] = true,
+    ["PhobosChemistryPathways.SulphuricAcidClayJar"] = true,
+    ["PhobosChemistryPathways.CrudeVegetableOil"] = true,
+    ["PhobosChemistryPathways.CrudeVegetableOilClayJar"] = true,
+    ["PhobosChemistryPathways.CrudeVegetableOilBucket"] = true,
+    ["PhobosChemistryPathways.RenderedFat"] = true,
+    ["PhobosChemistryPathways.RenderedFatClayJar"] = true,
+    ["PhobosChemistryPathways.RenderedFatBucket"] = true,
+    ["PhobosChemistryPathways.WoodMethanol"] = true,
+    ["PhobosChemistryPathways.WoodTar"] = true,
+    ["PhobosChemistryPathways.CrudeBiodiesel"] = true,
+    ["PhobosChemistryPathways.CrudeBiodieselClayJar"] = true,
+    ["PhobosChemistryPathways.CrudeBiodieselBucket"] = true,
+    ["PhobosChemistryPathways.Glycerol"] = true,
+    ["PhobosChemistryPathways.WashedBiodiesel"] = true,
+    ["PhobosChemistryPathways.WashedBiodieselClayJar"] = true,
+    ["PhobosChemistryPathways.WashedBiodieselBucket"] = true,
+    ["PhobosChemistryPathways.RefinedBiodieselCan"] = true,
+}
+
+--- Rescale FluidContainer item conditions from old max-10 to max-100.
+--- FluidContainer items in B42 defaulted to ConditionMax=10 before
+--- PCP_Items.txt was updated with explicit ConditionMax=100.
+--- Existing items in saves have condition values in the 0-10 range
+--- that need to be multiplied by 10 to map correctly.
+---@param player any  IsoGameCharacter
+---@return boolean ok, string msg
+local function migrate_0_20_0(player)
+    -- Check if impurity system is enabled
+    local enabled = false
+    pcall(function()
+        enabled = PCP_PuritySystem and PCP_PuritySystem.isEnabled()
+    end)
+    if not enabled then
+        return true, "Impurity system disabled, skipped."
+    end
+
+    local rescaled = 0
+    PhobosLib.iterateInventoryDeep(player, function(item, container)
+        local fullType = item:getFullType()
+        if not fullType or not FLUID_ITEMS[fullType] then return end
+
+        local condition = item:getCondition()
+        -- Only rescale items with condition in the old max-10 range (0-10).
+        -- Items with condition > 10 were either already fixed or are
+        -- newly created with the correct ConditionMax = 100.
+        if condition >= 0 and condition <= 10 then
+            local newCond = math.min(99, math.max(1, math.floor(condition * 10 + 0.5)))
+            item:setCondition(newCond)
+            rescaled = rescaled + 1
+        end
+    end)
+
+    if rescaled == 0 then
+        return true, "No FluidContainer items to rescale."
+    end
+    return true, "Rescaled " .. rescaled .. " FluidContainer item(s) from max-10 to max-100."
+end
+
+---------------------------------------------------------------
 -- Register migrations
 ---------------------------------------------------------------
 
@@ -364,6 +440,14 @@ PhobosLib.registerMigration(
     "0.19.3",    -- to: this version
     migrate_0_19_3,
     "PCP v0.19.3: Deep scan stamp (includes backpacks/bags)"
+)
+
+PhobosLib.registerMigration(
+    MOD_ID,
+    "0.19.3",    -- from: v0.19.3
+    "0.20.0",    -- to: this version
+    migrate_0_20_0,
+    "PCP v0.20.0: Rescale FluidContainer purity from max-10 to max-100"
 )
 
 ---------------------------------------------------------------

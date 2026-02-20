@@ -99,10 +99,10 @@ end
 
 
 ---------------------------------------------------------------
--- Condition-Based Purity (ConditionMax = 100 -> 1:1 mapping)
+-- Condition-Based Purity (normalised to 0-100% regardless of ConditionMax)
 ---------------------------------------------------------------
 
---- Get purity of an item from its condition.
+--- Get purity of an item from its condition, normalised to 0-100%.
 --- Returns DEFAULT (50) if item has no ConditionMax.
 ---@param item any
 ---@return number  purity 0-100
@@ -111,13 +111,13 @@ function PCP_PuritySystem.getPurity(item)
     local ok, result = pcall(function()
         local maxCond = item:getConditionMax()
         if not maxCond or maxCond <= 0 then return PCP_PuritySystem.DEFAULT end
-        return item:getCondition()
+        return math.floor(item:getCondition() / maxCond * 100 + 0.5)
     end)
     if ok then return result end
     return PCP_PuritySystem.DEFAULT
 end
 
---- Set purity on an item via condition (clamped 0-100).
+--- Set purity on an item via condition (purity 0-100, scaled to ConditionMax).
 --- No-op if impurity system is disabled or item has no ConditionMax.
 ---@param item any
 ---@param value number  purity 0-100
@@ -129,7 +129,9 @@ function PCP_PuritySystem.setPurity(item, value)
     local ok = pcall(function()
         local maxCond = item:getConditionMax()
         if maxCond and maxCond > 0 then
-            item:setCondition(value)
+            local scaledValue = math.floor(value / 100 * maxCond + 0.5)
+            scaledValue = math.max(0, math.min(maxCond, scaledValue))
+            item:setCondition(scaledValue)
         end
     end)
     return ok
@@ -142,7 +144,7 @@ function PCP_PuritySystem.getTierInfo(value)
     return PhobosLib.getQualityTier(value, PCP_PuritySystem.TIERS)
 end
 
---- Average purity across recipe input items via condition.
+--- Average purity across recipe input items via condition (normalised to 0-100%).
 --- Items without ConditionMax are counted as DEFAULT.
 ---@param items any  Java ArrayList from OnCreate
 ---@return number
@@ -156,7 +158,7 @@ function PCP_PuritySystem.averageInputPurity(items)
             if item then
                 local maxCond = item:getConditionMax()
                 if maxCond and maxCond > 0 then
-                    total = total + item:getCondition()
+                    total = total + math.floor(item:getCondition() / maxCond * 100 + 0.5)
                     count = count + 1
                 else
                     -- Item has no ConditionMax; count as default
@@ -219,6 +221,7 @@ end
 
 --- Stamp purity (condition) on all unstamped copies of a result type.
 --- "Unstamped" = condition at ConditionMax (freshly created items).
+--- Purity value (0-100) is scaled to the item's ConditionMax range.
 ---@param player any
 ---@param resultType string
 ---@param value number  purity 0-100
@@ -237,7 +240,9 @@ function PCP_PuritySystem.stampOutputs(player, resultType, value)
                 if maxCond and maxCond > 0 then
                     -- Unstamped = condition equals ConditionMax (fresh from craft)
                     if it:getCondition() == maxCond then
-                        it:setCondition(value)
+                        local scaledValue = math.floor(value / 100 * maxCond + 0.5)
+                        scaledValue = math.max(0, math.min(maxCond - 1, scaledValue))
+                        it:setCondition(scaledValue)
                     end
                 end
             end

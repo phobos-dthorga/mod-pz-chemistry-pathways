@@ -66,10 +66,13 @@ local function patchAddItemWithCondition()
                 local item = items:get(i)
                 local maxCond = item:getConditionMax()
                 if maxCond and maxCond > 0 and item:getCondition() == maxCond then
-                    -- Expert/FluidContainer/Book at 100% -- stamp as Lab-Grade (99)
-                    item:setCondition(99)
+                    -- Expert/FluidContainer/Book at max -- stamp as Lab-Grade (99%)
+                    -- Scale 99% to item's ConditionMax (defensive for any max)
+                    local stampVal = math.floor(99 / 100 * maxCond + 0.5)
+                    stampVal = math.min(maxCond - 1, stampVal)
+                    item:setCondition(stampVal)
                 end
-                -- Items already < 100 (DT rolled 20-100% on Normal items)
+                -- Items already < max (DT rolled 20-100% on Normal items)
                 -- keep their condition as the purity value
             end
         end
