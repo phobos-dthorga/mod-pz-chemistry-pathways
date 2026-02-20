@@ -1,0 +1,34 @@
+/*  ________________________________________________________________________
+ * / Copyright (c) 2026 Phobos A. D'thorga                                \
+ * |                                                                        |
+ * |           /\_/\                                                         |
+ * |         =/ o o \=    Phobos' PZ Modding                                |
+ * |          (  V  )     All rights reserved.                              |
+ * |     /\  / \   / \                                                      |
+ * |    /  \/   '-'   \   This source code is part of the Phobos            |
+ * |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+ * |  (__/    \_/ \/  \__)                                                  |
+ * |     |   | |  | |     Unauthorised copying, modification, or            |
+ * |     |___|_|  |_|     distribution of this file is prohibited.          |
+ * |                                                                        |
+ * \________________________________________________________________________/
+ */
+
+/* ---------------------------------------------------------------
+ * PCP_VanillaOverrides.txt
+ * Patches to vanilla item definitions required by PCP.
+ *
+ * JarLid: Vanilla ConditionMax = 10.  PCP's vessel replacement
+ *         system returns a JarLid alongside EmptyJar when an
+ *         empty jar-type FluidContainer is replaced.  Raising
+ *         ConditionMax to 100 ensures the JarLid condition
+ *         value directly matches the EmptyJar (also max 100).
+ * --------------------------------------------------------------- */
+
+module Base
+{
+    item JarLid
+    {
+        ConditionMax = 100,
+    }
+}

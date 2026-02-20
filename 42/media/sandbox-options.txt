@@ -58,6 +58,12 @@ option PCP.EnableHealthHazards
 	page = PCP_Sandbox, translation = PCP_EnableHealthHazards,
 }
 
+option PCP.EnableVesselReplacement
+{
+	type = boolean, default = true,
+	page = PCP_Sandbox, translation = PCP_EnableVesselReplacement,
+}
+
 option PCP.ResetStripPurity
 {
 	type = boolean, default = false,

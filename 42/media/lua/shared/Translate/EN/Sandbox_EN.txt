@@ -41,6 +41,9 @@ Sandbox_EN = {
     Sandbox_PCP_EnableHealthHazards = "ENABLE HEALTH HAZARDS:",
     Sandbox_PCP_EnableHealthHazards_tooltip = "Adds health consequences for working with hazardous chemicals without respiratory protection.<br><br> <INDENT:20>-Hazardous recipes (methanol distillation, acid work, KOH synthesis, sulphur extraction) gain Safe/Unsafe variants;<br> <INDENT:20>-SAFE recipes require a gas mask or respirator with filter — filter degrades per craft (~40 crafts per filter);<br> <INDENT:20>-UNSAFE recipes impose health penalties when crafting without protection;<br> <INDENT:20>-With 'Extensive Health Rework' (EHR) mod: triggers realistic diseases (corpse sickness, pneumonia, wound infection);<br> <INDENT:20>-Without EHR: applies vanilla stat penalties (sickness, pain, stress).<br><br> <INDENT:20>-OFF (default): No health hazards. Recipes unchanged.<br> <INDENT:20>-ON: Hazardous recipes split into Protected/Unprotected variants.<br><br> <RGB:1,0.6,0.2> Requires a game restart to take effect. <RGB:1,1,1>",
 
+    Sandbox_PCP_EnableVesselReplacement = "VESSEL REPLACEMENT:",
+    Sandbox_PCP_EnableVesselReplacement_tooltip = "When enabled, empty PCP chemistry containers (jars, bottles, crucibles, etc.) are automatically converted back to their base vanilla vessel when the inventory is opened.<br><br> <INDENT:20>-Jar-type containers also return a Jar Lid;<br> <INDENT:20>-Only fully empty containers are replaced (partially filled containers are kept);<br> <INDENT:20>-ON (default): Empty PCP containers revert to reusable vanilla vessels;<br> <INDENT:20>-OFF: Empty PCP containers remain as-is (useful if experiencing sync issues on dedicated servers).<br>",
+
     Sandbox_PCP_Reset = "PCP - Maintenance / Reset",
 
     Sandbox_PCP_ResetStripPurity = "STRIP PURITY DATA:",
