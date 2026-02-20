@@ -23,6 +23,17 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.19.3] - 2026-02-20
+
+### Fixed
+- **Purity tooltip not showing** — `PCP_PurityTooltip.lua` used `self:addLine()` / `self.description` which don't exist on `ISToolTipInv` (thin Lua wrapper around Java `ObjectTooltip`). Rewrote using new `PhobosLib.registerTooltipProvider()` API which draws coloured text below the vanilla tooltip via `self:drawText()`. Purity line now appears for all stamped PCP items (e.g. "Purity: Lab-Grade (99%)").
+- **Raw RGB tags in item tooltips** — `<RGB:r,g,b>` tags in `Tooltip_EN.txt` appeared as literal text because Java `ObjectTooltip` doesn't parse them (only works in ISModalRichText). Removed all `<RGB>` tags from 4 tooltip entries (SulphuricAcid, Handbook, WoodMethanol, PotassiumHydroxide). Hazard warnings now use plain `WARNING:` prefix.
+- **Migration only scanned main inventory** — v0.19.2 migration used `player:getInventory():getItems()` which only covers the main 40-slot inventory. Added v0.19.3 migration using `PhobosLib.iterateInventoryDeep()` to recurse into worn backpacks and bags.
+
+### Added
+- **Lazy container purity stamper** — PCP items in safehouse containers, vehicle trunks, and other world containers that couldn't be reached by the OnGameStart migration are now stamped when the player first opens them. Uses new `PhobosLib.registerLazyConditionStamp()` API.
+- **Requires PhobosLib >= 1.9.0** (new tooltip and lazy stamper APIs)
+
 ## [0.19.2] - 2026-02-20
 
 ### Fixed

@@ -16,18 +16,28 @@
 
 ---------------------------------------------------------------
 -- PCP_PurityTooltip.lua
--- Client-side tooltip hook for PhobosChemistryPathways.
--- Displays purity tier and percentage on crafted items when
--- the Impurity System sandbox option is enabled.
+-- Client-side tooltip and lazy stamping for PCP purity system.
+--
+-- Registers a PhobosLib tooltip provider that appends a coloured
+-- purity line (e.g. "Purity: Lab-Grade (99%)") below the vanilla
+-- item tooltip for PhobosChemistryPathways items.
+--
+-- Also registers a lazy condition stamper to stamp unstamped PCP
+-- items in world containers when the player opens them.
 --
 -- Purity is read from item condition (ConditionMax = 100).
 -- Condition maps 1:1 to purity (condition 80 = purity 80%).
+-- Items at condition == ConditionMax are considered unstamped
+-- and are hidden from the purity display.
 --
--- Best-effort: entirely wrapped in pcall for B42 resilience.
--- If the tooltip API changes, this fails silently and the
--- player:Say() speech bubble remains the primary feedback.
---
+-- Requires: PhobosLib >= 1.9.0
 -- Runs client-side only (42/media/lua/client/).
+---------------------------------------------------------------
+
+require "PhobosLib"
+
+---------------------------------------------------------------
+-- Purity tier definitions
 ---------------------------------------------------------------
 
 --- Tier definitions -- DUPLICATED from PCP_PuritySystem.lua (server).
@@ -50,72 +60,44 @@ local function getTier(purity)
     return TIERS[#TIERS]
 end
 
+---------------------------------------------------------------
+-- Sandbox guard (shared by tooltip and lazy stamper)
+---------------------------------------------------------------
 
---- Hook into ISToolTipInv to append purity info.
---- Wrapped entirely in pcall -- if anything fails, tooltip just
---- won't show purity (no error, no crash).
-local _hookInstalled = false
-
-local function installTooltipHook()
-    if _hookInstalled then return end
-    _hookInstalled = true
-
-    -- Guard: ISToolTipInv must exist
-    if not ISToolTipInv then return end
-
-    local originalRender = ISToolTipInv.render
-    if not originalRender then return end
-
-    ISToolTipInv.render = function(self)
-        -- Call original render first
-        originalRender(self)
-
-        -- Purity extension (all in pcall)
-        pcall(function()
-            -- Check sandbox option
-            if not SandboxVars or not SandboxVars.PCP then return end
-            if SandboxVars.PCP.EnableImpuritySystem ~= true then return end
-
-            -- Get the item being hovered
-            local item = self.item
-            if not item then return end
-
-            -- Only for PCP items with ConditionMax
-            local fullType = item:getFullType()
-            if not fullType or not string.find(fullType, "PhobosChemistryPathways.", 1, true) then return end
-
-            local maxCond = item:getConditionMax()
-            if not maxCond or maxCond <= 0 then return end
-
-            -- Condition = purity directly (ConditionMax = 100)
-            local purity = item:getCondition()
-            if purity >= maxCond then return end  -- Skip unstamped items (default full condition)
-            local tier = getTier(purity)
-
-            -- Build the coloured purity line
-            local line = string.format(
-                "<RGB:%.1f,%.1f,%.1f> Purity: %s (%d%%) <RGB:1,1,1>",
-                tier.r, tier.g, tier.b,
-                tier.name, math.floor(purity)
-            )
-
-            -- Append to tooltip text
-            -- Try self:addLine() first (B42 common pattern)
-            if self.addLine then
-                self:addLine(line)
-            elseif self.description then
-                -- Fallback: append to description string
-                self.description = (self.description or "") .. " <br> " .. line
-            end
-        end)
-    end
+local function isPurityEnabled()
+    return SandboxVars and SandboxVars.PCP
+       and SandboxVars.PCP.EnableImpuritySystem == true
 end
 
+---------------------------------------------------------------
+-- Tooltip provider
+---------------------------------------------------------------
 
---- Install the hook when the game UI loads.
---- Events.OnGameStart fires after UI is initialized.
-local function onGameStart()
-    pcall(installTooltipHook)
-end
+PhobosLib.registerTooltipProvider("PhobosChemistryPathways.", function(item)
+    -- Guard: impurity system must be enabled
+    if not isPurityEnabled() then return nil end
 
-Events.OnGameStart.Add(onGameStart)
+    local maxCond = item:getConditionMax()
+    if not maxCond or maxCond <= 0 then return nil end
+
+    local purity = item:getCondition()
+    if purity >= maxCond then return nil end  -- Skip unstamped (condition == ConditionMax)
+
+    local tier = getTier(purity)
+    return {{
+        text = "Purity: " .. tier.name .. " (" .. math.floor(purity) .. "%)",
+        r = tier.r,
+        g = tier.g,
+        b = tier.b,
+    }}
+end)
+
+---------------------------------------------------------------
+-- Lazy container stamper
+---------------------------------------------------------------
+
+PhobosLib.registerLazyConditionStamp(
+    "PhobosChemistryPathways.",
+    99,
+    isPurityEnabled
+)

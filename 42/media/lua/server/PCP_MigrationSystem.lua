@@ -35,13 +35,18 @@
 --   - Stamp purity on all unstamped PCP items (condition 100 -> 99)
 --   - Covers DT purchases, loot, and expert items that were hidden
 --
--- Requires: PhobosLib >= 1.8.0
+-- v0.19.3 migration:
+--   - Deep scan: stamp unstamped PCP items including backpacks/bags
+--   - v0.19.2 only scanned main inventory; this catches sub-containers
+--   - World containers handled by client-side lazy stamper (PhobosLib)
+--
+-- Requires: PhobosLib >= 1.9.0
 ---------------------------------------------------------------
 
 require "PhobosLib"
 
 local MOD_ID      = "PCP"
-local MOD_VERSION = "0.19.2"
+local MOD_VERSION = "0.19.3"
 
 ---------------------------------------------------------------
 -- Helpers
@@ -285,6 +290,46 @@ local function migrate_0_19_2(player)
 end
 
 ---------------------------------------------------------------
+-- v0.19.3 Migration
+---------------------------------------------------------------
+
+--- Deep scan: stamp unstamped PCP items including backpacks/bags.
+--- v0.19.2 only scanned player:getInventory():getItems() (main 40
+--- slots).  This migration uses PhobosLib.iterateInventoryDeep()
+--- to recurse into all sub-containers (worn backpacks, bags).
+--- World containers (safehouse, vehicles) are handled separately
+--- by PhobosLib.registerLazyConditionStamp() on the client side.
+---@param player any  IsoGameCharacter
+---@return boolean ok, string msg
+local function migrate_0_19_3(player)
+    -- Check if impurity system is enabled
+    local enabled = false
+    pcall(function()
+        enabled = PCP_PuritySystem and PCP_PuritySystem.isEnabled()
+    end)
+    if not enabled then
+        return true, "Impurity system disabled, skipped."
+    end
+
+    local stamped = 0
+    PhobosLib.iterateInventoryDeep(player, function(item, container)
+        local fullType = item:getFullType()
+        if fullType and string.find(fullType, "PhobosChemistryPathways.", 1, true) then
+            local maxCond = item:getConditionMax()
+            if maxCond and maxCond > 0 and item:getCondition() == maxCond then
+                item:setCondition(99)
+                stamped = stamped + 1
+            end
+        end
+    end)
+
+    if stamped == 0 then
+        return true, "No unstamped PCP items found (deep scan)."
+    end
+    return true, "Stamped " .. stamped .. " item(s) to Lab-Grade (99%) [deep scan]."
+end
+
+---------------------------------------------------------------
 -- Register migrations
 ---------------------------------------------------------------
 
@@ -318,6 +363,14 @@ PhobosLib.registerMigration(
     "0.19.2",    -- to: this version
     migrate_0_19_2,
     "PCP v0.19.2: Stamp purity on existing PCP items (condition 100 -> 99)"
+)
+
+PhobosLib.registerMigration(
+    MOD_ID,
+    "0.19.2",    -- from: v0.19.2
+    "0.19.3",    -- to: this version
+    migrate_0_19_3,
+    "PCP v0.19.3: Deep scan stamp (includes backpacks/bags)"
 )
 
 ---------------------------------------------------------------
