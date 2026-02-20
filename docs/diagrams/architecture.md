@@ -24,7 +24,7 @@ How PCP connects to its dependencies and optional cross-mod integrations.
 ```mermaid
 graph TB
     subgraph HARD["Hard Dependencies (mod.info require)"]
-        PL["PhobosLib v1.8.0+<br/>12 utility modules"]
+        PL["PhobosLib v1.9.0+<br/>14 modules (11 shared + 3 client)"]
         ZR["zReVaccin 3<br/>Lab equipment entities"]
     end
 
@@ -58,7 +58,7 @@ graph TB
 
     HAZARD -.->|"EHR.Disease.TryContract<br/>(pcall-wrapped)"| EHR
     SKILL -.->|"registerXPMirror<br/>AC to Science at 50%"| ZSS
-    TRADING -.->|"registerTradeItems<br/>(23 items, 1 tag, 1 archetype)"| DT
+    TRADING -.->|"registerTradeItems<br/>(27 items, 1 tag, 1 archetype)"| DT
 
     style HARD fill:#264,color:#fff
     style SOFT fill:#446,color:#fff
@@ -70,7 +70,7 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph LIB["PhobosLib v1.7.0"]
+    subgraph LIB["PhobosLib v1.9.0"]
         INIT["PhobosLib.lua<br/>(aggregator)"]
 
         UTIL["Util<br/>pcallMethod, probeMethod<br/>findItemByKeywords<br/>matchesKeywords, say"]
@@ -92,10 +92,16 @@ graph LR
         VAL["Validate<br/>expectItem, expectFluid<br/>expectPerk<br/>validateDependencies"]
 
         TRD["Trading<br/>isDynamicTradingActive<br/>registerTradeTag<br/>registerTradeArchetype<br/>registerTradeItems"]
+
+        MIG["Migrate<br/>compareVersions<br/>registerMigration<br/>registerIncompatibleHandler<br/>runMigrations<br/>notifyMigrationResult"]
     end
 
     subgraph CLIENT["Client-side"]
         RF["RecipeFilter<br/>registerRecipeFilter<br/>registerRecipeFilters<br/>(vanilla + Neat Crafting)"]
+
+        TT["Tooltip<br/>registerTooltipProvider<br/>(full render replacement)"]
+
+        LS["LazyStamp<br/>registerLazyConditionStamp<br/>(container open hook)"]
     end
 
     INIT --> UTIL
@@ -108,9 +114,10 @@ graph LR
     INIT --> RST
     INIT --> VAL
     INIT --> TRD
+    INIT --> MIG
 ```
 
-> **Usage**: `require "PhobosLib"` loads all 10 shared modules into the global `PhobosLib` table. The RecipeFilter module is loaded separately by PZ from `client/` and also attaches to the `PhobosLib` table.
+> **Usage**: `require "PhobosLib"` loads all 11 shared modules into the global `PhobosLib` table. The 3 client-side modules (RecipeFilter, Tooltip, LazyStamp) are loaded separately by PZ from `client/` and also attach to the `PhobosLib` table.
 
 ---
 
@@ -136,7 +143,7 @@ graph TB
     CHECK_EHR -->|"Yes"| EHR_INIT["Hazard callbacks use<br/>EHR.Disease.TryContract<br/>(pcall-wrapped)"]
     CHECK_EHR -->|"No"| EHR_SKIP["Hazard callbacks use<br/>vanilla stat penalties<br/>(Sickness, Pain, Stress)"]
 
-    CHECK_DT -->|"Yes"| DT_INIT["Register 1 tag + 1 archetype<br/>+ 23 items via PhobosLib_Trading<br/>(PCP_DynamicTradingData.lua)"]
+    CHECK_DT -->|"Yes"| DT_INIT["Register 1 tag + 1 archetype<br/>+ 27 items via PhobosLib_Trading<br/>(PCP_DynamicTradingData.lua)"]
     CHECK_DT -->|"No"| DT_SKIP["No action<br/>Zero errors"]
 ```
 
@@ -146,7 +153,7 @@ graph TB
 |-----------|--------|-----------|-------------|---------------|
 | **ZScienceSkill** | `ZScienceSkill` | `isModActive` + `pcall` API check | Applied Chemistry XP mirrors to Science at 50% rate. 33 item specimens + 8 fluid specimens registered via `ZScienceSkill.Data.add()` with dual Science+AppliedChemistry XP. | No XP mirroring. No specimen registration. Zero errors. |
 | **EHR** | `EHR` | `isModActive` + `pcall(EHR.Disease.IsEnabled)` | Unsafe hazard recipes trigger EHR diseases with protection scaling (corpse_sickness, pneumonia, wound_infection). | Unsafe recipes fall back to vanilla stat penalties (CharacterStat.SICKNESS/PAIN/STRESS). |
-| **Dynamic Trading** | `DynamicTradingCommon` | `PhobosLib.isDynamicTradingActive()` (lazy) | 23 PCP items registered for NPC trading with custom "Chemical" tag (1.3× price, weight 15) and "PCP_Chemist" archetype. Includes reagents, intermediates, fuel, acid, salvage, and 6 skill books. | No registration. Zero errors. All PhobosLib_Trading calls are no-ops. |
+| **Dynamic Trading** | `DynamicTradingCommon` | `PhobosLib.isDynamicTradingActive()` (lazy) | 27 PCP items registered for NPC trading with custom "Chemical" tag (1.3× price, weight 15) and "Chemist" archetype. Chemical allocations injected into 8 existing archetypes. Includes reagents, intermediates, fuel, acid, salvage, and 5 skill books. | No registration. Zero errors. All PhobosLib_Trading calls are no-ops. |
 
 ### ZScienceSkill XP Mirroring
 
