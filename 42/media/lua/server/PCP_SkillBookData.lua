@@ -18,14 +18,12 @@
 -- PCP_SkillBookData.lua
 -- Registers Applied Chemistry skill books in the PZ global
 -- SkillBook table so the engine recognises them as readable
--- XP-multiplier books (right-click → Read).
+-- XP-multiplier books (right-click -> Read).
 --
--- The vanilla SkillBook table is defined in:
---   media/lua/server/XpSystem/XPSystem_SkillBook.lua
--- and is checked by ISInventoryPaneContextMenu (client) and
--- ISReadABook (shared).  Without this registration, books
--- with SkillTrained = AppliedChemistry are silently treated
--- as non-readable.
+-- MUST live in server/, NOT shared/.  PZ loads shared/ before
+-- server/, and vanilla XPSystem_SkillBook.lua (in server/
+-- XpSystem/) resets SkillBook = {} on load -- wiping any
+-- entries registered earlier from shared/.
 --
 -- Multipliers (3/5/8/12/16) match the standard values used
 -- by 18 of 22 vanilla crafting skills (Carpentry, Cooking,

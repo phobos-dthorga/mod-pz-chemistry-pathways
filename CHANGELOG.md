@@ -23,6 +23,16 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.19.2] - 2026-02-20
+
+### Fixed
+- **Skill books still not readable (load-order fix)** — `PCP_SkillBookData.lua` was in `shared/`, which loads *before* vanilla's `XPSystem_SkillBook.lua` resets `SkillBook = {}`. Moved to `server/` so the registration persists after vanilla's table init. (Matches how Science, Bitch! solves the same problem.)
+- **DT-purchased items had no purity label** — DT's `GenerateItemCondition()` priority chain skips condition for FluidContainers (sets `fluidAmount` instead) and books (no customData). Expert items arrive at 100% condition, which the tooltip hides as "unstamped". Monkey-patches `DynamicTrading.ServerHelpers.AddItemWithCondition` to stamp condition 99 (Lab-Grade) on PCP items at ConditionMax. Non-expert Normal items keep DT's rolled condition as-is.
+
+### Added
+- **Purity migration (v0.19.2)** — One-time migration stamps all existing PCP items at condition 100 to 99 (Lab-Grade). Covers DT purchases, loot, and expert items that were invisible to the purity tooltip.
+- **`PCP_DynamicTradingStamp.lua`** — Server-side monkey-patch for ongoing DT purity stamping on future purchases.
+
 ## [0.19.1] - 2026-02-20
 
 ### Fixed

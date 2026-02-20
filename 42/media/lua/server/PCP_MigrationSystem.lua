@@ -31,13 +31,17 @@
 --   - Rename "PCP_Chemist" → "Chemist" in DynamicTrading save data
 --     (traders spawned before v0.19.0 ID rename)
 --
+-- v0.19.2 migration:
+--   - Stamp purity on all unstamped PCP items (condition 100 -> 99)
+--   - Covers DT purchases, loot, and expert items that were hidden
+--
 -- Requires: PhobosLib >= 1.8.0
 ---------------------------------------------------------------
 
 require "PhobosLib"
 
 local MOD_ID      = "PCP"
-local MOD_VERSION = "0.19.1"
+local MOD_VERSION = "0.19.2"
 
 ---------------------------------------------------------------
 -- Helpers
@@ -233,6 +237,54 @@ local function migrate_0_19_1(player)
 end
 
 ---------------------------------------------------------------
+-- v0.19.2 Migration
+---------------------------------------------------------------
+
+--- Stamp purity on all unstamped PCP items in player inventory.
+--- Items at condition == ConditionMax (100) get stamped to 99
+--- (Lab-Grade).  This covers items from DT purchases (where
+--- FluidContainers and books never had condition set), loot items,
+--- and Chemist expert items that were all invisible to the purity
+--- tooltip (which hides condition == ConditionMax as "unstamped").
+---@param player any  IsoGameCharacter
+---@return boolean ok, string msg
+local function migrate_0_19_2(player)
+    local inv = player:getInventory()
+    if not inv then return false, "Could not access player inventory." end
+    local items = inv:getItems()
+    if not items then return false, "Could not access inventory items." end
+
+    -- Check if impurity system is enabled
+    local enabled = false
+    pcall(function()
+        enabled = PCP_PuritySystem and PCP_PuritySystem.isEnabled()
+    end)
+    if not enabled then
+        return true, "Impurity system disabled, skipped."
+    end
+
+    local stamped = 0
+    for i = 0, items:size() - 1 do
+        local item = items:get(i)
+        if item then
+            local fullType = item:getFullType()
+            if fullType and string.find(fullType, "PhobosChemistryPathways.", 1, true) then
+                local maxCond = item:getConditionMax()
+                if maxCond and maxCond > 0 and item:getCondition() == maxCond then
+                    item:setCondition(99)
+                    stamped = stamped + 1
+                end
+            end
+        end
+    end
+
+    if stamped == 0 then
+        return true, "No unstamped PCP items found."
+    end
+    return true, "Stamped " .. stamped .. " item(s) to Lab-Grade (99%)."
+end
+
+---------------------------------------------------------------
 -- Register migrations
 ---------------------------------------------------------------
 
@@ -258,6 +310,14 @@ PhobosLib.registerMigration(
     "0.19.1",    -- to: this version
     migrate_0_19_1,
     "PCP v0.19.1: Rename PCP_Chemist to Chemist in DynamicTrading"
+)
+
+PhobosLib.registerMigration(
+    MOD_ID,
+    "0.19.1",    -- from: v0.19.1
+    "0.19.2",    -- to: this version
+    migrate_0_19_2,
+    "PCP v0.19.2: Stamp purity on existing PCP items (condition 100 -> 99)"
 )
 
 ---------------------------------------------------------------
