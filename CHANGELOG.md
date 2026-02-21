@@ -23,6 +23,11 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.21.3] - 2026-02-21
+
+### Changed
+- **Dynamic Trading prices rebalanced** — All 22 non-book item prices anchored to vanilla DT basePrices (Charcoal=15, CarBattery1=80, OilVegetable=15, Lard=10, Limestone=10, Soap2=12) and scaled upward through each chain step (~1.5-2× per processing step). Key increases: SulphuricAcidJar 35→80, KNO3 25→60, SulphurPowder 15→45, biodiesel chain 25/40/80→55/80/120, WoodMethanol 20→40, Glycerol 10→25. Stock ranges tightened on high-value items. Skill books unchanged.
+
 ## [0.21.2] - 2026-02-21
 
 ### Fixed
