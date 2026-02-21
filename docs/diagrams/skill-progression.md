@@ -15,35 +15,13 @@
  \________________________________________________________________________/
 -->
 
-# Applied Chemistry Skill Progression
+# Skill Progression
 
-PCP adds a custom **Applied Chemistry** perk under the Crafting parent. Recipes are gated by 7 skill tiers, with occupations, traits, and skill books providing progression paths.
+PhobosChemistryPathways adds a custom `AppliedChemistry` perk under the Crafting parent with a steeper XP curve (75-9000 per level). Two occupations and two traits provide starting skill levels and recipe grants at character creation. Five skill book volumes distributed as loot cover levels 1-10.
 
-## Skill Tier System
+## Occupations & Traits
 
-| Tier | Skill Required | XP Award | AutoLearn At | Representative Recipes | Equipment |
-|------|---------------|----------|-------------|----------------------|-----------|
-| 0 | None | AC:10 | AC:2 | Crush Charcoal, Mortar Oil Presses, Convert Oil | Mortar |
-| 1 | AC:1 | AC:10-15 | AC:3 | Purify Charcoal (Water), Diluted Compost, Render Fat, Wood Glue (R1), Fertilizer (R3) | Chemistry Set |
-| 2 | AC:2 | AC:20-25 | AC:4-5 | Purify NaOH, Lab/Bulk Oil Presses, Bone Char, Soap, Battery Acid, Quicklime (R2), Soap (R4) | Chemistry Set / Metal Drum |
-| 3 | AC:3 | AC:30-40 | AC:6-7 | Distill Methanol, Synthesize KOH, Extract Sulphur, Wash Biodiesel | Chemistry Set |
-| 4 | AC:4 | AC:40-90 | AC:7-8 | Transesterify Oil/Fat, Synthesize KNO3, Mix Blackpowder, Refine Biodiesel | Chemistry Set / Metal Drum |
-| 5 | AC:5 | AC:35-50 | AC:8-9 | Centrifuge Wash, Centrifuge Glycerol, Chromatograph Purify | Centrifuge / Chromatograph |
-| 7 | AC:7 | AC:80 | **None** | Microscope Analysis, Spectrometer Testing | Microscope / Spectrometer |
-
-> **No Tier 6 exists.** Tier 7 has no AutoLearnAll -- these recipes can ONLY be learned from the handbook. Tier 7 is also gated behind the `EnableAdvancedLabRecipes` sandbox option.
-
-### XP Curve
-
-| Level | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
-|-------|---|---|---|---|---|---|---|---|---|---|
-| XP Required | 75 | 150 | 300 | 750 | 1,500 | 3,000 | 4,500 | 6,000 | 7,500 | 9,000 |
-
-The curve is steeper than vanilla Crafting perks. With 154 recipes awarding XP, this prevents trivial levelling from grinding a single recipe.
-
----
-
-## Character Creation
+Two occupations (Chemist and Pharmacist) and two mutually exclusive traits (Chemistry Enthusiast and Chemical Aversion) determine starting Applied Chemistry levels and pre-learned recipes.
 
 ```mermaid
 graph TB
@@ -72,56 +50,13 @@ graph TB
     ENT -.-> DS
 ```
 
-### Occupation Details
-
-**Chemist** (Cost -4):
-- Applied Chemistry 3, Doctor 1
-- Grants 13 recipes: all mortar oil presses (6), crush charcoal, mix blackpowder, convert vegetable oil, convert olive oil, prepare compost, render fat, purify charcoal (water)
-- Can immediately craft Tier 0-3 recipes
-
-**Pharmacist** (Cost -2):
-- Applied Chemistry 2, Doctor 2
-- Grants 5 recipes: crush charcoal, purify charcoal (water), convert vegetable oil, convert olive oil, prepare compost
-- Can immediately craft Tier 0-2 recipes; stronger medical background (Doctor 2)
-
-### Trait Details
-
-| Trait | Cost | Effect | Mutual Exclusion |
-|-------|------|--------|-----------------|
-| Chemistry Enthusiast | +4 | AC +1, grants Crush Charcoal + Convert Oil | Cannot take Chemical Aversion |
-| Chemical Aversion | -2 | AC -1 | Cannot take Chemistry Enthusiast |
-| Chemist (profession) | 0 | Auto-granted by Chemist occupation | N/A |
-
----
-
-## Skill Books
-
-Five volumes of "Applied Chemistry" skill books, green-tinted, distributed in loot. Each volume covers 2 skill levels.
-
-| Volume | Levels Trained | Pages | Loot Locations | Rarity |
-|--------|---------------|-------|---------------|--------|
-| Vol 1 | 1-2 | 220 | Bookstores, classrooms, medical facilities | Common |
-| Vol 2 | 3-4 | 260 | Bookstores, classrooms, medical facilities | Common |
-| Vol 3 | 5-6 | 300 | Medical offices | Moderate |
-| Vol 4 | 7-8 | 340 | Medical offices | Rare |
-| Vol 5 | 9-10 | 380 | Medical storage only | Very Rare |
-
-> Reading a skill book **before** crafting dramatically increases XP gain for the covered levels, following standard PZ skill book mechanics.
-
----
-
 ## Learning Paths
 
-All PCP recipes require `NeedToBeLearn = true`. Recipes can be learned through:
-
-1. **Handbook** (`BkChemistryPathways`): Teaches ALL 154 recipes when read. Found in loot.
-2. **AutoLearnAll**: Recipes auto-unlock at the specified Applied Chemistry level (most recipes).
-3. **Occupation/Trait grants**: Specific recipes are pre-learned at character creation.
-4. **Exception**: Tier 7 recipes (Microscope, Spectrometer) have NO AutoLearnAll and can ONLY be learned from the handbook.
+There are three ways to learn PCP recipes: finding and reading the Chemistry Handbook (teaches all 185 recipes), reaching the auto-learn threshold for each recipe tier, or choosing an occupation/trait at character creation for pre-learned recipes. Tier 7 (advanced lab) recipes can only be learned from the handbook.
 
 ```mermaid
 graph LR
-    HB["Find Handbook<br/>(loot)"] --> LEARN["Learn all 154 recipes"]
+    HB["Find Handbook<br/>(loot)"] --> LEARN["Learn all 185 recipes"]
     LEVEL["Reach AutoLearnAll level"] --> AUTO["Recipes auto-unlock<br/>(most tiers)"]
     CREATE["Choose Occupation/Trait"] --> GRANT["Pre-learned recipes<br/>(character creation)"]
     T7["Tier 7 recipes"] --> HB_ONLY["Handbook ONLY<br/>(no AutoLearnAll)"]
@@ -129,3 +64,18 @@ graph LR
     style T7 fill:#c44,color:#fff
     style HB_ONLY fill:#c44,color:#fff
 ```
+
+## Skill Tiers
+
+All 185 recipes are distributed across 7 skill tiers. Higher tiers require more Applied Chemistry XP and gate access to increasingly complex chemistry.
+
+| Tier | AC Level | Unlocks |
+|------|----------|---------|
+| 0 | 0 | Basic crushing, composting, and simple fat rendering |
+| 1 | 1 | Charcoal purification, oil extraction (mortar and pestle), basic soap |
+| 2 | 2 | KNO3 synthesis, battery acid extraction, bone char pyrolysis |
+| 3 | 3 | Sulphur extraction, methanol distillation, biodiesel transesterification |
+| 4 | 4 | Blackpowder mixing, biodiesel washing, recycling recipes |
+| 5 | 5 | Refined biodiesel, advanced recycling, agriculture sprays |
+| 6 | 6 | Centrifuge and chromatograph recipes, chemical tanning |
+| 7 | 7 | Microscope and spectrometer recipes (handbook-only, gated by EnableAdvancedLabRecipes) |

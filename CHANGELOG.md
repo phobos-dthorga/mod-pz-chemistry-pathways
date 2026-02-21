@@ -23,6 +23,32 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.22.0] - 2026-02-22
+
+### Added
+- **Agriculture & Downstream Recipes** — 31 new recipes in `PCP_Recipes_Agriculture.txt` connecting PCP intermediates to vanilla gameplay systems across 6 pathways:
+  - **Pathway C: Garden Pest Sprays** (3 recipes) — SulphurFungicideSpray (cures Mildew), InsecticidalSoapSpray (cures Aphids), PotashFoliarSpray (cures Flies). Functional B42 gardening sprays via PhobosLib's `registerFarmingSpray()` API.
+  - **Pathway A: Mineral Feed Supplement** (3 recipes) — BoneChar + Calcite feed supplements for animal husbandry.
+  - **Pathway B: Water Purification & Filtration** (4 recipes) — Activated charcoal filters, water purification tablets, gas mask filter recharging.
+  - **Pathway D: Epoxy Resin Synthesis** (6 recipes) — Epoxy resin from WoodTar + Glycerol for structural crafting.
+  - **Pathway E: Vanilla Quick Wins** (7 recipes) — Fire starters, lighter fluid, slug repellent, duct tape, matchboxes from PCP intermediates.
+  - **Pathway F: Vanilla Moderate** (8 recipes) — Wood vinegar, chemical leather tanning, plaster powder.
+- **3 new FluidContainer items** — SulphurFungicideSpray, InsecticidalSoapSpray, PotashFoliarSpray (gardening sprays with ConditionMax=100)
+- **`PCP_FarmingCompat.lua`** (client/) — Registers 3 PCP sprays + vanilla SlugRepellent with PhobosLib's farming spray API so they appear in the "Treat Problem" submenu and respond to the Interact hotkey on diseased plants.
+- **7 new DT tradeable items** (34 total) — WoodTar and agriculture pathway outputs added to Dynamic Trading vendor stock.
+- **Pneumonia** added to `caustic_vapor` and `resin_fumes` hazard profiles as a rare severe disease outcome.
+
+### Fixed
+- **`pcpMakeMatchboxYield` callback** — Matchbox recipe now returns correct output quantities.
+- **`pcpChemicalTanningYield` callback** — Chemical tanning recipe now returns correct leather output.
+
+### Changed
+- Requires **PhobosLib 1.11.0+** (PhobosLib_FarmingSpray module)
+- Recipe count: 154 → 185
+
+### Summary
+- **185 recipes**, **39 items**, **34 tradeable items**, **5 skill books**, **8 fluids**, **13 sandbox options**, **144 OnCreate callbacks**
+
 ## [0.21.3] - 2026-02-21
 
 ### Changed

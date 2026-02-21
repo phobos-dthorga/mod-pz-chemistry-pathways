@@ -149,7 +149,7 @@ Some recipes support different container sizes:
 
 ---
 
-## Variant Counts (v0.19.1)
+## Variant Counts (v0.22.0)
 
 | Suffix | Count | Controlled By |
 |--------|-------|---------------|
@@ -160,8 +160,8 @@ Some recipes support different container sizes:
 | SimpleUnsafe | 8 | Both |
 | **Total gated variants** | **69** | |
 | Equipment/catalyst/fuel/container | ~30 | Always visible |
-| Non-variant recipes | ~55 | Always visible |
-| **Grand total** | **154** | |
+| Non-variant recipes | ~86 | Always visible |
+| **Grand total** | **185** | |
 
 ---
 

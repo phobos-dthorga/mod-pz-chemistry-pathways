@@ -1,0 +1,117 @@
+[h1]Phobos' Chemistry Pathways[/h1]
+
+[b]Version:[/b] 0.22.0 | [b]Requires:[/b] Project Zomboid Build 42.14.0+ | [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865]PhobosLib 1.11.0+[/url] | zReVaccin 3
+
+A complete chemistry suite for Project Zomboid Build 42, adding realistic crafting pathways for blackpowder, biodiesel, soap, bone char, agriculture, recycling, and advanced laboratory processes.
+
+[hr][/hr]
+
+[h2]Features[/h2]
+
+[h3]Applied Chemistry Skill System[/h3]
+Custom Applied Chemistry perk with a steeper XP curve (75-9000). Two occupations (Chemist and Pharmacist) and two traits (Chemistry Enthusiast and Chemical Aversion) provide starting skill bonuses. Five skill book volumes cover levels 1-10. All 185 recipes award Applied Chemistry XP with 7 tiers of skill requirements.
+
+[h3]Blackpowder Pathway[/h3]
+Seven-step chain from raw charcoal to gunpowder: crush, purify (water or alkaline wash), prepare compost, extract battery acid, extract sulphur, synthesize potassium nitrate, and mix blackpowder.
+
+[h3]Biodiesel Pathway[/h3]
+Five-step chain from raw crops to refined vehicle fuel. Extract oil from 6 crop types (soybeans, sunflower, corn, flax, hemp, peanuts) using 3 equipment tiers (mortar and pestle, chemistry set, metal drum). Transesterify with methanol and KOH or NaOH catalyst, water-wash, and refine into usable fuel.
+
+[h3]Fat Rendering & Oil Conversion[/h3]
+Render lard, butter, or margarine into biodiesel feedstock. Slow-cook butchered meat cuts (6 pieces to 2 jars of rendered fat + bone scraps) in a cooking pot — a renewable fat source from animal husbandry. Convert bottled vegetable or olive oil directly.
+
+[h3]Soap-Making[/h3]
+Two soap pathways: glycerol-based crude soap from biodiesel by-products, and traditional fat-based soap from rendered animal fats. Both support KOH and NaOH catalysts.
+
+[h3]Bone Char Production[/h3]
+Pyrolyse animal bones and skulls in metal drums to produce bone char, an alternative to purified charcoal in filtration and reagent recipes.
+
+[h3]Recycling Pathway[/h3]
+Nine-step recycling chain: wood tar to wood glue and tar-pitch torches, calcite to quicklime and fertilizer, crude soap to usable bars and sterilized bandages, lead scrap to fishing tackle, plastic scrap to glue, and acid-washed electronics to precision components.
+
+[h3]Agriculture & Downstream Applications[/h3]
+Six pathways connecting chemistry intermediates to vanilla gameplay systems:
+[list]
+[*] [b]Garden Pest Sprays[/b] — Sulphur fungicide (Mildew), insecticidal soap (Aphids), potash foliar (Flies) — functional B42 crop cures
+[*] [b]Mineral Feed Supplements[/b] — Bone char-based animal feed
+[*] [b]Water Purification[/b] — Activated charcoal filters and purification tablets; gas mask filter recharging
+[*] [b]Epoxy Resin[/b] — Synthesized from wood tar and glycerol
+[*] [b]Fire-Starting[/b] — Lighter fluid, matchboxes, slug repellent
+[*] [b]Chemical Processing[/b] — Leather tanning, plaster powder, wood vinegar
+[/list]
+
+[h3]Advanced Lab Equipment[/h3]
+Centrifuge, chromatograph, microscope, and spectrometer recipes for enhanced processing. Microscope and spectrometer gated by sandbox option.
+
+[hr][/hr]
+
+[h2]Optional Systems[/h2]
+
+[h3]Impurity/Purity System[/h3]
+Condition-based purity tracking (0-100%) through recipe chains. Equipment quality factors, severity scaling, yield penalties, and player feedback via speech bubbles and custom tooltips.
+
+[h3]Health Hazard System[/h3]
+Hazard system for 11 dangerous chemistry recipes. Each splits into Protected (mask + goggles required, filter degrades) and Unprotected (risk of disease or stat penalties) variants. Integrates with EHR when available.
+
+[h3]Empty Vessel Replacement[/h3]
+Empty PCP FluidContainers automatically revert to their vanilla vessel equivalents (mason jar + lid, bottle, bucket, gas can) when you open a container. MP-synced.
+
+[h3]Tiered Reset/Cleanup[/h3]
+Five one-shot sandbox options for version upgrades and mod removal. Strip purity data, forget recipes, reset skill XP, remove all PCP items, or nuclear reset. Each executes once then auto-resets to OFF.
+
+[hr][/hr]
+
+[h2]Cross-Mod Integration[/h2]
+[list]
+[*] [b]ZScienceSkill[/b] ("Science, Bitch!") — Applied Chemistry XP mirrors to Science at 50% rate; 33 items + 8 fluids registered as microscope specimens
+[*] [b]EHR[/b] (Extensive Health Rework) — Health hazard recipes dispatch EHR diseases instead of vanilla stat penalties
+[*] [b]Dynamic Trading[/b] — 34 PCP items registered for NPC trading with custom "Chemical" tag and "Chemist" trader archetype; chemical allocations injected into 8 existing vendor archetypes
+[*] [b]Neat Crafting[/b] — Recipe visibility filters applied through NC_FilterBar; runtime-detected, no hard dependency
+[/list]
+
+[hr][/hr]
+
+[h2]Content Summary[/h2]
+[list]
+[*] [b]185 recipes[/b] across blackpowder, biodiesel, soap, bone char, recycling, agriculture, utility, and advanced lab pathways
+[*] [b]39 items[/b] including chemical reagents, intermediates, container variants, and gardening sprays
+[*] [b]34 tradeable items[/b] registered with Dynamic Trading across 9 vendor archetypes
+[*] [b]5 skill books[/b] covering Applied Chemistry levels 1-10
+[*] [b]2 occupations[/b] (Chemist, Pharmacist) and [b]2 traits[/b] (Chemistry Enthusiast, Chemical Aversion)
+[*] [b]8 fluids[/b] with Build 42 FluidContainer integration and poison profiles
+[*] [b]13 sandbox options[/b] for gameplay customization, vessel replacement, and maintenance
+[*] [b]1 handbook[/b] (lootable) teaching all recipes with a coloured pathway guide
+[/list]
+
+[hr][/hr]
+
+[h2]Sandbox Options[/h2]
+[list]
+[*] [b]Yield Multiplier[/b] (0.25-4.0) — Scale recipe output quantities
+[*] [b]Advanced Lab Recipes[/b] — Gate microscope and spectrometer recipes
+[*] [b]Require Heat Sources[/b] — Gate fuel requirements on heated recipes
+[*] [b]Impurity System[/b] — Enable purity tracking through recipe chains
+[*] [b]Impurity Severity[/b] (Mild/Standard/Harsh) — Control purity degradation intensity
+[*] [b]Health Hazards[/b] — Enable Protected/Unprotected recipe variants
+[*] [b]Vessel Replacement[/b] — Replace empty PCP containers with vanilla vessels on open
+[*] [b]Maintenance/Reset[/b] — Five one-shot reset options for upgrades and mod removal
+[/list]
+
+[hr][/hr]
+
+[h2]Requirements[/h2]
+[list]
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865]PhobosLib 1.11.0+[/url] — Required shared utility library
+[*] [b]zReVaccin 3[/b] — Required for lab equipment (chemistry set, centrifuge, chromatograph, microscope, spectrometer)
+[*] [b]EHR[/b] (optional) — Disease system for health hazard integration
+[*] [b]ZScienceSkill[/b] (optional) — Science skill XP mirroring and microscope specimens
+[*] [b]Dynamic Trading[/b] (optional) — NPC trader item registration
+[*] [b]Neat Crafting[/b] (optional) — Recipe visibility filter compatibility
+[/list]
+
+[h2]Links[/h2]
+[list]
+[*] [url=https://github.com/phobos-dthorga/mod-pz-chemistry-pathways]GitHub Repository[/url]
+[*] [url=https://github.com/phobos-dthorga/mod-pz-chemistry-pathways/blob/develop/CHANGELOG.md]Changelog[/url]
+[*] [url=https://github.com/phobos-dthorga/mod-pz-chemistry-pathways/blob/develop/docs/diagrams/recipe-pathways.md]Recipe Pathway Diagrams[/url]
+[/list]

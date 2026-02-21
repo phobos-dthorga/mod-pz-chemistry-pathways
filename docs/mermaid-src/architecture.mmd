@@ -1,15 +1,15 @@
 graph TB
     subgraph HARD["Hard Dependencies (mod.info require)"]
-        PL["PhobosLib v1.9.0+<br/>14 modules (11 shared + 3 client)"]
+        PL["PhobosLib v1.11.0+<br/>17 modules (12 shared + 5 client)"]
         ZR["zReVaccin 3<br/>Lab equipment entities"]
     end
 
-    subgraph PCP["PhobosChemistryPathways v0.19.1"]
+    subgraph PCP["PhobosChemistryPathways v0.22.0"]
         CORE["Core"]
-        REC["154 Recipes<br/>5 recipe files"]
+        REC["185 Recipes<br/>5 recipe files"]
         ITEMS["39 Items<br/>+ 5 Skill Books"]
         FLUIDS["8 Fluids"]
-        SB["12 Sandbox Options"]
+        SB["13 Sandbox Options"]
         PURITY["Purity System<br/>PCP_PuritySystem.lua"]
         HAZARD["Hazard System<br/>PCP_HazardSystem.lua"]
         SKILL["Skill System<br/>perks + professions + traits"]
@@ -21,6 +21,7 @@ graph TB
         ZSS["ZScienceSkill<br/>Science, Bitch!"]
         EHR["EHR v2.8.1<br/>Extensive Health Rework"]
         DT["DynamicTradingCommon<br/>NPC Trading"]
+        NC["NeatCrafting<br/>Neat Crafting"]
     end
 
     PL --> CORE
@@ -31,10 +32,13 @@ graph TB
     SKILL -->|"delegates to<br/>PhobosLib_Skill"| PL
     CALLBACKS -->|"uses<br/>PhobosLib_Sandbox<br/>PhobosLib_Fluid"| PL
     TRADING -->|"uses<br/>PhobosLib_Trading"| PL
+    FARMING["Farming Compat<br/>PCP_FarmingCompat.lua"]
+    FARMING -->|"uses<br/>PhobosLib_FarmingSpray"| PL
 
     HAZARD -.->|"EHR.Disease.TryContract<br/>(pcall-wrapped)"| EHR
     SKILL -.->|"registerXPMirror<br/>AC to Science at 50%"| ZSS
-    TRADING -.->|"registerTradeItems<br/>(27 items, 1 tag, 1 archetype)"| DT
+    TRADING -.->|"registerTradeItems<br/>(34 items, 1 tag, 1 archetype)"| DT
+    REC -.->|"PhobosLib_RecipeFilter<br/>(NC_FilterBar hook)"| NC
 
     style HARD fill:#264,color:#fff
     style SOFT fill:#446,color:#fff

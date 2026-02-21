@@ -119,8 +119,35 @@ graph TB
     PLASTIC --> GLUE
     ACIDWASH --> TRANSISTOR
 
+    subgraph AG["Agriculture & Downstream (Pathways A-F)"]
+        SPRAY_S["SulphurFungicideSpray<br/>(cures Mildew)"]
+        SPRAY_I["InsecticidalSoapSpray<br/>(cures Aphids)"]
+        SPRAY_P["PotashFoliarSpray<br/>(cures Flies)"]
+        FEED["Feed Supplement"]
+        WATER["Water Purification<br/>Tablets + Filters"]
+        EPOXY["Epoxy Resin"]
+        FIRE["Fire Starters<br/>Lighter Fluid, Matchboxes"]
+        TANNING["Chemical Tanning<br/>Leather"]
+        PLASTER["Plaster Powder"]
+    end
+
+    SULPHUR --> SPRAY_S
+    SOAP --> SPRAY_I
+    POTASH --> SPRAY_P
+    BONECHAR --> FEED
+    CALCITE --> FEED
+    PURIFY --> WATER
+    BONECHAR --> WATER
+    WOODTAR --> EPOXY
+    GLYCEROL --> EPOXY
+    WOODTAR --> FIRE
+    PURIFY --> TANNING
+    CALCITE --> PLASTER
+    QLIME --> PLASTER
+
     style GUNPOWDER fill:#c44,color:#fff
     style REFINED_BD fill:#4a4,color:#fff
     style SOAP fill:#48c,color:#fff
     style BONECHAR fill:#864,color:#fff
     style RC fill:#654,color:#fff
+    style AG fill:#486,color:#fff

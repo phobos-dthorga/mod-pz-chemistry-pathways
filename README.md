@@ -17,13 +17,13 @@
 
 # PhobosChemistryPathways
 
-**Version:** 0.20.0 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.9.1+ | zReVaccin 3
+**Version:** 0.22.0 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.11.0+ | zReVaccin 3
 
 > **Players:** Subscribe on [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3668197831) for easy installation. This GitHub repo is for source code, documentation, and development.
 >
 > **Modders & Developers:** Bug reports, feature requests, and contributions are welcome via [GitHub Issues](https://github.com/phobos-dthorga/mod-pz-chemistry-pathways/issues).
 
-A complete chemistry suite for Project Zomboid Build 42, adding realistic crafting pathways for blackpowder, biodiesel, soap, bone char, and advanced laboratory processes.
+A complete chemistry suite for Project Zomboid Build 42, adding realistic crafting pathways for blackpowder, biodiesel, soap, bone char, agriculture, recycling, and advanced laboratory processes.
 
 **Dependencies:** [PhobosLib](https://github.com/phobos-dthorga/mod-pz-phobos-lib) ([Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865)) | zReVaccin 3
 
@@ -32,7 +32,7 @@ This project is open-source, but the Steam Workshop upload is the official distr
 ## Features
 
 ### Applied Chemistry Skill System
-Custom `AppliedChemistry` perk under the Crafting parent with a steeper XP curve (75-9000). Two occupations (Chemist and Pharmacist) and two traits (Chemistry Enthusiast and Chemical Aversion) provide starting skill bonuses. Five skill book volumes cover levels 1-10, distributed in loot from common (Vol 1-2) to very rare (Vol 5). All 154 recipes award Applied Chemistry XP with 7 tiers of skill requirements.
+Custom `AppliedChemistry` perk under the Crafting parent with a steeper XP curve (75-9000). Two occupations (Chemist and Pharmacist) and two traits (Chemistry Enthusiast and Chemical Aversion) provide starting skill bonuses. Five skill book volumes cover levels 1-10, distributed in loot from common (Vol 1-2) to very rare (Vol 5). All 185 recipes award Applied Chemistry XP with 7 tiers of skill requirements.
 
 ### Blackpowder Pathway
 Seven-step chain from raw charcoal to gunpowder: crush, purify (water or alkaline wash), prepare compost, extract battery acid, extract sulphur, synthesize potassium nitrate, and mix blackpowder.
@@ -53,10 +53,16 @@ Pyrolyse animal bones and skulls in metal drums to produce bone char, an alterna
 Centrifuge, chromatograph, microscope, and spectrometer recipes for enhanced processing. Microscope and spectrometer are gated by the EnableAdvancedLabRecipes sandbox option.
 
 ### Impurity/Purity System
-Optional modData-backed purity tracking (0-100 scale) through recipe chains. Equipment quality factors, severity scaling, yield penalties, and player feedback via speech bubbles and tooltips.
+Optional condition-based purity tracking (0-100%, normalised via item condition) through recipe chains. Equipment quality factors, severity scaling, yield penalties, and player feedback via speech bubbles and custom tooltips. Purity tooltip hidden at full condition to avoid false labels on unstamped or looted items.
 
 ### Recycling Pathway
 Nine-step recycling chain (R1-R9): wood tar to wood glue and tar-pitch torches, calcite to quicklime and fertilizer (with sulphur-enhanced and potash variants), crude soap to usable bars and sterilized bandages, lead scrap to fishing tackle, plastic scrap to glue (with hazard variants), and acid-washed electronics to precision components.
+
+### Agriculture & Downstream Applications
+Six pathways connecting PCP intermediates to vanilla gameplay systems: garden pest sprays (sulphur fungicide, insecticidal soap, potash foliar — functional B42 crop cures), mineral feed supplements, water purification and gas mask filter recharging, epoxy resin synthesis, fire-starting materials (lighter fluid, matchboxes), and chemical leather tanning and plaster powder.
+
+### Empty Vessel Replacement
+Empty PCP FluidContainers automatically revert to their vanilla vessel equivalents (mason jar + lid, bottle, bucket, gas can) when the player opens a container. Gated by `EnableVesselReplacement` sandbox option. MP-synced.
 
 ### Health Hazard System
 Optional hazard system for 11 dangerous chemistry recipes. Each splits into Protected (mask + goggles required, filter degrades) and Unprotected (risk of disease or stat penalties) variants. Integrates with EHR (Extensive Health Rework) when available, with vanilla stat fallback.
@@ -67,17 +73,19 @@ Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" setting
 ### Cross-Mod Integration
 - **ZScienceSkill** ("Science, Bitch!"): When active, Applied Chemistry XP mirrors to Science at 50% rate, and 33 items + 8 fluids are registered as researchable microscope specimens.
 - **EHR** (Extensive Health Rework): When active, health hazard recipes dispatch EHR diseases instead of vanilla stat penalties.
-- **Dynamic Trading** (DynamicTradingCommon): When active, 27 PCP items are registered for NPC trading with a custom "Chemical" tag and "Chemist" trader archetype (with chemistry-themed dialogue) via PhobosLib_Trading. Chemical allocations injected into 8 existing DT archetypes.
+- **Dynamic Trading** (DynamicTradingCommon): When active, 34 PCP items are registered for NPC trading with a custom "Chemical" tag and "Chemist" trader archetype (with chemistry-themed dialogue) via PhobosLib_Trading. Chemical allocations injected into 8 existing DT archetypes.
+- **Neat Crafting**: When active, recipe visibility filters are applied through `NC_FilterBar:shouldIncludeRecipe()` in addition to vanilla UI hooks. Runtime-detected, no hard dependency.
 
 ## Requirements
 
 | Dependency | Purpose |
 |------------|---------|
-| **PhobosLib 1.9.1+** | Shared utility library (sandbox access, fluid helpers, quality tracking, hazard dispatch, skill XP mirroring, reset utilities, startup validation, recipe visibility filters, item tooltip customisation, lazy container stamping, versioned migration framework, Dynamic Trading wrapper) |
+| **PhobosLib 1.11.0+** | Shared utility library (sandbox access, fluid helpers, quality tracking, hazard dispatch, skill XP mirroring, reset utilities, startup validation, recipe visibility filters, item tooltip customisation, lazy container stamping, empty vessel replacement, farming spray registration, versioned migration framework, Dynamic Trading wrapper) |
 | **zReVaccin 3** (zReModVaccin30bykERHUS) | Lab equipment entities (chemistry set, centrifuge, chromatograph, microscope, spectrometer) |
 | **EHR** (optional) | Disease system for health hazard integration; vanilla stat penalties used as fallback |
 | **ZScienceSkill** (optional) | Science skill XP mirroring and microscope specimen registration |
 | **Dynamic Trading** (optional) | NPC trader item registration with custom tag and archetype |
+| **Neat Crafting** (optional) | Recipe visibility filter compatibility via NC_FilterBar hook |
 
 ## Sandbox Options
 
@@ -94,16 +102,18 @@ Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" setting
 | ResetForgetRecipes | boolean | false | One-shot: forget all learned PCP recipes |
 | ResetSkillXP | boolean | false | One-shot: reset Applied Chemistry to level 0 |
 | ResetNuclearRemove | boolean | false | One-shot: remove all PCP items from inventory |
+| EnableVesselReplacement | boolean | true | Replaces empty PCP FluidContainers with vanilla vessels on container open |
 | ResetNuclearAll | boolean | false | One-shot: execute all four reset operations |
 
 ## Content Summary
 
-- **154 recipes** across blackpowder, biodiesel, soap, bone char, recycling, utility, and advanced lab pathways
-- **39 items** including chemical reagents, intermediates, and container variants (jar, clay jar, bucket)
+- **185 recipes** across blackpowder, biodiesel, soap, bone char, recycling, agriculture, utility, and advanced lab pathways
+- **39 items** including chemical reagents, intermediates, container variants (jar, clay jar, bucket), and gardening sprays
+- **34 tradeable items** registered with Dynamic Trading across 9 vendor archetypes
 - **5 skill books** covering Applied Chemistry levels 1-10
 - **2 occupations** (Chemist, Pharmacist) and **2 traits** (Chemistry Enthusiast, Chemical Aversion)
 - **8 fluids** with Build 42 FluidContainer integration and poison profiles
-- **12 sandbox options** for gameplay customization and maintenance
+- **13 sandbox options** for gameplay customization, vessel replacement, and maintenance
 - **144 OnCreate callbacks** for purity tracking and propane partial consumption
 - **1 handbook** (lootable) teaching all recipes with a coloured pathway guide
 
@@ -119,8 +129,9 @@ Forks and addons are encouraged. Code is permissively licensed for integration. 
 
 Visual guides for understanding recipe chains, sandbox settings, and mod architecture:
 
-- [Recipe Pathways](docs/diagrams/recipe-pathways.md) — Complete crafting chain flowcharts for all 7 pathways
-- [Sandbox Settings Guide](docs/diagrams/sandbox-gating.md) — How 12 sandbox options control recipe visibility, behavior, and maintenance
+- [Recipe Pathways](docs/diagrams/recipe-pathways.md) — Complete crafting chain flowcharts for all pathways
+- [Recipe Variants](docs/diagrams/recipe-variants.md) — Why PCP recipes have multiple versions, naming conventions, and troubleshooting
+- [Sandbox Settings Guide](docs/diagrams/sandbox-gating.md) — How 13 sandbox options control recipe visibility, behavior, and maintenance
 - [Skill Progression](docs/diagrams/skill-progression.md) — Applied Chemistry skill tiers, XP curve, occupations, and traits
 - [Architecture & Dependencies](docs/diagrams/architecture.md) — Dependency graph, PhobosLib modules, and cross-mod integration
 

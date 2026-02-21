@@ -8,3 +8,12 @@ graph TB
 
     CHECK_EHR -->|"Yes"| EHR_INIT["Hazard callbacks use<br/>EHR.Disease.TryContract<br/>(pcall-wrapped)"]
     CHECK_EHR -->|"No"| EHR_SKIP["Hazard callbacks use<br/>vanilla stat penalties<br/>(Sickness, Pain, Stress)"]
+
+    START --> CHECK_DT{"isModActive<br/>DynamicTradingCommon?"}
+    START --> CHECK_NC{"NC_FilterBar<br/>exists?"}
+
+    CHECK_DT -->|"Yes"| DT_INIT["Register Chemist Archetype<br/>+ 34 Items across 9 Vendors<br/>(PCP_DynamicTradingData.lua)"]
+    CHECK_DT -->|"No"| DT_SKIP["No action<br/>Zero errors"]
+
+    CHECK_NC -->|"Yes"| NC_INIT["Hook NC_FilterBar:shouldIncludeRecipe<br/>for recipe visibility filters<br/>(PhobosLib_RecipeFilter.lua)"]
+    CHECK_NC -->|"No"| NC_SKIP["Use vanilla ISRecipeScrollingListBox<br/>+ ISTiledIconPanel overrides"]

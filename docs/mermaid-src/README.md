@@ -1,3 +1,20 @@
+<!--
+  ________________________________________________________________________
+ / Copyright (c) 2026 Phobos A. D'thorga                                \
+ |                                                                        |
+ |           /\_/\                                                         |
+ |         =/ o o \=    Phobos' PZ Modding                                |
+ |          (  V  )     All rights reserved.                              |
+ |     /\  / \   / \                                                      |
+ |    /  \/   '-'   \   This source code is part of the Phobos            |
+ |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+ |  (__/    \_/ \/  \__)                                                  |
+ |     |   | |  | |     Unauthorised copying, modification, or            |
+ |     |___|_|  |_|     distribution of this file is prohibited.          |
+ |                                                                        |
+ \________________________________________________________________________/
+-->
+
 # Mermaid Source Files
 
 Standalone `.mmd` diagram sources for CLI rendering.
@@ -7,16 +24,17 @@ These are the same diagrams embedded in [`../diagrams/*.md`](../diagrams/), extr
 
 | File | Diagram |
 |------|---------|
-| `recipe-overview.mmd` | All 7 crafting pathways (top-level overview) |
-| `blackpowder-detail.mmd` | Blackpowder chain steps 1-7 with quantities |
-| `biodiesel-detail.mmd` | Biodiesel pipeline with 3 equipment tiers |
-| `sandbox-gating.mmd` | 7 sandbox options decision tree |
-| `skill-progression.mmd` | Character creation (occupations, traits) |
-| `architecture.mmd` | Dependency hierarchy (hard + soft deps) |
-| `crossmod-integration.mmd` | ZScienceSkill + EHR detection flow |
-| `purity-system.mmd` | Source / Propagation / Terminal purity flow |
-| `learning-paths.mmd` | 4 recipe learning methods |
+| `recipe-overview.mmd` | Complete recipe pathway flowchart (all 185 recipes) |
+| `blackpowder-detail.mmd` | Blackpowder synthesis chain (Steps 1-7) |
+| `biodiesel-detail.mmd` | Biodiesel production chain (Steps 1-5) |
 | `bonechar.mmd` | Bone char pyrolysis pathway |
+| `sandbox-recipe-gating.mmd` | Recipe gating sandbox options |
+| `sandbox-purity-yield.mmd` | Purity and yield sandbox options |
+| `skill-progression.mmd` | Occupations and traits |
+| `learning-paths.mmd` | Recipe learning methods |
+| `architecture.mmd` | Mod architecture and dependencies |
+| `crossmod-integration.mmd` | Cross-mod integration checks |
+| `purity-system.mmd` | Purity propagation across recipe chains |
 
 ## Re-render all to PNG
 
