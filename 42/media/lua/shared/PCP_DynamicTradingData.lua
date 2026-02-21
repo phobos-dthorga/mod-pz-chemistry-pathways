@@ -105,9 +105,11 @@ local function registerPCPTradeData()
 
     ---------------------------------------------------------------
     -- Tradeable items
-    -- Prices calibrated to DT's existing scale:
-    --   Tag multipliers: Literature 1.2x, Common 1.0x,
-    --   Uncommon 1.25x, Rare 2.0x, Legendary 5.0x
+    -- Prices anchored to DT vanilla input basePrices (Charcoal=15,
+    -- CarBattery1=80, OilVegetable=15, Lard=10, Limestone=10, Soap2=12)
+    -- then scaled upward through each chain step (~1.5-2x per step).
+    -- Tag multipliers (highest wins): Common 1.0x, Uncommon 1.25x,
+    -- Rare 2.0x, Legendary 5.0x, Chemical 1.3x, Fuel 1.5x
     --
     -- Per-vendor tags enable multi-archetype stock:
     --   Medical  -> Pharmacist, Doctor
@@ -119,41 +121,41 @@ local function registerPCPTradeData()
     ---------------------------------------------------------------
     local items = {
         -- Final products
-        { item = "PhobosChemistryPathways.RefinedBiodieselCan",    basePrice = 80,  tags = { "Fuel", "Uncommon" },                         stockRange = { min = 1, max = 3 } },
+        { item = "PhobosChemistryPathways.RefinedBiodieselCan",    basePrice = 120, tags = { "Fuel", "Uncommon" },                         stockRange = { min = 1, max = 2 } },
 
-        -- Key reagents
-        { item = "PhobosChemistryPathways.SulphurPowder",         basePrice = 15,  tags = { "Chemical", "Medical", "Common" },             stockRange = { min = 3, max = 8 } },
-        { item = "PhobosChemistryPathways.PotassiumNitratePowder", basePrice = 25,  tags = { "Chemical", "Uncommon" },                     stockRange = { min = 2, max = 6 } },
-        { item = "PhobosChemistryPathways.PotassiumHydroxide",    basePrice = 20,  tags = { "Chemical", "Uncommon" },                      stockRange = { min = 2, max = 5 } },
-        { item = "PhobosChemistryPathways.Potash",                basePrice = 8,   tags = { "Chemical", "Farming", "Common" },              stockRange = { min = 4, max = 10 } },
+        -- Key reagents (anchored to CarBattery1=80, Charcoal=15, Limestone=10)
+        { item = "PhobosChemistryPathways.SulphurPowder",         basePrice = 45,  tags = { "Chemical", "Medical", "Uncommon" },            stockRange = { min = 2, max = 5 } },
+        { item = "PhobosChemistryPathways.PotassiumNitratePowder", basePrice = 60,  tags = { "Chemical", "Uncommon" },                     stockRange = { min = 1, max = 4 } },
+        { item = "PhobosChemistryPathways.PotassiumHydroxide",    basePrice = 35,  tags = { "Chemical", "Uncommon" },                      stockRange = { min = 2, max = 5 } },
+        { item = "PhobosChemistryPathways.Potash",                basePrice = 15,  tags = { "Chemical", "Farming", "Common" },              stockRange = { min = 4, max = 10 } },
 
-        -- Carbon
-        { item = "PhobosChemistryPathways.CrushedCharcoal",       basePrice = 8,   tags = { "Chemical", "Common" },                        stockRange = { min = 5, max = 12 } },
-        { item = "PhobosChemistryPathways.PurifiedCharcoal",      basePrice = 18,  tags = { "Chemical", "Survival", "Common" },             stockRange = { min = 5, max = 15 } },
+        -- Carbon (anchored to Charcoal=15)
+        { item = "PhobosChemistryPathways.CrushedCharcoal",       basePrice = 12,  tags = { "Chemical", "Common" },                        stockRange = { min = 5, max = 12 } },
+        { item = "PhobosChemistryPathways.PurifiedCharcoal",      basePrice = 25,  tags = { "Chemical", "Survival", "Common" },             stockRange = { min = 5, max = 15 } },
         { item = "PhobosChemistryPathways.BoneChar",              basePrice = 20,  tags = { "Chemical", "Survival", "Common" },             stockRange = { min = 3, max = 10 } },
 
-        -- Intermediates
-        { item = "PhobosChemistryPathways.CrudeVegetableOil",     basePrice = 12,  tags = { "Chemical", "Herb", "Common" },                stockRange = { min = 3, max = 8 } },
-        { item = "PhobosChemistryPathways.RenderedFat",           basePrice = 10,  tags = { "Chemical", "Herb", "Common" },                 stockRange = { min = 3, max = 8 } },
-        { item = "PhobosChemistryPathways.WoodMethanol",          basePrice = 20,  tags = { "Chemical", "Alcohol", "Uncommon", "Illegal" }, stockRange = { min = 1, max = 3 } },
-        { item = "PhobosChemistryPathways.Glycerol",              basePrice = 10,  tags = { "Chemical", "Herb", "Common" },                 stockRange = { min = 3, max = 8 } },
-        { item = "PhobosChemistryPathways.CrudeSoap",             basePrice = 5,   tags = { "Chemical", "Medical", "Common" },              stockRange = { min = 4, max = 10 } },
-        { item = "PhobosChemistryPathways.Calcite",               basePrice = 4,   tags = { "Chemical", "Farming", "Common" },              stockRange = { min = 5, max = 12 } },
-        { item = "PhobosChemistryPathways.DilutedCompost",        basePrice = 6,   tags = { "Chemical", "Farming", "Common" },              stockRange = { min = 3, max = 8 } },
+        -- Intermediates (anchored to OilVegetable=15, Lard=10, Soap2=12)
+        { item = "PhobosChemistryPathways.CrudeVegetableOil",     basePrice = 20,  tags = { "Chemical", "Herb", "Common" },                stockRange = { min = 3, max = 8 } },
+        { item = "PhobosChemistryPathways.RenderedFat",           basePrice = 18,  tags = { "Chemical", "Herb", "Common" },                 stockRange = { min = 3, max = 8 } },
+        { item = "PhobosChemistryPathways.WoodMethanol",          basePrice = 40,  tags = { "Chemical", "Alcohol", "Uncommon", "Illegal" }, stockRange = { min = 1, max = 2 } },
+        { item = "PhobosChemistryPathways.Glycerol",              basePrice = 25,  tags = { "Chemical", "Herb", "Common" },                 stockRange = { min = 3, max = 8 } },
+        { item = "PhobosChemistryPathways.CrudeSoap",             basePrice = 15,  tags = { "Chemical", "Medical", "Common" },              stockRange = { min = 4, max = 10 } },
+        { item = "PhobosChemistryPathways.Calcite",               basePrice = 8,   tags = { "Chemical", "Farming", "Common" },              stockRange = { min = 5, max = 12 } },
+        { item = "PhobosChemistryPathways.DilutedCompost",        basePrice = 10,  tags = { "Chemical", "Farming", "Common" },              stockRange = { min = 3, max = 8 } },
 
-        -- Acid
-        { item = "PhobosChemistryPathways.SulphuricAcidJar",      basePrice = 35,  tags = { "Chemical", "Medical", "Rare", "Illegal" },    stockRange = { min = 1, max = 2 } },
+        -- Acid (anchored to CarBattery1=80; dangerous lab extraction)
+        { item = "PhobosChemistryPathways.SulphuricAcidJar",      basePrice = 80,  tags = { "Chemical", "Medical", "Rare", "Illegal" },    stockRange = { min = 1, max = 2 } },
 
         -- Salvage
-        { item = "PhobosChemistryPathways.LeadScrap",             basePrice = 6,   tags = { "Material", "Common" },                        stockRange = { min = 3, max = 8 } },
-        { item = "PhobosChemistryPathways.PlasticScrap",          basePrice = 3,   tags = { "Material", "Common" },                         stockRange = { min = 4, max = 10 } },
-        { item = "PhobosChemistryPathways.AcidWashedElectronics", basePrice = 12,  tags = { "Material", "Uncommon" },                       stockRange = { min = 2, max = 5 } },
+        { item = "PhobosChemistryPathways.LeadScrap",             basePrice = 8,   tags = { "Material", "Common" },                        stockRange = { min = 3, max = 8 } },
+        { item = "PhobosChemistryPathways.PlasticScrap",          basePrice = 5,   tags = { "Material", "Common" },                         stockRange = { min = 4, max = 10 } },
+        { item = "PhobosChemistryPathways.AcidWashedElectronics", basePrice = 25,  tags = { "Material", "Uncommon" },                       stockRange = { min = 1, max = 3 } },
 
-        -- Biodiesel
-        { item = "PhobosChemistryPathways.CrudeBiodiesel",        basePrice = 25,  tags = { "Chemical", "Fuel", "Uncommon" },               stockRange = { min = 2, max = 5 } },
-        { item = "PhobosChemistryPathways.WashedBiodiesel",       basePrice = 40,  tags = { "Chemical", "Fuel", "Uncommon" },               stockRange = { min = 1, max = 4 } },
+        -- Biodiesel (anchored to Oil→Methanol→KOH chain costs)
+        { item = "PhobosChemistryPathways.CrudeBiodiesel",        basePrice = 55,  tags = { "Chemical", "Fuel", "Uncommon" },               stockRange = { min = 1, max = 3 } },
+        { item = "PhobosChemistryPathways.WashedBiodiesel",       basePrice = 80,  tags = { "Chemical", "Fuel", "Uncommon" },               stockRange = { min = 1, max = 3 } },
 
-        -- Skill books (calibrated to DT tier scale)
+        -- Skill books (calibrated to DT tier scale — unchanged)
         { item = "PhobosChemistryPathways.BkChemistryPathways",   basePrice = 300, tags = { "Literature", "Rare" },                         stockRange = { min = 0, max = 1 } },
         { item = "PhobosChemistryPathways.BookAppliedChemistry1", basePrice = 50,  tags = { "Literature", "Common" },                       stockRange = { min = 1, max = 3 } },
         { item = "PhobosChemistryPathways.BookAppliedChemistry2", basePrice = 100, tags = { "Literature", "Uncommon" },                     stockRange = { min = 1, max = 2 } },
