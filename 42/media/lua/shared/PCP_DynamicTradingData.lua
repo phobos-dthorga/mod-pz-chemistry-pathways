@@ -25,7 +25,7 @@
 -- Registers:
 --   - 1 custom tag ("Chemical")
 --   - 1 trader archetype ("Chemist") with expertTags
---   - 27 tradeable items (reagents, intermediates, fuels, books)
+--   - 34 tradeable items (reagents, intermediates, fuels, agriculture, books)
 --   - Chemical allocations injected into 8 existing DT archetypes
 --
 -- Only runs when PhobosLib.isDynamicTradingActive() returns true.
@@ -138,6 +138,7 @@ local function registerPCPTradeData()
         { item = "PhobosChemistryPathways.CrudeVegetableOil",     basePrice = 20,  tags = { "Chemical", "Herb", "Common" },                stockRange = { min = 3, max = 8 } },
         { item = "PhobosChemistryPathways.RenderedFat",           basePrice = 18,  tags = { "Chemical", "Herb", "Common" },                 stockRange = { min = 3, max = 8 } },
         { item = "PhobosChemistryPathways.WoodMethanol",          basePrice = 40,  tags = { "Chemical", "Alcohol", "Uncommon", "Illegal" }, stockRange = { min = 1, max = 2 } },
+        { item = "PhobosChemistryPathways.WoodTar",              basePrice = 30,  tags = { "Chemical", "Survival", "Uncommon" },             stockRange = { min = 1, max = 3 } },
         { item = "PhobosChemistryPathways.Glycerol",              basePrice = 25,  tags = { "Chemical", "Herb", "Common" },                 stockRange = { min = 3, max = 8 } },
         { item = "PhobosChemistryPathways.CrudeSoap",             basePrice = 15,  tags = { "Chemical", "Medical", "Common" },              stockRange = { min = 4, max = 10 } },
         { item = "PhobosChemistryPathways.Calcite",               basePrice = 8,   tags = { "Chemical", "Farming", "Common" },              stockRange = { min = 5, max = 12 } },
@@ -154,6 +155,14 @@ local function registerPCPTradeData()
         -- Biodiesel (anchored to Oil→Methanol→KOH chain costs)
         { item = "PhobosChemistryPathways.CrudeBiodiesel",        basePrice = 55,  tags = { "Chemical", "Fuel", "Uncommon" },               stockRange = { min = 1, max = 3 } },
         { item = "PhobosChemistryPathways.WashedBiodiesel",       basePrice = 80,  tags = { "Chemical", "Fuel", "Uncommon" },               stockRange = { min = 1, max = 3 } },
+
+        -- Agriculture & downstream (new pathways connecting PCP to vanilla systems)
+        { item = "PhobosChemistryPathways.BoneMeal",               basePrice = 12,  tags = { "Chemical", "Farming", "Common" },              stockRange = { min = 4, max = 10 } },
+        { item = "PhobosChemistryPathways.ActivatedCarbon",        basePrice = 40,  tags = { "Chemical", "Survival", "Uncommon" },            stockRange = { min = 2, max = 5 } },
+        { item = "PhobosChemistryPathways.SulphurFungicideSpray",  basePrice = 30,  tags = { "Chemical", "Farming", "Common" },              stockRange = { min = 2, max = 5 } },
+        { item = "PhobosChemistryPathways.InsecticidalSoapSpray",  basePrice = 20,  tags = { "Chemical", "Farming", "Common" },              stockRange = { min = 2, max = 5 } },
+        { item = "PhobosChemistryPathways.PotashFoliarSpray",      basePrice = 20,  tags = { "Chemical", "Farming", "Common" },              stockRange = { min = 2, max = 5 } },
+        { item = "PhobosChemistryPathways.MineralFeedSupplement",  basePrice = 35,  tags = { "Farming", "Uncommon" },                        stockRange = { min = 1, max = 3 } },
 
         -- Skill books (calibrated to DT tier scale — unchanged)
         { item = "PhobosChemistryPathways.BkChemistryPathways",   basePrice = 300, tags = { "Literature", "Rare" },                         stockRange = { min = 0, max = 1 } },

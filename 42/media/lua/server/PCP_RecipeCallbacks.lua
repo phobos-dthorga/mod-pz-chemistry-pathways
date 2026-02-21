@@ -566,3 +566,94 @@ function PCP_RecipeCallbacks.pcpWashBiodieselPotPurity(items, result, player)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, 0.90)
     _stampAndAnnounce(result, player, purity)
 end
+
+
+---------------------------------------------------------------
+-- AGRICULTURE & DOWNSTREAM CALLBACKS (4)
+-- New pathways connecting PCP intermediates to vanilla systems.
+---------------------------------------------------------------
+
+--- A1: Grind BoneChar -> BoneMeal: propagation through mortar (factor 0.90).
+function PCP_RecipeCallbacks.pcpGrindBoneMealPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    local input = PCP_PuritySystem.averageInputPurity(items)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.mortar)
+    _stampAndAnnounce(result, player, purity)
+end
+
+--- B1: Activate Carbon (KOH process): propagation through chemistry set (factor 1.00).
+function PCP_RecipeCallbacks.pcpActivateCarbonPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    local input = PCP_PuritySystem.averageInputPurity(items)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet)
+    _stampAndAnnounce(result, player, purity)
+end
+
+--- D1: Synthesize Epoxy — Safe (filter degrade only, no purity on vanilla output)
+function PCP_RecipeCallbacks.pcpSynthesizeEpoxySafePurity(items, result, player)
+    if PCP_HazardSystem.isEnabled() then
+        PCP_HazardSystem.degradeFilterFromInputs(items)
+    end
+end
+
+--- D1: Synthesize Epoxy — Unsafe (resin_fumes only, no purity on vanilla output)
+function PCP_RecipeCallbacks.pcpSynthesizeEpoxyUnsafePurity(items, result, player)
+    PCP_HazardSystem.applyUnsafeEffect(player, "resin_fumes")
+end
+
+
+---------------------------------------------------------------
+-- VANILLA OUTPUT CALLBACKS (7)
+-- Yield scaling (purity->yield), secondary XP, and hazard
+-- callbacks for recipes that output vanilla items directly.
+---------------------------------------------------------------
+
+--- E1: Fire Starter Blocks -- input purity of fat/oil scales yield 2-4
+function PCP_RecipeCallbacks.pcpMakeFireStarterYield(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    local input = PCP_PuritySystem.averageInputPurity(items)
+    if input <= 0 then return end
+    PCP_PuritySystem.removeExcess(player, "Base.DryFirestarterBlock", 4, input)
+end
+
+--- E4: Duct Tape -- award Tailoring XP
+function PCP_RecipeCallbacks.pcpMakeDuctTapeXP(items, result, player)
+    if not player then return end
+    PhobosLib.addXP(player, Perks.Tailoring, 3)
+end
+
+--- E5: Matchbox -- input purity of SulphurPowder + KNO3 scales yield 2-4
+function PCP_RecipeCallbacks.pcpMakeMatchboxYield(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    local input = PCP_PuritySystem.averageInputPurity(items)
+    if input <= 0 then return end
+    PCP_PuritySystem.removeExcess(player, "Base.Matchbox", 4, input)
+end
+
+--- E5-Safe: Matchbox -- purity->yield + filter degrade
+function PCP_RecipeCallbacks.pcpMakeMatchboxSafe(items, result, player)
+    PCP_RecipeCallbacks.pcpMakeMatchboxYield(items, result, player)
+    if PCP_HazardSystem.isEnabled() then
+        PCP_HazardSystem.degradeFilterFromInputs(items)
+    end
+end
+
+--- E5-Unsafe: Matchbox -- purity->yield + acid_fumes hazard
+function PCP_RecipeCallbacks.pcpMakeMatchboxUnsafe(items, result, player)
+    PCP_RecipeCallbacks.pcpMakeMatchboxYield(items, result, player)
+    PCP_HazardSystem.applyUnsafeEffect(player, "acid_fumes")
+end
+
+--- F1: Distill Vinegar -- award Cooking XP
+function PCP_RecipeCallbacks.pcpDistillVinegarXP(items, result, player)
+    if not player then return end
+    PhobosLib.addXP(player, Perks.Cooking, 5)
+end
+
+--- F2: Chemical Tanning -- KOH purity affects yield 1-2
+function PCP_RecipeCallbacks.pcpChemicalTanningYield(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    local input = PCP_PuritySystem.averageInputPurity(items)
+    if input <= 0 then return end
+    PCP_PuritySystem.removeExcess(player, "Base.BrainTan", 2, input)
+end

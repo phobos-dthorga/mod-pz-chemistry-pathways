@@ -79,8 +79,8 @@ PCP_HazardSystem.HAZARDS = {
     caustic_vapor = {
         ehrDisease     = "corpse_sickness",
         ehrChance      = 0.35,
-        ehrSevere      = nil,
-        ehrSevereChance = 0,
+        ehrSevere      = "pneumonia",
+        ehrSevereChance = 0.04,
         vanillaSickness = 0.08,
         vanillaPain     = 0.02,
         vanillaStress   = 0.15,
@@ -105,6 +105,16 @@ PCP_HazardSystem.HAZARDS = {
         vanillaPain     = 0.05,
         vanillaStress   = 0.12,
         warningMsg      = "*cough* Toxic plastic fumes!",
+    },
+    resin_fumes = {
+        ehrDisease     = "corpse_sickness",
+        ehrChance      = 0.30,
+        ehrSevere      = "pneumonia",
+        ehrSevereChance = 0.04,
+        vanillaSickness = 0.08,
+        vanillaPain     = 0.03,
+        vanillaStress   = 0.10,
+        warningMsg      = "*cough* Resin fumes!",
     },
 }
 

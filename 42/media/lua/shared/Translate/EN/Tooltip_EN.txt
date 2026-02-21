@@ -41,4 +41,12 @@ Tooltip_EN = {
     Tooltip_PCP_RefinedBiodieselCan = "Home-refined biodiesel, suitable for use in engines.<br>Produced through transesterification and water-washing<br>of vegetable oil or animal fat.",
     Tooltip_PCP_BoneChar = "Porous carbon produced by pyrolysing animal bones in a sealed vessel.<br>Retains calcium phosphate matrix, giving it superior adsorption<br>properties compared to wood charcoal. Historically used for<br>sugar refining and water purification.",
     Tooltip_PCP_CrudeSoap = "Crude lye soap made from glycerol and caustic alkali.<br>Not pretty, but effective for cleaning and hygiene.",
+
+    /* ===== Agriculture & Downstream Tooltips ===== */
+    Tooltip_PCP_BoneMeal = "Ground bone char powder.<br>Rich in calcium and phosphorus.<br>Used in animal feed supplements and fertiliser.",
+    Tooltip_PCP_MineralFeedSupplement = "Mineral-enriched animal feed.<br>Provides essential calcium, phosphorus, and potassium.<br>Use to feed livestock.",
+    Tooltip_PCP_ActivatedCarbon = "Chemically activated carbon with high porosity.<br>Excellent adsorbent for water purification<br>and gas mask filtration.",
+    Tooltip_PCP_SulphurFungicideSpray = "Sulphur-based fungicide spray.<br>Prevents fungal diseases on crops.",
+    Tooltip_PCP_InsecticidalSoapSpray = "Soap-based insecticidal spray.<br>Controls soft-bodied insects on plants.",
+    Tooltip_PCP_PotashFoliarSpray = "Potassium-rich foliar spray.<br>Boosts plant growth and stress resistance.",
 }

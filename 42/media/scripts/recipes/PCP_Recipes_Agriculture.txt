@@ -1,0 +1,994 @@
+/*  ________________________________________________________________________
+ * / Copyright (c) 2026 Phobos A. D'thorga                                \
+ * |                                                                        |
+ * |           /\_/\                                                         |
+ * |         =/ o o \=    Phobos' PZ Modding                                |
+ * |          (  V  )     All rights reserved.                              |
+ * |     /\  / \   / \                                                      |
+ * |    /  \/   '-'   \   This source code is part of the Phobos            |
+ * |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+ * |  (__/    \_/ \/  \__)                                                  |
+ * |     |   | |  | |     Unauthorised copying, modification, or            |
+ * |     |___|_|  |_|     distribution of this file is prohibited.          |
+ * |                                                                        |
+ * \________________________________________________________________________/
+ */
+
+module Base
+{
+
+/* ==================================================================================== */
+/* ====================== AGRICULTURE & DOWNSTREAM APPLICATIONS ======================== */
+/* ==================================================================================== */
+/*  These recipes connect PCP intermediates (BoneChar, Potash, CrudeSoap, Glycerol,
+    SulphurPowder, PurifiedCharcoal, PotassiumHydroxide, Calcite) to vanilla gameplay
+    systems: gardening (pest sprays), animal husbandry (feed supplements), water
+    purification, gas mask filtration, and structural crafting (epoxy).
+
+    6 pathways, 31 recipes total:
+      - Pathway C: Garden Pest Sprays (3 recipes)
+      - Pathway A: Mineral Feed Supplement (3 recipes)
+      - Pathway B: Water Purification & Filtration (4 recipes)
+      - Pathway D: Epoxy Resin Synthesis (6 recipes)
+      - Pathway E: Vanilla Quick Wins — fire starters, lighter fluid,
+                   slug repellent, duct tape, matchboxes (7 recipes)
+      - Pathway F: Vanilla Moderate — wood vinegar, chemical tanning,
+                   plaster powder (8 recipes)                                          */
+
+
+/* ==================================================================================== */
+/* =================== PATHWAY C: GARDEN PEST SPRAYS =================================== */
+/* ==================================================================================== */
+/*  SulphurPowder, CrudeSoap, and Potash have real-world agricultural uses as
+    antifungals, insecticidal soaps, and foliar fertiliser sprays respectively.
+    These recipes produce functional B42 gardening sprays via PhobosLib's
+    registerFarmingSpray() API (monkey-patches ISFarmingMenu/CFarming_Interact).        */
+
+
+/* ----- C1: SULPHUR FUNGICIDE SPRAY ----- */
+/*  Sulphur suspension in water — classic antifungal for crop mildew.
+    Maps to vanilla Mildew cure (replaces GardeningSprayMilk).                          */
+
+    craftRecipe PCPMakeSulphurFungicideSpray
+    {
+        time = 100,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:2;Farming:1,
+        xpAward = AppliedChemistry:15;Farming:10,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.SulphurPowder] mode:destroy,
+            item 1 [Base.GardeningSprayEmpty] mode:destroy,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.SulphurFungicideSpray,
+        }
+    }
+
+/* ----- C2: INSECTICIDAL SOAP SPRAY ----- */
+/*  Dilute soap solution — disrupts soft-bodied insect cuticles.
+    Maps to vanilla Aphids cure (replaces GardeningSprayAphids).                        */
+
+    craftRecipe PCPMakeInsecticidalSoapSpray
+    {
+        time = 100,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:2;Farming:1,
+        xpAward = AppliedChemistry:15;Farming:10,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.CrudeSoap] mode:destroy,
+            item 1 [Base.GardeningSprayEmpty] mode:destroy,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.InsecticidalSoapSpray,
+        }
+    }
+
+/* ----- C3: POTASH FOLIAR SPRAY ----- */
+/*  Potassium-rich foliar spray — disrupts pest feeding and boosts plant
+    stress resistance. Maps to vanilla Flies cure (replaces GardeningSprayCigarettes).  */
+
+    craftRecipe PCPMakePotashFoliarSpray
+    {
+        time = 100,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:2;Farming:1,
+        xpAward = AppliedChemistry:15;Farming:10,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.Potash] mode:destroy,
+            item 1 [Base.GardeningSprayEmpty] mode:destroy,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.PotashFoliarSpray,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* =================== PATHWAY A: MINERAL FEED SUPPLEMENT ============================== */
+/* ==================================================================================== */
+/*  BoneChar and Calcite provide calcium, phosphorus, and mineral salts for
+    animal feed. BoneMeal is a purity-tracked intermediate; MineralFeedSupplement
+    is a drainable with AnimalFeedType=AnimalFeed for B42 livestock integration.        */
+
+
+/* ----- A1: GRIND BONE CHAR TO BONE MEAL (mortar) ----- */
+/*  Mechanical grinding of bone char into fine powder. Purity propagated
+    through mortar (factor 0.90 — slight degradation from grinding).                    */
+
+    craftRecipe PCPGrindBoneMeal
+    {
+        time = 80,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpGrindBoneMealPurity,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = MixingMortarPestle,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10;Farming:5,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 1 tags[base:mortarpestle] mode:keep flags[MayDegradeLight],
+            item 2 [PhobosChemistryPathways.BoneChar] mode:destroy,
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.BoneMeal,
+        }
+    }
+
+/* ----- A2: MIX MINERAL FEED SUPPLEMENT ----- */
+/*  Bone meal + calcite + base feed → enriched mineral feed for livestock.
+    No purity tracking on output (drainable animal feed item).                          */
+
+    craftRecipe PCPMixMineralFeedSupplement
+    {
+        time = 150,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:2;Farming:2,
+        xpAward = AppliedChemistry:15;Farming:15,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.BoneMeal] mode:destroy,
+            item 2 [PhobosChemistryPathways.Calcite] mode:destroy,
+            item 1 [Base.EmptySandbag] mode:destroy,
+            item 1 [Base.AnimalFeedBag;Base.GrassBag] mode:destroy,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.MineralFeedSupplement,
+        }
+    }
+
+/* ----- A3: BONE MEAL FERTILISER ----- */
+/*  Large quantity of bone meal packed into a bag → compost.
+    Gives PCP bone products an agriculture endpoint.                                    */
+
+    craftRecipe PCPMakeBoneMealFertiliser
+    {
+        time = 100,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:1;Farming:1,
+        xpAward = AppliedChemistry:10;Farming:10,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 6 [PhobosChemistryPathways.BoneMeal] mode:destroy,
+            item 1 [Base.EmptySandbag] mode:destroy,
+        }
+        outputs
+        {
+            item 1 Base.CompostBag,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* =================== PATHWAY B: WATER PURIFICATION & FILTRATION ====================== */
+/* ==================================================================================== */
+/*  Activated carbon (from PurifiedCharcoal or BoneChar via KOH chemical activation)
+    is the real-world basis for water purification and gas mask filtration.
+    ActivatedCarbon carries Tags=base:charcoal, so it also works as a drop-in
+    substitute in vanilla charcoal recipes (MakeCraftedGasMaskFilter, RechargeFilters). */
+
+
+/* ----- B1: ACTIVATE CARBON — KOH PROCESS (with heat) ----- */
+/*  Chemical activation with potassium hydroxide at high temperature.
+    Creates highly porous carbon for adsorption applications.
+    Purity propagated through chemistry set (factor 1.00 — neutral).                    */
+
+    craftRecipe PCPActivateCarbon
+    {
+        time = 200,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpActivateCarbonPurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:25,
+        AutoLearnAll = AppliedChemistry:5,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar] mode:destroy,
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.ActivatedCarbon,
+        }
+    }
+
+/* ----- B1-Simple: ACTIVATE CARBON — KOH PROCESS (no heat) ----- */
+
+    craftRecipe PCPActivateCarbonSimple
+    {
+        time = 200,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpActivateCarbonPurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:25,
+        AutoLearnAll = AppliedChemistry:5,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar] mode:destroy,
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.ActivatedCarbon,
+        }
+    }
+
+/* ----- B2: MAKE WATER PURIFICATION TABLETS ----- */
+/*  Activated carbon + calcite binder pressed into tablet form.
+    Output is vanilla WaterPurificationTablets (Tags=base:purifywater).
+    No purity tracking (vanilla output).                                                */
+
+    craftRecipe PCPMakeWaterPurificationTablets
+    {
+        time = 150,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:20;Doctor:10,
+        AutoLearnAll = AppliedChemistry:5,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.ActivatedCarbon] mode:destroy,
+            item 1 [PhobosChemistryPathways.Calcite] mode:destroy,
+            item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+        }
+        outputs
+        {
+            item 1 Base.WaterPurificationTablets,
+        }
+    }
+
+/* ----- B3: MAKE IMPROVED GAS MASK FILTER ----- */
+/*  Lab-produced activated carbon filter — cleaner process than vanilla recipe.
+    Drops tape/pliers/saw requirements in favour of chemistry set + AppliedChemistry.
+    Output is vanilla GasmaskFilterCrafted.                                             */
+
+    craftRecipe PCPMakeImprovedGasMaskFilter
+    {
+        time = 120,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:5,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.ActivatedCarbon] mode:destroy,
+            item 1 tags[base:emptycan] flags[IsEmpty;ItemCount],
+            item 1 [Base.Sponge],
+            item 1 [Base.RippedSheets] mode:destroy,
+            item 1 tags[base:glue],
+        }
+        outputs
+        {
+            item 1 Base.GasmaskFilterCrafted,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* =================== PATHWAY D: EPOXY RESIN SYNTHESIS ================================ */
+/* ==================================================================================== */
+/*  Epoxy (Base.Epoxy) is a high-value structural adhesive in B42. Real epoxy synthesis
+    involves glycerol-derived intermediates reacted with an alkaline hardener. PCP
+    already produces Glycerol and KOH — a natural fit for late-game crafting.
+
+    6 recipe variants: 2 heat states x 3 hazard states (base/safe/unsafe).
+    Base variants visible when hazards OFF; Safe/Unsafe visible when hazards ON.
+    Resin fumes are a mild hazard: gloves + goggles for Safe (no mask required).        */
+
+
+/* ----- D1: SYNTHESIZE EPOXY RESIN (with heat, no hazard) ----- */
+
+    craftRecipe PCPSynthesizeEpoxy
+    {
+        time = 250,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        SkillRequired = AppliedChemistry:5,
+        xpAward = AppliedChemistry:40,
+        AutoLearnAll = AppliedChemistry:8,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.Glycerol] mode:destroy,
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
+            item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+        }
+        outputs
+        {
+            item 2 Base.Epoxy,
+        }
+    }
+
+/* ----- D1-Simple: SYNTHESIZE EPOXY RESIN (no heat, no hazard) ----- */
+
+    craftRecipe PCPSynthesizeEpoxySimple
+    {
+        time = 250,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        SkillRequired = AppliedChemistry:5,
+        xpAward = AppliedChemistry:40,
+        AutoLearnAll = AppliedChemistry:8,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.Glycerol] mode:destroy,
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
+            item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+        }
+        outputs
+        {
+            item 2 Base.Epoxy,
+        }
+    }
+
+/* ----- D1-Safe: SYNTHESIZE EPOXY RESIN — SAFE (with heat) ----- */
+/*  Resin fumes are a mild inhalation/contact hazard. Gloves + goggles provide
+    adequate protection (no respirator required).                                       */
+
+    craftRecipe PCPSynthesizeEpoxySafe
+    {
+        time = 250,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpSynthesizeEpoxySafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        SkillRequired = AppliedChemistry:5,
+        xpAward = AppliedChemistry:40,
+        AutoLearnAll = AppliedChemistry:8,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.Glycerol] mode:destroy,
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
+            item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+        }
+        outputs
+        {
+            item 2 Base.Epoxy,
+        }
+    }
+
+/* ----- D1-Unsafe: SYNTHESIZE EPOXY RESIN — UNSAFE (with heat) ----- */
+
+    craftRecipe PCPSynthesizeEpoxyUnsafe
+    {
+        time = 250,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpSynthesizeEpoxyUnsafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        SkillRequired = AppliedChemistry:5,
+        xpAward = AppliedChemistry:40,
+        AutoLearnAll = AppliedChemistry:8,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.Glycerol] mode:destroy,
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
+            item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+        }
+        outputs
+        {
+            item 2 Base.Epoxy,
+        }
+    }
+
+/* ----- D1-SimpleSafe: SYNTHESIZE EPOXY RESIN — SAFE (no heat) ----- */
+
+    craftRecipe PCPSynthesizeEpoxySimpleSafe
+    {
+        time = 250,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpSynthesizeEpoxySafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        SkillRequired = AppliedChemistry:5,
+        xpAward = AppliedChemistry:40,
+        AutoLearnAll = AppliedChemistry:8,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.Glycerol] mode:destroy,
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
+            item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 Base.Epoxy,
+        }
+    }
+
+/* ----- D1-SimpleUnsafe: SYNTHESIZE EPOXY RESIN — UNSAFE (no heat) ----- */
+
+    craftRecipe PCPSynthesizeEpoxySimpleUnsafe
+    {
+        time = 250,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpSynthesizeEpoxyUnsafePurity,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        SkillRequired = AppliedChemistry:5,
+        xpAward = AppliedChemistry:40,
+        AutoLearnAll = AppliedChemistry:8,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.Glycerol] mode:destroy,
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
+            item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 Base.Epoxy,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* =================== PATHWAY E: VANILLA QUICK WINS ==================================== */
+/* ==================================================================================== */
+/*  Recipes that output vanilla items directly, connecting PCP intermediates to
+    widely-used vanilla gameplay systems. Zero new PCP items needed.                      */
+
+
+/* ----- E1: DRY FIRE STARTER BLOCKS ----- */
+/*  Fat-impregnated charcoal blocks — real bushcraft technique. Rendered fat or
+    vegetable oil absorbed into crushed charcoal and bound with cloth strips.
+    Output purity of fat/oil inputs affects yield (2-4 blocks).                           */
+
+    craftRecipe PCPMakeFireStarterBlocks
+    {
+        time = 80,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeFireStarterYield,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:8,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.RenderedFat;PhobosChemistryPathways.CrudeVegetableOil] mode:destroy,
+            item 2 [PhobosChemistryPathways.CrushedCharcoal;Base.Charcoal] mode:destroy,
+            item 1 [Base.RippedSheets] mode:destroy,
+        }
+        outputs
+        {
+            item 4 Base.DryFirestarterBlock,
+        }
+    }
+
+/* ----- E2: LIGHTER FLUID FROM WOOD METHANOL ----- */
+/*  Methanol is a volatile hydrocarbon suitable as lighter fuel. Simple transfer
+    into a lighter fluid container. Gives WoodMethanol a third downstream use
+    (biodiesel + tar torch + lighter fluid).                                              */
+
+    craftRecipe PCPMakeLighterFluid
+    {
+        time = 40,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:5,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.WoodMethanol] mode:destroy,
+        }
+        outputs
+        {
+            item 1 Base.LighterFluid,
+        }
+    }
+
+/* ----- E3: SLUG REPELLENT FROM CALCITE ----- */
+/*  Lime/calcium carbonate dehydrates soft-bodied gastropods — real gardening
+    technique. Registered with PhobosLib.registerFarmingSpray() to appear in
+    the farming "Treat Problem" submenu and respond to the Interact hotkey.               */
+
+    craftRecipe PCPMakeSlugRepellent
+    {
+        time = 100,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:1;Farming:1,
+        xpAward = AppliedChemistry:10;Farming:10,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.Calcite;Base.Quicklime] mode:destroy,
+            item 1 [Base.GardeningSprayEmpty] mode:destroy,
+            item 1 [*],
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 1 Base.SlugRepellent,
+        }
+    }
+
+/* ----- E4: IMPROVISED DUCT TAPE ----- */
+/*  Glue-saturated fabric strips — post-apocalyptic improvisation. Not chemically
+    identical to real duct tape (rubber adhesive + PE + cloth scrim) but plausible
+    as a gameplay-oriented alternative. Uses tags[base:glue] so both PCP Glue
+    (PCPMeltPlasticToGlue) and WoodGlue (PCPMakeWoodGlue) work as inputs.
+    Awards Tailoring XP via PhobosLib.addXP().                                            */
+
+    craftRecipe PCPMakeImprovisedDuctTape
+    {
+        time = 60,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeDuctTapeXP,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:8,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 1 tags[base:glue],
+            item 2 [Base.RippedSheets] mode:destroy,
+        }
+        outputs
+        {
+            item 2 Base.DuctTape,
+        }
+    }
+
+/* ----- E5: MATCHBOX FROM CHEMISTRY (base — no hazard) ----- */
+/*  Match heads: sulphur + KNO3 (oxidiser) + bone char (phosphorus source from
+    tricalcium phosphate). Input purity of SulphurPowder + KNO3 scales output
+    from 2-4 matchboxes. Mixing produces SO2 — hazard variants exist.                    */
+
+    craftRecipe PCPMakeMatchbox
+    {
+        time = 200,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeMatchboxYield,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:25,
+        AutoLearnAll = AppliedChemistry:5,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.SulphurPowder] mode:destroy,
+            item 1 [PhobosChemistryPathways.PotassiumNitratePowder] mode:destroy,
+            item 1 [PhobosChemistryPathways.BoneChar] mode:destroy,
+            item 2 [Base.TreeBranch2;Base.WoodenStick2] mode:destroy,
+        }
+        outputs
+        {
+            item 4 Base.Matchbox,
+        }
+    }
+
+/* ----- E5-Safe: MATCHBOX — PROTECTED (hazard ON) ----- */
+
+    craftRecipe PCPMakeMatchboxSafe
+    {
+        time = 200,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeMatchboxSafe,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:25,
+        AutoLearnAll = AppliedChemistry:5,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.SulphurPowder] mode:destroy,
+            item 1 [PhobosChemistryPathways.PotassiumNitratePowder] mode:destroy,
+            item 1 [PhobosChemistryPathways.BoneChar] mode:destroy,
+            item 2 [Base.TreeBranch2;Base.WoodenStick2] mode:destroy,
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 tags[base:gasmaskfilter] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 4 Base.Matchbox,
+        }
+    }
+
+/* ----- E5-Unsafe: MATCHBOX — UNPROTECTED (hazard ON) ----- */
+
+    craftRecipe PCPMakeMatchboxUnsafe
+    {
+        time = 200,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpMakeMatchboxUnsafe,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:25,
+        AutoLearnAll = AppliedChemistry:5,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.SulphurPowder] mode:destroy,
+            item 1 [PhobosChemistryPathways.PotassiumNitratePowder] mode:destroy,
+            item 1 [PhobosChemistryPathways.BoneChar] mode:destroy,
+            item 2 [Base.TreeBranch2;Base.WoodenStick2] mode:destroy,
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 4 Base.Matchbox,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* =================== PATHWAY F: VANILLA MODERATE ADDITIONS ============================ */
+/* ==================================================================================== */
+/*  Recipes requiring heat variants and/or more complex chemistry that connect PCP
+    intermediates to vanilla food preservation, leather crafting, and construction.        */
+
+
+/* ----- F1: WOOD VINEGAR (with heat) ----- */
+/*  Pyroligneous acid (wood vinegar) is a real co-product of destructive wood
+    distillation — the same process PCP uses for WoodMethanol. The acetic acid
+    fraction can be separated from WoodTar by aqueous extraction + reflux.
+    Awards Cooking XP via PhobosLib — distilling food-grade acid teaches chemistry.       */
+
+    craftRecipe PCPDistillVinegar
+    {
+        time = 200,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpDistillVinegarXP,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.WoodTar] mode:destroy,
+            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.JarLid] mode:destroy,
+            item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            -fluid 0.3 [Water],
+        }
+        outputs
+        {
+            item 1 Base.Vinegar2,
+        }
+    }
+
+/* ----- F1-Simple: WOOD VINEGAR (no heat) ----- */
+
+    craftRecipe PCPDistillVinegarSimple
+    {
+        time = 200,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpDistillVinegarXP,
+
+        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
+        timedAction = zReVAC2TimedActionChem1,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.WoodTar] mode:destroy,
+            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.JarLid] mode:destroy,
+            -fluid 0.3 [Water],
+        }
+        outputs
+        {
+            item 1 Base.Vinegar2,
+        }
+    }
+
+/* ----- F2: CHEMICAL TANNING AGENT (with heat) ----- */
+/*  Lime tanning — soaking hides in Ca(OH)2 (slaked lime = quicklime + water) +
+    KOH solution. One of the oldest leather processing techniques. Output yield
+    scales with KOH input purity (1-2 tanning units).                                    */
+
+    craftRecipe PCPChemicalTanning
+    {
+        time = 250,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpChemicalTanningYield,
+
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
+        SkillRequired = AppliedChemistry:2;Tailoring:1,
+        xpAward = AppliedChemistry:20;Tailoring:10,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 2 [Base.Quicklime] mode:destroy,
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
+            item 1 [*],
+            -fluid 1.0 [Water],
+        }
+        outputs
+        {
+            item 2 Base.BrainTan,
+        }
+    }
+
+/* ----- F2-Simple: CHEMICAL TANNING AGENT (no heat) ----- */
+
+    craftRecipe PCPChemicalTanningSimple
+    {
+        time = 250,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpChemicalTanningYield,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:2;Tailoring:1,
+        xpAward = AppliedChemistry:20;Tailoring:10,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 2 [Base.Quicklime] mode:destroy,
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
+            item 1 [*],
+            -fluid 1.0 [Water],
+        }
+        outputs
+        {
+            item 2 Base.BrainTan,
+        }
+    }
+
+/* ----- F3: PLASTER POWDER (Charcoal Fuel) ----- */
+/*  CaCO3 (Calcite) + H2SO4 -> CaSO4 (gypsum) + CO2 + H2O. Calcination of
+    gypsum produces plaster of Paris. Simplified to a single step.
+    Follows the PCPCalcineCalcite fuel variant pattern.                                   */
+
+    craftRecipe PCPMakePlasterPowder
+    {
+        time = 200,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = DomeKiln;CannotBeResearched,
+        timedAction = Making_With_Kiln,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:25,
+        AutoLearnAll = AppliedChemistry:5,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
+            item 1 [PhobosChemistryPathways.SulphuricAcidJar;PhobosChemistryPathways.SulphuricAcidBottle] mode:destroy,
+            item 3 tags[base:charcoal] mode:destroy,
+            item 1 tags[base:startfire],
+        }
+        outputs
+        {
+            item 1 Base.PlasterPowder,
+        }
+    }
+
+/* ----- F3: PLASTER POWDER (Coke Fuel) ----- */
+
+    craftRecipe PCPMakePlasterPowderCoke
+    {
+        time = 200,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = DomeKiln;CannotBeResearched,
+        timedAction = Making_With_Kiln,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:25,
+        AutoLearnAll = AppliedChemistry:5,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
+            item 1 [PhobosChemistryPathways.SulphuricAcidJar;PhobosChemistryPathways.SulphuricAcidBottle] mode:destroy,
+            item 1 [Base.Coke] mode:destroy,
+            item 1 tags[base:startfire],
+        }
+        outputs
+        {
+            item 1 Base.PlasterPowder,
+        }
+    }
+
+/* ----- F3: PLASTER POWDER (Propane) ----- */
+
+    craftRecipe PCPMakePlasterPowderPropane
+    {
+        time = 200,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpReturnPartialPropane,
+
+        Tags = DomeKiln;CannotBeResearched,
+        timedAction = Making_With_Kiln,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:25,
+        AutoLearnAll = AppliedChemistry:5,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
+            item 1 [PhobosChemistryPathways.SulphuricAcidJar;PhobosChemistryPathways.SulphuricAcidBottle] mode:destroy,
+            item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
+        }
+        outputs
+        {
+            item 1 Base.PlasterPowder,
+        }
+    }
+
+/* ----- F3-Simple: PLASTER POWDER (No Fuel) ----- */
+
+    craftRecipe PCPMakePlasterPowderSimple
+    {
+        time = 200,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = DomeKiln;CannotBeResearched,
+        timedAction = Making_With_Kiln,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:25,
+        AutoLearnAll = AppliedChemistry:5,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
+            item 1 [PhobosChemistryPathways.SulphuricAcidJar;PhobosChemistryPathways.SulphuricAcidBottle] mode:destroy,
+        }
+        outputs
+        {
+            item 1 Base.PlasterPowder,
+        }
+    }
+
+}

@@ -61,6 +61,14 @@ ItemName_EN = {
     /* ===== Biodiesel Pathway Items — Soap ===== */
     ItemName_PhobosChemistryPathways.CrudeSoap = "Crude Lye Soap",
 
+    /* ===== Agriculture & Downstream Applications ===== */
+    ItemName_PhobosChemistryPathways.BoneMeal = "Bone Meal",
+    ItemName_PhobosChemistryPathways.MineralFeedSupplement = "Mineral Feed Supplement",
+    ItemName_PhobosChemistryPathways.ActivatedCarbon = "Activated Carbon",
+    ItemName_PhobosChemistryPathways.SulphurFungicideSpray = "Sulphur Fungicide Spray",
+    ItemName_PhobosChemistryPathways.InsecticidalSoapSpray = "Insecticidal Soap Spray",
+    ItemName_PhobosChemistryPathways.PotashFoliarSpray = "Potash Foliar Spray",
+
     /* ===== Skill Books ===== */
     ItemName_PhobosChemistryPathways.BookAppliedChemistry1 = "Applied Chemistry Vol. 1",
     ItemName_PhobosChemistryPathways.BookAppliedChemistry2 = "Applied Chemistry Vol. 2",

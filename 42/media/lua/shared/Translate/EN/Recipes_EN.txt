@@ -200,4 +200,41 @@ Recipes_EN = {
     Recipe_PCPExtractBatteryAcidUnsafe = "4. Extract Battery Acid (No Mask!)",
     Recipe_PCPAcidWashElectronicsSafe = "U2. Acid-Wash Electronics (Protected)",
     Recipe_PCPAcidWashElectronicsUnsafe = "U2. Acid-Wash Electronics (No Mask!)",
+
+    /* ===== Agriculture & Downstream Recipes ===== */
+    Recipe_PCPMakeSulphurFungicideSpray = "8a. Make Sulphur Fungicide Spray",
+    Recipe_PCPMakeInsecticidalSoapSpray = "8b. Make Insecticidal Soap Spray",
+    Recipe_PCPMakePotashFoliarSpray = "8c. Make Potash Foliar Spray",
+    Recipe_PCPGrindBoneMeal = "8d. Grind Bone Meal",
+    Recipe_PCPMixMineralFeedSupplement = "8e. Mix Mineral Feed Supplement",
+    Recipe_PCPMakeBoneMealFertiliser = "8f. Make Bone Meal Fertiliser",
+    Recipe_PCPActivateCarbon = "8g. Activate Carbon (KOH Process)",
+    Recipe_PCPActivateCarbonSimple = "8g. Activate Carbon (KOH Process)",
+    Recipe_PCPMakeWaterPurificationTablets = "8h. Make Water Purification Tablets",
+    Recipe_PCPMakeImprovedGasMaskFilter = "8i. Make Improved Gas Mask Filter",
+    Recipe_PCPSynthesizeEpoxy = "8j. Synthesize Epoxy Resin",
+    Recipe_PCPSynthesizeEpoxySimple = "8j. Synthesize Epoxy Resin",
+    Recipe_PCPSynthesizeEpoxySafe = "8j. Synthesize Epoxy Resin (Protected)",
+    Recipe_PCPSynthesizeEpoxySimpleSafe = "8j. Synthesize Epoxy Resin (Protected)",
+    Recipe_PCPSynthesizeEpoxyUnsafe = "8j. Synthesize Epoxy Resin (Unprotected)",
+    Recipe_PCPSynthesizeEpoxySimpleUnsafe = "8j. Synthesize Epoxy Resin (Unprotected)",
+
+    /* ===== Vanilla Quick Wins (Pathway E) ===== */
+    Recipe_PCPMakeFireStarterBlocks = "9a. Make Dry Fire Starter Blocks",
+    Recipe_PCPMakeLighterFluid = "9b. Make Lighter Fluid (Methanol)",
+    Recipe_PCPMakeSlugRepellent = "9c. Make Slug Repellent",
+    Recipe_PCPMakeImprovisedDuctTape = "9d. Make Improvised Duct Tape",
+    Recipe_PCPMakeMatchbox = "9e. Make Matchbox",
+    Recipe_PCPMakeMatchboxSafe = "9e. Make Matchbox (Protected)",
+    Recipe_PCPMakeMatchboxUnsafe = "9e. Make Matchbox (No Mask!)",
+
+    /* ===== Vanilla Moderate (Pathway F) ===== */
+    Recipe_PCPDistillVinegar = "10a. Distill Wood Vinegar",
+    Recipe_PCPDistillVinegarSimple = "10a. Distill Wood Vinegar",
+    Recipe_PCPChemicalTanning = "10b. Prepare Chemical Tanning Agent",
+    Recipe_PCPChemicalTanningSimple = "10b. Prepare Chemical Tanning Agent",
+    Recipe_PCPMakePlasterPowder = "10c. Make Plaster Powder (Charcoal)",
+    Recipe_PCPMakePlasterPowderCoke = "10c. Make Plaster Powder (Coke)",
+    Recipe_PCPMakePlasterPowderPropane = "10c. Make Plaster Powder (Propane)",
+    Recipe_PCPMakePlasterPowderSimple = "10c. Make Plaster Powder",
 }

@@ -632,6 +632,83 @@ module PhobosChemistryPathways {
 		WorldStaticModel = Soap_Ground,
 	}
 
+/* ============================== AGRICULTURE & DOWNSTREAM APPLICATIONS ============================== */
+/*  Items produced from PCP intermediates for farming, animal husbandry,
+    water purification, and structural crafting.                               */
+
+	item BoneMeal {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_BoneChar,
+		Weight = 0.2,
+		ConditionMax = 100,
+		Tooltip = Tooltip_PCP_BoneMeal,
+		WorldStaticModel = GunpowderJar,
+	}
+
+	item MineralFeedSupplement {
+		DisplayCategory = Gardening,
+		ItemType = base:drainable,
+		Icon = AnimalFeed,
+		Weight = 4.0,
+		UseDelta = 0.01,
+		ReplaceOnDeplete = Base.EmptySandbag,
+		AnimalFeedType = AnimalFeed,
+		ConditionMax = 1,
+		SurvivalGear = true,
+		ReplaceInSecondHand = Bag_Sandbag_LHand holdingbagleft,
+		ReplaceInPrimaryHand = Bag_Sandbag_RHand holdingbagright,
+		WorldStaticModel = CompostBag,
+		Tags = base:farmingloot,
+	}
+
+	item ActivatedCarbon {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_purified_charcoal,
+		Weight = 0.2,
+		ConditionMax = 100,
+		Tooltip = Tooltip_PCP_ActivatedCarbon,
+		WorldStaticModel = Charcoal_Ground,
+		Tags = base:charcoal,
+	}
+
+	item SulphurFungicideSpray {
+		DisplayCategory = Gardening,
+		ItemType = base:drainable,
+		Icon = TZ_GardeningSprayCan,
+		Weight = 1.0,
+		UseDelta = 0.1,
+		ReplaceOnDeplete = Base.GardeningSprayEmpty,
+		UseWhileEquipped = false,
+		StaticModel = GardenSpray,
+		WorldStaticModel = GardenSprayGround,
+	}
+
+	item InsecticidalSoapSpray {
+		DisplayCategory = Gardening,
+		ItemType = base:drainable,
+		Icon = TZ_GardeningSprayCan,
+		Weight = 1.0,
+		UseDelta = 0.1,
+		ReplaceOnDeplete = Base.GardeningSprayEmpty,
+		UseWhileEquipped = false,
+		StaticModel = GardenSpray,
+		WorldStaticModel = GardenSprayGround,
+	}
+
+	item PotashFoliarSpray {
+		DisplayCategory = Gardening,
+		ItemType = base:drainable,
+		Icon = TZ_GardeningSprayCan,
+		Weight = 1.0,
+		UseDelta = 0.1,
+		ReplaceOnDeplete = Base.GardeningSprayEmpty,
+		UseWhileEquipped = false,
+		StaticModel = GardenSpray,
+		WorldStaticModel = GardenSprayGround,
+	}
+
 /* ============================== BOOKS ============================== */
 
 	item BkChemistryPathways {
@@ -640,7 +717,7 @@ module PhobosChemistryPathways {
 		Weight = 1.0,
 		Icon = PCP_BkChemistryPathways,
 		NumberOfPages = 480,
-		LearnedRecipes = PCPCrushCharcoal;PCPPurifyCharcoalWater;PCPPurifyCharcoalWaterSimple;PCPPurifyCharcoalWaterPot;PCPPurifyCharcoalNaOH;PCPPurifyCharcoalNaOHSimple;PCPPurifyCharcoalNaOHPot;PCPPrepareDilutedCompost;PCPPrepareDilutedCompostDung;PCPExtractBatteryAcid;PCPExtractSulphurFromAcidCan;PCPExtractSulphurFromAcidCanSimple;PCPExtractSulphurFromAcidFluid;PCPExtractSulphurFromAcidFluidSimple;PCPSynthesizeKNO3Fertilizer;PCPSynthesizeKNO3FertilizerSimple;PCPSynthesizeKNO3FertilizerPot;PCPSynthesizeKNO3Compost;PCPSynthesizeKNO3CompostSimple;PCPSynthesizeKNO3CompostPot;PCPMixBlackpowder;PCPCutPlasticScrap;PCPAcidWashElectronics;PCPPressOilSoybeansMortar;PCPPressOilSunflowerMortar;PCPPressOilCornMortar;PCPPressOilFlaxMortar;PCPPressOilHempMortar;PCPPressOilPeanutMortar;PCPPressOilSoybeansLab;PCPPressOilSoybeansLabSimple;PCPPressOilSoybeansLabPot;PCPPressOilSunflowerLab;PCPPressOilSunflowerLabSimple;PCPPressOilSunflowerLabPot;PCPPressOilCornLab;PCPPressOilCornLabSimple;PCPPressOilCornLabPot;PCPPressOilFlaxLab;PCPPressOilFlaxLabSimple;PCPPressOilFlaxLabPot;PCPPressOilHempLab;PCPPressOilHempLabSimple;PCPPressOilHempLabPot;PCPPressOilPeanutLab;PCPPressOilPeanutLabSimple;PCPPressOilPeanutLabPot;PCPPressOilSoybeansBulk;PCPPressOilSunflowerBulk;PCPPressOilCornBulk;PCPPressOilFlaxBulk;PCPPressOilHempBulk;PCPPressOilPeanutBulk;PCPConvertVegetableOil;PCPRenderFat;PCPRenderFatSimple;PCPRenderFatPot;PCPRenderFatFromMeat;PCPDistillMethanol;PCPDistillMethanolSimple;PCPSynthesizeKOH;PCPSynthesizeKOHSimple;PCPTransesterifyOil;PCPTransesterifyOilSimple;PCPTransesterifyFat;PCPTransesterifyFatSimple;PCPTransesterifyOilBulk;PCPTransesterifyOilBulkCoke;PCPTransesterifyOilBulkPropane;PCPTransesterifyOilBulkSimple;PCPTransesterifyFatBulk;PCPTransesterifyFatBulkCoke;PCPTransesterifyFatBulkPropane;PCPTransesterifyFatBulkSimple;PCPTransesterifyOilNaOH;PCPTransesterifyOilNaOHSimple;PCPTransesterifyFatNaOH;PCPTransesterifyFatNaOHSimple;PCPTransesterifyOilBulkNaOH;PCPTransesterifyOilBulkNaOHCoke;PCPTransesterifyOilBulkNaOHPropane;PCPTransesterifyOilBulkNaOHSimple;PCPTransesterifyFatBulkNaOH;PCPTransesterifyFatBulkNaOHCoke;PCPTransesterifyFatBulkNaOHPropane;PCPTransesterifyFatBulkNaOHSimple;PCPWashBiodiesel;PCPWashBiodieselSimple;PCPWashBiodieselPot;PCPWashBiodieselBulk;PCPWashBiodieselBulkCoke;PCPWashBiodieselBulkPropane;PCPWashBiodieselBulkSimple;PCPWashBiodieselCentrifuge;PCPSeparateGlycerolCentrifuge;PCPPurifyBiodieselChromatograph;PCPPurifyMethanolChromatograph;PCPPurifyMethanolChromatographSimple;PCPAnalyzeOilMicroscope;PCPTestFuelSpectrometer;PCPRefineBiodiesel;PCPMakeSoap;PCPMakeSoapNaOH;PCPProduceBoneChar;PCPProduceBoneCharCoke;PCPProduceBoneCharPropane;PCPProduceBoneCharSimple;PCPProduceBoneCharSkull;PCPProduceBoneCharSkullCoke;PCPProduceBoneCharSkullPropane;PCPProduceBoneCharSkullSimple;PCPMakeSoapFat;PCPMakeSoapFatNaOH;PCPDistillMethanolSafe;PCPDistillMethanolUnsafe;PCPDistillMethanolSimpleSafe;PCPDistillMethanolSimpleUnsafe;PCPSynthesizeKOHSafe;PCPSynthesizeKOHUnsafe;PCPSynthesizeKOHSimpleSafe;PCPSynthesizeKOHSimpleUnsafe;PCPExtractSulphurFromAcidCanSafe;PCPExtractSulphurFromAcidCanUnsafe;PCPExtractSulphurFromAcidCanSimpleSafe;PCPExtractSulphurFromAcidCanSimpleUnsafe;PCPExtractSulphurFromAcidFluidSafe;PCPExtractSulphurFromAcidFluidUnsafe;PCPExtractSulphurFromAcidFluidSimpleSafe;PCPExtractSulphurFromAcidFluidSimpleUnsafe;PCPExtractBatteryAcidSafe;PCPExtractBatteryAcidUnsafe;PCPAcidWashElectronicsSafe;PCPAcidWashElectronicsUnsafe;PCPRefineBiodieselBulk;PCPMakeWoodGlue;PCPCalcineCalcite;PCPCalcineCalciteCoke;PCPCalcineCalcitePropane;PCPCalcineCalciteSimple;PCPCalciteFertilizer;PCPCureSoap;PCPSterilizeBandageRipped;PCPSterilizeBandage;PCPCastFishingWeights;PCPCastFishingWeightsCoke;PCPCastFishingWeightsPropane;PCPCastFishingWeightsSimple;PCPMeltPlasticToGlue;PCPMeltPlasticToGlueSafe;PCPMeltPlasticToGlueUnsafe;PCPRecoverComponents;PCPCalciteFertilizerSulphur;PCPPotashFertilizer;PCPMakeTarTorch,
+		LearnedRecipes = PCPCrushCharcoal;PCPPurifyCharcoalWater;PCPPurifyCharcoalWaterSimple;PCPPurifyCharcoalWaterPot;PCPPurifyCharcoalNaOH;PCPPurifyCharcoalNaOHSimple;PCPPurifyCharcoalNaOHPot;PCPPrepareDilutedCompost;PCPPrepareDilutedCompostDung;PCPExtractBatteryAcid;PCPExtractSulphurFromAcidCan;PCPExtractSulphurFromAcidCanSimple;PCPExtractSulphurFromAcidFluid;PCPExtractSulphurFromAcidFluidSimple;PCPSynthesizeKNO3Fertilizer;PCPSynthesizeKNO3FertilizerSimple;PCPSynthesizeKNO3FertilizerPot;PCPSynthesizeKNO3Compost;PCPSynthesizeKNO3CompostSimple;PCPSynthesizeKNO3CompostPot;PCPMixBlackpowder;PCPCutPlasticScrap;PCPAcidWashElectronics;PCPPressOilSoybeansMortar;PCPPressOilSunflowerMortar;PCPPressOilCornMortar;PCPPressOilFlaxMortar;PCPPressOilHempMortar;PCPPressOilPeanutMortar;PCPPressOilSoybeansLab;PCPPressOilSoybeansLabSimple;PCPPressOilSoybeansLabPot;PCPPressOilSunflowerLab;PCPPressOilSunflowerLabSimple;PCPPressOilSunflowerLabPot;PCPPressOilCornLab;PCPPressOilCornLabSimple;PCPPressOilCornLabPot;PCPPressOilFlaxLab;PCPPressOilFlaxLabSimple;PCPPressOilFlaxLabPot;PCPPressOilHempLab;PCPPressOilHempLabSimple;PCPPressOilHempLabPot;PCPPressOilPeanutLab;PCPPressOilPeanutLabSimple;PCPPressOilPeanutLabPot;PCPPressOilSoybeansBulk;PCPPressOilSunflowerBulk;PCPPressOilCornBulk;PCPPressOilFlaxBulk;PCPPressOilHempBulk;PCPPressOilPeanutBulk;PCPConvertVegetableOil;PCPRenderFat;PCPRenderFatSimple;PCPRenderFatPot;PCPRenderFatFromMeat;PCPDistillMethanol;PCPDistillMethanolSimple;PCPSynthesizeKOH;PCPSynthesizeKOHSimple;PCPTransesterifyOil;PCPTransesterifyOilSimple;PCPTransesterifyFat;PCPTransesterifyFatSimple;PCPTransesterifyOilBulk;PCPTransesterifyOilBulkCoke;PCPTransesterifyOilBulkPropane;PCPTransesterifyOilBulkSimple;PCPTransesterifyFatBulk;PCPTransesterifyFatBulkCoke;PCPTransesterifyFatBulkPropane;PCPTransesterifyFatBulkSimple;PCPTransesterifyOilNaOH;PCPTransesterifyOilNaOHSimple;PCPTransesterifyFatNaOH;PCPTransesterifyFatNaOHSimple;PCPTransesterifyOilBulkNaOH;PCPTransesterifyOilBulkNaOHCoke;PCPTransesterifyOilBulkNaOHPropane;PCPTransesterifyOilBulkNaOHSimple;PCPTransesterifyFatBulkNaOH;PCPTransesterifyFatBulkNaOHCoke;PCPTransesterifyFatBulkNaOHPropane;PCPTransesterifyFatBulkNaOHSimple;PCPWashBiodiesel;PCPWashBiodieselSimple;PCPWashBiodieselPot;PCPWashBiodieselBulk;PCPWashBiodieselBulkCoke;PCPWashBiodieselBulkPropane;PCPWashBiodieselBulkSimple;PCPWashBiodieselCentrifuge;PCPSeparateGlycerolCentrifuge;PCPPurifyBiodieselChromatograph;PCPPurifyMethanolChromatograph;PCPPurifyMethanolChromatographSimple;PCPAnalyzeOilMicroscope;PCPTestFuelSpectrometer;PCPRefineBiodiesel;PCPMakeSoap;PCPMakeSoapNaOH;PCPProduceBoneChar;PCPProduceBoneCharCoke;PCPProduceBoneCharPropane;PCPProduceBoneCharSimple;PCPProduceBoneCharSkull;PCPProduceBoneCharSkullCoke;PCPProduceBoneCharSkullPropane;PCPProduceBoneCharSkullSimple;PCPMakeSoapFat;PCPMakeSoapFatNaOH;PCPDistillMethanolSafe;PCPDistillMethanolUnsafe;PCPDistillMethanolSimpleSafe;PCPDistillMethanolSimpleUnsafe;PCPSynthesizeKOHSafe;PCPSynthesizeKOHUnsafe;PCPSynthesizeKOHSimpleSafe;PCPSynthesizeKOHSimpleUnsafe;PCPExtractSulphurFromAcidCanSafe;PCPExtractSulphurFromAcidCanUnsafe;PCPExtractSulphurFromAcidCanSimpleSafe;PCPExtractSulphurFromAcidCanSimpleUnsafe;PCPExtractSulphurFromAcidFluidSafe;PCPExtractSulphurFromAcidFluidUnsafe;PCPExtractSulphurFromAcidFluidSimpleSafe;PCPExtractSulphurFromAcidFluidSimpleUnsafe;PCPExtractBatteryAcidSafe;PCPExtractBatteryAcidUnsafe;PCPAcidWashElectronicsSafe;PCPAcidWashElectronicsUnsafe;PCPRefineBiodieselBulk;PCPMakeWoodGlue;PCPCalcineCalcite;PCPCalcineCalciteCoke;PCPCalcineCalcitePropane;PCPCalcineCalciteSimple;PCPCalciteFertilizer;PCPCureSoap;PCPSterilizeBandageRipped;PCPSterilizeBandage;PCPCastFishingWeights;PCPCastFishingWeightsCoke;PCPCastFishingWeightsPropane;PCPCastFishingWeightsSimple;PCPMeltPlasticToGlue;PCPMeltPlasticToGlueSafe;PCPMeltPlasticToGlueUnsafe;PCPRecoverComponents;PCPCalciteFertilizerSulphur;PCPPotashFertilizer;PCPMakeTarTorch;PCPMakeSulphurFungicideSpray;PCPMakeInsecticidalSoapSpray;PCPMakePotashFoliarSpray;PCPGrindBoneMeal;PCPMixMineralFeedSupplement;PCPMakeBoneMealFertiliser;PCPActivateCarbon;PCPActivateCarbonSimple;PCPMakeWaterPurificationTablets;PCPMakeImprovedGasMaskFilter;PCPSynthesizeEpoxy;PCPSynthesizeEpoxySimple;PCPSynthesizeEpoxySafe;PCPSynthesizeEpoxyUnsafe;PCPSynthesizeEpoxySimpleSafe;PCPSynthesizeEpoxySimpleUnsafe;PCPMakeFireStarterBlocks;PCPMakeLighterFluid;PCPMakeSlugRepellent;PCPMakeImprovisedDuctTape;PCPMakeMatchbox;PCPMakeMatchboxSafe;PCPMakeMatchboxUnsafe;PCPDistillVinegar;PCPDistillVinegarSimple;PCPChemicalTanning;PCPChemicalTanningSimple;PCPMakePlasterPowder;PCPMakePlasterPowderCoke;PCPMakePlasterPowderPropane;PCPMakePlasterPowderSimple,
 		StaticModel = Book,
 		WorldStaticModel = BookClosedRedPink_Ground,
 		Tooltip = Tooltip_PCP_BkChemistryPathways,

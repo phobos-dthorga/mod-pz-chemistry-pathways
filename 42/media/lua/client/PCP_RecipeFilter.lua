@@ -85,6 +85,12 @@ local heatRequired = {
     "PCPCastFishingWeights",
     "PCPCastFishingWeightsCoke",
     "PCPCastFishingWeightsPropane",
+    "PCPActivateCarbon",
+    "PCPDistillVinegar",
+    "PCPChemicalTanning",
+    "PCPMakePlasterPowder",
+    "PCPMakePlasterPowderCoke",
+    "PCPMakePlasterPowderPropane",
 }
 for _, name in ipairs(heatRequired) do
     filters[name] = PCP_Sandbox.isHeatRequired
@@ -121,6 +127,10 @@ local noHeatRequired = {
     "PCPProduceBoneCharSkullSimple",
     "PCPCalcineCalciteSimple",
     "PCPCastFishingWeightsSimple",
+    "PCPActivateCarbonSimple",
+    "PCPDistillVinegarSimple",
+    "PCPChemicalTanningSimple",
+    "PCPMakePlasterPowderSimple",
 }
 for _, name in ipairs(noHeatRequired) do
     filters[name] = function() return not PCP_Sandbox.isHeatRequired() end
@@ -137,6 +147,8 @@ local hazardEnabled = {
     "PCPAcidWashElectronicsUnsafe",
     "PCPMeltPlasticToGlueSafe",
     "PCPMeltPlasticToGlueUnsafe",
+    "PCPMakeMatchboxSafe",
+    "PCPMakeMatchboxUnsafe",
 }
 for _, name in ipairs(hazardEnabled) do
     filters[name] = PCP_Sandbox.isHealthHazardsEnabled
@@ -150,6 +162,7 @@ local noHazard = {
     "PCPExtractBatteryAcid",
     "PCPMeltPlasticToGlue",
     "PCPAcidWashElectronics",
+    "PCPMakeMatchbox",
 }
 for _, name in ipairs(noHazard) do
     filters[name] = function() return not PCP_Sandbox.isHealthHazardsEnabled() end
@@ -168,6 +181,8 @@ local heatAndHazard = {
     "PCPExtractSulphurFromAcidCanUnsafe",
     "PCPExtractSulphurFromAcidFluidSafe",
     "PCPExtractSulphurFromAcidFluidUnsafe",
+    "PCPSynthesizeEpoxySafe",
+    "PCPSynthesizeEpoxyUnsafe",
 }
 for _, name in ipairs(heatAndHazard) do
     filters[name] = function()
@@ -188,6 +203,8 @@ local noHeatAndHazard = {
     "PCPExtractSulphurFromAcidCanSimpleUnsafe",
     "PCPExtractSulphurFromAcidFluidSimpleSafe",
     "PCPExtractSulphurFromAcidFluidSimpleUnsafe",
+    "PCPSynthesizeEpoxySimpleSafe",
+    "PCPSynthesizeEpoxySimpleUnsafe",
 }
 for _, name in ipairs(noHeatAndHazard) do
     filters[name] = function()
@@ -204,6 +221,7 @@ local heatAndNoHazard = {
     "PCPExtractSulphurFromAcidFluid",
     "PCPDistillMethanol",
     "PCPSynthesizeKOH",
+    "PCPSynthesizeEpoxy",
 }
 for _, name in ipairs(heatAndNoHazard) do
     filters[name] = function()
@@ -220,6 +238,7 @@ local noHeatAndNoHazard = {
     "PCPExtractSulphurFromAcidFluidSimple",
     "PCPDistillMethanolSimple",
     "PCPSynthesizeKOHSimple",
+    "PCPSynthesizeEpoxySimple",
 }
 for _, name in ipairs(noHeatAndNoHazard) do
     filters[name] = function()
