@@ -23,6 +23,50 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+### Fixed
+- **Invalid `base:smallblade` tag** — Replaced with `base:sharpknife;base:scissors` in PCPCutPlasticScrap. `base:smallblade` is a weapon Category, not an ItemTag; using it in `tags[]` causes NPE CTD at `InputScript.OnPostWorldDictionaryInit`.
+- **MineralFeedSupplement ConditionMax** — Corrected from 1 to 100 to match other PCP items.
+- **Workstation translation keys** — Added `IGUI_CraftingWindow_*` translation entries for `PCP_ConcreteMixer` and renamed CraftBench tags for consistency.
+- **Guide popup colour tag spacing** — Rewrote guide popup to eliminate inline colour tag spacing bug caused by `<RGB>` tag whitespace handling in ISRichTextPanel.
+- **Mixer recipe -fluid input ordering** — Reordered -fluid inputs in mixer recipes to satisfy B42 "previous input must have item amount 1" constraint. Fixed changelog version filtering.
+- **Invalid item IDs in mixer recipes** — Corrected `Base.Blackpowder` and `Base.WoodVinegar` to valid B42 item IDs in mixer recipe outputs.
+- **FluidContainer -fluid binding cascade** — Fixed 4 cascading CTDs caused by B42 -fluid input rules discovered empirically:
+  - `item 1 [*]` wildcards greedily match FluidContainer items, stealing them from designated input slots
+  - Category A (13 hotFluidContainer recipes): replaced `[*]` with `tags[base:cookable] mode:keep`
+  - Category B (all other recipes): restored `item 1 [*]` as the fluid container for `-fluid`
+  - B42 rules: -fluid cannot be first input; preceding item must have amount 1; preceding item IS the container -fluid drains from
+
+## [0.24.0] - 2026-02-23
+
+### Added
+- **In-game Welcome Guide** (`PCP_GuidePopup.lua`, client/) — First-time tutorial popup explaining PCP's chemistry pathways, sandbox options, and getting started. Uses PhobosLib's `registerGuidePopup()` API with "Don't show again" checkbox. ISRichTextPanel with scrollable content. Per-character persistence via player modData.
+- **In-game Changelog** (`PCP_ChangelogPopup.lua`, client/) — Version-based "What's New" popup that appears on major.minor version bumps. Uses PhobosLib's `registerChangelogPopup()` API with lastSeenVersion filtering to show only relevant changes. "Got it!" dismiss button.
+
+### Changed
+- Requires **PhobosLib 1.13.0+** (PhobosLib_Popup module)
+
+## [0.23.0] - 2026-02-23
+
+### Added
+- **Concrete Mixer Workstation** — Powered CraftBench entity (`PCP_Entities_ConcreteMixer.txt`) with 13 new recipes in `PCP_Recipes_Mixer.txt`. New `PhobosIndustrialChem` crafting category. Requires electricity (grid, generator, or custom power source) via PhobosLib_Power module.
+  - **Construction** (6 recipes): PCPMixConcrete, PCPMixClayCement, PCPMixMortar, PCPMixStucco, PCPMixReinforcedConcrete, PCPMixFireclay
+  - **Bulk Chemistry** (5 recipes): PCPMixBlackpowderBulk, PCPMixBiodieselOil, PCPMixSoap, PCPMixCompost, PCPMixWoodVinegar
+  - **Processing** (1 recipe): PCPMixPlaster
+  - **Fabrication** (1 recipe): PCPBuildConcreteMixer (Metalworking:4, requires BlowTorch + WeldingMask + WeldingRods)
+- **`PCP_MixerCompat.lua`** (client/) — Registers `PCP_ConcreteMixer` entity with PhobosLib's `registerPoweredCraftBench()` API. Craft button greyed out with tooltip when no power available. Generator fuel drain during crafting.
+- **4 new items** (43 total) — MortarMix, StuccoMix, ReinforcedConcrete, Fireclay
+- **3 new sandbox options** (16 total):
+  - `EnableConcreteMixer` — Enable/disable concrete mixer workstation
+  - `ConcreteMixerYieldBonus` — Output yield multiplier for mixer recipes
+  - `MixerFuelDrainRate` — Generator fuel drain rate during mixer crafting
+
+### Changed
+- Requires **PhobosLib 1.12.0+** (PhobosLib_Power module)
+- Recipe count: 185 → 198
+
+### Summary
+- **198 recipes**, **43 items**, **34 tradeable items**, **5 skill books**, **8 fluids**, **16 sandbox options**, **168 OnCreate callbacks**
+
 ## [0.22.0] - 2026-02-22
 
 ### Added

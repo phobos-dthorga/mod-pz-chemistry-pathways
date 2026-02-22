@@ -17,7 +17,7 @@
 
 # PhobosChemistryPathways
 
-**Version:** 0.22.0 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.11.0+ | zReVaccin 3
+**Version:** 0.24.0 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.13.0+ | zReVaccin 3
 
 > **Players:** Subscribe on [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3668197831) for easy installation. This GitHub repo is for source code, documentation, and development.
 >
@@ -32,7 +32,7 @@ This project is open-source, but the Steam Workshop upload is the official distr
 ## Features
 
 ### Applied Chemistry Skill System
-Custom `AppliedChemistry` perk under the Crafting parent with a steeper XP curve (75-9000). Two occupations (Chemist and Pharmacist) and two traits (Chemistry Enthusiast and Chemical Aversion) provide starting skill bonuses. Five skill book volumes cover levels 1-10, distributed in loot from common (Vol 1-2) to very rare (Vol 5). All 185 recipes award Applied Chemistry XP with 7 tiers of skill requirements.
+Custom `AppliedChemistry` perk under the Crafting parent with a steeper XP curve (75-9000). Two occupations (Chemist and Pharmacist) and two traits (Chemistry Enthusiast and Chemical Aversion) provide starting skill bonuses. Five skill book volumes cover levels 1-10, distributed in loot from common (Vol 1-2) to very rare (Vol 5). All 198 recipes award Applied Chemistry XP with 7 tiers of skill requirements.
 
 ### Blackpowder Pathway
 Seven-step chain from raw charcoal to gunpowder: crush, purify (water or alkaline wash), prepare compost, extract battery acid, extract sulphur, synthesize potassium nitrate, and mix blackpowder.
@@ -61,6 +61,12 @@ Nine-step recycling chain (R1-R9): wood tar to wood glue and tar-pitch torches, 
 ### Agriculture & Downstream Applications
 Six pathways connecting PCP intermediates to vanilla gameplay systems: garden pest sprays (sulphur fungicide, insecticidal soap, potash foliar — functional B42 crop cures), mineral feed supplements, water purification and gas mask filter recharging, epoxy resin synthesis, fire-starting materials (lighter fluid, matchboxes), and chemical leather tanning and plaster powder.
 
+### Concrete Mixer Workstation
+Powered CraftBench entity for industrial-scale material processing. Build a concrete mixer from a metal drum, salvaged motor, scrap metal, and welding equipment (Metalworking 4). Requires electricity (grid, generator, or custom power source). 13 recipes: concrete, clay cement, mortar, stucco, reinforced concrete, fireclay, bulk blackpowder, bulk biodiesel, bulk soap, bulk compost, plaster, and wood vinegar. Generator fuel drain during crafting.
+
+### In-Game Guide & Changelog
+Welcome guide popup on first install explaining chemistry pathways, sandbox options, and getting started. "Don't show again" checkbox per character. Version-based "What's New" changelog popup on major/minor version bumps showing relevant changes since last played version.
+
 ### Empty Vessel Replacement
 Empty PCP FluidContainers automatically revert to their vanilla vessel equivalents (mason jar + lid, bottle, bucket, gas can) when the player opens a container. Gated by `EnableVesselReplacement` sandbox option. MP-synced.
 
@@ -80,7 +86,7 @@ Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" setting
 
 | Dependency | Purpose |
 |------------|---------|
-| **PhobosLib 1.11.0+** | Shared utility library (sandbox access, fluid helpers, quality tracking, hazard dispatch, skill XP mirroring, reset utilities, startup validation, recipe visibility filters, item tooltip customisation, lazy container stamping, empty vessel replacement, farming spray registration, versioned migration framework, Dynamic Trading wrapper) |
+| **PhobosLib 1.13.0+** | Shared utility library (sandbox access, fluid helpers, quality tracking, hazard dispatch, skill XP mirroring, reset utilities, startup validation, recipe visibility filters, item tooltip customisation, lazy container stamping, empty vessel replacement, farming spray registration, versioned migration framework, Dynamic Trading wrapper, powered workstation support, in-game popup system) |
 | **zReVaccin 3** (zReModVaccin30bykERHUS) | Lab equipment entities (chemistry set, centrifuge, chromatograph, microscope, spectrometer) |
 | **EHR** (optional) | Disease system for health hazard integration; vanilla stat penalties used as fallback |
 | **ZScienceSkill** (optional) | Science skill XP mirroring and microscope specimen registration |
@@ -103,18 +109,21 @@ Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" setting
 | ResetSkillXP | boolean | false | One-shot: reset Applied Chemistry to level 0 |
 | ResetNuclearRemove | boolean | false | One-shot: remove all PCP items from inventory |
 | EnableVesselReplacement | boolean | true | Replaces empty PCP FluidContainers with vanilla vessels on container open |
+| EnableConcreteMixer | boolean | true | Enables concrete mixer workstation and recipes |
+| ConcreteMixerYieldBonus | 0.25 - 4.0 | 1.0 | Output yield multiplier for mixer recipes |
+| MixerFuelDrainRate | 0.0 - 5.0 | 0.5 | Generator fuel drain rate (%/min) during mixer crafting |
 | ResetNuclearAll | boolean | false | One-shot: execute all four reset operations |
 
 ## Content Summary
 
-- **185 recipes** across blackpowder, biodiesel, soap, bone char, recycling, agriculture, utility, and advanced lab pathways
-- **39 items** including chemical reagents, intermediates, container variants (jar, clay jar, bucket), and gardening sprays
+- **198 recipes** across blackpowder, biodiesel, soap, bone char, recycling, agriculture, concrete mixer, utility, and advanced lab pathways
+- **43 items** including chemical reagents, intermediates, container variants (jar, clay jar, bucket), gardening sprays, and construction materials
 - **34 tradeable items** registered with Dynamic Trading across 9 vendor archetypes
 - **5 skill books** covering Applied Chemistry levels 1-10
 - **2 occupations** (Chemist, Pharmacist) and **2 traits** (Chemistry Enthusiast, Chemical Aversion)
 - **8 fluids** with Build 42 FluidContainer integration and poison profiles
-- **13 sandbox options** for gameplay customization, vessel replacement, and maintenance
-- **144 OnCreate callbacks** for purity tracking and propane partial consumption
+- **16 sandbox options** for gameplay customization, vessel replacement, concrete mixer, and maintenance
+- **168 OnCreate callbacks** for purity tracking and propane partial consumption
 - **1 handbook** (lootable) teaching all recipes with a coloured pathway guide
 
 ## License

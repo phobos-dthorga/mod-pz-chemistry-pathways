@@ -1,6 +1,6 @@
 [h1]Phobos' Chemistry Pathways[/h1]
 
-[b]Version:[/b] 0.22.0 | [b]Requires:[/b] Project Zomboid Build 42.14.0+ | [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865]PhobosLib 1.11.0+[/url] | zReVaccin 3
+[b]Version:[/b] 0.24.0 | [b]Requires:[/b] Project Zomboid Build 42.14.0+ | [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865]PhobosLib 1.13.0+[/url] | zReVaccin 3
 
 A complete chemistry suite for Project Zomboid Build 42, adding realistic crafting pathways for blackpowder, biodiesel, soap, bone char, agriculture, recycling, and advanced laboratory processes.
 
@@ -9,7 +9,7 @@ A complete chemistry suite for Project Zomboid Build 42, adding realistic crafti
 [h2]Features[/h2]
 
 [h3]Applied Chemistry Skill System[/h3]
-Custom Applied Chemistry perk with a steeper XP curve (75-9000). Two occupations (Chemist and Pharmacist) and two traits (Chemistry Enthusiast and Chemical Aversion) provide starting skill bonuses. Five skill book volumes cover levels 1-10. All 185 recipes award Applied Chemistry XP with 7 tiers of skill requirements.
+Custom Applied Chemistry perk with a steeper XP curve (75-9000). Two occupations (Chemist and Pharmacist) and two traits (Chemistry Enthusiast and Chemical Aversion) provide starting skill bonuses. Five skill book volumes cover levels 1-10. All 198 recipes award Applied Chemistry XP with 7 tiers of skill requirements.
 
 [h3]Blackpowder Pathway[/h3]
 Seven-step chain from raw charcoal to gunpowder: crush, purify (water or alkaline wash), prepare compost, extract battery acid, extract sulphur, synthesize potassium nitrate, and mix blackpowder.
@@ -39,6 +39,12 @@ Six pathways connecting chemistry intermediates to vanilla gameplay systems:
 [*] [b]Fire-Starting[/b] — Lighter fluid, matchboxes, slug repellent
 [*] [b]Chemical Processing[/b] — Leather tanning, plaster powder, wood vinegar
 [/list]
+
+[h3]Concrete Mixer Workstation[/h3]
+Powered CraftBench entity for industrial-scale material processing. Build from a metal drum, salvaged motor, and welding equipment. Requires electricity (grid or generator). 13 recipes including concrete, mortar, reinforced concrete, and bulk chemistry operations. Generator fuel drain during crafting.
+
+[h3]In-Game Guide & Changelog[/h3]
+Welcome guide on first install with "Don't show again" option. Version-based "What's New" changelog popup on updates showing changes since your last played version.
 
 [h3]Advanced Lab Equipment[/h3]
 Centrifuge, chromatograph, microscope, and spectrometer recipes for enhanced processing. Microscope and spectrometer gated by sandbox option.
@@ -73,13 +79,13 @@ Five one-shot sandbox options for version upgrades and mod removal. Strip purity
 
 [h2]Content Summary[/h2]
 [list]
-[*] [b]185 recipes[/b] across blackpowder, biodiesel, soap, bone char, recycling, agriculture, utility, and advanced lab pathways
-[*] [b]39 items[/b] including chemical reagents, intermediates, container variants, and gardening sprays
+[*] [b]198 recipes[/b] across blackpowder, biodiesel, soap, bone char, recycling, agriculture, concrete mixer, utility, and advanced lab pathways
+[*] [b]43 items[/b] including chemical reagents, intermediates, container variants, gardening sprays, and construction materials
 [*] [b]34 tradeable items[/b] registered with Dynamic Trading across 9 vendor archetypes
 [*] [b]5 skill books[/b] covering Applied Chemistry levels 1-10
 [*] [b]2 occupations[/b] (Chemist, Pharmacist) and [b]2 traits[/b] (Chemistry Enthusiast, Chemical Aversion)
 [*] [b]8 fluids[/b] with Build 42 FluidContainer integration and poison profiles
-[*] [b]13 sandbox options[/b] for gameplay customization, vessel replacement, and maintenance
+[*] [b]16 sandbox options[/b] for gameplay customization, vessel replacement, concrete mixer, and maintenance
 [*] [b]1 handbook[/b] (lootable) teaching all recipes with a coloured pathway guide
 [/list]
 
@@ -94,6 +100,7 @@ Five one-shot sandbox options for version upgrades and mod removal. Strip purity
 [*] [b]Impurity Severity[/b] (Mild/Standard/Harsh) — Control purity degradation intensity
 [*] [b]Health Hazards[/b] — Enable Protected/Unprotected recipe variants
 [*] [b]Vessel Replacement[/b] — Replace empty PCP containers with vanilla vessels on open
+[*] [b]Concrete Mixer[/b] — Enable/disable mixer, output yield multiplier, generator fuel drain rate
 [*] [b]Maintenance/Reset[/b] — Five one-shot reset options for upgrades and mod removal
 [/list]
 
@@ -101,7 +108,7 @@ Five one-shot sandbox options for version upgrades and mod removal. Strip purity
 
 [h2]Requirements[/h2]
 [list]
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865]PhobosLib 1.11.0+[/url] — Required shared utility library
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865]PhobosLib 1.13.0+[/url] — Required shared utility library
 [*] [b]zReVaccin 3[/b] — Required for lab equipment (chemistry set, centrifuge, chromatograph, microscope, spectrometer)
 [*] [b]EHR[/b] (optional) — Disease system for health hazard integration
 [*] [b]ZScienceSkill[/b] (optional) — Science skill XP mirroring and microscope specimens
