@@ -23,6 +23,12 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.24.0] - 2026-02-23
+
+### Added
+- **In-game Welcome Guide** (`PCP_GuidePopup.lua`, client/) — First-time tutorial popup explaining PCP's chemistry pathways, sandbox options, and getting started. Uses PhobosLib's `registerGuidePopup()` API with "Don't show again" checkbox. ISRichTextPanel with scrollable content. Per-character persistence via player modData.
+- **In-game Changelog** (`PCP_ChangelogPopup.lua`, client/) — Version-based "What's New" popup that appears on major.minor version bumps. Uses PhobosLib's `registerChangelogPopup()` API with lastSeenVersion filtering to show only relevant changes. "Got it!" dismiss button.
+
 ### Fixed
 - **Invalid `base:smallblade` tag** — Replaced with `base:sharpknife;base:scissors` in PCPCutPlasticScrap. `base:smallblade` is a weapon Category, not an ItemTag; using it in `tags[]` causes NPE CTD at `InputScript.OnPostWorldDictionaryInit`.
 - **MineralFeedSupplement ConditionMax** — Corrected from 1 to 100 to match other PCP items.
@@ -35,12 +41,6 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
   - Category A (13 hotFluidContainer recipes): replaced `[*]` with `tags[base:cookable] mode:keep`
   - Category B (all other recipes): restored `item 1 [*]` as the fluid container for `-fluid`
   - B42 rules: -fluid cannot be first input; preceding item must have amount 1; preceding item IS the container -fluid drains from
-
-## [0.24.0] - 2026-02-23
-
-### Added
-- **In-game Welcome Guide** (`PCP_GuidePopup.lua`, client/) — First-time tutorial popup explaining PCP's chemistry pathways, sandbox options, and getting started. Uses PhobosLib's `registerGuidePopup()` API with "Don't show again" checkbox. ISRichTextPanel with scrollable content. Per-character persistence via player modData.
-- **In-game Changelog** (`PCP_ChangelogPopup.lua`, client/) — Version-based "What's New" popup that appears on major.minor version bumps. Uses PhobosLib's `registerChangelogPopup()` API with lastSeenVersion filtering to show only relevant changes. "Got it!" dismiss button.
 
 ### Changed
 - Requires **PhobosLib 1.13.0+** (PhobosLib_Popup module)
