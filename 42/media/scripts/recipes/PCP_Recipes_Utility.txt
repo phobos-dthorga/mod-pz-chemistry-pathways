@@ -78,7 +78,6 @@ module Base
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
-            item 1 [*],
             -fluid 0.3 [SulphuricAcid],
         }
         outputs

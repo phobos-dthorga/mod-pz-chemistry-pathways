@@ -65,7 +65,7 @@ module Base
         {
             item 2 [PhobosChemistryPathways.SulphurPowder] mode:destroy,
             item 1 [Base.GardeningSprayEmpty] mode:destroy,
-            item 1 [*],
+
             -fluid 0.5 [Water],
         }
         outputs
@@ -94,7 +94,7 @@ module Base
         {
             item 2 [PhobosChemistryPathways.CrudeSoap] mode:destroy,
             item 1 [Base.GardeningSprayEmpty] mode:destroy,
-            item 1 [*],
+
             -fluid 0.5 [Water],
         }
         outputs
@@ -123,7 +123,7 @@ module Base
         {
             item 2 [PhobosChemistryPathways.Potash] mode:destroy,
             item 1 [Base.GardeningSprayEmpty] mode:destroy,
-            item 1 [*],
+
             -fluid 0.5 [Water],
         }
         outputs
@@ -621,7 +621,7 @@ module Base
         {
             item 2 [PhobosChemistryPathways.Calcite;Base.Quicklime] mode:destroy,
             item 1 [Base.GardeningSprayEmpty] mode:destroy,
-            item 1 [*],
+
             -fluid 0.5 [Water],
         }
         outputs
@@ -845,7 +845,7 @@ module Base
         {
             item 2 [Base.Quicklime] mode:destroy,
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
-            item 1 [*],
+            item 1 tags[base:cookable] mode:keep,
             -fluid 1.0 [Water],
         }
         outputs
@@ -873,7 +873,7 @@ module Base
         {
             item 2 [Base.Quicklime] mode:destroy,
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
-            item 1 [*],
+
             -fluid 1.0 [Water],
         }
         outputs
