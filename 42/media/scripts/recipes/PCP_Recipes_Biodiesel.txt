@@ -2169,10 +2169,9 @@ module Base
 
         inputs
         {
+            -fluid 5.0 [Water],
             item 1 [PhobosChemistryPathways.CrudeBiodieselBucket],
             item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
-
-            -fluid 5.0 [Water],
         }
         outputs
         {
