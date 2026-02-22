@@ -37,8 +37,8 @@ module Base
 
         inputs
         {
-            item 2 [Base.ConcretePowder],
             -fluid 2.0 [Water],
+            item 2 [Base.ConcretePowder],
         }
         outputs
         {
@@ -323,8 +323,8 @@ module Base
 
         inputs
         {
-            item 2 [PhobosChemistryPathways.Calcite],
             -fluid 1.0 [Water],
+            item 2 [PhobosChemistryPathways.Calcite],
         }
         outputs
         {
@@ -350,8 +350,8 @@ module Base
 
         inputs
         {
-            item 2 [PhobosChemistryPathways.WoodTar],
             -fluid 1.0 [Water],
+            item 2 [PhobosChemistryPathways.WoodTar],
         }
         outputs
         {

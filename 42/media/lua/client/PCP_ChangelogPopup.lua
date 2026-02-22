@@ -21,13 +21,27 @@
 --
 -- To update for a future release:
 --   1. Bump PCP_VERSION below.
---   2. Add a new version block at the top of buildChangelogContent().
+--   2. Add a new version block at the top of buildChangelogContent(),
+--      wrapped in:  if isNewerThan("X.YY", lastSeenVersion) then ... end
 --   3. Push to Workshop.
 ---------------------------------------------------------------
 
 local PCP_VERSION = "0.24.0"
 
-local function buildChangelogContent()
+--- Returns true if `version` (e.g. "0.23") is strictly newer than `baseline`.
+--- If baseline is nil, returns true (show everything).
+local function isNewerThan(version, baseline)
+    if not baseline then return true end
+    local aMaj, aMin = string.match(version, "^(%d+)%.(%d+)")
+    local bMaj, bMin = string.match(baseline, "^(%d+)%.(%d+)")
+    if not aMaj or not bMaj then return true end
+    aMaj, aMin = tonumber(aMaj), tonumber(aMin)
+    bMaj, bMin = tonumber(bMaj), tonumber(bMin)
+    if aMaj ~= bMaj then return aMaj > bMaj end
+    return aMin > bMin
+end
+
+local function buildChangelogContent(lastSeenVersion)
     local t = ""
 
     -- ════════════════════════════════════════════════════════════════ --
@@ -40,6 +54,7 @@ local function buildChangelogContent()
     -- ════════════════════════════════════════════════════════════════ --
     -- v0.24  ·  current release
     -- ════════════════════════════════════════════════════════════════ --
+    if isNewerThan("0.24", lastSeenVersion) then
     t = t .. "<LEFT> <SIZE:medium> <RGB:0.40,0.80,1.00> "
     t = t .. "--- v0.24  ( You are here ) "
     t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  Feb 2026 <LINE> <LINE> "
@@ -54,17 +69,17 @@ local function buildChangelogContent()
     t = t .. "by a new generic PhobosLib popup system. <LINE> "
     t = t .. "<LINE> "
 
-    t = t .. "<RGB:1.00,0.75,0.20> > Bug Fix: Mixer Item IDs <LINE> "
+    t = t .. "<RGB:1.00,0.75,0.20> > Bug Fix: Mixer Item IDs + Input Ordering <LINE> "
     t = t .. "<RGB:0.88,0.88,0.88> "
-    t = t .. "Fixed two invalid item references in mixer recipes that "
-    t = t .. "caused Java exceptions at world load: blackpowder output "
-    t = t .. "now correctly references GunPowder, and wood vinegar "
-    t = t .. "output now correctly references Vinegar2. <LINE> "
+    t = t .. "Fixed invalid item references and input ordering in mixer "
+    t = t .. "recipes that caused Java exceptions at world load. <LINE> "
     t = t .. "<LINE> "
+    end
 
     -- ════════════════════════════════════════════════════════════════ --
     -- v0.23
     -- ════════════════════════════════════════════════════════════════ --
+    if isNewerThan("0.23", lastSeenVersion) then
     t = t .. "<LEFT> <SIZE:medium> <RGB:0.45,0.70,0.90> "
     t = t .. "--- v0.23 "
     t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  Feb 2026 <LINE> <LINE> "
@@ -87,10 +102,12 @@ local function buildChangelogContent()
     t = t .. "New crafting category: Industrial Chemistry <LINE> "
     t = t .. "Generator fuel drain proportional to recipe duration <LINE> "
     t = t .. "<LINE> "
+    end
 
     -- ════════════════════════════════════════════════════════════════ --
     -- v0.22
     -- ════════════════════════════════════════════════════════════════ --
+    if isNewerThan("0.22", lastSeenVersion) then
     t = t .. "<SIZE:medium> <RGB:0.45,0.65,0.75> "
     t = t .. "--- v0.22 "
     t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  Feb 2026 <LINE> <LINE> "
@@ -108,10 +125,12 @@ local function buildChangelogContent()
     t = t .. "185 recipes, 39 items, 13 sandbox options <LINE> "
     t = t .. "PhobosLib tooltip nil guards and farming spray module <LINE> "
     t = t .. "<LINE> "
+    end
 
     -- ════════════════════════════════════════════════════════════════ --
     -- v0.21
     -- ════════════════════════════════════════════════════════════════ --
+    if isNewerThan("0.21", lastSeenVersion) then
     t = t .. "<SIZE:medium> <RGB:0.40,0.55,0.60> "
     t = t .. "--- v0.21 "
     t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  Feb 2026 <LINE> <LINE> "
@@ -122,10 +141,12 @@ local function buildChangelogContent()
     t = t .. "LazyStamp system for container-opening purity stamping <LINE> "
     t = t .. "Purity tooltip with quality tier display <LINE> "
     t = t .. "<LINE> "
+    end
 
     -- ════════════════════════════════════════════════════════════════ --
     -- v0.20
     -- ════════════════════════════════════════════════════════════════ --
+    if isNewerThan("0.20", lastSeenVersion) then
     t = t .. "<SIZE:medium> <RGB:0.38,0.50,0.55> "
     t = t .. "--- v0.20 "
     t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  Feb 2026 <LINE> <LINE> "
@@ -134,10 +155,12 @@ local function buildChangelogContent()
     t = t .. "FluidContainer rescale migration (ConditionMax 10 -> 100) <LINE> "
     t = t .. "Purity = item condition system overhaul <LINE> "
     t = t .. "<LINE> "
+    end
 
     -- ════════════════════════════════════════════════════════════════ --
     -- Earlier
     -- ════════════════════════════════════════════════════════════════ --
+    if isNewerThan("0.19", lastSeenVersion) then
     t = t .. "<SIZE:medium> <RGB:0.35,0.45,0.50> "
     t = t .. "--- Earlier versions "
     t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85> <LINE> <LINE> "
@@ -147,6 +170,7 @@ local function buildChangelogContent()
     t = t .. "v0.18: First migration system, recipe filter hooks <LINE> "
     t = t .. "v0.17 and earlier: Core chemistry pathways, item definitions <LINE> "
     t = t .. "<LINE> "
+    end
 
     -- ════════════════════════════════════════════════════════════════ --
     -- Footer
