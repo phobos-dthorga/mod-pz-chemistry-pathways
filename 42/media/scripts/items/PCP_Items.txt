@@ -654,7 +654,7 @@ module PhobosChemistryPathways {
 		UseDelta = 0.01,
 		ReplaceOnDeplete = Base.EmptySandbag,
 		AnimalFeedType = AnimalFeed,
-		ConditionMax = 1,
+		ConditionMax = 100,
 		SurvivalGear = true,
 		ReplaceInSecondHand = Bag_Sandbag_LHand holdingbagleft,
 		ReplaceInPrimaryHand = Bag_Sandbag_RHand holdingbagright,
