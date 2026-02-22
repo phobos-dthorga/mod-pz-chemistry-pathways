@@ -785,7 +785,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:25,
@@ -811,7 +811,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:25,
@@ -837,7 +837,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:25,
@@ -864,7 +864,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:25,
@@ -891,7 +891,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:25,
@@ -918,7 +918,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:25,
@@ -1422,7 +1422,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
@@ -1452,7 +1452,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
@@ -1482,7 +1482,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyOilBulkPropanePurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
@@ -1512,7 +1512,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
@@ -1543,7 +1543,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
@@ -1573,7 +1573,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
@@ -1603,7 +1603,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyFatBulkPropanePurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
@@ -1633,7 +1633,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
@@ -1819,7 +1819,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
@@ -1849,7 +1849,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
@@ -1879,7 +1879,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyOilBulkPropanePurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
@@ -1909,7 +1909,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
@@ -1940,7 +1940,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
@@ -1970,7 +1970,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
@@ -2000,7 +2000,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyFatBulkPropanePurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
@@ -2030,7 +2030,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
@@ -2161,7 +2161,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselBulkPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:3,
         xpAward = AppliedChemistry:35,
@@ -2187,7 +2187,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselBulkPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:3,
         xpAward = AppliedChemistry:35,
@@ -2213,7 +2213,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselBulkPropanePurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:3,
         xpAward = AppliedChemistry:35,
@@ -2239,7 +2239,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselBulkPurity,
 
-        Tags = PCP:MetalDrumStation;CannotBeResearched,
+        Tags = PCP_MetalDrumStation;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:3,
         xpAward = AppliedChemistry:35,

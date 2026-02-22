@@ -40,7 +40,7 @@ module Base
         }
         component CraftBench
         {
-            Recipes = PCP:ConcreteMixer,
+            Recipes = PCP_ConcreteMixer,
         }
         component SpriteConfig
         {

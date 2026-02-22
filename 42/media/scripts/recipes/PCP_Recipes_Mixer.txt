@@ -31,7 +31,7 @@ module Base
         category = PhobosIndustrialChem,
         NeedToBeLearn = false,
 
-        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        Tags = PCP_ConcreteMixer;CannotBeResearched,
         timedAction = Making_Surface,
         xpAward = AppliedChemistry:5,
 
@@ -56,7 +56,7 @@ module Base
         category = PhobosIndustrialChem,
         NeedToBeLearn = false,
 
-        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        Tags = PCP_ConcreteMixer;CannotBeResearched,
         timedAction = Making_Surface,
         xpAward = AppliedChemistry:5,
 
@@ -84,7 +84,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMixerConstructionPurity,
 
-        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        Tags = PCP_ConcreteMixer;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:15,
@@ -113,7 +113,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMixerConstructionPurity,
 
-        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        Tags = PCP_ConcreteMixer;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:15,
@@ -142,7 +142,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMixerConstructionPurity,
 
-        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        Tags = PCP_ConcreteMixer;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:3,
         xpAward = AppliedChemistry:20,
@@ -170,7 +170,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMixerConstructionPurity,
 
-        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        Tags = PCP_ConcreteMixer;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:25,
@@ -204,7 +204,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMixerBlackpowderPurity,
 
-        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        Tags = PCP_ConcreteMixer;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:5,
         xpAward = AppliedChemistry:30,
@@ -232,7 +232,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMixerBiodieselPurity,
 
-        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        Tags = PCP_ConcreteMixer;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:25,
@@ -261,7 +261,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMixerSoapPurity,
 
-        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        Tags = PCP_ConcreteMixer;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:3,
         xpAward = AppliedChemistry:20,
@@ -288,7 +288,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMixerCompostPurity,
 
-        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        Tags = PCP_ConcreteMixer;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:15,
@@ -315,7 +315,7 @@ module Base
         category = PhobosIndustrialChem,
         NeedToBeLearn = true,
 
-        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        Tags = PCP_ConcreteMixer;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:3,
         xpAward = AppliedChemistry:20,
@@ -343,7 +343,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMixerVinegarPurity,
 
-        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        Tags = PCP_ConcreteMixer;CannotBeResearched,
         timedAction = Making_Surface,
         SkillRequired = AppliedChemistry:3,
         xpAward = AppliedChemistry:20,

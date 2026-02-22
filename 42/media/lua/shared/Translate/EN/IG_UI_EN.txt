@@ -21,6 +21,10 @@ IGUI_EN = {
 	IGUI_CraftCategory_PhobosFieldChem = "Phobos' Field Chemistry",
 	IGUI_CraftCategory_PhobosIndustrialChem = "Phobos' Industrial Chemistry",
 
+	/* ===== Workstation Display Names ===== */
+	IGUI_CraftingWindow_PCP_ConcreteMixer = "Concrete Mixer",
+	IGUI_CraftingWindow_PCP_MetalDrumStation = "Metal Drum Station",
+
 	/* ===== Perk / Skill ===== */
 	IGUI_perks_AppliedChemistry = "Applied Chemistry",
 	IGUI_perks_Applied_Chemistry = "Applied Chemistry",

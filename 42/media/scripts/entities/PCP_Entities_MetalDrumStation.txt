@@ -38,7 +38,7 @@ module Base
         }
         component CraftBench
         {
-            Recipes = PCP:MetalDrumStation,
+            Recipes = PCP_MetalDrumStation,
         }
         component SpriteConfig
         {
