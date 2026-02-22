@@ -217,7 +217,7 @@ module Base
         }
         outputs
         {
-            item 3 Base.Blackpowder,
+            item 3 Base.GunPowder,
         }
     }
 
@@ -355,7 +355,7 @@ module Base
         }
         outputs
         {
-            item 1 Base.WoodVinegar,
+            item 1 Base.Vinegar2,
         }
     }
 
