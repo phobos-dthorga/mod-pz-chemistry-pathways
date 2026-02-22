@@ -1,0 +1,104 @@
+[h1]Phobos' Chemistry Pathways — Changelog[/h1]
+
+[h2]v0.24.0 — In-Game Guide & Changelog Popups (2026-02-23)[/h2]
+
+[h3]New Features[/h3]
+[list]
+[*] [b]Welcome Guide[/b] — First-time tutorial popup on new characters explaining PCP's chemistry pathways, sandbox options, and getting started. "Don't show again" checkbox with per-character persistence.
+[*] [b]Changelog Popup[/b] — Version-based "What's New" popup on updates, showing only changes since your last played version.
+[/list]
+
+[h3]Critical Bug Fixes[/h3]
+[list]
+[*] [b]FluidContainer -fluid binding cascade[/b] — Fixed 4 cascading CTDs caused by B42 -fluid input rules. Wildcards ([*]) before -fluid lines greedily matched FluidContainer items, stealing them from designated input slots. 13 hotFluidContainer recipes now use tags[base:cookable] instead.
+[*] [b]base:smallblade NPE[/b] — Replaced invalid weapon Category tag with correct ItemTags (base:sharpknife;base:scissors) in PCPCutPlasticScrap. The old tag caused an NPE CTD on world load.
+[*] Invalid item IDs in mixer recipes corrected (Base.Blackpowder, Base.WoodVinegar)
+[*] Mixer recipe -fluid input ordering fixed for B42 constraints
+[*] MineralFeedSupplement ConditionMax corrected from 1 to 100
+[*] Workstation translation keys added for PCP_ConcreteMixer
+[*] Guide popup colour tag spacing fixed
+[/list]
+
+[h3]Changed[/h3]
+[list]
+[*] Requires [b]PhobosLib 1.13.0+[/b]
+[/list]
+
+[hr][/hr]
+
+[h2]v0.23.0 — Concrete Mixer Workstation (2026-02-23)[/h2]
+
+[h3]New Features[/h3]
+[list]
+[*] [b]Concrete Mixer[/b] — Powered CraftBench entity for industrial-scale processing. Build from a metal drum + salvaged motor + welding equipment (Metalworking:4). Requires electricity (grid or generator). Generator fuel drains during crafting.
+[*] [b]13 new recipes[/b] in PhobosIndustrialChem crafting category:
+  — [b]Construction[/b] (6): Concrete, Clay Cement, Mortar, Stucco, Reinforced Concrete, Fireclay
+  — [b]Bulk Chemistry[/b] (5): Blackpowder, Biodiesel, Soap, Compost, Wood Vinegar
+  — [b]Processing[/b] (1): Plaster Powder
+  — [b]Fabrication[/b] (1): Build Concrete Mixer
+[*] [b]4 new items[/b] — MortarMix, StuccoMix, ReinforcedConcrete, Fireclay
+[*] [b]3 new sandbox options[/b] — EnableConcreteMixer, ConcreteMixerYieldBonus, MixerFuelDrainRate
+[/list]
+
+[h3]Changed[/h3]
+[list]
+[*] Recipe count: 185 to 198
+[*] Requires [b]PhobosLib 1.12.0+[/b]
+[/list]
+
+[hr][/hr]
+
+[h2]v0.22.0 — Agriculture & Downstream Pathways (2026-02-22)[/h2]
+
+[h3]New Features[/h3]
+[list]
+[*] [b]31 new recipes[/b] across 6 downstream pathways connecting PCP intermediates to vanilla gameplay:
+  — [b]Garden Pest Sprays[/b] (3): Sulphur Fungicide (cures Mildew), Insecticidal Soap (cures Aphids), Potash Foliar (cures Flies) — functional B42 farming sprays
+  — [b]Mineral Feed Supplements[/b] (3): BoneChar + Calcite animal feed
+  — [b]Water Purification[/b] (4): Activated charcoal filters, purification tablets, gas mask filter recharging
+  — [b]Epoxy Resin[/b] (6): WoodTar + Glycerol structural adhesive
+  — [b]Fire-Starting[/b] (7): Lighter fluid, matchboxes, slug repellent, duct tape
+  — [b]Chemical Processing[/b] (8): Leather tanning, plaster powder, wood vinegar
+[*] [b]3 new FluidContainer items[/b] — Gardening sprays (functional crop cures)
+[*] [b]7 new tradeable items[/b] for Dynamic Trading (34 total)
+[*] Pneumonia added to caustic vapour and resin fumes hazard profiles
+[/list]
+
+[h3]Changed[/h3]
+[list]
+[*] Recipe count: 154 to 185
+[*] Requires [b]PhobosLib 1.11.0+[/b]
+[/list]
+
+[hr][/hr]
+
+[h2]v0.21.3 — DT Price Rebalance (2026-02-21)[/h2]
+[list]
+[*] All Dynamic Trading item prices rebalanced and anchored to vanilla DT basePrices. Key increases across processing chains (e.g. SulphuricAcidJar 35 to 80, biodiesel chain 25/40/80 to 55/80/120). Stock ranges tightened on high-value items.
+[/list]
+
+[hr][/hr]
+
+[h2]v0.21.2 — Purity Sync Fix (2026-02-21)[/h2]
+[list]
+[*] Purity now visible immediately after crafting — added sendItemStats() call after setCondition() for instant client UI sync (previously delayed until next automatic sync cycle).
+[/list]
+
+[hr][/hr]
+
+[h2]v0.21.1 — Cooking & Purity Fixes (2026-02-21)[/h2]
+[list]
+[*] [b]Cooking-pot recipes no longer craftable cold[/b] — All 19 PhobosKitchenChem recipes now properly require heat: 12 wet-heat recipes use hotFluidContainer (must heat pot on stove first), 7 dry-heat recipes use openFire (campfire, fireplace, or stove nearby).
+[*] [b]Purity crash on vanilla-output recipes[/b] — Recycling recipes outputting vanilla items (Fertilizer, Soap, Glue, etc.) no longer crash when purity system is enabled. Added module-prefix guard; removed 10 dead purity callbacks.
+[/list]
+
+[hr][/hr]
+
+[h2]Summary[/h2]
+[list]
+[*] [b]198 recipes[/b] across 8 pathways (was 154) — Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Recycling, Agriculture, Concrete Mixer
+[*] [b]43 items[/b] (was 39), [b]34 tradeable items[/b], [b]5 skill books[/b], [b]8 fluids[/b]
+[*] [b]16 sandbox options[/b] (was 12), [b]168 OnCreate callbacks[/b] (was 144)
+[*] New: Powered workstation, farming sprays, in-game guide + changelog popups
+[*] Requires PhobosLib 1.13.0+ and zReVaccin 3
+[/list]
