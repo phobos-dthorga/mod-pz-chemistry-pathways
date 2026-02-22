@@ -17,7 +17,7 @@
 
 # Sandbox Settings Guide
 
-PhobosChemistryPathways provides 13 sandbox options split across two settings pages: gameplay options (recipe gating, purity, yield) and maintenance/reset options. These settings allow server admins and solo players to tune recipe complexity, difficulty, and perform version-upgrade housekeeping.
+PhobosChemistryPathways provides 16 sandbox options split across three settings pages: gameplay options (recipe gating, purity, yield), concrete mixer options, and maintenance/reset options. These settings allow server admins and solo players to tune recipe complexity, difficulty, and perform version-upgrade housekeeping.
 
 ## Recipe Gating Options
 
@@ -97,3 +97,11 @@ Six options on the dedicated "PCP - Maintenance / Reset" sandbox settings page. 
 | **ResetSkillXP** | false | One-shot: resets Applied Chemistry skill to level 0. |
 | **ResetNuclearRemove** | false | One-shot: removes all PCP items from the player's inventory and sub-containers. |
 | **ResetNuclearAll** | false | One-shot: executes all four reset operations above in sequence. |
+
+## Concrete Mixer Options
+
+Three options control the concrete mixer workstation:
+
+- **EnableConcreteMixer** (default: TRUE) -- Master switch for the concrete mixer workstation entity. When disabled, mixer recipes are hidden from the crafting menu.
+- **ConcreteMixerYieldBonus** (default: 1.0) -- Output yield multiplier for mixer recipes (0.5x to 3.0x). Stacks with the global YieldMultiplier.
+- **MixerFuelDrainRate** (default: 1.0) -- Generator fuel drain rate multiplier during mixer crafting (0.0 to 5.0). Set to 0.0 for free power.

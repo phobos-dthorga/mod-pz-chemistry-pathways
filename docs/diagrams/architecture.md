@@ -26,21 +26,23 @@ The diagram below shows PCP's internal module structure, its hard dependencies, 
 ```mermaid
 graph TB
     subgraph HARD["Hard Dependencies (mod.info require)"]
-        PL["PhobosLib v1.11.0+<br/>17 modules (12 shared + 5 client)"]
+        PL["PhobosLib v1.13.0+<br/>20 modules (12 shared + 8 client)"]
         ZR["zReVaccin 3<br/>Lab equipment entities"]
     end
 
-    subgraph PCP["PhobosChemistryPathways v0.22.0"]
+    subgraph PCP["PhobosChemistryPathways v0.24.0"]
         CORE["Core"]
-        REC["185 Recipes<br/>5 recipe files"]
-        ITEMS["39 Items<br/>+ 5 Skill Books"]
+        REC["198 Recipes<br/>6 recipe files"]
+        ITEMS["43 Items<br/>+ 5 Skill Books"]
         FLUIDS["8 Fluids"]
-        SB["13 Sandbox Options"]
+        SB["16 Sandbox Options"]
         PURITY["Purity System<br/>PCP_PuritySystem.lua"]
         HAZARD["Hazard System<br/>PCP_HazardSystem.lua"]
         SKILL["Skill System<br/>perks + professions + traits"]
-        CALLBACKS["144 OnCreate Callbacks<br/>PCP_RecipeCallbacks.lua"]
+        CALLBACKS["168 OnCreate Callbacks<br/>PCP_RecipeCallbacks.lua"]
         TRADING["DT Integration<br/>PCP_DynamicTradingData.lua"]
+        MIXER["Concrete Mixer<br/>13 Recipes (6 construction<br/>+ 5 bulk chem + 1 plaster + 1 build)<br/>PCP_MixerCompat.lua"]
+        POPUP["Guide + Changelog Popups<br/>PCP_GuidePopup.lua<br/>PCP_ChangelogPopup.lua"]
     end
 
     subgraph SOFT["Soft Dependencies (runtime-detected)"]
@@ -60,6 +62,8 @@ graph TB
     TRADING -->|"uses<br/>PhobosLib_Trading"| PL
     FARMING["Farming Compat<br/>PCP_FarmingCompat.lua"]
     FARMING -->|"uses<br/>PhobosLib_FarmingSpray"| PL
+    MIXER -->|"uses<br/>PhobosLib_Power"| PL
+    POPUP -->|"uses<br/>PhobosLib_Popup"| PL
 
     HAZARD -.->|"EHR.Disease.TryContract<br/>(pcall-wrapped)"| EHR
     SKILL -.->|"registerXPMirror<br/>AC to Science at 50%"| ZSS
@@ -100,8 +104,8 @@ graph TB
 
 | Directory | Contents |
 |-----------|----------|
-| `42/media/scripts/` | Item definitions, recipe definitions, fluid definitions, sandbox options, perks, professions, traits |
-| `42/media/lua/client/` | Tooltip providers, recipe filters, vessel replacement, lazy stamping, farming compat, Dynamic Trading stamp |
+| `42/media/scripts/` | Item definitions, recipe definitions, fluid definitions, sandbox options, perks, professions, traits, entity definitions |
+| `42/media/lua/client/` | Tooltip providers, recipe filters, vessel replacement, lazy stamping, farming compat, Dynamic Trading stamp, mixer compat, guide/changelog popups |
 | `42/media/lua/server/` | Skill book registration, recipe callbacks, purity system, hazard system |
 | `42/media/lua/shared/` | Skill XP mirroring, ZScience data registration, Dynamic Trading data, registries |
 | `42/media/lua/shared/Translate/EN/` | English translation strings for items, recipes, sandbox options, tooltips |

@@ -17,7 +17,7 @@
 
 # Recipe Pathways
 
-PhobosChemistryPathways adds 185 recipes across 7 interconnected crafting pathways: Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Recycling, and Agriculture/Downstream. Raw materials flow through intermediate processing steps into terminal outputs, with by-products feeding back into other chains.
+PhobosChemistryPathways adds 198 recipes across 8 interconnected crafting pathways: Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Recycling, Agriculture/Downstream, and Concrete Mixer. Raw materials flow through intermediate processing steps into terminal outputs, with by-products feeding back into other chains.
 
 The diagram below shows the complete recipe flow from raw inputs through all pathways to their terminal outputs.
 
@@ -171,6 +171,37 @@ graph TB
     CALCITE --> PLASTER
     QLIME --> PLASTER
 
+    subgraph MX["Concrete Mixer (13 recipes)"]
+        MX_CONCRETE["Concrete<br/>(2x BucketConcreteFull)"]
+        MX_CLAY["Clay Cement<br/>(2x BucketClayCement)"]
+        MX_MORTAR["Mortar Mix<br/>(2x MortarMix)"]
+        MX_STUCCO["Stucco Mix<br/>(2x StuccoMix)"]
+        MX_REINF["Reinforced Concrete<br/>(2x ReinforcedConcrete)"]
+        MX_FIRE["Fireclay<br/>(2x Fireclay)"]
+        MX_BP["Bulk Blackpowder<br/>(3x GunPowder)"]
+        MX_BD["Bulk Biodiesel<br/>(CrudeBiodieselBucket)"]
+        MX_SOAP["Bulk Soap<br/>(4x CrudeSoap)"]
+        MX_COMP["Bulk Compost<br/>(3x DilutedCompost)"]
+        MX_PLASTER["Plaster Powder<br/>(2x PlasterPowder)"]
+        MX_VINEGAR["Wood Vinegar<br/>(Vinegar)"]
+    end
+
+    SULPHUR --> MX_BP
+    KNO3 --> MX_BP
+    PURIFY --> MX_BP
+    CRUDE_OIL --> MX_BD
+    METHANOL --> MX_BD
+    KOH --> MX_BD
+    RENDERED --> MX_SOAP
+    KOH --> MX_SOAP
+    COMPOST --> MX_COMP
+    BONECHAR --> MX_COMP
+    CALCITE --> MX_MORTAR
+    CALCITE --> MX_PLASTER
+    WOODTAR --> MX_VINEGAR
+    MX_CONCRETE --> MX_REINF
+
+    style MX fill:#668,color:#fff
     style GUNPOWDER fill:#c44,color:#fff
     style REFINED_BD fill:#4a4,color:#fff
     style SOAP fill:#48c,color:#fff
@@ -186,4 +217,5 @@ graph TB
 - **Blue** -- By-product: CrudeSoap (feeds into recycling and agriculture)
 - **Brown** -- Alternative input: BoneChar (substitutes for PurifiedCharcoal in filtration)
 - **Teal** -- Agriculture and downstream outputs (garden sprays, water purification, epoxy, etc.)
+- **Purple** -- Concrete Mixer: bulk construction and chemistry outputs (powered workstation, requires electricity)
 - **Dotted lines** -- Alternative pathways or by-products (e.g. methanol pyrolysis produces both wood tar and charcoal)
