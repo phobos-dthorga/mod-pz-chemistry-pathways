@@ -49,4 +49,10 @@ Tooltip_EN = {
     Tooltip_PCP_SulphurFungicideSpray = "Sulphur-based fungicide spray.<br>Prevents fungal diseases on crops.",
     Tooltip_PCP_InsecticidalSoapSpray = "Soap-based insecticidal spray.<br>Controls soft-bodied insects on plants.",
     Tooltip_PCP_PotashFoliarSpray = "Potassium-rich foliar spray.<br>Boosts plant growth and stress resistance.",
+
+    /* ===== Concrete Mixer Product Tooltips ===== */
+    Tooltip_PCP_MortarMix = "Calcite-based mortar binding agent.<br>Strong adhesive for masonry and brickwork construction.",
+    Tooltip_PCP_StuccoMix = "Plaster-based stucco finishing material.<br>Used for rendering walls and exterior surfaces.",
+    Tooltip_PCP_ReinforcedConcrete = "Concrete reinforced with scrap metal for structural strength.<br>Superior building material for fortifications and foundations.",
+    Tooltip_PCP_Fireclay = "Refractory clay blend resistant to extreme heat.<br>Used in forge and kiln construction or upgrades.",
 }

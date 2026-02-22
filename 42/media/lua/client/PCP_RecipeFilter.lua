@@ -258,6 +258,28 @@ for _, name in ipairs(advancedLab) do
 end
 
 ---------------------------------------------------------------
+-- Concrete mixer recipes (show only when EnableConcreteMixer = ON)
+---------------------------------------------------------------
+local concreteMixer = {
+    "PCPMixConcrete",
+    "PCPMixClayCement",
+    "PCPMixMortar",
+    "PCPMixStucco",
+    "PCPMixReinforcedConcrete",
+    "PCPMixFireclay",
+    "PCPMixBlackpowderBulk",
+    "PCPMixBiodieselOil",
+    "PCPMixSoap",
+    "PCPMixCompost",
+    "PCPMixPlaster",
+    "PCPMixWoodVinegar",
+    "PCPBuildConcreteMixer",
+}
+for _, name in ipairs(concreteMixer) do
+    filters[name] = PCP_Sandbox.isConcreteMixerEnabled
+end
+
+---------------------------------------------------------------
 -- Register all filters with PhobosLib
 ---------------------------------------------------------------
 PhobosLib.registerRecipeFilters(filters)

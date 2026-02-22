@@ -1,12 +1,12 @@
 name=Phobos' Chemistry Pathways
 id=PhobosChemistryPathways
-description=Complete chemistry suite for Project Zomboid Build 42: blackpowder synthesis, biodiesel production, fat rendering, soap-making, bone char, recycling, agriculture, water purification, fire starting, leather tanning, construction materials, and advanced lab processes. Features 185 recipes, 13 sandbox options, condition-based purity tracking, tiered reset system, EHR health hazard integration, farming spray integration, and Dynamic Trading support with multi-vendor integration. Requires PhobosLib and zReVaccin 3.
+description=Complete chemistry suite for Project Zomboid Build 42: blackpowder synthesis, biodiesel production, fat rendering, soap-making, bone char, recycling, agriculture, water purification, fire starting, leather tanning, construction materials, powered concrete mixer workstation, and advanced lab processes. Features 198 recipes, 43 items, 16 sandbox options, condition-based purity tracking, tiered reset system, EHR health hazard integration, farming spray integration, and Dynamic Trading support with multi-vendor integration. Requires PhobosLib and zReVaccin 3.
 poster=poster.png
 icon=icon.png
 url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668197831
 authors=phobosgekko
 versionMin=42.14.0
-modversion=0.22.0
+modversion=0.23.0
 require=\PhobosLib,\zReModVaccin30bykERHUS
 loadModAfter=\PhobosLib,\zReModVaccin30bykERHUS,\ZScienceSkill,\EHR,\DynamicTradingCommon
 category=features

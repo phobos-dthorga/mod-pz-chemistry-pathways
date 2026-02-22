@@ -1,0 +1,58 @@
+--  ________________________________________________________________________
+-- / Copyright (c) 2026 Phobos A. D'thorga                                \
+-- |                                                                        |
+-- |           /\_/\                                                         |
+-- |         =/ o o \=    Phobos' PZ Modding                                |
+-- |          (  V  )     All rights reserved.                              |
+-- |     /\  / \   / \                                                      |
+-- |    /  \/   '-'   \   This source code is part of the Phobos            |
+-- |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+-- |  (__/    \_/ \/  \__)                                                  |
+-- |     |   | |  | |     Unauthorised copying, modification, or            |
+-- |     |___|_|  |_|     distribution of this file is prohibited.          |
+-- |                                                                        |
+-- \________________________________________________________________________/
+--
+
+-----------------------------------------------------
+-- Phobos' Chemistry Pathways - Concrete Mixer Station
+-----------------------------------------------------
+-- Defines the Concrete Mixer as a CraftBench workstation
+-- for construction material mixing and bulk chemistry.
+-- Requires electricity (grid or generator) to operate.
+--
+-- Uses the same sprite as the vanilla decorative
+-- Mov_ConcreteMixer (construction_01_6) so that any
+-- placed concrete mixer becomes this workstation.
+--
+-- Gated by PCP.EnableConcreteMixer sandbox option.
+-----------------------------------------------------
+
+module Base
+{
+    entity PCP_ConcreteMixer
+    {
+        component UiConfig
+        {
+            xuiSkin = default,
+            entityStyle = ES_PCP_ConcreteMixer,
+            uiEnabled = true,
+        }
+        component CraftBench
+        {
+            Recipes = PCP:ConcreteMixer,
+        }
+        component SpriteConfig
+        {
+            health = 300,
+            skillBaseHealth = 0,
+            face SINGLE
+            {
+                layer
+                {
+                    row = construction_01_6,
+                }
+            }
+        }
+    }
+}

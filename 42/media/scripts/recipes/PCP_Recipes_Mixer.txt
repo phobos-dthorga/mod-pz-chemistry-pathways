@@ -1,0 +1,397 @@
+/*  ________________________________________________________________________
+ * / Copyright (c) 2026 Phobos A. D'thorga                                \
+ * |                                                                        |
+ * |           /\_/\                                                         |
+ * |         =/ o o \=    Phobos' PZ Modding                                |
+ * |          (  V  )     All rights reserved.                              |
+ * |     /\  / \   / \                                                      |
+ * |    /  \/   '-'   \   This source code is part of the Phobos            |
+ * |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+ * |  (__/    \_/ \/  \__)                                                  |
+ * |     |   | |  | |     Unauthorised copying, modification, or            |
+ * |     |___|_|  |_|     distribution of this file is prohibited.          |
+ * |                                                                        |
+ * \________________________________________________________________________/
+ */
+
+module Base
+{
+
+/* ==================================================================================== */
+/* ============================== CONCRETE MIXER — CONSTRUCTION ======================= */
+/* ==================================================================================== */
+
+/* ----- MIX CONCRETE ----- */
+/*  Combine concrete powder with water in the mixer to produce
+    ready-to-use concrete buckets. No chemistry skill required.              */
+
+    craftRecipe PCPMixConcrete
+    {
+        time = 120,
+        category = PhobosIndustrialChem,
+        NeedToBeLearn = false,
+
+        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = AppliedChemistry:5,
+
+        inputs
+        {
+            item 2 [Base.ConcretePowder],
+            -fluid 2.0 [Water],
+        }
+        outputs
+        {
+            item 2 Base.BucketConcreteFull,
+        }
+    }
+
+/* ----- MIX CLAY CEMENT ----- */
+/*  Blend clay and sand with water to produce clay cement buckets.
+    Used for masonry and floor construction.                                 */
+
+    craftRecipe PCPMixClayCement
+    {
+        time = 120,
+        category = PhobosIndustrialChem,
+        NeedToBeLearn = false,
+
+        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        timedAction = Making_Surface,
+        xpAward = AppliedChemistry:5,
+
+        inputs
+        {
+            item 2 [Base.Clay],
+            item 1 [Base.Sandbag],
+            -fluid 1.5 [Water],
+        }
+        outputs
+        {
+            item 2 Base.BucketClayCement,
+        }
+    }
+
+/* ----- MIX MORTAR ----- */
+/*  Combine calcite (quicklime precursor) with sand and water to create
+    mortar — a versatile construction binding agent.
+    Requires Chemistry Pathways handbook.                                    */
+
+    craftRecipe PCPMixMortar
+    {
+        time = 150,
+        category = PhobosIndustrialChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpMixerConstructionPurity,
+
+        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:15,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.Calcite],
+            item 1 [Base.Sandbag],
+            -fluid 1.0 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.MortarMix,
+        }
+    }
+
+/* ----- MIX STUCCO ----- */
+/*  Blend plaster powder with sand and water to produce stucco —
+    a wall finishing material for construction and repair.                   */
+
+    craftRecipe PCPMixStucco
+    {
+        time = 150,
+        category = PhobosIndustrialChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpMixerConstructionPurity,
+
+        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:15,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 2 [Base.PlasterPowder],
+            item 1 [Base.Sandbag],
+            -fluid 1.0 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.StuccoMix,
+        }
+    }
+
+/* ----- MIX REINFORCED CONCRETE ----- */
+/*  Combine concrete with scrap metal reinforcement to create
+    a stronger structural material for fortifications.                       */
+
+    craftRecipe PCPMixReinforcedConcrete
+    {
+        time = 200,
+        category = PhobosIndustrialChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpMixerConstructionPurity,
+
+        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:5,
+
+        inputs
+        {
+            item 1 [Base.BucketConcreteFull],
+            item 4 [Base.ScrapMetal],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.ReinforcedConcrete,
+        }
+    }
+
+/* ----- MIX FIRECLAY ----- */
+/*  Blend clay with sand and purified charcoal to produce refractory
+    fireclay for kiln and forge construction or upgrades.                    */
+
+    craftRecipe PCPMixFireclay
+    {
+        time = 200,
+        category = PhobosIndustrialChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpMixerConstructionPurity,
+
+        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:25,
+        AutoLearnAll = AppliedChemistry:6,
+
+        inputs
+        {
+            item 3 [Base.Clay],
+            item 1 [Base.Sandbag],
+            item 1 [PhobosChemistryPathways.PurifiedCharcoal],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.Fireclay,
+        }
+    }
+
+/* ==================================================================================== */
+/* ============================== CONCRETE MIXER — PCP CHEMISTRY ====================== */
+/* ==================================================================================== */
+
+/* ----- BULK MIX BLACKPOWDER ----- */
+/*  Industrial-scale blackpowder mixing in the concrete mixer.
+    Lower purity than lab synthesis (25-45% vs 50-70%) — the
+    tradeoff for bulk output.                                                */
+
+    craftRecipe PCPMixBlackpowderBulk
+    {
+        time = 250,
+        category = PhobosIndustrialChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpMixerBlackpowderPurity,
+
+        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:5,
+        xpAward = AppliedChemistry:30,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.SulphurPowder],
+            item 3 [PhobosChemistryPathways.PotassiumNitratePowder],
+            item 2 [PhobosChemistryPathways.PurifiedCharcoal],
+        }
+        outputs
+        {
+            item 3 Base.Blackpowder,
+        }
+    }
+
+/* ----- BULK TRANSESTERIFY OIL ----- */
+/*  Industrial-scale biodiesel production from crude vegetable oil.
+    Lower purity than lab synthesis (35-55%).                                */
+
+    craftRecipe PCPMixBiodieselOil
+    {
+        time = 300,
+        category = PhobosIndustrialChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpMixerBiodieselPurity,
+
+        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:4,
+        xpAward = AppliedChemistry:25,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.CrudeVegetableOilBucket],
+            item 1 [PhobosChemistryPathways.WoodMethanol],
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
+            item 1 PhobosChemistryPathways.Glycerol,
+        }
+    }
+
+/* ----- BULK MAKE SOAP ----- */
+/*  Industrial-scale soap production from rendered fat and alkali.
+    Lower purity than lab synthesis (40-60%).                                */
+
+    craftRecipe PCPMixSoap
+    {
+        time = 200,
+        category = PhobosIndustrialChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpMixerSoapPurity,
+
+        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:20,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.RenderedFatBucket],
+            item 2 [PhobosChemistryPathways.PotassiumHydroxide],
+        }
+        outputs
+        {
+            item 4 PhobosChemistryPathways.CrudeSoap,
+        }
+    }
+
+/* ----- BULK MIX COMPOST ----- */
+/*  Industrial-scale compost mixing with bone char amendment.
+    Produces enriched compost for agriculture (30-50% purity).               */
+
+    craftRecipe PCPMixCompost
+    {
+        time = 180,
+        category = PhobosIndustrialChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpMixerCompostPurity,
+
+        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:15,
+
+        inputs
+        {
+            item 1 [Base.CompostBag],
+            item 1 [PhobosChemistryPathways.BoneChar],
+            -fluid 2.0 [Water],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.DilutedCompost,
+        }
+    }
+
+/* ----- MIX PLASTER POWDER ----- */
+/*  Calcine calcite with water and heat in the mixer to produce
+    plaster powder for construction.                                         */
+
+    craftRecipe PCPMixPlaster
+    {
+        time = 200,
+        category = PhobosIndustrialChem,
+        NeedToBeLearn = true,
+
+        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:5,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.Calcite],
+            -fluid 1.0 [Water],
+        }
+        outputs
+        {
+            item 2 Base.PlasterPowder,
+        }
+    }
+
+/* ----- MIX WOOD VINEGAR ----- */
+/*  Dilute wood tar with water in the mixer to separate out
+    wood vinegar (pyroligneous acid) for chemical processing.                */
+
+    craftRecipe PCPMixWoodVinegar
+    {
+        time = 180,
+        category = PhobosIndustrialChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpMixerVinegarPurity,
+
+        Tags = PCP:ConcreteMixer;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:20,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.WoodTar],
+            -fluid 1.0 [Water],
+        }
+        outputs
+        {
+            item 1 Base.WoodVinegar,
+        }
+    }
+
+/* ==================================================================================== */
+/* ============================== CONCRETE MIXER — BUILD RECIPE ======================= */
+/* ==================================================================================== */
+
+/* ----- BUILD CONCRETE MIXER ----- */
+/*  Fabricate a functional concrete mixer from a metal drum, salvaged
+    motor (amplifier), scrap metal, and welding equipment. This is a
+    surface craft recipe (not a mixer recipe itself).                        */
+
+    craftRecipe PCPBuildConcreteMixer
+    {
+        time = 400,
+        category = PhobosFieldChem,
+        NeedToBeLearn = false,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = Metalworking:4,
+        xpAward = Metalworking:30;AppliedChemistry:10,
+
+        inputs
+        {
+            item 1 [Base.MetalDrum] mode:destroy,
+            item 1 [Base.Amplifier] mode:destroy,
+            item 5 [Base.ScrapMetal] mode:destroy,
+            item 1 [Base.BlowTorch] mode:keep flags[NoBrokenItems;MayDegrade],
+            item 1 [Base.WeldingMask] mode:keep flags[NoBrokenItems],
+            item 1 [Base.WeldingRods] mode:destroy,
+        }
+        outputs
+        {
+            item 1 Base.Mov_ConcreteMixer,
+        }
+    }
+
+}

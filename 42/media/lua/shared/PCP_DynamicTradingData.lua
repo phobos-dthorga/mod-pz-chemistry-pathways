@@ -164,6 +164,12 @@ local function registerPCPTradeData()
         { item = "PhobosChemistryPathways.PotashFoliarSpray",      basePrice = 20,  tags = { "Chemical", "Farming", "Common" },              stockRange = { min = 2, max = 5 } },
         { item = "PhobosChemistryPathways.MineralFeedSupplement",  basePrice = 35,  tags = { "Farming", "Uncommon" },                        stockRange = { min = 1, max = 3 } },
 
+        -- Concrete mixer products (construction materials)
+        { item = "PhobosChemistryPathways.MortarMix",           basePrice = 25,  tags = { "Chemical", "Material", "Common" },                  stockRange = { min = 2, max = 6 } },
+        { item = "PhobosChemistryPathways.StuccoMix",           basePrice = 20,  tags = { "Chemical", "Material", "Common" },                  stockRange = { min = 2, max = 6 } },
+        { item = "PhobosChemistryPathways.ReinforcedConcrete",  basePrice = 50,  tags = { "Chemical", "Material", "Uncommon" },                stockRange = { min = 1, max = 3 } },
+        { item = "PhobosChemistryPathways.Fireclay",            basePrice = 35,  tags = { "Chemical", "Material", "Uncommon" },                stockRange = { min = 1, max = 4 } },
+
         -- Skill books (calibrated to DT tier scale — unchanged)
         { item = "PhobosChemistryPathways.BkChemistryPathways",   basePrice = 300, tags = { "Literature", "Rare" },                         stockRange = { min = 0, max = 1 } },
         { item = "PhobosChemistryPathways.BookAppliedChemistry1", basePrice = 50,  tags = { "Literature", "Common" },                       stockRange = { min = 1, max = 3 } },

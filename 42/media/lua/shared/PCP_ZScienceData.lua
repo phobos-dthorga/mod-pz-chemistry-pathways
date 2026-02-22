@@ -130,6 +130,12 @@ local function registerPCPSpecimens()
                 ["PhobosChemistryPathways.LeadScrap"]              = xp(15, 10),
                 ["PhobosChemistryPathways.PlasticScrap"]           = xp(10, 8),
                 ["PhobosChemistryPathways.AcidWashedElectronics"]  = xp(25, 20),
+
+                -- Concrete mixer products
+                ["PhobosChemistryPathways.MortarMix"]              = xp(15, 12),
+                ["PhobosChemistryPathways.StuccoMix"]              = xp(15, 12),
+                ["PhobosChemistryPathways.ReinforcedConcrete"]     = xp(20, 15),
+                ["PhobosChemistryPathways.Fireclay"]               = xp(20, 15),
             },
 
             -------------------------------------------------------

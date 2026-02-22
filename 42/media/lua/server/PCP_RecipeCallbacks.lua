@@ -657,3 +657,46 @@ function PCP_RecipeCallbacks.pcpChemicalTanningYield(items, result, player)
     if input <= 0 then return end
     PCP_PuritySystem.removeExcess(player, "Base.BrainTan", 2, input)
 end
+
+
+---------------------------------------------------------------
+-- CONCRETE MIXER CALLBACKS (7)
+-- Source purity for bulk mixer operations. Lower ranges than
+-- lab equivalents to reflect industrial-scale tradeoffs.
+---------------------------------------------------------------
+
+--- Mixer construction items (mortar, stucco, reinforced concrete, fireclay): 60-85
+function PCP_RecipeCallbacks.pcpMixerConstructionPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(60, 85))
+end
+
+--- Mixer blackpowder (bulk): 25-45 (lower than lab 50-70)
+function PCP_RecipeCallbacks.pcpMixerBlackpowderPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(25, 45))
+end
+
+--- Mixer biodiesel (bulk): 35-55 (lower than lab)
+function PCP_RecipeCallbacks.pcpMixerBiodieselPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(35, 55))
+end
+
+--- Mixer soap (bulk): 40-60 (lower than lab)
+function PCP_RecipeCallbacks.pcpMixerSoapPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(40, 60))
+end
+
+--- Mixer compost (bulk): 30-50
+function PCP_RecipeCallbacks.pcpMixerCompostPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(30, 50))
+end
+
+--- Mixer wood vinegar: 30-50
+function PCP_RecipeCallbacks.pcpMixerVinegarPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(30, 50))
+end

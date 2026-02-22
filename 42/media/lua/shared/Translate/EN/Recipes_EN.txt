@@ -237,4 +237,23 @@ Recipes_EN = {
     Recipe_PCPMakePlasterPowderCoke = "10c. Make Plaster Powder (Coke)",
     Recipe_PCPMakePlasterPowderPropane = "10c. Make Plaster Powder (Propane)",
     Recipe_PCPMakePlasterPowderSimple = "10c. Make Plaster Powder",
+
+    /* ===== Concrete Mixer — Construction ===== */
+    Recipe_PCPMixConcrete = "M1. Mix Concrete",
+    Recipe_PCPMixClayCement = "M2. Mix Clay Cement",
+    Recipe_PCPMixMortar = "M3. Mix Mortar",
+    Recipe_PCPMixStucco = "M4. Mix Stucco",
+    Recipe_PCPMixReinforcedConcrete = "M5. Mix Reinforced Concrete",
+    Recipe_PCPMixFireclay = "M6. Mix Fireclay",
+
+    /* ===== Concrete Mixer — Bulk Chemistry ===== */
+    Recipe_PCPMixBlackpowderBulk = "M7. Bulk Mix Blackpowder",
+    Recipe_PCPMixBiodieselOil = "M8. Bulk Transesterify Biodiesel",
+    Recipe_PCPMixSoap = "M9. Bulk Make Soap",
+    Recipe_PCPMixCompost = "M10. Bulk Mix Compost",
+    Recipe_PCPMixPlaster = "M11. Mix Plaster Powder",
+    Recipe_PCPMixWoodVinegar = "M12. Mix Wood Vinegar",
+
+    /* ===== Concrete Mixer — Build ===== */
+    Recipe_PCPBuildConcreteMixer = "Build Concrete Mixer",
 }

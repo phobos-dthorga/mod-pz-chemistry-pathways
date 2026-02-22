@@ -64,6 +64,24 @@ option PCP.EnableVesselReplacement
 	page = PCP_Sandbox, translation = PCP_EnableVesselReplacement,
 }
 
+option PCP.EnableConcreteMixer
+{
+	type = boolean, default = true,
+	page = PCP_Sandbox, translation = PCP_EnableConcreteMixer,
+}
+
+option PCP.ConcreteMixerYieldBonus
+{
+	type = double, min = 1.00, max = 2.00, default = 1.25,
+	page = PCP_Sandbox, translation = PCP_ConcreteMixerYieldBonus,
+}
+
+option PCP.MixerFuelDrainRate
+{
+	type = double, min = 0.00, max = 2.00, default = 0.50,
+	page = PCP_Sandbox, translation = PCP_MixerFuelDrainRate,
+}
+
 option PCP.ResetStripPurity
 {
 	type = boolean, default = false,

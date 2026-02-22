@@ -59,6 +59,18 @@ function PCP_Sandbox.isHealthHazardsEnabled()
     return PhobosLib.getSandboxVar("PCP", "EnableHealthHazards", false) == true
 end
 
+--- Check if the concrete mixer workstation is enabled.
+-- @return boolean  true if enabled (default true)
+function PCP_Sandbox.isConcreteMixerEnabled()
+    return PhobosLib.getSandboxVar("PCP", "EnableConcreteMixer", true) == true
+end
+
+--- Get the concrete mixer yield bonus multiplier.
+-- @return number  The multiplier (default 1.25)
+function PCP_Sandbox.getConcreteMixerYieldBonus()
+    return PhobosLib.getSandboxVar("PCP", "ConcreteMixerYieldBonus", 1.25)
+end
+
 ---------------------------------------------------------------
 -- Cross-Mod Integration: ZScienceSkill ("Science, Bitch!" mod)
 -- Detected at runtime via PhobosLib.isModActive().

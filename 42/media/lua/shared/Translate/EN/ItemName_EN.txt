@@ -69,6 +69,12 @@ ItemName_EN = {
     ItemName_PhobosChemistryPathways.InsecticidalSoapSpray = "Insecticidal Soap Spray",
     ItemName_PhobosChemistryPathways.PotashFoliarSpray = "Potash Foliar Spray",
 
+    /* ===== Concrete Mixer Products ===== */
+    ItemName_PhobosChemistryPathways.MortarMix = "Mortar Mix",
+    ItemName_PhobosChemistryPathways.StuccoMix = "Stucco Mix",
+    ItemName_PhobosChemistryPathways.ReinforcedConcrete = "Reinforced Concrete",
+    ItemName_PhobosChemistryPathways.Fireclay = "Fireclay",
+
     /* ===== Skill Books ===== */
     ItemName_PhobosChemistryPathways.BookAppliedChemistry1 = "Applied Chemistry Vol. 1",
     ItemName_PhobosChemistryPathways.BookAppliedChemistry2 = "Applied Chemistry Vol. 2",

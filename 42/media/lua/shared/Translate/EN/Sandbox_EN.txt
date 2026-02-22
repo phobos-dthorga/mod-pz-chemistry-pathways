@@ -44,6 +44,15 @@ Sandbox_EN = {
     Sandbox_PCP_EnableVesselReplacement = "VESSEL REPLACEMENT:",
     Sandbox_PCP_EnableVesselReplacement_tooltip = "When enabled, empty PCP chemistry containers (jars, bottles, crucibles, etc.) are automatically converted back to their base vanilla vessel when the inventory is opened.<br><br> <INDENT:20>-Jar-type containers also return a Jar Lid;<br> <INDENT:20>-Only fully empty containers are replaced (partially filled containers are kept);<br> <INDENT:20>-ON (default): Empty PCP containers revert to reusable vanilla vessels;<br> <INDENT:20>-OFF: Empty PCP containers remain as-is (useful if experiencing sync issues on dedicated servers).<br>",
 
+    Sandbox_PCP_EnableConcreteMixer = "CONCRETE MIXER WORKSTATION:",
+    Sandbox_PCP_EnableConcreteMixer_tooltip = "Enables the concrete mixer as a powered industrial workstation for construction and bulk chemistry recipes.<br><br> <INDENT:20>-Adds 12 mixer recipes (concrete, mortar, stucco, reinforced concrete, fireclay, bulk blackpowder, biodiesel, soap, compost, plaster, wood vinegar);<br> <INDENT:20>-Adds a build recipe to fabricate a mixer from a metal drum, motor, and scrap metal;<br> <INDENT:20>-Mixer requires electricity (grid power or a nearby generator) to operate;<br> <INDENT:20>-ON (default): Concrete mixer recipes available;<br> <INDENT:20>-OFF: Mixer recipes hidden, placed mixers non-functional.<br><br> <RGB:1,0.6,0.2> Requires a game restart to take effect. <RGB:1,1,1>",
+
+    Sandbox_PCP_ConcreteMixerYieldBonus = "MIXER YIELD BONUS:",
+    Sandbox_PCP_ConcreteMixerYieldBonus_tooltip = "Additional yield multiplier applied to concrete mixer recipe outputs (stacks with the global Yield Multiplier).<br> <INDENT:20>-1.00 = no bonus;<br> <INDENT:20>-1.25 = 25% extra output (default);<br> <INDENT:20>-2.00 = double output.<br>",
+
+    Sandbox_PCP_MixerFuelDrainRate = "MIXER FUEL DRAIN RATE:",
+    Sandbox_PCP_MixerFuelDrainRate_tooltip = "Generator fuel drain percentage per real-time minute while the concrete mixer is operating.<br> <INDENT:20>-0.00 = no fuel drain (free electricity);<br> <INDENT:20>-0.50 = default (~200 minutes of mixing per full generator);<br> <INDENT:20>-2.00 = heavy drain (~50 minutes per full generator).<br><br> <RGB:0.7,0.7,0.7> Grid power is always free — drain only applies to generators. <RGB:1,1,1>",
+
     Sandbox_PCP_Reset = "PCP - Maintenance / Reset",
 
     Sandbox_PCP_ResetStripPurity = "STRIP PURITY DATA:",
