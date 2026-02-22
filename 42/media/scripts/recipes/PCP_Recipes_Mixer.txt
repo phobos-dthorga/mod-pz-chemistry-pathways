@@ -37,8 +37,9 @@ module Base
 
         inputs
         {
-            -fluid 2.0 [Water],
             item 2 [Base.ConcretePowder],
+            item 1 [Base.Bucket;Base.BucketCrafted] mode:keep,
+            -fluid 2.0 [Water],
         }
         outputs
         {
@@ -323,8 +324,9 @@ module Base
 
         inputs
         {
-            -fluid 1.0 [Water],
             item 2 [PhobosChemistryPathways.Calcite],
+            item 1 [Base.Bucket;Base.BucketCrafted] mode:keep,
+            -fluid 1.0 [Water],
         }
         outputs
         {
@@ -350,8 +352,9 @@ module Base
 
         inputs
         {
-            -fluid 1.0 [Water],
             item 2 [PhobosChemistryPathways.WoodTar],
+            item 1 [Base.Bucket;Base.BucketCrafted] mode:keep,
+            -fluid 1.0 [Water],
         }
         outputs
         {

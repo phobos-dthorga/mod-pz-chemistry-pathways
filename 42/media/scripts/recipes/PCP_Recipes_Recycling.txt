@@ -288,8 +288,9 @@ module Base
 
         inputs
         {
-            -fluid 0.3 [Water],
             item 4 [PhobosChemistryPathways.CrudeSoap] mode:destroy,
+            item 1 [*],
+            -fluid 0.3 [Water],
         }
         outputs
         {

@@ -268,8 +268,9 @@ module Base
 
         inputs
         {
-            -fluid 10.0 [Water],
             item 10 [Base.CompostBag],
+            item 1 [*],
+            -fluid 10.0 [Water],
         }
         outputs
         {
@@ -298,8 +299,9 @@ module Base
 
         inputs
         {
-            -fluid 10.0 [Water],
             item 10 tags[base:iscompostable],
+            item 1 [*],
+            -fluid 10.0 [Water],
         }
         outputs
         {
