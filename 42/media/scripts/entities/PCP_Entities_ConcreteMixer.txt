@@ -21,9 +21,9 @@
 -- for construction material mixing and bulk chemistry.
 -- Requires electricity (grid or generator) to operate.
 --
--- Uses the same sprite as the vanilla decorative
--- Mov_ConcreteMixer (construction_01_6) so that any
--- placed concrete mixer becomes this workstation.
+-- Uses 4-directional sprites (construction_01_6/7/14/15)
+-- matching the vanilla Mov_ConcreteMixer rotations so
+-- that any placed concrete mixer becomes this workstation.
 --
 -- Gated by PCP.EnableConcreteMixer sandbox option.
 -----------------------------------------------------
@@ -46,11 +46,32 @@ module Base
         {
             health = 300,
             skillBaseHealth = 0,
-            face SINGLE
+            face S
             {
                 layer
                 {
                     row = construction_01_6,
+                }
+            }
+            face E
+            {
+                layer
+                {
+                    row = construction_01_7,
+                }
+            }
+            face N
+            {
+                layer
+                {
+                    row = construction_01_14,
+                }
+            }
+            face W
+            {
+                layer
+                {
+                    row = construction_01_15,
                 }
             }
         }
