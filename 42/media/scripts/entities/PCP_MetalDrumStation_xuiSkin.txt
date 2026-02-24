@@ -7,6 +7,15 @@ module Base
             LuaWindowClass = ISEntityWindow,
             DisplayName = Metal Drum,
             Icon = Drum_Grey,
+            components
+            {
+                CraftLogic
+                {
+                    LuaPanelClass = ISCraftDefaultPanel,
+                    DisplayName = Metal Drum,
+                    Icon = Drum_Grey,
+                }
+            }
         }
     }
 }

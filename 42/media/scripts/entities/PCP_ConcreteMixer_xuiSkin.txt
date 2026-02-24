@@ -7,6 +7,15 @@ module Base
             LuaWindowClass = ISEntityWindow,
             DisplayName = Concrete Mixer,
             Icon = default,
+            components
+            {
+                CraftLogic
+                {
+                    LuaPanelClass = ISCraftDefaultPanel,
+                    DisplayName = Concrete Mixer,
+                    Icon = default,
+                }
+            }
         }
     }
 }
