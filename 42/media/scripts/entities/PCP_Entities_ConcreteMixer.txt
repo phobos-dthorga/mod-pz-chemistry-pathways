@@ -1,32 +1,30 @@
---  ________________________________________________________________________
--- / Copyright (c) 2026 Phobos A. D'thorga                                \
--- |                                                                        |
--- |           /\_/\                                                         |
--- |         =/ o o \=    Phobos' PZ Modding                                |
--- |          (  V  )     All rights reserved.                              |
--- |     /\  / \   / \                                                      |
--- |    /  \/   '-'   \   This source code is part of the Phobos            |
--- |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
--- |  (__/    \_/ \/  \__)                                                  |
--- |     |   | |  | |     Unauthorised copying, modification, or            |
--- |     |___|_|  |_|     distribution of this file is prohibited.          |
--- |                                                                        |
--- \________________________________________________________________________/
---
-
------------------------------------------------------
--- Phobos' Chemistry Pathways - Concrete Mixer Station
------------------------------------------------------
--- Defines the Concrete Mixer as a CraftBench workstation
--- for construction material mixing and bulk chemistry.
--- Requires electricity (grid or generator) to operate.
---
--- Uses 4-directional sprites (construction_01_6/7/14/15)
--- matching the vanilla Mov_ConcreteMixer rotations so
--- that any placed concrete mixer becomes this workstation.
---
--- Gated by PCP.EnableConcreteMixer sandbox option.
------------------------------------------------------
+/*  ________________________________________________________________________
+ * / Copyright (c) 2026 Phobos A. D'thorga                                \
+ * |                                                                        |
+ * |           /\_/\                                                         |
+ * |         =/ o o \=    Phobos' PZ Modding                                |
+ * |          (  V  )     All rights reserved.                              |
+ * |     /\  / \   / \                                                      |
+ * |    /  \/   '-'   \   This source code is part of the Phobos            |
+ * |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+ * |  (__/    \_/ \/  \__)                                                  |
+ * |     |   | |  | |     Unauthorised copying, modification, or            |
+ * |     |___|_|  |_|     distribution of this file is prohibited.          |
+ * |                                                                        |
+ * \________________________________________________________________________/
+ *
+ * Phobos' Chemistry Pathways - Concrete Mixer Station
+ *
+ * Defines the Concrete Mixer as a CraftBench workstation
+ * for construction material mixing and bulk chemistry.
+ * Requires electricity (grid or generator) to operate.
+ *
+ * Uses 4-directional sprites (construction_01_6/7/14/15)
+ * matching the vanilla Mov_ConcreteMixer rotations so
+ * that any placed concrete mixer becomes this workstation.
+ *
+ * Gated by PCP.EnableConcreteMixer sandbox option.
+ */
 
 module Base
 {
@@ -44,8 +42,6 @@ module Base
         }
         component SpriteConfig
         {
-            health = 300,
-            skillBaseHealth = 0,
             face S
             {
                 layer

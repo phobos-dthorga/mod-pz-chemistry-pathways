@@ -1,30 +1,28 @@
---  ________________________________________________________________________
--- / Copyright (c) 2026 Phobos A. D'thorga                                \
--- |                                                                        |
--- |           /\_/\                                                         |
--- |         =/ o o \=    Phobos' PZ Modding                                |
--- |          (  V  )     All rights reserved.                              |
--- |     /\  / \   / \                                                      |
--- |    /  \/   '-'   \   This source code is part of the Phobos            |
--- |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
--- |  (__/    \_/ \/  \__)                                                  |
--- |     |   | |  | |     Unauthorised copying, modification, or            |
--- |     |___|_|  |_|     distribution of this file is prohibited.          |
--- |                                                                        |
--- \________________________________________________________________________/
---
-
------------------------------------------------------
--- Phobos' Chemistry Pathways - Metal Drum Station
------------------------------------------------------
--- Defines the Metal Drum as a CraftBench workstation
--- so that bulk biodiesel recipes can be performed by
--- standing NEAR a placed drum (within ~1 tile) rather
--- than carrying it in the player's inventory.
---
--- Uses the same sprite as Base.MetalDrum so that any
--- placed drum automatically becomes this workstation.
------------------------------------------------------
+/*  ________________________________________________________________________
+ * / Copyright (c) 2026 Phobos A. D'thorga                                \
+ * |                                                                        |
+ * |           /\_/\                                                         |
+ * |         =/ o o \=    Phobos' PZ Modding                                |
+ * |          (  V  )     All rights reserved.                              |
+ * |     /\  / \   / \                                                      |
+ * |    /  \/   '-'   \   This source code is part of the Phobos            |
+ * |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+ * |  (__/    \_/ \/  \__)                                                  |
+ * |     |   | |  | |     Unauthorised copying, modification, or            |
+ * |     |___|_|  |_|     distribution of this file is prohibited.          |
+ * |                                                                        |
+ * \________________________________________________________________________/
+ *
+ * Phobos' Chemistry Pathways - Metal Drum Station
+ *
+ * Defines the Metal Drum as a CraftBench workstation
+ * so that bulk biodiesel recipes can be performed by
+ * standing NEAR a placed drum (within ~1 tile) rather
+ * than carrying it in the player's inventory.
+ *
+ * Uses the same sprite as Base.MetalDrum so that any
+ * placed drum automatically becomes this workstation.
+ */
 
 module Base
 {
@@ -42,8 +40,6 @@ module Base
         }
         component SpriteConfig
         {
-            health = 200,
-            skillBaseHealth = 0,
             face SINGLE
             {
                 layer
