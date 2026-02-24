@@ -1,0 +1,12 @@
+module Base
+{
+    xuiSkin default
+    {
+        entity ES_PCP_MetalDrumStation
+        {
+            LuaWindowClass = ISEntityWindow,
+            DisplayName = Metal Drum,
+            Icon = Drum_Grey,
+        }
+    }
+}

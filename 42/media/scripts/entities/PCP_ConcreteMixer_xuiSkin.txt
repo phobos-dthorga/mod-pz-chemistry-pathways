@@ -1,0 +1,12 @@
+module Base
+{
+    xuiSkin default
+    {
+        entity ES_PCP_ConcreteMixer
+        {
+            LuaWindowClass = ISEntityWindow,
+            DisplayName = Concrete Mixer,
+            Icon = default,
+        }
+    }
+}
