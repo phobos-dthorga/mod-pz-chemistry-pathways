@@ -43,7 +43,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.BrineJar],
+            -fluid 1.0 [Brine],
             item 1 tags[base:cookable] mode:keep,
         }
         outputs
@@ -67,7 +67,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.BrineJar],
+            -fluid 1.0 [Brine],
             item 1 tags[base:cookable] mode:keep,
         }
         outputs

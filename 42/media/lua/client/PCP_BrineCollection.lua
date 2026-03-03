@@ -124,6 +124,9 @@ function PCP_CollectBrineAction:perform()
                 local purity = PhobosLib.randomBaseQuality(35, 55)
                 PhobosLib.setConditionPercent(brineJar, purity)
 
+                -- Stamp modData for recipe callback recovery after -fluid draining
+                PhobosLib.setModDataValue(brineJar, "PCP_FluidPurity", purity)
+
                 -- Speech bubble announcement
                 local tier = PhobosLib.getQualityTier(purity, _TIERS)
                 if tier then

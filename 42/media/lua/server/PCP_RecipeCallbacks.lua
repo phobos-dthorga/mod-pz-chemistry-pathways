@@ -708,10 +708,13 @@ end
 -- into table salt. Kitchen-tier (factor 0.95).
 ---------------------------------------------------------------
 
---- Concentrate brine: propagation (input BrineJar purity, factor 0.95)
+--- Concentrate brine: propagation (input BrineJar purity, factor 0.95).
+--- BrineJar is a FluidContainer consumed via -fluid syntax — the drained
+--- container remains in inventory with purity stamped in modData.
+--- Use recoverDrainedFluidQuality instead of averageInputPurity.
 function PCP_RecipeCallbacks.pcpConcentrateBrinePurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    local input = PCP_PuritySystem.averageInputPurity(items)
+    local input = PhobosLib.recoverDrainedFluidQuality(player, "PCP_FluidPurity", PCP_PuritySystem.DEFAULT)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, 0.95)
     _stampAndAnnounce(result, player, purity)
 end
