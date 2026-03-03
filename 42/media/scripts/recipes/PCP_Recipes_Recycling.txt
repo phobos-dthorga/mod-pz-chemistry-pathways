@@ -48,7 +48,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.WoodTar] mode:destroy,
+            -fluid 0.5 [WoodTar],
             item 1 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar] mode:destroy,
             item 1 [*],
             -fluid 0.2 [Water],
@@ -560,7 +560,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.WoodTar] mode:destroy,
+            -fluid 0.5 [WoodTar],
             item 1 [Base.TreeBranch2;Base.WoodenStick2] mode:destroy,
             item 1 [Base.RippedSheets;Base.RippedSheetsDirty] mode:destroy,
         }

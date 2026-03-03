@@ -380,7 +380,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.Glycerol] mode:destroy,
+            -fluid 0.5 [Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
@@ -407,7 +407,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.Glycerol] mode:destroy,
+            -fluid 0.5 [Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
         }
@@ -436,7 +436,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.Glycerol] mode:destroy,
+            -fluid 0.5 [Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
@@ -466,7 +466,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.Glycerol] mode:destroy,
+            -fluid 0.5 [Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
@@ -495,7 +495,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.Glycerol] mode:destroy,
+            -fluid 0.5 [Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
@@ -524,7 +524,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.Glycerol] mode:destroy,
+            -fluid 0.5 [Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
@@ -563,7 +563,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.RenderedFat;PhobosChemistryPathways.CrudeVegetableOil] mode:destroy,
+            -fluid 1.0 categories[Triglyceride],
             item 2 [PhobosChemistryPathways.CrushedCharcoal;Base.Charcoal] mode:destroy,
             item 1 [Base.RippedSheets] mode:destroy,
         }
@@ -592,7 +592,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.WoodMethanol] mode:destroy,
+            -fluid 0.75 [WoodMethanol],
         }
         outputs
         {
@@ -781,7 +781,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.WoodTar] mode:destroy,
+            -fluid 0.5 [WoodTar],
             item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 1 [Base.JarLid] mode:destroy,
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
@@ -811,7 +811,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.WoodTar] mode:destroy,
+            -fluid 0.5 [WoodTar],
             item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 1 [Base.JarLid] mode:destroy,
             item 1 [*],
@@ -904,7 +904,7 @@ module Base
         inputs
         {
             item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
-            item 1 [PhobosChemistryPathways.SulphuricAcidJar;PhobosChemistryPathways.SulphuricAcidBottle] mode:destroy,
+            -fluid 1.0 [SulphuricAcid],
             item 3 tags[base:charcoal] mode:destroy,
             item 1 tags[base:startfire],
         }
@@ -931,7 +931,7 @@ module Base
         inputs
         {
             item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
-            item 1 [PhobosChemistryPathways.SulphuricAcidJar;PhobosChemistryPathways.SulphuricAcidBottle] mode:destroy,
+            -fluid 1.0 [SulphuricAcid],
             item 1 [Base.Coke] mode:destroy,
             item 1 tags[base:startfire],
         }
@@ -959,7 +959,7 @@ module Base
         inputs
         {
             item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
-            item 1 [PhobosChemistryPathways.SulphuricAcidJar;PhobosChemistryPathways.SulphuricAcidBottle] mode:destroy,
+            -fluid 1.0 [SulphuricAcid],
             item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
         }
         outputs
@@ -985,7 +985,7 @@ module Base
         inputs
         {
             item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
-            item 1 [PhobosChemistryPathways.SulphuricAcidJar;PhobosChemistryPathways.SulphuricAcidBottle] mode:destroy,
+            -fluid 1.0 [SulphuricAcid],
         }
         outputs
         {

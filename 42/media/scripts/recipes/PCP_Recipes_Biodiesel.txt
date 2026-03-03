@@ -1279,8 +1279,8 @@ module Base
 
         inputs
         {
-            item 4 [PhobosChemistryPathways.CrudeVegetableOil],
-            item 2 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 4.0 [CrudeVegetableOil],
+            -fluid 1.5 [WoodMethanol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 3 [Base.JarLid] mode:destroy,
@@ -1314,8 +1314,8 @@ module Base
 
         inputs
         {
-            item 4 [PhobosChemistryPathways.CrudeVegetableOil],
-            item 2 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 4.0 [CrudeVegetableOil],
+            -fluid 1.5 [WoodMethanol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 3 [Base.JarLid] mode:destroy,
@@ -1352,8 +1352,8 @@ module Base
 
         inputs
         {
-            item 4 [PhobosChemistryPathways.RenderedFat],
-            item 2 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 4.0 [RenderedFat],
+            -fluid 1.5 [WoodMethanol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 3 [Base.JarLid] mode:destroy,
@@ -1387,8 +1387,8 @@ module Base
 
         inputs
         {
-            item 4 [PhobosChemistryPathways.RenderedFat],
-            item 2 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 4.0 [RenderedFat],
+            -fluid 1.5 [WoodMethanol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 3 [Base.JarLid] mode:destroy,
@@ -1430,8 +1430,8 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.CrudeVegetableOilBucket],
-            item 5 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 10.0 [CrudeVegetableOil],
+            -fluid 3.75 [WoodMethanol],
             item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
             item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
@@ -1460,8 +1460,8 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.CrudeVegetableOilBucket],
-            item 5 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 10.0 [CrudeVegetableOil],
+            -fluid 3.75 [WoodMethanol],
             item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
             item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
@@ -1490,8 +1490,8 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.CrudeVegetableOilBucket],
-            item 5 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 10.0 [CrudeVegetableOil],
+            -fluid 3.75 [WoodMethanol],
             item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
             item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
@@ -1520,8 +1520,8 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.CrudeVegetableOilBucket],
-            item 5 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 10.0 [CrudeVegetableOil],
+            -fluid 3.75 [WoodMethanol],
             item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
             item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
@@ -1551,8 +1551,8 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.RenderedFatBucket],
-            item 5 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 10.0 [RenderedFat],
+            -fluid 3.75 [WoodMethanol],
             item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
             item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
@@ -1581,8 +1581,8 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.RenderedFatBucket],
-            item 5 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 10.0 [RenderedFat],
+            -fluid 3.75 [WoodMethanol],
             item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
             item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
@@ -1611,8 +1611,8 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.RenderedFatBucket],
-            item 5 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 10.0 [RenderedFat],
+            -fluid 3.75 [WoodMethanol],
             item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
             item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
@@ -1641,8 +1641,8 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.RenderedFatBucket],
-            item 5 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 10.0 [RenderedFat],
+            -fluid 3.75 [WoodMethanol],
             item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
             item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
@@ -1679,8 +1679,8 @@ module Base
 
         inputs
         {
-            item 4 [PhobosChemistryPathways.CrudeVegetableOil],
-            item 2 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 4.0 [CrudeVegetableOil],
+            -fluid 1.5 [WoodMethanol],
             item 1 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
             item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 3 [Base.JarLid] mode:destroy,
@@ -1714,8 +1714,8 @@ module Base
 
         inputs
         {
-            item 4 [PhobosChemistryPathways.CrudeVegetableOil],
-            item 2 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 4.0 [CrudeVegetableOil],
+            -fluid 1.5 [WoodMethanol],
             item 1 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
             item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 3 [Base.JarLid] mode:destroy,
@@ -1750,8 +1750,8 @@ module Base
 
         inputs
         {
-            item 4 [PhobosChemistryPathways.RenderedFat],
-            item 2 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 4.0 [RenderedFat],
+            -fluid 1.5 [WoodMethanol],
             item 1 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
             item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 3 [Base.JarLid] mode:destroy,
@@ -1785,8 +1785,8 @@ module Base
 
         inputs
         {
-            item 4 [PhobosChemistryPathways.RenderedFat],
-            item 2 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 4.0 [RenderedFat],
+            -fluid 1.5 [WoodMethanol],
             item 1 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
             item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 3 [Base.JarLid] mode:destroy,
@@ -1827,8 +1827,8 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.CrudeVegetableOilBucket],
-            item 5 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 10.0 [CrudeVegetableOil],
+            -fluid 3.75 [WoodMethanol],
             item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
             item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
@@ -1857,8 +1857,8 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.CrudeVegetableOilBucket],
-            item 5 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 10.0 [CrudeVegetableOil],
+            -fluid 3.75 [WoodMethanol],
             item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
             item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
@@ -1887,8 +1887,8 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.CrudeVegetableOilBucket],
-            item 5 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 10.0 [CrudeVegetableOil],
+            -fluid 3.75 [WoodMethanol],
             item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
             item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
@@ -1917,8 +1917,8 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.CrudeVegetableOilBucket],
-            item 5 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 10.0 [CrudeVegetableOil],
+            -fluid 3.75 [WoodMethanol],
             item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
             item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
@@ -1948,8 +1948,8 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.RenderedFatBucket],
-            item 5 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 10.0 [RenderedFat],
+            -fluid 3.75 [WoodMethanol],
             item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
             item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
@@ -1978,8 +1978,8 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.RenderedFatBucket],
-            item 5 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 10.0 [RenderedFat],
+            -fluid 3.75 [WoodMethanol],
             item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
             item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
@@ -2008,8 +2008,8 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.RenderedFatBucket],
-            item 5 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 10.0 [RenderedFat],
+            -fluid 3.75 [WoodMethanol],
             item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
             item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
@@ -2038,8 +2038,8 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.RenderedFatBucket],
-            item 5 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 10.0 [RenderedFat],
+            -fluid 3.75 [WoodMethanol],
             item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
             item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
@@ -2077,7 +2077,7 @@ module Base
 
         inputs
         {
-            item 3 [PhobosChemistryPathways.CrudeBiodiesel],
+            -fluid 3.0 [CrudeBiodiesel],
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
@@ -2106,7 +2106,7 @@ module Base
 
         inputs
         {
-            item 3 [PhobosChemistryPathways.CrudeBiodiesel],
+            -fluid 3.0 [CrudeBiodiesel],
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [*],
@@ -2140,7 +2140,7 @@ module Base
 
         inputs
         {
-            item 3 [PhobosChemistryPathways.CrudeBiodiesel],
+            -fluid 3.0 [CrudeBiodiesel],
             item 1 tags[base:cookable] mode:keep,
             -fluid 2.0 [Water],
         }
@@ -2170,7 +2170,7 @@ module Base
         inputs
         {
             item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
-            item 1 [PhobosChemistryPathways.CrudeBiodieselBucket],
+            -fluid 10.0 [CrudeBiodiesel],
             item 1 [*],
             -fluid 5.0 [Water],
         }
@@ -2195,7 +2195,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.CrudeBiodieselBucket],
+            -fluid 10.0 [CrudeBiodiesel],
             item 1 [Base.Coke] mode:destroy,
             item 1 [*],
             -fluid 5.0 [Water],
@@ -2221,7 +2221,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.CrudeBiodieselBucket],
+            -fluid 10.0 [CrudeBiodiesel],
             item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
             item 1 [*],
             -fluid 5.0 [Water],
@@ -2247,7 +2247,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.CrudeBiodieselBucket],
+            -fluid 10.0 [CrudeBiodiesel],
             item 1 [*],
             -fluid 5.0 [Water],
         }
@@ -2277,7 +2277,7 @@ module Base
 
         inputs
         {
-            item 3 [PhobosChemistryPathways.WashedBiodiesel],
+            -fluid 3.0 [WashedBiodiesel],
             item 1 [Base.PetrolCan] mode:destroy flags[IsEmpty],
         }
         outputs
@@ -2305,7 +2305,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.WashedBiodieselBucket] mode:destroy,
+            -fluid 10.0 [WashedBiodiesel],
             item 2 [Base.PetrolCan] mode:destroy flags[IsEmpty],
         }
         outputs
@@ -2338,7 +2338,7 @@ module Base
 
         inputs
         {
-            item 4 [PhobosChemistryPathways.CrudeBiodiesel],
+            -fluid 4.0 [CrudeBiodiesel],
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
         }
@@ -2368,7 +2368,7 @@ module Base
 
         inputs
         {
-            item 3 [PhobosChemistryPathways.CrudeBiodiesel],
+            -fluid 3.0 [CrudeBiodiesel],
             item 3 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
@@ -2405,7 +2405,7 @@ module Base
 
         inputs
         {
-            item 4 [PhobosChemistryPathways.WashedBiodiesel],
+            -fluid 4.0 [WashedBiodiesel],
             item 2 [Base.PetrolCan] mode:destroy flags[IsEmpty],
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
@@ -2510,8 +2510,8 @@ module Base
 
         inputs
         {
-            item 4 [PhobosChemistryPathways.CrudeVegetableOil],
-            item 2 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 4.0 [CrudeVegetableOil],
+            -fluid 1.5 [WoodMethanol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide;zReLabItems.ChSodiumHydroxideBag] mode:destroy,
             item 4 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 4 [Base.JarLid] mode:destroy,
@@ -2553,7 +2553,7 @@ module Base
 
         inputs
         {
-            item 4 [PhobosChemistryPathways.WashedBiodiesel],
+            -fluid 4.0 [WashedBiodiesel],
             item 2 [Base.PetrolCan] mode:destroy flags[IsEmpty],
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
@@ -2806,7 +2806,7 @@ module Base
 
         inputs
         {
-            item 2 [PhobosChemistryPathways.Glycerol],
+            -fluid 1.0 [Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide],
             item 1 tags[base:cookable] mode:keep,
             -fluid 0.5 [Water],
@@ -2838,7 +2838,7 @@ module Base
 
         inputs
         {
-            item 2 [PhobosChemistryPathways.Glycerol],
+            -fluid 1.0 [Glycerol],
             item 1 [zReLabItems.ChSodiumHydroxideBag],
             item 1 tags[base:cookable] mode:keep,
             -fluid 0.5 [Water],

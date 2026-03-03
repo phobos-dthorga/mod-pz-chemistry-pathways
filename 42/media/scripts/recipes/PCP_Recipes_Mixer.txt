@@ -243,8 +243,8 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.CrudeVegetableOilBucket],
-            item 1 [PhobosChemistryPathways.WoodMethanol],
+            -fluid 10.0 [CrudeVegetableOil],
+            -fluid 0.75 [WoodMethanol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide],
         }
         outputs
@@ -272,7 +272,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.RenderedFatBucket],
+            -fluid 10.0 [RenderedFat],
             item 2 [PhobosChemistryPathways.PotassiumHydroxide],
         }
         outputs
@@ -356,7 +356,7 @@ module Base
 
         inputs
         {
-            item 2 [PhobosChemistryPathways.WoodTar],
+            -fluid 1.0 [WoodTar],
             item 1 [*],
             -fluid 1.0 [Water],
         }
