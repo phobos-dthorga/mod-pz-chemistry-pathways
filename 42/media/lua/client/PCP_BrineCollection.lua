@@ -149,7 +149,13 @@ local function registerBrineCollection()
         label   = getText("ContextMenu_PCP_CollectBrine"),
         test    = function(player, obj)
             local jar, lid = findJarAndLid(player)
-            return jar ~= nil and lid ~= nil
+            if jar and lid then return true end
+
+            -- Return plain-text reasons; PhobosLib formats them red
+            local missing = {}
+            if not jar then table.insert(missing, getText("Tooltip_PCP_NeedJar")) end
+            if not lid then table.insert(missing, getText("Tooltip_PCP_NeedJarLid")) end
+            return false, missing
         end,
         action  = function(player, obj)
             local jar, lid = findJarAndLid(player)
