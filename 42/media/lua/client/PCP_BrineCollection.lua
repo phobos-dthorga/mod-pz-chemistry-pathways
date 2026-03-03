@@ -81,13 +81,20 @@ function PCP_CollectBrineAction:update()
 end
 
 function PCP_CollectBrineAction:stop()
-    if self.sound then
-        self:stopSound()
-    end
+    self:stopSound()
     if self.jarItem then
         self.jarItem:setJobDelta(0.0)
     end
     ISBaseTimedAction.stop(self)
+end
+
+--- Stop the looping sound if currently playing.
+--- ISBaseTimedAction does NOT provide this — each action must define its own.
+--- Pattern from vanilla ISAddFluidFromItemAction.
+function PCP_CollectBrineAction:stopSound()
+    if self.sound and self.character:getEmitter():isPlaying(self.sound) then
+        self.character:stopOrTriggerSound(self.sound)
+    end
 end
 
 function PCP_CollectBrineAction:perform()
@@ -102,7 +109,9 @@ function PCP_CollectBrineAction:perform()
 
     -- Consume jar and lid
     inv:Remove(self.jarItem)
+    pcall(sendRemoveItemFromContainer, inv, self.jarItem)
     inv:Remove(self.lidItem)
+    pcall(sendRemoveItemFromContainer, inv, self.lidItem)
 
     -- Create BrineJar
     local brineJar = instanceItem("PhobosChemistryPathways.BrineJar")
@@ -124,6 +133,7 @@ function PCP_CollectBrineAction:perform()
         end)
 
         inv:AddItem(brineJar)
+        pcall(sendAddItemToContainer, inv, brineJar)
         inv:setDrawDirty(true)
         pcall(sendItemStats, brineJar)
     end
