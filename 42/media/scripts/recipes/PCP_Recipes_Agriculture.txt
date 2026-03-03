@@ -903,8 +903,8 @@ module Base
 
         inputs
         {
-            item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
             -fluid 1.0 [SulphuricAcid],
+            item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
             item 3 tags[base:charcoal] mode:destroy,
             item 1 tags[base:startfire],
         }
@@ -930,8 +930,8 @@ module Base
 
         inputs
         {
-            item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
             -fluid 1.0 [SulphuricAcid],
+            item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
             item 1 [Base.Coke] mode:destroy,
             item 1 tags[base:startfire],
         }
@@ -958,8 +958,8 @@ module Base
 
         inputs
         {
-            item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
             -fluid 1.0 [SulphuricAcid],
+            item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
             item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
         }
         outputs
@@ -984,8 +984,8 @@ module Base
 
         inputs
         {
-            item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
             -fluid 1.0 [SulphuricAcid],
+            item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
         }
         outputs
         {

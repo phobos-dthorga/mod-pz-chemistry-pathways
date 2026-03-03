@@ -2169,8 +2169,8 @@ module Base
 
         inputs
         {
-            item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
             -fluid 10.0 [CrudeBiodiesel],
+            item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
             item 1 [*],
             -fluid 5.0 [Water],
         }
