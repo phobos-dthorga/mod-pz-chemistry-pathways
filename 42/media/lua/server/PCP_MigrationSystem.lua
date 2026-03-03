@@ -45,7 +45,7 @@
 require "PhobosLib"
 
 local MOD_ID      = "PCP"
-local MOD_VERSION = "0.20.0"
+local MOD_VERSION = "0.25.0"
 
 ---------------------------------------------------------------
 -- Helpers
@@ -448,6 +448,29 @@ PhobosLib.registerMigration(
     "0.20.0",    -- to: this version
     migrate_0_20_0,
     "PCP v0.20.0: Rescale FluidContainer purity from max-10 to max-100"
+)
+
+---------------------------------------------------------------
+-- v0.25.0 Migration (informational)
+---------------------------------------------------------------
+
+--- Log entity rebinding activation.
+--- The actual rebinding is handled lazily by MapObjects hooks
+--- in PCP_EntityRebind.lua (fires on every chunk load).
+--- This migration records that the version requiring rebinding
+--- has been reached, for auditability in the migration log.
+---@param player any  IsoGameCharacter (unused)
+---@return boolean ok, string msg
+local function migrate_0_25_0(player)
+    return true, "Entity rebinding active — pre-existing workstations rebound on chunk load."
+end
+
+PhobosLib.registerMigration(
+    MOD_ID,
+    "0.20.0",    -- from: v0.20.0
+    "0.25.0",    -- to: this version
+    migrate_0_25_0,
+    "PCP v0.25.0: Activate entity rebinding for pre-existing workstations"
 )
 
 ---------------------------------------------------------------
