@@ -238,6 +238,14 @@ Recipes_EN = {
     Recipe_PCPMakePlasterPowderPropane = "10c. Make Plaster Powder (Propane)",
     Recipe_PCPMakePlasterPowderSimple = "10c. Make Plaster Powder",
 
+    /* ===== Salt Extraction Pathway ===== */
+    Recipe_PCPConcentrateBrine = "S1. Concentrate Brine",
+    Recipe_PCPConcentrateBrineSimple = "S1. Concentrate Brine",
+    Recipe_PCPCrystallizeSalt = "S2. Crystallize Salt",
+    Recipe_PCPCrystallizeSaltSimple = "S2. Crystallize Salt",
+    Recipe_PCPPurifySalt = "S3. Purify Salt (Filtration)",
+    Recipe_PCPPurifySaltSimple = "S3. Purify Salt (Filtration)",
+
     /* ===== Concrete Mixer — Construction ===== */
     Recipe_PCPMixConcrete = "M1. Mix Concrete",
     Recipe_PCPMixClayCement = "M2. Mix Clay Cement",

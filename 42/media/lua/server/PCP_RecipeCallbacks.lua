@@ -700,3 +700,38 @@ function PCP_RecipeCallbacks.pcpMixerVinegarPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(30, 50))
 end
+
+
+---------------------------------------------------------------
+-- SALT EXTRACTION CALLBACKS (3)
+-- Concentration, crystallization, and purification of brine
+-- into table salt. Kitchen-tier (factor 0.95).
+---------------------------------------------------------------
+
+--- Concentrate brine: propagation (input BrineJar purity, factor 0.95)
+function PCP_RecipeCallbacks.pcpConcentrateBrinePurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    local input = PCP_PuritySystem.averageInputPurity(items)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, 0.95)
+    _stampAndAnnounce(result, player, purity)
+end
+
+--- Crystallize salt: propagation + yield (input BrineConcentrate, factor 0.95)
+--- Base output 2 CoarseSalt; low purity may reduce to 1.
+function PCP_RecipeCallbacks.pcpCrystallizeSaltPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    local input = PCP_PuritySystem.averageInputPurity(items)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, 0.95)
+    _stampAndAnnounce(result, player, purity)
+    PCP_PuritySystem.removeExcess(player, "PhobosChemistryPathways.CoarseSalt", 2, purity)
+end
+
+--- Purify salt: terminal (vanilla Base.Salt output).
+--- Reads CoarseSalt purity for speech bubble; no stamp on vanilla item.
+function PCP_RecipeCallbacks.pcpPurifySaltPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    local input = PCP_PuritySystem.averageInputPurity(items)
+    if input > 0 then
+        PCP_PuritySystem.announcePurity(player, input)
+    end
+end

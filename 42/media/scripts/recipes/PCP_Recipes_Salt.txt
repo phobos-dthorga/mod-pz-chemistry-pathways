@@ -1,0 +1,192 @@
+/*  ________________________________________________________________________
+ * / Copyright (c) 2026 Phobos A. D'thorga                                \
+ * |                                                                        |
+ * |           /\_/\                                                         |
+ * |         =/ o o \=    Phobos' PZ Modding                                |
+ * |          (  V  )     All rights reserved.                              |
+ * |     /\  / \   / \                                                      |
+ * |    /  \/   '-'   \   This source code is part of the Phobos            |
+ * |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+ * |  (__/    \_/ \/  \__)                                                  |
+ * |     |   | |  | |     Unauthorised copying, modification, or            |
+ * |     |___|_|  |_|     distribution of this file is prohibited.          |
+ * |                                                                        |
+ * \________________________________________________________________________/
+ */
+
+module Base
+{
+
+/* ==================================================================================== */
+/* ============================== SALT EXTRACTION PATHWAY ============================== */
+/* ==================================================================================== */
+
+/* ----- STEP 1: CONCENTRATE BRINE ----- */
+/*  Slow-boil brine water to evaporate water and concentrate dissolved salts
+    into a thick residue. Requires a cooking pot and heat source.
+    Brine jar is consumed; pot is kept.                                                    */
+
+    craftRecipe PCPConcentrateBrine
+    {
+        time = 200,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpConcentrateBrinePurity,
+
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.openFire,
+        Tooltip = Tooltip_Recipe_OpenFire,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.BrineJar],
+            item 1 tags[base:cookable] mode:keep,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.BrineConcentrate,
+        }
+    }
+
+    craftRecipe PCPConcentrateBrineSimple
+    {
+        time = 200,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpConcentrateBrinePurity,
+
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.BrineJar],
+            item 1 tags[base:cookable] mode:keep,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.BrineConcentrate,
+        }
+    }
+
+/* ----- STEP 2: CRYSTALLIZE SALT ----- */
+/*  Boil brine concentrate to complete dryness, precipitating crude salt crystals.
+    Yields 2 CoarseSalt nominally; purity-based yield penalty may reduce to 1.             */
+
+    craftRecipe PCPCrystallizeSalt
+    {
+        time = 180,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpCrystallizeSaltPurity,
+
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.openFire,
+        Tooltip = Tooltip_Recipe_OpenFire,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:15,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.BrineConcentrate],
+            item 1 tags[base:cookable] mode:keep,
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CoarseSalt,
+        }
+    }
+
+    craftRecipe PCPCrystallizeSaltSimple
+    {
+        time = 180,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpCrystallizeSaltPurity,
+
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:15,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.BrineConcentrate],
+            item 1 tags[base:cookable] mode:keep,
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CoarseSalt,
+        }
+    }
+
+/* ----- STEP 3: PURIFY SALT (Filtration + Recrystallization) ----- */
+/*  Dissolve coarse salt in water, filter through cheesecloth to remove mineral
+    impurities, then re-boil to recrystallize as refined table salt.
+    CheeseCloth is kept with light degradation (~20 uses). 0.5L water consumed.           */
+
+    craftRecipe PCPPurifySalt
+    {
+        time = 150,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpPurifySaltPurity,
+
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.openFire,
+        Tooltip = Tooltip_Recipe_OpenFire,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.CoarseSalt],
+            item 1 [Base.CheeseCloth] mode:keep flags[MayDegradeLight],
+            item 1 tags[base:cookable] mode:keep,
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 1 Base.Salt,
+        }
+    }
+
+    craftRecipe PCPPurifySaltSimple
+    {
+        time = 150,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_RecipeCallbacks.pcpPurifySaltPurity,
+
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.CoarseSalt],
+            item 1 [Base.CheeseCloth] mode:keep flags[MayDegradeLight],
+            item 1 tags[base:cookable] mode:keep,
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 1 Base.Salt,
+        }
+    }
+
+}

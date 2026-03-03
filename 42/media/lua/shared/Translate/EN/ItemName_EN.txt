@@ -69,6 +69,11 @@ ItemName_EN = {
     ItemName_PhobosChemistryPathways.InsecticidalSoapSpray = "Insecticidal Soap Spray",
     ItemName_PhobosChemistryPathways.PotashFoliarSpray = "Potash Foliar Spray",
 
+    /* ===== Salt Extraction Pathway ===== */
+    ItemName_PhobosChemistryPathways.BrineJar = "Jar of Brine Water",
+    ItemName_PhobosChemistryPathways.BrineConcentrate = "Brine Concentrate",
+    ItemName_PhobosChemistryPathways.CoarseSalt = "Coarse Salt",
+
     /* ===== Concrete Mixer Products ===== */
     ItemName_PhobosChemistryPathways.MortarMix = "Mortar Mix",
     ItemName_PhobosChemistryPathways.StuccoMix = "Stucco Mix",

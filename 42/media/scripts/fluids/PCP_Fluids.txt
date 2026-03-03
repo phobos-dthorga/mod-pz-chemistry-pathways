@@ -275,4 +275,33 @@ module Base
         }
     }
 
+/* ============================== BRINE ============================== */
+/*  Mineral-rich brine water collected from a well.
+    Contains dissolved sodium chloride and trace minerals.
+    Not toxic, but very salty — drinking causes thirst and unhappiness.
+    Must be concentrated and crystallized to extract usable salt.          */
+
+    fluid Brine
+    {
+        ColorReference = LightSteelBlue,
+        DisplayName = Fluid_Name_PCP_Brine,
+        Categories
+        {
+            Industrial,
+        }
+        Properties
+        {
+            ThirstChange = 30.0,
+            UnhappyChange = 15.0,
+        }
+        BlendWhiteList
+        {
+            whitelist = true,
+            categories
+            {
+                Beverage,
+            }
+        }
+    }
+
 }

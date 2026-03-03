@@ -91,6 +91,9 @@ local heatRequired = {
     "PCPMakePlasterPowder",
     "PCPMakePlasterPowderCoke",
     "PCPMakePlasterPowderPropane",
+    "PCPConcentrateBrine",
+    "PCPCrystallizeSalt",
+    "PCPPurifySalt",
 }
 for _, name in ipairs(heatRequired) do
     filters[name] = PCP_Sandbox.isHeatRequired
@@ -131,6 +134,9 @@ local noHeatRequired = {
     "PCPDistillVinegarSimple",
     "PCPChemicalTanningSimple",
     "PCPMakePlasterPowderSimple",
+    "PCPConcentrateBrineSimple",
+    "PCPCrystallizeSaltSimple",
+    "PCPPurifySaltSimple",
 }
 for _, name in ipairs(noHeatRequired) do
     filters[name] = function() return not PCP_Sandbox.isHeatRequired() end

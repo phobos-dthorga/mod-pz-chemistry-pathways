@@ -1,0 +1,171 @@
+--  ________________________________________________________________________
+-- / Copyright (c) 2026 Phobos A. D'thorga                                \
+-- |                                                                        |
+-- |           /\_/\                                                         |
+-- |         =/ o o \=    Phobos' PZ Modding                                |
+-- |          (  V  )     All rights reserved.                              |
+-- |     /\  / \   / \                                                      |
+-- |    /  \/   '-'   \   This source code is part of the Phobos            |
+-- |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+-- |  (__/    \_/ \/  \__)                                                  |
+-- |     |   | |  | |     Unauthorised copying, modification, or            |
+-- |     |___|_|  |_|     distribution of this file is prohibited.          |
+-- |                                                                        |
+-- \________________________________________________________________________/
+--
+
+---------------------------------------------------------------
+-- PCP_BrineCollection.lua
+-- Client-side brine water collection from wells via context menu.
+--
+-- Registers a world object action on well sprites using
+-- PhobosLib_WorldAction, and defines a timed action for
+-- collecting brine in a glass jar.
+--
+-- Part of PhobosChemistryPathways >= 0.23.0
+-- Requires PhobosLib >= 1.14.0
+---------------------------------------------------------------
+
+require "PhobosLib"
+require "TimedActions/ISBaseTimedAction"
+
+local _TAG = "[PCP:BrineCollection]"
+
+---------------------------------------------------------------
+-- Timed Action: PCP_CollectBrineAction
+---------------------------------------------------------------
+
+PCP_CollectBrineAction = ISBaseTimedAction:derive("PCP_CollectBrineAction")
+
+function PCP_CollectBrineAction:new(character, wellObj, jarItem, lidItem)
+    local o = ISBaseTimedAction.new(self, character)
+    o.wellObj = wellObj
+    o.jarItem = jarItem
+    o.lidItem = lidItem
+    o.maxTime = 150
+    return o
+end
+
+function PCP_CollectBrineAction:isValid()
+    if not self.jarItem or not self.jarItem:getContainer() then return false end
+    if not self.lidItem or not self.lidItem:getContainer() then return false end
+    if not self.wellObj then return false end
+    return true
+end
+
+function PCP_CollectBrineAction:waitToStart()
+    self.character:faceThisObject(self.wellObj)
+    return self.character:shouldBeTurning()
+end
+
+function PCP_CollectBrineAction:start()
+    self.sound = self.character:playSound("GetWaterFromLake")
+    self:setActionAnim("fill_container_tap")
+    self:setOverrideHandModels(nil, "Jar")
+end
+
+function PCP_CollectBrineAction:update()
+    if self.jarItem then
+        self.jarItem:setJobDelta(self:getJobDelta())
+    end
+end
+
+function PCP_CollectBrineAction:stop()
+    if self.sound then
+        self:stopSound()
+    end
+    if self.jarItem then
+        self.jarItem:setJobDelta(0.0)
+    end
+    ISBaseTimedAction.stop(self)
+end
+
+function PCP_CollectBrineAction:perform()
+    if self.sound then
+        self:stopSound()
+    end
+    if self.jarItem then
+        self.jarItem:setJobDelta(0.0)
+    end
+
+    local inv = self.character:getInventory()
+
+    -- Consume jar and lid
+    inv:Remove(self.jarItem)
+    inv:Remove(self.lidItem)
+
+    -- Create BrineJar
+    local brineJar = instanceItem("PhobosChemistryPathways.BrineJar")
+    if brineJar then
+        -- Stamp purity (server-side PCP_PuritySystem not available client-side;
+        -- use PhobosLib quality API directly for the base stamp)
+        local purity = PhobosLib.randomBaseQuality(35, 55)
+        PhobosLib.setQuality(brineJar, purity)
+
+        inv:AddItem(brineJar)
+        inv:setDrawDirty(true)
+
+        -- MP sync
+        pcall(sendItemStats, brineJar)
+
+        -- Speech bubble announcement
+        local tierInfo = PhobosLib.getQualityTier(purity)
+        if tierInfo then
+            PhobosLib.say(self.character, tierInfo.name .. " (" .. tostring(math.floor(purity + 0.5)) .. "%)")
+        end
+    end
+
+    ISBaseTimedAction.perform(self)
+end
+
+---------------------------------------------------------------
+-- Context Menu Registration
+---------------------------------------------------------------
+
+--- Find a jar (EmptyJar or JarCrafted) and JarLid in the player's inventory.
+---@param player any  IsoGameCharacter
+---@return any, any   jarItem, lidItem (nil if not found)
+local function findJarAndLid(player)
+    local jar = PhobosLib.findItemByFullType(player, "Base.EmptyJar")
+    if not jar then
+        jar = PhobosLib.findItemByFullType(player, "Base.JarCrafted")
+    end
+    if not jar then return nil, nil end
+
+    local lid = PhobosLib.findItemByFullType(player, "Base.JarLid")
+    return jar, lid
+end
+
+--- Register the brine collection action on wells.
+--- Well sprites: camping_01_16 (standard well entity).
+local function registerBrineCollection()
+    if not PhobosLib.registerWorldObjectAction then
+        print(_TAG .. " PhobosLib.registerWorldObjectAction not available (PhobosLib >= 1.14.0 required)")
+        return
+    end
+
+    PhobosLib.registerWorldObjectAction({
+        sprites = {"camping_01_16"},
+        label   = getText("ContextMenu_PCP_CollectBrine"),
+        test    = function(player, obj)
+            local jar, lid = findJarAndLid(player)
+            return jar ~= nil and lid ~= nil
+        end,
+        action  = function(player, obj)
+            local jar, lid = findJarAndLid(player)
+            if not jar or not lid then return end
+
+            local sq = obj:getSquare()
+            if not sq then return end
+
+            if luautils.walkAdj(player, sq, false) then
+                ISTimedActionQueue.add(PCP_CollectBrineAction:new(player, obj, jar, lid))
+            end
+        end,
+        tooltip = getText("Tooltip_PCP_CollectBrineAction"),
+    })
+
+    print(_TAG .. " well brine collection registered")
+end
+
+registerBrineCollection()

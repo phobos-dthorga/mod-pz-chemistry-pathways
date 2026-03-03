@@ -144,6 +144,10 @@ local function registerPCPTradeData()
         { item = "PhobosChemistryPathways.Calcite",               basePrice = 8,   tags = { "Chemical", "Farming", "Common" },              stockRange = { min = 5, max = 12 } },
         { item = "PhobosChemistryPathways.DilutedCompost",        basePrice = 10,  tags = { "Chemical", "Farming", "Common" },              stockRange = { min = 3, max = 8 } },
 
+        -- Salt pathway (anchored to Calcite=8; basic survival chemistry)
+        { item = "PhobosChemistryPathways.CoarseSalt",           basePrice = 8,   tags = { "Chemical", "Common" },                        stockRange = { min = 3, max = 8 } },
+        { item = "PhobosChemistryPathways.BrineConcentrate",     basePrice = 5,   tags = { "Chemical", "Common" },                        stockRange = { min = 2, max = 5 } },
+
         -- Acid (anchored to CarBattery1=80; dangerous lab extraction)
         { item = "PhobosChemistryPathways.SulphuricAcidJar",      basePrice = 80,  tags = { "Chemical", "Medical", "Rare", "Illegal" },    stockRange = { min = 1, max = 2 } },
 

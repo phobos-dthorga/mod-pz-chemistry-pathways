@@ -50,6 +50,13 @@ Tooltip_EN = {
     Tooltip_PCP_InsecticidalSoapSpray = "Soap-based insecticidal spray.<br>Controls soft-bodied insects on plants.",
     Tooltip_PCP_PotashFoliarSpray = "Potassium-rich foliar spray.<br>Boosts plant growth and stress resistance.",
 
+    /* ===== Salt Extraction Pathway Tooltips ===== */
+    Tooltip_PCP_BrineJar = "Mineral-rich brine water collected from a well.<br>Contains dissolved sodium chloride and trace minerals.<br>Must be concentrated and crystallized to extract salt.",
+    Tooltip_PCP_BrineConcentrate = "Thick brine concentrate produced by evaporating water.<br>Ready for crystallization into crude salt.",
+    Tooltip_PCP_CoarseSalt = "Unrefined salt crystals with mineral impurities.<br>Filter through cheesecloth and recrystallize for table salt.",
+    Tooltip_PCP_CollectBrineAction = "Collect mineral-rich brine water from this well.<br>Requires an empty jar and jar lid.",
+    ContextMenu_PCP_CollectBrine = "Collect Brine Water",
+
     /* ===== Concrete Mixer Product Tooltips ===== */
     Tooltip_PCP_MortarMix = "Calcite-based mortar binding agent.<br>Strong adhesive for masonry and brickwork construction.",
     Tooltip_PCP_StuccoMix = "Plaster-based stucco finishing material.<br>Used for rendering walls and exterior surfaces.",

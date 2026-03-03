@@ -44,6 +44,7 @@ local VESSEL_MAP = {
     ["PhobosChemistryPathways.WoodTar"]                  = { vessel = "Base.EmptyJar", bonus = {"Base.JarLid"} },
     ["PhobosChemistryPathways.CrudeBiodiesel"]           = { vessel = "Base.EmptyJar", bonus = {"Base.JarLid"} },
     ["PhobosChemistryPathways.WashedBiodiesel"]          = { vessel = "Base.EmptyJar", bonus = {"Base.JarLid"} },
+    ["PhobosChemistryPathways.BrineJar"]                = { vessel = "Base.EmptyJar", bonus = {"Base.JarLid"} },
 
     -- Glass Bottle (crafted bottle) -> Base.BottleCrafted
     ["PhobosChemistryPathways.SulphuricAcidBottle"]      = "Base.BottleCrafted",
