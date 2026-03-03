@@ -31,6 +31,16 @@ require "TimedActions/ISBaseTimedAction"
 
 local _TAG = "[PCP:BrineCollection]"
 
+--- Purity tiers for speech bubble (duplicated from PCP_PurityTooltip.lua).
+--- Client cannot require server modules; keep in sync manually.
+local _TIERS = {
+    {name = "Lab-Grade",     min = 80, r = 0.4, g = 0.6, b = 1.0},
+    {name = "Pure",          min = 60, r = 0.6, g = 1.0, b = 0.6},
+    {name = "Standard",      min = 40, r = 1.0, g = 1.0, b = 0.4},
+    {name = "Impure",        min = 20, r = 1.0, g = 0.6, b = 0.2},
+    {name = "Contaminated",  min = 0,  r = 1.0, g = 0.2, b = 0.2},
+}
+
 ---------------------------------------------------------------
 -- Timed Action: PCP_CollectBrineAction
 ---------------------------------------------------------------
@@ -97,22 +107,25 @@ function PCP_CollectBrineAction:perform()
     -- Create BrineJar
     local brineJar = instanceItem("PhobosChemistryPathways.BrineJar")
     if brineJar then
-        -- Stamp purity (server-side PCP_PuritySystem not available client-side;
-        -- use PhobosLib quality API directly for the base stamp)
-        local purity = PhobosLib.randomBaseQuality(35, 55)
-        PhobosLib.setQuality(brineJar, purity)
+        -- Stamp purity via condition (client-side; PCP_PuritySystem is server-only).
+        -- Wrapped in pcall so purity failure never prevents item creation.
+        pcall(function()
+            local enabled = PhobosLib.getSandboxVar("PCP", "EnableImpuritySystem", false) == true
+            if enabled then
+                local purity = PhobosLib.randomBaseQuality(35, 55)
+                PhobosLib.setConditionPercent(brineJar, purity)
+
+                -- Speech bubble announcement
+                local tier = PhobosLib.getQualityTier(purity, _TIERS)
+                if tier then
+                    PhobosLib.say(self.character, tier.name .. " (" .. tostring(math.floor(purity + 0.5)) .. "%)")
+                end
+            end
+        end)
 
         inv:AddItem(brineJar)
         inv:setDrawDirty(true)
-
-        -- MP sync
         pcall(sendItemStats, brineJar)
-
-        -- Speech bubble announcement
-        local tierInfo = PhobosLib.getQualityTier(purity)
-        if tierInfo then
-            PhobosLib.say(self.character, tierInfo.name .. " (" .. tostring(math.floor(purity + 0.5)) .. "%)")
-        end
     end
 
     ISBaseTimedAction.perform(self)
