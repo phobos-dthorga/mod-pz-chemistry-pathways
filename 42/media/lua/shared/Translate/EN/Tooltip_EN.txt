@@ -55,7 +55,6 @@ Tooltip_EN = {
     Tooltip_PCP_BrineConcentrate = "Thick brine concentrate produced by evaporating water.<br>Ready for crystallization into crude salt.",
     Tooltip_PCP_CoarseSalt = "Unrefined salt crystals with mineral impurities.<br>Filter through cheesecloth and recrystallize for table salt.",
     Tooltip_PCP_CollectBrineAction = "Collect mineral-rich brine water from this well.<br>Requires an empty jar and jar lid.",
-    ContextMenu_PCP_CollectBrine = "Collect Brine Water",
     Tooltip_PCP_NeedJar = "Requires: Empty Jar or Crafted Jar",
     Tooltip_PCP_NeedJarLid = "Requires: Jar Lid",
 
