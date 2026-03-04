@@ -857,8 +857,7 @@ module Base
         {
             item 2 [Base.Quicklime] mode:destroy,
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
-            item 1 tags[base:cookable] mode:keep,
-            item 1 [*],
+            item 1 [*] mode:keep,
             -fluid 1.0 [Water],
         }
         outputs

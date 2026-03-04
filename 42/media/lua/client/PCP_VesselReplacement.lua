@@ -71,8 +71,14 @@ local VESSEL_MAP = {
 }
 
 ---------------------------------------------------------------
--- Sandbox guard
+-- Sandbox guards
 ---------------------------------------------------------------
+
+--- Guard function: condition reset only runs when the impurity
+--- system is enabled (condition was modified as purity proxy).
+local function isPurityEnabled()
+    return PhobosLib.getSandboxVar("PCP", "EnableImpuritySystem", false) == true
+end
 
 --- Guard function: vessel replacement only runs when sandbox
 --- option PCP.EnableVesselReplacement is true (default: true).
@@ -85,6 +91,21 @@ end
 -- Registration
 ---------------------------------------------------------------
 
+-- Condition reset: restore ConditionMax on empty FluidContainers
+-- whose condition was modified by the purity system.  Runs before
+-- vessel replacement in the same event handler.
+if PhobosLib.registerEmptyConditionReset then
+    PhobosLib.registerEmptyConditionReset(
+        "PhobosChemistryPathways.",
+        isPurityEnabled
+    )
+    print(_TAG .. " empty condition reset registered")
+else
+    print(_TAG .. " PhobosLib.registerEmptyConditionReset not available (PhobosLib >= 1.15.0 required)")
+end
+
+-- Vessel replacement: convert empty PCP FluidContainers to vanilla
+-- base vessels (jar, bottle, crucible, clay jar, bucket, gas can).
 if PhobosLib.registerEmptyVesselReplacement then
     PhobosLib.registerEmptyVesselReplacement(
         "PhobosChemistryPathways.",

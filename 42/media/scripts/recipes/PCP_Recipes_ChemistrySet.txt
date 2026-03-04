@@ -133,8 +133,7 @@ module Base
         inputs
         {
             item 4 [PhobosChemistryPathways.CrushedCharcoal],
-            item 1 tags[base:cookable] mode:keep,
-            item 1 [*],
+            item 1 [*] mode:keep,
             -fluid 0.5 [Water],
         }
         outputs
@@ -236,8 +235,7 @@ module Base
             item 4 [PhobosChemistryPathways.CrushedCharcoal],
             item 1 [zReLabItems.ChSodiumHydroxideBag],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
-            item 1 tags[base:cookable] mode:keep,
-            item 1 [*],
+            item 1 [*] mode:keep,
             -fluid 0.5 [Water],
         }
         outputs
@@ -583,8 +581,7 @@ module Base
             item 3 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
             item 1 [zReLabItems.ChSodiumHydroxideBag],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
-            item 1 tags[base:cookable] mode:keep,
-            item 1 [*],
+            item 1 [*] mode:keep,
             -fluid 0.5 [Water],
         }
         outputs
@@ -680,8 +677,7 @@ module Base
         {
             item 2 [PhobosChemistryPathways.DilutedCompost],
             item 3 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
-            item 1 tags[base:cookable] mode:keep,
-            item 1 [*],
+            item 1 [*] mode:keep,
             -fluid 0.5 [Water],
         }
         outputs
