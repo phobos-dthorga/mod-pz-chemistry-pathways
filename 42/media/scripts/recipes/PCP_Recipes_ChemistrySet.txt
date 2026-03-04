@@ -122,7 +122,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalPotPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         OnTest = RecipeCodeOnTest.hotFluidContainer,
         Tooltip = Tooltip_needsToBeHot,
@@ -223,7 +223,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalPotPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         OnTest = RecipeCodeOnTest.hotFluidContainer,
         Tooltip = Tooltip_needsToBeHot,
@@ -327,7 +327,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractAcidPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
@@ -569,7 +569,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3PotPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         OnTest = RecipeCodeOnTest.hotFluidContainer,
         Tooltip = Tooltip_needsToBeHot,
@@ -668,7 +668,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3CompostPotPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         OnTest = RecipeCodeOnTest.hotFluidContainer,
         Tooltip = Tooltip_needsToBeHot,

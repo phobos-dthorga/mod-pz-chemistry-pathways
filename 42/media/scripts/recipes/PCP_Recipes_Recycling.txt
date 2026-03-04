@@ -40,7 +40,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeWoodGluePurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         SkillRequired = AppliedChemistry:1,
         xpAward = AppliedChemistry:10,
@@ -187,7 +187,7 @@ module Base
         category = PhobosFieldChem,
         NeedToBeLearn = true,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         SkillRequired = AppliedChemistry:1,
         xpAward = AppliedChemistry:10,
@@ -217,7 +217,7 @@ module Base
         category = PhobosFieldChem,
         NeedToBeLearn = true,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:15,
@@ -248,7 +248,7 @@ module Base
         category = PhobosFieldChem,
         NeedToBeLearn = true,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         SkillRequired = AppliedChemistry:1,
         xpAward = AppliedChemistry:8,
@@ -281,7 +281,7 @@ module Base
         category = PhobosFieldChem,
         NeedToBeLearn = true,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         SkillRequired = AppliedChemistry:1,
         xpAward = AppliedChemistry:5,
@@ -315,7 +315,7 @@ module Base
         category = PhobosKitchenChem,
         NeedToBeLearn = true,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         OnTest = RecipeCodeOnTest.hotFluidContainer,
         Tooltip = Tooltip_needsToBeHot,
@@ -345,7 +345,7 @@ module Base
         category = PhobosKitchenChem,
         NeedToBeLearn = true,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         OnTest = RecipeCodeOnTest.hotFluidContainer,
         Tooltip = Tooltip_needsToBeHot,
@@ -555,7 +555,7 @@ module Base
         category = PhobosFieldChem,
         NeedToBeLearn = true,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         SkillRequired = AppliedChemistry:1,
         xpAward = AppliedChemistry:5,

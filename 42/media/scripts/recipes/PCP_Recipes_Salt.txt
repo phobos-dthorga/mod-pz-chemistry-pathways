@@ -33,7 +33,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpConcentrateBrinePurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         OnTest = RecipeCodeOnTest.openFire,
         Tooltip = Tooltip_Recipe_OpenFire,
@@ -60,7 +60,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpConcentrateBrinePurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         SkillRequired = AppliedChemistry:1,
         xpAward = AppliedChemistry:10,
@@ -89,7 +89,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCrystallizeSaltPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         OnTest = RecipeCodeOnTest.openFire,
         Tooltip = Tooltip_Recipe_OpenFire,
@@ -115,7 +115,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCrystallizeSaltPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         SkillRequired = AppliedChemistry:1,
         xpAward = AppliedChemistry:15,
@@ -144,7 +144,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpPurifySaltPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         OnTest = RecipeCodeOnTest.openFire,
         Tooltip = Tooltip_Recipe_OpenFire,
@@ -173,7 +173,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpPurifySaltPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,

@@ -32,7 +32,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = MixingMortarPestle,
         xpAward = AppliedChemistry:10,
         AutoLearnAll = AppliedChemistry:2,
@@ -60,7 +60,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = MixingMortarPestle,
         xpAward = AppliedChemistry:10,
         AutoLearnAll = AppliedChemistry:2,
@@ -88,7 +88,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = MixingMortarPestle,
         xpAward = AppliedChemistry:10,
         AutoLearnAll = AppliedChemistry:2,
@@ -116,7 +116,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = MixingMortarPestle,
         xpAward = AppliedChemistry:10,
         AutoLearnAll = AppliedChemistry:2,
@@ -144,7 +144,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = MixingMortarPestle,
         xpAward = AppliedChemistry:10,
         AutoLearnAll = AppliedChemistry:2,
@@ -172,7 +172,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = MixingMortarPestle,
         xpAward = AppliedChemistry:10,
         AutoLearnAll = AppliedChemistry:2,
@@ -605,7 +605,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         OnTest = RecipeCodeOnTest.openFire,
         Tooltip = Tooltip_Recipe_OpenFire,
@@ -636,7 +636,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         OnTest = RecipeCodeOnTest.openFire,
         Tooltip = Tooltip_Recipe_OpenFire,
@@ -667,7 +667,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         OnTest = RecipeCodeOnTest.openFire,
         Tooltip = Tooltip_Recipe_OpenFire,
@@ -698,7 +698,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         OnTest = RecipeCodeOnTest.openFire,
         Tooltip = Tooltip_Recipe_OpenFire,
@@ -729,7 +729,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         OnTest = RecipeCodeOnTest.openFire,
         Tooltip = Tooltip_Recipe_OpenFire,
@@ -760,7 +760,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         OnTest = RecipeCodeOnTest.openFire,
         Tooltip = Tooltip_Recipe_OpenFire,
@@ -962,7 +962,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpConvertOilPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         xpAward = AppliedChemistry:10,
         AutoLearnAll = AppliedChemistry:2,
@@ -1058,7 +1058,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpRenderFatPotPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         OnTest = RecipeCodeOnTest.openFire,
         Tooltip = Tooltip_Recipe_OpenFire,
@@ -1095,7 +1095,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpRenderFatPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         OnTest = RecipeCodeOnTest.hotFluidContainer,
         Tooltip = Tooltip_needsToBeHot,
@@ -2378,7 +2378,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselPotPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         OnTest = RecipeCodeOnTest.hotFluidContainer,
         Tooltip = Tooltip_needsToBeHot,
@@ -2532,7 +2532,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpRefineBiodieselPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:40,
@@ -2561,7 +2561,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpRefineBiodieselBulkPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:40,
@@ -3100,7 +3100,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         OnTest = RecipeCodeOnTest.hotFluidContainer,
         Tooltip = Tooltip_needsToBeHot,
@@ -3134,7 +3134,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         OnTest = RecipeCodeOnTest.hotFluidContainer,
         Tooltip = Tooltip_needsToBeHot,
@@ -3170,7 +3170,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         OnTest = RecipeCodeOnTest.hotFluidContainer,
         Tooltip = Tooltip_needsToBeHot,
@@ -3203,7 +3203,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
-        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
         OnTest = RecipeCodeOnTest.hotFluidContainer,
         Tooltip = Tooltip_needsToBeHot,
