@@ -39,13 +39,17 @@
 --     now explicitly set to 100 in PCP_Items.txt. Existing items need
 --     their condition values multiplied by 10 to map correctly.
 --
+-- v1.0.0 migration:
+--   - Convert orphaned zReLabItems (from zReVaccin) to ZVV/vanilla
+--     equivalents, preserving condition and fluid contents
+--
 -- Requires: PhobosLib >= 1.9.0
 ---------------------------------------------------------------
 
 require "PhobosLib"
 
 local MOD_ID      = "PCP"
-local MOD_VERSION = "0.25.0"
+local MOD_VERSION = "1.0.0"
 
 ---------------------------------------------------------------
 -- Helpers
@@ -471,6 +475,112 @@ PhobosLib.registerMigration(
     "0.25.0",    -- to: this version
     migrate_0_25_0,
     "PCP v0.25.0: Activate entity rebinding for pre-existing workstations"
+)
+
+---------------------------------------------------------------
+-- v1.0.0 Migration
+---------------------------------------------------------------
+
+--- zReLabItems fullType → ZVV/vanilla replacement fullType.
+--- Maps every known zReVaccin consumable to its closest equivalent.
+local ZRE_TO_ZVV = {
+    ["zReLabItems.LabFlask"]              = "LabItems.LabFlask",
+    ["zReLabItems.LabFlaskDirty"]         = "LabItems.LabFlaskDirty",
+    ["zReLabItems.ChSodiumHydroxideBag"]  = "LabItems.ChSodiumHydroxideBag",
+    ["zReLabItems.ChSulfuricAcidCan"]     = "LabItems.ChSulfuricAcidCan",
+    ["zReLabItems.LabCorks"]              = "Base.Cork",
+    ["zReLabItems.zReV2_6ECO_gloves"]     = "Base.Gloves_Surgical",
+}
+
+--- Convert orphaned zReLabItems to ZVV/vanilla equivalents.
+--- When PCP switched its hard dependency from zReVaccin 3 to
+--- Zombie Virus Vaccine (ZVV), items from the old zReLabItems
+--- module become orphaned in existing saves.  This migration
+--- replaces each known zReLabItems item with its ZVV or vanilla
+--- equivalent, preserving condition (purity) and fluid contents.
+---@param player any  IsoGameCharacter
+---@return boolean ok, string msg
+local function migrate_1_0_0(player)
+    local converted = 0
+    local removed   = 0
+
+    PhobosLib.iterateInventoryDeep(player, function(item, container)
+        local fullType = item:getFullType()
+        if not fullType then return end
+
+        -- Check if it's a known zReLabItems item with a mapped replacement
+        local replacement = ZRE_TO_ZVV[fullType]
+        if replacement == nil then
+            -- Not in the map — check if it's still a zReLabItems item
+            if not string.find(fullType, "zReLabItems.", 1, true) then
+                return  -- not a zReLabItems item at all, skip
+            end
+            -- Unknown zReLabItems item — will be removed with no replacement
+        end
+
+        if replacement then
+            -- Create the ZVV / vanilla equivalent
+            local newItem = instanceItem(replacement)
+            if newItem then
+                -- Preserve condition (purity proxy) as a percentage
+                local cond    = item:getCondition()
+                local maxCond = item:getConditionMax()
+                if cond and maxCond and maxCond > 0 and cond < maxCond then
+                    local newMax = newItem:getConditionMax()
+                    local pct    = cond / maxCond
+                    newItem:setCondition(math.floor(pct * newMax + 0.5))
+                end
+
+                -- Preserve fluid contents for FluidContainer items
+                local ok1, fc    = pcall(function() return item:getFluidContainer() end)
+                local ok2, newFc = pcall(function() return newItem:getFluidContainer() end)
+                if ok1 and fc and ok2 and newFc then
+                    local amount = fc:getAmount()
+                    if amount and amount > 0 then
+                        local fluidOk, fluidName = pcall(function()
+                            local pf = fc:getPrimaryFluid()
+                            return pf and pf:getName()
+                        end)
+                        if fluidOk and fluidName then
+                            pcall(function() newFc:addFluid(fluidName, amount) end)
+                        end
+                    end
+                end
+
+                container:AddItem(newItem)
+                pcall(function() sendItemStats(newItem) end)
+                pcall(function() sendAddItemToContainer(container, newItem) end)
+                converted = converted + 1
+            end
+        else
+            removed = removed + 1
+        end
+
+        -- Remove the orphaned zReLabItems item
+        container:Remove(item)
+        pcall(function() sendRemoveItemFromContainer(container, item) end)
+    end)
+
+    if converted == 0 and removed == 0 then
+        return true, "No orphaned zReVaccin items found."
+    end
+
+    local parts = {}
+    if converted > 0 then
+        table.insert(parts, "Converted " .. converted .. " zReVaccin item(s) to ZVV equivalents")
+    end
+    if removed > 0 then
+        table.insert(parts, "Removed " .. removed .. " unrecognised zReVaccin item(s)")
+    end
+    return true, table.concat(parts, ". ") .. "."
+end
+
+PhobosLib.registerMigration(
+    MOD_ID,
+    "0.25.0",    -- from: v0.25.0
+    "1.0.0",     -- to: this version
+    migrate_1_0_0,
+    "PCP v1.0.0: Convert zReVaccin items to Zombie Virus Vaccine equivalents"
 )
 
 ---------------------------------------------------------------
