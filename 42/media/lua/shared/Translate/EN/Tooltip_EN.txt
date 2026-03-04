@@ -54,9 +54,8 @@ Tooltip_EN = {
     Tooltip_PCP_BrineJar = "Mineral-rich brine water collected from a well.<br>Contains dissolved sodium chloride and trace minerals.<br>Must be concentrated and crystallized to extract salt.",
     Tooltip_PCP_BrineConcentrate = "Thick brine concentrate produced by evaporating water.<br>Ready for crystallization into crude salt.",
     Tooltip_PCP_CoarseSalt = "Unrefined salt crystals with mineral impurities.<br>Filter through cheesecloth and recrystallize for table salt.",
-    Tooltip_PCP_CollectBrineAction = "Collect mineral-rich brine water from this well.<br>Requires an empty jar and jar lid.",
-    Tooltip_PCP_NeedJar = "Requires: Empty Jar or Crafted Jar",
-    Tooltip_PCP_NeedJarLid = "Requires: Jar Lid",
+    Tooltip_PCP_CollectBrineAction = "Collect mineral-rich brine water from this well.<br>Requires an empty container (jar, bottle, or bucket).",
+    Tooltip_PCP_NeedEmptyContainer = "Requires: Empty container (jar, bottle, bucket, clay jar, or crucible)",
 
     /* ===== Concrete Mixer Product Tooltips ===== */
     Tooltip_PCP_MortarMix = "Calcite-based mortar binding agent.<br>Strong adhesive for masonry and brickwork construction.",

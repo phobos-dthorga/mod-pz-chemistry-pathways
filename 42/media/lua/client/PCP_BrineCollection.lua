@@ -20,16 +20,33 @@
 --
 -- Registers a world object action on well sprites using
 -- PhobosLib_WorldAction, and defines a timed action for
--- collecting brine in a glass jar.
+-- collecting brine into any accepted empty FluidContainer.
 --
--- Part of PhobosChemistryPathways >= 0.23.0
--- Requires PhobosLib >= 1.14.0
+-- Part of PhobosChemistryPathways >= 0.24.0
+-- Requires PhobosLib >= 1.12.0
 ---------------------------------------------------------------
 
 require "PhobosLib"
 require "TimedActions/ISBaseTimedAction"
 
 local _TAG = "[PCP:BrineCollection]"
+
+--- Accepted container types for brine collection.
+--- Crafting-oriented vessels only; excludes canteens, water bottles, etc.
+local _ACCEPTED_CONTAINERS = {
+    -- Small (capacity ~1.0L)
+    "Base.EmptyJar",
+    "Base.JarCrafted",
+    "Base.BottleCrafted",
+    "Base.CeramicCrucibleSmall",
+    "Base.ClayJarGlazed",
+    -- Buckets (capacity ~10.0L)
+    "Base.BucketForged",
+    "Base.Bucket",
+    "Base.BucketEmpty",
+    "Base.BucketCarved",
+    "Base.BucketWood",
+}
 
 --- Purity tiers for speech bubble (duplicated from PCP_PurityTooltip.lua).
 --- Client cannot require server modules; keep in sync manually.
@@ -47,18 +64,16 @@ local _TIERS = {
 
 PCP_CollectBrineAction = ISBaseTimedAction:derive("PCP_CollectBrineAction")
 
-function PCP_CollectBrineAction:new(character, wellObj, jarItem, lidItem)
+function PCP_CollectBrineAction:new(character, wellObj, containerItem)
     local o = ISBaseTimedAction.new(self, character)
     o.wellObj = wellObj
-    o.jarItem = jarItem
-    o.lidItem = lidItem
+    o.containerItem = containerItem
     o.maxTime = 150
     return o
 end
 
 function PCP_CollectBrineAction:isValid()
-    if not self.jarItem or not self.jarItem:getContainer() then return false end
-    if not self.lidItem or not self.lidItem:getContainer() then return false end
+    if not self.containerItem or not self.containerItem:getContainer() then return false end
     if not self.wellObj then return false end
     return true
 end
@@ -75,15 +90,15 @@ function PCP_CollectBrineAction:start()
 end
 
 function PCP_CollectBrineAction:update()
-    if self.jarItem then
-        self.jarItem:setJobDelta(self:getJobDelta())
+    if self.containerItem then
+        self.containerItem:setJobDelta(self:getJobDelta())
     end
 end
 
 function PCP_CollectBrineAction:stop()
     self:stopSound()
-    if self.jarItem then
-        self.jarItem:setJobDelta(0.0)
+    if self.containerItem then
+        self.containerItem:setJobDelta(0.0)
     end
     ISBaseTimedAction.stop(self)
 end
@@ -101,45 +116,43 @@ function PCP_CollectBrineAction:perform()
     if self.sound then
         self:stopSound()
     end
-    if self.jarItem then
-        self.jarItem:setJobDelta(0.0)
+    if self.containerItem then
+        self.containerItem:setJobDelta(0.0)
     end
 
-    local inv = self.character:getInventory()
+    -- Fill the container with Brine fluid to its full capacity
+    pcall(function()
+        local fc = PhobosLib.tryGetFluidContainer(self.containerItem)
+        if not fc then return end
+        local capacity = PhobosLib.tryGetCapacity(fc) or 1.0
+        PhobosLib.tryAddFluid(fc, "Brine", capacity)
+    end)
 
-    -- Consume jar and lid
-    inv:Remove(self.jarItem)
-    pcall(sendRemoveItemFromContainer, inv, self.jarItem)
-    inv:Remove(self.lidItem)
-    pcall(sendRemoveItemFromContainer, inv, self.lidItem)
+    -- Stamp purity (client-side; PCP_PuritySystem is server-only).
+    -- Wrapped in pcall so purity failure never prevents the fill.
+    pcall(function()
+        local enabled = PhobosLib.getSandboxVar("PCP", "EnableImpuritySystem", false) == true
+        if enabled then
+            local purity = PhobosLib.randomBaseQuality(35, 55)
+            PhobosLib.setConditionPercent(self.containerItem, purity)
 
-    -- Create BrineJar
-    local brineJar = instanceItem("PhobosChemistryPathways.BrineJar")
-    if brineJar then
-        -- Stamp purity via condition (client-side; PCP_PuritySystem is server-only).
-        -- Wrapped in pcall so purity failure never prevents item creation.
-        pcall(function()
-            local enabled = PhobosLib.getSandboxVar("PCP", "EnableImpuritySystem", false) == true
-            if enabled then
-                local purity = PhobosLib.randomBaseQuality(35, 55)
-                PhobosLib.setConditionPercent(brineJar, purity)
+            -- Stamp modData for recipe callback recovery after -fluid draining
+            PhobosLib.setModDataValue(self.containerItem, "PCP_Purity_Brine", purity)
 
-                -- Stamp modData for recipe callback recovery after -fluid draining
-                PhobosLib.setModDataValue(brineJar, "PCP_Purity_Brine", purity)
-
-                -- Speech bubble announcement
-                local tier = PhobosLib.getQualityTier(purity, _TIERS)
-                if tier then
-                    PhobosLib.say(self.character, tier.name .. " (" .. tostring(math.floor(purity + 0.5)) .. "%)")
-                end
+            -- Speech bubble announcement
+            local tier = PhobosLib.getQualityTier(purity, _TIERS)
+            if tier then
+                PhobosLib.say(self.character, tier.name .. " (" .. tostring(math.floor(purity + 0.5)) .. "%)")
             end
-        end)
+        end
+    end)
 
-        inv:AddItem(brineJar)
-        pcall(sendAddItemToContainer, inv, brineJar)
-        inv:setDrawDirty(true)
-        pcall(sendItemStats, brineJar)
-    end
+    -- Sync for MP
+    pcall(sendItemStats, self.containerItem)
+
+    -- Refresh inventory UI
+    local inv = self.character:getInventory()
+    if inv then inv:setDrawDirty(true) end
 
     ISBaseTimedAction.perform(self)
 end
@@ -147,20 +160,6 @@ end
 ---------------------------------------------------------------
 -- Context Menu Registration
 ---------------------------------------------------------------
-
---- Find a jar (EmptyJar or JarCrafted) and JarLid in the player's inventory.
----@param player any  IsoGameCharacter
----@return any, any   jarItem, lidItem (nil if not found)
-local function findJarAndLid(player)
-    local jar = PhobosLib.findItemByFullType(player, "Base.EmptyJar")
-    if not jar then
-        jar = PhobosLib.findItemByFullType(player, "Base.JarCrafted")
-    end
-    if not jar then return nil, nil end
-
-    local lid = PhobosLib.findItemByFullType(player, "Base.JarLid")
-    return jar, lid
-end
 
 --- Register the brine collection action on wells.
 --- Well sprites: camping_01_16 (standard well entity).
@@ -174,24 +173,19 @@ local function registerBrineCollection()
         sprites = {"camping_01_16"},
         label   = getText("ContextMenu_PCP_CollectBrine"),
         test    = function(player, obj)
-            local jar, lid = findJarAndLid(player)
-            if jar and lid then return true end
-
-            -- Return plain-text reasons; PhobosLib formats them red
-            local missing = {}
-            if not jar then table.insert(missing, getText("Tooltip_PCP_NeedJar")) end
-            if not lid then table.insert(missing, getText("Tooltip_PCP_NeedJarLid")) end
-            return false, missing
+            local container = PhobosLib.findEmptyFluidContainer(player, _ACCEPTED_CONTAINERS)
+            if container then return true end
+            return false, { getText("Tooltip_PCP_NeedEmptyContainer") }
         end,
         action  = function(player, obj)
-            local jar, lid = findJarAndLid(player)
-            if not jar or not lid then return end
+            local container = PhobosLib.findEmptyFluidContainer(player, _ACCEPTED_CONTAINERS)
+            if not container then return end
 
             local sq = obj:getSquare()
             if not sq then return end
 
             if luautils.walkAdj(player, sq, false) then
-                ISTimedActionQueue.add(PCP_CollectBrineAction:new(player, obj, jar, lid))
+                ISTimedActionQueue.add(PCP_CollectBrineAction:new(player, obj, container))
             end
         end,
         tooltip = getText("Tooltip_PCP_CollectBrineAction"),
