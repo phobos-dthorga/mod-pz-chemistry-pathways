@@ -570,7 +570,7 @@ module Base
         inputs
         {
             item 1 [*],
-            -fluid 1.0 categories[Triglyceride],
+            -fluid 1.0 [CrudeVegetableOil;RenderedFat],
             item 2 [PhobosChemistryPathways.CrushedCharcoal;Base.Charcoal] mode:destroy,
             item 1 [Base.RippedSheets] mode:destroy,
         }

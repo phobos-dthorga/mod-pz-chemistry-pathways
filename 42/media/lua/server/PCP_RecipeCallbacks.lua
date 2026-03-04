@@ -742,7 +742,7 @@ end
 ---------------------------------------------------------------
 
 --- E1: Fire Starter Blocks -- input purity of fat/oil scales yield 2-4
---- Fluid input: Triglyceride category (CrudeVegetableOil OR RenderedFat)
+--- Fluid input: CrudeVegetableOil or RenderedFat (triglyceride feedstock)
 function PCP_RecipeCallbacks.pcpMakeFireStarterYield(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = _recoverAnyFluidPurity(player, {"PCP_Purity_CrudeVegetableOil", "PCP_Purity_RenderedFat"})

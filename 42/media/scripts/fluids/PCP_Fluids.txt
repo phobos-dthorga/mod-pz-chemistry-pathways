@@ -60,7 +60,6 @@ module Base
         {
             Beverage,
             Industrial,
-            Triglyceride,
         }
         Properties
         {
@@ -95,7 +94,6 @@ module Base
         {
             Beverage,
             Industrial,
-            Triglyceride,
         }
         Properties
         {
