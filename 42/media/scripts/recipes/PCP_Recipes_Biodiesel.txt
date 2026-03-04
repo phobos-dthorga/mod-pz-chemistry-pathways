@@ -2542,7 +2542,7 @@ module Base
         {
             item 1 [*],
             -fluid 3.0 [WashedBiodiesel],
-            item 1 [Base.PetrolCan;Base.GasCan] flags[IsEmpty],
+            item 1 [Base.PetrolCan] flags[IsEmpty],
             +fluid 5.0 Petrol,
         }
         outputs
@@ -2571,9 +2571,9 @@ module Base
         {
             item 1 [*],
             -fluid 10.0 [WashedBiodiesel],
-            item 1 [Base.PetrolCan;Base.GasCan] flags[IsEmpty],
+            item 1 [Base.PetrolCan] flags[IsEmpty],
             +fluid 5.0 Petrol,
-            item 1 [Base.PetrolCan;Base.GasCan] flags[IsEmpty],
+            item 1 [Base.PetrolCan] flags[IsEmpty],
             +fluid 5.0 Petrol,
         }
         outputs
@@ -2690,9 +2690,9 @@ module Base
         {
             item 1 [*],
             -fluid 4.0 [WashedBiodiesel],
-            item 1 [Base.PetrolCan;Base.GasCan] flags[IsEmpty],
+            item 1 [Base.PetrolCan] flags[IsEmpty],
             +fluid 5.0 Petrol,
-            item 1 [Base.PetrolCan;Base.GasCan] flags[IsEmpty],
+            item 1 [Base.PetrolCan] flags[IsEmpty],
             +fluid 5.0 Petrol,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
@@ -2856,9 +2856,9 @@ module Base
         {
             item 1 [*],
             -fluid 4.0 [WashedBiodiesel],
-            item 1 [Base.PetrolCan;Base.GasCan] flags[IsEmpty],
+            item 1 [Base.PetrolCan] flags[IsEmpty],
             +fluid 5.0 Petrol,
-            item 1 [Base.PetrolCan;Base.GasCan] flags[IsEmpty],
+            item 1 [Base.PetrolCan] flags[IsEmpty],
             +fluid 5.0 Petrol,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
