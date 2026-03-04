@@ -118,19 +118,34 @@ local function _averagePurities(values)
     return count > 0 and (sum / count) or PCP_PuritySystem.DEFAULT
 end
 
---- Stamp fluid purity modData on all items of a given fullType in player inventory.
---- Bridges purity from FluidContainer outputs to downstream -fluid recipe inputs.
---- Call after _stampAndAnnounce to propagate purity through the -fluid recipe chain.
-local function _stampFluidOutputPurity(player, fullType, purity, fluidKey)
-    if not player or not fullType or not fluidKey then return end
+--- Apply fuel penalty (drain fluid) to recently-filled FluidContainers by fluid name.
+--- Reverse-iterates inventory to find containers most recently added by the recipe.
+--- Used for terminal fuel recipes (refine, chromatograph, spectrometer).
+---@param player any        The player character
+---@param fluidName string  The fluid name to search for (e.g. "Petrol")
+---@param purity number     Purity value for yield lookup
+---@param count number      Max containers to apply penalty to
+local function _applyFluidFuelPenalty(player, fluidName, purity, count)
+    if not PCP_PuritySystem.isEnabled() then return end
+    if not player or not fluidName then return end
+    count = count or 1
+    local applied = 0
     pcall(function()
         local inv = player:getInventory()
         if not inv then return end
         local items = inv:getItems()
-        for i = 0, items:size() - 1 do
+        for i = items:size() - 1, 0, -1 do
+            if applied >= count then break end
             local it = items:get(i)
-            if it and it:getFullType() == fullType then
-                PhobosLib.setModDataValue(it, fluidKey, purity)
+            if it then
+                local fc = PhobosLib.tryGetFluidContainer(it)
+                if fc then
+                    local fname = PhobosLib.tryGetFluidName(fc)
+                    if fname and fname == fluidName then
+                        PhobosLib.applyFluidQualityPenalty(it, purity, PCP_PuritySystem.YIELD_TABLE)
+                        applied = applied + 1
+                    end
+                end
             end
         end
     end)
@@ -145,48 +160,48 @@ end
 function PCP_RecipeCallbacks.pcpOilMortarPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local purity = PCP_PuritySystem.randomBasePurity(30, 50)
-    _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_CrudeVegetableOil")
+    PhobosLib.stampFluidContainerQuality(player, "CrudeVegetableOil", "PCP_Purity_CrudeVegetableOil", purity, 1)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 --- Chemistry Set oil extraction: 50-70
 function PCP_RecipeCallbacks.pcpOilLabPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local purity = PCP_PuritySystem.randomBasePurity(50, 70)
-    _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_CrudeVegetableOil")
+    PhobosLib.stampFluidContainerQuality(player, "CrudeVegetableOil", "PCP_Purity_CrudeVegetableOil", purity, 2)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 --- MetalDrum bulk oil pressing: 40-60
 function PCP_RecipeCallbacks.pcpOilBulkPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local purity = PCP_PuritySystem.randomBasePurity(40, 60)
-    _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_CrudeVegetableOil")
+    PhobosLib.stampFluidContainerQuality(player, "CrudeVegetableOil", "PCP_Purity_CrudeVegetableOil", purity, 1)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 --- Convert bottled vegetable oil: 55-70
 function PCP_RecipeCallbacks.pcpConvertOilPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local purity = PCP_PuritySystem.randomBasePurity(55, 70)
-    _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_CrudeVegetableOil")
+    PhobosLib.stampFluidContainerQuality(player, "CrudeVegetableOil", "PCP_Purity_CrudeVegetableOil", purity, 2)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 --- Render fat (Chemistry Set): 45-65
 function PCP_RecipeCallbacks.pcpRenderFatPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local purity = PCP_PuritySystem.randomBasePurity(45, 65)
-    _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_RenderedFat")
+    PhobosLib.stampFluidContainerQuality(player, "RenderedFat", "PCP_Purity_RenderedFat", purity, 2)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 --- Distill methanol (Chemistry Set): 40-60
 function PCP_RecipeCallbacks.pcpDistillMethanolPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local purity = PCP_PuritySystem.randomBasePurity(40, 60)
-    _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_WoodMethanol")
+    PhobosLib.stampFluidContainerQuality(player, "WoodMethanol", "PCP_Purity_WoodMethanol", purity, 2)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 --- Crush charcoal (Mortar): 35-55
@@ -196,11 +211,12 @@ function PCP_RecipeCallbacks.pcpCrushCharcoalPurity(items, result, player)
 end
 
 --- Extract battery acid (Surface): 40-60
+--- Result = LeadScrap (solid PCP item), acid outputs are +fluid containers
 function PCP_RecipeCallbacks.pcpExtractAcidPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local purity = PCP_PuritySystem.randomBasePurity(40, 60)
     _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_SulphuricAcid")
+    PhobosLib.stampFluidContainerQuality(player, "SulphuricAcid", "PCP_Purity_SulphuricAcid", purity, 2)
 end
 
 --- Bone char production (MetalDrum): 50-70
@@ -264,6 +280,7 @@ end
 
 --- Transesterify — Lab/Chemistry Set tier (factor 1.00)
 --- Fluid inputs: CrudeVegetableOil OR RenderedFat + WoodMethanol; solid: KOH
+--- Fluid outputs: 3× CrudeBiodiesel + 2× Glycerol
 function PCP_RecipeCallbacks.pcpTransesterifyLabPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = _averagePurities({
@@ -272,13 +289,14 @@ function PCP_RecipeCallbacks.pcpTransesterifyLabPurity(items, result, player)
         PCP_PuritySystem.averageInputPurity(items)
     })
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet)
-    _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_CrudeBiodiesel")
-    _stampFluidOutputPurity(player, "PhobosChemistryPathways.Glycerol", purity, "PCP_Purity_Glycerol")
+    PhobosLib.stampFluidContainerQuality(player, "CrudeBiodiesel", "PCP_Purity_CrudeBiodiesel", purity, 3)
+    PhobosLib.stampFluidContainerQuality(player, "Glycerol", "PCP_Purity_Glycerol", purity, 2)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 --- Transesterify — MetalDrum bulk tier (factor 0.95)
 --- Fluid inputs: CrudeVegetableOil OR RenderedFat + WoodMethanol; solid: KOH
+--- Fluid outputs: 1× CrudeBiodiesel (bucket) + 5× Glycerol
 function PCP_RecipeCallbacks.pcpTransesterifyBulkPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = _averagePurities({
@@ -287,69 +305,69 @@ function PCP_RecipeCallbacks.pcpTransesterifyBulkPurity(items, result, player)
         PCP_PuritySystem.averageInputPurity(items)
     })
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.metalDrum)
-    _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_CrudeBiodiesel")
-    _stampFluidOutputPurity(player, "PhobosChemistryPathways.Glycerol", purity, "PCP_Purity_Glycerol")
+    PhobosLib.stampFluidContainerQuality(player, "CrudeBiodiesel", "PCP_Purity_CrudeBiodiesel", purity, 1)
+    PhobosLib.stampFluidContainerQuality(player, "Glycerol", "PCP_Purity_Glycerol", purity, 5)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 --- Wash biodiesel — Lab/Chemistry Set tier (factor 1.00)
---- Fluid input: CrudeBiodiesel → output: WashedBiodiesel
+--- Fluid input: CrudeBiodiesel → output: 3× WashedBiodiesel
 function PCP_RecipeCallbacks.pcpWashBiodieselLabPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_CrudeBiodiesel", PCP_PuritySystem.DEFAULT)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet)
-    _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_WashedBiodiesel")
+    PhobosLib.stampFluidContainerQuality(player, "WashedBiodiesel", "PCP_Purity_WashedBiodiesel", purity, 3)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 --- Wash biodiesel — MetalDrum bulk tier (factor 0.95)
---- Fluid input: CrudeBiodiesel → output: WashedBiodiesel
+--- Fluid input: CrudeBiodiesel → output: 1× WashedBiodiesel (bucket)
 function PCP_RecipeCallbacks.pcpWashBiodieselBulkPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_CrudeBiodiesel", PCP_PuritySystem.DEFAULT)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.metalDrum)
-    _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_WashedBiodiesel")
+    PhobosLib.stampFluidContainerQuality(player, "WashedBiodiesel", "PCP_Purity_WashedBiodiesel", purity, 1)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 --- Centrifuge wash (factor 1.10)
---- Fluid input: CrudeBiodiesel → output: WashedBiodiesel
+--- Fluid input: CrudeBiodiesel → output: 4× WashedBiodiesel
 function PCP_RecipeCallbacks.pcpCentrifugeWashPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_CrudeBiodiesel", PCP_PuritySystem.DEFAULT)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.centrifuge)
-    _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_WashedBiodiesel")
+    PhobosLib.stampFluidContainerQuality(player, "WashedBiodiesel", "PCP_Purity_WashedBiodiesel", purity, 4)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 --- Centrifuge glycerol separation (factor 1.10)
---- Fluid input: CrudeBiodiesel → output: Glycerol
+--- Fluid input: CrudeBiodiesel → output: 2× WashedBiodiesel + 3× Glycerol
 function PCP_RecipeCallbacks.pcpCentrifugeGlycerolPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_CrudeBiodiesel", PCP_PuritySystem.DEFAULT)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.centrifuge)
-    _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_Glycerol")
+    PhobosLib.stampFluidContainerQuality(player, "WashedBiodiesel", "PCP_Purity_WashedBiodiesel", purity, 2)
+    PhobosLib.stampFluidContainerQuality(player, "Glycerol", "PCP_Purity_Glycerol", purity, 3)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 --- Chromatograph purify biodiesel (factor 1.25) + fuel penalty
---- Fluid input: WashedBiodiesel → output: WashedBiodiesel (purified)
+--- Fluid input: WashedBiodiesel → output: 2× Petrol gas cans
 function PCP_RecipeCallbacks.pcpChromatographBiodieselPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_WashedBiodiesel", PCP_PuritySystem.DEFAULT)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chromatograph)
-    _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_WashedBiodiesel")
-    PCP_PuritySystem.applyFuelPenalty(result, purity)
+    _applyFluidFuelPenalty(player, "Petrol", purity, 2)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 --- Chromatograph purify methanol (source override 80-95)
---- Output: WoodMethanol (purified)
+--- Output: 3× WoodMethanol
 function PCP_RecipeCallbacks.pcpChromatographMethanolPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local purity = PCP_PuritySystem.randomBasePurity(80, 95)
-    _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_WoodMethanol")
+    PhobosLib.stampFluidContainerQuality(player, "WoodMethanol", "PCP_Purity_WoodMethanol", purity, 3)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 --- Make soap — all variants (cosmetic tracking, factor 1.00, no penalty)
@@ -371,13 +389,13 @@ end
 ---------------------------------------------------------------
 
 --- Refine biodiesel into fuel — drain Petrol based on purity
---- Fluid input: WashedBiodiesel → output: RefinedBiodieselCan
+--- Fluid input: WashedBiodiesel → output: 1× Petrol gas can
 function PCP_RecipeCallbacks.pcpRefineBiodieselPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_WashedBiodiesel", PCP_PuritySystem.DEFAULT)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet)
-    _stampAndAnnounce(result, player, purity)
-    PCP_PuritySystem.applyFuelPenalty(result, purity)
+    _applyFluidFuelPenalty(player, "Petrol", purity, 1)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 --- Mix blackpowder — remove excess GunPowder based on purity
@@ -391,7 +409,7 @@ end
 
 --- Microscope analysis (factor 1.15)
 --- Fluid inputs: CrudeVegetableOil + WoodMethanol; solid: KOH/NaOH
---- Output: CrudeBiodiesel + Glycerol
+--- Fluid outputs: 4× CrudeBiodiesel + 2× Glycerol
 function PCP_RecipeCallbacks.pcpMicroscopeAnalyzePurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = _averagePurities({
@@ -400,19 +418,19 @@ function PCP_RecipeCallbacks.pcpMicroscopeAnalyzePurity(items, result, player)
         PCP_PuritySystem.averageInputPurity(items)
     })
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.microscope)
-    _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_CrudeBiodiesel")
-    _stampFluidOutputPurity(player, "PhobosChemistryPathways.Glycerol", purity, "PCP_Purity_Glycerol")
+    PhobosLib.stampFluidContainerQuality(player, "CrudeBiodiesel", "PCP_Purity_CrudeBiodiesel", purity, 4)
+    PhobosLib.stampFluidContainerQuality(player, "Glycerol", "PCP_Purity_Glycerol", purity, 2)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 --- Spectrometer test (factor 1.15) + fuel penalty
---- Fluid input: WashedBiodiesel → output: RefinedBiodieselCan
+--- Fluid input: WashedBiodiesel → output: 2× Petrol gas cans
 function PCP_RecipeCallbacks.pcpSpectrometerTestPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_WashedBiodiesel", PCP_PuritySystem.DEFAULT)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.spectrometer)
-    _stampAndAnnounce(result, player, purity)
-    PCP_PuritySystem.applyFuelPenalty(result, purity)
+    _applyFluidFuelPenalty(player, "Petrol", purity, 2)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 
@@ -446,6 +464,7 @@ end
 
 --- Transesterify oil bulk + propane (MetalDrum, factor 0.95)
 --- Fluid inputs: CrudeVegetableOil + WoodMethanol; solid: KOH
+--- Fluid outputs: 1× CrudeBiodiesel (bucket) + 5× Glycerol
 function PCP_RecipeCallbacks.pcpTransesterifyOilBulkPropanePurity(items, result, player)
     PCP_RecipeCallbacks.pcpReturnPartialPropane(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
@@ -455,13 +474,14 @@ function PCP_RecipeCallbacks.pcpTransesterifyOilBulkPropanePurity(items, result,
         PCP_PuritySystem.averageInputPurity(items)
     })
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.metalDrum)
-    _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_CrudeBiodiesel")
-    _stampFluidOutputPurity(player, "PhobosChemistryPathways.Glycerol", purity, "PCP_Purity_Glycerol")
+    PhobosLib.stampFluidContainerQuality(player, "CrudeBiodiesel", "PCP_Purity_CrudeBiodiesel", purity, 1)
+    PhobosLib.stampFluidContainerQuality(player, "Glycerol", "PCP_Purity_Glycerol", purity, 5)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 --- Transesterify fat bulk + propane (MetalDrum, factor 0.95)
 --- Fluid inputs: RenderedFat + WoodMethanol; solid: KOH
+--- Fluid outputs: 1× CrudeBiodiesel (bucket) + 5× Glycerol
 function PCP_RecipeCallbacks.pcpTransesterifyFatBulkPropanePurity(items, result, player)
     PCP_RecipeCallbacks.pcpReturnPartialPropane(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
@@ -471,20 +491,20 @@ function PCP_RecipeCallbacks.pcpTransesterifyFatBulkPropanePurity(items, result,
         PCP_PuritySystem.averageInputPurity(items)
     })
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.metalDrum)
-    _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_CrudeBiodiesel")
-    _stampFluidOutputPurity(player, "PhobosChemistryPathways.Glycerol", purity, "PCP_Purity_Glycerol")
+    PhobosLib.stampFluidContainerQuality(player, "CrudeBiodiesel", "PCP_Purity_CrudeBiodiesel", purity, 1)
+    PhobosLib.stampFluidContainerQuality(player, "Glycerol", "PCP_Purity_Glycerol", purity, 5)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 --- Wash biodiesel bulk + propane (MetalDrum, factor 0.95)
---- Fluid input: CrudeBiodiesel → output: WashedBiodiesel
+--- Fluid input: CrudeBiodiesel → output: 1× WashedBiodiesel (bucket)
 function PCP_RecipeCallbacks.pcpWashBiodieselBulkPropanePurity(items, result, player)
     PCP_RecipeCallbacks.pcpReturnPartialPropane(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_CrudeBiodiesel", PCP_PuritySystem.DEFAULT)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.metalDrum)
-    _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_WashedBiodiesel")
+    PhobosLib.stampFluidContainerQuality(player, "WashedBiodiesel", "PCP_Purity_WashedBiodiesel", purity, 1)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 --- Bone char + propane (MetalDrum, source 50-70)
@@ -636,14 +656,14 @@ function PCP_RecipeCallbacks.pcpMeltPlasticGlueUnsafe(items, result, player)
     PCP_HazardSystem.applyUnsafeEffect(player, "plastic_fumes")
 end
 
---- Bug fix: Bulk Refine Biodiesel (surface, propagation 0.95)
---- Fluid input: WashedBiodiesel → output: RefinedBiodieselCan
+--- Bulk Refine Biodiesel (surface, propagation 0.95) + fuel penalty
+--- Fluid input: WashedBiodiesel → output: 2× Petrol gas cans
 function PCP_RecipeCallbacks.pcpRefineBiodieselBulkPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_WashedBiodiesel", PCP_PuritySystem.DEFAULT)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.metalDrum)
-    _stampAndAnnounce(result, player, purity)
-    PCP_PuritySystem.applyFuelPenalty(result, purity)
+    _applyFluidFuelPenalty(player, "Petrol", purity, 2)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 
@@ -655,16 +675,16 @@ end
 function PCP_RecipeCallbacks.pcpOilLabPotPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local purity = PCP_PuritySystem.randomBasePurity(40, 60)
-    _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_CrudeVegetableOil")
+    PhobosLib.stampFluidContainerQuality(player, "CrudeVegetableOil", "PCP_Purity_CrudeVegetableOil", purity, 2)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 --- Render fat (Cooking Pot): 30-50
 function PCP_RecipeCallbacks.pcpRenderFatPotPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local purity = PCP_PuritySystem.randomBasePurity(30, 50)
-    _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_RenderedFat")
+    PhobosLib.stampFluidContainerQuality(player, "RenderedFat", "PCP_Purity_RenderedFat", purity, 2)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 
@@ -691,13 +711,13 @@ function PCP_RecipeCallbacks.pcpSynthesizeKNO3CompostPotPurity(items, result, pl
 end
 
 --- Wash biodiesel (Cooking Pot, factor 0.90)
---- Fluid input: CrudeBiodiesel → output: WashedBiodiesel
+--- Fluid input: CrudeBiodiesel → output: 3× WashedBiodiesel
 function PCP_RecipeCallbacks.pcpWashBiodieselPotPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_CrudeBiodiesel", PCP_PuritySystem.DEFAULT)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, 0.90)
-    _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_WashedBiodiesel")
+    PhobosLib.stampFluidContainerQuality(player, "WashedBiodiesel", "PCP_Purity_WashedBiodiesel", purity, 3)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 
@@ -813,13 +833,13 @@ function PCP_RecipeCallbacks.pcpMixerBlackpowderPurity(items, result, player)
 end
 
 --- Mixer biodiesel (bulk): 35-55 (lower than lab)
---- Output: CrudeBiodieselBucket + Glycerol
+--- Fluid outputs: 1× CrudeBiodiesel (bucket) + 1× Glycerol
 function PCP_RecipeCallbacks.pcpMixerBiodieselPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local purity = PCP_PuritySystem.randomBasePurity(35, 55)
-    _stampAndAnnounce(result, player, purity)
-    _stampFluidOutputPurity(player, result:getFullType(), purity, "PCP_Purity_CrudeBiodiesel")
-    _stampFluidOutputPurity(player, "PhobosChemistryPathways.Glycerol", purity, "PCP_Purity_Glycerol")
+    PhobosLib.stampFluidContainerQuality(player, "CrudeBiodiesel", "PCP_Purity_CrudeBiodiesel", purity, 1)
+    PhobosLib.stampFluidContainerQuality(player, "Glycerol", "PCP_Purity_Glycerol", purity, 1)
+    PCP_PuritySystem.announcePurity(player, purity)
 end
 
 --- Mixer soap (bulk): 40-60 (lower than lab)

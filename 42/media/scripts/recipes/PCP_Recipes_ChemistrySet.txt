@@ -336,13 +336,15 @@ module Base
         inputs
         {
             item 1 tags[base:carbattery] mode:destroy,
-            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] mode:destroy flags[IsEmpty],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 SulphuricAcid,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 SulphuricAcid,
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.SulphuricAcidJar,
             item 3 PhobosChemistryPathways.LeadScrap,
         }
     }

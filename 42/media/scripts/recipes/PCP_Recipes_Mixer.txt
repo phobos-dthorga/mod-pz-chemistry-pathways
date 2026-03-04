@@ -248,11 +248,13 @@ module Base
             item 1 [*],
             -fluid 0.75 [WoodMethanol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
-            item 1 PhobosChemistryPathways.Glycerol,
         }
     }
 

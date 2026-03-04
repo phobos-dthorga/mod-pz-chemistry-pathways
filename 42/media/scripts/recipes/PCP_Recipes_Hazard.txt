@@ -55,9 +55,12 @@ module Base
         inputs
         {
             item 4 [Base.Plank;Base.Firewood] mode:destroy,
-            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.JarLid] mode:destroy,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodMethanol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodMethanol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodTar,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
@@ -67,8 +70,6 @@ module Base
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.WoodMethanol,
-            item 1 PhobosChemistryPathways.WoodTar,
             item 2 Base.Charcoal,
             item 1 zReLabItems.LabFlaskDirty,
         }
@@ -92,9 +93,12 @@ module Base
         inputs
         {
             item 4 [Base.Plank;Base.Firewood] mode:destroy,
-            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.JarLid] mode:destroy,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodMethanol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodMethanol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodTar,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
@@ -102,8 +106,6 @@ module Base
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.WoodMethanol,
-            item 1 PhobosChemistryPathways.WoodTar,
             item 2 Base.Charcoal,
             item 1 zReLabItems.LabFlaskDirty,
         }
@@ -127,9 +129,12 @@ module Base
         inputs
         {
             item 4 [Base.Plank;Base.Firewood] mode:destroy,
-            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.JarLid] mode:destroy,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodMethanol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodMethanol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodTar,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
@@ -138,8 +143,6 @@ module Base
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.WoodMethanol,
-            item 1 PhobosChemistryPathways.WoodTar,
             item 2 Base.Charcoal,
             item 1 zReLabItems.LabFlaskDirty,
         }
@@ -163,17 +166,18 @@ module Base
         inputs
         {
             item 4 [Base.Plank;Base.Firewood] mode:destroy,
-            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.JarLid] mode:destroy,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodMethanol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodMethanol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodTar,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.WoodMethanol,
-            item 1 PhobosChemistryPathways.WoodTar,
             item 2 Base.Charcoal,
             item 1 zReLabItems.LabFlaskDirty,
         }
@@ -615,14 +619,16 @@ module Base
         inputs
         {
             item 1 tags[base:carbattery] mode:destroy,
-            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] mode:destroy flags[IsEmpty],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 SulphuricAcid,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 SulphuricAcid,
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask] mode:keep flags[NoBrokenItems],
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.SulphuricAcidJar,
             item 3 PhobosChemistryPathways.LeadScrap,
         }
     }
@@ -645,12 +651,14 @@ module Base
         inputs
         {
             item 1 tags[base:carbattery] mode:destroy,
-            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] mode:destroy flags[IsEmpty],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 SulphuricAcid,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 SulphuricAcid,
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.SulphuricAcidJar,
             item 3 PhobosChemistryPathways.LeadScrap,
         }
     }

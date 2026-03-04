@@ -41,12 +41,11 @@ module Base
         {
             item 1 tags[base:mortarpestle] mode:keep flags[MayDegradeLight],
             item 8 [Base.Soybeans],
-            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.JarLid] mode:destroy,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeVegetableOil,
         }
     }
 
@@ -70,12 +69,11 @@ module Base
         {
             item 1 tags[base:mortarpestle] mode:keep flags[MayDegradeLight],
             item 6 [Base.SunflowerSeeds],
-            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.JarLid] mode:destroy,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeVegetableOil,
         }
     }
 
@@ -99,12 +97,11 @@ module Base
         {
             item 1 tags[base:mortarpestle] mode:keep flags[MayDegradeLight],
             item 10 [Base.Corn],
-            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.JarLid] mode:destroy,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeVegetableOil,
         }
     }
 
@@ -128,12 +125,11 @@ module Base
         {
             item 1 tags[base:mortarpestle] mode:keep flags[MayDegradeLight],
             item 30 [Base.FlaxSeed],
-            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.JarLid] mode:destroy,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeVegetableOil,
         }
     }
 
@@ -157,12 +153,11 @@ module Base
         {
             item 1 tags[base:mortarpestle] mode:keep flags[MayDegradeLight],
             item 30 [Base.HempSeed],
-            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.JarLid] mode:destroy,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeVegetableOil,
         }
     }
 
@@ -186,12 +181,11 @@ module Base
         {
             item 1 tags[base:mortarpestle] mode:keep flags[MayDegradeLight],
             item 4 [Base.Peanuts],
-            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.JarLid] mode:destroy,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeVegetableOil,
         }
     }
 
@@ -219,17 +213,18 @@ module Base
         inputs
         {
             item 8 [Base.Soybeans],
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.CrudeVegetableOil,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -250,16 +245,17 @@ module Base
         inputs
         {
             item 8 [Base.Soybeans],
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [*],
             -fluid 0.5 [Water],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.CrudeVegetableOil,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -283,17 +279,18 @@ module Base
         inputs
         {
             item 6 [Base.SunflowerSeeds],
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.CrudeVegetableOil,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -314,16 +311,17 @@ module Base
         inputs
         {
             item 6 [Base.SunflowerSeeds],
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [*],
             -fluid 0.5 [Water],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.CrudeVegetableOil,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -347,17 +345,18 @@ module Base
         inputs
         {
             item 10 [Base.Corn],
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.CrudeVegetableOil,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -378,16 +377,17 @@ module Base
         inputs
         {
             item 10 [Base.Corn],
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [*],
             -fluid 0.5 [Water],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.CrudeVegetableOil,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -411,17 +411,18 @@ module Base
         inputs
         {
             item 30 [Base.FlaxSeed],
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.CrudeVegetableOil,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -442,16 +443,17 @@ module Base
         inputs
         {
             item 30 [Base.FlaxSeed],
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [*],
             -fluid 0.5 [Water],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.CrudeVegetableOil,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -475,17 +477,18 @@ module Base
         inputs
         {
             item 30 [Base.HempSeed],
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.CrudeVegetableOil,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -506,16 +509,17 @@ module Base
         inputs
         {
             item 30 [Base.HempSeed],
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [*],
             -fluid 0.5 [Water],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.CrudeVegetableOil,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -539,17 +543,18 @@ module Base
         inputs
         {
             item 4 [Base.Peanuts],
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.CrudeVegetableOil,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -570,16 +575,17 @@ module Base
         inputs
         {
             item 4 [Base.Peanuts],
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [*],
             -fluid 0.5 [Water],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.CrudeVegetableOil,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -610,13 +616,14 @@ module Base
         inputs
         {
             item 8 [Base.Soybeans],
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
             item 1 [Base.Pot] mode:keep,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.CrudeVegetableOil,
         }
     }
 
@@ -640,13 +647,14 @@ module Base
         inputs
         {
             item 6 [Base.SunflowerSeeds],
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
             item 1 [Base.Pot] mode:keep,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.CrudeVegetableOil,
         }
     }
 
@@ -670,13 +678,14 @@ module Base
         inputs
         {
             item 10 [Base.Corn],
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
             item 1 [Base.Pot] mode:keep,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.CrudeVegetableOil,
         }
     }
 
@@ -700,13 +709,14 @@ module Base
         inputs
         {
             item 30 [Base.FlaxSeed],
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
             item 1 [Base.Pot] mode:keep,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.CrudeVegetableOil,
         }
     }
 
@@ -730,13 +740,14 @@ module Base
         inputs
         {
             item 30 [Base.HempSeed],
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
             item 1 [Base.Pot] mode:keep,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.CrudeVegetableOil,
         }
     }
 
@@ -760,13 +771,14 @@ module Base
         inputs
         {
             item 4 [Base.Peanuts],
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
             item 1 [Base.Pot] mode:keep,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.CrudeVegetableOil,
         }
     }
 
@@ -794,11 +806,11 @@ module Base
         inputs
         {
             item 20 [Base.Soybeans],
-            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeVegetableOilBucket,
         }
     }
 
@@ -820,11 +832,11 @@ module Base
         inputs
         {
             item 15 [Base.SunflowerSeeds],
-            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeVegetableOilBucket,
         }
     }
 
@@ -846,11 +858,11 @@ module Base
         inputs
         {
             item 25 [Base.Corn],
-            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeVegetableOilBucket,
         }
     }
 
@@ -873,11 +885,11 @@ module Base
         inputs
         {
             item 75 [Base.FlaxSeed],
-            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeVegetableOilBucket,
         }
     }
 
@@ -900,11 +912,11 @@ module Base
         inputs
         {
             item 75 [Base.HempSeed],
-            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeVegetableOilBucket,
         }
     }
 
@@ -927,11 +939,11 @@ module Base
         inputs
         {
             item 10 [Base.Peanuts],
-            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeVegetableOilBucket,
         }
     }
 
@@ -958,12 +970,13 @@ module Base
         inputs
         {
             item 1 [Base.OilVegetable;Base.OilOlive],
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeVegetableOil,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.CrudeVegetableOil,
         }
     }
 
@@ -987,17 +1000,18 @@ module Base
         inputs
         {
             item 2 [Base.Lard;Base.Butter;Base.Margarine],
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 RenderedFat,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 RenderedFat,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.RenderedFat,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -1018,16 +1032,17 @@ module Base
         inputs
         {
             item 2 [Base.Lard;Base.Butter;Base.Margarine],
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [*],
             -fluid 0.5 [Water],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 RenderedFat,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 RenderedFat,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.RenderedFat,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -1054,13 +1069,14 @@ module Base
         inputs
         {
             item 2 [Base.Lard;Base.Butter;Base.Margarine],
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
             item 1 [Base.Pot] mode:keep,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 RenderedFat,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 RenderedFat,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.RenderedFat,
         }
     }
 
@@ -1090,15 +1106,16 @@ module Base
         inputs
         {
             item 6 [Base.Steak;Base.Beef;Base.Pork;Base.PorkChop;Base.MuttonChop;Base.Venison;Base.Chicken;Base.ChickenFillet;Base.ChickenWhole;Base.ChickenWings;Base.TurkeyWhole;Base.Rabbitmeat;Base.Smallanimalmeat;Base.Smallbirdmeat;Base.FrogMeat;Base.MeatPatty;Base.MincedMeat;Base.Bacon;Base.BaconRashers;Base.Sausage;Base.Salami] mode:destroy,
-            item 2 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 2 [Base.JarLid] mode:destroy,
             item 1 tags[base:cookable] mode:keep,
             item 1 [*],
             -fluid 0.5 [Water],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 RenderedFat,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 RenderedFat,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.RenderedFat,
             item 2 Base.SmallAnimalBone,
         }
     }
@@ -1129,18 +1146,19 @@ module Base
         inputs
         {
             item 4 [Base.Plank;Base.Firewood] mode:destroy,
-            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.JarLid] mode:destroy,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodMethanol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodMethanol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodTar,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.WoodMethanol,
-            item 1 PhobosChemistryPathways.WoodTar,
             item 2 Base.Charcoal,
             item 1 zReLabItems.LabFlaskDirty,
         }
@@ -1162,17 +1180,18 @@ module Base
         inputs
         {
             item 4 [Base.Plank;Base.Firewood] mode:destroy,
-            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.JarLid] mode:destroy,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodMethanol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodMethanol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodTar,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.WoodMethanol,
-            item 1 PhobosChemistryPathways.WoodTar,
             item 2 Base.Charcoal,
             item 1 zReLabItems.LabFlaskDirty,
         }
@@ -1285,19 +1304,24 @@ module Base
             item 1 [*],
             -fluid 1.5 [WoodMethanol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
-            item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 3 [Base.JarLid] mode:destroy,
-            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 3 PhobosChemistryPathways.CrudeBiodiesel,
-            item 2 PhobosChemistryPathways.Glycerol,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -1322,18 +1346,23 @@ module Base
             item 1 [*],
             -fluid 1.5 [WoodMethanol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
-            item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 3 [Base.JarLid] mode:destroy,
-            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 3 PhobosChemistryPathways.CrudeBiodiesel,
-            item 2 PhobosChemistryPathways.Glycerol,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -1362,19 +1391,24 @@ module Base
             item 1 [*],
             -fluid 1.5 [WoodMethanol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
-            item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 3 [Base.JarLid] mode:destroy,
-            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 3 PhobosChemistryPathways.CrudeBiodiesel,
-            item 2 PhobosChemistryPathways.Glycerol,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -1399,18 +1433,23 @@ module Base
             item 1 [*],
             -fluid 1.5 [WoodMethanol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
-            item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 3 [Base.JarLid] mode:destroy,
-            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 3 PhobosChemistryPathways.CrudeBiodiesel,
-            item 2 PhobosChemistryPathways.Glycerol,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -1444,15 +1483,23 @@ module Base
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
             item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
-            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
-            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeBiodiesel,
             item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
-            item 5 PhobosChemistryPathways.Glycerol,
         }
     }
 
@@ -1476,15 +1523,23 @@ module Base
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
             item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
-            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
-            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeBiodiesel,
             item 1 [Base.Coke] mode:destroy,
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
-            item 5 PhobosChemistryPathways.Glycerol,
         }
     }
 
@@ -1508,15 +1563,23 @@ module Base
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
             item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
-            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
-            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeBiodiesel,
             item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
-            item 5 PhobosChemistryPathways.Glycerol,
         }
     }
 
@@ -1540,14 +1603,22 @@ module Base
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
             item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
-            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
-            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeBiodiesel,
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
-            item 5 PhobosChemistryPathways.Glycerol,
         }
     }
 
@@ -1573,15 +1644,23 @@ module Base
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
             item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
-            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
-            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeBiodiesel,
             item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
-            item 5 PhobosChemistryPathways.Glycerol,
         }
     }
 
@@ -1605,15 +1684,23 @@ module Base
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
             item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
-            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
-            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeBiodiesel,
             item 1 [Base.Coke] mode:destroy,
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
-            item 5 PhobosChemistryPathways.Glycerol,
         }
     }
 
@@ -1637,15 +1724,23 @@ module Base
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
             item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
-            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
-            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeBiodiesel,
             item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
-            item 5 PhobosChemistryPathways.Glycerol,
         }
     }
 
@@ -1669,14 +1764,22 @@ module Base
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
             item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
-            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
-            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeBiodiesel,
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
-            item 5 PhobosChemistryPathways.Glycerol,
         }
     }
 
@@ -1709,19 +1812,24 @@ module Base
             item 1 [*],
             -fluid 1.5 [WoodMethanol],
             item 1 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
-            item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 3 [Base.JarLid] mode:destroy,
-            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 3 PhobosChemistryPathways.CrudeBiodiesel,
-            item 2 PhobosChemistryPathways.Glycerol,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -1746,18 +1854,23 @@ module Base
             item 1 [*],
             -fluid 1.5 [WoodMethanol],
             item 1 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
-            item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 3 [Base.JarLid] mode:destroy,
-            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 3 PhobosChemistryPathways.CrudeBiodiesel,
-            item 2 PhobosChemistryPathways.Glycerol,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -1784,19 +1897,24 @@ module Base
             item 1 [*],
             -fluid 1.5 [WoodMethanol],
             item 1 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
-            item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 3 [Base.JarLid] mode:destroy,
-            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 3 PhobosChemistryPathways.CrudeBiodiesel,
-            item 2 PhobosChemistryPathways.Glycerol,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -1821,18 +1939,23 @@ module Base
             item 1 [*],
             -fluid 1.5 [WoodMethanol],
             item 1 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
-            item 3 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 3 [Base.JarLid] mode:destroy,
-            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 3 PhobosChemistryPathways.CrudeBiodiesel,
-            item 2 PhobosChemistryPathways.Glycerol,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -1865,15 +1988,23 @@ module Base
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
             item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
-            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
-            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeBiodiesel,
             item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
-            item 5 PhobosChemistryPathways.Glycerol,
         }
     }
 
@@ -1897,15 +2028,23 @@ module Base
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
             item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
-            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
-            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeBiodiesel,
             item 1 [Base.Coke] mode:destroy,
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
-            item 5 PhobosChemistryPathways.Glycerol,
         }
     }
 
@@ -1929,15 +2068,23 @@ module Base
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
             item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
-            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
-            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeBiodiesel,
             item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
-            item 5 PhobosChemistryPathways.Glycerol,
         }
     }
 
@@ -1961,14 +2108,22 @@ module Base
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
             item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
-            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
-            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeBiodiesel,
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
-            item 5 PhobosChemistryPathways.Glycerol,
         }
     }
 
@@ -1994,15 +2149,23 @@ module Base
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
             item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
-            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
-            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeBiodiesel,
             item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
-            item 5 PhobosChemistryPathways.Glycerol,
         }
     }
 
@@ -2026,15 +2189,23 @@ module Base
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
             item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
-            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
-            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeBiodiesel,
             item 1 [Base.Coke] mode:destroy,
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
-            item 5 PhobosChemistryPathways.Glycerol,
         }
     }
 
@@ -2058,15 +2229,23 @@ module Base
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
             item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
-            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
-            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeBiodiesel,
             item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
-            item 5 PhobosChemistryPathways.Glycerol,
         }
     }
 
@@ -2090,14 +2269,22 @@ module Base
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
             item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
-            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] mode:destroy,
-            item 5 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 CrudeBiodiesel,
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.CrudeBiodieselBucket,
-            item 5 PhobosChemistryPathways.Glycerol,
         }
     }
 
@@ -2133,10 +2320,15 @@ module Base
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 2.0 [Water],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WashedBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WashedBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WashedBiodiesel,
         }
         outputs
         {
-            item 3 PhobosChemistryPathways.WashedBiodiesel,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -2162,10 +2354,15 @@ module Base
             item 1 [zReLabItems.LabCorks],
             item 1 [*],
             -fluid 2.0 [Water],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WashedBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WashedBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WashedBiodiesel,
         }
         outputs
         {
-            item 3 PhobosChemistryPathways.WashedBiodiesel,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -2196,10 +2393,15 @@ module Base
             item 1 tags[base:cookable] mode:keep,
             item 1 [*],
             -fluid 2.0 [Water],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WashedBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WashedBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WashedBiodiesel,
         }
         outputs
         {
-            item 3 PhobosChemistryPathways.WashedBiodiesel,
         }
     }
 
@@ -2227,10 +2429,11 @@ module Base
             item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
             item 1 [*],
             -fluid 5.0 [Water],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 WashedBiodiesel,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.WashedBiodieselBucket,
         }
     }
 
@@ -2254,10 +2457,11 @@ module Base
             item 1 [Base.Coke] mode:destroy,
             item 1 [*],
             -fluid 5.0 [Water],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 WashedBiodiesel,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.WashedBiodieselBucket,
         }
     }
 
@@ -2281,10 +2485,11 @@ module Base
             item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
             item 1 [*],
             -fluid 5.0 [Water],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 WashedBiodiesel,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.WashedBiodieselBucket,
         }
     }
 
@@ -2307,10 +2512,11 @@ module Base
             -fluid 10.0 [CrudeBiodiesel],
             item 1 [*],
             -fluid 5.0 [Water],
+            item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
+            +fluid 10.0 WashedBiodiesel,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.WashedBiodieselBucket,
         }
     }
 
@@ -2336,11 +2542,11 @@ module Base
         {
             item 1 [*],
             -fluid 3.0 [WashedBiodiesel],
-            item 1 [Base.PetrolCan] mode:destroy flags[IsEmpty],
+            item 1 [Base.PetrolCan;Base.GasCan] flags[IsEmpty],
+            +fluid 5.0 Petrol,
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.RefinedBiodieselCan,
         }
     }
 
@@ -2365,11 +2571,13 @@ module Base
         {
             item 1 [*],
             -fluid 10.0 [WashedBiodiesel],
-            item 2 [Base.PetrolCan] mode:destroy flags[IsEmpty],
+            item 1 [Base.PetrolCan;Base.GasCan] flags[IsEmpty],
+            +fluid 5.0 Petrol,
+            item 1 [Base.PetrolCan;Base.GasCan] flags[IsEmpty],
+            +fluid 5.0 Petrol,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.RefinedBiodieselCan,
         }
     }
 
@@ -2401,10 +2609,17 @@ module Base
             -fluid 4.0 [CrudeBiodiesel],
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WashedBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WashedBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WashedBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WashedBiodiesel,
         }
         outputs
         {
-            item 4 PhobosChemistryPathways.WashedBiodiesel,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -2430,14 +2645,21 @@ module Base
         {
             item 1 [*],
             -fluid 3.0 [CrudeBiodiesel],
-            item 3 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WashedBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WashedBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.WashedBiodiesel,
-            item 3 PhobosChemistryPathways.Glycerol,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -2468,13 +2690,15 @@ module Base
         {
             item 1 [*],
             -fluid 4.0 [WashedBiodiesel],
-            item 2 [Base.PetrolCan] mode:destroy flags[IsEmpty],
+            item 1 [Base.PetrolCan;Base.GasCan] flags[IsEmpty],
+            +fluid 5.0 Petrol,
+            item 1 [Base.PetrolCan;Base.GasCan] flags[IsEmpty],
+            +fluid 5.0 Petrol,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.RefinedBiodieselCan,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -2499,18 +2723,21 @@ module Base
         inputs
         {
             item 4 [Base.Plank;Base.Firewood] mode:destroy,
-            item 3 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.JarLid] mode:destroy,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodMethanol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodMethanol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodMethanol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodTar,
         }
         outputs
         {
-            item 3 PhobosChemistryPathways.WoodMethanol,
-            item 1 PhobosChemistryPathways.WoodTar,
             item 2 Base.Charcoal,
             item 1 zReLabItems.LabFlaskDirty,
         }
@@ -2532,17 +2759,20 @@ module Base
         inputs
         {
             item 4 [Base.Plank;Base.Firewood] mode:destroy,
-            item 3 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.JarLid] mode:destroy,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodMethanol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodMethanol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodMethanol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 WoodTar,
         }
         outputs
         {
-            item 3 PhobosChemistryPathways.WoodMethanol,
-            item 1 PhobosChemistryPathways.WoodTar,
             item 2 Base.Charcoal,
             item 1 zReLabItems.LabFlaskDirty,
         }
@@ -2577,18 +2807,25 @@ module Base
             item 1 [*],
             -fluid 1.5 [WoodMethanol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide;zReLabItems.ChSodiumHydroxideBag] mode:destroy,
-            item 4 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
-            item 4 [Base.JarLid] mode:destroy,
-            item 2 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
             item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 CrudeBiodiesel,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
+            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            +fluid 1.0 Glycerol,
         }
         outputs
         {
-            item 4 PhobosChemistryPathways.CrudeBiodiesel,
-            item 2 PhobosChemistryPathways.Glycerol,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
@@ -2619,13 +2856,15 @@ module Base
         {
             item 1 [*],
             -fluid 4.0 [WashedBiodiesel],
-            item 2 [Base.PetrolCan] mode:destroy flags[IsEmpty],
+            item 1 [Base.PetrolCan;Base.GasCan] flags[IsEmpty],
+            +fluid 5.0 Petrol,
+            item 1 [Base.PetrolCan;Base.GasCan] flags[IsEmpty],
+            +fluid 5.0 Petrol,
             item 1 [zReLabItems.LabFlask],
             item 1 [zReLabItems.LabCorks],
         }
         outputs
         {
-            item 2 PhobosChemistryPathways.RefinedBiodieselCan,
             item 1 zReLabItems.LabFlaskDirty,
         }
     }
