@@ -17,7 +17,7 @@
 
 # Recipe Pathways
 
-PhobosChemistryPathways adds 198 recipes across 8 interconnected crafting pathways: Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Recycling, Agriculture/Downstream, and Concrete Mixer. Raw materials flow through intermediate processing steps into terminal outputs, with by-products feeding back into other chains.
+PhobosChemistryPathways adds 204 recipes across 9 interconnected crafting pathways: Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture/Downstream, and Concrete Mixer. Raw materials flow through intermediate processing steps into terminal outputs, with by-products feeding back into other chains.
 
 The diagram below shows the complete recipe flow from raw inputs through all pathways to their terminal outputs.
 
@@ -201,6 +201,19 @@ graph TB
     WOODTAR --> MX_VINEGAR
     MX_CONCRETE --> MX_REINF
 
+    subgraph SALT["Salt Extraction (6 recipes)"]
+        BRINE["Brine<br/>(from water wells)"]
+        CONC_BRINE["ConcentratedBrine"]
+        ROCK_SALT["RockSalt"]
+        TABLE_SALT["TableSalt"]
+    end
+
+    BRINE --> CONC_BRINE
+    CONC_BRINE --> ROCK_SALT
+    ROCK_SALT --> TABLE_SALT
+
+    style SALT fill:#586,color:#fff
+    style TABLE_SALT fill:#8a6,color:#fff
     style MX fill:#668,color:#fff
     style GUNPOWDER fill:#c44,color:#fff
     style REFINED_BD fill:#4a4,color:#fff
@@ -218,4 +231,5 @@ graph TB
 - **Brown** -- Alternative input: BoneChar (substitutes for PurifiedCharcoal in filtration)
 - **Teal** -- Agriculture and downstream outputs (garden sprays, water purification, epoxy, etc.)
 - **Purple** -- Concrete Mixer: bulk construction and chemistry outputs (powered workstation, requires electricity)
+- **Dark teal** -- Salt Extraction: brine collection from wells to refined table salt
 - **Dotted lines** -- Alternative pathways or by-products (e.g. methanol pyrolysis produces both wood tar and charcoal)

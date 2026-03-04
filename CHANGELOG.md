@@ -23,6 +23,31 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.25.0] - 2026-03-05
+
+### Added
+- **Salt Extraction Pathway** — 6 new recipes: collect brine from water wells via right-click context menu (PhobosLib_WorldAction), concentrate brine (2 tiers: cooking pot and chemistry set), crystallize salt (2 tiers), purify table salt. Generic FluidContainer filling with condition-based purity and MP sync.
+- **Entity Rebinding** — Pre-existing concrete mixer workstations are automatically re-bound to updated entity scripts on game load via PhobosLib_EntityRebind.
+- **4 new items** (47 total) — Brine (FluidContainer), ConcentratedBrine (FluidContainer), RockSalt, TableSalt
+- **1 new fluid** — Brine (9 fluids total)
+
+### Changed
+- **B42 Native Fluid Syntax** — All 133 FluidContainer recipe inputs converted from legacy item-based syntax to B42's native `-fluid` (drain) and `+fluid` (fill) syntax across all recipe files. Recipes now use `InHandCraft;Cooking` tags for proper player inventory routing of filled containers.
+- Recipe count: 198 → **204** (6 salt recipes added)
+- Item count: 43 → **47** (4 salt items added)
+- Fluid count: 8 → **9** (Brine added)
+- Requires **PhobosLib 1.14.0+** (WorldAction, EntityRebind, fluid utilities)
+
+### Fixed
+- **Fluid recipe output routing** — Recipes using `+fluid` outputs now correctly place filled containers in the player's inventory instead of the world/ground inventory. Changed from `AnySurfaceCraft` → `InHandCraft;Cooking` tags (matching SapphCookingB42's proven pattern).
+- **FluidCategory enum error** — Removed custom `Triglyceride` FluidCategory that caused all PCP fluids to fail registration.
+- **`-fluid` input ordering** — Reordered `-fluid` inputs to satisfy B42's "preceding item must have amount 1" constraint. Added `item 1 [*]` container lines before every `-fluid` input.
+- **Base.GasCan removal** — Removed non-existent `Base.GasCan` from gas can container lists (B42 only has `Base.PetrolCan`).
+- **Brine collection MP sync** — Added missing `stopSound()` and `sendItemStats()` calls for multiplayer synchronization.
+- **CraftBench entity definitions** — Added missing xuiSkin definitions, CraftLogic component, and all 4 rotation sprites for concrete mixer entity.
+- **Entity file comment syntax** — Converted Lua-style comments to C-style block comments in entity files.
+- **Context menu translation** — Moved ContextMenu key to correct `UI_EN` translation namespace.
+
 ## [0.24.0] - 2026-02-23
 
 ### Added
