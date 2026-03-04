@@ -32,7 +32,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
-        Tags = AnySurfaceCraft;CannotBeResearched,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
         timedAction = MixingMortarPestle,
         xpAward = AppliedChemistry:10,
         AutoLearnAll = AppliedChemistry:2,
@@ -60,7 +60,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
-        Tags = AnySurfaceCraft;CannotBeResearched,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
         timedAction = MixingMortarPestle,
         xpAward = AppliedChemistry:10,
         AutoLearnAll = AppliedChemistry:2,
@@ -88,7 +88,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
-        Tags = AnySurfaceCraft;CannotBeResearched,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
         timedAction = MixingMortarPestle,
         xpAward = AppliedChemistry:10,
         AutoLearnAll = AppliedChemistry:2,
@@ -116,7 +116,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
-        Tags = AnySurfaceCraft;CannotBeResearched,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
         timedAction = MixingMortarPestle,
         xpAward = AppliedChemistry:10,
         AutoLearnAll = AppliedChemistry:2,
@@ -144,7 +144,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
-        Tags = AnySurfaceCraft;CannotBeResearched,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
         timedAction = MixingMortarPestle,
         xpAward = AppliedChemistry:10,
         AutoLearnAll = AppliedChemistry:2,
@@ -172,7 +172,7 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
-        Tags = AnySurfaceCraft;CannotBeResearched,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
         timedAction = MixingMortarPestle,
         xpAward = AppliedChemistry:10,
         AutoLearnAll = AppliedChemistry:2,
@@ -962,8 +962,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpConvertOilPurity,
 
-        Tags = AnySurfaceCraft;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
         xpAward = AppliedChemistry:10,
         AutoLearnAll = AppliedChemistry:2,
 
@@ -2532,8 +2532,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpRefineBiodieselPurity,
 
-        Tags = AnySurfaceCraft;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:40,
         AutoLearnAll = AppliedChemistry:8,
@@ -2561,8 +2561,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpRefineBiodieselBulkPurity,
 
-        Tags = AnySurfaceCraft;CannotBeResearched,
-        timedAction = Making_Surface,
+        Tags = InHandCraft;CanBeDoneFromFloor;CannotBeResearched,
+        timedAction = Making,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:40,
         AutoLearnAll = AppliedChemistry:8,
