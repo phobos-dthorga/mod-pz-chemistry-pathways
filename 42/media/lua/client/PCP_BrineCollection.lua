@@ -128,6 +128,10 @@ function PCP_CollectBrineAction:perform()
         PhobosLib.tryAddFluid(fc, "Brine", capacity)
     end)
 
+    -- Sync item fields locally (vanilla pattern: addFluid → syncItemFields → sendItemStats).
+    -- Required for the recipe system to detect the new fluid contents.
+    pcall(function() self.containerItem:syncItemFields() end)
+
     -- Stamp purity (client-side; PCP_PuritySystem is server-only).
     -- Wrapped in pcall so purity failure never prevents the fill.
     pcall(function()
