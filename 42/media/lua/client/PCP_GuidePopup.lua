@@ -64,7 +64,7 @@ local function buildGuideContent()
     -- Lab
     t = t .. "<RGB:1.0,0.85,0.3> Lab Chemistry <LINE> "
     t = t .. "<RGB:0.9,0.9,0.9> "
-    t = t .. "zReVaccin chemistry set. Best purity, advanced reactions. <LINE> "
+    t = t .. "ZVV chemistry set. Best purity, advanced reactions. <LINE> "
     -- Industrial
     t = t .. "<RGB:1.0,0.85,0.3> Industrial Chemistry <LINE> "
     t = t .. "<RGB:0.9,0.9,0.9> "
@@ -101,7 +101,7 @@ local function buildGuideContent()
     t = t .. "3. Find a cooking pot for Kitchen Chemistry. Render "
     t = t .. "animal fat, make soap, process bone char. <LINE> "
     t = t .. "<RGB:0.9,0.9,0.9> "
-    t = t .. "4. Locate a zReVaccin lab for Lab Chemistry. Synthesise "
+    t = t .. "4. Locate a ZVV lab for Lab Chemistry. Synthesise "
     t = t .. "sulphuric acid, potassium nitrate, and blackpowder "
     t = t .. "at peak purity. <LINE> "
     t = t .. "<LINE> "
@@ -159,7 +159,7 @@ local function buildGuideContent()
     t = t .. "<CENTRE> <SIZE:small> <RGB:0.40,0.40,0.40> "
     t = t .. "Workshop: search Phobos Chemistry Pathways <LINE> "
     t = t .. "<RGB:0.40,0.40,0.40> "
-    t = t .. "Requires: PhobosLib + zReVaccin 3 <LINE> "
+    t = t .. "Requires: PhobosLib + Zombie Virus Vaccine <LINE> "
     t = t .. "<LINE> "
 
     return t

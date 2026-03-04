@@ -17,7 +17,7 @@
 
 # Architecture & Dependencies
 
-PhobosChemistryPathways (PCP) has two hard dependencies (PhobosLib and zReVaccin 3) and four optional soft dependencies that are detected at runtime. All cross-mod integrations are guarded by `getActivatedMods():contains()` checks, so players who install only PCP and its required dependencies will never encounter errors from missing optional mods.
+PhobosChemistryPathways (PCP) has two hard dependencies (PhobosLib and Zombie Virus Vaccine) and four optional soft dependencies that are detected at runtime. All cross-mod integrations are guarded by `getActivatedMods():contains()` checks, so players who install only PCP and its required dependencies will never encounter errors from missing optional mods.
 
 ## Mod Architecture
 
@@ -27,7 +27,7 @@ The diagram below shows PCP's internal module structure, its hard dependencies, 
 graph TB
     subgraph HARD["Hard Dependencies (mod.info require)"]
         PL["PhobosLib v1.14.0+<br/>22 modules (12 shared + 10 client/server)"]
-        ZR["zReVaccin 3<br/>Lab equipment entities"]
+        ZR["Zombie Virus Vaccine<br/>Lab equipment entities"]
     end
 
     subgraph PCP["PhobosChemistryPathways v0.25.0"]

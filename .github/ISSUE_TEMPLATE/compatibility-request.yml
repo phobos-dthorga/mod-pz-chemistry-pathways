@@ -7,7 +7,7 @@ body:
     attributes:
       label: Other mod name
       description: Which mod has a conflict or should be integrated?
-      placeholder: "e.g. Hydrocraft, EHR, zReVaccin"
+      placeholder: "e.g. Hydrocraft, EHR, Zombie Virus Vaccine"
     validations:
       required: true
   - type: input

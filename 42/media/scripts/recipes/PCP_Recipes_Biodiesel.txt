@@ -204,8 +204,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -213,8 +213,8 @@ module Base
         inputs
         {
             item 8 [Base.Soybeans],
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -225,7 +225,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -236,8 +236,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -245,8 +245,8 @@ module Base
         inputs
         {
             item 8 [Base.Soybeans],
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
             item 1 [*],
             -fluid 0.5 [Water],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -256,7 +256,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -270,8 +270,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -279,8 +279,8 @@ module Base
         inputs
         {
             item 6 [Base.SunflowerSeeds],
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -291,7 +291,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -302,8 +302,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -311,8 +311,8 @@ module Base
         inputs
         {
             item 6 [Base.SunflowerSeeds],
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
             item 1 [*],
             -fluid 0.5 [Water],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -322,7 +322,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -336,8 +336,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -345,8 +345,8 @@ module Base
         inputs
         {
             item 10 [Base.Corn],
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -357,7 +357,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -368,8 +368,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -377,8 +377,8 @@ module Base
         inputs
         {
             item 10 [Base.Corn],
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
             item 1 [*],
             -fluid 0.5 [Water],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -388,7 +388,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -402,8 +402,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -411,8 +411,8 @@ module Base
         inputs
         {
             item 30 [Base.FlaxSeed],
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -423,7 +423,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -434,8 +434,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -443,8 +443,8 @@ module Base
         inputs
         {
             item 30 [Base.FlaxSeed],
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
             item 1 [*],
             -fluid 0.5 [Water],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -454,7 +454,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -468,8 +468,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -477,8 +477,8 @@ module Base
         inputs
         {
             item 30 [Base.HempSeed],
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -489,7 +489,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -500,8 +500,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -509,8 +509,8 @@ module Base
         inputs
         {
             item 30 [Base.HempSeed],
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
             item 1 [*],
             -fluid 0.5 [Water],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -520,7 +520,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -534,8 +534,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -543,8 +543,8 @@ module Base
         inputs
         {
             item 4 [Base.Peanuts],
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -555,7 +555,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -566,8 +566,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -575,8 +575,8 @@ module Base
         inputs
         {
             item 4 [Base.Peanuts],
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
             item 1 [*],
             -fluid 0.5 [Water],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -586,7 +586,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -997,8 +997,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpRenderFatPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:1,
         xpAward = AppliedChemistry:15,
         AutoLearnAll = AppliedChemistry:3,
@@ -1006,8 +1006,8 @@ module Base
         inputs
         {
             item 2 [Base.Lard;Base.Butter;Base.Margarine],
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -1018,7 +1018,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -1029,8 +1029,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpRenderFatPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:1,
         xpAward = AppliedChemistry:15,
         AutoLearnAll = AppliedChemistry:3,
@@ -1038,8 +1038,8 @@ module Base
         inputs
         {
             item 2 [Base.Lard;Base.Butter;Base.Margarine],
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
             item 1 [*],
             -fluid 0.5 [Water],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -1049,7 +1049,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -1143,8 +1143,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:3,
         xpAward = AppliedChemistry:30,
         AutoLearnAll = AppliedChemistry:6,
@@ -1152,9 +1152,9 @@ module Base
         inputs
         {
             item 4 [Base.Plank;Base.Firewood] mode:destroy,
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 WoodMethanol,
@@ -1166,7 +1166,7 @@ module Base
         outputs
         {
             item 2 Base.Charcoal,
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -1177,8 +1177,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:3,
         xpAward = AppliedChemistry:30,
         AutoLearnAll = AppliedChemistry:6,
@@ -1186,9 +1186,9 @@ module Base
         inputs
         {
             item 4 [Base.Plank;Base.Firewood] mode:destroy,
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 WoodMethanol,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -1199,7 +1199,7 @@ module Base
         outputs
         {
             item 2 Base.Charcoal,
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -1221,8 +1221,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:3,
         xpAward = AppliedChemistry:35,
         AutoLearnAll = AppliedChemistry:6,
@@ -1231,9 +1231,9 @@ module Base
         {
             item 2 [PhobosChemistryPathways.Potash],
             item 2 [Base.Quicklime],
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
@@ -1243,7 +1243,7 @@ module Base
         {
             item 3 PhobosChemistryPathways.PotassiumHydroxide,
             item 2 PhobosChemistryPathways.Calcite,
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -1254,8 +1254,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:3,
         xpAward = AppliedChemistry:35,
         AutoLearnAll = AppliedChemistry:6,
@@ -1264,9 +1264,9 @@ module Base
         {
             item 2 [PhobosChemistryPathways.Potash],
             item 2 [Base.Quicklime],
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
             item 1 [*],
             -fluid 1.0 [Water],
@@ -1275,7 +1275,7 @@ module Base
         {
             item 3 PhobosChemistryPathways.PotassiumHydroxide,
             item 2 PhobosChemistryPathways.Calcite,
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -1297,8 +1297,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
         AutoLearnAll = AppliedChemistry:7,
@@ -1310,9 +1310,9 @@ module Base
             item 1 [*],
             -fluid 1.5 [WoodMethanol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -1328,7 +1328,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -1339,8 +1339,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
         AutoLearnAll = AppliedChemistry:7,
@@ -1352,9 +1352,9 @@ module Base
             item 1 [*],
             -fluid 1.5 [WoodMethanol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 CrudeBiodiesel,
@@ -1369,7 +1369,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -1384,8 +1384,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
         AutoLearnAll = AppliedChemistry:7,
@@ -1397,9 +1397,9 @@ module Base
             item 1 [*],
             -fluid 1.5 [WoodMethanol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -1415,7 +1415,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -1426,8 +1426,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
         AutoLearnAll = AppliedChemistry:7,
@@ -1439,9 +1439,9 @@ module Base
             item 1 [*],
             -fluid 1.5 [WoodMethanol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 CrudeBiodiesel,
@@ -1456,7 +1456,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -1492,7 +1492,7 @@ module Base
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
             +fluid 10.0 CrudeBiodiesel,
             item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 Glycerol,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -1532,7 +1532,7 @@ module Base
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
             +fluid 10.0 CrudeBiodiesel,
             item 1 [Base.Coke] mode:destroy,
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 Glycerol,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -1572,7 +1572,7 @@ module Base
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
             +fluid 10.0 CrudeBiodiesel,
             item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 Glycerol,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -1611,7 +1611,7 @@ module Base
             item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
             +fluid 10.0 CrudeBiodiesel,
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 Glycerol,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -1653,7 +1653,7 @@ module Base
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
             +fluid 10.0 CrudeBiodiesel,
             item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 Glycerol,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -1693,7 +1693,7 @@ module Base
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
             +fluid 10.0 CrudeBiodiesel,
             item 1 [Base.Coke] mode:destroy,
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 Glycerol,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -1733,7 +1733,7 @@ module Base
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
             +fluid 10.0 CrudeBiodiesel,
             item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 Glycerol,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -1772,7 +1772,7 @@ module Base
             item 2 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
             +fluid 10.0 CrudeBiodiesel,
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 Glycerol,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -1795,7 +1795,7 @@ module Base
 
 /* ----- TRANSESTERIFY VEGETABLE OIL (NaOH) ----- */
 /*  Same transesterification reaction using sodium hydroxide (NaOH) from the
-    zReVaccin lab supply instead of potassium hydroxide. Chemically equivalent
+    ZVV lab supply instead of potassium hydroxide. Chemically equivalent
     but uses the pre-packaged NaOH bags from the lab equipment mod.                       */
 
     craftRecipe PCPTransesterifyOilNaOH
@@ -1805,8 +1805,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
         AutoLearnAll = AppliedChemistry:7,
@@ -1817,10 +1817,10 @@ module Base
             -fluid 4.0 [CrudeVegetableOil],
             item 1 [*],
             -fluid 1.5 [WoodMethanol],
-            item 1 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [LabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -1836,7 +1836,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -1847,8 +1847,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
         AutoLearnAll = AppliedChemistry:7,
@@ -1859,10 +1859,10 @@ module Base
             -fluid 4.0 [CrudeVegetableOil],
             item 1 [*],
             -fluid 1.5 [WoodMethanol],
-            item 1 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [LabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 CrudeBiodiesel,
@@ -1877,7 +1877,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -1890,8 +1890,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
         AutoLearnAll = AppliedChemistry:7,
@@ -1902,10 +1902,10 @@ module Base
             -fluid 4.0 [RenderedFat],
             item 1 [*],
             -fluid 1.5 [WoodMethanol],
-            item 1 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [LabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -1921,7 +1921,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -1932,8 +1932,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:4,
         xpAward = AppliedChemistry:50,
         AutoLearnAll = AppliedChemistry:7,
@@ -1944,10 +1944,10 @@ module Base
             -fluid 4.0 [RenderedFat],
             item 1 [*],
             -fluid 1.5 [WoodMethanol],
-            item 1 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [LabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 CrudeBiodiesel,
@@ -1962,7 +1962,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -1993,11 +1993,11 @@ module Base
             -fluid 10.0 [CrudeVegetableOil],
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
-            item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 2 [LabItems.ChSodiumHydroxideBag] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
             +fluid 10.0 CrudeBiodiesel,
             item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 Glycerol,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -2033,11 +2033,11 @@ module Base
             -fluid 10.0 [CrudeVegetableOil],
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
-            item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 2 [LabItems.ChSodiumHydroxideBag] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
             +fluid 10.0 CrudeBiodiesel,
             item 1 [Base.Coke] mode:destroy,
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 Glycerol,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -2073,11 +2073,11 @@ module Base
             -fluid 10.0 [CrudeVegetableOil],
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
-            item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 2 [LabItems.ChSodiumHydroxideBag] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
             +fluid 10.0 CrudeBiodiesel,
             item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 Glycerol,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -2113,10 +2113,10 @@ module Base
             -fluid 10.0 [CrudeVegetableOil],
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
-            item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 2 [LabItems.ChSodiumHydroxideBag] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
             +fluid 10.0 CrudeBiodiesel,
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 Glycerol,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -2154,11 +2154,11 @@ module Base
             -fluid 10.0 [RenderedFat],
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
-            item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 2 [LabItems.ChSodiumHydroxideBag] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
             +fluid 10.0 CrudeBiodiesel,
             item 3 [Base.Charcoal;Base.CharcoalCrafted] mode:destroy,
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 Glycerol,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -2194,11 +2194,11 @@ module Base
             -fluid 10.0 [RenderedFat],
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
-            item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 2 [LabItems.ChSodiumHydroxideBag] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
             +fluid 10.0 CrudeBiodiesel,
             item 1 [Base.Coke] mode:destroy,
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 Glycerol,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -2234,11 +2234,11 @@ module Base
             -fluid 10.0 [RenderedFat],
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
-            item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 2 [LabItems.ChSodiumHydroxideBag] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
             +fluid 10.0 CrudeBiodiesel,
             item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 Glycerol,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -2274,10 +2274,10 @@ module Base
             -fluid 10.0 [RenderedFat],
             item 1 [*],
             -fluid 3.75 [WoodMethanol],
-            item 2 [zReLabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 2 [LabItems.ChSodiumHydroxideBag] mode:destroy,
             item 1 [Base.BucketForged;Base.Bucket;Base.BucketEmpty;Base.BucketCarved;Base.BucketWood] flags[IsEmpty],
             +fluid 10.0 CrudeBiodiesel,
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 Glycerol,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -2311,8 +2311,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselLabPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:3,
         xpAward = AppliedChemistry:30,
         AutoLearnAll = AppliedChemistry:6,
@@ -2321,8 +2321,8 @@ module Base
         {
             item 1 [*],
             -fluid 3.0 [CrudeBiodiesel],
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 2.0 [Water],
@@ -2335,7 +2335,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -2346,8 +2346,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselLabPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:3,
         xpAward = AppliedChemistry:30,
         AutoLearnAll = AppliedChemistry:6,
@@ -2356,8 +2356,8 @@ module Base
         {
             item 1 [*],
             -fluid 3.0 [CrudeBiodiesel],
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
             item 1 [*],
             -fluid 2.0 [Water],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -2369,7 +2369,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -2602,8 +2602,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCentrifugeWashPurity,
 
-        Tags = zReVAC2:Centrifuge;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:Centrifuge;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:5,
         xpAward = AppliedChemistry:35,
         AutoLearnAll = AppliedChemistry:8,
@@ -2612,8 +2612,8 @@ module Base
         {
             item 1 [*],
             -fluid 4.0 [CrudeBiodiesel],
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 WashedBiodiesel,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -2625,7 +2625,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -2640,8 +2640,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCentrifugeGlycerolPurity,
 
-        Tags = zReVAC2:Centrifuge;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:Centrifuge;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:5,
         xpAward = AppliedChemistry:40,
         AutoLearnAll = AppliedChemistry:8,
@@ -2650,8 +2650,8 @@ module Base
         {
             item 1 [*],
             -fluid 3.0 [CrudeBiodiesel],
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 WashedBiodiesel,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -2665,7 +2665,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -2685,8 +2685,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpChromatographBiodieselPurity,
 
-        Tags = zReVAC2:Chromatograph;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:Chromatograph;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:5,
         xpAward = AppliedChemistry:50,
         AutoLearnAll = AppliedChemistry:9,
@@ -2699,12 +2699,12 @@ module Base
             +fluid 5.0 Petrol,
             item 1 [Base.PetrolCan] flags[IsEmpty],
             +fluid 5.0 Petrol,
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -2719,8 +2719,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpChromatographMethanolPurity,
 
-        Tags = zReVAC2:Chromatograph;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:Chromatograph;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:5,
         xpAward = AppliedChemistry:45,
         AutoLearnAll = AppliedChemistry:9,
@@ -2728,9 +2728,9 @@ module Base
         inputs
         {
             item 4 [Base.Plank;Base.Firewood] mode:destroy,
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 WoodMethanol,
@@ -2744,7 +2744,7 @@ module Base
         outputs
         {
             item 2 Base.Charcoal,
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -2755,8 +2755,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpChromatographMethanolPurity,
 
-        Tags = zReVAC2:Chromatograph;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:Chromatograph;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:5,
         xpAward = AppliedChemistry:45,
         AutoLearnAll = AppliedChemistry:9,
@@ -2764,9 +2764,9 @@ module Base
         inputs
         {
             item 4 [Base.Plank;Base.Firewood] mode:destroy,
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 WoodMethanol,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -2779,7 +2779,7 @@ module Base
         outputs
         {
             item 2 Base.Charcoal,
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -2800,8 +2800,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMicroscopeAnalyzePurity,
 
-        Tags = zReVAC2:Microscope;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:Microscope;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:7,
         xpAward = AppliedChemistry:80,
 
@@ -2811,10 +2811,10 @@ module Base
             -fluid 4.0 [CrudeVegetableOil],
             item 1 [*],
             -fluid 1.5 [WoodMethanol],
-            item 1 [PhobosChemistryPathways.PotassiumHydroxide;zReLabItems.ChSodiumHydroxideBag] mode:destroy,
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide;LabItems.ChSodiumHydroxideBag] mode:destroy,
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 CrudeBiodiesel,
@@ -2831,7 +2831,7 @@ module Base
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -2852,8 +2852,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSpectrometerTestPurity,
 
-        Tags = zReVAC2:Spectrometer;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:Spectrometer;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:7,
         xpAward = AppliedChemistry:80,
 
@@ -2865,12 +2865,12 @@ module Base
             +fluid 5.0 Petrol,
             item 1 [Base.PetrolCan] flags[IsEmpty],
             +fluid 5.0 Petrol,
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
         }
         outputs
         {
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 
@@ -3150,7 +3150,7 @@ module Base
         {
             item 1 [*],
             -fluid 1.0 [Glycerol],
-            item 1 [zReLabItems.ChSodiumHydroxideBag],
+            item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [*] mode:keep,
             -fluid 0.5 [Water],
         }
@@ -3216,7 +3216,7 @@ module Base
         inputs
         {
             item 2 [Base.Lard;Base.Butter;Base.Margarine],
-            item 1 [zReLabItems.ChSodiumHydroxideBag],
+            item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [*] mode:keep,
             -fluid 0.5 [Water],
         }

@@ -65,7 +65,7 @@ body:
     id: mod-list
     attributes:
       label: Other mods installed
-      description: List other mods that might be relevant (especially zReVaccin, EHR, ZScienceSkill).
+      description: List other mods that might be relevant (especially Zombie Virus Vaccine, EHR, ZScienceSkill).
   - type: textarea
     id: sandbox-settings
     attributes:
