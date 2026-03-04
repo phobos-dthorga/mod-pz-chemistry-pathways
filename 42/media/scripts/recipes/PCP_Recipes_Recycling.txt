@@ -48,6 +48,7 @@ module Base
 
         inputs
         {
+            item 1 [*],
             -fluid 0.5 [WoodTar],
             item 1 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar] mode:destroy,
             item 1 [*],
@@ -327,6 +328,7 @@ module Base
             item 1 [Base.RippedSheets] mode:destroy,
             item 1 [PhobosChemistryPathways.CrudeSoap] mode:destroy,
             item 1 tags[base:cookable] mode:keep,
+            item 1 [*],
             -fluid 0.3 [Water],
         }
         outputs
@@ -356,6 +358,7 @@ module Base
             item 1 [Base.Bandage] mode:destroy,
             item 1 [PhobosChemistryPathways.CrudeSoap] mode:destroy,
             item 1 tags[base:cookable] mode:keep,
+            item 1 [*],
             -fluid 0.3 [Water],
         }
         outputs
@@ -560,6 +563,7 @@ module Base
 
         inputs
         {
+            item 1 [*],
             -fluid 0.5 [WoodTar],
             item 1 [Base.TreeBranch2;Base.WoodenStick2] mode:destroy,
             item 1 [Base.RippedSheets;Base.RippedSheetsDirty] mode:destroy,

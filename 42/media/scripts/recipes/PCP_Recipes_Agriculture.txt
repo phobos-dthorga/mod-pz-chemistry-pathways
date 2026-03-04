@@ -380,6 +380,7 @@ module Base
 
         inputs
         {
+            item 1 [*],
             -fluid 0.5 [Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
@@ -407,6 +408,7 @@ module Base
 
         inputs
         {
+            item 1 [*],
             -fluid 0.5 [Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
@@ -436,6 +438,7 @@ module Base
 
         inputs
         {
+            item 1 [*],
             -fluid 0.5 [Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
@@ -466,6 +469,7 @@ module Base
 
         inputs
         {
+            item 1 [*],
             -fluid 0.5 [Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
@@ -495,6 +499,7 @@ module Base
 
         inputs
         {
+            item 1 [*],
             -fluid 0.5 [Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
@@ -524,6 +529,7 @@ module Base
 
         inputs
         {
+            item 1 [*],
             -fluid 0.5 [Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
@@ -563,6 +569,7 @@ module Base
 
         inputs
         {
+            item 1 [*],
             -fluid 1.0 categories[Triglyceride],
             item 2 [PhobosChemistryPathways.CrushedCharcoal;Base.Charcoal] mode:destroy,
             item 1 [Base.RippedSheets] mode:destroy,
@@ -592,6 +599,7 @@ module Base
 
         inputs
         {
+            item 1 [*],
             -fluid 0.75 [WoodMethanol],
         }
         outputs
@@ -781,6 +789,7 @@ module Base
 
         inputs
         {
+            item 1 [*],
             -fluid 0.5 [WoodTar],
             item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 1 [Base.JarLid] mode:destroy,
@@ -811,6 +820,7 @@ module Base
 
         inputs
         {
+            item 1 [*],
             -fluid 0.5 [WoodTar],
             item 1 [Base.EmptyJar;Base.JarCrafted] mode:destroy flags[IsEmpty],
             item 1 [Base.JarLid] mode:destroy,
@@ -848,6 +858,7 @@ module Base
             item 2 [Base.Quicklime] mode:destroy,
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 tags[base:cookable] mode:keep,
+            item 1 [*],
             -fluid 1.0 [Water],
         }
         outputs
@@ -903,6 +914,7 @@ module Base
 
         inputs
         {
+            item 1 [*],
             -fluid 1.0 [SulphuricAcid],
             item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
             item 3 tags[base:charcoal] mode:destroy,
@@ -930,6 +942,7 @@ module Base
 
         inputs
         {
+            item 1 [*],
             -fluid 1.0 [SulphuricAcid],
             item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
             item 1 [Base.Coke] mode:destroy,
@@ -958,6 +971,7 @@ module Base
 
         inputs
         {
+            item 1 [*],
             -fluid 1.0 [SulphuricAcid],
             item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
             item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
@@ -984,6 +998,7 @@ module Base
 
         inputs
         {
+            item 1 [*],
             -fluid 1.0 [SulphuricAcid],
             item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
         }

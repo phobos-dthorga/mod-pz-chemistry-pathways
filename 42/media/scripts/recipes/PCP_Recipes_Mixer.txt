@@ -243,7 +243,9 @@ module Base
 
         inputs
         {
+            item 1 [*],
             -fluid 10.0 [CrudeVegetableOil],
+            item 1 [*],
             -fluid 0.75 [WoodMethanol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide],
         }
@@ -272,6 +274,7 @@ module Base
 
         inputs
         {
+            item 1 [*],
             -fluid 10.0 [RenderedFat],
             item 2 [PhobosChemistryPathways.PotassiumHydroxide],
         }
@@ -356,6 +359,7 @@ module Base
 
         inputs
         {
+            item 1 [*],
             -fluid 1.0 [WoodTar],
             item 1 [*],
             -fluid 1.0 [Water],
