@@ -23,6 +23,25 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-03-05
+
+### BREAKING
+- **Hard dependency changed: zReVaccin 3 replaced by Zombie Virus Vaccine (ZVV)** — PCP now requires `ZVirusVaccine42BETA` instead of `zReModVaccin30bykERHUS`. All 474 code references to zReVaccin module IDs, entity tags, and item types updated across 18 files. Players must subscribe to [Zombie Virus Vaccine](https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168) and can unsubscribe from zReVaccin 3.
+
+### Added
+- **v1.0.0 save migration** — Automatically converts orphaned `zReLabItems` items (from zReVaccin) to their ZVV or vanilla equivalents on first load. Preserves condition (purity) and fluid contents. Covers LabFlask, LabFlaskDirty, ChSodiumHydroxideBag, ChSulfuricAcidCan (mapped to `LabItems.*`), LabCorks (mapped to `Base.Cork`), and lab gloves (mapped to `Base.Gloves_Surgical`). Unknown zReLabItems are safely removed. Uses PhobosLib's deep inventory scanner for backpacks and bags.
+
+### Changed
+- Entity tags in all recipe files migrated from `zReVAC2:*` to `ZVirusVaccine42BETA:*` (ChemistrySet, ChemistryCentrifuge, ChemistryChromatograph, Microscope, Spectrometer)
+- Timed action references migrated from `zReVAC2TimedActionChem1` to `MixingChm`/`MixingB`
+- Requires **PhobosLib 1.15.0+** and **Zombie Virus Vaccine** (ZVirusVaccine42BETA)
+
+### Summary
+- **204 recipes**, **47 items**, **34 tradeable items**, **5 skill books**, **9 fluids**, **16 sandbox options**, **168 OnCreate callbacks**
+- 9 pathways: Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture, Concrete Mixer
+- Hard deps: PhobosLib 1.15.0+, Zombie Virus Vaccine
+- Soft deps: ZScienceSkill, EHR, Dynamic Trading, Neat Crafting
+
 ## [0.26.0] - 2026-03-05
 
 ### Fixed

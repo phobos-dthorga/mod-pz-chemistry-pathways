@@ -17,7 +17,7 @@
 
 # PhobosChemistryPathways
 
-**Version:** 0.26.0 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.15.0+ | [Zombie Virus Vaccine](https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168)
+**Version:** 1.0.0 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.15.0+ | [Zombie Virus Vaccine](https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168)
 
 > **Players:** Subscribe on [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3668197831) for easy installation. This GitHub repo is for source code, documentation, and development.
 >
@@ -89,7 +89,7 @@ Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" setting
 
 | Dependency | Purpose |
 |------------|---------|
-| **PhobosLib 1.14.0+** | Shared utility library (sandbox access, fluid helpers, quality tracking, hazard dispatch, skill XP mirroring, reset utilities, startup validation, recipe visibility filters, item tooltip customisation, lazy container stamping, empty vessel replacement, farming spray registration, versioned migration framework, Dynamic Trading wrapper, powered workstation support, in-game popup system, world object context menus, entity rebinding) |
+| **PhobosLib 1.15.0+** | Shared utility library (sandbox access, fluid helpers, quality tracking, hazard dispatch, skill XP mirroring, reset utilities, startup validation, recipe visibility filters, item tooltip customisation, lazy container stamping, empty vessel replacement, farming spray registration, versioned migration framework, Dynamic Trading wrapper, powered workstation support, in-game popup system, world object context menus, entity rebinding) |
 | **Zombie Virus Vaccine** (ZVirusVaccine42BETA) | Lab equipment entities (chemistry set, centrifuge, chromatograph, microscope, spectrometer) |
 | **EHR** (optional) | Disease system for health hazard integration; vanilla stat penalties used as fallback |
 | **ZScienceSkill** (optional) | Science skill XP mirroring and microscope specimen registration |
