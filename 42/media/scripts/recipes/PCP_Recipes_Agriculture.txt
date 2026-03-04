@@ -247,8 +247,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpActivateCarbonPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:3,
         xpAward = AppliedChemistry:25,
         AutoLearnAll = AppliedChemistry:5,
@@ -274,8 +274,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpActivateCarbonPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:3,
         xpAward = AppliedChemistry:25,
         AutoLearnAll = AppliedChemistry:5,
@@ -302,8 +302,8 @@ module Base
         category = PhobosLabChem,
         NeedToBeLearn = true,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:3,
         xpAward = AppliedChemistry:20;Doctor:10,
         AutoLearnAll = AppliedChemistry:5,
@@ -331,8 +331,8 @@ module Base
         category = PhobosLabChem,
         NeedToBeLearn = true,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:3,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:5,
@@ -372,8 +372,8 @@ module Base
         category = PhobosLabChem,
         NeedToBeLearn = true,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:5,
         xpAward = AppliedChemistry:40,
         AutoLearnAll = AppliedChemistry:8,
@@ -400,8 +400,8 @@ module Base
         category = PhobosLabChem,
         NeedToBeLearn = true,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:5,
         xpAward = AppliedChemistry:40,
         AutoLearnAll = AppliedChemistry:8,
@@ -430,8 +430,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeEpoxySafePurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:5,
         xpAward = AppliedChemistry:40,
         AutoLearnAll = AppliedChemistry:8,
@@ -442,7 +442,7 @@ module Base
             -fluid 0.5 [Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
         }
@@ -461,8 +461,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeEpoxyUnsafePurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:5,
         xpAward = AppliedChemistry:40,
         AutoLearnAll = AppliedChemistry:8,
@@ -473,7 +473,7 @@ module Base
             -fluid 0.5 [Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
         }
         outputs
@@ -491,8 +491,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeEpoxySafePurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:5,
         xpAward = AppliedChemistry:40,
         AutoLearnAll = AppliedChemistry:8,
@@ -503,7 +503,7 @@ module Base
             -fluid 0.5 [Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
         }
         outputs
@@ -521,8 +521,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeEpoxyUnsafePurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:5,
         xpAward = AppliedChemistry:40,
         AutoLearnAll = AppliedChemistry:8,
@@ -533,7 +533,7 @@ module Base
             -fluid 0.5 [Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
         }
         outputs
         {
@@ -681,8 +681,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeMatchboxYield,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:3,
         xpAward = AppliedChemistry:25,
         AutoLearnAll = AppliedChemistry:5,
@@ -709,8 +709,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeMatchboxSafe,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:3,
         xpAward = AppliedChemistry:25,
         AutoLearnAll = AppliedChemistry:5,
@@ -721,7 +721,7 @@ module Base
             item 1 [PhobosChemistryPathways.PotassiumNitratePowder] mode:destroy,
             item 1 [PhobosChemistryPathways.BoneChar] mode:destroy,
             item 2 [Base.TreeBranch2;Base.WoodenStick2] mode:destroy,
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
             item 1 tags[base:gasmaskfilter] mode:keep flags[NoBrokenItems],
         }
@@ -740,8 +740,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeMatchboxUnsafe,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:3,
         xpAward = AppliedChemistry:25,
         AutoLearnAll = AppliedChemistry:5,
@@ -752,7 +752,7 @@ module Base
             item 1 [PhobosChemistryPathways.PotassiumNitratePowder] mode:destroy,
             item 1 [PhobosChemistryPathways.BoneChar] mode:destroy,
             item 2 [Base.TreeBranch2;Base.WoodenStick2] mode:destroy,
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
         }
         outputs
         {
@@ -781,8 +781,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpDistillVinegarXP,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -812,8 +812,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpDistillVinegarXP,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,

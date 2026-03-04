@@ -65,8 +65,8 @@ module Base
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpAcidWashPurity,
 
-        Tags = zReVAC2:ChemistrySet;CannotBeResearched,
-        timedAction = zReVAC2TimedActionChem1,
+        Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
+        timedAction = MixingChm,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20;Electricity:10,
         AutoLearnAll = AppliedChemistry:5,
@@ -74,9 +74,9 @@ module Base
         inputs
         {
             item 2 [Base.ElectronicsScrap],
-            item 1 [zReLabItems.LabFlask],
-            item 1 [zReLabItems.LabCorks],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;zReLabItems.zReV2_6ECO_gloves] mode:keep flags[NoBrokenItems],
+            item 1 [LabItems.LabFlask],
+            item 1 [Base.Cork],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
             item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
             item 1 [*],
             -fluid 0.3 [SulphuricAcid],
@@ -84,7 +84,7 @@ module Base
         outputs
         {
             item 4 PhobosChemistryPathways.AcidWashedElectronics,
-            item 1 zReLabItems.LabFlaskDirty,
+            item 1 LabItems.LabFlaskDirty,
         }
     }
 

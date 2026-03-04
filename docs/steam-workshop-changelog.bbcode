@@ -1,5 +1,24 @@
 [h1]Phobos' Chemistry Pathways — Changelog[/h1]
 
+[h2]v1.0.0 — Zombie Virus Vaccine Migration (2026-03-05)[/h2]
+
+[h3]BREAKING CHANGE[/h3]
+[list]
+[*] [b]Hard dependency changed from zReVaccin 3 to Zombie Virus Vaccine (ZVV)[/b] — PCP now requires [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168]Zombie Virus Vaccine[/url] instead of zReVaccin 3. All recipe entity tags, timed actions, and item references migrated from zReVaccin module IDs to ZVV equivalents (474 code references across 18 files). You can now unsubscribe from zReVaccin 3.
+[/list]
+
+[h3]New Features[/h3]
+[list]
+[*] [b]Save migration[/b] — Existing saves automatically convert orphaned zReVaccin lab items (flasks, NaOH bags, H2SO4 cans, corks, gloves) to their ZVV or vanilla equivalents. Condition (purity) and fluid contents are preserved. Unknown zReVaccin items are safely removed.
+[/list]
+
+[h3]Changed[/h3]
+[list]
+[*] Requires [b]PhobosLib 1.15.0+[/b] and [b][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168]Zombie Virus Vaccine[/url][/b]
+[/list]
+
+[hr][/hr]
+
 [h2]v0.26.0 — Recipe Heat Gating Fix (2026-03-05)[/h2]
 
 [h3]Bug Fixes[/h3]
@@ -148,6 +167,6 @@
 [*] [b]204 recipes[/b] across 9 pathways — Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture, Concrete Mixer
 [*] [b]47 items[/b], [b]34 tradeable items[/b], [b]5 skill books[/b], [b]9 fluids[/b]
 [*] [b]16 sandbox options[/b], [b]168 OnCreate callbacks[/b]
-[*] New since v0.25.0: hotFluidContainer heat gating fix, empty container condition reset
-[*] Requires PhobosLib 1.15.0+ and zReVaccin 3
+[*] [b]v1.0.0[/b]: Hard dependency migrated from zReVaccin 3 to Zombie Virus Vaccine. Automatic save migration for orphaned lab items.
+[*] Requires PhobosLib 1.15.0+ and Zombie Virus Vaccine
 [/list]

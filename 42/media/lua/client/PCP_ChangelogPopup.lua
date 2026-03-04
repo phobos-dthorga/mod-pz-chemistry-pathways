@@ -26,7 +26,7 @@
 --   3. Push to Workshop.
 ---------------------------------------------------------------
 
-local PCP_VERSION = "0.24.0"
+local PCP_VERSION = "1.0.0"
 
 --- Returns true if `version` (e.g. "0.23") is strictly newer than `baseline`.
 --- If baseline is nil, returns true (show everything).
@@ -49,14 +49,78 @@ local function buildChangelogContent(lastSeenVersion)
     -- ════════════════════════════════════════════════════════════════ --
     t = t .. "<H1> <CENTRE> Phobos' Chemistry Pathways <LINE> "
     t = t .. "<CENTRE> <SIZE:small> <RGB:0.55,0.65,0.85> Version " .. PCP_VERSION
-          .. "  |  February 2026 <LINE> <LINE> "
+          .. "  |  March 2026 <LINE> <LINE> "
 
     -- ════════════════════════════════════════════════════════════════ --
-    -- v0.24  ·  current release
+    -- v1.0  ·  current release  (ZVV migration)
+    -- ════════════════════════════════════════════════════════════════ --
+    if isNewerThan("1.0", lastSeenVersion) then
+    t = t .. "<LEFT> <SIZE:medium> <RGB:0.40,0.80,1.00> "
+    t = t .. "--- v1.0  ( You are here ) "
+    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  Mar 2026 <LINE> <LINE> "
+
+    t = t .. "<SIZE:small> <RGB:1.00,0.40,0.40> "
+    t = t .. "> BREAKING: Dependency changed to Zombie Virus Vaccine <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. "PCP now requires Zombie Virus Vaccine (ZVV) instead of "
+    t = t .. "zReVaccin 3. All lab equipment references have been updated. "
+    t = t .. "You can unsubscribe from zReVaccin 3 after this update. <LINE> "
+    t = t .. "<LINE> "
+
+    t = t .. "<RGB:1.00,0.75,0.20> > Automatic Save Migration <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. "Existing saves automatically convert any orphaned zReVaccin "
+    t = t .. "lab items (flasks, NaOH bags, H2SO4 cans, corks, gloves) "
+    t = t .. "to their ZVV or vanilla equivalents. Condition and fluid "
+    t = t .. "contents are preserved. <LINE> "
+    t = t .. "<LINE> "
+    end
+
+    -- ════════════════════════════════════════════════════════════════ --
+    -- v0.26
+    -- ════════════════════════════════════════════════════════════════ --
+    if isNewerThan("0.26", lastSeenVersion) then
+    t = t .. "<LEFT> <SIZE:medium> <RGB:0.45,0.70,0.90> "
+    t = t .. "--- v0.26 "
+    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  Mar 2026 <LINE> <LINE> "
+
+    t = t .. "<SIZE:small> <RGB:1.00,0.75,0.20> "
+    t = t .. "> Heat Gating Fix + Empty Container Fix <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. "23 hotFluidContainer recipes fixed: heat check now tests "
+    t = t .. "the correct vessel (the pot on the stove, not the water source). "
+    t = t .. "Empty FluidContainers no longer show (Worn) after draining. <LINE> "
+    t = t .. "<LINE> "
+    end
+
+    -- ════════════════════════════════════════════════════════════════ --
+    -- v0.25
+    -- ════════════════════════════════════════════════════════════════ --
+    if isNewerThan("0.25", lastSeenVersion) then
+    t = t .. "<LEFT> <SIZE:medium> <RGB:0.45,0.65,0.85> "
+    t = t .. "--- v0.25 "
+    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  Mar 2026 <LINE> <LINE> "
+
+    t = t .. "<SIZE:small> <RGB:1.00,0.75,0.20> "
+    t = t .. "> Salt Extraction Pathway + B42 Fluid Syntax <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. "6 new recipes: collect brine from water wells, concentrate, "
+    t = t .. "crystallize, and purify into table salt. All 133 FluidContainer "
+    t = t .. "recipe inputs converted to B42 native fluid syntax. <LINE> "
+    t = t .. "<LINE> "
+
+    t = t .. "<RGB:0.80,0.80,0.80> "
+    t = t .. "4 new items, 1 new fluid (Brine), 204 recipes total <LINE> "
+    t = t .. "Entity rebinding for pre-existing workstations <LINE> "
+    t = t .. "<LINE> "
+    end
+
+    -- ════════════════════════════════════════════════════════════════ --
+    -- v0.24
     -- ════════════════════════════════════════════════════════════════ --
     if isNewerThan("0.24", lastSeenVersion) then
-    t = t .. "<LEFT> <SIZE:medium> <RGB:0.40,0.80,1.00> "
-    t = t .. "--- v0.24  ( You are here ) "
+    t = t .. "<LEFT> <SIZE:medium> <RGB:0.45,0.65,0.75> "
+    t = t .. "--- v0.24 "
     t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  Feb 2026 <LINE> <LINE> "
 
     t = t .. "<SIZE:small> <RGB:1.00,0.75,0.20> "

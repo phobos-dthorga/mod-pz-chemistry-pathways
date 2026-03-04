@@ -122,14 +122,14 @@ Some recipes have Mortar, Chemistry Set, and Metal Drum versions with different 
 | Tier | Example | Yield | Equipment Tag |
 |------|---------|-------|---------------|
 | Mortar | `PCPPressSoybeanOilMortar` | 1 jar | `AnySurfaceCraft` |
-| Lab | `PCPPressSoybeanOilLab` | 2 jars | `zReVAC2:ChemistrySet` |
+| Lab | `PCPPressSoybeanOilLab` | 2 jars | `ZVirusVaccine42BETA:ChemistrySet` |
 | Bulk | `PCPPressSoybeanOilBulk` | 1 bucket | `PCP:MetalDrumStation` |
 
 ### Catalyst Variants
 
 Transesterification and soap recipes have KOH and NaOH versions:
 - `PCPTransesterifyOilKOH` -- uses PCP-crafted KOH
-- `PCPTransesterifyOilNaOH` -- uses zReVaccin NaOH
+- `PCPTransesterifyOilNaOH` -- uses ZVV NaOH
 
 ### Fuel Variants (Metal Drum)
 
@@ -149,7 +149,7 @@ Some recipes support different container sizes:
 
 ---
 
-## Variant Counts (v0.22.0)
+## Variant Counts (v1.0.0)
 
 | Suffix | Count | Controlled By |
 |--------|-------|---------------|
@@ -160,8 +160,8 @@ Some recipes support different container sizes:
 | SimpleUnsafe | 8 | Both |
 | **Total gated variants** | **69** | |
 | Equipment/catalyst/fuel/container | ~30 | Always visible |
-| Non-variant recipes | ~86 | Always visible |
-| **Grand total** | **185** | |
+| Non-variant recipes | ~105 | Always visible |
+| **Grand total** | **204** | |
 
 ---
 
@@ -172,7 +172,7 @@ Some recipes support different container sizes:
 1. **Check sandbox settings**: If `RequireHeatSources` is ON, you won't see `Simple` variants. If `EnableHealthHazards` is OFF, you won't see `Safe`/`Unsafe` variants.
 2. **Check skill level**: Every recipe has a `SkillRequired` gate. Open the skills panel and check your Applied Chemistry level.
 3. **Check NeedToBeLearn**: All PCP recipes require learning. Read the Chemistry Pathways Handbook, or reach the AutoLearnAll skill level.
-4. **Check equipment proximity**: Chemistry Set recipes require standing near a placed zReVaccin chemistry set. Metal Drum recipes require a placed metal drum.
+4. **Check equipment proximity**: Chemistry Set recipes require standing near a placed ZVV chemistry set. Metal Drum recipes require a placed metal drum.
 5. **Check Neat Crafting**: If you're using Neat Crafting, make sure PhobosLib 1.6.0+ is installed for filter compatibility.
 
 **"I see two versions of the same recipe"**

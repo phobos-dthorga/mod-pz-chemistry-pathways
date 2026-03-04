@@ -1,14 +1,14 @@
 graph TB
     subgraph HARD["Hard Dependencies (mod.info require)"]
-        PL["PhobosLib v1.13.0+<br/>20 modules (12 shared + 8 client)"]
-        ZR["zReVaccin 3<br/>Lab equipment entities"]
+        PL["PhobosLib v1.15.0+<br/>22 modules (12 shared + 10 client/server)"]
+        ZR["Zombie Virus Vaccine<br/>Lab equipment entities"]
     end
 
-    subgraph PCP["PhobosChemistryPathways v0.24.0"]
+    subgraph PCP["PhobosChemistryPathways v1.0.0"]
         CORE["Core"]
-        REC["198 Recipes<br/>6 recipe files"]
-        ITEMS["43 Items<br/>+ 5 Skill Books"]
-        FLUIDS["8 Fluids"]
+        REC["204 Recipes<br/>8 recipe files"]
+        ITEMS["47 Items<br/>+ 5 Skill Books"]
+        FLUIDS["9 Fluids"]
         SB["16 Sandbox Options"]
         PURITY["Purity System<br/>PCP_PuritySystem.lua"]
         HAZARD["Hazard System<br/>PCP_HazardSystem.lua"]
@@ -17,6 +17,8 @@ graph TB
         TRADING["DT Integration<br/>PCP_DynamicTradingData.lua"]
         MIXER["Concrete Mixer<br/>13 Recipes (6 construction<br/>+ 5 bulk chem + 1 plaster + 1 build)<br/>PCP_MixerCompat.lua"]
         POPUP["Guide + Changelog Popups<br/>PCP_GuidePopup.lua<br/>PCP_ChangelogPopup.lua"]
+        SALT["Salt Extraction<br/>6 Recipes (brine → table salt)<br/>PCP_BrineCollection.lua"]
+        REBIND["Entity Rebinding<br/>PCP_EntityRebind.lua"]
     end
 
     subgraph SOFT["Soft Dependencies (runtime-detected)"]
@@ -38,6 +40,8 @@ graph TB
     FARMING -->|"uses<br/>PhobosLib_FarmingSpray"| PL
     MIXER -->|"uses<br/>PhobosLib_Power"| PL
     POPUP -->|"uses<br/>PhobosLib_Popup"| PL
+    SALT -->|"uses<br/>PhobosLib_WorldAction<br/>PhobosLib_Fluid"| PL
+    REBIND -->|"uses<br/>PhobosLib_EntityRebind"| PL
 
     HAZARD -.->|"EHR.Disease.TryContract<br/>(pcall-wrapped)"| EHR
     SKILL -.->|"registerXPMirror<br/>AC to Science at 50%"| ZSS
