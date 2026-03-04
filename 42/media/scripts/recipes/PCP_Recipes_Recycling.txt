@@ -327,8 +327,7 @@ module Base
         {
             item 1 [Base.RippedSheets] mode:destroy,
             item 1 [PhobosChemistryPathways.CrudeSoap] mode:destroy,
-            item 1 tags[base:cookable] mode:keep,
-            item 1 [*],
+            item 1 [*] mode:keep,
             -fluid 0.3 [Water],
         }
         outputs
@@ -357,8 +356,7 @@ module Base
         {
             item 1 [Base.Bandage] mode:destroy,
             item 1 [PhobosChemistryPathways.CrudeSoap] mode:destroy,
-            item 1 tags[base:cookable] mode:keep,
-            item 1 [*],
+            item 1 [*] mode:keep,
             -fluid 0.3 [Water],
         }
         outputs

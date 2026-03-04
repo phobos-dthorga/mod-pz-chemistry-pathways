@@ -1,5 +1,20 @@
 [h1]Phobos' Chemistry Pathways — Changelog[/h1]
 
+[h2]v0.26.0 — Recipe Heat Gating Fix (2026-03-05)[/h2]
+
+[h3]Bug Fixes[/h3]
+[list]
+[*] [b]hotFluidContainer checked wrong item[/b] — Recipes requiring hot water (salt crystallisation, charcoal purification, fat rendering, soap-making, bandage sterilisation, etc.) failed when using certain water containers (petrol cans, jars, bottles) even when a hot pot was on the stove. Root cause: the heat check tested the water source container instead of the heated vessel. 23 recipes across 5 files now use a merged single-item pattern where the container on the stove provides both water and heat.
+[*] [b]Empty FluidContainers showed "(Worn)"[/b] — Drained FluidContainers retained purity-stamped condition, causing PZ to display "(Worn)" on empty containers. Condition now resets to maximum when fluid is fully consumed.
+[/list]
+
+[h3]Changed[/h3]
+[list]
+[*] Requires [b]PhobosLib 1.15.0+[/b]
+[/list]
+
+[hr][/hr]
+
 [h2]v0.25.0 — Salt Extraction & B42 Fluid Syntax (2026-03-05)[/h2]
 
 [h3]New Features[/h3]
@@ -133,6 +148,6 @@
 [*] [b]204 recipes[/b] across 9 pathways — Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture, Concrete Mixer
 [*] [b]47 items[/b], [b]34 tradeable items[/b], [b]5 skill books[/b], [b]9 fluids[/b]
 [*] [b]16 sandbox options[/b], [b]168 OnCreate callbacks[/b]
-[*] New since v0.24.0: Salt extraction pathway, B42 native fluid syntax, entity rebinding
-[*] Requires PhobosLib 1.14.0+ and zReVaccin 3
+[*] New since v0.25.0: hotFluidContainer heat gating fix, empty container condition reset
+[*] Requires PhobosLib 1.15.0+ and zReVaccin 3
 [/list]

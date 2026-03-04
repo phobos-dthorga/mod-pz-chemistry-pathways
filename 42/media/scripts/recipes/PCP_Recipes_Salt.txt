@@ -35,17 +35,16 @@ module Base
 
         Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
-        OnTest = RecipeCodeOnTest.openFire,
-        Tooltip = Tooltip_Recipe_OpenFire,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
         SkillRequired = AppliedChemistry:1,
         xpAward = AppliedChemistry:10,
         AutoLearnAll = AppliedChemistry:2,
 
         inputs
         {
-            item 1 [*],
+            item 1 [*] mode:keep,
             -fluid 1.0 [Brine],
-            item 1 tags[base:cookable] mode:keep,
         }
         outputs
         {
@@ -91,8 +90,8 @@ module Base
 
         Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
-        OnTest = RecipeCodeOnTest.openFire,
-        Tooltip = Tooltip_Recipe_OpenFire,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
         SkillRequired = AppliedChemistry:1,
         xpAward = AppliedChemistry:15,
         AutoLearnAll = AppliedChemistry:2,
@@ -100,7 +99,8 @@ module Base
         inputs
         {
             item 1 [PhobosChemistryPathways.BrineConcentrate],
-            item 1 tags[base:cookable] mode:keep,
+            item 1 [*] mode:keep,
+            -fluid 0.5 [Water],
         }
         outputs
         {
@@ -124,6 +124,8 @@ module Base
         inputs
         {
             item 1 [PhobosChemistryPathways.BrineConcentrate],
+            item 1 [*],
+            -fluid 0.5 [Water],
             item 1 tags[base:cookable] mode:keep,
         }
         outputs
@@ -146,8 +148,8 @@ module Base
 
         Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
-        OnTest = RecipeCodeOnTest.openFire,
-        Tooltip = Tooltip_Recipe_OpenFire,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:3,
@@ -156,8 +158,7 @@ module Base
         {
             item 2 [PhobosChemistryPathways.CoarseSalt],
             item 1 [Base.CheeseCloth] mode:keep flags[MayDegradeLight],
-            item 1 tags[base:cookable] mode:keep,
-            item 1 [*],
+            item 1 [*] mode:keep,
             -fluid 0.5 [Water],
         }
         outputs
@@ -183,9 +184,9 @@ module Base
         {
             item 2 [PhobosChemistryPathways.CoarseSalt],
             item 1 [Base.CheeseCloth] mode:keep flags[MayDegradeLight],
-            item 1 tags[base:cookable] mode:keep,
             item 1 [*],
             -fluid 0.5 [Water],
+            item 1 tags[base:cookable] mode:keep,
         }
         outputs
         {

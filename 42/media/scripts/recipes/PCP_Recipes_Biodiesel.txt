@@ -607,8 +607,8 @@ module Base
 
         Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
-        OnTest = RecipeCodeOnTest.openFire,
-        Tooltip = Tooltip_Recipe_OpenFire,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -617,6 +617,7 @@ module Base
         {
             item 8 [Base.Soybeans],
             item 1 [Base.Pot] mode:keep,
+            -fluid 0.5 [Water],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 CrudeVegetableOil,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -638,8 +639,8 @@ module Base
 
         Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
-        OnTest = RecipeCodeOnTest.openFire,
-        Tooltip = Tooltip_Recipe_OpenFire,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -648,6 +649,7 @@ module Base
         {
             item 6 [Base.SunflowerSeeds],
             item 1 [Base.Pot] mode:keep,
+            -fluid 0.5 [Water],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 CrudeVegetableOil,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -669,8 +671,8 @@ module Base
 
         Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
-        OnTest = RecipeCodeOnTest.openFire,
-        Tooltip = Tooltip_Recipe_OpenFire,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -679,6 +681,7 @@ module Base
         {
             item 10 [Base.Corn],
             item 1 [Base.Pot] mode:keep,
+            -fluid 0.5 [Water],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 CrudeVegetableOil,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -700,8 +703,8 @@ module Base
 
         Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
-        OnTest = RecipeCodeOnTest.openFire,
-        Tooltip = Tooltip_Recipe_OpenFire,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -710,6 +713,7 @@ module Base
         {
             item 30 [Base.FlaxSeed],
             item 1 [Base.Pot] mode:keep,
+            -fluid 0.5 [Water],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 CrudeVegetableOil,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -731,8 +735,8 @@ module Base
 
         Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
-        OnTest = RecipeCodeOnTest.openFire,
-        Tooltip = Tooltip_Recipe_OpenFire,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -741,6 +745,7 @@ module Base
         {
             item 30 [Base.HempSeed],
             item 1 [Base.Pot] mode:keep,
+            -fluid 0.5 [Water],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 CrudeVegetableOil,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -762,8 +767,8 @@ module Base
 
         Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
-        OnTest = RecipeCodeOnTest.openFire,
-        Tooltip = Tooltip_Recipe_OpenFire,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
         SkillRequired = AppliedChemistry:2,
         xpAward = AppliedChemistry:20,
         AutoLearnAll = AppliedChemistry:4,
@@ -772,6 +777,7 @@ module Base
         {
             item 4 [Base.Peanuts],
             item 1 [Base.Pot] mode:keep,
+            -fluid 0.5 [Water],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 CrudeVegetableOil,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -1060,8 +1066,8 @@ module Base
 
         Tags = InHandCraft;Cooking;CannotBeResearched,
         timedAction = Making,
-        OnTest = RecipeCodeOnTest.openFire,
-        Tooltip = Tooltip_Recipe_OpenFire,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
         SkillRequired = AppliedChemistry:1,
         xpAward = AppliedChemistry:15,
         AutoLearnAll = AppliedChemistry:3,
@@ -1070,6 +1076,7 @@ module Base
         {
             item 2 [Base.Lard;Base.Butter;Base.Margarine],
             item 1 [Base.Pot] mode:keep,
+            -fluid 0.5 [Water],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 RenderedFat,
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
@@ -1106,8 +1113,7 @@ module Base
         inputs
         {
             item 6 [Base.Steak;Base.Beef;Base.Pork;Base.PorkChop;Base.MuttonChop;Base.Venison;Base.Chicken;Base.ChickenFillet;Base.ChickenWhole;Base.ChickenWings;Base.TurkeyWhole;Base.Rabbitmeat;Base.Smallanimalmeat;Base.Smallbirdmeat;Base.FrogMeat;Base.MeatPatty;Base.MincedMeat;Base.Bacon;Base.BaconRashers;Base.Sausage;Base.Salami] mode:destroy,
-            item 1 tags[base:cookable] mode:keep,
-            item 1 [*],
+            item 1 [*] mode:keep,
             -fluid 0.5 [Water],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 RenderedFat,
@@ -2390,8 +2396,7 @@ module Base
         {
             item 1 [*],
             -fluid 3.0 [CrudeBiodiesel],
-            item 1 tags[base:cookable] mode:keep,
-            item 1 [*],
+            item 1 [*] mode:keep,
             -fluid 2.0 [Water],
             item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
             +fluid 1.0 WashedBiodiesel,
@@ -3113,8 +3118,7 @@ module Base
             item 1 [*],
             -fluid 1.0 [Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide],
-            item 1 tags[base:cookable] mode:keep,
-            item 1 [*],
+            item 1 [*] mode:keep,
             -fluid 0.5 [Water],
         }
         outputs
@@ -3147,8 +3151,7 @@ module Base
             item 1 [*],
             -fluid 1.0 [Glycerol],
             item 1 [zReLabItems.ChSodiumHydroxideBag],
-            item 1 tags[base:cookable] mode:keep,
-            item 1 [*],
+            item 1 [*] mode:keep,
             -fluid 0.5 [Water],
         }
         outputs
@@ -3182,8 +3185,7 @@ module Base
         {
             item 2 [Base.Lard;Base.Butter;Base.Margarine],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide],
-            item 1 tags[base:cookable] mode:keep,
-            item 1 [*],
+            item 1 [*] mode:keep,
             -fluid 0.5 [Water],
         }
         outputs
@@ -3215,8 +3217,7 @@ module Base
         {
             item 2 [Base.Lard;Base.Butter;Base.Margarine],
             item 1 [zReLabItems.ChSodiumHydroxideBag],
-            item 1 tags[base:cookable] mode:keep,
-            item 1 [*],
+            item 1 [*] mode:keep,
             -fluid 0.5 [Water],
         }
         outputs

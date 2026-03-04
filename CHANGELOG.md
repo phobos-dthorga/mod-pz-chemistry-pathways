@@ -23,6 +23,17 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+## [0.26.0] - 2026-03-05
+
+### Fixed
+- **`hotFluidContainer` checked wrong item** — `RecipeCodeOnTest.hotFluidContainer` (Java-side, unmodifiable) checks whether the `-fluid` source item is hot. PCP's two-item pattern separated the water source (`[*]`) from the heated vessel (`tags[base:cookable]`), causing `hotFluidContainer` to check the water source (e.g. a cold petrol can) instead of the hot pot on the stove. Containers that cannot be placed on stoves (petrol cans, jars, bottles) failed as water sources even when a hot pot was present. 23 recipes across 5 files now use a merged single-item pattern matching vanilla DisinfectBandage:
+  - 16 `tags[base:cookable]` recipes: merged to `[*] mode:keep` + `-fluid` — the container on the stove provides both water and heat
+  - 7 `[Base.Pot]` recipes: `-fluid` binds directly to the pot — the pot on the stove provides both water and heat
+- **Empty FluidContainer showed "(Worn)"** — Drained FluidContainers retained purity-stamped condition (e.g. condition 80 of max 100), causing PZ to display the "(Worn)" suffix on empty containers. Now registers with PhobosLib's `registerEmptyConditionReset()` to restore condition to ConditionMax when fluid amount drops to zero.
+
+### Changed
+- Requires **PhobosLib 1.15.0+** (empty condition reset API)
+
 ## [0.25.0] - 2026-03-05
 
 ### Added
