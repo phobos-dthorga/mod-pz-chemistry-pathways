@@ -24,50 +24,108 @@ require 'Items/SuburbsDistributions'
 require 'Vehicles/VehicleDistributions'
 
 -----------------------------------------------------
---------------------- BOOK --------------------------
+------------- CATEGORY RECIPE BOOKS -----------------
 -----------------------------------------------------
--- Chemistry Pathways Handbook
--- Found in: bookstores, libraries, school classrooms,
--- medical offices, generic shelves, survivalist vehicles
+-- 5 category-specific books + 1 ultra-rare master compendium.
+-- Each category book teaches only its own category's recipes.
+-- Master compendium teaches ALL 275 recipes — ultra-rare jackpot find.
+-- Rarity tiers based on survival value: practical books are easier to find.
 
--- Bookstores (best chance)
-table.insert(ProceduralDistributions.list["BookstoreBooks"].items, "PhobosChemistryPathways.BkChemistryPathways")
+-- ===== BkFieldChemistry (Common) =====
+-- Practical field recipes — most accessible book
+table.insert(ProceduralDistributions.list["ShelfGeneric"].items, "PhobosChemistryPathways.BkFieldChemistry")
+table.insert(ProceduralDistributions.list["ShelfGeneric"].items, 1.5)
+
+table.insert(ProceduralDistributions.list["CrateBooks"].items, "PhobosChemistryPathways.BkFieldChemistry")
+table.insert(ProceduralDistributions.list["CrateBooks"].items, 1)
+
+table.insert(ProceduralDistributions.list["BookstoreBooks"].items, "PhobosChemistryPathways.BkFieldChemistry")
+table.insert(ProceduralDistributions.list["BookstoreBooks"].items, 2.5)
+
+table.insert(ProceduralDistributions.list["GarageTools"].items, "PhobosChemistryPathways.BkFieldChemistry")
+table.insert(ProceduralDistributions.list["GarageTools"].items, 0.5)
+
+table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "PhobosChemistryPathways.BkFieldChemistry")
+table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 1)
+
+-- ===== BkKitchenChemistry (Medium) =====
+table.insert(ProceduralDistributions.list["BookstoreBooks"].items, "PhobosChemistryPathways.BkKitchenChemistry")
 table.insert(ProceduralDistributions.list["BookstoreBooks"].items, 2)
 
--- Libraries / generic bookshelves
-table.insert(ProceduralDistributions.list["ShelfGeneric"].items, "PhobosChemistryPathways.BkChemistryPathways")
-table.insert(ProceduralDistributions.list["ShelfGeneric"].items, 0.5)
+table.insert(ProceduralDistributions.list["ClassroomShelves"].items, "PhobosChemistryPathways.BkKitchenChemistry")
+table.insert(ProceduralDistributions.list["ClassroomShelves"].items, 0.8)
 
--- Book crates in warehouses
-table.insert(ProceduralDistributions.list["CrateBooks"].items, "PhobosChemistryPathways.BkChemistryPathways")
-table.insert(ProceduralDistributions.list["CrateBooks"].items, 0.5)
+table.insert(ProceduralDistributions.list["ShelfGeneric"].items, "PhobosChemistryPathways.BkKitchenChemistry")
+table.insert(ProceduralDistributions.list["ShelfGeneric"].items, 0.8)
 
--- School classrooms
-table.insert(ProceduralDistributions.list["ClassroomShelves"].items, "PhobosChemistryPathways.BkChemistryPathways")
-table.insert(ProceduralDistributions.list["ClassroomShelves"].items, 1)
+table.insert(ProceduralDistributions.list["LibraryScience"].items, "PhobosChemistryPathways.BkKitchenChemistry")
+table.insert(ProceduralDistributions.list["LibraryScience"].items, 0.5)
 
-table.insert(ProceduralDistributions.list["ClassroomDesk"].items, "PhobosChemistryPathways.BkChemistryPathways")
-table.insert(ProceduralDistributions.list["ClassroomDesk"].items, 0.5)
+-- ===== BkLabChemistry (Rare) =====
+-- Found primarily in laboratories and universities
+table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, "PhobosChemistryPathways.BkLabChemistry")
+table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, 2)
 
-table.insert(ProceduralDistributions.list["ClassroomMisc"].items, "PhobosChemistryPathways.BkChemistryPathways")
-table.insert(ProceduralDistributions.list["ClassroomMisc"].items, 0.5)
+table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, "PhobosChemistryPathways.BkLabChemistry")
+table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, 1.5)
 
-table.insert(ProceduralDistributions.list["SchoolLockers"].items, "PhobosChemistryPathways.BkChemistryPathways")
-table.insert(ProceduralDistributions.list["SchoolLockers"].items, 0.3)
+table.insert(ProceduralDistributions.list["BookstoreBooks"].items, "PhobosChemistryPathways.BkLabChemistry")
+table.insert(ProceduralDistributions.list["BookstoreBooks"].items, 1.5)
 
-table.insert(ProceduralDistributions.list["GigamartSchool"].items, "PhobosChemistryPathways.BkChemistryPathways")
-table.insert(ProceduralDistributions.list["GigamartSchool"].items, 0.5)
+table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, "PhobosChemistryPathways.BkLabChemistry")
+table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, 1.5)
 
--- Medical offices (chemistry reference material)
+table.insert(ProceduralDistributions.list["LibraryScience"].items, "PhobosChemistryPathways.BkLabChemistry")
+table.insert(ProceduralDistributions.list["LibraryScience"].items, 1)
+
+table.insert(ProceduralDistributions.list["ClassroomShelves"].items, "PhobosChemistryPathways.BkLabChemistry")
+table.insert(ProceduralDistributions.list["ClassroomShelves"].items, 0.5)
+
+-- ===== BkIndustrialChemistry (Very Rare) =====
+table.insert(ProceduralDistributions.list["BookstoreBooks"].items, "PhobosChemistryPathways.BkIndustrialChemistry")
+table.insert(ProceduralDistributions.list["BookstoreBooks"].items, 0.8)
+
+table.insert(ProceduralDistributions.list["GarageTools"].items, "PhobosChemistryPathways.BkIndustrialChemistry")
+table.insert(ProceduralDistributions.list["GarageTools"].items, 0.3)
+
+table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, "PhobosChemistryPathways.BkIndustrialChemistry")
+table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, 0.5)
+
+table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, "PhobosChemistryPathways.BkIndustrialChemistry")
+table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, 0.3)
+
+-- ===== BkHorticulture (Common-Medium) =====
+table.insert(ProceduralDistributions.list["BookstoreBooks"].items, "PhobosChemistryPathways.BkHorticulture")
+table.insert(ProceduralDistributions.list["BookstoreBooks"].items, 2)
+
+table.insert(ProceduralDistributions.list["ShelfGeneric"].items, "PhobosChemistryPathways.BkHorticulture")
+table.insert(ProceduralDistributions.list["ShelfGeneric"].items, 1)
+
+table.insert(ProceduralDistributions.list["CrateBooks"].items, "PhobosChemistryPathways.BkHorticulture")
+table.insert(ProceduralDistributions.list["CrateBooks"].items, 0.8)
+
+table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "PhobosChemistryPathways.BkHorticulture")
+table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 1.5)
+
+table.insert(ProceduralDistributions.list["ClassroomShelves"].items, "PhobosChemistryPathways.BkHorticulture")
+table.insert(ProceduralDistributions.list["ClassroomShelves"].items, 0.5)
+
+table.insert(ProceduralDistributions.list["LibraryScience"].items, "PhobosChemistryPathways.BkHorticulture")
+table.insert(ProceduralDistributions.list["LibraryScience"].items, 0.5)
+
+-- ===== BkChemistryPathways — Master Compendium (Ultra-Rare) =====
+-- Teaches ALL 275 recipes. Jackpot find for dedicated survivors.
+table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, "PhobosChemistryPathways.BkChemistryPathways")
+table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, 0.3)
+
+table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, "PhobosChemistryPathways.BkChemistryPathways")
+table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, 0.2)
+
+table.insert(ProceduralDistributions.list["BookstoreBooks"].items, "PhobosChemistryPathways.BkChemistryPathways")
+table.insert(ProceduralDistributions.list["BookstoreBooks"].items, 0.2)
+
 table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, "PhobosChemistryPathways.BkChemistryPathways")
-table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, 2)
-
--- Survivalist vehicle (preppers would hoard knowledge)
-table.insert(VehicleDistributions.SurvivalistTruckBed.items, "PhobosChemistryPathways.BkChemistryPathways")
-table.insert(VehicleDistributions.SurvivalistTruckBed.items, 0.5)
-
-table.insert(VehicleDistributions.SurvivalistGloveBox.items, "PhobosChemistryPathways.BkChemistryPathways")
-table.insert(VehicleDistributions.SurvivalistGloveBox.items, 0.3)
+table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, 0.1)
 
 
 -----------------------------------------------------
@@ -411,6 +469,115 @@ table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.2)
 -- ===== Volume 5 (Levels 9-10) =====
 table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.BookAppliedChemistry5")
 table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.1)
+
+
+-----------------------------------------------------
+------- LAB & UNIVERSITY DISTRIBUTION EXPANSION -----
+-----------------------------------------------------
+-- New lab/university containers discovered in vanilla PZ B42.
+-- Adds thematic spawns for chemistry books, reagents, and
+-- select recipe-only items at low weights.
+
+-- ===== Skill Books → lab/university shelves =====
+table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry1")
+table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, 1)
+table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, "PhobosChemistryPathways.BookAppliedChemistry1")
+table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, 1)
+
+table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry2")
+table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, 0.8)
+table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, "PhobosChemistryPathways.BookAppliedChemistry2")
+table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, 0.8)
+
+table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry3")
+table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, 0.5)
+table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, "PhobosChemistryPathways.BookAppliedChemistry3")
+table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, 0.5)
+
+table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry4")
+table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, 0.3)
+table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, "PhobosChemistryPathways.BookAppliedChemistry4")
+table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, 0.3)
+
+table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry5")
+table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, 0.1)
+table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, "PhobosChemistryPathways.BookAppliedChemistry5")
+table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, 0.2)
+
+-- ===== Chemical reagents → lab containers =====
+table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.SulphurPowder")
+table.insert(ProceduralDistributions.list["TestingLab"].items, 0.5)
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.SulphurPowder")
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.3)
+table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, "PhobosChemistryPathways.SulphurPowder")
+table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, 0.3)
+
+table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.PotassiumNitratePowder")
+table.insert(ProceduralDistributions.list["TestingLab"].items, 0.5)
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.PotassiumNitratePowder")
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.3)
+table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, "PhobosChemistryPathways.PotassiumNitratePowder")
+table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, 0.3)
+
+table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.PotassiumHydroxide")
+table.insert(ProceduralDistributions.list["TestingLab"].items, 0.3)
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.PotassiumHydroxide")
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.3)
+table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, "PhobosChemistryPathways.PotassiumHydroxide")
+table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, 0.2)
+
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.Calcite")
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.3)
+table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, "PhobosChemistryPathways.Calcite")
+table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, 0.2)
+
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.Potash")
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.2)
+table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, "PhobosChemistryPathways.Potash")
+table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, 0.2)
+
+-- ===== Carbon materials & glycerol =====
+table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.CrushedCharcoal")
+table.insert(ProceduralDistributions.list["TestingLab"].items, 0.2)
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.CrushedCharcoal")
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.2)
+
+table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.PurifiedCharcoal")
+table.insert(ProceduralDistributions.list["TestingLab"].items, 0.1)
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.PurifiedCharcoal")
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.1)
+
+table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.ActivatedCarbon")
+table.insert(ProceduralDistributions.list["TestingLab"].items, 0.2)
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.ActivatedCarbon")
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.2)
+table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, "PhobosChemistryPathways.ActivatedCarbon")
+table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, 0.1)
+
+table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.Glycerol")
+table.insert(ProceduralDistributions.list["TestingLab"].items, 0.2)
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.Glycerol")
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.2)
+
+-- ===== Recipe-only items — NEW low-weight lab spawns =====
+-- Previously craft-only; realistic to find in a university chemistry lab.
+table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.SulphuricAcidBottle")
+table.insert(ProceduralDistributions.list["TestingLab"].items, 0.2)
+table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, "PhobosChemistryPathways.SulphuricAcidBottle")
+table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, 0.1)
+
+table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.SulphuricAcidJar")
+table.insert(ProceduralDistributions.list["TestingLab"].items, 0.1)
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.SulphuricAcidJar")
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.1)
+
+table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.WoodMethanol")
+table.insert(ProceduralDistributions.list["TestingLab"].items, 0.2)
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.WoodMethanol")
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.1)
+
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.BrineJar")
+table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.1)
 
 
 -----------------------------------------------------

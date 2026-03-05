@@ -30,7 +30,14 @@ ItemName_EN = {
     ItemName_PhobosChemistryPathways.LeadScrap = "Lead Scrap",
     ItemName_PhobosChemistryPathways.PlasticScrap = "Plastic Scrap",
     ItemName_PhobosChemistryPathways.AcidWashedElectronics = "Acid-Washed Electronics",
-    ItemName_PhobosChemistryPathways.BkChemistryPathways = "Chemistry Pathways Handbook",
+    ItemName_PhobosChemistryPathways.BkChemistryPathways = "Complete Chemistry Compendium",
+
+    /* ===== Category Recipe Books ===== */
+    ItemName_PhobosChemistryPathways.BkFieldChemistry = "Field Chemistry Primer",
+    ItemName_PhobosChemistryPathways.BkKitchenChemistry = "Kitchen Chemistry Companion",
+    ItemName_PhobosChemistryPathways.BkLabChemistry = "Laboratory Chemistry Reference",
+    ItemName_PhobosChemistryPathways.BkIndustrialChemistry = "Industrial Processes Manual",
+    ItemName_PhobosChemistryPathways.BkHorticulture = "Botanical Horticulture Guide",
 
     /* ===== Biodiesel Pathway Items — Oil & Fat ===== */
     ItemName_PhobosChemistryPathways.CrudeVegetableOil = "Jar of Crude Vegetable Oil",

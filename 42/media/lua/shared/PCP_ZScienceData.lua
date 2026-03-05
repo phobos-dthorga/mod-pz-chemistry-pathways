@@ -137,6 +137,14 @@ local function registerPCPSpecimens()
                 ["PhobosChemistryPathways.ReinforcedConcrete"]     = xp(20, 15),
                 ["PhobosChemistryPathways.Fireclay"]               = xp(20, 15),
 
+                -- Category recipe books (literature specimens)
+                ["PhobosChemistryPathways.BkChemistryPathways"]    = xp(40, 30),
+                ["PhobosChemistryPathways.BkFieldChemistry"]       = xp(20, 15),
+                ["PhobosChemistryPathways.BkKitchenChemistry"]     = xp(20, 15),
+                ["PhobosChemistryPathways.BkLabChemistry"]         = xp(25, 20),
+                ["PhobosChemistryPathways.BkIndustrialChemistry"]  = xp(25, 20),
+                ["PhobosChemistryPathways.BkHorticulture"]         = xp(20, 15),
+
                 -- Botanical pathway — hemp processing specimens
                 ["PhobosChemistryPathways.RettedHempStalk"]        = xp(10, 8),
                 ["PhobosChemistryPathways.HempBastFiber"]          = xp(10, 8),
@@ -173,7 +181,7 @@ local function registerPCPSpecimens()
     end)
 
     if success then
-        print("[PCP] ZScienceSkill: 46 items + 8 fluids registered [" .. (isServer() and "server" or "local") .. "]")
+        print("[PCP] ZScienceSkill: 52 items + 8 fluids registered [" .. (isServer() and "server" or "local") .. "]")
     else
         print("[PCP] ZScienceSkill: registration failed — " .. tostring(err))
     end

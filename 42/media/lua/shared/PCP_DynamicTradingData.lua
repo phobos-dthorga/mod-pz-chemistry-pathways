@@ -25,7 +25,7 @@
 -- Registers:
 --   - 1 custom tag ("Chemical")
 --   - 1 trader archetype ("Chemist") with expertTags
---   - 54 tradeable items (reagents, intermediates, fuels, agriculture, botanical, horticulture, books)
+--   - 59 tradeable items (reagents, intermediates, fuels, agriculture, botanical, horticulture, books)
 --   - Chemical allocations injected into 8 existing DT archetypes
 --
 -- Only runs when PhobosLib.isDynamicTradingActive() returns true.
@@ -198,8 +198,15 @@ local function registerPCPTradeData()
         { item = "PhobosChemistryPathways.SimpleSugarSyrup",   basePrice = 10,  tags = { "Common" },                            stockRange = { min = 2, max = 5 } },
         { item = "PhobosChemistryPathways.HempBudsCured",      basePrice = 15,  tags = { "Uncommon" },                          stockRange = { min = 1, max = 3 } },
 
-        -- Skill books (calibrated to DT tier scale — unchanged)
-        { item = "PhobosChemistryPathways.BkChemistryPathways",   basePrice = 300, tags = { "Literature", "Rare" },                         stockRange = { min = 0, max = 1 } },
+        -- Category recipe books (tiered by survival value)
+        { item = "PhobosChemistryPathways.BkFieldChemistry",      basePrice = 80,  tags = { "Literature", "Common" },                       stockRange = { min = 0, max = 2 } },
+        { item = "PhobosChemistryPathways.BkKitchenChemistry",    basePrice = 120, tags = { "Literature", "Uncommon" },                     stockRange = { min = 0, max = 1 } },
+        { item = "PhobosChemistryPathways.BkLabChemistry",        basePrice = 200, tags = { "Literature", "Rare" },                         stockRange = { min = 0, max = 1 } },
+        { item = "PhobosChemistryPathways.BkIndustrialChemistry", basePrice = 250, tags = { "Literature", "Rare" },                         stockRange = { min = 0, max = 1 } },
+        { item = "PhobosChemistryPathways.BkHorticulture",        basePrice = 100, tags = { "Literature", "Common" },                       stockRange = { min = 0, max = 2 } },
+        { item = "PhobosChemistryPathways.BkChemistryPathways",   basePrice = 500, tags = { "Literature", "Rare" },                         stockRange = { min = 0, max = 1 } },
+
+        -- Skill books (calibrated to DT tier scale)
         { item = "PhobosChemistryPathways.BookAppliedChemistry1", basePrice = 50,  tags = { "Literature", "Common" },                       stockRange = { min = 1, max = 3 } },
         { item = "PhobosChemistryPathways.BookAppliedChemistry2", basePrice = 100, tags = { "Literature", "Uncommon" },                     stockRange = { min = 1, max = 2 } },
         { item = "PhobosChemistryPathways.BookAppliedChemistry3", basePrice = 180, tags = { "Literature", "Rare" },                         stockRange = { min = 0, max = 1 } },
@@ -216,7 +223,7 @@ local function registerPCPTradeData()
 
     if ok then
         print(_prefix .. " Registration complete: 1 tag, 1 archetype, "
-            .. tostring(count) .. "/54 items, "
+            .. tostring(count) .. "/59 items, "
             .. tostring(injected) .. " archetype injections"
             .. " [" .. (isServer() and "server" or "local") .. "]")
     else
