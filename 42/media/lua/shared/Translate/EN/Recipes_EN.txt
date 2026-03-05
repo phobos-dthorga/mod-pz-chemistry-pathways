@@ -264,4 +264,42 @@ Recipes_EN = {
 
     /* ===== Concrete Mixer — Build ===== */
     Recipe_PCPBuildConcreteMixer = "Build Concrete Mixer",
+
+    /* ===== Botanical Pathway — Field Chemistry ===== */
+    Recipe_PCPThreshHempSeeds = "H1. Thresh Hemp Seeds",
+    Recipe_PCPSpinHempTwine = "H2. Spin Hemp Twine",
+    Recipe_PCPBraidHempRope = "H3. Braid Hemp Rope",
+    Recipe_PCPCharHempHurds = "H4. Char Hemp Hurds (Charcoal)",
+    Recipe_PCPCharHempHurdsCoke = "H4. Char Hemp Hurds (Coke)",
+    Recipe_PCPCharHempHurdsSimple = "H4. Char Hemp Hurds",
+    Recipe_PCPMakeHempFireBundle = "H17. Make Hemp Fire Bundle",
+    Recipe_PCPCompostHempHurds = "H18. Compost Hemp Hurds",
+
+    /* ===== Botanical Pathway — Kitchen Chemistry ===== */
+    Recipe_PCPRetHemp = "H5. Chemical Retting (KOH)",
+    Recipe_PCPRetHempSimple = "H5. Chemical Retting (KOH)",
+    Recipe_PCPRetHempNaOH = "H5b. Chemical Retting (NaOH)",
+    Recipe_PCPRetHempNaOHSimple = "H5b. Chemical Retting (NaOH)",
+    Recipe_PCPExtractBastFiber = "H6. Extract Bast Fiber",
+    Recipe_PCPExtractBastFiberSimple = "H6. Extract Bast Fiber",
+    Recipe_PCPWeaveHempCloth = "H7. Weave Hemp Cloth",
+    Recipe_PCPMakeHempCanvas = "H8. Make Hemp Canvas",
+    Recipe_PCPPrepareHempPoultice = "H9. Prepare Hemp Poultice",
+    Recipe_PCPPrepareHempPoulticeSimple = "H9. Prepare Hemp Poultice",
+    Recipe_PCPBoilHempPulp = "H10. Boil Hemp Pulp",
+    Recipe_PCPBoilHempPulpSimple = "H10. Boil Hemp Pulp",
+    Recipe_PCPTarHempRope = "H15. Tar Hemp Rope",
+    Recipe_PCPTarHempRopeSimple = "H15. Tar Hemp Rope",
+    Recipe_PCPSterilizeHempBandage = "H16. Sterilize Hemp Bandage",
+    Recipe_PCPSterilizeHempBandageSimple = "H16. Sterilize Hemp Bandage",
+
+    /* ===== Botanical Pathway — Lab Chemistry ===== */
+    Recipe_PCPChemicalPulping = "H11. Chemical Pulping (NaOH)",
+    Recipe_PCPChemicalPulpingSimple = "H11. Chemical Pulping (NaOH)",
+    Recipe_PCPPressHempPaper = "H12. Press Hemp Paper",
+    Recipe_PCPPrepareHempTincture = "H13. Prepare Hemp Tincture",
+    Recipe_PCPPrepareHempTinctureSimple = "H13. Prepare Hemp Tincture",
+
+    /* ===== Botanical Pathway — Industrial ===== */
+    Recipe_PCPMixHempcrete = "H14. Mix Hempcrete",
 }

@@ -411,3 +411,64 @@ table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.2)
 -- ===== Volume 5 (Levels 9-10) =====
 table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.BookAppliedChemistry5")
 table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.1)
+
+
+-----------------------------------------------------
+------------ BOTANICAL PATHWAY ITEMS ----------------
+-----------------------------------------------------
+
+-- Hemp Seed Bags — farm supply / garden centres / farm trucks
+-- (vanilla HempBagSeed exists but adding to additional farm locations)
+table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "Base.HempBagSeed")
+table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 1)
+
+table.insert(VehicleDistributions.FarmerTruckBed.items, "Base.HempBagSeed")
+table.insert(VehicleDistributions.FarmerTruckBed.items, 0.5)
+
+-- Hemp Twine — farm supply (baling twine), hardware stores
+table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "PhobosChemistryPathways.HempTwine")
+table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 0.5)
+
+table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, "PhobosChemistryPathways.HempTwine")
+table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, 0.3)
+
+table.insert(ProceduralDistributions.list["GarageTools"].items, "PhobosChemistryPathways.HempTwine")
+table.insert(ProceduralDistributions.list["GarageTools"].items, 0.2)
+
+table.insert(VehicleDistributions.FarmerTruckBed.items, "PhobosChemistryPathways.HempTwine")
+table.insert(VehicleDistributions.FarmerTruckBed.items, 0.3)
+
+-- Hemp Rope — farm supply, hardware stores, survivalist stashes
+table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "PhobosChemistryPathways.HempRope")
+table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 0.3)
+
+table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, "PhobosChemistryPathways.HempRope")
+table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, 0.2)
+
+table.insert(VehicleDistributions.SurvivalistTruckBed.items, "PhobosChemistryPathways.HempRope")
+table.insert(VehicleDistributions.SurvivalistTruckBed.items, 0.2)
+
+-- Hemp Cloth — sewing/textiles locations, survivalist stashes
+table.insert(ProceduralDistributions.list["ShelfGeneric"].items, "PhobosChemistryPathways.HempCloth")
+table.insert(ProceduralDistributions.list["ShelfGeneric"].items, 0.1)
+
+table.insert(VehicleDistributions.SurvivalistTruckBed.items, "PhobosChemistryPathways.HempCloth")
+table.insert(VehicleDistributions.SurvivalistTruckBed.items, 0.1)
+
+-- Hemp Paper — bookstores, classrooms, medical offices (archival paper)
+table.insert(ProceduralDistributions.list["BookstoreBooks"].items, "PhobosChemistryPathways.HempPaper")
+table.insert(ProceduralDistributions.list["BookstoreBooks"].items, 0.2)
+
+table.insert(ProceduralDistributions.list["ClassroomShelves"].items, "PhobosChemistryPathways.HempPaper")
+table.insert(ProceduralDistributions.list["ClassroomShelves"].items, 0.1)
+
+-- Hemp Poultice — medical storage, herbal remedy locations
+table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.HempPoultice")
+table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.2)
+
+table.insert(ProceduralDistributions.list["MedicalClinicDrugs"].items, "PhobosChemistryPathways.HempPoultice")
+table.insert(ProceduralDistributions.list["MedicalClinicDrugs"].items, 0.1)
+
+-- Hemp Tincture — medical storage (herbal medicine)
+table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.HempTincture")
+table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.1)

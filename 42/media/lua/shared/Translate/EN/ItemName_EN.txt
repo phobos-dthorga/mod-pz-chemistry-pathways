@@ -80,6 +80,21 @@ ItemName_EN = {
     ItemName_PhobosChemistryPathways.ReinforcedConcrete = "Reinforced Concrete",
     ItemName_PhobosChemistryPathways.Fireclay = "Fireclay",
 
+    /* ===== Botanical Pathway Items ===== */
+    ItemName_PhobosChemistryPathways.RettedHempStalk = "Retted Hemp Stalk",
+    ItemName_PhobosChemistryPathways.HempBastFiber = "Hemp Bast Fiber",
+    ItemName_PhobosChemistryPathways.HempHurd = "Hemp Hurd",
+    ItemName_PhobosChemistryPathways.HempTwine = "Hemp Twine",
+    ItemName_PhobosChemistryPathways.HempRope = "Hemp Rope",
+    ItemName_PhobosChemistryPathways.HempCloth = "Hemp Cloth",
+    ItemName_PhobosChemistryPathways.HempCanvas = "Hemp Canvas",
+    ItemName_PhobosChemistryPathways.HempPulp = "Hemp Pulp",
+    ItemName_PhobosChemistryPathways.HempPaper = "Hemp Paper",
+    ItemName_PhobosChemistryPathways.HempPoultice = "Hemp Poultice",
+    ItemName_PhobosChemistryPathways.HempTincture = "Hemp Tincture",
+    ItemName_PhobosChemistryPathways.HempcreteBlock = "Hempcrete Block",
+    ItemName_PhobosChemistryPathways.TarredHempRope = "Tarred Hemp Rope",
+
     /* ===== Skill Books ===== */
     ItemName_PhobosChemistryPathways.BookAppliedChemistry1 = "Applied Chemistry Vol. 1",
     ItemName_PhobosChemistryPathways.BookAppliedChemistry2 = "Applied Chemistry Vol. 2",

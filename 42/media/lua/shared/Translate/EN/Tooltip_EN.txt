@@ -62,4 +62,19 @@ Tooltip_EN = {
     Tooltip_PCP_StuccoMix = "Plaster-based stucco finishing material.<br>Used for rendering walls and exterior surfaces.",
     Tooltip_PCP_ReinforcedConcrete = "Concrete reinforced with scrap metal for structural strength.<br>Superior building material for fortifications and foundations.",
     Tooltip_PCP_Fireclay = "Refractory clay blend resistant to extreme heat.<br>Used in forge and kiln construction or upgrades.",
+
+    /* ===== Botanical Pathway Tooltips ===== */
+    Tooltip_PCP_RettedHempStalk = "Hemp stalk soaked in alkaline solution to loosen bast fibers.<br>Chemical retting produces higher-quality fiber than water retting.",
+    Tooltip_PCP_HempBastFiber = "Long, strong fibers extracted from retted hemp stalks.<br>The primary material for spinning twine, weaving cloth,<br>and producing paper pulp.",
+    Tooltip_PCP_HempHurd = "Woody core fragments separated from hemp bast fiber.<br>Lightweight and absorbent. Used for charcoal production,<br>hempcrete blocks, composting, and fire bundles.",
+    Tooltip_PCP_HempTwine = "Simple cordage hand-spun from hemp bast fibers.<br>Strong and durable. Used for braiding rope<br>and binding fire bundles.",
+    Tooltip_PCP_HempRope = "Heavy-duty braided rope made from hemp twine.<br>Resistant to stretching and abrasion.<br>Can be tarred for waterproofing.",
+    Tooltip_PCP_HempCloth = "Durable woven fabric produced from hemp bast fibers.<br>Coarser than cotton but far stronger.<br>Suitable for bandages, canvas, and clothing patches.",
+    Tooltip_PCP_HempCanvas = "Thick, heavy-duty hemp fabric layered for strength.<br>Historically used for sails, tarpaulins, and tents.<br>The word 'canvas' derives from 'cannabis'.",
+    Tooltip_PCP_HempPulp = "Softened hemp fiber broken down into crude paper pulp.<br>Ready for pressing into paper sheets.<br>Lab-grade NaOH pulping produces higher quality.",
+    Tooltip_PCP_HempPaper = "Paper sheets pressed from hemp pulp.<br>More durable than wood-pulp paper and resistant to yellowing.<br>Pre-1883, most paper was made from hemp.",
+    Tooltip_PCP_HempPoultice = "A warm herbal compress of hemp fiber infused with medicinal herbs.<br>Applied topically to reduce inflammation and promote healing.",
+    Tooltip_PCP_HempTincture = "Concentrated herbal extract produced by alcohol extraction<br>of bioactive compounds from hemp fiber.<br>A potent botanical medicine.",
+    Tooltip_PCP_HempcreteBlock = "Lightweight building block made from hemp hurds and lime.<br>Excellent thermal insulation and moisture regulation.<br>Carbon-negative construction material.",
+    Tooltip_PCP_TarredHempRope = "Hemp rope coated in hot wood tar for waterproofing.<br>Resists rot, mildew, and abrasion in wet conditions.<br>Traditionally used for rigging, well buckets, and outdoor lashing.",
 }

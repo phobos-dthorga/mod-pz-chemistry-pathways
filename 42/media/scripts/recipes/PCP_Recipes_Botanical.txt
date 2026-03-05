@@ -1,0 +1,913 @@
+/*  ________________________________________________________________________
+ * / Copyright (c) 2026 Phobos A. D'thorga                                \
+ * |                                                                        |
+ * |           /\_/\                                                         |
+ * |         =/ o o \=    Phobos' PZ Modding                                |
+ * |          (  V  )     All rights reserved.                              |
+ * |     /\  / \   / \                                                      |
+ * |    /  \/   '-'   \   This source code is part of the Phobos            |
+ * |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+ * |  (__/    \_/ \/  \__)                                                  |
+ * |     |   | |  | |     Unauthorised copying, modification, or            |
+ * |     |___|_|  |_|     distribution of this file is prohibited.          |
+ * |                                                                        |
+ * \________________________________________________________________________/
+ */
+
+module Base
+{
+
+/* ==================================================================================== */
+/* ========================== BOTANICAL CHEMISTRY PATHWAY ============================== */
+/* ==================================================================================== */
+/*  Chemistry-enhanced processing of hemp stalks into fiber, textiles,
+    paper, medicinal extracts, and construction materials. Builds on top
+    of vanilla hemp farming (Base.HempSeed, Base.HempBroken) with KOH/NaOH
+    chemical retting for higher-quality outputs tracked by the purity system.
+    Cross-pathway integration: hurds feed into charcoal/potash chain,
+    fiber feeds into textile and paper chemistry, oil pressing already exists. */
+
+
+/* ==================================================================================== */
+/* ========================== FIELD CHEMISTRY — BASIC PROCESSING ====================== */
+/* ==================================================================================== */
+
+/* ----- H1: THRESH HEMP SEEDS ----- */
+/*  Separate seeds from broken hemp stalks by beating/threshing.
+    Recovers plantable seeds for re-sowing or oil pressing.
+    No purity tracking — vanilla seed output.                                            */
+
+    craftRecipe PCPThreshHempSeeds
+    {
+        time = 80,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:3,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 2 [Base.HempBroken],
+        }
+        outputs
+        {
+            item 5 Base.HempSeed,
+        }
+    }
+
+/* ----- H2: SPIN HEMP TWINE ----- */
+/*  Twist scutched hemp fiber into simple cordage.
+    Accepts either PCP bast fiber (from chemical retting) or vanilla
+    HempScutched (from mechanical scutching) for flexibility.                             */
+
+    craftRecipe PCPSpinHempTwine
+    {
+        time = 100,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpSpinHempTwinePurity,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:5,
+        AutoLearnAll = AppliedChemistry:1,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.HempBastFiber;Base.HempScutched],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.HempTwine,
+        }
+    }
+
+/* ----- H3: BRAID HEMP ROPE ----- */
+/*  Braid multiple twine lengths into a strong, heavy-duty rope.
+    Purity propagates from twine quality.                                                */
+
+    craftRecipe PCPBraidHempRope
+    {
+        time = 120,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpBraidHempRopePurity,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:8,
+        AutoLearnAll = AppliedChemistry:1,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.HempTwine],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.HempRope,
+        }
+    }
+
+/* ----- H4: CHAR HEMP HURDS ----- */
+/*  Pyrolyse hemp hurds in a sealed vessel to produce charcoal.
+    Links the botanical pathway into the existing charcoal → potash →
+    KOH alkali chemistry chain. Requires dome kiln heat source.                          */
+
+    craftRecipe PCPCharHempHurds
+    {
+        time = 200,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpCharHempHurdsPurity,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.HempHurd],
+            item 3 [Base.Charcoal],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrushedCharcoal,
+        }
+    }
+
+    craftRecipe PCPCharHempHurdsCoke
+    {
+        time = 200,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpCharHempHurdsPurity,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.HempHurd],
+            item 1 [Base.Coke],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrushedCharcoal,
+        }
+    }
+
+    craftRecipe PCPCharHempHurdsSimple
+    {
+        time = 200,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpCharHempHurdsPurity,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.HempHurd],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrushedCharcoal,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ===================== KITCHEN CHEMISTRY — RETTING & FIBER ========================== */
+/* ==================================================================================== */
+
+/* ----- H5: CHEMICAL RETTING ----- */
+/*  Soak broken hemp stalks in hot alkaline solution (KOH) to dissolve
+    the pectin binding fibers to the woody core. Produces higher-quality
+    retted hemp than vanilla water retting. Requires cooking pot + heat.                 */
+
+    craftRecipe PCPRetHemp
+    {
+        time = 250,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpRetHempPurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:12,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 2 [Base.HempBroken],
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide],
+            item 1 [*] mode:keep,
+            -fluid 1.0 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.RettedHempStalk,
+        }
+    }
+
+    craftRecipe PCPRetHempSimple
+    {
+        time = 250,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpRetHempPurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:12,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 2 [Base.HempBroken],
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide],
+            item 1 [*],
+            -fluid 1.0 [Water],
+            item 1 tags[base:cookable] mode:keep,
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.RettedHempStalk,
+        }
+    }
+
+/* ----- H5b: CHEMICAL RETTING (NaOH) ----- */
+/*  Alternative retting using sodium hydroxide (caustic soda).
+    Same quality output, different catalyst.                                              */
+
+    craftRecipe PCPRetHempNaOH
+    {
+        time = 250,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpRetHempPurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:12,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 2 [Base.HempBroken],
+            item 1 [Base.SodiumHydroxide],
+            item 1 [*] mode:keep,
+            -fluid 1.0 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.RettedHempStalk,
+        }
+    }
+
+    craftRecipe PCPRetHempNaOHSimple
+    {
+        time = 250,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpRetHempPurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:12,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 2 [Base.HempBroken],
+            item 1 [Base.SodiumHydroxide],
+            item 1 [*],
+            -fluid 1.0 [Water],
+            item 1 tags[base:cookable] mode:keep,
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.RettedHempStalk,
+        }
+    }
+
+/* ----- H6: EXTRACT BAST FIBER ----- */
+/*  Mechanically separate retted hemp into long bast fibers and woody hurds.
+    The chemical retting loosened the fibers; this step completes extraction.
+    Yields 2 bast fiber + 1 hurd per retted stalk. Requires hot water soak.             */
+
+    craftRecipe PCPExtractBastFiber
+    {
+        time = 180,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpExtractBastFiberPurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.RettedHempStalk],
+            item 1 [*] mode:keep,
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.HempBastFiber,
+            item 2 PhobosChemistryPathways.HempHurd,
+        }
+    }
+
+    craftRecipe PCPExtractBastFiberSimple
+    {
+        time = 180,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpExtractBastFiberPurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.RettedHempStalk],
+            item 1 [*],
+            -fluid 0.5 [Water],
+            item 1 tags[base:cookable] mode:keep,
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.HempBastFiber,
+            item 2 PhobosChemistryPathways.HempHurd,
+        }
+    }
+
+/* ----- H7: WEAVE HEMP CLOTH ----- */
+/*  Weave processed bast fibers into durable hemp fabric.
+    Requires a loom-like setup (mortar & pestle represents hand tools).                   */
+
+    craftRecipe PCPWeaveHempCloth
+    {
+        time = 200,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpWeaveHempClothPurity,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:12,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.HempBastFiber],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.HempCloth,
+        }
+    }
+
+/* ----- H8: MAKE HEMP CANVAS ----- */
+/*  Layer and compress multiple hemp cloth sheets into heavy canvas.
+    Suitable for tarpaulins, bags, and construction covers.                               */
+
+    craftRecipe PCPMakeHempCanvas
+    {
+        time = 150,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpMakeHempCanvasPurity,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.HempCloth],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.HempCanvas,
+        }
+    }
+
+/* ----- H9: PREPARE HEMP POULTICE ----- */
+/*  Boil hemp fiber with medicinal herbs to create a topical healing agent.
+    Traditional botanical medicine — fiber absorbs herbal compounds.                      */
+
+    craftRecipe PCPPrepareHempPoultice
+    {
+        time = 180,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpPrepareHempPoulticePurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:15,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.HempBastFiber],
+            item 2 tags[base:herb],
+            item 1 [*] mode:keep,
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.HempPoultice,
+        }
+    }
+
+    craftRecipe PCPPrepareHempPoulticeSimple
+    {
+        time = 180,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpPrepareHempPoulticePurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:15,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.HempBastFiber],
+            item 2 tags[base:herb],
+            item 1 [*],
+            -fluid 0.5 [Water],
+            item 1 tags[base:cookable] mode:keep,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.HempPoultice,
+        }
+    }
+
+/* ----- H10: BOIL HEMP PULP (Kitchen Tier) ----- */
+/*  Boil hemp fiber in water to soften and break down into crude pulp.
+    Kitchen-tier method: lower purity than lab chemical pulping.                           */
+
+    craftRecipe PCPBoilHempPulp
+    {
+        time = 220,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpBoilHempPulpPurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:12,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.HempBastFiber],
+            item 1 [*] mode:keep,
+            -fluid 1.0 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.HempPulp,
+        }
+    }
+
+    craftRecipe PCPBoilHempPulpSimple
+    {
+        time = 220,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpBoilHempPulpPurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:12,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.HempBastFiber],
+            item 1 [*],
+            -fluid 1.0 [Water],
+            item 1 tags[base:cookable] mode:keep,
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.HempPulp,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ========================= LAB CHEMISTRY — ADVANCED PROCESSING ====================== */
+/* ==================================================================================== */
+
+/* ----- H11: CHEMICAL PULPING (NaOH) ----- */
+/*  Dissolve hemp fiber in hot sodium hydroxide solution to produce
+    high-quality chemical pulp. Lab-tier process: best purity.                            */
+
+    craftRecipe PCPChemicalPulping
+    {
+        time = 250,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpChemicalPulpingPurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = MixingChm,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:18,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.HempBastFiber],
+            item 1 [Base.SodiumHydroxide],
+            item 1 [*] mode:keep,
+            -fluid 1.0 [Water],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.HempPulp,
+        }
+    }
+
+    craftRecipe PCPChemicalPulpingSimple
+    {
+        time = 250,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpChemicalPulpingPurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = MixingChm,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:18,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.HempBastFiber],
+            item 1 [Base.SodiumHydroxide],
+            item 1 [*],
+            -fluid 1.0 [Water],
+            item 1 tags[base:cookable] mode:keep,
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.HempPulp,
+        }
+    }
+
+/* ----- H12: PRESS HEMP PAPER ----- */
+/*  Press and dry hemp pulp into paper sheets.
+    Purity propagates from pulp quality.                                                  */
+
+    craftRecipe PCPPressHempPaper
+    {
+        time = 150,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpPressHempPaperPurity,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = MixingChm,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:15,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.HempPulp],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.HempPaper,
+        }
+    }
+
+/* ----- H13: PREPARE HEMP TINCTURE ----- */
+/*  Extract bioactive compounds from hemp fiber using alcohol solvent.
+    Lab-grade extraction produces a concentrated herbal tincture.                          */
+
+    craftRecipe PCPPrepareHempTincture
+    {
+        time = 300,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpPrepareHempTincturePurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = MixingChm,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.HempBastFiber],
+            item 1 [Base.AlcoholBandages;Base.Disinfectant;Base.WhiskeyFull;Base.WhiskeyHalf],
+            item 1 [*] mode:keep,
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.HempTincture,
+        }
+    }
+
+    craftRecipe PCPPrepareHempTinctureSimple
+    {
+        time = 300,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpPrepareHempTincturePurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = MixingChm,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.HempBastFiber],
+            item 1 [Base.AlcoholBandages;Base.Disinfectant;Base.WhiskeyFull;Base.WhiskeyHalf],
+            item 1 [*],
+            -fluid 0.5 [Water],
+            item 1 tags[base:cookable] mode:keep,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.HempTincture,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* =================== INDUSTRIAL CHEMISTRY — MIXER RECIPES =========================== */
+/* ==================================================================================== */
+
+/* ----- H14: MIX HEMPCRETE ----- */
+/*  Combine hemp hurds with quickite (calcium oxide) and water in the
+    concrete mixer. The exothermic lime reaction binds the hurds into
+    a lightweight, insulating building block. Requires electricity.                        */
+
+    craftRecipe PCPMixHempcrete
+    {
+        time = 300,
+        category = PhobosIndustrialChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpMixHempcretePurity,
+
+        Tags = CraftBench;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:15,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.HempHurd],
+            item 2 [PhobosChemistryPathways.Calcite],
+            item 1 [*] mode:keep,
+            -fluid 2.0 [Water],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.HempcreteBlock,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* =================== CROSS-PATHWAY — CREATIVE INTEGRATIONS ========================== */
+/* ==================================================================================== */
+
+/* ----- H15: TAR HEMP ROPE ----- */
+/*  Coat braided hemp rope in hot wood tar to waterproof and preserve it.
+    Tarred rope resists rot and abrasion — historically used for rigging,
+    well buckets, and outdoor lashing. Links biodiesel pathway (wood tar
+    from methanol distillation) to botanical pathway.                                       */
+
+    craftRecipe PCPTarHempRope
+    {
+        time = 150,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpTarHempRopePurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.HempRope],
+            item 1 [PhobosChemistryPathways.WoodTar] mode:destroy,
+            item 1 [*] mode:keep,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.TarredHempRope,
+        }
+    }
+
+    craftRecipe PCPTarHempRopeSimple
+    {
+        time = 150,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpTarHempRopePurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.HempRope],
+            item 1 [PhobosChemistryPathways.WoodTar] mode:destroy,
+            item 1 [*],
+            item 1 tags[base:cookable] mode:keep,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.TarredHempRope,
+        }
+    }
+
+/* ----- H16: STERILIZE HEMP BANDAGE ----- */
+/*  Soak hemp cloth in alcohol or disinfectant, then dry.
+    Produces clean, sterile bandages from hand-woven hemp fabric.
+    Links botanical textiles to vanilla medical supplies.                                     */
+
+    craftRecipe PCPSterilizeHempBandage
+    {
+        time = 120,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:8,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.HempCloth],
+            item 1 [Base.AlcoholBandages;Base.Disinfectant] mode:destroy,
+            item 1 [*] mode:keep,
+            -fluid 0.5 [Water],
+        }
+        outputs
+        {
+            item 2 Base.Bandage,
+        }
+    }
+
+    craftRecipe PCPSterilizeHempBandageSimple
+    {
+        time = 120,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:8,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.HempCloth],
+            item 1 [Base.AlcoholBandages;Base.Disinfectant] mode:destroy,
+            item 1 [*],
+            -fluid 0.5 [Water],
+            item 1 tags[base:cookable] mode:keep,
+        }
+        outputs
+        {
+            item 2 Base.Bandage,
+        }
+    }
+
+/* ----- H17: MAKE HEMP FIRE BUNDLE ----- */
+/*  Bind dry hemp hurds with twine into compact fire starter bundles.
+    The woody, airy hurds ignite easily — a renewable alternative to
+    petroleum-based fire starters.                                                           */
+
+    craftRecipe PCPMakeHempFireBundle
+    {
+        time = 60,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:3,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.HempHurd],
+            item 1 [PhobosChemistryPathways.HempTwine],
+        }
+        outputs
+        {
+            item 2 Base.DryFirestarterBlock,
+        }
+    }
+
+/* ----- H18: COMPOST HEMP HURDS ----- */
+/*  Soak hemp hurds in water to begin anaerobic decomposition.
+    The high cellulose content of hurds produces nitrogen-rich compost.
+    Cross-pathway: output feeds directly into KNO3 synthesis chain.                          */
+
+    craftRecipe PCPCompostHempHurds
+    {
+        time = 180,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpCompostHempHurdsPurity,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:5,
+        AutoLearnAll = AppliedChemistry:1,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.HempHurd],
+            item 1 [*] mode:keep,
+            -fluid 1.0 [Water],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.DilutedCompost,
+        }
+    }
+
+}

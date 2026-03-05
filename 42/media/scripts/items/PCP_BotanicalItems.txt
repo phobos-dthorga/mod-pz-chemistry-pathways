@@ -1,0 +1,171 @@
+/*  ________________________________________________________________________
+ * / Copyright (c) 2026 Phobos A. D'thorga                                \
+ * |                                                                        |
+ * |           /\_/\                                                         |
+ * |         =/ o o \=    Phobos' PZ Modding                                |
+ * |          (  V  )     All rights reserved.                              |
+ * |     /\  / \   / \                                                      |
+ * |    /  \/   '-'   \   This source code is part of the Phobos            |
+ * |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+ * |  (__/    \_/ \/  \__)                                                  |
+ * |     |   | |  | |     Unauthorised copying, modification, or            |
+ * |     |___|_|  |_|     distribution of this file is prohibited.          |
+ * |                                                                        |
+ * \________________________________________________________________________/
+ */
+
+module PhobosChemistryPathways {
+	imports {
+		Base
+	}
+
+/* ============================== BOTANICAL PROCESSING — RAW MATERIALS ============================== */
+/*  Hemp stalk processing intermediates. Chemical retting with KOH/NaOH
+    produces higher-quality fiber than vanilla mechanical scutching, tracked
+    by the PCP purity system. These items form the basis of the entire
+    botanical chemistry pathway.                                                                       */
+
+	item RettedHempStalk {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_RettedHempStalk,
+		Weight = 0.4,
+		ConditionMax = 100,
+		Tooltip = Tooltip_PCP_RettedHempStalk,
+		WorldStaticModel = HempBroken,
+	}
+
+	item HempBastFiber {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_HempBastFiber,
+		Weight = 0.2,
+		ConditionMax = 100,
+		Tooltip = Tooltip_PCP_HempBastFiber,
+		WorldStaticModel = HempScutched,
+	}
+
+	item HempHurd {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_HempHurd,
+		Weight = 0.3,
+		ConditionMax = 100,
+		Tooltip = Tooltip_PCP_HempHurd,
+		WorldStaticModel = Plank,
+	}
+
+/* ============================== BOTANICAL PROCESSING — FIBER PRODUCTS ============================== */
+/*  Downstream products from processed hemp bast fiber. Lye-treated cordage,
+    woven fabric, and heavy canvas for survival applications.                                          */
+
+	item HempTwine {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_HempTwine,
+		Weight = 0.1,
+		ConditionMax = 100,
+		Tooltip = Tooltip_PCP_HempTwine,
+		WorldStaticModel = RippedSheets_Ground,
+	}
+
+	item HempRope {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_HempRope,
+		Weight = 0.3,
+		ConditionMax = 100,
+		Tooltip = Tooltip_PCP_HempRope,
+		WorldStaticModel = Rope_Ground,
+	}
+
+	item HempCloth {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_HempCloth,
+		Weight = 0.3,
+		ConditionMax = 100,
+		Tooltip = Tooltip_PCP_HempCloth,
+		WorldStaticModel = Sheet_Ground,
+	}
+
+	item HempCanvas {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_HempCanvas,
+		Weight = 0.5,
+		ConditionMax = 100,
+		Tooltip = Tooltip_PCP_HempCanvas,
+		WorldStaticModel = Sheet_Ground,
+	}
+
+/* ============================== BOTANICAL PROCESSING — CHEMICAL PRODUCTS ============================== */
+/*  Advanced chemistry products derived from hemp fiber and hurds.
+    Chemical pulping, alcohol extraction, and lime-based construction.                                    */
+
+	item HempPulp {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_HempPulp,
+		Weight = 0.4,
+		ConditionMax = 100,
+		Tooltip = Tooltip_PCP_HempPulp,
+		WorldStaticModel = Charcoal_Ground,
+	}
+
+	item HempPaper {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_HempPaper,
+		Weight = 0.1,
+		ConditionMax = 100,
+		Tooltip = Tooltip_PCP_HempPaper,
+		WorldStaticModel = Paper_Ground,
+	}
+
+	item HempPoultice {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_HempPoultice,
+		Weight = 0.2,
+		ConditionMax = 100,
+		Tooltip = Tooltip_PCP_HempPoultice,
+		WorldStaticModel = Bandage_Ground,
+	}
+
+	item HempTincture {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_HempTincture,
+		Weight = 0.3,
+		ConditionMax = 100,
+		Tooltip = Tooltip_PCP_HempTincture,
+		WorldStaticModel = Jar,
+	}
+
+	item HempcreteBlock {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_HempcreteBlock,
+		Weight = 3.0,
+		ConditionMax = 100,
+		Tooltip = Tooltip_PCP_HempcreteBlock,
+		WorldStaticModel = PlasterBag_Ground,
+	}
+
+/* ============================== BOTANICAL PROCESSING — CROSS-PATHWAY PRODUCTS ============================== */
+/*  Creative integrations linking the botanical pathway to existing PCP
+    chemistry chains. Tarred rope from wood distillation, compost from
+    hurds, fire-starting materials from dry stalks.                                           */
+
+	item TarredHempRope {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_TarredHempRope,
+		Weight = 0.4,
+		ConditionMax = 100,
+		Tooltip = Tooltip_PCP_TarredHempRope,
+		WorldStaticModel = Rope_Ground,
+	}
+
+}

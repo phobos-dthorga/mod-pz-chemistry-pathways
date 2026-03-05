@@ -92,6 +92,37 @@ local function generatePCPForageDefs()
             },
             months = { 3, 4, 5, 6, 7, 8, 9, 10, 11 },
         },
+        -----------------------------------------------------------
+        -- WILD HEMP STALK (Feral hemp / ditchweed)
+        -----------------------------------------------------------
+        -- Kentucky was a major hemp-producing state through the
+        -- 1800s. Feral hemp (ditchweed) still grows wild along
+        -- roadsides, fence lines, creek banks, and abandoned
+        -- farmland. Hardy perennial that reseeds aggressively.
+        -- Most common in summer and early autumn.
+        -- Not found in deep forest or developed town centres.
+        -----------------------------------------------------------
+        PCP_WildHemp = {
+            type            = "Base.HempBroken",
+            minCount        = 1,
+            maxCount        = 3,
+            skill           = 1,
+            xp              = 2,
+            snowChance      = -80,
+            hasRainedChance = 5,
+            categories      = { "CropVegetables" },
+            zones = {
+                FarmLand        = 5,
+                Vegitation      = 3,
+                Forest          = 2,
+                PHForest        = 2,
+                PRForest        = 2,
+                OrganicForest   = 2,
+                TrailerPark     = 2,
+                ForagingNav     = 1,
+            },
+            months = { 4, 5, 6, 7, 8, 9, 10 },
+        },
     };
 
     for itemName, itemDef in pairs(minerals) do

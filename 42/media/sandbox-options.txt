@@ -88,6 +88,12 @@ option PCP.MixerFuelDrainRate
 	page = PCP_Sandbox, translation = PCP_MixerFuelDrainRate,
 }
 
+option PCP.EnableBotanicalPathway
+{
+	type = boolean, default = true,
+	page = PCP_Sandbox, translation = PCP_EnableBotanicalPathway,
+}
+
 option PCP.ResetStripPurity
 {
 	type = boolean, default = false,
