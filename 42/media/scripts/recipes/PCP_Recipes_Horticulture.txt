@@ -1,0 +1,846 @@
+/*  ________________________________________________________________________
+ * / Copyright (c) 2026 Phobos A. D'thorga                                \
+ * |                                                                        |
+ * |           /\_/\                                                         |
+ * |         =/ o o \=    Phobos' PZ Modding                                |
+ * |          (  V  )     All rights reserved.                              |
+ * |     /\  / \   / \                                                      |
+ * |    /  \/   '-'   \   This source code is part of the Phobos            |
+ * |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+ * |  (__/    \_/ \/  \__)                                                  |
+ * |     |   | |  | |     Unauthorised copying, modification, or            |
+ * |     |___|_|  |_|     distribution of this file is prohibited.          |
+ * |                                                                        |
+ * \________________________________________________________________________/
+ */
+
+module Base
+{
+
+/* ==================================================================================== */
+/* ============================== HORTICULTURE PATHWAY ================================= */
+/* ==================================================================================== */
+/*  Processing of tobacco, hemp buds, paper, smoking accessories, and
+    cooking products. Builds on top of PCP botanical items and vanilla
+    farming outputs. Most recipes are simple assembly (no purity tracking).
+    Passive transforms handled by PZ engine:
+      - TobaccoWet → TobaccoDried (Wet=true auto-drying)
+      - HempBuds → HempBudsDecarbed (IsCookable, stove)
+      - CannedHempBuds → CannedHempBudsCured (ReplaceOnRotten, time)                    */
+
+
+/* ==================================================================================== */
+/* =========================== TOBACCO PROCESSING (5 recipes) ========================= */
+/* ==================================================================================== */
+
+/* ----- HT1: PACK CHEWING TOBACCO TIN ----- */
+/*  Pack dried tobacco leaves into a tin can for long-term chewing.
+    Simple field assembly — no chemistry involved.                                         */
+
+    craftRecipe PCPPackChewTobaccoTin
+    {
+        time = 60,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:2,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 3 [Base.TobaccoDried],
+            item 1 [Base.TinCanEmpty],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.ChewingTobaccoTin,
+        }
+    }
+
+/* ----- HT2: PACK CHEWING TOBACCO WATER TIN ----- */
+/*  Pack dried tobacco into a water ration tin — the sealed container
+    keeps the tobacco moist for a richer chew.                                              */
+
+    craftRecipe PCPPackChewTobaccoWaterTin
+    {
+        time = 60,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:2,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 3 [Base.TobaccoDried],
+            item 1 [Base.WaterRationCanEmpty],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.ChewingTobaccoWaterTin,
+        }
+    }
+
+/* ----- HT3: PACK CHEWING TOBACCO JAR ----- */
+/*  Pack dried tobacco into a glass jar for bulk storage.
+    Slightly more tobacco needed to fill the larger container.                              */
+
+    craftRecipe PCPPackChewTobaccoJar
+    {
+        time = 60,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:2,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 4 [Base.TobaccoDried],
+            item 1 [Base.EmptyJar],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.ChewingTobaccoJar,
+        }
+    }
+
+/* ----- HT4: ROLL TOBACCO CIGAR ----- */
+/*  Roll dried tobacco leaves in ripped sheet wrapping to form a hand-rolled cigar.
+    A rough but effective way to smoke without rolling papers.                              */
+
+    craftRecipe PCPRollCigarTobacco
+    {
+        time = 80,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:3,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 2 [Base.TobaccoDried],
+            item 1 [Base.RippedSheets],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CigarRolled,
+        }
+    }
+
+/* ----- HT5: ROLL TOBACCO CIGARETTES ----- */
+/*  Roll dried tobacco into proper rolling papers to produce a pack
+    of hand-rolled cigarettes. Uses the full pack of papers.                                */
+
+    craftRecipe PCPRollCigarettesTobacco
+    {
+        time = 60,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:3,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 1 [Base.TobaccoDried],
+            item 1 [PhobosChemistryPathways.RollingPapers],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CigarettePackRolled,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ======================== HEMP BUD PROCESSING (8 recipes) =========================== */
+/* ==================================================================================== */
+
+/* ----- HB1: CURE HEMP BUDS ----- */
+/*  Hang-cure fresh hemp buds with twine or rope for slow drying.
+    The curing process develops flavour and reduces harshness.                               */
+
+    craftRecipe PCPCureHempBuds
+    {
+        time = 100,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:5,
+        AutoLearnAll = AppliedChemistry:1,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.HempBuds],
+            item 1 [PhobosChemistryPathways.HempTwine;Base.Rope],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.HempBudsCured,
+        }
+    }
+
+/* ----- HB2: CAN FRESH HEMP BUDS ----- */
+/*  Seal fresh hemp buds in a tin can for long-term preservation.
+    Canned buds will cure naturally over time (ReplaceOnRotten).                            */
+
+    craftRecipe PCPCanHempBuds
+    {
+        time = 80,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:3,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.HempBuds],
+            item 1 [Base.TinCanEmpty],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CannedHempBuds,
+        }
+    }
+
+/* ----- HB3: CAN DECARBED HEMP BUDS ----- */
+/*  Seal decarboxylated hemp buds in a tin can for storage.
+    Preserves the activated compounds for later use.                                        */
+
+    craftRecipe PCPCanHempBudsDecarbed
+    {
+        time = 80,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:3,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.HempBudsDecarbed],
+            item 1 [Base.TinCanEmpty],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CannedHempBudsDecarbed,
+        }
+    }
+
+/* ----- HB4: OPEN CANNED HEMP BUDS ----- */
+/*  Open a sealed can of hemp buds with a can opener.
+    Produces a drainable open can for use in recipes.                                       */
+
+    craftRecipe PCPOpenCannedHempBuds
+    {
+        time = 30,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:1,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.CannedHempBuds],
+            item 1 tags[base:canopener] mode:keep,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CannedHempBudsOpen,
+        }
+    }
+
+/* ----- HB5: OPEN CANNED DECARBED HEMP BUDS ----- */
+/*  Open a sealed can of decarboxylated hemp buds.                                          */
+
+    craftRecipe PCPOpenCannedHempBudsDecarbed
+    {
+        time = 30,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:1,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.CannedHempBudsDecarbed],
+            item 1 tags[base:canopener] mode:keep,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CannedHempBudsDecarbedOpen,
+        }
+    }
+
+/* ----- HB6: GRIND HEMP BUDS ----- */
+/*  Crush decarboxylated hemp buds with a mortar and pestle into
+    loose ground material suitable for rolling or pipe loading.                              */
+
+    craftRecipe PCPGrindHempBuds
+    {
+        time = 80,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:3,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.HempBudsDecarbed],
+            item 1 tags[base:mortarpestle] mode:keep,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.HempLoose,
+        }
+    }
+
+/* ----- HB7: ROLL HEMP CIGARETTES ----- */
+/*  Roll ground hemp into rolling papers to produce a pack
+    of hemp cigarettes. Uses the full supply of both inputs.                                 */
+
+    craftRecipe PCPRollHempCigarettes
+    {
+        time = 60,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:3,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.HempLoose],
+            item 1 [PhobosChemistryPathways.RollingPapers],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CigarettePackHemp,
+        }
+    }
+
+/* ----- HB8: ROLL HEMP CIGAR ----- */
+/*  Wrap ground hemp in hemp cloth to form a large, slow-burning cigar.
+    The natural fibre wrapper complements the hemp filling.                                  */
+
+    craftRecipe PCPRollHempCigar
+    {
+        time = 80,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:3,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.HempLoose],
+            item 1 [PhobosChemistryPathways.HempCloth],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CigarHemp,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================ PAPERMAKING (7 recipes) ================================ */
+/* ==================================================================================== */
+
+/* ----- HP1: CRAFT MOULD AND DECKLE ----- */
+/*  Build a simple wooden frame for forming paper sheets.
+    The mould provides the screen surface; the deckle defines the edges.                    */
+
+    craftRecipe PCPCraftMouldAndDeckle
+    {
+        time = 150,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:8,
+        AutoLearnAll = AppliedChemistry:1,
+
+        inputs
+        {
+            item 2 [Base.Plank],
+            item 4 [Base.Nails],
+            item 1 tags[base:saw] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.MouldAndDeckle,
+        }
+    }
+
+/* ----- HP2: FILL PULP POT ----- */
+/*  Combine hemp pulp with water in a cooking pot to prepare a slurry.
+    The pot must be cooked on a stove to soften the pulp before forming.                    */
+
+    craftRecipe PCPFillPulpPot
+    {
+        time = 80,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:5,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.HempPulp],
+            item 1 [Base.Pot],
+            -fluid 5.0 [Water],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.PaperPulpPot,
+        }
+    }
+
+/* ----- HP2b: FILL PULP POT (FORGED) ----- */
+/*  Same as HP2 but uses a forged pot instead.                                              */
+
+    craftRecipe PCPFillPulpPotForged
+    {
+        time = 80,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:5,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.HempPulp],
+            item 1 [Base.PotForged],
+            -fluid 5.0 [Water],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.PaperPulpPotForged,
+        }
+    }
+
+/* ----- HP3: FORM WET PAPER SHEET ----- */
+/*  Pour cooked pulp slurry over the mould and deckle to form a wet
+    paper sheet. The mould is reused; the pot is recovered empty.                           */
+
+    craftRecipe PCPFormWetPaperSheet
+    {
+        time = 100,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_HorticultureCallbacks.pcpFormWetPaperSheetPurity,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:8,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.PaperPulpPot] flags[IsCooked],
+            item 1 [PhobosChemistryPathways.MouldAndDeckle] mode:keep,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.MouldAndDecklePaperSheet,
+            item 1 Base.Pot,
+        }
+    }
+
+/* ----- HP3b: FORM WET PAPER SHEET (FORGED) ----- */
+/*  Same as HP3 but recovers a forged pot.                                                  */
+
+    craftRecipe PCPFormWetPaperSheetForged
+    {
+        time = 100,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_HorticultureCallbacks.pcpFormWetPaperSheetPurity,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:8,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.PaperPulpPotForged] flags[IsCooked],
+            item 1 [PhobosChemistryPathways.MouldAndDeckle] mode:keep,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.MouldAndDecklePaperSheet,
+            item 1 Base.PotForged,
+        }
+    }
+
+/* ----- HP4: PRESS PAPER SHEET ----- */
+/*  Press and dry the wet paper sheet on the mould to produce finished
+    hemp paper. The mould and deckle is recovered for reuse.                                */
+
+    craftRecipe PCPPressPaperSheet
+    {
+        time = 80,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_HorticultureCallbacks.pcpPressPaperSheetPurity,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:8,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.MouldAndDecklePaperSheet],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.HempPaper,
+            item 1 PhobosChemistryPathways.MouldAndDeckle,
+        }
+    }
+
+/* ----- HP5: CUT ROLLING PAPERS ----- */
+/*  Cut finished hemp paper into thin strips suitable for rolling
+    cigarettes or cigars. Requires scissors.                                                 */
+
+    craftRecipe PCPCutRollingPapers
+    {
+        time = 40,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:3,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.HempPaper],
+            item 1 [Base.Scissors] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.RollingPapers,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================= SMOKING (5 recipes) =================================== */
+/* ==================================================================================== */
+
+/* ----- HS1: CRAFT GLASS SMOKING PIPE ----- */
+/*  Shape sheet glass into a reusable smoking pipe using a blowtorch.
+    Requires eye protection (welding mask) for safety.                                       */
+
+    craftRecipe PCPCraftSmokingPipeGlass
+    {
+        time = 200,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:12,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 1 [Base.GlassPanel],
+            item 1 [Base.BlowTorch] mode:keep flags[MayDegrade],
+            item 1 [Base.WeldingMask] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.SmokingPipeGlass,
+        }
+    }
+
+/* ----- HS2: LOAD PIPE WITH HEMP ----- */
+/*  Pack ground hemp into a vanilla smoking pipe bowl.
+    The loaded pipe can be smoked for stress and pain relief.                                */
+
+    craftRecipe PCPLoadPipeHemp
+    {
+        time = 30,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:1,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 1 [Base.SmokingPipe],
+            item 1 [PhobosChemistryPathways.HempBudsDecarbed],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.SmokingPipeHemp,
+        }
+    }
+
+/* ----- HS3: LOAD GLASS PIPE WITH HEMP ----- */
+/*  Pack ground hemp into the PCP glass smoking pipe.                                       */
+
+    craftRecipe PCPLoadGlassPipeHemp
+    {
+        time = 30,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:1,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.SmokingPipeGlass],
+            item 1 [PhobosChemistryPathways.HempBudsDecarbed],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.SmokingPipeGlassHemp,
+        }
+    }
+
+/* ----- HS4: LOAD GLASS PIPE WITH TOBACCO ----- */
+/*  Pack dried tobacco into the PCP glass smoking pipe.                                     */
+
+    craftRecipe PCPLoadGlassPipeTobacco
+    {
+        time = 30,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:1,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.SmokingPipeGlass],
+            item 1 [Base.TobaccoDried],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.SmokingPipeGlassTobacco,
+        }
+    }
+
+/* ----- HS5: LOAD CAN PIPE WITH HEMP ----- */
+/*  Pack ground hemp into a makeshift can pipe.
+    The aluminium pipe heats unevenly but works in a pinch.                                 */
+
+    craftRecipe PCPLoadCanPipeHemp
+    {
+        time = 30,
+        category = PhobosFieldChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:1,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 1 [Base.CanPipe],
+            item 1 [PhobosChemistryPathways.HempBudsDecarbed],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CanPipeHemp,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ============================== COOKING (4 recipes) ================================== */
+/* ==================================================================================== */
+
+/* ----- HC1: MAKE SUGAR SYRUP (SAUCEPAN) ----- */
+/*  Dissolve sugar in water in a saucepan. The result must be
+    cooked on a stove to produce finished syrup.                                            */
+
+    craftRecipe PCPMakeSyrupSaucepan
+    {
+        time = 80,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:3,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 3 [Base.Sugar],
+            item 1 [Base.Saucepan],
+            -fluid 3.0 [Water],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.SaucepanSyrup,
+        }
+    }
+
+/* ----- HC2: MAKE SUGAR SYRUP (COPPER SAUCEPAN) ----- */
+/*  Same as HC1 but uses a copper saucepan for more even heat distribution.                 */
+
+    craftRecipe PCPMakeSyrupSaucepanCopper
+    {
+        time = 80,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:3,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 3 [Base.Sugar],
+            item 1 [Base.SaucepanCopper],
+            -fluid 3.0 [Water],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.SaucepanCopperSyrup,
+        }
+    }
+
+/* ----- HC3: BOTTLE SYRUP (SAUCEPAN) ----- */
+/*  Pour cooked sugar syrup from the saucepan into a glass jar.
+    Recovers the saucepan for reuse.                                                        */
+
+    craftRecipe PCPBottleSyrup
+    {
+        time = 40,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:2,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.SaucepanSyrup] flags[IsCooked],
+            item 1 [Base.EmptyJar],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.SimpleSugarSyrup,
+            item 1 Base.Saucepan,
+        }
+    }
+
+/* ----- HC4: BOTTLE SYRUP (COPPER SAUCEPAN) ----- */
+/*  Pour cooked sugar syrup from the copper saucepan into a glass jar.
+    Recovers the copper saucepan for reuse.                                                 */
+
+    craftRecipe PCPBottleSyrupCopper
+    {
+        time = 40,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:2,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.SaucepanCopperSyrup] flags[IsCooked],
+            item 1 [Base.EmptyJar],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.SimpleSugarSyrup,
+            item 1 Base.SaucepanCopper,
+        }
+    }
+
+}

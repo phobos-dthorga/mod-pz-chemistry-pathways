@@ -23,6 +23,58 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ## [Unreleased]
 
+### Added
+- **Botanical Pathway** — 30 new recipes in `PCP_Recipes_Botanical.txt` covering hemp processing from raw stalks through chemical retting, fiber extraction, and downstream manufacturing:
+  - **Retting & Extraction** (7 recipes): Chemical retting with KOH or NaOH, fiber/hurd splitting, seed threshing
+  - **Textiles** (5 recipes): Spin twine, braid rope, weave cloth, layer canvas, tar rope with wood tar
+  - **Papermaking** (5 recipes): Boil pulp, NaOH chemical pulping (+50% yield), press paper sheets
+  - **Medicinal** (4 recipes): Herb-infused poultice, alcohol-extracted tincture
+  - **Hurd Processing** (5 recipes): Char to charcoal (3 fuel variants), compost, fire bundles
+  - **Cross-Pathway** (3 recipes): Sterilise hemp bandages, hempcrete (mixer), tarred rope
+  - **1 mixer recipe** (PCPMixHempcrete): Hemp hurds + calcite in concrete mixer
+- **13 botanical items** — RettedHempStalk, HempBastFiber, HempHurd, HempTwine, HempRope, TarredHempRope, HempCloth, HempCanvas, HempPulp, HempPaper, HempPoultice, HempTincture, HempcreteBlock
+- **31 horticulture items** — Full parity with [B42] Horticulture mod:
+  - **Tobacco** (4 items): TobaccoWet (air-dries naturally), ChewingTobacco in 3 container types (Tin, WaterTin, Jar)
+  - **Hemp Buds** (9 items): Fresh, Cured, Decarbed buds; canned variants (sealed and open); ground HempLoose
+  - **Papermaking** (5 items): PaperPulpPot (2 pot types), MouldAndDeckle, MouldAndDecklePaperSheet, RollingPapers
+  - **Smoking** (10 items): Glass pipe, loaded pipes (wood/glass/can), hemp cigars, hemp cigarettes, cigarette packs, rolled tobacco cigars and cigarettes
+  - **Cooking** (3 items): SaucepanSyrup (2 pot types), SimpleSugarSyrup
+- **Horticulture migration system** — Dual-trigger migration converts [B42] Horticulture mod items to PCP equivalents:
+  - **Manual trigger**: MigrateHorticultureItems sandbox button (PCP_Reset page) — proactive, works while Horticulture is still subscribed
+  - **Automatic trigger**: Detects orphaned Horticulture items after mod unsubscription and converts them automatically on game load
+  - Preserves UsedDelta, age, condition, and wet state during conversion
+  - 38 item mappings from `Base.*` to `PhobosChemistryPathways.*`
+- **MigrateHorticultureItems sandbox option** — One-shot migration button on PCP_Reset settings page
+- **EnableBotanicalPathway sandbox option** — Master switch for botanical/horticulture recipes (default: true)
+- **SkillPurityInfluence sandbox option** — Controls Applied Chemistry skill effect on purity (None/Low/Standard/High, default: Standard)
+- **19 OpenAI-generated icons** — 6 regenerated chemistry icons + 13 new botanical pathway icons
+
+### Fixed
+- **CTD: Invalid item references in botanical recipes** — `Base.SodiumHydroxide` replaced with `LabItems.ChSodiumHydroxideBag` (4 occurrences); `Base.AlcoholBandages` replaced with `Base.AlcoholBandage` (4 occurrences); `Base.WhiskeyFull` and `Base.WhiskeyHalf` replaced with `Base.Whiskey` (4 occurrences)
+
+### Changed
+- **EnableImpuritySystem default changed to TRUE** — Was false; one-time migration popup auto-enables for existing worlds and notifies admins
+- Recipe count: 204 → **234** (30 botanical recipes added)
+- Item count: 47 → **91** (13 botanical + 31 horticulture items added)
+- Sandbox option count: 17 → **19** (EnableBotanicalPathway, MigrateHorticultureItems added; SkillPurityInfluence added in v1.1.0)
+- Requires **PhobosLib 1.16.0+** (getSkillBonus, randomBaseQualityWithSkill, isPlayerAdmin, registerNoticePopup)
+
+### Summary
+- **234 recipes**, **91 items**, **34 tradeable items**, **5 skill books**, **9 fluids**, **19 sandbox options**
+- 10 pathways: Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture, Concrete Mixer, Botanical
+- Hard deps: PhobosLib 1.16.0+, Zombie Virus Vaccine
+- Soft deps: ZScienceSkill, EHR, Dynamic Trading, Neat Crafting
+
+## [1.1.0] - 2026-03-06
+
+### Added
+- **SkillPurityInfluence sandbox option** — Controls how much the Applied Chemistry skill affects output purity (None/Low/Standard/High enum, default: Standard)
+- **Impurity default migration** — One-time notice popup auto-enables EnableImpuritySystem for existing worlds (was default false, now default true) and notifies admins
+
+### Changed
+- **EnableImpuritySystem default = true** (was false)
+- Requires **PhobosLib 1.16.0+** (getSkillBonus, randomBaseQualityWithSkill, isPlayerAdmin, registerNoticePopup)
+
 ## [1.0.0] - 2026-03-05
 
 ### BREAKING

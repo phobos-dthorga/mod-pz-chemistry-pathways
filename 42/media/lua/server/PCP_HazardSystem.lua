@@ -155,6 +155,40 @@ end
 ---   Gas mask / respirator:    40% of base chance
 ---   No mask at all:          100% of base chance
 ---
+---------------------------------------------------------------
+-- Public Wrappers for cross-file callback composition
+---------------------------------------------------------------
+
+--- Wrap an existing purity callback with safe filter degradation.
+--- Call this from Safe recipe OnCreate callbacks in any module.
+---@param purityFn function  The base purity callback to invoke first
+---@param items    any       Java ArrayList from OnCreate
+---@param result   any       Result item from OnCreate
+---@param player   any       Player from OnCreate
+function PCP_HazardSystem.safeWrapper(purityFn, items, result, player)
+    purityFn(items, result, player)
+    if PCP_HazardSystem.isEnabled() then
+        PCP_HazardSystem.degradeFilterFromInputs(items)
+    end
+end
+
+--- Wrap an existing purity callback with unsafe hazard dispatch.
+--- Call this from Unsafe recipe OnCreate callbacks in any module.
+---@param purityFn function  The base purity callback to invoke first
+---@param hazardId string    Key into PCP_HazardSystem.HAZARDS
+---@param items    any       Java ArrayList from OnCreate
+---@param result   any       Result item from OnCreate
+---@param player   any       Player from OnCreate
+function PCP_HazardSystem.unsafeWrapper(purityFn, hazardId, items, result, player)
+    purityFn(items, result, player)
+    PCP_HazardSystem.applyUnsafeEffect(player, hazardId)
+end
+
+
+---------------------------------------------------------------
+-- Hazard Effect Application
+---------------------------------------------------------------
+
 ---@param player any
 ---@param hazardId string  Key into PCP_HazardSystem.HAZARDS
 function PCP_HazardSystem.applyUnsafeEffect(player, hazardId)

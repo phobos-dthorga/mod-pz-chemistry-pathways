@@ -472,3 +472,106 @@ table.insert(ProceduralDistributions.list["MedicalClinicDrugs"].items, 0.1)
 -- Hemp Tincture — medical storage (herbal medicine)
 table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.HempTincture")
 table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.1)
+
+
+-----------------------------------------------------
+------------ HORTICULTURE PATHWAY ITEMS -------------
+-----------------------------------------------------
+
+-- ===== TOBACCO PRODUCTS =====
+-- Smoke shops, bars, living rooms
+
+-- Smoke shop counters (chewing tobacco tins, rolled cigars)
+table.insert(ProceduralDistributions.list["StoreCounterSmoke"].items, "PhobosChemistryPathways.ChewingTobaccoTin")
+table.insert(ProceduralDistributions.list["StoreCounterSmoke"].items, 0.5)
+
+table.insert(ProceduralDistributions.list["StoreCounterSmoke"].items, "PhobosChemistryPathways.CigarRolled")
+table.insert(ProceduralDistributions.list["StoreCounterSmoke"].items, 0.3)
+
+-- Bar counters (chewing tobacco in tins and jars)
+table.insert(ProceduralDistributions.list["BarCounterMisc"].items, "PhobosChemistryPathways.ChewingTobaccoTin")
+table.insert(ProceduralDistributions.list["BarCounterMisc"].items, 0.3)
+
+table.insert(ProceduralDistributions.list["BarCounterMisc"].items, "PhobosChemistryPathways.ChewingTobaccoJar")
+table.insert(ProceduralDistributions.list["BarCounterMisc"].items, 0.2)
+
+-- Residential (occasional find)
+table.insert(ProceduralDistributions.list["LivingRoomShelf"].items, "PhobosChemistryPathways.ChewingTobaccoTin")
+table.insert(ProceduralDistributions.list["LivingRoomShelf"].items, 0.1)
+
+table.insert(ProceduralDistributions.list["KitchenRandom"].items, "PhobosChemistryPathways.ChewingTobaccoJar")
+table.insert(ProceduralDistributions.list["KitchenRandom"].items, 0.1)
+
+
+-- ===== HEMP BUDS =====
+-- Farm supply, garden, medical storage
+
+-- Farm supply (fresh and cured buds)
+table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "PhobosChemistryPathways.HempBuds")
+table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 0.5)
+
+table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "PhobosChemistryPathways.HempBudsCured")
+table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 0.2)
+
+-- Farmer trucks
+table.insert(VehicleDistributions.FarmerTruckBed.items, "PhobosChemistryPathways.HempBuds")
+table.insert(VehicleDistributions.FarmerTruckBed.items, 0.3)
+
+-- Garden storage
+table.insert(ProceduralDistributions.list["GardenStorageMisc"].items, "PhobosChemistryPathways.HempBuds")
+table.insert(ProceduralDistributions.list["GardenStorageMisc"].items, 0.2)
+
+-- Medical storage (cured buds for tincture preparation)
+table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.HempBudsCured")
+table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.1)
+
+
+-- ===== SMOKING ITEMS =====
+-- Smoke shops, bars, bedrooms
+
+-- Smoke shop counters (cigarette packs, rolling papers)
+table.insert(ProceduralDistributions.list["StoreCounterSmoke"].items, "PhobosChemistryPathways.CigarettePackRolled")
+table.insert(ProceduralDistributions.list["StoreCounterSmoke"].items, 0.3)
+
+table.insert(ProceduralDistributions.list["StoreCounterSmoke"].items, "PhobosChemistryPathways.RollingPapers")
+table.insert(ProceduralDistributions.list["StoreCounterSmoke"].items, 0.5)
+
+-- Bar counters (glass pipe — rare novelty)
+table.insert(ProceduralDistributions.list["BarCounterMisc"].items, "PhobosChemistryPathways.SmokingPipeGlass")
+table.insert(ProceduralDistributions.list["BarCounterMisc"].items, 0.1)
+
+-- Bedrooms (glass pipe — personal possession)
+table.insert(ProceduralDistributions.list["BedroomDresser"].items, "PhobosChemistryPathways.SmokingPipeGlass")
+table.insert(ProceduralDistributions.list["BedroomDresser"].items, 0.05)
+
+-- General shelves (rolling papers)
+table.insert(ProceduralDistributions.list["ShelfGeneric"].items, "PhobosChemistryPathways.RollingPapers")
+table.insert(ProceduralDistributions.list["ShelfGeneric"].items, 0.1)
+
+
+-- ===== PAPERMAKING =====
+-- Hardware stores, classrooms, offices
+
+-- Hardware stores (mould and deckle — artisan tool)
+table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, "PhobosChemistryPathways.MouldAndDeckle")
+table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, 0.1)
+
+-- Classrooms (rolling papers — art supply / craft paper)
+table.insert(ProceduralDistributions.list["ClassroomShelves"].items, "PhobosChemistryPathways.RollingPapers")
+table.insert(ProceduralDistributions.list["ClassroomShelves"].items, 0.2)
+
+-- Office desks (rolling papers — occasional find)
+table.insert(ProceduralDistributions.list["OfficeDesk"].items, "PhobosChemistryPathways.RollingPapers")
+table.insert(ProceduralDistributions.list["OfficeDesk"].items, 0.1)
+
+
+-- ===== COOKING =====
+-- Restaurant kitchens, grocery stores
+
+-- Restaurant kitchens (simple sugar syrup — cocktail/baking ingredient)
+table.insert(ProceduralDistributions.list["RestaurantKitchen"].items, "PhobosChemistryPathways.SimpleSugarSyrup")
+table.insert(ProceduralDistributions.list["RestaurantKitchen"].items, 0.3)
+
+-- Grocery store snacks (bottled syrup)
+table.insert(ProceduralDistributions.list["GroceryStoreSnacks"].items, "PhobosChemistryPathways.SimpleSugarSyrup")
+table.insert(ProceduralDistributions.list["GroceryStoreSnacks"].items, 0.2)

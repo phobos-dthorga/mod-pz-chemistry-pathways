@@ -189,6 +189,12 @@ local heatAndHazard = {
     "PCPExtractSulphurFromAcidFluidUnsafe",
     "PCPSynthesizeEpoxySafe",
     "PCPSynthesizeEpoxyUnsafe",
+    "PCPRetHempSafe",
+    "PCPRetHempUnsafe",
+    "PCPRetHempNaOHSafe",
+    "PCPRetHempNaOHUnsafe",
+    "PCPChemicalPulpingSafe",
+    "PCPChemicalPulpingUnsafe",
 }
 for _, name in ipairs(heatAndHazard) do
     filters[name] = function()
@@ -211,6 +217,12 @@ local noHeatAndHazard = {
     "PCPExtractSulphurFromAcidFluidSimpleUnsafe",
     "PCPSynthesizeEpoxySimpleSafe",
     "PCPSynthesizeEpoxySimpleUnsafe",
+    "PCPRetHempSimpleSafe",
+    "PCPRetHempSimpleUnsafe",
+    "PCPRetHempNaOHSimpleSafe",
+    "PCPRetHempNaOHSimpleUnsafe",
+    "PCPChemicalPulpingSimpleSafe",
+    "PCPChemicalPulpingSimpleUnsafe",
 }
 for _, name in ipairs(noHeatAndHazard) do
     filters[name] = function()
@@ -228,6 +240,9 @@ local heatAndNoHazard = {
     "PCPDistillMethanol",
     "PCPSynthesizeKOH",
     "PCPSynthesizeEpoxy",
+    "PCPRetHemp",
+    "PCPRetHempNaOH",
+    "PCPChemicalPulping",
 }
 for _, name in ipairs(heatAndNoHazard) do
     filters[name] = function()
@@ -245,6 +260,9 @@ local noHeatAndNoHazard = {
     "PCPDistillMethanolSimple",
     "PCPSynthesizeKOHSimple",
     "PCPSynthesizeEpoxySimple",
+    "PCPRetHempSimple",
+    "PCPRetHempNaOHSimple",
+    "PCPChemicalPulpingSimple",
 }
 for _, name in ipairs(noHeatAndNoHazard) do
     filters[name] = function()

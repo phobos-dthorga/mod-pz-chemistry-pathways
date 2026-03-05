@@ -95,6 +95,47 @@ ItemName_EN = {
     ItemName_PhobosChemistryPathways.HempcreteBlock = "Hempcrete Block",
     ItemName_PhobosChemistryPathways.TarredHempRope = "Tarred Hemp Rope",
 
+    /* ===== Horticulture — Tobacco ===== */
+    ItemName_PhobosChemistryPathways.TobaccoWet = "Wet Tobacco",
+    ItemName_PhobosChemistryPathways.ChewingTobaccoTin = "Chewing Tobacco (Tin)",
+    ItemName_PhobosChemistryPathways.ChewingTobaccoWaterTin = "Chewing Tobacco (Water Tin)",
+    ItemName_PhobosChemistryPathways.ChewingTobaccoJar = "Chewing Tobacco (Jar)",
+
+    /* ===== Horticulture — Hemp Buds ===== */
+    ItemName_PhobosChemistryPathways.HempBuds = "Hemp Buds",
+    ItemName_PhobosChemistryPathways.HempBudsCured = "Cured Hemp Buds",
+    ItemName_PhobosChemistryPathways.HempBudsDecarbed = "Decarboxylated Hemp Buds",
+    ItemName_PhobosChemistryPathways.CannedHempBuds = "Canned Hemp Buds",
+    ItemName_PhobosChemistryPathways.CannedHempBudsCured = "Canned Cured Hemp Buds",
+    ItemName_PhobosChemistryPathways.CannedHempBudsDecarbed = "Canned Decarbed Hemp Buds",
+    ItemName_PhobosChemistryPathways.CannedHempBudsOpen = "Open Canned Hemp Buds",
+    ItemName_PhobosChemistryPathways.CannedHempBudsDecarbedOpen = "Open Canned Decarbed Buds",
+    ItemName_PhobosChemistryPathways.HempLoose = "Loose Hemp",
+
+    /* ===== Horticulture — Papermaking ===== */
+    ItemName_PhobosChemistryPathways.PaperPulpPot = "Pot of Paper Pulp",
+    ItemName_PhobosChemistryPathways.PaperPulpPotForged = "Forged Pot of Paper Pulp",
+    ItemName_PhobosChemistryPathways.MouldAndDeckle = "Mould and Deckle",
+    ItemName_PhobosChemistryPathways.MouldAndDecklePaperSheet = "Mould and Deckle (Sheet)",
+    ItemName_PhobosChemistryPathways.RollingPapers = "Rolling Papers",
+
+    /* ===== Horticulture — Smoking ===== */
+    ItemName_PhobosChemistryPathways.SmokingPipeGlass = "Glass Smoking Pipe",
+    ItemName_PhobosChemistryPathways.SmokingPipeHemp = "Pipe (Hemp)",
+    ItemName_PhobosChemistryPathways.SmokingPipeGlassHemp = "Glass Pipe (Hemp)",
+    ItemName_PhobosChemistryPathways.SmokingPipeGlassTobacco = "Glass Pipe (Tobacco)",
+    ItemName_PhobosChemistryPathways.CanPipeHemp = "Can Pipe (Hemp)",
+    ItemName_PhobosChemistryPathways.CigarHemp = "Hemp Cigar",
+    ItemName_PhobosChemistryPathways.CigarRolled = "Rolled Cigar",
+    ItemName_PhobosChemistryPathways.CigaretteHemp = "Hemp Cigarette",
+    ItemName_PhobosChemistryPathways.CigarettePackHemp = "Hemp Cigarette Pack",
+    ItemName_PhobosChemistryPathways.CigarettePackRolled = "Rolled Cigarette Pack",
+
+    /* ===== Horticulture — Cooking ===== */
+    ItemName_PhobosChemistryPathways.SaucepanSyrup = "Saucepan of Sugar Syrup",
+    ItemName_PhobosChemistryPathways.SaucepanCopperSyrup = "Copper Saucepan of Sugar Syrup",
+    ItemName_PhobosChemistryPathways.SimpleSugarSyrup = "Simple Sugar Syrup",
+
     /* ===== Skill Books ===== */
     ItemName_PhobosChemistryPathways.BookAppliedChemistry1 = "Applied Chemistry Vol. 1",
     ItemName_PhobosChemistryPathways.BookAppliedChemistry2 = "Applied Chemistry Vol. 2",

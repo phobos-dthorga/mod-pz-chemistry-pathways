@@ -170,3 +170,32 @@ function PCP_BotanicalCallbacks.pcpCompostHempHurdsPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(30, 50, player))
 end
+
+
+---------------------------------------------------------------
+-- HAZARD WRAPPER CALLBACKS (4) — Safe/Unsafe for caustic retting
+-- Uses PCP_HazardSystem public wrappers (promoted from local helpers).
+-- Retting (KOH/NaOH) and chemical pulping produce caustic fumes.
+---------------------------------------------------------------
+
+require "PCP_HazardSystem"
+
+--- Chemical retting (KOH or NaOH) — Safe (filter degrade)
+function PCP_BotanicalCallbacks.pcpRetHempSafePurity(items, result, player)
+    PCP_HazardSystem.safeWrapper(PCP_BotanicalCallbacks.pcpRetHempPurity, items, result, player)
+end
+
+--- Chemical retting (KOH or NaOH) — Unsafe (caustic_vapor)
+function PCP_BotanicalCallbacks.pcpRetHempUnsafePurity(items, result, player)
+    PCP_HazardSystem.unsafeWrapper(PCP_BotanicalCallbacks.pcpRetHempPurity, "caustic_vapor", items, result, player)
+end
+
+--- Chemical pulping (NaOH) — Safe (filter degrade)
+function PCP_BotanicalCallbacks.pcpChemicalPulpingSafePurity(items, result, player)
+    PCP_HazardSystem.safeWrapper(PCP_BotanicalCallbacks.pcpChemicalPulpingPurity, items, result, player)
+end
+
+--- Chemical pulping (NaOH) — Unsafe (caustic_vapor)
+function PCP_BotanicalCallbacks.pcpChemicalPulpingUnsafePurity(items, result, player)
+    PCP_HazardSystem.unsafeWrapper(PCP_BotanicalCallbacks.pcpChemicalPulpingPurity, "caustic_vapor", items, result, player)
+end

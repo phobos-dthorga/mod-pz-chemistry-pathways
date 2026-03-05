@@ -24,7 +24,8 @@ These are the same diagrams embedded in [`../diagrams/*.md`](../diagrams/), extr
 
 | File | Diagram |
 |------|---------|
-| `recipe-overview.mmd` | Complete recipe pathway flowchart (all 185 recipes) |
+| `recipe-overview.mmd` | Complete chemistry recipe pathway flowchart (204 recipes + botanical ref) |
+| `botanical-pathways.mmd` | Botanical & horticulture pathway flowchart (30 recipes + 31 horticulture items) |
 | `blackpowder-detail.mmd` | Blackpowder synthesis chain (Steps 1-7) |
 | `biodiesel-detail.mmd` | Biodiesel production chain (Steps 1-5) |
 | `bonechar.mmd` | Bone char pyrolysis pathway |

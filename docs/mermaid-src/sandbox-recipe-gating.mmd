@@ -3,6 +3,7 @@ graph TB
         S1["RequireHeatSources<br/>default: TRUE"]
         S2["EnableAdvancedLabRecipes<br/>default: FALSE"]
         S3["EnableHealthHazards<br/>default: FALSE"]
+        S4["EnableBotanicalPathway<br/>default: TRUE"]
     end
 
     S1 -->|"TRUE"| H_ON["Heated recipes visible<br/>Fuel inputs required"]
@@ -14,9 +15,21 @@ graph TB
     S3 -->|"TRUE"| Z_ON["11 originals HIDDEN<br/>22 Safe/Unsafe twins VISIBLE"]
     S3 -->|"FALSE"| Z_OFF["11 originals VISIBLE<br/>22 twins HIDDEN"]
 
+    S4 -->|"TRUE"| B_ON["30 botanical recipes visible<br/>Horticulture items active"]
+    S4 -->|"FALSE"| B_OFF["Botanical recipes hidden<br/>Items still usable if crafted"]
+
     Z_ON --> SAFE["SAFE variant:<br/>Mask + Goggles required<br/>Filter degrades 0.025/craft"]
     Z_ON --> UNSAFE["UNSAFE variant:<br/>No PPE required<br/>Disease or stat penalty"]
+
+    subgraph MIGRATE["Migration Options (PCP_Reset page)"]
+        M1["MigrateHorticultureItems<br/>default: FALSE"]
+    end
+
+    M1 -->|"TRUE"| M_ON["One-shot: Convert all<br/>[B42] Horticulture items<br/>to PCP equivalents"]
+    M1 -->|"FALSE"| M_AUTO["Auto-detection: Converts<br/>orphaned items when<br/>Horticulture unsubscribed"]
 
     style H_ON fill:#c84,color:#fff
     style A_ON fill:#84c,color:#fff
     style Z_ON fill:#c44,color:#fff
+    style B_ON fill:#4a8,color:#fff
+    style M_ON fill:#86c,color:#fff

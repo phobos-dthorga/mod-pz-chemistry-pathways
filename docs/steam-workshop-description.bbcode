@@ -1,15 +1,15 @@
 [h1]Phobos' Chemistry Pathways[/h1]
 
-[b]Version:[/b] 1.0.0 | [b]Requires:[/b] Project Zomboid Build 42.14.0+ | [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865]PhobosLib 1.15.0+[/url] | [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168]Zombie Virus Vaccine[/url]
+[b]Version:[/b] 1.2.0-alpha | [b]Requires:[/b] Project Zomboid Build 42.14.0+ | [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865]PhobosLib 1.16.0+[/url] | [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168]Zombie Virus Vaccine[/url]
 
-A complete chemistry suite for Project Zomboid Build 42, adding realistic crafting pathways for blackpowder, biodiesel, soap, bone char, salt extraction, agriculture, recycling, and advanced laboratory processes.
+A complete chemistry suite for Project Zomboid Build 42, adding realistic crafting pathways for blackpowder, biodiesel, soap, bone char, salt extraction, agriculture, recycling, botanical hemp processing, horticulture, and advanced laboratory processes.
 
 [hr][/hr]
 
 [h2]Features[/h2]
 
 [h3]Applied Chemistry Skill System[/h3]
-Custom Applied Chemistry perk with a steeper XP curve (75-9000). Two occupations (Chemist and Pharmacist) and two traits (Chemistry Enthusiast and Chemical Aversion) provide starting skill bonuses. Five skill book volumes cover levels 1-10. All 204 recipes award Applied Chemistry XP with 7 tiers of skill requirements.
+Custom Applied Chemistry perk with a steeper XP curve (75-9000). Two occupations (Chemist and Pharmacist) and two traits (Chemistry Enthusiast and Chemical Aversion) provide starting skill bonuses. Five skill book volumes cover levels 1-10. All 234 recipes award Applied Chemistry XP with 7 tiers of skill requirements.
 
 [h3]Blackpowder Pathway[/h3]
 Seven-step chain from raw charcoal to gunpowder: crush, purify (water or alkaline wash), prepare compost, extract battery acid, extract sulphur, synthesize potassium nitrate, and mix blackpowder.
@@ -43,6 +43,12 @@ Six pathways connecting chemistry intermediates to vanilla gameplay systems:
 [*] [b]Chemical Processing[/b] — Leather tanning, plaster powder, wood vinegar
 [/list]
 
+[h3]Botanical Pathway[/h3]
+Thirty recipes for hemp processing: chemical retting with KOH or NaOH, fiber/hurd splitting, then branching into textiles (twine, rope, tarred rope, cloth, canvas), papermaking (pulp, chemical pulping, paper sheets), medicinals (poultice, tincture), and hurd processing (charcoal, hempcrete blocks, compost, fire bundles). Cross-links to blackpowder (charcoal from hurds), biodiesel (wood tar for tarring), and construction (hempcrete via concrete mixer). Gated by EnableBotanicalPathway sandbox option.
+
+[h3]Horticulture Items[/h3]
+31 items providing full parity with the [B42] Horticulture mod: tobacco (wet leaves, chewing tobacco in 3 container types), hemp buds (fresh, cured, decarboxylated, canned variants, ground loose), papermaking tools (mould and deckle, rolling papers), smoking products (glass pipe, loaded pipes, cigars, cigarettes, packs), and cooking (sugar syrup). Dual-trigger migration system converts existing Horticulture mod items to PCP equivalents.
+
 [h3]Concrete Mixer Workstation[/h3]
 Powered CraftBench entity for industrial-scale material processing. Build from a metal drum, salvaged motor, and welding equipment. Requires electricity (grid or generator). 13 recipes including concrete, mortar, reinforced concrete, and bulk chemistry operations. Generator fuel drain during crafting.
 
@@ -66,7 +72,7 @@ Hazard system for 11 dangerous chemistry recipes. Each splits into Protected (ma
 Empty PCP FluidContainers automatically revert to their vanilla vessel equivalents (mason jar + lid, bottle, bucket, gas can) when you open a container. MP-synced.
 
 [h3]Tiered Reset/Cleanup[/h3]
-Five one-shot sandbox options for version upgrades and mod removal. Strip purity data, forget recipes, reset skill XP, remove all PCP items, or nuclear reset. Each executes once then auto-resets to OFF.
+Six one-shot sandbox options for version upgrades, mod migration, and mod removal. Strip purity data, forget recipes, reset skill XP, remove all PCP items, migrate Horticulture items, or nuclear reset. Each executes once then auto-resets to OFF.
 
 [hr][/hr]
 
@@ -82,13 +88,13 @@ Five one-shot sandbox options for version upgrades and mod removal. Strip purity
 
 [h2]Content Summary[/h2]
 [list]
-[*] [b]204 recipes[/b] across blackpowder, biodiesel, soap, bone char, salt extraction, recycling, agriculture, concrete mixer, utility, and advanced lab pathways
-[*] [b]47 items[/b] including chemical reagents, intermediates, container variants, gardening sprays, construction materials, and salt products
+[*] [b]234 recipes[/b] across blackpowder, biodiesel, soap, bone char, salt extraction, recycling, agriculture, concrete mixer, botanical, utility, and advanced lab pathways
+[*] [b]91 items[/b] including chemical reagents, intermediates, container variants, gardening sprays, construction materials, salt products, botanical textiles, horticulture products, and smoking items
 [*] [b]34 tradeable items[/b] registered with Dynamic Trading across 9 vendor archetypes
 [*] [b]5 skill books[/b] covering Applied Chemistry levels 1-10
 [*] [b]2 occupations[/b] (Chemist, Pharmacist) and [b]2 traits[/b] (Chemistry Enthusiast, Chemical Aversion)
 [*] [b]9 fluids[/b] with Build 42 FluidContainer integration and poison profiles
-[*] [b]16 sandbox options[/b] for gameplay customization, vessel replacement, concrete mixer, and maintenance
+[*] [b]19 sandbox options[/b] for gameplay customization, vessel replacement, concrete mixer, botanical pathway, and maintenance
 [*] [b]1 handbook[/b] (lootable) teaching all recipes with a coloured pathway guide
 [/list]
 
@@ -101,17 +107,20 @@ Five one-shot sandbox options for version upgrades and mod removal. Strip purity
 [*] [b]Require Heat Sources[/b] — Gate fuel requirements on heated recipes
 [*] [b]Impurity System[/b] — Enable purity tracking through recipe chains
 [*] [b]Impurity Severity[/b] (Mild/Standard/Harsh) — Control purity degradation intensity
+[*] [b]Skill Purity Influence[/b] (None/Low/Standard/High) — Control how Applied Chemistry skill affects purity
 [*] [b]Health Hazards[/b] — Enable Protected/Unprotected recipe variants
+[*] [b]Botanical Pathway[/b] — Enable/disable hemp processing recipes and horticulture items
 [*] [b]Vessel Replacement[/b] — Replace empty PCP containers with vanilla vessels on open
 [*] [b]Concrete Mixer[/b] — Enable/disable mixer, output yield multiplier, generator fuel drain rate
-[*] [b]Maintenance/Reset[/b] — Five one-shot reset options for upgrades and mod removal
+[*] [b]Maintenance/Reset[/b] — Six one-shot reset/migration options for upgrades and mod removal
+[*] [b]Migrate Horticulture[/b] — One-shot conversion of [B42] Horticulture items to PCP equivalents
 [/list]
 
 [hr][/hr]
 
 [h2]Requirements[/h2]
 [list]
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865]PhobosLib 1.15.0+[/url] — Required shared utility library
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865]PhobosLib 1.16.0+[/url] — Required shared utility library
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168][b]Zombie Virus Vaccine[/b][/url] — Required for lab equipment (chemistry set, centrifuge, chromatograph, microscope, spectrometer)
 [*] [b]EHR[/b] (optional) — Disease system for health hazard integration
 [*] [b]ZScienceSkill[/b] (optional) — Science skill XP mirroring and microscope specimens

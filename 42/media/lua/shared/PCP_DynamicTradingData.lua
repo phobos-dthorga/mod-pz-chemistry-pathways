@@ -25,7 +25,7 @@
 -- Registers:
 --   - 1 custom tag ("Chemical")
 --   - 1 trader archetype ("Chemist") with expertTags
---   - 34 tradeable items (reagents, intermediates, fuels, agriculture, books)
+--   - 54 tradeable items (reagents, intermediates, fuels, agriculture, botanical, horticulture, books)
 --   - Chemical allocations injected into 8 existing DT archetypes
 --
 -- Only runs when PhobosLib.isDynamicTradingActive() returns true.
@@ -54,11 +54,11 @@ local function injectChemicalAllocations()
         { id = "Pharmacist",  slots = 2 },  -- Medical chemicals (acids, KOH, soap)
         { id = "Doctor",      slots = 1 },  -- Medical supplies, crude soap
         { id = "Survivalist", slots = 2 },  -- Charcoal, bone char, fuel
-        { id = "Herbalist",   slots = 2 },  -- Oils, rendered fat, glycerol
+        { id = "Herbalist",   slots = 3 },  -- Oils, rendered fat, glycerol, botanical fiber/medical
         { id = "Brewer",      slots = 1 },  -- Methanol, glycerol
         { id = "Farmer",      slots = 2 },  -- Fertilizers (potash, calcite, compost)
-        { id = "Smuggler",    slots = 1 },  -- Non-illegal chemicals
-        { id = "General",     slots = 1 },  -- Small general chemical stock
+        { id = "Smuggler",    slots = 2 },  -- Non-illegal chemicals, tobacco/hemp contraband
+        { id = "General",     slots = 2 },  -- Small general chemical stock, common smoking/paper
     }
 
     local injected = 0
@@ -174,6 +174,30 @@ local function registerPCPTradeData()
         { item = "PhobosChemistryPathways.ReinforcedConcrete",  basePrice = 50,  tags = { "Chemical", "Material", "Uncommon" },                stockRange = { min = 1, max = 3 } },
         { item = "PhobosChemistryPathways.Fireclay",            basePrice = 35,  tags = { "Chemical", "Material", "Uncommon" },                stockRange = { min = 1, max = 4 } },
 
+        -- Botanical items (botanical fiber, textiles, medical, construction)
+        { item = "PhobosChemistryPathways.HempTwine",          basePrice = 8,   tags = { "Chemical", "Material", "Common" },    stockRange = { min = 3, max = 8 } },
+        { item = "PhobosChemistryPathways.HempRope",           basePrice = 15,  tags = { "Chemical", "Material", "Common" },    stockRange = { min = 2, max = 5 } },
+        { item = "PhobosChemistryPathways.TarredHempRope",     basePrice = 25,  tags = { "Chemical", "Material", "Uncommon" },  stockRange = { min = 1, max = 3 } },
+        { item = "PhobosChemistryPathways.HempCloth",          basePrice = 20,  tags = { "Chemical", "Material", "Common" },    stockRange = { min = 2, max = 5 } },
+        { item = "PhobosChemistryPathways.HempCanvas",         basePrice = 30,  tags = { "Chemical", "Material", "Uncommon" },  stockRange = { min = 1, max = 3 } },
+        { item = "PhobosChemistryPathways.HempPaper",          basePrice = 12,  tags = { "Chemical", "Literature", "Common" },  stockRange = { min = 3, max = 8 } },
+        { item = "PhobosChemistryPathways.HempPoultice",       basePrice = 25,  tags = { "Chemical", "Medical", "Common" },     stockRange = { min = 2, max = 5 } },
+        { item = "PhobosChemistryPathways.HempTincture",       basePrice = 45,  tags = { "Chemical", "Medical", "Uncommon" },   stockRange = { min = 1, max = 3 } },
+        { item = "PhobosChemistryPathways.HempcreteBlock",     basePrice = 35,  tags = { "Chemical", "Material", "Uncommon" },  stockRange = { min = 1, max = 3 } },
+
+        -- Horticulture items (tobacco, hemp buds, smoking, papermaking, cooking)
+        { item = "PhobosChemistryPathways.ChewingTobaccoTin",  basePrice = 15,  tags = { "Common" },                            stockRange = { min = 2, max = 5 } },
+        { item = "PhobosChemistryPathways.ChewingTobaccoJar",  basePrice = 18,  tags = { "Common" },                            stockRange = { min = 2, max = 5 } },
+        { item = "PhobosChemistryPathways.CigarRolled",        basePrice = 12,  tags = { "Common" },                            stockRange = { min = 2, max = 6 } },
+        { item = "PhobosChemistryPathways.CigarHemp",          basePrice = 20,  tags = { "Uncommon" },                          stockRange = { min = 1, max = 3 } },
+        { item = "PhobosChemistryPathways.CigarettePackHemp",  basePrice = 25,  tags = { "Uncommon" },                          stockRange = { min = 1, max = 3 } },
+        { item = "PhobosChemistryPathways.CigarettePackRolled", basePrice = 15, tags = { "Common" },                            stockRange = { min = 2, max = 5 } },
+        { item = "PhobosChemistryPathways.SmokingPipeGlass",   basePrice = 35,  tags = { "Uncommon" },                          stockRange = { min = 1, max = 2 } },
+        { item = "PhobosChemistryPathways.RollingPapers",      basePrice = 8,   tags = { "Common" },                            stockRange = { min = 3, max = 8 } },
+        { item = "PhobosChemistryPathways.MouldAndDeckle",     basePrice = 20,  tags = { "Material", "Uncommon" },              stockRange = { min = 1, max = 2 } },
+        { item = "PhobosChemistryPathways.SimpleSugarSyrup",   basePrice = 10,  tags = { "Common" },                            stockRange = { min = 2, max = 5 } },
+        { item = "PhobosChemistryPathways.HempBudsCured",      basePrice = 15,  tags = { "Uncommon" },                          stockRange = { min = 1, max = 3 } },
+
         -- Skill books (calibrated to DT tier scale — unchanged)
         { item = "PhobosChemistryPathways.BkChemistryPathways",   basePrice = 300, tags = { "Literature", "Rare" },                         stockRange = { min = 0, max = 1 } },
         { item = "PhobosChemistryPathways.BookAppliedChemistry1", basePrice = 50,  tags = { "Literature", "Common" },                       stockRange = { min = 1, max = 3 } },
@@ -192,7 +216,7 @@ local function registerPCPTradeData()
 
     if ok then
         print(_prefix .. " Registration complete: 1 tag, 1 archetype, "
-            .. tostring(count) .. " items, "
+            .. tostring(count) .. "/54 items, "
             .. tostring(injected) .. " archetype injections"
             .. " [" .. (isServer() and "server" or "local") .. "]")
     else

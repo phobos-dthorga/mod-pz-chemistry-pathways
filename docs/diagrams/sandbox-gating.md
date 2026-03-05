@@ -17,15 +17,16 @@
 
 # Sandbox Settings Guide
 
-PhobosChemistryPathways provides 16 sandbox options split across three settings pages: gameplay options (recipe gating, purity, yield), concrete mixer options, and maintenance/reset options. These settings allow server admins and solo players to tune recipe complexity, difficulty, and perform version-upgrade housekeeping.
+PhobosChemistryPathways provides 19 sandbox options split across four settings pages: gameplay options (recipe gating, purity, yield), concrete mixer options, botanical pathway options, and maintenance/reset options. These settings allow server admins and solo players to tune recipe complexity, difficulty, and perform version-upgrade housekeeping.
 
 ## Recipe Gating Options
 
-Three boolean options control which recipe variants are visible in the crafting menu:
+Four boolean options control which recipe variants are visible in the crafting menu:
 
 - **RequireHeatSources** (default: TRUE) -- When enabled, heated recipes require fuel inputs (propane, charcoal, coke). When disabled, simplified no-fuel versions appear instead.
 - **EnableAdvancedLabRecipes** (default: FALSE) -- Unlocks microscope and spectrometer recipes requiring Applied Chemistry level 7. Intended for late-game laboratory gameplay.
 - **EnableHealthHazards** (default: FALSE) -- Replaces 11 base hazardous recipes with 22 Protected/Unprotected variant pairs. Protected variants require PPE (gas mask + safety goggles) with filter degradation; Unprotected variants risk disease or stat penalties.
+- **EnableBotanicalPathway** (default: TRUE) -- Enables all 30 botanical hemp processing recipes and horticulture items. When disabled, botanical recipes are hidden but already-crafted items remain usable. Requires game restart.
 
 ```mermaid
 graph TB
@@ -33,6 +34,7 @@ graph TB
         S1["RequireHeatSources<br/>default: TRUE"]
         S2["EnableAdvancedLabRecipes<br/>default: FALSE"]
         S3["EnableHealthHazards<br/>default: FALSE"]
+        S4["EnableBotanicalPathway<br/>default: TRUE"]
     end
 
     S1 -->|"TRUE"| H_ON["Heated recipes visible<br/>Fuel inputs required"]
@@ -44,27 +46,40 @@ graph TB
     S3 -->|"TRUE"| Z_ON["11 originals HIDDEN<br/>22 Safe/Unsafe twins VISIBLE"]
     S3 -->|"FALSE"| Z_OFF["11 originals VISIBLE<br/>22 twins HIDDEN"]
 
+    S4 -->|"TRUE"| B_ON["30 botanical recipes visible<br/>Horticulture items active"]
+    S4 -->|"FALSE"| B_OFF["Botanical recipes hidden<br/>Items still usable if crafted"]
+
     Z_ON --> SAFE["SAFE variant:<br/>Mask + Goggles required<br/>Filter degrades 0.025/craft"]
     Z_ON --> UNSAFE["UNSAFE variant:<br/>No PPE required<br/>Disease or stat penalty"]
+
+    subgraph MIGRATE["Migration Options (PCP_Reset page)"]
+        M1["MigrateHorticultureItems<br/>default: FALSE"]
+    end
+
+    M1 -->|"TRUE"| M_ON["One-shot: Convert all<br/>[B42] Horticulture items<br/>to PCP equivalents"]
+    M1 -->|"FALSE"| M_AUTO["Auto-detection: Converts<br/>orphaned items when<br/>Horticulture unsubscribed"]
 
     style H_ON fill:#c84,color:#fff
     style A_ON fill:#84c,color:#fff
     style Z_ON fill:#c44,color:#fff
+    style B_ON fill:#4a8,color:#fff
+    style M_ON fill:#86c,color:#fff
 ```
 
 ## Purity & Yield Options
 
-Four options control the optional purity tracking system and recipe output scaling:
+Five options control the optional purity tracking system and recipe output scaling:
 
-- **EnableImpuritySystem** (default: FALSE) -- Master switch for condition-based purity tracking. When disabled, all purity logic is bypassed with zero performance impact.
+- **EnableImpuritySystem** (default: TRUE) -- Master switch for condition-based purity tracking. When disabled, all purity logic is bypassed with zero performance impact.
 - **ImpuritySeverity** (default: 2 / Standard) -- Controls how aggressively purity degrades through recipe chains. Mild (1) amplifies improvements and halves degradation; Standard (2) is neutral; Harsh (3) halves improvements and amplifies degradation.
+- **SkillPurityInfluence** (default: 3 / Standard) -- Controls how much the Applied Chemistry skill affects output purity. None (1): no effect; Low (2): max +2 at level 10; Standard (3): max +5 at level 10; High (4): max +10 at level 10.
 - **ShowPurityOnCraft** (default: TRUE) -- When enabled, displays the purity tier as a speech bubble after each craft. When disabled, purity is tracked silently and only visible in item tooltips.
 - **YieldMultiplier** (default: 1.0) -- Scales all recipe output quantities from 0.25x to 4.0x. Applies to every PCP recipe via PhobosLib's `applyYieldMultiplier`.
 
 ```mermaid
 graph TB
     subgraph OPTIONS["Purity & Yield Options"]
-        S4["EnableImpuritySystem<br/>default: FALSE"]
+        S4["EnableImpuritySystem<br/>default: TRUE"]
         S7["YieldMultiplier<br/>default: 1.00"]
     end
 
@@ -87,7 +102,7 @@ graph TB
 
 ## Maintenance / Reset Options
 
-Six options on the dedicated "PCP - Maintenance / Reset" sandbox settings page. The five reset options are one-shot flags: they execute once on game load, then automatically reset to OFF. Reset flags persist across game restarts via world modData to prevent re-execution.
+Seven options on the dedicated "PCP - Maintenance / Reset" sandbox settings page. The six reset/migration options are one-shot flags: they execute once on game load, then automatically reset to OFF. Reset flags persist across game restarts via world modData to prevent re-execution.
 
 | Option | Default | Description |
 |--------|---------|-------------|
@@ -97,6 +112,7 @@ Six options on the dedicated "PCP - Maintenance / Reset" sandbox settings page. 
 | **ResetSkillXP** | false | One-shot: resets Applied Chemistry skill to level 0. |
 | **ResetNuclearRemove** | false | One-shot: removes all PCP items from the player's inventory and sub-containers. |
 | **ResetNuclearAll** | false | One-shot: executes all four reset operations above in sequence. |
+| **MigrateHorticultureItems** | false | One-shot: converts all [B42] Horticulture mod items to PCP equivalents. Preserves fill level, condition, and wet state. Safe to run while Horticulture is still subscribed. Auto-detection also runs as a safety net when Horticulture is unsubscribed and orphaned items are found. |
 
 ## Concrete Mixer Options
 

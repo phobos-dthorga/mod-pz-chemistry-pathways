@@ -136,6 +136,21 @@ local function registerPCPSpecimens()
                 ["PhobosChemistryPathways.StuccoMix"]              = xp(15, 12),
                 ["PhobosChemistryPathways.ReinforcedConcrete"]     = xp(20, 15),
                 ["PhobosChemistryPathways.Fireclay"]               = xp(20, 15),
+
+                -- Botanical pathway — hemp processing specimens
+                ["PhobosChemistryPathways.RettedHempStalk"]        = xp(10, 8),
+                ["PhobosChemistryPathways.HempBastFiber"]          = xp(10, 8),
+                ["PhobosChemistryPathways.HempHurd"]               = xp(8, 6),
+                ["PhobosChemistryPathways.HempTwine"]              = xp(10, 8),
+                ["PhobosChemistryPathways.HempRope"]               = xp(12, 10),
+                ["PhobosChemistryPathways.TarredHempRope"]         = xp(15, 12),
+                ["PhobosChemistryPathways.HempCloth"]              = xp(15, 12),
+                ["PhobosChemistryPathways.HempCanvas"]             = xp(18, 15),
+                ["PhobosChemistryPathways.HempPulp"]               = xp(12, 10),
+                ["PhobosChemistryPathways.HempPaper"]              = xp(15, 12),
+                ["PhobosChemistryPathways.HempPoultice"]           = xp(18, 15),
+                ["PhobosChemistryPathways.HempTincture"]           = xp(25, 20),
+                ["PhobosChemistryPathways.HempcreteBlock"]         = xp(20, 15),
             },
 
             -------------------------------------------------------
@@ -158,7 +173,7 @@ local function registerPCPSpecimens()
     end)
 
     if success then
-        print("[PCP] ZScienceSkill: 33 items + 8 fluids registered [" .. (isServer() and "server" or "local") .. "]")
+        print("[PCP] ZScienceSkill: 46 items + 8 fluids registered [" .. (isServer() and "server" or "local") .. "]")
     else
         print("[PCP] ZScienceSkill: registration failed — " .. tostring(err))
     end

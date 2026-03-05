@@ -1,5 +1,57 @@
 [h1]Phobos' Chemistry Pathways — Changelog[/h1]
 
+[h2]v1.2.0-alpha — Botanical & Horticulture Pathway (Unreleased)[/h2]
+
+[h3]New Features[/h3]
+[list]
+[*] [b]Botanical Pathway[/b] — 30 new recipes for hemp processing across 4 crafting tiers:
+  — [b]Retting & Extraction[/b] (7): Chemical retting with KOH/NaOH, fiber/hurd splitting, seed threshing
+  — [b]Textiles[/b] (5): Spin twine, braid rope, weave cloth, layer canvas, tar rope
+  — [b]Papermaking[/b] (5): Boil pulp, NaOH chemical pulping, press paper sheets
+  — [b]Medicinal[/b] (4): Herb poultice, alcohol tincture
+  — [b]Hurd Processing[/b] (5): Char to charcoal, compost, fire bundles
+  — [b]Cross-Pathway[/b] (3+1): Hemp bandages, hempcrete (mixer), tarred rope
+[*] [b]13 botanical items[/b] — RettedHempStalk, HempBastFiber, HempHurd, HempTwine, HempRope, TarredHempRope, HempCloth, HempCanvas, HempPulp, HempPaper, HempPoultice, HempTincture, HempcreteBlock
+[*] [b]31 horticulture items[/b] — Full parity with [B42] Horticulture mod: tobacco (4), hemp buds (9), papermaking (5), smoking (10), cooking (3)
+[*] [b]Horticulture migration system[/b] — Dual-trigger: manual sandbox button (works while Horticulture still subscribed) + automatic orphan detection after unsubscription. Preserves fill level, condition, and wet state.
+[*] [b]MigrateHorticultureItems sandbox option[/b] — One-shot migration on PCP_Reset page
+[*] [b]EnableBotanicalPathway sandbox option[/b] — Master switch for botanical recipes (default: ON)
+[*] [b]SkillPurityInfluence sandbox option[/b] — Applied Chemistry skill effect on purity (None/Low/Standard/High)
+[*] [b]19 OpenAI-generated icons[/b] — 6 regenerated chemistry icons + 13 new botanical pathway icons
+[/list]
+
+[h3]Bug Fixes[/h3]
+[list]
+[*] [b]CTD: Invalid item references in botanical recipes[/b] — Fixed Base.SodiumHydroxide, Base.AlcoholBandages, Base.WhiskeyFull/Half references
+[/list]
+
+[h3]Changed[/h3]
+[list]
+[*] [b]EnableImpuritySystem default = TRUE[/b] (was false); one-time migration popup for existing worlds
+[*] Recipe count: 204 to [b]234[/b] (30 botanical recipes)
+[*] Item count: 47 to [b]91[/b] (13 botanical + 31 horticulture)
+[*] Sandbox options: 17 to [b]19[/b]
+[*] Requires [b]PhobosLib 1.16.0+[/b]
+[/list]
+
+[hr][/hr]
+
+[h2]v1.1.0 — Skill Purity Influence (2026-03-06)[/h2]
+
+[h3]New Features[/h3]
+[list]
+[*] [b]SkillPurityInfluence sandbox option[/b] — Controls Applied Chemistry skill effect on output purity (None/Low/Standard/High, default: Standard)
+[*] [b]Impurity default migration[/b] — One-time notice popup auto-enables impurity system for existing worlds
+[/list]
+
+[h3]Changed[/h3]
+[list]
+[*] EnableImpuritySystem default changed to TRUE
+[*] Requires [b]PhobosLib 1.16.0+[/b]
+[/list]
+
+[hr][/hr]
+
 [h2]v1.0.0 — Zombie Virus Vaccine Migration (2026-03-05)[/h2]
 
 [h3]BREAKING CHANGE[/h3]
@@ -164,9 +216,10 @@
 
 [h2]Summary[/h2]
 [list]
-[*] [b]204 recipes[/b] across 9 pathways — Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture, Concrete Mixer
-[*] [b]47 items[/b], [b]34 tradeable items[/b], [b]5 skill books[/b], [b]9 fluids[/b]
-[*] [b]16 sandbox options[/b], [b]168 OnCreate callbacks[/b]
-[*] [b]v1.0.0[/b]: Hard dependency migrated from zReVaccin 3 to Zombie Virus Vaccine. Automatic save migration for orphaned lab items.
-[*] Requires PhobosLib 1.15.0+ and Zombie Virus Vaccine
+[*] [b]234 recipes[/b] across 10 pathways — Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture, Concrete Mixer, Botanical
+[*] [b]91 items[/b], [b]34 tradeable items[/b], [b]5 skill books[/b], [b]9 fluids[/b]
+[*] [b]19 sandbox options[/b], [b]168+ OnCreate callbacks[/b]
+[*] [b]v1.2.0-alpha[/b]: Botanical pathway (30 recipes), 31 horticulture items, [B42] Horticulture migration system
+[*] [b]v1.0.0[/b]: Hard dependency migrated from zReVaccin 3 to Zombie Virus Vaccine
+[*] Requires PhobosLib 1.16.0+ and Zombie Virus Vaccine
 [/list]

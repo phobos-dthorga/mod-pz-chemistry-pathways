@@ -1,0 +1,78 @@
+graph TB
+    %% ═══ RAW INPUTS ═══
+    subgraph IN["Raw Inputs"]
+        HEMP["Hemp Stalks<br/>(HempBroken)<br/>farming / foraging"]
+        HERBS["Herbs / Plantain<br/>(vanilla)"]
+        ALCOHOL["AlcoholBandage<br/>Disinfectant / Whiskey"]
+    end
+
+    subgraph XREF["Cross-Pathway Inputs (from main chart)"]
+        KOH["KOH<br/>PotassiumHydroxide"]
+        NAOH["NaOH<br/>(LabItems)"]
+        WOODTAR["WoodTar"]
+        CALCITE["Calcite"]
+        CHARCOAL["Charcoal / Coke"]
+    end
+
+    %% ═══ STAGE 1: RETTING & SPLITTING ═══
+    HEMP -->|"thresh"| SEEDS["HempSeed ×5"]
+    HEMP -->|"ret + alkali + water<br/>(4 variants: KOH/NaOH × heat)"| RETTED["RettedHempStalk"]
+    KOH -.-> RETTED
+    NAOH -.-> RETTED
+    RETTED -->|"extract + water<br/>(2 heat variants)"| BAST["HempBastFiber ×3"]
+    RETTED --> HURD["HempHurd ×2"]
+
+    %% ═══ BAST FIBER CHAINS ═══
+    %% Textile chain
+    BAST -->|"spin"| TWINE["HempTwine"]
+    TWINE -->|"braid ×3"| ROPE["HempRope"]
+    ROPE -->|"+ WoodTar<br/>(2 variants)"| TARRED["TarredHempRope"]
+    WOODTAR -.-> TARRED
+
+    BAST -->|"weave ×4"| CLOTH["HempCloth"]
+    CLOTH -->|"layer ×2"| CANVAS["HempCanvas"]
+    CLOTH -->|"+ disinfectant<br/>(2 variants)"| BANDAGE["Bandage ×2<br/>(sterilised)"]
+
+    %% Paper chain
+    BAST -->|"boil + water<br/>(2 variants)"| PULP["HempPulp"]
+    BAST -->|"NaOH chemical pulp<br/>(2 variants, +50%)"| PULP
+    NAOH -.-> PULP
+    PULP -->|"press"| PAPER["HempPaper ×3"]
+
+    %% Medicinal chain
+    BAST -->|"+ herbs + water<br/>(2 variants)"| POULTICE["HempPoultice"]
+    HERBS -.-> POULTICE
+    BAST -->|"+ alcohol + water<br/>(2 variants)"| TINCTURE["HempTincture"]
+    ALCOHOL -.-> TINCTURE
+
+    %% ═══ HURD CHAINS ═══
+    HURD -->|"char<br/>(3 fuel variants)"| CHARCOAL_OUT["CrushedCharcoal ×2<br/>(→ Blackpowder)"]
+    CHARCOAL -.-> CHARCOAL_OUT
+    HURD -->|"+ Calcite + water<br/>(mixer)"| HEMPCRETE["HempcreteBlock ×2"]
+    CALCITE -.-> HEMPCRETE
+    HURD -->|"+ water"| COMPOST["DilutedCompost<br/>(→ KNO3)"]
+    HURD -->|"+ twine"| FIRE["DryFirestarterBlock ×2"]
+    TWINE --> FIRE
+
+    %% ═══ HORTICULTURE (Phase 2 — Items Defined, Recipes Planned) ═══
+    subgraph HORT["Horticulture (Phase 2 — Recipes Planned)"]
+        TOB_WET["TobaccoWet"] -.->|"air dry"| TOB_DRY["Tobacco"]
+        TOB_DRY -.->|"pack"| CHEW["ChewingTobacco<br/>(Tin / WaterTin / Jar)"]
+        BUDS["HempBuds"] -.->|"cure / decarb"| BUDS_PROC["Cured / Decarbed"]
+        BUDS_PROC -.->|"can / grind"| LOOSE["HempLoose"]
+        PAPER -.->|"cut"| ROLLING["RollingPapers"]
+        LOOSE -.->|"+ pipe / paper"| SMOKE["Cigarette / Cigar / Pipe"]
+        SYRUP_IN["Sugar + Water"] -.->|"cook"| SYRUP["SimpleSugarSyrup"]
+    end
+
+    %% ═══ STYLES ═══
+    style CHARCOAL_OUT fill:#c44,color:#fff
+    style COMPOST fill:#c84,color:#fff
+    style HEMPCRETE fill:#668,color:#fff
+    style BANDAGE fill:#4a4,color:#fff
+    style TARRED fill:#48c,color:#fff
+    style PAPER fill:#84c,color:#fff
+    style POULTICE fill:#684,color:#fff
+    style TINCTURE fill:#684,color:#fff
+    style XREF fill:#446,color:#fff
+    style HORT fill:#555,color:#fff,stroke-dasharray: 5 5

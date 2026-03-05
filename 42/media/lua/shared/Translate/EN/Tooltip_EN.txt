@@ -77,4 +77,45 @@ Tooltip_EN = {
     Tooltip_PCP_HempTincture = "Concentrated herbal extract produced by alcohol extraction<br>of bioactive compounds from hemp fiber.<br>A potent botanical medicine.",
     Tooltip_PCP_HempcreteBlock = "Lightweight building block made from hemp hurds and lime.<br>Excellent thermal insulation and moisture regulation.<br>Carbon-negative construction material.",
     Tooltip_PCP_TarredHempRope = "Hemp rope coated in hot wood tar for waterproofing.<br>Resists rot, mildew, and abrasion in wet conditions.<br>Traditionally used for rigging, well buckets, and outdoor lashing.",
+
+    /* ===== Horticulture — Tobacco ===== */
+    Tooltip_PCP_TobaccoWet = "Freshly harvested tobacco leaves, still damp.<br>Needs to air-dry before use. Leave in inventory or<br>hang to dry naturally.",
+    Tooltip_PCP_ChewingTobaccoTin = "Chewing tobacco packed in a tin can.<br>Relieves stress but causes nausea. Use sparingly.",
+    Tooltip_PCP_ChewingTobaccoWaterTin = "Chewing tobacco packed in a water ration tin.<br>Relieves stress but causes nausea. Use sparingly.",
+    Tooltip_PCP_ChewingTobaccoJar = "Chewing tobacco packed in a glass jar.<br>Relieves stress but causes nausea. Use sparingly.",
+
+    /* ===== Horticulture — Hemp Buds ===== */
+    Tooltip_PCP_HempBuds = "Fresh hemp flower buds harvested from the plant.<br>Can be cured by slow drying or decarboxylated by<br>heating to activate medicinal compounds.",
+    Tooltip_PCP_HempBudsCured = "Slowly dried and cured hemp buds.<br>More potent than fresh buds. Can be further<br>decarboxylated by cooking.",
+    Tooltip_PCP_HempBudsDecarbed = "Hemp buds heated to activate cannabinoid compounds.<br>Ready for extraction, smoking, or infusion into oils.",
+    Tooltip_PCP_CannedHempBuds = "Fresh hemp buds preserved in a sealed can.<br>Slowly cures over time. Can be cooked to decarboxylate.",
+    Tooltip_PCP_CannedHempBudsCured = "Cured hemp buds in a sealed can.<br>Can be cooked to decarboxylate the contents.",
+    Tooltip_PCP_CannedHempBudsDecarbed = "Decarboxylated hemp buds in a sealed can.<br>Ready to be opened and used.",
+    Tooltip_PCP_CannedHempBudsOpen = "Opened can of cured hemp buds.<br>Use portions for smoking, cooking, or extraction.",
+    Tooltip_PCP_CannedHempBudsDecarbedOpen = "Opened can of decarboxylated hemp buds.<br>Ready to use in recipes or for smoking.",
+    Tooltip_PCP_HempLoose = "Loosely ground hemp material.<br>Ready for rolling into cigarettes or cigars,<br>or loading into a smoking pipe.",
+
+    /* ===== Horticulture — Papermaking ===== */
+    Tooltip_PCP_PaperPulpPot = "A pot of hemp fiber simmering in water to break down<br>into paper pulp. Needs to finish cooking on a heat source.",
+    Tooltip_PCP_PaperPulpPotForged = "A forged pot of hemp fiber simmering in water to break<br>down into paper pulp. Needs to finish cooking on a heat source.",
+    Tooltip_PCP_MouldAndDeckle = "A wooden frame with fine mesh screen used for forming<br>paper sheets from wet pulp. Reusable papermaking tool.",
+    Tooltip_PCP_MouldAndDecklePaperSheet = "A mould and deckle with a freshly formed wet paper sheet.<br>The sheet needs to be removed and pressed to dry.",
+    Tooltip_PCP_RollingPapers = "Thin sheets of paper cut to size for rolling cigarettes<br>or cigars. Made from hemp paper.",
+
+    /* ===== Horticulture — Smoking ===== */
+    Tooltip_PCP_SmokingPipeGlass = "A hand-blown glass smoking pipe.<br>Reusable. Load with loose hemp or tobacco to smoke.",
+    Tooltip_PCP_SmokingPipeHemp = "A wooden pipe loaded with loose hemp.<br>Requires a lighter or matches to use.<br>Relieves stress and reduces pain.",
+    Tooltip_PCP_SmokingPipeGlassHemp = "A glass pipe loaded with loose hemp.<br>Requires a lighter or matches to use.<br>Relieves stress and reduces pain.",
+    Tooltip_PCP_SmokingPipeGlassTobacco = "A glass pipe loaded with tobacco.<br>Requires a lighter or matches to use.<br>Relieves stress but causes nausea.",
+    Tooltip_PCP_CanPipeHemp = "An improvised pipe made from a tin can, loaded with hemp.<br>Requires a lighter or matches to use.<br>Relieves stress and reduces pain.",
+    Tooltip_PCP_CigarHemp = "A thick hand-rolled hemp cigar wrapped in hemp paper.<br>Strong effects. Relieves significant stress and pain<br>but causes drowsiness.",
+    Tooltip_PCP_CigarRolled = "A hand-rolled tobacco cigar.<br>Relieves stress and boredom but causes nausea.",
+    Tooltip_PCP_CigaretteHemp = "A single hemp cigarette rolled in hemp paper.<br>Mild stress and pain relief. Lighter effects than a cigar.",
+    Tooltip_PCP_CigarettePackHemp = "A pack of hemp cigarettes.<br>Each use smokes one cigarette for mild stress<br>and pain relief.",
+    Tooltip_PCP_CigarettePackRolled = "A pack of rolled tobacco cigarettes.<br>Each use smokes one cigarette for stress relief<br>but causes nausea.",
+
+    /* ===== Horticulture — Cooking ===== */
+    Tooltip_PCP_SaucepanSyrup = "A saucepan of sugar water being cooked into syrup.<br>Leave on a heat source until done.",
+    Tooltip_PCP_SaucepanCopperSyrup = "A copper saucepan of sugar water being cooked into syrup.<br>Leave on a heat source until done.",
+    Tooltip_PCP_SimpleSugarSyrup = "Simple sugar syrup made by dissolving sugar in hot water.<br>Use as a sweetener in cooking and beverages.",
 }

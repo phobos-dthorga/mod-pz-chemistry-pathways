@@ -123,3 +123,9 @@ option PCP.ResetNuclearAll
 	type = boolean, default = false,
 	page = PCP_Reset, translation = PCP_ResetNuclearAll,
 }
+
+option PCP.MigrateHorticultureItems
+{
+	type = boolean, default = false,
+	page = PCP_Reset, translation = PCP_MigrateHorticultureItems,
+}

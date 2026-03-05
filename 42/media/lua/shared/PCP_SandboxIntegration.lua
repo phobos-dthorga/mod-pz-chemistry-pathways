@@ -78,6 +78,12 @@ function PCP_Sandbox.isConcreteMixerEnabled()
     return PhobosLib.getSandboxVar("PCP", "EnableConcreteMixer", true) == true
 end
 
+--- Check if the Horticulture item migration flag is set.
+-- @return boolean  true if migration requested (default false)
+function PCP_Sandbox.isHorticultureMigrationRequested()
+    return PhobosLib.getSandboxVar("PCP", "MigrateHorticultureItems", false) == true
+end
+
 --- Get the concrete mixer yield bonus multiplier.
 -- @return number  The multiplier (default 1.25)
 function PCP_Sandbox.getConcreteMixerYieldBonus()

@@ -40,6 +40,9 @@ local function buildGuideContent()
     t = t .. "<RGB:0.9,0.9,0.9> "
     t = t .. getText("IGUI_PCP_Guide_WhatAddsBody2") .. " <LINE> "
     t = t .. "<LINE> "
+    t = t .. "<RGB:0.9,0.9,0.9> "
+    t = t .. getText("IGUI_PCP_Guide_WhatAddsBody3") .. " <LINE> "
+    t = t .. "<LINE> "
 
     -- ── Crafting categories ──
     t = t .. "<SIZE:medium> <RGB:0.5,0.85,1.0> " .. getText("IGUI_PCP_Guide_WorkstationsTitle") .. " <LINE> "

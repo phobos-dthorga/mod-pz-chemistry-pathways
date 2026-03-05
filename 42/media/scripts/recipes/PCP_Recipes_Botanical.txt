@@ -277,7 +277,7 @@ module Base
         inputs
         {
             item 2 [Base.HempBroken],
-            item 1 [Base.SodiumHydroxide],
+            item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [*] mode:keep,
             -fluid 1.0 [Water],
         }
@@ -303,7 +303,7 @@ module Base
         inputs
         {
             item 2 [Base.HempBroken],
-            item 1 [Base.SodiumHydroxide],
+            item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [*],
             -fluid 1.0 [Water],
             item 1 tags[base:cookable] mode:keep,
@@ -571,7 +571,7 @@ module Base
         inputs
         {
             item 2 [PhobosChemistryPathways.HempBastFiber],
-            item 1 [Base.SodiumHydroxide],
+            item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [*] mode:keep,
             -fluid 1.0 [Water],
         }
@@ -597,7 +597,7 @@ module Base
         inputs
         {
             item 2 [PhobosChemistryPathways.HempBastFiber],
-            item 1 [Base.SodiumHydroxide],
+            item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [*],
             -fluid 1.0 [Water],
             item 1 tags[base:cookable] mode:keep,
@@ -657,7 +657,7 @@ module Base
         inputs
         {
             item 2 [PhobosChemistryPathways.HempBastFiber],
-            item 1 [Base.AlcoholBandages;Base.Disinfectant;Base.WhiskeyFull;Base.WhiskeyHalf],
+            item 1 [Base.AlcoholBandage;Base.Disinfectant;Base.Whiskey],
             item 1 [*] mode:keep,
             -fluid 0.5 [Water],
         }
@@ -683,7 +683,7 @@ module Base
         inputs
         {
             item 2 [PhobosChemistryPathways.HempBastFiber],
-            item 1 [Base.AlcoholBandages;Base.Disinfectant;Base.WhiskeyFull;Base.WhiskeyHalf],
+            item 1 [Base.AlcoholBandage;Base.Disinfectant;Base.Whiskey],
             item 1 [*],
             -fluid 0.5 [Water],
             item 1 tags[base:cookable] mode:keep,
@@ -816,7 +816,7 @@ module Base
         inputs
         {
             item 1 [PhobosChemistryPathways.HempCloth],
-            item 1 [Base.AlcoholBandages;Base.Disinfectant] mode:destroy,
+            item 1 [Base.AlcoholBandage;Base.Disinfectant] mode:destroy,
             item 1 [*] mode:keep,
             -fluid 0.5 [Water],
         }
@@ -841,7 +841,7 @@ module Base
         inputs
         {
             item 1 [PhobosChemistryPathways.HempCloth],
-            item 1 [Base.AlcoholBandages;Base.Disinfectant] mode:destroy,
+            item 1 [Base.AlcoholBandage;Base.Disinfectant] mode:destroy,
             item 1 [*],
             -fluid 0.5 [Water],
             item 1 tags[base:cookable] mode:keep,

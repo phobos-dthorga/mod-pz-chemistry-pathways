@@ -17,13 +17,13 @@
 
 # PhobosChemistryPathways
 
-**Version:** 1.0.0 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.15.0+ | [Zombie Virus Vaccine](https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168)
+**Version:** 1.2.0-alpha | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.16.0+ | [Zombie Virus Vaccine](https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168)
 
 > **Players:** Subscribe on [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3668197831) for easy installation. This GitHub repo is for source code, documentation, and development.
 >
 > **Modders & Developers:** Bug reports, feature requests, and contributions are welcome via [GitHub Issues](https://github.com/phobos-dthorga/mod-pz-chemistry-pathways/issues).
 
-A complete chemistry suite for Project Zomboid Build 42, adding realistic crafting pathways for blackpowder, biodiesel, soap, bone char, salt extraction, agriculture, recycling, and advanced laboratory processes.
+A complete chemistry suite for Project Zomboid Build 42, adding realistic crafting pathways for blackpowder, biodiesel, soap, bone char, salt extraction, agriculture, recycling, botanical hemp processing, horticulture, and advanced laboratory processes.
 
 **Dependencies:** [PhobosLib](https://github.com/phobos-dthorga/mod-pz-phobos-lib) ([Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865)) | [Zombie Virus Vaccine](https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168)
 
@@ -32,7 +32,7 @@ This project is open-source, but the Steam Workshop upload is the official distr
 ## Features
 
 ### Applied Chemistry Skill System
-Custom `AppliedChemistry` perk under the Crafting parent with a steeper XP curve (75-9000). Two occupations (Chemist and Pharmacist) and two traits (Chemistry Enthusiast and Chemical Aversion) provide starting skill bonuses. Five skill book volumes cover levels 1-10, distributed in loot from common (Vol 1-2) to very rare (Vol 5). All 204 recipes award Applied Chemistry XP with 7 tiers of skill requirements.
+Custom `AppliedChemistry` perk under the Crafting parent with a steeper XP curve (75-9000). Two occupations (Chemist and Pharmacist) and two traits (Chemistry Enthusiast and Chemical Aversion) provide starting skill bonuses. Five skill book volumes cover levels 1-10, distributed in loot from common (Vol 1-2) to very rare (Vol 5). All 234 recipes award Applied Chemistry XP with 7 tiers of skill requirements.
 
 ### Blackpowder Pathway
 Seven-step chain from raw charcoal to gunpowder: crush, purify (water or alkaline wash), prepare compost, extract battery acid, extract sulphur, synthesize potassium nitrate, and mix blackpowder.
@@ -51,6 +51,12 @@ Pyrolyse animal bones and skulls in metal drums to produce bone char, an alterna
 
 ### Salt Extraction Pathway
 Collect brine from water wells via right-click context menu, concentrate through evaporation, crystallize into rock salt, and purify into table salt. Six-recipe chain using condition-based purity tracking. Uses PhobosLib_WorldAction for well interaction.
+
+### Botanical Pathway
+Thirty recipes for hemp processing: chemical retting with KOH or NaOH, fiber/hurd splitting, then branching into textiles (twine, rope, tarred rope, cloth, canvas), papermaking (pulp, chemical pulping, paper sheets), medicinals (poultice, tincture), and hurd processing (charcoal, hempcrete blocks, compost, fire bundles). Cross-links to blackpowder (charcoal from hurds), biodiesel (wood tar for tarring), and construction (hempcrete via concrete mixer). Gated by `EnableBotanicalPathway` sandbox option.
+
+### Horticulture Items
+Thirty-one items providing full parity with the [B42] Horticulture mod: tobacco (wet leaves with air-dry mechanic, chewing tobacco in 3 container types), hemp buds (fresh, cured, decarboxylated, canned variants, ground loose), papermaking tools (mould and deckle, rolling papers), smoking products (glass pipe, loaded pipes, cigars, cigarettes, packs), and cooking (sugar syrup). Dual-trigger migration system converts existing Horticulture mod items to PCP equivalents.
 
 ### Advanced Lab Equipment
 Centrifuge, chromatograph, microscope, and spectrometer recipes for enhanced processing. Microscope and spectrometer are gated by the EnableAdvancedLabRecipes sandbox option.
@@ -89,7 +95,7 @@ Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" setting
 
 | Dependency | Purpose |
 |------------|---------|
-| **PhobosLib 1.15.0+** | Shared utility library (sandbox access, fluid helpers, quality tracking, hazard dispatch, skill XP mirroring, reset utilities, startup validation, recipe visibility filters, item tooltip customisation, lazy container stamping, empty vessel replacement, farming spray registration, versioned migration framework, Dynamic Trading wrapper, powered workstation support, in-game popup system, world object context menus, entity rebinding) |
+| **PhobosLib 1.16.0+** | Shared utility library (sandbox access, fluid helpers, quality tracking, hazard dispatch, skill XP mirroring, reset utilities, startup validation, recipe visibility filters, item tooltip customisation, lazy container stamping, empty vessel replacement, farming spray registration, versioned migration framework, Dynamic Trading wrapper, powered workstation support, in-game popup system, world object context menus, entity rebinding, skill bonus helpers, notice popups) |
 | **Zombie Virus Vaccine** (ZVirusVaccine42BETA) | Lab equipment entities (chemistry set, centrifuge, chromatograph, microscope, spectrometer) |
 | **EHR** (optional) | Disease system for health hazard integration; vanilla stat penalties used as fallback |
 | **ZScienceSkill** (optional) | Science skill XP mirroring and microscope specimen registration |
@@ -103,10 +109,12 @@ Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" setting
 | YieldMultiplier | 0.25 - 4.0 | 1.0 | Scales recipe output quantities |
 | EnableAdvancedLabRecipes | boolean | false | Gates microscope and spectrometer recipes |
 | RequireHeatSources | boolean | true | Gates fuel requirements on heated recipes |
-| EnableImpuritySystem | boolean | false | Enables purity tracking through recipe chains |
+| EnableImpuritySystem | boolean | true | Enables purity tracking through recipe chains |
 | ImpuritySeverity | 1-3 | 2 | Controls purity degradation intensity (Mild/Standard/Harsh) |
+| SkillPurityInfluence | 1-4 | 3 | Skill effect on purity (None/Low/Standard/High) |
 | ShowPurityOnCraft | boolean | true | Shows purity speech bubble after crafting |
 | EnableHealthHazards | boolean | false | Enables Protected/Unprotected recipe variants for hazardous chemistry |
+| EnableBotanicalPathway | boolean | true | Enables botanical hemp processing recipes and horticulture items |
 | ResetStripPurity | boolean | false | One-shot: strip purity modData from all items |
 | ResetForgetRecipes | boolean | false | One-shot: forget all learned PCP recipes |
 | ResetSkillXP | boolean | false | One-shot: reset Applied Chemistry to level 0 |
@@ -116,17 +124,18 @@ Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" setting
 | ConcreteMixerYieldBonus | 0.25 - 4.0 | 1.0 | Output yield multiplier for mixer recipes |
 | MixerFuelDrainRate | 0.0 - 5.0 | 0.5 | Generator fuel drain rate (%/min) during mixer crafting |
 | ResetNuclearAll | boolean | false | One-shot: execute all four reset operations |
+| MigrateHorticultureItems | boolean | false | One-shot: convert [B42] Horticulture items to PCP equivalents |
 
 ## Content Summary
 
-- **204 recipes** across blackpowder, biodiesel, soap, bone char, salt extraction, recycling, agriculture, concrete mixer, utility, and advanced lab pathways
-- **47 items** including chemical reagents, intermediates, container variants (jar, clay jar, bucket), gardening sprays, construction materials, and salt products
+- **234 recipes** across blackpowder, biodiesel, soap, bone char, salt extraction, recycling, agriculture, concrete mixer, botanical, utility, and advanced lab pathways
+- **91 items** including chemical reagents, intermediates, container variants, gardening sprays, construction materials, salt products, botanical textiles, horticulture products, and smoking items
 - **34 tradeable items** registered with Dynamic Trading across 9 vendor archetypes
 - **5 skill books** covering Applied Chemistry levels 1-10
 - **2 occupations** (Chemist, Pharmacist) and **2 traits** (Chemistry Enthusiast, Chemical Aversion)
 - **9 fluids** with Build 42 FluidContainer integration and poison profiles
-- **16 sandbox options** for gameplay customization, vessel replacement, concrete mixer, and maintenance
-- **168 OnCreate callbacks** for purity tracking and propane partial consumption
+- **19 sandbox options** for gameplay customization, vessel replacement, concrete mixer, botanical pathway, and maintenance
+- **168+ OnCreate callbacks** for purity tracking and propane partial consumption
 - **1 handbook** (lootable) teaching all recipes with a coloured pathway guide
 
 ## License
@@ -141,9 +150,10 @@ Forks and addons are encouraged. Code is permissively licensed for integration. 
 
 Visual guides for understanding recipe chains, sandbox settings, and mod architecture:
 
-- [Recipe Pathways](docs/diagrams/recipe-pathways.md) — Complete crafting chain flowcharts for all pathways
+- [Recipe Pathways](docs/diagrams/recipe-pathways.md) — Complete crafting chain flowcharts for all chemistry pathways
+- [Botanical & Horticulture Pathways](docs/diagrams/botanical-pathways.md) — Hemp processing, textiles, paper, medicinals, and horticulture items
 - [Recipe Variants](docs/diagrams/recipe-variants.md) — Why PCP recipes have multiple versions, naming conventions, and troubleshooting
-- [Sandbox Settings Guide](docs/diagrams/sandbox-gating.md) — How 13 sandbox options control recipe visibility, behavior, and maintenance
+- [Sandbox Settings Guide](docs/diagrams/sandbox-gating.md) — How 19 sandbox options control recipe visibility, behavior, and maintenance
 - [Skill Progression](docs/diagrams/skill-progression.md) — Applied Chemistry skill tiers, XP curve, occupations, and traits
 - [Architecture & Dependencies](docs/diagrams/architecture.md) — Dependency graph, PhobosLib modules, and cross-mod integration
 

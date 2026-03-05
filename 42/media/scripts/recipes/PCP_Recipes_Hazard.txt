@@ -737,6 +737,399 @@ module Base
 /*  Melting plastic releases toxic fumes (HCl from PVC, styrene from PS).
     Base recipe in PCP_Recipes_Recycling.txt is hidden when hazards are ON.            */
 
+/* ==================================================================================== */
+/* =================== BOTANICAL RETTING HAZARD VARIANTS (12) ========================= */
+/* ==================================================================================== */
+/*  Chemical retting (KOH/NaOH) and chemical pulping produce caustic
+    alkali vapour. Base recipes in PCP_Recipes_Botanical.txt are hidden
+    when EnableHealthHazards is ON, replaced by these Safe/Unsafe twins.
+    Heat variants keep the hotFluidContainer OnTest gate.                                  */
+
+/* ----- RET HEMP (KOH) — SAFE (with heat) ----- */
+
+    craftRecipe PCPRetHempSafe
+    {
+        time = 250,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpRetHempSafePurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:12,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 2 [Base.HempBroken],
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide],
+            item 1 [*] mode:keep,
+            -fluid 1.0 [Water],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.RettedHempStalk,
+        }
+    }
+
+/* ----- RET HEMP (KOH) — UNSAFE (with heat) ----- */
+
+    craftRecipe PCPRetHempUnsafe
+    {
+        time = 250,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpRetHempUnsafePurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:12,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 2 [Base.HempBroken],
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide],
+            item 1 [*] mode:keep,
+            -fluid 1.0 [Water],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.RettedHempStalk,
+        }
+    }
+
+/* ----- RET HEMP (KOH) — SAFE (simple, no heat) ----- */
+
+    craftRecipe PCPRetHempSimpleSafe
+    {
+        time = 250,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpRetHempSafePurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:12,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 2 [Base.HempBroken],
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide],
+            item 1 [*],
+            -fluid 1.0 [Water],
+            item 1 tags[base:cookable] mode:keep,
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.RettedHempStalk,
+        }
+    }
+
+/* ----- RET HEMP (KOH) — UNSAFE (simple, no heat) ----- */
+
+    craftRecipe PCPRetHempSimpleUnsafe
+    {
+        time = 250,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpRetHempUnsafePurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:12,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 2 [Base.HempBroken],
+            item 1 [PhobosChemistryPathways.PotassiumHydroxide],
+            item 1 [*],
+            -fluid 1.0 [Water],
+            item 1 tags[base:cookable] mode:keep,
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.RettedHempStalk,
+        }
+    }
+
+/* ----- RET HEMP (NaOH) — SAFE (with heat) ----- */
+
+    craftRecipe PCPRetHempNaOHSafe
+    {
+        time = 250,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpRetHempSafePurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:12,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 2 [Base.HempBroken],
+            item 1 [LabItems.ChSodiumHydroxideBag],
+            item 1 [*] mode:keep,
+            -fluid 1.0 [Water],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.RettedHempStalk,
+        }
+    }
+
+/* ----- RET HEMP (NaOH) — UNSAFE (with heat) ----- */
+
+    craftRecipe PCPRetHempNaOHUnsafe
+    {
+        time = 250,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpRetHempUnsafePurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = Making,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:12,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 2 [Base.HempBroken],
+            item 1 [LabItems.ChSodiumHydroxideBag],
+            item 1 [*] mode:keep,
+            -fluid 1.0 [Water],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.RettedHempStalk,
+        }
+    }
+
+/* ----- RET HEMP (NaOH) — SAFE (simple, no heat) ----- */
+
+    craftRecipe PCPRetHempNaOHSimpleSafe
+    {
+        time = 250,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpRetHempSafePurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:12,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 2 [Base.HempBroken],
+            item 1 [LabItems.ChSodiumHydroxideBag],
+            item 1 [*],
+            -fluid 1.0 [Water],
+            item 1 tags[base:cookable] mode:keep,
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.RettedHempStalk,
+        }
+    }
+
+/* ----- RET HEMP (NaOH) — UNSAFE (simple, no heat) ----- */
+
+    craftRecipe PCPRetHempNaOHSimpleUnsafe
+    {
+        time = 250,
+        category = PhobosKitchenChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpRetHempUnsafePurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:12,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 2 [Base.HempBroken],
+            item 1 [LabItems.ChSodiumHydroxideBag],
+            item 1 [*],
+            -fluid 1.0 [Water],
+            item 1 tags[base:cookable] mode:keep,
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.RettedHempStalk,
+        }
+    }
+
+/* ----- CHEMICAL PULPING (NaOH) — SAFE (with heat) ----- */
+
+    craftRecipe PCPChemicalPulpingSafe
+    {
+        time = 250,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpChemicalPulpingSafePurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = MixingChm,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:18,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.HempBastFiber],
+            item 1 [LabItems.ChSodiumHydroxideBag],
+            item 1 [*] mode:keep,
+            -fluid 1.0 [Water],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.HempPulp,
+        }
+    }
+
+/* ----- CHEMICAL PULPING (NaOH) — UNSAFE (with heat) ----- */
+
+    craftRecipe PCPChemicalPulpingUnsafe
+    {
+        time = 250,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpChemicalPulpingUnsafePurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = MixingChm,
+        OnTest = RecipeCodeOnTest.hotFluidContainer,
+        Tooltip = Tooltip_needsToBeHot,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:18,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.HempBastFiber],
+            item 1 [LabItems.ChSodiumHydroxideBag],
+            item 1 [*] mode:keep,
+            -fluid 1.0 [Water],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.HempPulp,
+        }
+    }
+
+/* ----- CHEMICAL PULPING (NaOH) — SAFE (simple, no heat) ----- */
+
+    craftRecipe PCPChemicalPulpingSimpleSafe
+    {
+        time = 250,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpChemicalPulpingSafePurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = MixingChm,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:18,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.HempBastFiber],
+            item 1 [LabItems.ChSodiumHydroxideBag],
+            item 1 [*],
+            -fluid 1.0 [Water],
+            item 1 tags[base:cookable] mode:keep,
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.HempPulp,
+        }
+    }
+
+/* ----- CHEMICAL PULPING (NaOH) — UNSAFE (simple, no heat) ----- */
+
+    craftRecipe PCPChemicalPulpingSimpleUnsafe
+    {
+        time = 250,
+        category = PhobosLabChem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpChemicalPulpingUnsafePurity,
+
+        Tags = InHandCraft;Cooking;CannotBeResearched,
+        timedAction = MixingChm,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:18,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.HempBastFiber],
+            item 1 [LabItems.ChSodiumHydroxideBag],
+            item 1 [*],
+            -fluid 1.0 [Water],
+            item 1 tags[base:cookable] mode:keep,
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.HempPulp,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ====================== PLASTIC MELTING HAZARD VARIANTS ============================== */
+/* ==================================================================================== */
+/*  Melting plastic releases toxic fumes (HCl from PVC, styrene from PS).
+    Base recipe in PCP_Recipes_Recycling.txt is hidden when hazards are ON.            */
+
 /* ----- MELT PLASTIC INTO GLUE — SAFE ----- */
 
     craftRecipe PCPMeltPlasticToGlueSafe

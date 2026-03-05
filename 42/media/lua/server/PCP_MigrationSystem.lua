@@ -49,7 +49,7 @@
 require "PhobosLib"
 
 local MOD_ID      = "PCP"
-local MOD_VERSION = "1.0.0"
+local MOD_VERSION = "1.2.0"
 
 ---------------------------------------------------------------
 -- Helpers
@@ -584,6 +584,281 @@ PhobosLib.registerMigration(
 )
 
 ---------------------------------------------------------------
+-- v1.2.0 Migration — Horticulture item conversion
+---------------------------------------------------------------
+
+--- [B42] Horticulture (Base.*) → PCP (PhobosChemistryPathways.*) map.
+--- Horticulture defines ALL its items under the Base module.
+--- When unsubscribed, those items become orphaned in saves.
+--- This map converts them to PCP equivalents, preserving state.
+local HORT_TO_PCP = {
+    -- Direct equivalents (existing PCP botanical items)
+    ["Base.HempStalks"]                    = "PhobosChemistryPathways.RettedHempStalk",
+    ["Base.PaperPulp"]                     = "PhobosChemistryPathways.HempPulp",
+    ["Base.PaperSheet"]                    = "PhobosChemistryPathways.HempPaper",
+    ["Base.PaperSheetWet"]                 = "PhobosChemistryPathways.HempPaper",
+    ["Base.PaperSheetPressed"]             = "PhobosChemistryPathways.HempPaper",
+    ["Base.OilHemp"]                       = "PhobosChemistryPathways.HempTincture",
+    ["Base.HempLeaves"]                    = "PhobosChemistryPathways.HempBastFiber",
+    -- Tobacco
+    ["Base.TobaccoWet"]                    = "PhobosChemistryPathways.TobaccoWet",
+    ["Base.TobaccoChewing_Tin"]            = "PhobosChemistryPathways.ChewingTobaccoTin",
+    ["Base.TobaccoChewing_WaterTin"]       = "PhobosChemistryPathways.ChewingTobaccoWaterTin",
+    ["Base.TobaccoChewing_Jar"]            = "PhobosChemistryPathways.ChewingTobaccoJar",
+    -- Hemp buds
+    ["Base.HempBuds"]                      = "PhobosChemistryPathways.HempBuds",
+    ["Base.HempBuds_Cured"]               = "PhobosChemistryPathways.HempBudsCured",
+    ["Base.HempBuds_Decarbed"]            = "PhobosChemistryPathways.HempBudsDecarbed",
+    ["Base.CannedHempBuds"]               = "PhobosChemistryPathways.CannedHempBuds",
+    ["Base.CannedHempBuds_Cured"]         = "PhobosChemistryPathways.CannedHempBudsCured",
+    ["Base.CannedHempBuds_Decarbed"]      = "PhobosChemistryPathways.CannedHempBudsDecarbed",
+    ["Base.CannedHempBuds_Open"]          = "PhobosChemistryPathways.CannedHempBudsOpen",
+    ["Base.CannedHempBuds_Decarbed_Open"] = "PhobosChemistryPathways.CannedHempBudsDecarbedOpen",
+    ["Base.HempLoose"]                     = "PhobosChemistryPathways.HempLoose",
+    -- Papermaking
+    ["Base.PaperPulp_Pot"]                = "PhobosChemistryPathways.PaperPulpPot",
+    ["Base.PaperPulp_PotForged"]          = "PhobosChemistryPathways.PaperPulpPotForged",
+    ["Base.MouldAndDeckle"]               = "PhobosChemistryPathways.MouldAndDeckle",
+    ["Base.MouldAndDeckle_PaperSheet"]    = "PhobosChemistryPathways.MouldAndDecklePaperSheet",
+    ["Base.RawRollingPapers"]             = "PhobosChemistryPathways.RollingPapers",
+    -- Smoking
+    ["Base.SmokingPipeGlass"]             = "PhobosChemistryPathways.SmokingPipeGlass",
+    ["Base.SmokingPipe_Hemp"]             = "PhobosChemistryPathways.SmokingPipeHemp",
+    ["Base.SmokingPipeGlass_Hemp"]        = "PhobosChemistryPathways.SmokingPipeGlassHemp",
+    ["Base.SmokingPipeGlass_Tobacco"]     = "PhobosChemistryPathways.SmokingPipeGlassTobacco",
+    ["Base.CanPipe_Hemp"]                 = "PhobosChemistryPathways.CanPipeHemp",
+    ["Base.CigarHemp"]                    = "PhobosChemistryPathways.CigarHemp",
+    ["Base.CigarRolled"]                  = "PhobosChemistryPathways.CigarRolled",
+    ["Base.CigaretteHemp"]               = "PhobosChemistryPathways.CigaretteHemp",
+    ["Base.CigarettePack_Hemp"]          = "PhobosChemistryPathways.CigarettePackHemp",
+    ["Base.CigarettePack_Rolled"]        = "PhobosChemistryPathways.CigarettePackRolled",
+    -- Cooking
+    ["Base.Saucepan_Syrup"]              = "PhobosChemistryPathways.SaucepanSyrup",
+    ["Base.SaucepanCopper_Syrup"]        = "PhobosChemistryPathways.SaucepanCopperSyrup",
+    ["Base.SimpleSugarSyrup"]            = "PhobosChemistryPathways.SimpleSugarSyrup",
+}
+
+--- Core conversion: scan all player containers and convert Horticulture
+--- items to PCP equivalents, preserving condition / UsedDelta / food stats.
+---@param player any  IsoGameCharacter
+---@return number converted, number failed
+local function convertHorticultureItems(player)
+    local converted = 0
+    local failed    = 0
+
+    PhobosLib.iterateInventoryDeep(player, function(item, container)
+        local fullType = item:getFullType()
+        if not fullType then return end
+
+        local replacement = HORT_TO_PCP[fullType]
+        if not replacement then return end
+
+        local newItem = instanceItem(replacement)
+        if not newItem then
+            failed = failed + 1
+            return
+        end
+
+        -- Preserve state based on item type
+        local itemType = item:getType and item:getType()
+
+        -- Drainable items: preserve UsedDelta
+        local okDrain, srcDelta = pcall(function() return item:getUsedDelta() end)
+        local okDrainNew = pcall(function() return newItem:getUsedDelta() end)
+        if okDrain and srcDelta and okDrainNew then
+            pcall(function() newItem:setUsedDelta(srcDelta) end)
+        end
+
+        -- Food items: preserve hunger, thirst, boredom, age
+        local okAge, srcAge = pcall(function() return item:getAge() end)
+        if okAge and srcAge then
+            pcall(function() newItem:setAge(srcAge) end)
+        end
+
+        -- Condition items: preserve as percentage via PhobosLib
+        local cond    = item:getCondition()
+        local maxCond = item:getConditionMax()
+        if cond and maxCond and maxCond > 0 and cond < maxCond then
+            local newMax = newItem:getConditionMax()
+            if newMax and newMax > 0 then
+                local pct = cond / maxCond
+                newItem:setCondition(math.max(1, math.floor(pct * newMax + 0.5)))
+            end
+        end
+
+        -- Wet items: preserve wet state
+        local okWet, isWet = pcall(function() return item:isWet() end)
+        if okWet and isWet then
+            pcall(function() newItem:setWet(true) end)
+        end
+
+        container:AddItem(newItem)
+        pcall(function() sendItemStats(newItem) end)
+        pcall(function() sendAddItemToContainer(container, newItem) end)
+
+        container:Remove(item)
+        pcall(function() sendRemoveItemFromContainer(container, item) end)
+
+        converted = converted + 1
+    end)
+
+    return converted, failed
+end
+
+--- Execute v1.2.0 Horticulture migration for a single player.
+---@param player any  IsoGameCharacter
+---@return boolean ok, string msg
+local function migrate_1_2_0(player)
+    local converted, failed = convertHorticultureItems(player)
+
+    if converted == 0 and failed == 0 then
+        return true, "No [B42] Horticulture items found."
+    end
+
+    local parts = {}
+    if converted > 0 then
+        table.insert(parts, "Converted " .. converted .. " Horticulture item(s) to PCP equivalents")
+    end
+    if failed > 0 then
+        table.insert(parts, failed .. " item(s) could not be converted")
+    end
+    return true, table.concat(parts, ". ") .. "."
+end
+
+PhobosLib.registerMigration(
+    MOD_ID,
+    "1.0.0",     -- from: v1.0.0
+    "1.2.0",     -- to: this version
+    migrate_1_2_0,
+    "PCP v1.2.0: Convert [B42] Horticulture items to PCP equivalents"
+)
+
+---------------------------------------------------------------
+-- Horticulture manual migration trigger (sandbox button)
+---------------------------------------------------------------
+
+--- World modData guard flag for the manual Horticulture migration.
+local HORT_MIGRATION_FLAG = "PCP_HortMigration_done"
+
+--- Run the manual Horticulture migration if the sandbox button is enabled.
+--- Uses consumeSandboxFlag to auto-reset the boolean after execution.
+--- World modData guard prevents re-execution.
+local function runManualHortMigration(players)
+    -- Check sandbox button
+    local requested = false
+    pcall(function()
+        require "PCP_SandboxIntegration"
+        requested = PCP_Sandbox.isHorticultureMigrationRequested()
+    end)
+    if not requested then return end
+
+    -- Check world guard
+    local worldData = ModData.getOrCreate("PCP_WorldFlags")
+    if worldData[HORT_MIGRATION_FLAG] then
+        print("[PCP] Horticulture migration: already completed, skipping.")
+        PhobosLib.consumeSandboxFlag("PCP", "MigrateHorticultureItems")
+        return
+    end
+
+    print("[PCP] Horticulture migration: manual trigger activated!")
+
+    local totalConverted = 0
+    local totalFailed    = 0
+
+    for _, player in ipairs(players) do
+        local converted, failed = convertHorticultureItems(player)
+        totalConverted = totalConverted + converted
+        totalFailed    = totalFailed + failed
+    end
+
+    -- Mark done and consume the sandbox flag
+    worldData[HORT_MIGRATION_FLAG] = true
+    ModData.transmit("PCP_WorldFlags")
+    PhobosLib.consumeSandboxFlag("PCP", "MigrateHorticultureItems")
+
+    -- Notify players
+    local msg
+    if totalConverted == 0 and totalFailed == 0 then
+        msg = "No [B42] Horticulture items found in any inventory."
+    else
+        local parts = {}
+        if totalConverted > 0 then
+            table.insert(parts, "Converted " .. totalConverted .. " Horticulture item(s)")
+        end
+        if totalFailed > 0 then
+            table.insert(parts, totalFailed .. " item(s) could not be converted")
+        end
+        msg = table.concat(parts, ". ") .. "."
+    end
+
+    print("[PCP] Horticulture migration: " .. msg)
+    for _, player in ipairs(players) do
+        PhobosLib.notifyMigrationResult(player, MOD_ID, {
+            ok = true,
+            label = "PCP: Horticulture Item Migration",
+            message = msg,
+        })
+    end
+end
+
+--- Auto-detect orphaned Horticulture items when the mod is NOT subscribed.
+--- Safety net for users who unsubscribed without using the sandbox button.
+local function runAutoHortDetection(players)
+    -- Only trigger when Horticulture is NOT active
+    local hortActive = false
+    pcall(function()
+        hortActive = getActivatedMods():contains("B42Horticulture")
+    end)
+    if hortActive then return end
+
+    -- Check world guard
+    local worldData = ModData.getOrCreate("PCP_WorldFlags")
+    if worldData[HORT_MIGRATION_FLAG] then return end
+
+    -- Quick probe: does any player have a Horticulture item?
+    local hasOrphaned = false
+    for _, player in ipairs(players) do
+        PhobosLib.iterateInventoryDeep(player, function(item)
+            local ft = item:getFullType()
+            if ft and HORT_TO_PCP[ft] then
+                hasOrphaned = true
+            end
+        end)
+        if hasOrphaned then break end
+    end
+
+    if not hasOrphaned then return end
+
+    print("[PCP] Auto-detected orphaned Horticulture items — running migration.")
+
+    local totalConverted = 0
+    local totalFailed    = 0
+
+    for _, player in ipairs(players) do
+        local converted, failed = convertHorticultureItems(player)
+        totalConverted = totalConverted + converted
+        totalFailed    = totalFailed + failed
+    end
+
+    worldData[HORT_MIGRATION_FLAG] = true
+    ModData.transmit("PCP_WorldFlags")
+
+    local msg = "Auto-migrated " .. totalConverted .. " orphaned Horticulture item(s) to PCP equivalents."
+    if totalFailed > 0 then
+        msg = msg .. " " .. totalFailed .. " item(s) could not be converted."
+    end
+
+    print("[PCP] " .. msg)
+    for _, player in ipairs(players) do
+        PhobosLib.notifyMigrationResult(player, MOD_ID, {
+            ok = true,
+            label = "PCP: Horticulture Auto-Migration",
+            message = msg,
+        })
+    end
+end
+
+---------------------------------------------------------------
 -- OnGameStart Hook
 ---------------------------------------------------------------
 
@@ -625,6 +900,10 @@ local function onGameStart()
     if #results == 0 then
         print("[PCP] MigrationSystem: no pending migrations")
     end
+
+    -- Horticulture migration (dual-trigger: manual sandbox button + auto-detection)
+    runManualHortMigration(players)
+    runAutoHortDetection(players)
 
     print("[PCP] MigrationSystem: loaded [" .. (isServer() and "server" or "local") .. "]")
 end
