@@ -159,7 +159,7 @@ end
 --- Mortar oil pressing: 30-50
 function PCP_RecipeCallbacks.pcpOilMortarPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    local purity = PCP_PuritySystem.randomBasePurity(30, 50)
+    local purity = PCP_PuritySystem.randomBasePurityWithSkill(30, 50, player)
     PhobosLib.stampFluidContainerQuality(player, "CrudeVegetableOil", "PCP_Purity_CrudeVegetableOil", purity, 1)
     PCP_PuritySystem.announcePurity(player, purity)
 end
@@ -167,7 +167,7 @@ end
 --- Chemistry Set oil extraction: 50-70
 function PCP_RecipeCallbacks.pcpOilLabPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    local purity = PCP_PuritySystem.randomBasePurity(50, 70)
+    local purity = PCP_PuritySystem.randomBasePurityWithSkill(50, 70, player)
     PhobosLib.stampFluidContainerQuality(player, "CrudeVegetableOil", "PCP_Purity_CrudeVegetableOil", purity, 2)
     PCP_PuritySystem.announcePurity(player, purity)
 end
@@ -175,7 +175,7 @@ end
 --- MetalDrum bulk oil pressing: 40-60
 function PCP_RecipeCallbacks.pcpOilBulkPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    local purity = PCP_PuritySystem.randomBasePurity(40, 60)
+    local purity = PCP_PuritySystem.randomBasePurityWithSkill(40, 60, player)
     PhobosLib.stampFluidContainerQuality(player, "CrudeVegetableOil", "PCP_Purity_CrudeVegetableOil", purity, 1)
     PCP_PuritySystem.announcePurity(player, purity)
 end
@@ -183,7 +183,7 @@ end
 --- Convert bottled vegetable oil: 55-70
 function PCP_RecipeCallbacks.pcpConvertOilPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    local purity = PCP_PuritySystem.randomBasePurity(55, 70)
+    local purity = PCP_PuritySystem.randomBasePurityWithSkill(55, 70, player)
     PhobosLib.stampFluidContainerQuality(player, "CrudeVegetableOil", "PCP_Purity_CrudeVegetableOil", purity, 2)
     PCP_PuritySystem.announcePurity(player, purity)
 end
@@ -191,7 +191,7 @@ end
 --- Render fat (Chemistry Set): 45-65
 function PCP_RecipeCallbacks.pcpRenderFatPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    local purity = PCP_PuritySystem.randomBasePurity(45, 65)
+    local purity = PCP_PuritySystem.randomBasePurityWithSkill(45, 65, player)
     PhobosLib.stampFluidContainerQuality(player, "RenderedFat", "PCP_Purity_RenderedFat", purity, 2)
     PCP_PuritySystem.announcePurity(player, purity)
 end
@@ -199,7 +199,7 @@ end
 --- Distill methanol (Chemistry Set): 40-60
 function PCP_RecipeCallbacks.pcpDistillMethanolPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    local purity = PCP_PuritySystem.randomBasePurity(40, 60)
+    local purity = PCP_PuritySystem.randomBasePurityWithSkill(40, 60, player)
     PhobosLib.stampFluidContainerQuality(player, "WoodMethanol", "PCP_Purity_WoodMethanol", purity, 2)
     PCP_PuritySystem.announcePurity(player, purity)
 end
@@ -207,14 +207,14 @@ end
 --- Crush charcoal (Mortar): 35-55
 function PCP_RecipeCallbacks.pcpCrushCharcoalPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(35, 55))
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(35, 55, player))
 end
 
 --- Extract battery acid (Surface): 40-60
 --- Result = LeadScrap (solid PCP item), acid outputs are +fluid containers
 function PCP_RecipeCallbacks.pcpExtractAcidPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    local purity = PCP_PuritySystem.randomBasePurity(40, 60)
+    local purity = PCP_PuritySystem.randomBasePurityWithSkill(40, 60, player)
     _stampAndAnnounce(result, player, purity)
     PhobosLib.stampFluidContainerQuality(player, "SulphuricAcid", "PCP_Purity_SulphuricAcid", purity, 2)
 end
@@ -222,7 +222,7 @@ end
 --- Bone char production (MetalDrum): 50-70
 function PCP_RecipeCallbacks.pcpBoneCharPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(50, 70))
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(50, 70, player))
 end
 
 
@@ -234,7 +234,7 @@ end
 function PCP_RecipeCallbacks.pcpPurifyCharcoalPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PCP_PuritySystem.averageInputPurity(items)
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, 1.05)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, 1.05, player)
     _stampAndAnnounce(result, player, purity)
 end
 
@@ -242,7 +242,7 @@ end
 function PCP_RecipeCallbacks.pcpPurifyCharcoalNaOHPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PCP_PuritySystem.averageInputPurity(items)
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, 1.15)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, 1.15, player)
     _stampAndAnnounce(result, player, purity)
 end
 
@@ -250,7 +250,7 @@ end
 function PCP_RecipeCallbacks.pcpCompostPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PCP_PuritySystem.averageInputPurity(items)
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
     _stampAndAnnounce(result, player, purity)
 end
 
@@ -258,7 +258,7 @@ end
 function PCP_RecipeCallbacks.pcpExtractSulphurPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PCP_PuritySystem.averageInputPurity(items)
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
     _stampAndAnnounce(result, player, purity)
 end
 
@@ -266,7 +266,7 @@ end
 function PCP_RecipeCallbacks.pcpSynthesizeKNO3Purity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PCP_PuritySystem.averageInputPurity(items)
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
     _stampAndAnnounce(result, player, purity)
 end
 
@@ -274,7 +274,7 @@ end
 function PCP_RecipeCallbacks.pcpSynthesizeKOHPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PCP_PuritySystem.averageInputPurity(items)
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
     _stampAndAnnounce(result, player, purity)
 end
 
@@ -288,7 +288,7 @@ function PCP_RecipeCallbacks.pcpTransesterifyLabPurity(items, result, player)
         PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_WoodMethanol", -1),
         PCP_PuritySystem.averageInputPurity(items)
     })
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
     PhobosLib.stampFluidContainerQuality(player, "CrudeBiodiesel", "PCP_Purity_CrudeBiodiesel", purity, 3)
     PhobosLib.stampFluidContainerQuality(player, "Glycerol", "PCP_Purity_Glycerol", purity, 2)
     PCP_PuritySystem.announcePurity(player, purity)
@@ -304,7 +304,7 @@ function PCP_RecipeCallbacks.pcpTransesterifyBulkPurity(items, result, player)
         PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_WoodMethanol", -1),
         PCP_PuritySystem.averageInputPurity(items)
     })
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.metalDrum)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.metalDrum, player)
     PhobosLib.stampFluidContainerQuality(player, "CrudeBiodiesel", "PCP_Purity_CrudeBiodiesel", purity, 1)
     PhobosLib.stampFluidContainerQuality(player, "Glycerol", "PCP_Purity_Glycerol", purity, 5)
     PCP_PuritySystem.announcePurity(player, purity)
@@ -315,7 +315,7 @@ end
 function PCP_RecipeCallbacks.pcpWashBiodieselLabPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_CrudeBiodiesel", PCP_PuritySystem.DEFAULT)
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
     PhobosLib.stampFluidContainerQuality(player, "WashedBiodiesel", "PCP_Purity_WashedBiodiesel", purity, 3)
     PCP_PuritySystem.announcePurity(player, purity)
 end
@@ -325,7 +325,7 @@ end
 function PCP_RecipeCallbacks.pcpWashBiodieselBulkPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_CrudeBiodiesel", PCP_PuritySystem.DEFAULT)
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.metalDrum)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.metalDrum, player)
     PhobosLib.stampFluidContainerQuality(player, "WashedBiodiesel", "PCP_Purity_WashedBiodiesel", purity, 1)
     PCP_PuritySystem.announcePurity(player, purity)
 end
@@ -335,7 +335,7 @@ end
 function PCP_RecipeCallbacks.pcpCentrifugeWashPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_CrudeBiodiesel", PCP_PuritySystem.DEFAULT)
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.centrifuge)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.centrifuge, player)
     PhobosLib.stampFluidContainerQuality(player, "WashedBiodiesel", "PCP_Purity_WashedBiodiesel", purity, 4)
     PCP_PuritySystem.announcePurity(player, purity)
 end
@@ -345,7 +345,7 @@ end
 function PCP_RecipeCallbacks.pcpCentrifugeGlycerolPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_CrudeBiodiesel", PCP_PuritySystem.DEFAULT)
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.centrifuge)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.centrifuge, player)
     PhobosLib.stampFluidContainerQuality(player, "WashedBiodiesel", "PCP_Purity_WashedBiodiesel", purity, 2)
     PhobosLib.stampFluidContainerQuality(player, "Glycerol", "PCP_Purity_Glycerol", purity, 3)
     PCP_PuritySystem.announcePurity(player, purity)
@@ -356,7 +356,7 @@ end
 function PCP_RecipeCallbacks.pcpChromatographBiodieselPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_WashedBiodiesel", PCP_PuritySystem.DEFAULT)
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chromatograph)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chromatograph, player)
     _applyFluidFuelPenalty(player, "Petrol", purity, 2)
     PCP_PuritySystem.announcePurity(player, purity)
 end
@@ -365,7 +365,7 @@ end
 --- Output: 3× WoodMethanol
 function PCP_RecipeCallbacks.pcpChromatographMethanolPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    local purity = PCP_PuritySystem.randomBasePurity(80, 95)
+    local purity = PCP_PuritySystem.randomBasePurityWithSkill(80, 95, player)
     PhobosLib.stampFluidContainerQuality(player, "WoodMethanol", "PCP_Purity_WoodMethanol", purity, 3)
     PCP_PuritySystem.announcePurity(player, purity)
 end
@@ -379,7 +379,7 @@ function PCP_RecipeCallbacks.pcpMakeSoapPurity(items, result, player)
         PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_Glycerol", -1),
         PCP_PuritySystem.averageInputPurity(items)
     })
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
     _stampAndAnnounce(result, player, purity)
 end
 
@@ -393,7 +393,7 @@ end
 function PCP_RecipeCallbacks.pcpRefineBiodieselPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_WashedBiodiesel", PCP_PuritySystem.DEFAULT)
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
     _applyFluidFuelPenalty(player, "Petrol", purity, 1)
     PCP_PuritySystem.announcePurity(player, purity)
 end
@@ -402,7 +402,7 @@ end
 function PCP_RecipeCallbacks.pcpMixBlackpowderPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PCP_PuritySystem.averageInputPurity(items)
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
     _stampAndAnnounce(result, player, purity)
     PCP_PuritySystem.removeExcess(player, "Base.GunPowder", 10, purity)
 end
@@ -417,7 +417,7 @@ function PCP_RecipeCallbacks.pcpMicroscopeAnalyzePurity(items, result, player)
         PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_WoodMethanol", -1),
         PCP_PuritySystem.averageInputPurity(items)
     })
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.microscope)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.microscope, player)
     PhobosLib.stampFluidContainerQuality(player, "CrudeBiodiesel", "PCP_Purity_CrudeBiodiesel", purity, 4)
     PhobosLib.stampFluidContainerQuality(player, "Glycerol", "PCP_Purity_Glycerol", purity, 2)
     PCP_PuritySystem.announcePurity(player, purity)
@@ -428,7 +428,7 @@ end
 function PCP_RecipeCallbacks.pcpSpectrometerTestPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_WashedBiodiesel", PCP_PuritySystem.DEFAULT)
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.spectrometer)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.spectrometer, player)
     _applyFluidFuelPenalty(player, "Petrol", purity, 2)
     PCP_PuritySystem.announcePurity(player, purity)
 end
@@ -441,7 +441,7 @@ end
 --- Cut plastic scrap (Surface, source 40-60)
 function PCP_RecipeCallbacks.pcpCutPlasticPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(40, 60))
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(40, 60, player))
 end
 
 --- Acid wash electronics (Chemistry Set, propagation factor 1.00)
@@ -452,7 +452,7 @@ function PCP_RecipeCallbacks.pcpAcidWashPurity(items, result, player)
         PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_SulphuricAcid", -1),
         PCP_PuritySystem.averageInputPurity(items)
     })
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
     _stampAndAnnounce(result, player, purity)
 end
 
@@ -473,7 +473,7 @@ function PCP_RecipeCallbacks.pcpTransesterifyOilBulkPropanePurity(items, result,
         PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_WoodMethanol", -1),
         PCP_PuritySystem.averageInputPurity(items)
     })
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.metalDrum)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.metalDrum, player)
     PhobosLib.stampFluidContainerQuality(player, "CrudeBiodiesel", "PCP_Purity_CrudeBiodiesel", purity, 1)
     PhobosLib.stampFluidContainerQuality(player, "Glycerol", "PCP_Purity_Glycerol", purity, 5)
     PCP_PuritySystem.announcePurity(player, purity)
@@ -490,7 +490,7 @@ function PCP_RecipeCallbacks.pcpTransesterifyFatBulkPropanePurity(items, result,
         PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_WoodMethanol", -1),
         PCP_PuritySystem.averageInputPurity(items)
     })
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.metalDrum)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.metalDrum, player)
     PhobosLib.stampFluidContainerQuality(player, "CrudeBiodiesel", "PCP_Purity_CrudeBiodiesel", purity, 1)
     PhobosLib.stampFluidContainerQuality(player, "Glycerol", "PCP_Purity_Glycerol", purity, 5)
     PCP_PuritySystem.announcePurity(player, purity)
@@ -502,7 +502,7 @@ function PCP_RecipeCallbacks.pcpWashBiodieselBulkPropanePurity(items, result, pl
     PCP_RecipeCallbacks.pcpReturnPartialPropane(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_CrudeBiodiesel", PCP_PuritySystem.DEFAULT)
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.metalDrum)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.metalDrum, player)
     PhobosLib.stampFluidContainerQuality(player, "WashedBiodiesel", "PCP_Purity_WashedBiodiesel", purity, 1)
     PCP_PuritySystem.announcePurity(player, purity)
 end
@@ -511,14 +511,14 @@ end
 function PCP_RecipeCallbacks.pcpBoneCharPropanePurity(items, result, player)
     PCP_RecipeCallbacks.pcpReturnPartialPropane(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(50, 70))
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(50, 70, player))
 end
 
 --- Bone char skull + propane (MetalDrum, source 50-70)
 function PCP_RecipeCallbacks.pcpBoneCharSkullPropanePurity(items, result, player)
     PCP_RecipeCallbacks.pcpReturnPartialPropane(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(50, 70))
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(50, 70, player))
 end
 
 --- Make soap (glycerol) + propane (cosmetic, factor 1.00)
@@ -530,7 +530,7 @@ function PCP_RecipeCallbacks.pcpMakeSoapPropanePurity(items, result, player)
         PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_Glycerol", -1),
         PCP_PuritySystem.averageInputPurity(items)
     })
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
     _stampAndAnnounce(result, player, purity)
 end
 
@@ -543,7 +543,7 @@ function PCP_RecipeCallbacks.pcpMakeSoapFatPropanePurity(items, result, player)
         PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_RenderedFat", -1),
         PCP_PuritySystem.averageInputPurity(items)
     })
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
     _stampAndAnnounce(result, player, purity)
 end
 
@@ -628,20 +628,20 @@ end
 --- R1: Make Wood Glue from tar (surface, source 40-60)
 function PCP_RecipeCallbacks.pcpMakeWoodGluePurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(40, 60))
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(40, 60, player))
 end
 
 --- R2: Calcine Calcite into Quicklime (DomeKiln, source 40-60)
 function PCP_RecipeCallbacks.pcpCalcineCalcitePurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(40, 60))
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(40, 60, player))
 end
 
 --- R2: Calcine Calcite + propane (DomeKiln, source 40-60)
 function PCP_RecipeCallbacks.pcpCalcineCalcitePropanePurity(items, result, player)
     PCP_RecipeCallbacks.pcpReturnPartialPropane(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(40, 60))
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(40, 60, player))
 end
 
 --- R7: Melt Plastic into Glue — Safe (filter degrade only, no purity on vanilla output)
@@ -661,7 +661,7 @@ end
 function PCP_RecipeCallbacks.pcpRefineBiodieselBulkPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_WashedBiodiesel", PCP_PuritySystem.DEFAULT)
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.metalDrum)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.metalDrum, player)
     _applyFluidFuelPenalty(player, "Petrol", purity, 2)
     PCP_PuritySystem.announcePurity(player, purity)
 end
@@ -674,7 +674,7 @@ end
 --- Cooking pot oil extraction: 40-60
 function PCP_RecipeCallbacks.pcpOilLabPotPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    local purity = PCP_PuritySystem.randomBasePurity(40, 60)
+    local purity = PCP_PuritySystem.randomBasePurityWithSkill(40, 60, player)
     PhobosLib.stampFluidContainerQuality(player, "CrudeVegetableOil", "PCP_Purity_CrudeVegetableOil", purity, 2)
     PCP_PuritySystem.announcePurity(player, purity)
 end
@@ -682,7 +682,7 @@ end
 --- Render fat (Cooking Pot): 30-50
 function PCP_RecipeCallbacks.pcpRenderFatPotPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    local purity = PCP_PuritySystem.randomBasePurity(30, 50)
+    local purity = PCP_PuritySystem.randomBasePurityWithSkill(30, 50, player)
     PhobosLib.stampFluidContainerQuality(player, "RenderedFat", "PCP_Purity_RenderedFat", purity, 2)
     PCP_PuritySystem.announcePurity(player, purity)
 end
@@ -695,19 +695,19 @@ end
 --- Purify charcoal water/NaOH (Cooking Pot): 60-80
 function PCP_RecipeCallbacks.pcpPurifyCharcoalPotPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(60, 80))
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(60, 80, player))
 end
 
 --- Synthesize KNO3 fertilizer (Cooking Pot): 35-55
 function PCP_RecipeCallbacks.pcpSynthesizeKNO3PotPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(35, 55))
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(35, 55, player))
 end
 
 --- Synthesize KNO3 compost (Cooking Pot): 30-50
 function PCP_RecipeCallbacks.pcpSynthesizeKNO3CompostPotPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(30, 50))
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(30, 50, player))
 end
 
 --- Wash biodiesel (Cooking Pot, factor 0.90)
@@ -715,7 +715,7 @@ end
 function PCP_RecipeCallbacks.pcpWashBiodieselPotPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_CrudeBiodiesel", PCP_PuritySystem.DEFAULT)
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, 0.90)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, 0.90, player)
     PhobosLib.stampFluidContainerQuality(player, "WashedBiodiesel", "PCP_Purity_WashedBiodiesel", purity, 3)
     PCP_PuritySystem.announcePurity(player, purity)
 end
@@ -730,7 +730,7 @@ end
 function PCP_RecipeCallbacks.pcpGrindBoneMealPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PCP_PuritySystem.averageInputPurity(items)
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.mortar)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.mortar, player)
     _stampAndAnnounce(result, player, purity)
 end
 
@@ -738,7 +738,7 @@ end
 function PCP_RecipeCallbacks.pcpActivateCarbonPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PCP_PuritySystem.averageInputPurity(items)
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
     _stampAndAnnounce(result, player, purity)
 end
 
@@ -823,20 +823,20 @@ end
 --- Mixer construction items (mortar, stucco, reinforced concrete, fireclay): 60-85
 function PCP_RecipeCallbacks.pcpMixerConstructionPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(60, 85))
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(60, 85, player))
 end
 
 --- Mixer blackpowder (bulk): 25-45 (lower than lab 50-70)
 function PCP_RecipeCallbacks.pcpMixerBlackpowderPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(25, 45))
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(25, 45, player))
 end
 
 --- Mixer biodiesel (bulk): 35-55 (lower than lab)
 --- Fluid outputs: 1× CrudeBiodiesel (bucket) + 1× Glycerol
 function PCP_RecipeCallbacks.pcpMixerBiodieselPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    local purity = PCP_PuritySystem.randomBasePurity(35, 55)
+    local purity = PCP_PuritySystem.randomBasePurityWithSkill(35, 55, player)
     PhobosLib.stampFluidContainerQuality(player, "CrudeBiodiesel", "PCP_Purity_CrudeBiodiesel", purity, 1)
     PhobosLib.stampFluidContainerQuality(player, "Glycerol", "PCP_Purity_Glycerol", purity, 1)
     PCP_PuritySystem.announcePurity(player, purity)
@@ -845,19 +845,19 @@ end
 --- Mixer soap (bulk): 40-60 (lower than lab)
 function PCP_RecipeCallbacks.pcpMixerSoapPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(40, 60))
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(40, 60, player))
 end
 
 --- Mixer compost (bulk): 30-50
 function PCP_RecipeCallbacks.pcpMixerCompostPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(30, 50))
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(30, 50, player))
 end
 
 --- Mixer wood vinegar: 30-50
 function PCP_RecipeCallbacks.pcpMixerVinegarPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurity(30, 50))
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(30, 50, player))
 end
 
 
@@ -874,7 +874,7 @@ end
 function PCP_RecipeCallbacks.pcpConcentrateBrinePurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PhobosLib.recoverDrainedFluidQuality(player, "PCP_Purity_Brine", PCP_PuritySystem.DEFAULT)
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, 0.95)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, 0.95, player)
     _stampAndAnnounce(result, player, purity)
 end
 
@@ -883,7 +883,7 @@ end
 function PCP_RecipeCallbacks.pcpCrystallizeSaltPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PCP_PuritySystem.averageInputPurity(items)
-    local purity = PCP_PuritySystem.calculateOutputPurity(input, 0.95)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, 0.95, player)
     _stampAndAnnounce(result, player, purity)
     PCP_PuritySystem.removeExcess(player, "PhobosChemistryPathways.CoarseSalt", 2, purity)
 end

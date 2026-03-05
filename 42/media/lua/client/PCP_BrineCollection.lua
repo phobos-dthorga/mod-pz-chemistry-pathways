@@ -27,6 +27,7 @@
 ---------------------------------------------------------------
 
 require "PhobosLib"
+require "PCP_SandboxIntegration"
 require "TimedActions/ISBaseTimedAction"
 
 local _TAG = "[PCP:BrineCollection]"
@@ -135,9 +136,15 @@ function PCP_CollectBrineAction:perform()
     -- Stamp purity (client-side; PCP_PuritySystem is server-only).
     -- Wrapped in pcall so purity failure never prevents the fill.
     pcall(function()
-        local enabled = PhobosLib.getSandboxVar("PCP", "EnableImpuritySystem", false) == true
+        local enabled = PhobosLib.getSandboxVar("PCP", "EnableImpuritySystem", true) == true
         if enabled then
-            local purity = PhobosLib.randomBaseQuality(35, 55)
+            local divisor = PCP_Sandbox.getSkillPurityDivisor()
+            local purity
+            if divisor == 0 then
+                purity = PhobosLib.randomBaseQuality(35, 55)
+            else
+                purity = PhobosLib.randomBaseQualityWithSkill(35, 55, self.character, Perks.AppliedChemistry, divisor)
+            end
             PhobosLib.setConditionPercent(self.containerItem, purity)
 
             -- Stamp modData for recipe callback recovery after -fluid draining

@@ -53,6 +53,19 @@ function PCP_Sandbox.isHeatRequired()
     return PhobosLib.getSandboxVar("PCP", "RequireHeatSources", true) == true
 end
 
+--- Get the skill purity influence divisor from sandbox settings.
+--- Maps the enum (1=None, 2=Low, 3=Standard, 4=High) to a divisor
+--- for PhobosLib.getSkillBonus(). Returns 0 for "None" (disabled).
+-- @return number  divisor (0=disabled, 5=low, 2=standard, 1=high)
+function PCP_Sandbox.getSkillPurityDivisor()
+    local val = PhobosLib.getSandboxVar("PCP", "SkillPurityInfluence", 3)
+    if val == 1 then return 0 end     -- None: disabled
+    if val == 2 then return 5 end     -- Low:  level 10 → +2
+    if val == 3 then return 2 end     -- Standard: level 10 → +5
+    if val == 4 then return 1 end     -- High: level 10 → +10
+    return 2                          -- fallback to Standard
+end
+
 --- Check if health hazards are enabled.
 -- @return boolean  true if enabled (default false)
 function PCP_Sandbox.isHealthHazardsEnabled()
