@@ -82,7 +82,7 @@ PCP_PuritySystem.VARIANCE = 5
 --- Check if the impurity system is enabled (master toggle).
 ---@return boolean
 function PCP_PuritySystem.isEnabled()
-    return PhobosLib.getSandboxVar("PCP", "EnableImpuritySystem", false) == true
+    return PhobosLib.getSandboxVar("PCP", "EnableImpuritySystem", true) == true
 end
 
 --- Get the severity setting (1=Mild, 2=Standard, 3=Harsh).
@@ -130,7 +130,7 @@ function PCP_PuritySystem.setPurity(item, value)
         local maxCond = item:getConditionMax()
         if maxCond and maxCond > 0 then
             local scaledValue = math.floor(value / 100 * maxCond + 0.5)
-            scaledValue = math.max(0, math.min(maxCond, scaledValue))
+            scaledValue = math.max(0, math.min(maxCond - 1, scaledValue))
             item:setCondition(scaledValue)
             pcall(sendItemStats, item)  -- sync to client for immediate UI refresh
         end
@@ -146,41 +146,35 @@ function PCP_PuritySystem.getTierInfo(value)
 end
 
 --- Average purity across recipe input items via condition (normalised to 0-100%).
---- Items without ConditionMax are counted as DEFAULT.
+--- Only counts stamped items (condition < conditionMax). Vanilla/unstamped items
+--- are excluded to prevent diluting PCP reagent purities upward.
+--- Delegates to PhobosLib.averageStampedQuality().
 ---@param items any  Java ArrayList from OnCreate
 ---@return number
 function PCP_PuritySystem.averageInputPurity(items)
-    if not items then return PCP_PuritySystem.DEFAULT end
-    local total = 0
-    local count = 0
-    local ok, _ = pcall(function()
-        for i = 0, items:size() - 1 do
-            local item = items:get(i)
-            if item then
-                local maxCond = item:getConditionMax()
-                if maxCond and maxCond > 0 then
-                    total = total + math.floor(item:getCondition() / maxCond * 100 + 0.5)
-                    count = count + 1
-                else
-                    -- Item has no ConditionMax; count as default
-                    total = total + PCP_PuritySystem.DEFAULT
-                    count = count + 1
-                end
-            end
-        end
-    end)
-    if count == 0 then return PCP_PuritySystem.DEFAULT end
-    return total / count
+    return PhobosLib.averageStampedQuality(items, PCP_PuritySystem.DEFAULT)
 end
 
---- Calculate output purity with severity-adjusted equipment factor.
+--- Get the skill bonus for a player based on sandbox SkillPurityInfluence setting.
+--- Reads the divisor from the sandbox option and delegates to PhobosLib.
+---@param player any  IsoPlayer
+---@return number     Skill bonus (0 at None/low skill, up to +10 at High/max skill)
+function PCP_PuritySystem.getSkillBonus(player)
+    local divisor = PCP_Sandbox.getSkillPurityDivisor()
+    if divisor == 0 then return 0 end  -- "None" setting
+    return PhobosLib.getSkillBonus(player, Perks.AppliedChemistry, divisor)
+end
+
+--- Calculate output purity with severity-adjusted equipment factor and skill bonus.
 ---@param inputPurity number  Average input purity
 ---@param equipFactor number  Base equipment factor (from EQUIP_FACTORS)
+---@param player any          IsoPlayer (for skill bonus)
 ---@return number             Output purity (0-100)
-function PCP_PuritySystem.calculateOutputPurity(inputPurity, equipFactor)
+function PCP_PuritySystem.calculateOutputPurity(inputPurity, equipFactor, player)
     local severity = PCP_PuritySystem.getSeverity()
     local adjusted = PhobosLib.adjustFactorBySeverity(equipFactor, severity)
-    return PhobosLib.calculateOutputQuality(inputPurity, adjusted, PCP_PuritySystem.VARIANCE)
+    local bonus = PCP_PuritySystem.getSkillBonus(player)
+    return PhobosLib.calculateOutputQuality(inputPurity, adjusted, PCP_PuritySystem.VARIANCE, bonus)
 end
 
 --- Generate random base purity for source recipes.
@@ -189,6 +183,18 @@ end
 ---@return number
 function PCP_PuritySystem.randomBasePurity(min, max)
     return PhobosLib.randomBaseQuality(min, max)
+end
+
+--- Skill-aware random base purity for source recipes.
+--- Reads the sandbox divisor and delegates to PhobosLib.
+---@param min number
+---@param max number
+---@param player any  IsoPlayer (for skill bonus)
+---@return number
+function PCP_PuritySystem.randomBasePurityWithSkill(min, max, player)
+    local divisor = PCP_Sandbox.getSkillPurityDivisor()
+    if divisor == 0 then return PhobosLib.randomBaseQuality(min, max) end
+    return PhobosLib.randomBaseQualityWithSkill(min, max, player, Perks.AppliedChemistry, divisor)
 end
 
 --- Announce purity via speech bubble (if enabled).

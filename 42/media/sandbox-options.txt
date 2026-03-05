@@ -36,7 +36,7 @@ option PCP.RequireHeatSources
 
 option PCP.EnableImpuritySystem
 {
-	type = boolean, default = false,
+	type = boolean, default = true,
 	page = PCP_Sandbox, translation = PCP_EnableImpuritySystem,
 }
 
@@ -44,6 +44,12 @@ option PCP.ImpuritySeverity
 {
 	type = enum, numValues = 3, default = 2,
 	page = PCP_Sandbox, translation = PCP_ImpuritySeverity,
+}
+
+option PCP.SkillPurityInfluence
+{
+	type = enum, numValues = 4, default = 3,
+	page = PCP_Sandbox, translation = PCP_SkillPurityInfluence,
 }
 
 option PCP.ShowPurityOnCraft
