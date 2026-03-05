@@ -38,9 +38,9 @@ local function showModal(msg, isOk)
     pcall(function()
         local header
         if isOk then
-            header = " <SIZE:medium> <RGB:0.3,0.8,0.3> PCP Reset Complete <RGB:1,1,1> "
+            header = " <SIZE:medium> <RGB:0.3,0.8,0.3> " .. getText("IGUI_PCP_Reset_CompleteHeader") .. " <RGB:1,1,1> "
         else
-            header = " <SIZE:medium> <RGB:1,0.3,0.3> PCP Reset Warning <RGB:1,1,1> "
+            header = " <SIZE:medium> <RGB:1,0.3,0.3> " .. getText("IGUI_PCP_Reset_WarningHeader") .. " <RGB:1,1,1> "
         end
 
         -- Replace newlines with <LINE> tags for ISModalRichText
@@ -50,7 +50,7 @@ local function showModal(msg, isOk)
             .. " <LINE> <LINE> <SIZE:small> "
             .. body
             .. " <LINE> <LINE> "
-            .. " <RGB:0.6,0.6,0.6> Check the console log (press ~ or F3) for full details. <RGB:1,1,1> "
+            .. " <RGB:0.6,0.6,0.6> " .. getText("IGUI_PCP_Reset_ConsoleHint") .. " <RGB:1,1,1> "
 
         local modal = ISModalRichText:new(
             getCore():getScreenWidth() / 2 - 280,
@@ -93,7 +93,7 @@ local function onServerCommand(module, command, args)
     if module ~= "PCP" or command ~= "resetResult" then return end
     if not args then return end
 
-    local msg = args.msg or "Reset operation completed."
+    local msg = args.msg or getText("IGUI_PCP_Reset_DefaultMessage")
     local isOk = (args.status == "ok")
 
     -- Always show modal for reset results
@@ -106,7 +106,7 @@ local function onServerCommand(module, command, args)
             player = getSpecificPlayer(0)
         end)
         if player then
-            showHaloText(player, "[PCP] Reset complete!")
+            showHaloText(player, getText("IGUI_PCP_Reset_HaloText"))
         end
     end
 end

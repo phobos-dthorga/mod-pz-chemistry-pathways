@@ -47,32 +47,27 @@ local function buildChangelogContent(lastSeenVersion)
     -- ════════════════════════════════════════════════════════════════ --
     -- Header
     -- ════════════════════════════════════════════════════════════════ --
-    t = t .. "<H1> <CENTRE> Phobos' Chemistry Pathways <LINE> "
-    t = t .. "<CENTRE> <SIZE:small> <RGB:0.55,0.65,0.85> Version " .. PCP_VERSION
-          .. "  |  March 2026 <LINE> <LINE> "
+    t = t .. "<H1> <CENTRE> " .. getText("IGUI_PCP_Changelog_Title") .. " <LINE> "
+    t = t .. "<CENTRE> <SIZE:small> <RGB:0.55,0.65,0.85> " .. getText("IGUI_PCP_Changelog_VersionPrefix")
+          .. " " .. PCP_VERSION .. "  |  " .. getText("IGUI_PCP_Changelog_VersionDate") .. " <LINE> <LINE> "
 
     -- ════════════════════════════════════════════════════════════════ --
     -- v1.0  ·  current release  (ZVV migration)
     -- ════════════════════════════════════════════════════════════════ --
     if isNewerThan("1.0", lastSeenVersion) then
     t = t .. "<LEFT> <SIZE:medium> <RGB:0.40,0.80,1.00> "
-    t = t .. "--- v1.0  ( You are here ) "
-    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  Mar 2026 <LINE> <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_0_Marker") .. " "
+    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  " .. getText("IGUI_PCP_Changelog_V1_0_Date") .. " <LINE> <LINE> "
 
     t = t .. "<SIZE:small> <RGB:1.00,0.40,0.40> "
-    t = t .. "> BREAKING: Dependency changed to Zombie Virus Vaccine <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_0_BreakingTitle") .. " <LINE> "
     t = t .. "<RGB:0.88,0.88,0.88> "
-    t = t .. "PCP now requires Zombie Virus Vaccine (ZVV) instead of "
-    t = t .. "zReVaccin 3. All lab equipment references have been updated. "
-    t = t .. "You can unsubscribe from zReVaccin 3 after this update. <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_0_BreakingBody") .. " <LINE> "
     t = t .. "<LINE> "
 
-    t = t .. "<RGB:1.00,0.75,0.20> > Automatic Save Migration <LINE> "
+    t = t .. "<RGB:1.00,0.75,0.20> " .. getText("IGUI_PCP_Changelog_V1_0_MigrationTitle") .. " <LINE> "
     t = t .. "<RGB:0.88,0.88,0.88> "
-    t = t .. "Existing saves automatically convert any orphaned zReVaccin "
-    t = t .. "lab items (flasks, NaOH bags, H2SO4 cans, corks, gloves) "
-    t = t .. "to their ZVV or vanilla equivalents. Condition and fluid "
-    t = t .. "contents are preserved. <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_0_MigrationBody") .. " <LINE> "
     t = t .. "<LINE> "
     end
 
@@ -81,15 +76,13 @@ local function buildChangelogContent(lastSeenVersion)
     -- ════════════════════════════════════════════════════════════════ --
     if isNewerThan("0.26", lastSeenVersion) then
     t = t .. "<LEFT> <SIZE:medium> <RGB:0.45,0.70,0.90> "
-    t = t .. "--- v0.26 "
-    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  Mar 2026 <LINE> <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_26_Marker") .. " "
+    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  " .. getText("IGUI_PCP_Changelog_V0_26_Date") .. " <LINE> <LINE> "
 
     t = t .. "<SIZE:small> <RGB:1.00,0.75,0.20> "
-    t = t .. "> Heat Gating Fix + Empty Container Fix <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_26_Title") .. " <LINE> "
     t = t .. "<RGB:0.88,0.88,0.88> "
-    t = t .. "23 hotFluidContainer recipes fixed: heat check now tests "
-    t = t .. "the correct vessel (the pot on the stove, not the water source). "
-    t = t .. "Empty FluidContainers no longer show (Worn) after draining. <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_26_Body") .. " <LINE> "
     t = t .. "<LINE> "
     end
 
@@ -98,20 +91,18 @@ local function buildChangelogContent(lastSeenVersion)
     -- ════════════════════════════════════════════════════════════════ --
     if isNewerThan("0.25", lastSeenVersion) then
     t = t .. "<LEFT> <SIZE:medium> <RGB:0.45,0.65,0.85> "
-    t = t .. "--- v0.25 "
-    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  Mar 2026 <LINE> <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_25_Marker") .. " "
+    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  " .. getText("IGUI_PCP_Changelog_V0_25_Date") .. " <LINE> <LINE> "
 
     t = t .. "<SIZE:small> <RGB:1.00,0.75,0.20> "
-    t = t .. "> Salt Extraction Pathway + B42 Fluid Syntax <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_25_Title") .. " <LINE> "
     t = t .. "<RGB:0.88,0.88,0.88> "
-    t = t .. "6 new recipes: collect brine from water wells, concentrate, "
-    t = t .. "crystallize, and purify into table salt. All 133 FluidContainer "
-    t = t .. "recipe inputs converted to B42 native fluid syntax. <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_25_Body") .. " <LINE> "
     t = t .. "<LINE> "
 
     t = t .. "<RGB:0.80,0.80,0.80> "
-    t = t .. "4 new items, 1 new fluid (Brine), 204 recipes total <LINE> "
-    t = t .. "Entity rebinding for pre-existing workstations <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_25_Stats1") .. " <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_25_Stats2") .. " <LINE> "
     t = t .. "<LINE> "
     end
 
@@ -120,23 +111,18 @@ local function buildChangelogContent(lastSeenVersion)
     -- ════════════════════════════════════════════════════════════════ --
     if isNewerThan("0.24", lastSeenVersion) then
     t = t .. "<LEFT> <SIZE:medium> <RGB:0.45,0.65,0.75> "
-    t = t .. "--- v0.24 "
-    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  Feb 2026 <LINE> <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_24_Marker") .. " "
+    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  " .. getText("IGUI_PCP_Changelog_V0_24_Date") .. " <LINE> <LINE> "
 
     t = t .. "<SIZE:small> <RGB:1.00,0.75,0.20> "
-    t = t .. "> Welcome Guide + Changelog Popups <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_24_Title") .. " <LINE> "
     t = t .. "<RGB:0.88,0.88,0.88> "
-    t = t .. "New players now see a Quick Guide introducing PCP's mechanics, "
-    t = t .. "crafting tiers, and purity system on first game start. "
-    t = t .. "Returning players see this What's New window after each "
-    t = t .. "minor or major version update. Both popups are powered "
-    t = t .. "by a new generic PhobosLib popup system. <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_24_Body") .. " <LINE> "
     t = t .. "<LINE> "
 
-    t = t .. "<RGB:1.00,0.75,0.20> > Bug Fix: Mixer Item IDs + Input Ordering <LINE> "
+    t = t .. "<RGB:1.00,0.75,0.20> " .. getText("IGUI_PCP_Changelog_V0_24_BugTitle") .. " <LINE> "
     t = t .. "<RGB:0.88,0.88,0.88> "
-    t = t .. "Fixed invalid item references and input ordering in mixer "
-    t = t .. "recipes that caused Java exceptions at world load. <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_24_BugBody") .. " <LINE> "
     t = t .. "<LINE> "
     end
 
@@ -145,26 +131,20 @@ local function buildChangelogContent(lastSeenVersion)
     -- ════════════════════════════════════════════════════════════════ --
     if isNewerThan("0.23", lastSeenVersion) then
     t = t .. "<LEFT> <SIZE:medium> <RGB:0.45,0.70,0.90> "
-    t = t .. "--- v0.23 "
-    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  Feb 2026 <LINE> <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_23_Marker") .. " "
+    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  " .. getText("IGUI_PCP_Changelog_V0_23_Date") .. " <LINE> <LINE> "
 
     t = t .. "<SIZE:small> <RGB:1.00,0.75,0.20> "
-    t = t .. "> Functional Concrete Mixer <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_23_Title") .. " <LINE> "
     t = t .. "<RGB:0.88,0.88,0.88> "
-    t = t .. "The decorative concrete mixer is now a powered CraftBench "
-    t = t .. "workstation requiring electricity (generator or grid power). "
-    t = t .. "13 new recipes: 6 construction mixes (concrete, clay cement, "
-    t = t .. "mortar, stucco, reinforced concrete, fireclay) and 6 bulk "
-    t = t .. "chemistry alternatives (blackpowder, biodiesel, soap, compost, "
-    t = t .. "plaster, wood vinegar) at lower purity than lab synthesis. "
-    t = t .. "Build your own mixer with Metalworking 4. <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_23_Body") .. " <LINE> "
     t = t .. "<LINE> "
 
     t = t .. "<RGB:0.80,0.80,0.80> "
-    t = t .. "4 new items: MortarMix, StuccoMix, ReinforcedConcrete, Fireclay <LINE> "
-    t = t .. "3 new sandbox options for mixer configuration <LINE> "
-    t = t .. "New crafting category: Industrial Chemistry <LINE> "
-    t = t .. "Generator fuel drain proportional to recipe duration <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_23_Stats1") .. " <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_23_Stats2") .. " <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_23_Stats3") .. " <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_23_Stats4") .. " <LINE> "
     t = t .. "<LINE> "
     end
 
@@ -173,21 +153,18 @@ local function buildChangelogContent(lastSeenVersion)
     -- ════════════════════════════════════════════════════════════════ --
     if isNewerThan("0.22", lastSeenVersion) then
     t = t .. "<SIZE:medium> <RGB:0.45,0.65,0.75> "
-    t = t .. "--- v0.22 "
-    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  Feb 2026 <LINE> <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_22_Marker") .. " "
+    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  " .. getText("IGUI_PCP_Changelog_V0_22_Date") .. " <LINE> <LINE> "
 
     t = t .. "<SIZE:small> <RGB:1.00,0.75,0.20> "
-    t = t .. "> Wave 1+2 Recipes + Agriculture Pathways <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_22_Title") .. " <LINE> "
     t = t .. "<RGB:0.88,0.88,0.88> "
-    t = t .. "Major content expansion: agriculture recipes (composting, "
-    t = t .. "wood vinegar distillation, chemical tanning, farming sprays), "
-    t = t .. "water purification, fire-starting reagents, leather tanning. "
-    t = t .. "New hazard/DT fixes, farming spray integration. <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_22_Body") .. " <LINE> "
     t = t .. "<LINE> "
 
     t = t .. "<RGB:0.80,0.80,0.80> "
-    t = t .. "185 recipes, 39 items, 13 sandbox options <LINE> "
-    t = t .. "PhobosLib tooltip nil guards and farming spray module <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_22_Stats1") .. " <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_22_Stats2") .. " <LINE> "
     t = t .. "<LINE> "
     end
 
@@ -196,14 +173,14 @@ local function buildChangelogContent(lastSeenVersion)
     -- ════════════════════════════════════════════════════════════════ --
     if isNewerThan("0.21", lastSeenVersion) then
     t = t .. "<SIZE:medium> <RGB:0.40,0.55,0.60> "
-    t = t .. "--- v0.21 "
-    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  Feb 2026 <LINE> <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_21_Marker") .. " "
+    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  " .. getText("IGUI_PCP_Changelog_V0_21_Date") .. " <LINE> <LINE> "
 
     t = t .. "<SIZE:small> <RGB:0.80,0.80,0.80> "
-    t = t .. "Dynamic Trading multi-vendor integration <LINE> "
-    t = t .. "Vessel replacement system for empty FluidContainers <LINE> "
-    t = t .. "LazyStamp system for container-opening purity stamping <LINE> "
-    t = t .. "Purity tooltip with quality tier display <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_21_Stats1") .. " <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_21_Stats2") .. " <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_21_Stats3") .. " <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_21_Stats4") .. " <LINE> "
     t = t .. "<LINE> "
     end
 
@@ -212,12 +189,12 @@ local function buildChangelogContent(lastSeenVersion)
     -- ════════════════════════════════════════════════════════════════ --
     if isNewerThan("0.20", lastSeenVersion) then
     t = t .. "<SIZE:medium> <RGB:0.38,0.50,0.55> "
-    t = t .. "--- v0.20 "
-    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  Feb 2026 <LINE> <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_20_Marker") .. " "
+    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  " .. getText("IGUI_PCP_Changelog_V0_20_Date") .. " <LINE> <LINE> "
 
     t = t .. "<SIZE:small> <RGB:0.72,0.72,0.72> "
-    t = t .. "FluidContainer rescale migration (ConditionMax 10 -> 100) <LINE> "
-    t = t .. "Purity = item condition system overhaul <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_20_Stats1") .. " <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V0_20_Stats2") .. " <LINE> "
     t = t .. "<LINE> "
     end
 
@@ -226,13 +203,13 @@ local function buildChangelogContent(lastSeenVersion)
     -- ════════════════════════════════════════════════════════════════ --
     if isNewerThan("0.19", lastSeenVersion) then
     t = t .. "<SIZE:medium> <RGB:0.35,0.45,0.50> "
-    t = t .. "--- Earlier versions "
+    t = t .. getText("IGUI_PCP_Changelog_Earlier_Marker") .. " "
     t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85> <LINE> <LINE> "
 
     t = t .. "<SIZE:small> <RGB:0.58,0.58,0.58> "
-    t = t .. "v0.19: Consolidated migration framework <LINE> "
-    t = t .. "v0.18: First migration system, recipe filter hooks <LINE> "
-    t = t .. "v0.17 and earlier: Core chemistry pathways, item definitions <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_Earlier_Stats1") .. " <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_Earlier_Stats2") .. " <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_Earlier_Stats3") .. " <LINE> "
     t = t .. "<LINE> "
     end
 
@@ -240,8 +217,8 @@ local function buildChangelogContent(lastSeenVersion)
     -- Footer
     -- ════════════════════════════════════════════════════════════════ --
     t = t .. "<CENTRE> <SIZE:small> <RGB:0.40,0.40,0.40> "
-    t = t .. "Workshop: search  Phobos Chemistry Pathways  <LINE> "
-    t = t .. "Bug reports and feedback welcome in the Workshop comments. <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_FooterWorkshop") .. " <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_FooterFeedback") .. " <LINE> "
     t = t .. "<LINE> "
 
     return t

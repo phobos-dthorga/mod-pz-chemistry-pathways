@@ -54,24 +54,23 @@ local function showModal()
     local lines = {}
 
     if anyFail then
-        table.insert(lines, " <SIZE:medium> <RGB:1,0.3,0.3> PCP Migration Warning <RGB:1,1,1> <LINE> ")
+        table.insert(lines, " <SIZE:medium> <RGB:1,0.3,0.3> " .. getText("IGUI_PCP_Migrate_WarningHeader") .. " <RGB:1,1,1> <LINE> ")
     else
-        table.insert(lines, " <SIZE:medium> <RGB:0.3,1,0.3> PCP Migration Complete <RGB:1,1,1> <LINE> ")
+        table.insert(lines, " <SIZE:medium> <RGB:0.3,1,0.3> " .. getText("IGUI_PCP_Migrate_CompleteHeader") .. " <RGB:1,1,1> <LINE> ")
     end
 
     table.insert(lines, " <LINE> ")
 
     for _, r in ipairs(results) do
         local icon = (r.status == "ok") and "<RGB:0.3,1,0.3> [OK] " or "<RGB:1,0.3,0.3> [FAIL] "
-        table.insert(lines, " " .. icon .. "<RGB:1,1,1> " .. (r.msg or "Migration completed.") .. " <LINE> ")
+        table.insert(lines, " " .. icon .. "<RGB:1,1,1> " .. (r.msg or getText("IGUI_PCP_Migrate_DefaultMessage")) .. " <LINE> ")
     end
 
     table.insert(lines, " <LINE> <SIZE:small> ")
     if anyFail then
-        table.insert(lines, "One or more migrations did not complete as expected. ")
-        table.insert(lines, "Your save is not corrupted. Check the console log for details.")
+        table.insert(lines, getText("IGUI_PCP_Migrate_WarningFooter"))
     else
-        table.insert(lines, "All migrations completed successfully. Enjoy your game!")
+        table.insert(lines, getText("IGUI_PCP_Migrate_SuccessFooter"))
     end
 
     local text = table.concat(lines)
@@ -116,7 +115,7 @@ local function onServerCommand(module, command, args)
     if module ~= "PCP" or command ~= "migrateResult" then return end
     if not args then return end
 
-    local msg    = args.msg    or "Migration completed."
+    local msg    = args.msg    or getText("IGUI_PCP_Migrate_DefaultMessage")
     local label  = args.label  or "migration"
     local status = args.status or "fail"
 
