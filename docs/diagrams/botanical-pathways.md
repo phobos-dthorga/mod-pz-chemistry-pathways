@@ -17,7 +17,7 @@
 
 # Botanical & Horticulture Pathways
 
-PhobosChemistryPathways adds a botanical hemp processing pathway with 31 recipes across 4 crafting tiers (Field, Kitchen, Lab, Mixer), plus 31 horticulture items for tobacco, hemp buds, papermaking tools, smoking, and cooking. Hemp stalks from vanilla farming or foraging feed the entire chain, with cross-pathway links to the main chemistry chart via KOH/NaOH (retting), wood tar (tarring), calcite (hempcrete), and charcoal (hurd processing).
+PhobosChemistryPathways adds a botanical hemp processing pathway across 4 crafting tiers (Field, Kitchen, Lab, Mixer) plus vanilla station integration (Scutching Board, Looms, Hand Press), along with 31 horticulture items for tobacco, hemp buds, papermaking tools, smoking, and cooking. Hemp stalks from vanilla farming or foraging feed the entire chain, with cross-pathway links to the main chemistry chart via KOH/NaOH (retting), wood tar (tarring), calcite (hempcrete), and charcoal (hurd processing). The hemp expansion adds 6 new items (Seed Press Cake, Hemp Sack, Oakum, Hemp Fishing Net, Hemp Sheet Rope, Hemp Snare) and end-product branches for fishing, trapping, and construction.
 
 This is a companion diagram to the [main recipe overview](recipe-pathways.md), kept separate for readability.
 
@@ -28,6 +28,8 @@ graph TB
     %% ═══ RAW INPUTS ═══
     subgraph IN["Raw Inputs"]
         HEMP["Hemp Stalks<br/>(HempBroken)<br/>farming / foraging"]
+        HEMPDRIED["HempBundleDried<br/>(Base.HempBundleDried)"]
+        SEEDPASTE["SeedPaste<br/>(Base.SeedPaste)"]
         HERBS["Herbs / Plantain<br/>(vanilla)"]
         ALCOHOL["AlcoholBandage<br/>Disinfectant / Whiskey"]
     end
@@ -48,6 +50,14 @@ graph TB
     RETTED -->|"extract + water<br/>(2 heat variants)"| BAST["HempBastFiber ×3"]
     RETTED --> HURD["HempHurd ×2"]
 
+    %% ═══ SCUTCHING BOARD ROUTE ═══
+    HEMPDRIED -->|"PCPScutchHempFiber<br/>(Scutching Board)"| BAST
+    HEMPDRIED -->|"PCPScutchHempFiber<br/>(Scutching Board)"| HURD
+
+    %% ═══ HAND PRESS ROUTE ═══
+    SEEDPASTE -->|"PCPPressOilHandPress<br/>(Hand Press)"| CRUDEOIL["CrudeVegetableOil"]
+    SEEDPASTE -->|"PCPPressOilHandPress<br/>(Hand Press)"| PRESSCAKE["SeedPressCake"]
+
     %% ═══ BAST FIBER CHAINS ═══
     %% Textile chain
     BAST -->|"spin"| TWINE["HempTwine"]
@@ -58,8 +68,19 @@ graph TB
     CALCITE -.-> REINFORCED
 
     BAST -->|"weave ×4"| CLOTH["HempCloth"]
-    CLOTH -->|"layer ×2"| CANVAS["HempCanvas"]
+    BAST -->|"PCPWeaveHempClothLoom<br/>(Loom)"| CLOTH
+    BAST -->|"PCPWeaveHempCanvasLoom<br/>(Loom)"| CANVAS["HempCanvas"]
+    CLOTH -->|"layer ×2"| CANVAS
     CLOTH -->|"+ disinfectant<br/>(2 variants)"| BANDAGE["Bandage ×2<br/>(sterilised)"]
+
+    %% End-product branches
+    TWINE -->|"craft"| FISHNET["HempFishingNet"]
+    TWINE -->|"craft"| SNARE["HempSnare"]
+    ROPE -->|"+ HempCloth"| SHEETROPE["HempSheetRope"]
+    CLOTH -.-> SHEETROPE
+    CANVAS -->|"sew"| SACK["HempSack"]
+    BAST -->|"+ WoodTar"| OAKUM["Oakum"]
+    WOODTAR -.-> OAKUM
 
     %% Paper chain
     BAST -->|"boil + water<br/>(2 variants)"| PULP["HempPulp"]
@@ -81,6 +102,10 @@ graph TB
     HURD -->|"+ water"| COMPOST["DilutedCompost<br/>(→ KNO3)"]
     HURD -->|"+ twine"| FIRE["DryFirestarterBlock ×2"]
     TWINE --> FIRE
+
+    %% ═══ SEED PRESS CAKE CHAINS ═══
+    PRESSCAKE -->|"+ water"| COMPOST
+    PRESSCAKE -->|"bag"| COMPOSTBAG["CompostBag"]
 
     %% ═══ HORTICULTURE ═══
     subgraph HORT["Horticulture"]
@@ -104,18 +129,28 @@ graph TB
     style TINCTURE fill:#684,color:#fff
     style XREF fill:#446,color:#fff
     style REINFORCED fill:#668,color:#fff
+    style FISHNET fill:#486,color:#fff
+    style SNARE fill:#486,color:#fff
+    style SHEETROPE fill:#48c,color:#fff
+    style SACK fill:#486,color:#fff
+    style OAKUM fill:#864,color:#fff
+    style CRUDEOIL fill:#c84,color:#fff
+    style PRESSCAKE fill:#c84,color:#fff
+    style COMPOSTBAG fill:#c84,color:#fff
     style HORT fill:#555,color:#fff
 ```
 
 ## Legend
 
 - **Red** -- Cross-pathway output: CrushedCharcoal (feeds back into blackpowder pathway)
-- **Orange** -- Cross-pathway output: DilutedCompost (feeds back into KNO3 synthesis)
-- **Blue** -- Textile output: TarredHempRope (waterproofed with wood tar from biodiesel by-products; tagged `base:rope` + fire fuel; feeds into reinforced hempcrete)
+- **Orange** -- Cross-pathway output: DilutedCompost (feeds back into KNO3 synthesis); also CrudeVegetableOil, SeedPressCake, and CompostBag from Hand Press route
+- **Blue** -- Textile output: TarredHempRope (waterproofed with wood tar; tagged `base:rope` + fire fuel; feeds into reinforced hempcrete); also HempSheetRope
 - **Green** -- Medical output: Sterilised bandages (from hemp cloth + disinfectant)
 - **Purple** -- Paper output: HempPaper (for papermaking and rolling papers)
 - **Dark green** -- Medicinal outputs: HempPoultice and HempTincture
 - **Steel blue** -- Construction output: HempcreteBlock (hemp hurds + calcite, mixer recipe)
+- **Teal** -- End-product outputs: HempFishingNet, HempSnare, HempSack (from textile branches)
+- **Brown** -- Oakum (bast fiber + wood tar, used as reinforcement)
 - **Dark blue** -- Cross-pathway inputs from the main chemistry chart (KOH, NaOH, WoodTar, Calcite)
 - **Dotted lines** -- Cross-pathway links
 

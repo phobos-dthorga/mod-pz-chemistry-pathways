@@ -159,6 +159,41 @@ local function registerPCPSpecimens()
                 ["PhobosChemistryPathways.HempPoultice"]           = xp(18, 15),
                 ["PhobosChemistryPathways.HempTincture"]           = xp(25, 20),
                 ["PhobosChemistryPathways.HempcreteBlock"]         = xp(20, 15),
+
+                -- Hemp expansion — end products
+                ["PhobosChemistryPathways.SeedPressCake"]        = xp(8, 6),
+                ["PhobosChemistryPathways.Oakum"]                = xp(15, 12),
+                ["PhobosChemistryPathways.HempSack"]             = xp(12, 10),
+                ["PhobosChemistryPathways.HempFishingNet"]       = xp(12, 10),
+                ["PhobosChemistryPathways.HempSheetRope"]        = xp(10, 8),
+                ["PhobosChemistryPathways.HempSnare"]            = xp(10, 8),
+
+                -- Horticulture pathway — tobacco
+                ["PhobosChemistryPathways.TobaccoWet"]           = xp(8, 6),
+                ["PhobosChemistryPathways.ChewingTobaccoTin"]    = xp(12, 10),
+                ["PhobosChemistryPathways.ChewingTobaccoJar"]    = xp(12, 10),
+
+                -- Horticulture pathway — hemp buds & smoking
+                ["PhobosChemistryPathways.HempBuds"]             = xp(10, 8),
+                ["PhobosChemistryPathways.HempBudsCured"]        = xp(15, 12),
+                ["PhobosChemistryPathways.HempBudsDecarbed"]     = xp(18, 15),
+                ["PhobosChemistryPathways.HempLoose"]            = xp(10, 8),
+                ["PhobosChemistryPathways.CigarHemp"]            = xp(10, 8),
+                ["PhobosChemistryPathways.CigarRolled"]          = xp(10, 8),
+                ["PhobosChemistryPathways.SmokingPipeGlass"]     = xp(15, 12),
+
+                -- Horticulture pathway — papermaking & cooking
+                ["PhobosChemistryPathways.MouldAndDeckle"]       = xp(12, 10),
+                ["PhobosChemistryPathways.RollingPapers"]        = xp(8, 6),
+                ["PhobosChemistryPathways.PaperPulpPot"]         = xp(12, 10),
+                ["PhobosChemistryPathways.SimpleSugarSyrup"]     = xp(10, 8),
+
+                -- Salt pathway
+                ["PhobosChemistryPathways.BrineConcentrate"]     = xp(15, 12),
+                ["PhobosChemistryPathways.CoarseSalt"]           = xp(20, 15),
+
+                -- Intermediates
+                ["PhobosChemistryPathways.BoneMeal"]             = xp(12, 10),
             },
 
             -------------------------------------------------------
@@ -181,7 +216,7 @@ local function registerPCPSpecimens()
     end)
 
     if success then
-        print("[PCP] ZScienceSkill: 52 items + 8 fluids registered [" .. (isServer() and "server" or "local") .. "]")
+        print("[PCP] ZScienceSkill: 78 items + 8 fluids registered [" .. (isServer() and "server" or "local") .. "]")
     else
         print("[PCP] ZScienceSkill: registration failed — " .. tostring(err))
     end

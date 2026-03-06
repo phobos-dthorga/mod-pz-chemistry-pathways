@@ -2,6 +2,8 @@ graph TB
     %% ═══ RAW INPUTS ═══
     subgraph IN["Raw Inputs"]
         HEMP["Hemp Stalks<br/>(HempBroken)<br/>farming / foraging"]
+        HEMPDRIED["HempBundleDried<br/>(Base.HempBundleDried)"]
+        SEEDPASTE["SeedPaste<br/>(Base.SeedPaste)"]
         HERBS["Herbs / Plantain<br/>(vanilla)"]
         ALCOHOL["AlcoholBandage<br/>Disinfectant / Whiskey"]
     end
@@ -22,6 +24,14 @@ graph TB
     RETTED -->|"extract + water<br/>(2 heat variants)"| BAST["HempBastFiber ×3"]
     RETTED --> HURD["HempHurd ×2"]
 
+    %% ═══ SCUTCHING BOARD ROUTE ═══
+    HEMPDRIED -->|"PCPScutchHempFiber<br/>(Scutching Board)"| BAST
+    HEMPDRIED -->|"PCPScutchHempFiber<br/>(Scutching Board)"| HURD
+
+    %% ═══ HAND PRESS ROUTE ═══
+    SEEDPASTE -->|"PCPPressOilHandPress<br/>(Hand Press)"| CRUDEOIL["CrudeVegetableOil"]
+    SEEDPASTE -->|"PCPPressOilHandPress<br/>(Hand Press)"| PRESSCAKE["SeedPressCake"]
+
     %% ═══ BAST FIBER CHAINS ═══
     %% Textile chain
     BAST -->|"spin"| TWINE["HempTwine"]
@@ -32,8 +42,19 @@ graph TB
     CALCITE -.-> REINFORCED
 
     BAST -->|"weave ×4"| CLOTH["HempCloth"]
-    CLOTH -->|"layer ×2"| CANVAS["HempCanvas"]
+    BAST -->|"PCPWeaveHempClothLoom<br/>(Loom)"| CLOTH
+    BAST -->|"PCPWeaveHempCanvasLoom<br/>(Loom)"| CANVAS["HempCanvas"]
+    CLOTH -->|"layer ×2"| CANVAS
     CLOTH -->|"+ disinfectant<br/>(2 variants)"| BANDAGE["Bandage ×2<br/>(sterilised)"]
+
+    %% End-product branches
+    TWINE -->|"craft"| FISHNET["HempFishingNet"]
+    TWINE -->|"craft"| SNARE["HempSnare"]
+    ROPE -->|"+ HempCloth"| SHEETROPE["HempSheetRope"]
+    CLOTH -.-> SHEETROPE
+    CANVAS -->|"sew"| SACK["HempSack"]
+    BAST -->|"+ WoodTar"| OAKUM["Oakum"]
+    WOODTAR -.-> OAKUM
 
     %% Paper chain
     BAST -->|"boil + water<br/>(2 variants)"| PULP["HempPulp"]
@@ -55,6 +76,10 @@ graph TB
     HURD -->|"+ water"| COMPOST["DilutedCompost<br/>(→ KNO3)"]
     HURD -->|"+ twine"| FIRE["DryFirestarterBlock ×2"]
     TWINE --> FIRE
+
+    %% ═══ SEED PRESS CAKE CHAINS ═══
+    PRESSCAKE -->|"+ water"| COMPOST
+    PRESSCAKE -->|"bag"| COMPOSTBAG["CompostBag"]
 
     %% ═══ HORTICULTURE ═══
     subgraph HORT["Horticulture"]
@@ -78,4 +103,12 @@ graph TB
     style TINCTURE fill:#684,color:#fff
     style XREF fill:#446,color:#fff
     style REINFORCED fill:#668,color:#fff
+    style FISHNET fill:#486,color:#fff
+    style SNARE fill:#486,color:#fff
+    style SHEETROPE fill:#48c,color:#fff
+    style SACK fill:#486,color:#fff
+    style OAKUM fill:#864,color:#fff
+    style CRUDEOIL fill:#c84,color:#fff
+    style PRESSCAKE fill:#c84,color:#fff
+    style COMPOSTBAG fill:#c84,color:#fff
     style HORT fill:#555,color:#fff

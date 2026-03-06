@@ -334,7 +334,7 @@ module Base
         Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
         timedAction = MixingChm,
         SkillRequired = AppliedChemistry:3,
-        xpAward = AppliedChemistry:20,
+        xpAward = AppliedChemistry:20;Doctor:5,
         AutoLearnAll = AppliedChemistry:5,
 
         inputs

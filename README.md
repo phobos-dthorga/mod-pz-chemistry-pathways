@@ -17,7 +17,7 @@
 
 # PhobosChemistryPathways
 
-**Version:** 1.2.0 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.16.0+ | [Zombie Virus Vaccine](https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168)
+**Version:** 1.3.0 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.16.0+ | [Zombie Virus Vaccine](https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168)
 
 > **Players:** Subscribe on [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3668197831) for easy installation. This GitHub repo is for source code, documentation, and development.
 >
@@ -34,7 +34,7 @@ This project is open-source, but the Steam Workshop upload is the official distr
 ## Features
 
 ### Applied Chemistry Skill System
-Custom `AppliedChemistry` perk under the Crafting parent with a steeper XP curve (75-9000). Two occupations (Chemist and Pharmacist) and two traits (Chemistry Enthusiast and Chemical Aversion) provide starting skill bonuses. Five skill book volumes cover levels 1-10, distributed in loot from common (Vol 1-2) to very rare (Vol 5). Six category recipe books (Field, Kitchen, Lab, Industrial, Horticulture, plus Complete Chemistry Compendium) unlock pathway-specific recipes. All 276 recipes award Applied Chemistry XP with 7 tiers of skill requirements.
+Custom `AppliedChemistry` perk under the Crafting parent with a steeper XP curve (75-9000). Two occupations (Chemist and Pharmacist) and two traits (Chemistry Enthusiast and Chemical Aversion) provide starting skill bonuses. Five skill book volumes cover levels 1-10, distributed in loot from common (Vol 1-2) to very rare (Vol 5). Six category recipe books (Field, Kitchen, Lab, Industrial, Horticulture, plus Complete Chemistry Compendium) unlock pathway-specific recipes. All ~310 recipes award Applied Chemistry XP with 7 tiers of skill requirements.
 
 ### Blackpowder Pathway
 Seven-step chain from raw charcoal to gunpowder: crush, purify (water or alkaline wash), prepare compost, extract battery acid, extract sulphur, synthesize potassium nitrate, and mix blackpowder.
@@ -55,7 +55,7 @@ Pyrolyse animal bones and skulls in metal drums to produce bone char, an alterna
 Collect brine from water wells via right-click context menu, concentrate through evaporation, crystallize into rock salt, and purify into table salt. Six-recipe chain using condition-based purity tracking. Uses PhobosLib_WorldAction for well interaction.
 
 ### Botanical Pathway
-Thirty-one recipes for hemp processing: chemical retting with KOH or NaOH, fiber/hurd splitting, then branching into textiles (twine, rope, tarred rope, cloth, canvas), papermaking (pulp, chemical pulping, paper sheets), medicinals (poultice, tincture), and hurd processing (charcoal, hempcrete blocks, compost, fire bundles). Reinforced hempcrete (H14b) embeds tarred rope for higher yield (3 blocks vs 2). HempRope and TarredHempRope are tagged `base:rope` for vanilla recipe substitution; TarredHempRope is also usable as campfire fuel. Cross-links to blackpowder (charcoal from hurds), biodiesel (wood tar for tarring), and construction (hempcrete via concrete mixer). Gated by `EnableBotanicalPathway` sandbox option.
+Thirty-one recipes for hemp processing: chemical retting with KOH or NaOH, fiber/hurd splitting, then branching into textiles (twine, rope, tarred rope, cloth, canvas), papermaking (pulp, chemical pulping, paper sheets), medicinals (poultice, tincture), and hurd processing (charcoal, hempcrete blocks, compost, fire bundles). Reinforced hempcrete (H14b) embeds tarred rope for higher yield (3 blocks vs 2). HempRope and TarredHempRope are tagged `base:rope` for vanilla recipe substitution; TarredHempRope is also usable as campfire fuel. Cross-links to blackpowder (charcoal from hurds), biodiesel (wood tar for tarring), and construction (hempcrete via concrete mixer). Vanilla station integration (Scutching Board, Looms, Hand Press) for fiber extraction, weaving, and oil pressing. Gated by `EnableBotanicalPathway` sandbox option.
 
 ### Horticulture Items
 Thirty-one items providing full parity with the [B42] Horticulture mod: tobacco (wet leaves with air-dry mechanic, chewing tobacco in 3 container types), hemp buds (fresh, cured, decarboxylated, canned variants, ground loose), papermaking tools (mould and deckle, rolling papers), smoking products (glass pipe, loaded pipes, cigars, cigarettes, packs), and cooking (sugar syrup). Dual-trigger migration system converts existing Horticulture mod items to PCP equivalents.
@@ -82,15 +82,15 @@ Welcome guide popup on first install explaining chemistry pathways, sandbox opti
 Empty PCP FluidContainers automatically revert to their vanilla vessel equivalents (mason jar + lid, bottle, bucket, gas can) when the player opens a container. Gated by `EnableVesselReplacement` sandbox option. MP-synced.
 
 ### Health Hazard System
-Optional hazard system for 11 dangerous chemistry recipes. Each splits into Protected (mask + goggles required, filter degrades) and Unprotected (risk of disease or stat penalties) variants. Integrates with EHR (Extensive Health Rework) when available, with vanilla stat fallback.
+Optional hazard system for 11 dangerous chemistry recipes. Each splits into Protected (mask + goggles required, filter degrades) and Unprotected (risk of disease or stat penalties) variants. Integrates with EHR (Extensive Health Rework) when available, with vanilla stat fallback. Mechanical hazard system (smoke inhalation and mineral dust) uses a light PPE tier where a dust mask is sufficient.
 
 ### Tiered Reset/Cleanup System
 Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" settings page for version upgrades and mod removal. Strip purity data, forget recipes, reset skill XP, remove all PCP items, or execute all four as a nuclear reset. Each option executes once on game load, then auto-resets to OFF with persistent notifications. Reset flags persist across game restarts via world modData.
 
 ### Cross-Mod Integration
-- **ZScienceSkill** ("Science, Bitch!"): When active, Applied Chemistry XP mirrors to Science at 50% rate, and 52 items + 8 fluids are registered as researchable microscope specimens.
+- **ZScienceSkill** ("Science, Bitch!"): When active, Applied Chemistry XP mirrors to Science at 50% rate, and 78 items + 8 fluids are registered as researchable microscope specimens.
 - **EHR** (Extensive Health Rework): When active, health hazard recipes dispatch EHR diseases instead of vanilla stat penalties.
-- **Dynamic Trading** (DynamicTradingCommon): When active, 59 PCP items are registered for NPC trading with a custom "Chemical" tag and "Chemist" trader archetype (with chemistry-themed dialogue) via PhobosLib_Trading. Chemical allocations injected into 8 existing DT archetypes.
+- **Dynamic Trading** (DynamicTradingCommon): When active, 65 PCP items are registered for NPC trading with a custom "Chemical" tag and "Chemist" trader archetype (with chemistry-themed dialogue) via PhobosLib_Trading. Chemical allocations injected into 8 existing DT archetypes.
 - **Neat Crafting**: When active, recipe visibility filters are applied through `NC_FilterBar:shouldIncludeRecipe()` in addition to vanilla UI hooks. Runtime-detected, no hard dependency.
 
 ## Requirements
@@ -130,9 +130,9 @@ Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" setting
 
 ## Content Summary
 
-- **276 recipes** across blackpowder, biodiesel, soap, bone char, salt extraction, recycling, agriculture, concrete mixer, botanical, horticulture, utility, and advanced lab pathways
-- **101 items** including chemical reagents, intermediates, container variants, gardening sprays, construction materials, salt products, botanical textiles, horticulture products, and smoking items
-- **59 tradeable items** registered with Dynamic Trading across 9 vendor archetypes
+- **~310 recipes** across blackpowder, biodiesel, soap, bone char, salt extraction, recycling, agriculture, concrete mixer, botanical, horticulture, utility, and advanced lab pathways
+- **107 items** including chemical reagents, intermediates, container variants, gardening sprays, construction materials, salt products, botanical textiles, horticulture products, and smoking items
+- **65 tradeable items** registered with Dynamic Trading across 9 vendor archetypes
 - **6 recipe books** (1 master compendium + 5 category-specific) teaching pathway-specific recipes
 - **5 skill books** covering Applied Chemistry levels 1-10
 - **2 occupations** (Chemist, Pharmacist) and **2 traits** (Chemistry Enthusiast, Chemical Aversion)
@@ -159,7 +159,7 @@ Visual guides for understanding recipe chains, sandbox settings, and mod archite
 - [Skill Progression](docs/diagrams/skill-progression.md) — Applied Chemistry skill tiers, XP curve, occupations, and traits
 - [Architecture & Dependencies](docs/diagrams/architecture.md) — Dependency graph, PhobosLib modules, and cross-mod integration
 
-See [docs/README.md](docs/README.md) for the full index.
+See [docs/README.md](docs/README.md) for the full index. See `docs/art-style-guidelines.md` for icon contribution guidelines.
 
 ## Verification Checklist
 
