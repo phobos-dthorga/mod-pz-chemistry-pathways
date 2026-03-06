@@ -1,0 +1,195 @@
+name: CI
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  lint-and-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Lua 5.1 and luacheck
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq lua5.1 luarocks > /dev/null
+          sudo luarocks install luacheck > /dev/null
+
+      - name: Lua syntax check
+        run: |
+          echo "Checking Lua syntax with luac5.1 -p ..."
+          FAIL=0
+          while IFS= read -r -d '' f; do
+            if ! luac5.1 -p "$f" 2>/dev/null; then
+              echo "::error file=$f::Lua syntax error"
+              FAIL=1
+            fi
+          done < <(find 42/media/lua -name '*.lua' -print0)
+          exit $FAIL
+
+      - name: Luacheck
+        run: luacheck 42/media/lua/
+
+      - name: Version consistency (4 locations)
+        run: |
+          V_ROOT=$(grep -oP 'modversion=\K[0-9]+\.[0-9]+\.[0-9]+' mod.info)
+          V_42=$(grep -oP 'modversion=\K[0-9]+\.[0-9]+\.[0-9]+' 42/mod.info)
+          V_CHANGELOG=$(grep -oP 'local PCP_VERSION\s*=\s*"\K[0-9]+\.[0-9]+\.[0-9]+' 42/media/lua/client/PCP_ChangelogPopup.lua)
+          V_MIGRATION=$(grep -oP 'local MOD_VERSION\s*=\s*"\K[0-9]+\.[0-9]+\.[0-9]+' 42/media/lua/server/PCP_MigrationSystem.lua)
+
+          echo "mod.info (root)       = $V_ROOT"
+          echo "42/mod.info           = $V_42"
+          echo "PCP_ChangelogPopup    = $V_CHANGELOG"
+          echo "PCP_MigrationSystem   = $V_MIGRATION"
+
+          FAIL=0
+          if [ "$V_ROOT" != "$V_42" ]; then
+            echo "::error::Version mismatch: mod.info=$V_ROOT vs 42/mod.info=$V_42"
+            FAIL=1
+          fi
+          if [ "$V_ROOT" != "$V_CHANGELOG" ]; then
+            echo "::error::Version mismatch: mod.info=$V_ROOT vs PCP_ChangelogPopup=$V_CHANGELOG"
+            FAIL=1
+          fi
+          if [ "$V_ROOT" != "$V_MIGRATION" ]; then
+            echo "::error::Version mismatch: mod.info=$V_ROOT vs PCP_MigrationSystem=$V_MIGRATION"
+            FAIL=1
+          fi
+          if [ "$FAIL" = "0" ]; then
+            echo "All 4 version locations match: $V_ROOT"
+          fi
+          exit $FAIL
+
+      - name: Sandbox translation completeness
+        run: |
+          python3 <<'PYEOF'
+          import re, sys
+
+          # Parse sandbox-options.txt
+          with open("42/media/sandbox-options.txt") as f:
+              opts_text = f.read()
+
+          # Parse Sandbox_EN.txt
+          with open("42/media/lua/shared/Translate/EN/Sandbox_EN.txt") as f:
+              trans_text = f.read()
+
+          fail = False
+
+          # Check translation keys (label + tooltip for each option)
+          # Also check enum option keys (numValues -> _option1.._optionN)
+          option_blocks = re.split(r'\n\s*(?=option\s)', opts_text)
+          for block in option_blocks:
+              trans_match = re.search(r'translation\s*=\s*(\w+)', block)
+              if not trans_match:
+                  continue
+              key = trans_match.group(1)
+              label_key = f"Sandbox_{key}"
+              tooltip_key = f"Sandbox_{key}_tooltip"
+              if label_key not in trans_text:
+                  print(f"::error::Missing translation key: {label_key}")
+                  fail = True
+              if tooltip_key not in trans_text:
+                  print(f"::error::Missing translation key: {tooltip_key}")
+                  fail = True
+
+              # Check enum option keys
+              num_match = re.search(r'numValues\s*=\s*(\d+)', block)
+              if num_match:
+                  num_values = int(num_match.group(1))
+                  for i in range(1, num_values + 1):
+                      option_key = f"Sandbox_{key}_option{i}"
+                      if option_key not in trans_text:
+                          print(f"::error::Missing enum translation key: {option_key}")
+                          fail = True
+
+          # Check page title keys
+          for m in re.finditer(r'page\s*=\s*(\w+)', opts_text):
+              page_key = f"Sandbox_{m.group(1)}"
+              if page_key not in trans_text:
+                  print(f"::error::Missing page title key: {page_key}")
+                  fail = True
+
+          if fail:
+              sys.exit(1)
+          print("All sandbox translation keys present.")
+          PYEOF
+
+      - name: Icon coverage
+        run: |
+          python3 <<'PYEOF'
+          import re, os, sys, glob
+
+          # Collect all Icon = PCP_* references from item scripts
+          script_files = glob.glob("42/media/scripts/*.txt")
+          pcp_icons = set()
+
+          for sf in script_files:
+              with open(sf) as f:
+                  for line in f:
+                      m = re.search(r'Icon\s*=\s*(PCP_\w+)', line)
+                      if m:
+                          pcp_icons.add(m.group(1))
+
+          # Check each PCP icon has a matching texture file
+          fail = False
+          for icon_name in sorted(pcp_icons):
+              texture_path = f"42/media/textures/Item_{icon_name}.png"
+              if not os.path.isfile(texture_path):
+                  print(f"::error::Missing texture for Icon={icon_name}: expected {texture_path}")
+                  fail = True
+
+          if fail:
+              sys.exit(1)
+          print(f"All {len(pcp_icons)} PCP icon(s) have matching textures.")
+          PYEOF
+
+      - name: OnCreate callback modules
+        run: |
+          python3 <<'PYEOF'
+          import re, os, sys, glob
+
+          # Collect all OnCreate = Module.func references from recipe scripts
+          script_files = glob.glob("42/media/scripts/*.txt")
+          modules = set()
+
+          for sf in script_files:
+              with open(sf) as f:
+                  for line in f:
+                      m = re.search(r'OnCreate\s*=\s*(\w+)\.\w+', line)
+                      if m:
+                          modules.add(m.group(1))
+
+          # Check each referenced module has a .lua file under 42/media/lua/
+          lua_files = set()
+          for root, dirs, files in os.walk("42/media/lua"):
+              for fn in files:
+                  if fn.endswith(".lua"):
+                      lua_files.add(fn[:-4])  # strip .lua extension
+
+          fail = False
+          for mod_name in sorted(modules):
+              if mod_name not in lua_files:
+                  print(f"::error::OnCreate references module '{mod_name}' but {mod_name}.lua not found under 42/media/lua/")
+                  fail = True
+
+          if fail:
+              sys.exit(1)
+          print(f"All {len(modules)} OnCreate module(s) resolved.")
+          PYEOF
+
+      - name: Encoding check (UTF-8)
+        run: |
+          FAIL=0
+          while IFS= read -r -d '' f; do
+            if ! python3 -c "open('$f', encoding='utf-8').read()" 2>/dev/null; then
+              echo "::error file=$f::Non-UTF-8 encoding detected"
+              FAIL=1
+            fi
+          done < <(find 42/media \( -name '*.lua' -o -name '*.txt' \) -print0)
+          if [ "$FAIL" = "0" ]; then
+            echo "All files are valid UTF-8."
+          fi
+          exit $FAIL
