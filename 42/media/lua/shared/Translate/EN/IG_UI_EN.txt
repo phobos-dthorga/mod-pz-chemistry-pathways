@@ -15,13 +15,6 @@
  */
 
 IGUI_EN = {
-	/* ===== Crafting Category ===== */
-	IGUI_CraftCategory_PhobosLabChem = "Phobos' Lab Chemistry",
-	IGUI_CraftCategory_PhobosKitchenChem = "Phobos' Kitchen Chemistry",
-	IGUI_CraftCategory_PhobosFieldChem = "Phobos' Field Chemistry",
-	IGUI_CraftCategory_PhobosIndustrialChem = "Phobos' Industrial Chemistry",
-	IGUI_CraftCategory_PhobosHorticulture = "Phobos' Horticulture",
-
 	/* ===== Workstation Display Names ===== */
 	IGUI_CraftingWindow_PCP_ConcreteMixer = "Concrete Mixer",
 	IGUI_CraftingWindow_PCP_MetalDrumStation = "Metal Drum Station",

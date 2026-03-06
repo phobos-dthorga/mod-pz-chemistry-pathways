@@ -28,7 +28,7 @@ module Base
     craftRecipe PCPCrushCharcoal
     {
         time = 80,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCrushCharcoalPurity,
 
@@ -55,7 +55,7 @@ module Base
     craftRecipe PCPPurifyCharcoalWater
     {
         time = 120,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalPurity,
 
@@ -85,7 +85,7 @@ module Base
     craftRecipe PCPPurifyCharcoalWaterSimple
     {
         time = 120,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalPurity,
 
@@ -118,7 +118,7 @@ module Base
     craftRecipe PCPPurifyCharcoalWaterPot
     {
         time = 150,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalPotPurity,
 
@@ -151,7 +151,7 @@ module Base
     craftRecipe PCPPurifyCharcoalNaOH
     {
         time = 180,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalNaOHPurity,
 
@@ -183,7 +183,7 @@ module Base
     craftRecipe PCPPurifyCharcoalNaOHSimple
     {
         time = 180,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalNaOHPurity,
 
@@ -218,7 +218,7 @@ module Base
     craftRecipe PCPPurifyCharcoalNaOHPot
     {
         time = 210,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpPurifyCharcoalPotPurity,
 
@@ -256,7 +256,7 @@ module Base
     craftRecipe PCPPrepareDilutedCompost
     {
         time = 100,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCompostPurity,
 
@@ -287,7 +287,7 @@ module Base
     craftRecipe PCPPrepareDilutedCompostDung
     {
         time = 120,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCompostPurity,
 
@@ -321,7 +321,7 @@ module Base
     craftRecipe PCPExtractBatteryAcid
     {
         time = 200,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractAcidPurity,
 
@@ -359,7 +359,7 @@ module Base
     craftRecipe PCPExtractSulphurFromAcidCan
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
@@ -391,7 +391,7 @@ module Base
     craftRecipe PCPExtractSulphurFromAcidCanSimple
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
@@ -426,7 +426,7 @@ module Base
     craftRecipe PCPExtractSulphurFromAcidFluid
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
@@ -457,7 +457,7 @@ module Base
     craftRecipe PCPExtractSulphurFromAcidFluidSimple
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurPurity,
 
@@ -496,7 +496,7 @@ module Base
     craftRecipe PCPSynthesizeKNO3Fertilizer
     {
         time = 300,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3Purity,
 
@@ -528,7 +528,7 @@ module Base
     craftRecipe PCPSynthesizeKNO3FertilizerSimple
     {
         time = 300,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3Purity,
 
@@ -563,7 +563,7 @@ module Base
     craftRecipe PCPSynthesizeKNO3FertilizerPot
     {
         time = 330,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3PotPurity,
 
@@ -598,7 +598,7 @@ module Base
     craftRecipe PCPSynthesizeKNO3Compost
     {
         time = 350,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3Purity,
 
@@ -628,7 +628,7 @@ module Base
     craftRecipe PCPSynthesizeKNO3CompostSimple
     {
         time = 350,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3Purity,
 
@@ -661,7 +661,7 @@ module Base
     craftRecipe PCPSynthesizeKNO3CompostPot
     {
         time = 380,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKNO3CompostPotPurity,
 
@@ -699,7 +699,7 @@ module Base
     craftRecipe PCPMixBlackpowder
     {
         time = 200,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMixBlackpowderPurity,
 

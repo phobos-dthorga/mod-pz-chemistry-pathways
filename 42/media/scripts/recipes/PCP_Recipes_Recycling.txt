@@ -36,7 +36,7 @@ module Base
     craftRecipe PCPMakeWoodGlue
     {
         time = 120,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeWoodGluePurity,
 
@@ -72,7 +72,7 @@ module Base
     craftRecipe PCPCalcineCalcite
     {
         time = 200,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCalcineCalcitePurity,
 
@@ -99,7 +99,7 @@ module Base
     craftRecipe PCPCalcineCalciteCoke
     {
         time = 200,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCalcineCalcitePurity,
 
@@ -126,7 +126,7 @@ module Base
     craftRecipe PCPCalcineCalcitePropane
     {
         time = 200,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCalcineCalcitePropanePurity,
 
@@ -152,7 +152,7 @@ module Base
     craftRecipe PCPCalcineCalciteSimple
     {
         time = 200,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCalcineCalcitePurity,
 
@@ -184,7 +184,7 @@ module Base
     craftRecipe PCPCalciteFertilizer
     {
         time = 150,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;Cooking;CannotBeResearched,
@@ -214,7 +214,7 @@ module Base
     craftRecipe PCPCalciteFertilizerSulphur
     {
         time = 180,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;Cooking;CannotBeResearched,
@@ -245,7 +245,7 @@ module Base
     craftRecipe PCPPotashFertilizer
     {
         time = 120,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;Cooking;CannotBeResearched,
@@ -278,7 +278,7 @@ module Base
     craftRecipe PCPCureSoap
     {
         time = 100,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;Cooking;CannotBeResearched,
@@ -312,7 +312,7 @@ module Base
     craftRecipe PCPSterilizeBandageRipped
     {
         time = 150,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;Cooking;CannotBeResearched,
@@ -341,7 +341,7 @@ module Base
     craftRecipe PCPSterilizeBandage
     {
         time = 150,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;Cooking;CannotBeResearched,
@@ -377,7 +377,7 @@ module Base
     craftRecipe PCPCastFishingWeights
     {
         time = 150,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
 
         Tags = PrimitiveFurnace;CannotBeResearched,
@@ -402,7 +402,7 @@ module Base
     craftRecipe PCPCastFishingWeightsCoke
     {
         time = 150,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
 
         Tags = PrimitiveFurnace;CannotBeResearched,
@@ -427,7 +427,7 @@ module Base
     craftRecipe PCPCastFishingWeightsPropane
     {
         time = 150,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpReturnPartialPropane,
 
@@ -453,7 +453,7 @@ module Base
     craftRecipe PCPCastFishingWeightsSimple
     {
         time = 150,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
 
         Tags = PrimitiveFurnace;CannotBeResearched,
@@ -484,7 +484,7 @@ module Base
     craftRecipe PCPMeltPlasticToGlue
     {
         time = 150,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
 
         Tags = ZVirusVaccine42BETA:ChemistrySet;CannotBeResearched,
@@ -516,7 +516,7 @@ module Base
     craftRecipe PCPRecoverComponents
     {
         time = 200,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
 
         Tags = AnySurfaceCraft;CannotBeResearched,
@@ -550,7 +550,7 @@ module Base
     craftRecipe PCPMakeTarTorch
     {
         time = 60,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;Cooking;CannotBeResearched,

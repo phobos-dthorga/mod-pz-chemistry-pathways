@@ -42,7 +42,7 @@ module Base
     craftRecipe PCPDistillMethanolSafe
     {
         time = 400,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolSafePurity,
 
@@ -80,7 +80,7 @@ module Base
     craftRecipe PCPDistillMethanolUnsafe
     {
         time = 400,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolUnsafePurity,
 
@@ -116,7 +116,7 @@ module Base
     craftRecipe PCPDistillMethanolSimpleSafe
     {
         time = 400,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolSafePurity,
 
@@ -153,7 +153,7 @@ module Base
     craftRecipe PCPDistillMethanolSimpleUnsafe
     {
         time = 400,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolUnsafePurity,
 
@@ -192,7 +192,7 @@ module Base
     craftRecipe PCPSynthesizeKOHSafe
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHSafePurity,
 
@@ -228,7 +228,7 @@ module Base
     craftRecipe PCPSynthesizeKOHUnsafe
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHUnsafePurity,
 
@@ -262,7 +262,7 @@ module Base
     craftRecipe PCPSynthesizeKOHSimpleSafe
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHSafePurity,
 
@@ -297,7 +297,7 @@ module Base
     craftRecipe PCPSynthesizeKOHSimpleUnsafe
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHUnsafePurity,
 
@@ -334,7 +334,7 @@ module Base
     craftRecipe PCPExtractSulphurFromAcidCanSafe
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurSafePurity,
 
@@ -369,7 +369,7 @@ module Base
     craftRecipe PCPExtractSulphurFromAcidCanUnsafe
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurUnsafePurity,
 
@@ -402,7 +402,7 @@ module Base
     craftRecipe PCPExtractSulphurFromAcidCanSimpleSafe
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurSafePurity,
 
@@ -436,7 +436,7 @@ module Base
     craftRecipe PCPExtractSulphurFromAcidCanSimpleUnsafe
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurUnsafePurity,
 
@@ -472,7 +472,7 @@ module Base
     craftRecipe PCPExtractSulphurFromAcidFluidSafe
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurSafePurity,
 
@@ -506,7 +506,7 @@ module Base
     craftRecipe PCPExtractSulphurFromAcidFluidUnsafe
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurUnsafePurity,
 
@@ -538,7 +538,7 @@ module Base
     craftRecipe PCPExtractSulphurFromAcidFluidSimpleSafe
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurSafePurity,
 
@@ -571,7 +571,7 @@ module Base
     craftRecipe PCPExtractSulphurFromAcidFluidSimpleUnsafe
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractSulphurUnsafePurity,
 
@@ -606,7 +606,7 @@ module Base
     craftRecipe PCPExtractBatteryAcidSafe
     {
         time = 200,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractAcidSafePurity,
 
@@ -638,7 +638,7 @@ module Base
     craftRecipe PCPExtractBatteryAcidUnsafe
     {
         time = 200,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpExtractAcidUnsafePurity,
 
@@ -672,7 +672,7 @@ module Base
     craftRecipe PCPAcidWashElectronicsSafe
     {
         time = 150,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpAcidWashSafePurity,
 
@@ -705,7 +705,7 @@ module Base
     craftRecipe PCPAcidWashElectronicsUnsafe
     {
         time = 150,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpAcidWashUnsafePurity,
 
@@ -750,7 +750,7 @@ module Base
     craftRecipe PCPRetHempSafe
     {
         time = 250,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpRetHempSafePurity,
 
@@ -783,7 +783,7 @@ module Base
     craftRecipe PCPRetHempUnsafe
     {
         time = 250,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpRetHempUnsafePurity,
 
@@ -814,7 +814,7 @@ module Base
     craftRecipe PCPRetHempSimpleSafe
     {
         time = 250,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpRetHempSafePurity,
 
@@ -846,7 +846,7 @@ module Base
     craftRecipe PCPRetHempSimpleUnsafe
     {
         time = 250,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpRetHempUnsafePurity,
 
@@ -876,7 +876,7 @@ module Base
     craftRecipe PCPRetHempNaOHSafe
     {
         time = 250,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpRetHempSafePurity,
 
@@ -909,7 +909,7 @@ module Base
     craftRecipe PCPRetHempNaOHUnsafe
     {
         time = 250,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpRetHempUnsafePurity,
 
@@ -940,7 +940,7 @@ module Base
     craftRecipe PCPRetHempNaOHSimpleSafe
     {
         time = 250,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpRetHempSafePurity,
 
@@ -972,7 +972,7 @@ module Base
     craftRecipe PCPRetHempNaOHSimpleUnsafe
     {
         time = 250,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpRetHempUnsafePurity,
 
@@ -1002,7 +1002,7 @@ module Base
     craftRecipe PCPChemicalPulpingSafe
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpChemicalPulpingSafePurity,
 
@@ -1035,7 +1035,7 @@ module Base
     craftRecipe PCPChemicalPulpingUnsafe
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpChemicalPulpingUnsafePurity,
 
@@ -1066,7 +1066,7 @@ module Base
     craftRecipe PCPChemicalPulpingSimpleSafe
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpChemicalPulpingSafePurity,
 
@@ -1098,7 +1098,7 @@ module Base
     craftRecipe PCPChemicalPulpingSimpleUnsafe
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpChemicalPulpingUnsafePurity,
 
@@ -1135,7 +1135,7 @@ module Base
     craftRecipe PCPMeltPlasticToGlueSafe
     {
         time = 150,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMeltPlasticGlueSafe,
 
@@ -1164,7 +1164,7 @@ module Base
     craftRecipe PCPMeltPlasticToGlueUnsafe
     {
         time = 150,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMeltPlasticGlueUnsafe,
 

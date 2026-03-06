@@ -40,7 +40,7 @@ module Base
     craftRecipe PCPPackChewTobaccoTin
     {
         time = 60,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -67,7 +67,7 @@ module Base
     craftRecipe PCPPackChewTobaccoWaterTin
     {
         time = 60,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -94,7 +94,7 @@ module Base
     craftRecipe PCPPackChewTobaccoJar
     {
         time = 60,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -121,7 +121,7 @@ module Base
     craftRecipe PCPRollCigarTobacco
     {
         time = 80,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -148,7 +148,7 @@ module Base
     craftRecipe PCPRollCigarettesTobacco
     {
         time = 60,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -180,7 +180,7 @@ module Base
     craftRecipe PCPCureHempBuds
     {
         time = 100,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -207,7 +207,7 @@ module Base
     craftRecipe PCPCanHempBuds
     {
         time = 80,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -234,7 +234,7 @@ module Base
     craftRecipe PCPCanHempBudsDecarbed
     {
         time = 80,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -261,7 +261,7 @@ module Base
     craftRecipe PCPOpenCannedHempBuds
     {
         time = 30,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -287,7 +287,7 @@ module Base
     craftRecipe PCPOpenCannedHempBudsDecarbed
     {
         time = 30,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -314,7 +314,7 @@ module Base
     craftRecipe PCPGrindHempBuds
     {
         time = 80,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -341,7 +341,7 @@ module Base
     craftRecipe PCPRollHempCigarettes
     {
         time = 60,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -368,7 +368,7 @@ module Base
     craftRecipe PCPRollHempCigar
     {
         time = 80,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -400,7 +400,7 @@ module Base
     craftRecipe PCPCraftMouldAndDeckle
     {
         time = 150,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -428,7 +428,7 @@ module Base
     craftRecipe PCPFillPulpPot
     {
         time = 80,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -455,7 +455,7 @@ module Base
     craftRecipe PCPFillPulpPotForged
     {
         time = 80,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -483,7 +483,7 @@ module Base
     craftRecipe PCPFormWetPaperSheet
     {
         time = 100,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
         OnCreate = PCP_HorticultureCallbacks.pcpFormWetPaperSheetPurity,
 
@@ -511,7 +511,7 @@ module Base
     craftRecipe PCPFormWetPaperSheetForged
     {
         time = 100,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
         OnCreate = PCP_HorticultureCallbacks.pcpFormWetPaperSheetPurity,
 
@@ -540,7 +540,7 @@ module Base
     craftRecipe PCPPressPaperSheet
     {
         time = 80,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
         OnCreate = PCP_HorticultureCallbacks.pcpPressPaperSheetPurity,
 
@@ -568,7 +568,7 @@ module Base
     craftRecipe PCPCutRollingPapers
     {
         time = 40,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -600,7 +600,7 @@ module Base
     craftRecipe PCPCraftSmokingPipeGlass
     {
         time = 200,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -628,7 +628,7 @@ module Base
     craftRecipe PCPLoadPipeHemp
     {
         time = 30,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -654,7 +654,7 @@ module Base
     craftRecipe PCPLoadGlassPipeHemp
     {
         time = 30,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -680,7 +680,7 @@ module Base
     craftRecipe PCPLoadGlassPipeTobacco
     {
         time = 30,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -707,7 +707,7 @@ module Base
     craftRecipe PCPLoadCanPipeHemp
     {
         time = 30,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -739,7 +739,7 @@ module Base
     craftRecipe PCPMakeSyrupSaucepan
     {
         time = 80,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -766,7 +766,7 @@ module Base
     craftRecipe PCPMakeSyrupSaucepanCopper
     {
         time = 80,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -794,7 +794,7 @@ module Base
     craftRecipe PCPBottleSyrup
     {
         time = 40,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -822,7 +822,7 @@ module Base
     craftRecipe PCPBottleSyrupCopper
     {
         time = 40,
-        category = PhobosHorticulture,
+        category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,

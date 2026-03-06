@@ -40,7 +40,7 @@ module Base
     craftRecipe PCPThreshHempSeeds
     {
         time = 80,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -67,7 +67,7 @@ module Base
     craftRecipe PCPSpinHempTwine
     {
         time = 100,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpSpinHempTwinePurity,
 
@@ -94,7 +94,7 @@ module Base
     craftRecipe PCPBraidHempRope
     {
         time = 120,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpBraidHempRopePurity,
 
@@ -122,7 +122,7 @@ module Base
     craftRecipe PCPCharHempHurds
     {
         time = 200,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpCharHempHurdsPurity,
 
@@ -146,7 +146,7 @@ module Base
     craftRecipe PCPCharHempHurdsCoke
     {
         time = 200,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpCharHempHurdsPurity,
 
@@ -170,7 +170,7 @@ module Base
     craftRecipe PCPCharHempHurdsSimple
     {
         time = 200,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpCharHempHurdsPurity,
 
@@ -203,7 +203,7 @@ module Base
     craftRecipe PCPRetHemp
     {
         time = 250,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpRetHempPurity,
 
@@ -231,7 +231,7 @@ module Base
     craftRecipe PCPRetHempSimple
     {
         time = 250,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpRetHempPurity,
 
@@ -262,7 +262,7 @@ module Base
     craftRecipe PCPRetHempNaOH
     {
         time = 250,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpRetHempPurity,
 
@@ -290,7 +290,7 @@ module Base
     craftRecipe PCPRetHempNaOHSimple
     {
         time = 250,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpRetHempPurity,
 
@@ -322,7 +322,7 @@ module Base
     craftRecipe PCPExtractBastFiber
     {
         time = 180,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpExtractBastFiberPurity,
 
@@ -350,7 +350,7 @@ module Base
     craftRecipe PCPExtractBastFiberSimple
     {
         time = 180,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpExtractBastFiberPurity,
 
@@ -381,7 +381,7 @@ module Base
     craftRecipe PCPWeaveHempCloth
     {
         time = 200,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpWeaveHempClothPurity,
 
@@ -408,7 +408,7 @@ module Base
     craftRecipe PCPMakeHempCanvas
     {
         time = 150,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpMakeHempCanvasPurity,
 
@@ -435,7 +435,7 @@ module Base
     craftRecipe PCPPrepareHempPoultice
     {
         time = 180,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpPrepareHempPoulticePurity,
 
@@ -463,7 +463,7 @@ module Base
     craftRecipe PCPPrepareHempPoulticeSimple
     {
         time = 180,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpPrepareHempPoulticePurity,
 
@@ -494,7 +494,7 @@ module Base
     craftRecipe PCPBoilHempPulp
     {
         time = 220,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpBoilHempPulpPurity,
 
@@ -521,7 +521,7 @@ module Base
     craftRecipe PCPBoilHempPulpSimple
     {
         time = 220,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpBoilHempPulpPurity,
 
@@ -556,7 +556,7 @@ module Base
     craftRecipe PCPChemicalPulping
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpChemicalPulpingPurity,
 
@@ -584,7 +584,7 @@ module Base
     craftRecipe PCPChemicalPulpingSimple
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpChemicalPulpingPurity,
 
@@ -615,7 +615,7 @@ module Base
     craftRecipe PCPPressHempPaper
     {
         time = 150,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpPressHempPaperPurity,
 
@@ -642,7 +642,7 @@ module Base
     craftRecipe PCPPrepareHempTincture
     {
         time = 300,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpPrepareHempTincturePurity,
 
@@ -670,7 +670,7 @@ module Base
     craftRecipe PCPPrepareHempTinctureSimple
     {
         time = 300,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpPrepareHempTincturePurity,
 
@@ -707,7 +707,7 @@ module Base
     craftRecipe PCPMixHempcrete
     {
         time = 300,
-        category = PhobosIndustrialChem,
+        category = Phobos Industrial Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpMixHempcretePurity,
 
@@ -744,7 +744,7 @@ module Base
     craftRecipe PCPTarHempRope
     {
         time = 150,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpTarHempRopePurity,
 
@@ -771,7 +771,7 @@ module Base
     craftRecipe PCPTarHempRopeSimple
     {
         time = 150,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpTarHempRopePurity,
 
@@ -802,7 +802,7 @@ module Base
     craftRecipe PCPSterilizeHempBandage
     {
         time = 120,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;Cooking;CannotBeResearched,
@@ -829,7 +829,7 @@ module Base
     craftRecipe PCPSterilizeHempBandageSimple
     {
         time = 120,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;Cooking;CannotBeResearched,
@@ -860,7 +860,7 @@ module Base
     craftRecipe PCPMakeHempFireBundle
     {
         time = 60,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
@@ -888,7 +888,7 @@ module Base
     craftRecipe PCPCompostHempHurds
     {
         time = 180,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_BotanicalCallbacks.pcpCompostHempHurdsPurity,
 

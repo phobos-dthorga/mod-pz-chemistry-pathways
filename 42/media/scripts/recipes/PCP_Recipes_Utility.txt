@@ -29,7 +29,7 @@ module Base
     craftRecipe PCPCutPlasticScrap
     {
         time = 60,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = false,
         OnCreate = PCP_RecipeCallbacks.pcpCutPlasticPurity,
 
@@ -61,7 +61,7 @@ module Base
     craftRecipe PCPAcidWashElectronics
     {
         time = 150,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpAcidWashPurity,
 

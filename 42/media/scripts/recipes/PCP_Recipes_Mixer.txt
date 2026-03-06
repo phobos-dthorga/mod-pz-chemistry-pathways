@@ -28,7 +28,7 @@ module Base
     craftRecipe PCPMixConcrete
     {
         time = 120,
-        category = PhobosIndustrialChem,
+        category = Phobos Industrial Chem,
         NeedToBeLearn = false,
 
         Tags = PCP_ConcreteMixer;CannotBeResearched,
@@ -54,7 +54,7 @@ module Base
     craftRecipe PCPMixClayCement
     {
         time = 120,
-        category = PhobosIndustrialChem,
+        category = Phobos Industrial Chem,
         NeedToBeLearn = false,
 
         Tags = PCP_ConcreteMixer;CannotBeResearched,
@@ -82,7 +82,7 @@ module Base
     craftRecipe PCPMixMortar
     {
         time = 150,
-        category = PhobosIndustrialChem,
+        category = Phobos Industrial Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMixerConstructionPurity,
 
@@ -112,7 +112,7 @@ module Base
     craftRecipe PCPMixStucco
     {
         time = 150,
-        category = PhobosIndustrialChem,
+        category = Phobos Industrial Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMixerConstructionPurity,
 
@@ -142,7 +142,7 @@ module Base
     craftRecipe PCPMixReinforcedConcrete
     {
         time = 200,
-        category = PhobosIndustrialChem,
+        category = Phobos Industrial Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMixerConstructionPurity,
 
@@ -170,7 +170,7 @@ module Base
     craftRecipe PCPMixFireclay
     {
         time = 200,
-        category = PhobosIndustrialChem,
+        category = Phobos Industrial Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMixerConstructionPurity,
 
@@ -204,7 +204,7 @@ module Base
     craftRecipe PCPMixBlackpowderBulk
     {
         time = 250,
-        category = PhobosIndustrialChem,
+        category = Phobos Industrial Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMixerBlackpowderPurity,
 
@@ -232,7 +232,7 @@ module Base
     craftRecipe PCPMixBiodieselOil
     {
         time = 300,
-        category = PhobosIndustrialChem,
+        category = Phobos Industrial Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMixerBiodieselPurity,
 
@@ -265,7 +265,7 @@ module Base
     craftRecipe PCPMixSoap
     {
         time = 200,
-        category = PhobosIndustrialChem,
+        category = Phobos Industrial Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMixerSoapPurity,
 
@@ -293,7 +293,7 @@ module Base
     craftRecipe PCPMixCompost
     {
         time = 180,
-        category = PhobosIndustrialChem,
+        category = Phobos Industrial Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMixerCompostPurity,
 
@@ -322,7 +322,7 @@ module Base
     craftRecipe PCPMixPlaster
     {
         time = 200,
-        category = PhobosIndustrialChem,
+        category = Phobos Industrial Chem,
         NeedToBeLearn = true,
 
         Tags = PCP_ConcreteMixer;CannotBeResearched,
@@ -350,7 +350,7 @@ module Base
     craftRecipe PCPMixWoodVinegar
     {
         time = 180,
-        category = PhobosIndustrialChem,
+        category = Phobos Industrial Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMixerVinegarPurity,
 
@@ -384,7 +384,7 @@ module Base
     craftRecipe PCPBuildConcreteMixer
     {
         time = 400,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = false,
 
         Tags = AnySurfaceCraft;CannotBeResearched,

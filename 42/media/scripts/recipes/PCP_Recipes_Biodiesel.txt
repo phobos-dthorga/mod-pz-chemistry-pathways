@@ -28,7 +28,7 @@ module Base
     craftRecipe PCPPressOilSoybeansMortar
     {
         time = 150,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
@@ -56,7 +56,7 @@ module Base
     craftRecipe PCPPressOilSunflowerMortar
     {
         time = 150,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
@@ -84,7 +84,7 @@ module Base
     craftRecipe PCPPressOilCornMortar
     {
         time = 150,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
@@ -112,7 +112,7 @@ module Base
     craftRecipe PCPPressOilFlaxMortar
     {
         time = 150,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
@@ -140,7 +140,7 @@ module Base
     craftRecipe PCPPressOilHempMortar
     {
         time = 150,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
@@ -168,7 +168,7 @@ module Base
     craftRecipe PCPPressOilPeanutMortar
     {
         time = 150,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilMortarPurity,
 
@@ -200,7 +200,7 @@ module Base
     craftRecipe PCPPressOilSoybeansLab
     {
         time = 200,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -232,7 +232,7 @@ module Base
     craftRecipe PCPPressOilSoybeansLabSimple
     {
         time = 200,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -266,7 +266,7 @@ module Base
     craftRecipe PCPPressOilSunflowerLab
     {
         time = 200,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -298,7 +298,7 @@ module Base
     craftRecipe PCPPressOilSunflowerLabSimple
     {
         time = 200,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -332,7 +332,7 @@ module Base
     craftRecipe PCPPressOilCornLab
     {
         time = 200,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -364,7 +364,7 @@ module Base
     craftRecipe PCPPressOilCornLabSimple
     {
         time = 200,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -398,7 +398,7 @@ module Base
     craftRecipe PCPPressOilFlaxLab
     {
         time = 200,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -430,7 +430,7 @@ module Base
     craftRecipe PCPPressOilFlaxLabSimple
     {
         time = 200,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -464,7 +464,7 @@ module Base
     craftRecipe PCPPressOilHempLab
     {
         time = 200,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -496,7 +496,7 @@ module Base
     craftRecipe PCPPressOilHempLabSimple
     {
         time = 200,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -530,7 +530,7 @@ module Base
     craftRecipe PCPPressOilPeanutLab
     {
         time = 200,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -562,7 +562,7 @@ module Base
     craftRecipe PCPPressOilPeanutLabSimple
     {
         time = 200,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPurity,
 
@@ -601,7 +601,7 @@ module Base
     craftRecipe PCPPressOilSoybeansLabPot
     {
         time = 230,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
 
@@ -633,7 +633,7 @@ module Base
     craftRecipe PCPPressOilSunflowerLabPot
     {
         time = 230,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
 
@@ -665,7 +665,7 @@ module Base
     craftRecipe PCPPressOilCornLabPot
     {
         time = 230,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
 
@@ -697,7 +697,7 @@ module Base
     craftRecipe PCPPressOilFlaxLabPot
     {
         time = 230,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
 
@@ -729,7 +729,7 @@ module Base
     craftRecipe PCPPressOilHempLabPot
     {
         time = 230,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
 
@@ -761,7 +761,7 @@ module Base
     craftRecipe PCPPressOilPeanutLabPot
     {
         time = 230,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilLabPotPurity,
 
@@ -799,7 +799,7 @@ module Base
     craftRecipe PCPPressOilSoybeansBulk
     {
         time = 350,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
@@ -825,7 +825,7 @@ module Base
     craftRecipe PCPPressOilSunflowerBulk
     {
         time = 350,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
@@ -851,7 +851,7 @@ module Base
     craftRecipe PCPPressOilCornBulk
     {
         time = 350,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
@@ -878,7 +878,7 @@ module Base
     craftRecipe PCPPressOilFlaxBulk
     {
         time = 350,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
@@ -905,7 +905,7 @@ module Base
     craftRecipe PCPPressOilHempBulk
     {
         time = 350,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
@@ -932,7 +932,7 @@ module Base
     craftRecipe PCPPressOilPeanutBulk
     {
         time = 350,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpOilBulkPurity,
 
@@ -964,7 +964,7 @@ module Base
     craftRecipe PCPConvertVegetableOil
     {
         time = 40,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpConvertOilPurity,
 
@@ -993,7 +993,7 @@ module Base
     craftRecipe PCPRenderFat
     {
         time = 120,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpRenderFatPurity,
 
@@ -1025,7 +1025,7 @@ module Base
     craftRecipe PCPRenderFatSimple
     {
         time = 120,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpRenderFatPurity,
 
@@ -1060,7 +1060,7 @@ module Base
     craftRecipe PCPRenderFatPot
     {
         time = 150,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpRenderFatPotPurity,
 
@@ -1098,7 +1098,7 @@ module Base
     craftRecipe PCPRenderFatFromMeat
     {
         time = 180,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpRenderFatPurity,
 
@@ -1139,7 +1139,7 @@ module Base
     craftRecipe PCPDistillMethanol
     {
         time = 400,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolPurity,
 
@@ -1173,7 +1173,7 @@ module Base
     craftRecipe PCPDistillMethanolSimple
     {
         time = 400,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpDistillMethanolPurity,
 
@@ -1217,7 +1217,7 @@ module Base
     craftRecipe PCPSynthesizeKOH
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHPurity,
 
@@ -1250,7 +1250,7 @@ module Base
     craftRecipe PCPSynthesizeKOHSimple
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSynthesizeKOHPurity,
 
@@ -1293,7 +1293,7 @@ module Base
     craftRecipe PCPTransesterifyOil
     {
         time = 350,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -1335,7 +1335,7 @@ module Base
     craftRecipe PCPTransesterifyOilSimple
     {
         time = 350,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -1380,7 +1380,7 @@ module Base
     craftRecipe PCPTransesterifyFat
     {
         time = 350,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -1422,7 +1422,7 @@ module Base
     craftRecipe PCPTransesterifyFatSimple
     {
         time = 350,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -1472,7 +1472,7 @@ module Base
     craftRecipe PCPTransesterifyOilBulk
     {
         time = 500,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
@@ -1512,7 +1512,7 @@ module Base
     craftRecipe PCPTransesterifyOilBulkCoke
     {
         time = 500,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
@@ -1552,7 +1552,7 @@ module Base
     craftRecipe PCPTransesterifyOilBulkPropane
     {
         time = 500,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyOilBulkPropanePurity,
 
@@ -1592,7 +1592,7 @@ module Base
     craftRecipe PCPTransesterifyOilBulkSimple
     {
         time = 500,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -1633,7 +1633,7 @@ module Base
     craftRecipe PCPTransesterifyFatBulk
     {
         time = 500,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
@@ -1673,7 +1673,7 @@ module Base
     craftRecipe PCPTransesterifyFatBulkCoke
     {
         time = 500,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
@@ -1713,7 +1713,7 @@ module Base
     craftRecipe PCPTransesterifyFatBulkPropane
     {
         time = 500,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyFatBulkPropanePurity,
 
@@ -1753,7 +1753,7 @@ module Base
     craftRecipe PCPTransesterifyFatBulkSimple
     {
         time = 500,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -1801,7 +1801,7 @@ module Base
     craftRecipe PCPTransesterifyOilNaOH
     {
         time = 350,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -1843,7 +1843,7 @@ module Base
     craftRecipe PCPTransesterifyOilNaOHSimple
     {
         time = 350,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -1886,7 +1886,7 @@ module Base
     craftRecipe PCPTransesterifyFatNaOH
     {
         time = 350,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -1928,7 +1928,7 @@ module Base
     craftRecipe PCPTransesterifyFatNaOHSimple
     {
         time = 350,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -1977,7 +1977,7 @@ module Base
     craftRecipe PCPTransesterifyOilBulkNaOH
     {
         time = 500,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
@@ -2017,7 +2017,7 @@ module Base
     craftRecipe PCPTransesterifyOilBulkNaOHCoke
     {
         time = 500,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
@@ -2057,7 +2057,7 @@ module Base
     craftRecipe PCPTransesterifyOilBulkNaOHPropane
     {
         time = 500,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyOilBulkPropanePurity,
 
@@ -2097,7 +2097,7 @@ module Base
     craftRecipe PCPTransesterifyOilBulkNaOHSimple
     {
         time = 500,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -2138,7 +2138,7 @@ module Base
     craftRecipe PCPTransesterifyFatBulkNaOH
     {
         time = 500,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
@@ -2178,7 +2178,7 @@ module Base
     craftRecipe PCPTransesterifyFatBulkNaOHCoke
     {
         time = 500,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyBulkPurity,
 
@@ -2218,7 +2218,7 @@ module Base
     craftRecipe PCPTransesterifyFatBulkNaOHPropane
     {
         time = 500,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyFatBulkPropanePurity,
 
@@ -2258,7 +2258,7 @@ module Base
     craftRecipe PCPTransesterifyFatBulkNaOHSimple
     {
         time = 500,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpTransesterifyLabPurity,
 
@@ -2307,7 +2307,7 @@ module Base
     craftRecipe PCPWashBiodiesel
     {
         time = 150,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselLabPurity,
 
@@ -2342,7 +2342,7 @@ module Base
     craftRecipe PCPWashBiodieselSimple
     {
         time = 150,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselLabPurity,
 
@@ -2380,7 +2380,7 @@ module Base
     craftRecipe PCPWashBiodieselPot
     {
         time = 180,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselPotPurity,
 
@@ -2417,7 +2417,7 @@ module Base
     craftRecipe PCPWashBiodieselBulk
     {
         time = 250,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselBulkPurity,
 
@@ -2445,7 +2445,7 @@ module Base
     craftRecipe PCPWashBiodieselBulkCoke
     {
         time = 250,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselBulkPurity,
 
@@ -2473,7 +2473,7 @@ module Base
     craftRecipe PCPWashBiodieselBulkPropane
     {
         time = 250,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselBulkPropanePurity,
 
@@ -2501,7 +2501,7 @@ module Base
     craftRecipe PCPWashBiodieselBulkSimple
     {
         time = 250,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpWashBiodieselBulkPurity,
 
@@ -2533,7 +2533,7 @@ module Base
     craftRecipe PCPRefineBiodiesel
     {
         time = 200,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpRefineBiodieselPurity,
 
@@ -2562,7 +2562,7 @@ module Base
     craftRecipe PCPRefineBiodieselBulk
     {
         time = 200,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpRefineBiodieselBulkPurity,
 
@@ -2598,7 +2598,7 @@ module Base
     craftRecipe PCPWashBiodieselCentrifuge
     {
         time = 180,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCentrifugeWashPurity,
 
@@ -2636,7 +2636,7 @@ module Base
     craftRecipe PCPSeparateGlycerolCentrifuge
     {
         time = 120,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCentrifugeGlycerolPurity,
 
@@ -2681,7 +2681,7 @@ module Base
     craftRecipe PCPPurifyBiodieselChromatograph
     {
         time = 300,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpChromatographBiodieselPurity,
 
@@ -2715,7 +2715,7 @@ module Base
     craftRecipe PCPPurifyMethanolChromatograph
     {
         time = 350,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpChromatographMethanolPurity,
 
@@ -2751,7 +2751,7 @@ module Base
     craftRecipe PCPPurifyMethanolChromatographSimple
     {
         time = 350,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpChromatographMethanolPurity,
 
@@ -2796,7 +2796,7 @@ module Base
     craftRecipe PCPAnalyzeOilMicroscope
     {
         time = 200,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMicroscopeAnalyzePurity,
 
@@ -2848,7 +2848,7 @@ module Base
     craftRecipe PCPTestFuelSpectrometer
     {
         time = 250,
-        category = PhobosLabChem,
+        category = Phobos Lab Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpSpectrometerTestPurity,
 
@@ -2886,7 +2886,7 @@ module Base
     craftRecipe PCPProduceBoneChar
     {
         time = 250,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
@@ -2912,7 +2912,7 @@ module Base
     craftRecipe PCPProduceBoneCharCoke
     {
         time = 250,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
@@ -2938,7 +2938,7 @@ module Base
     craftRecipe PCPProduceBoneCharPropane
     {
         time = 250,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPropanePurity,
 
@@ -2964,7 +2964,7 @@ module Base
     craftRecipe PCPProduceBoneCharSimple
     {
         time = 250,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
@@ -2992,7 +2992,7 @@ module Base
     craftRecipe PCPProduceBoneCharSkull
     {
         time = 250,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
@@ -3018,7 +3018,7 @@ module Base
     craftRecipe PCPProduceBoneCharSkullCoke
     {
         time = 250,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
@@ -3044,7 +3044,7 @@ module Base
     craftRecipe PCPProduceBoneCharSkullPropane
     {
         time = 250,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharSkullPropanePurity,
 
@@ -3070,7 +3070,7 @@ module Base
     craftRecipe PCPProduceBoneCharSkullSimple
     {
         time = 250,
-        category = PhobosFieldChem,
+        category = Phobos Field Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpBoneCharPurity,
 
@@ -3101,7 +3101,7 @@ module Base
     craftRecipe PCPMakeSoap
     {
         time = 180,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
@@ -3134,7 +3134,7 @@ module Base
     craftRecipe PCPMakeSoapNaOH
     {
         time = 180,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
@@ -3169,7 +3169,7 @@ module Base
     craftRecipe PCPMakeSoapFat
     {
         time = 180,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 
@@ -3201,7 +3201,7 @@ module Base
     craftRecipe PCPMakeSoapFatNaOH
     {
         time = 180,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpMakeSoapPurity,
 

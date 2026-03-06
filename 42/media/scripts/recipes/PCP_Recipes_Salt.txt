@@ -29,7 +29,7 @@ module Base
     craftRecipe PCPConcentrateBrine
     {
         time = 200,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpConcentrateBrinePurity,
 
@@ -55,7 +55,7 @@ module Base
     craftRecipe PCPConcentrateBrineSimple
     {
         time = 200,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpConcentrateBrinePurity,
 
@@ -84,7 +84,7 @@ module Base
     craftRecipe PCPCrystallizeSalt
     {
         time = 180,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCrystallizeSaltPurity,
 
@@ -111,7 +111,7 @@ module Base
     craftRecipe PCPCrystallizeSaltSimple
     {
         time = 180,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpCrystallizeSaltPurity,
 
@@ -142,7 +142,7 @@ module Base
     craftRecipe PCPPurifySalt
     {
         time = 150,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpPurifySaltPurity,
 
@@ -170,7 +170,7 @@ module Base
     craftRecipe PCPPurifySaltSimple
     {
         time = 150,
-        category = PhobosKitchenChem,
+        category = Phobos Kitchen Chem,
         NeedToBeLearn = true,
         OnCreate = PCP_RecipeCallbacks.pcpPurifySaltPurity,
 
