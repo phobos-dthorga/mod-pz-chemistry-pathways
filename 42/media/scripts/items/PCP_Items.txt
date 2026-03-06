@@ -639,7 +639,7 @@ module PhobosChemistryPathways {
 	item BoneMeal {
 		ItemType = base:normal,
 		DisplayCategory = Material,
-		Icon = PCP_BoneChar,
+		Icon = PCP_BoneMeal,
 		Weight = 0.2,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_BoneMeal,
@@ -665,7 +665,7 @@ module PhobosChemistryPathways {
 	item ActivatedCarbon {
 		ItemType = base:normal,
 		DisplayCategory = Material,
-		Icon = PCP_purified_charcoal,
+		Icon = PCP_ActivatedCarbon,
 		Weight = 0.2,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_ActivatedCarbon,
@@ -716,7 +716,7 @@ module PhobosChemistryPathways {
 	item MortarMix {
 		ItemType = base:normal,
 		DisplayCategory = Material,
-		Icon = PCP_Calcite,
+		Icon = PCP_ConstructionMix,
 		Weight = 3.0,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_MortarMix,
@@ -726,7 +726,7 @@ module PhobosChemistryPathways {
 	item StuccoMix {
 		ItemType = base:normal,
 		DisplayCategory = Material,
-		Icon = PCP_Calcite,
+		Icon = PCP_ConstructionMix,
 		Weight = 2.5,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_StuccoMix,
@@ -736,7 +736,7 @@ module PhobosChemistryPathways {
 	item ReinforcedConcrete {
 		ItemType = base:normal,
 		DisplayCategory = Material,
-		Icon = PCP_Calcite,
+		Icon = PCP_ConstructionMix,
 		Weight = 5.0,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_ReinforcedConcrete,
@@ -746,7 +746,7 @@ module PhobosChemistryPathways {
 	item Fireclay {
 		ItemType = base:normal,
 		DisplayCategory = Material,
-		Icon = PCP_Calcite,
+		Icon = PCP_ConstructionMix,
 		Weight = 2.0,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_Fireclay,
@@ -763,7 +763,7 @@ module PhobosChemistryPathways {
 		DisplayCategory = Material,
 		Weight = 1.8,
 		ConditionMax = 100,
-		Icon = PCP_CrudeVegetableOil,
+		Icon = PCP_BrineJar,
 		IconFluidMask = Jar_Mask,
 		FillFromDispenserSound = GetWaterFromDispenserGlass,
 		FillFromTapSound = GetWaterFromTapGlass,
@@ -786,7 +786,7 @@ module PhobosChemistryPathways {
 	item BrineConcentrate {
 		ItemType = base:normal,
 		DisplayCategory = Material,
-		Icon = PCP_raw_potash,
+		Icon = PCP_BrineConcentrate,
 		Weight = 0.4,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_BrineConcentrate,
@@ -796,7 +796,7 @@ module PhobosChemistryPathways {
 	item CoarseSalt {
 		ItemType = base:normal,
 		DisplayCategory = Material,
-		Icon = PCP_raw_potash,
+		Icon = PCP_CoarseSalt,
 		Weight = 0.15,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_CoarseSalt,
