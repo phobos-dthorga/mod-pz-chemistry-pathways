@@ -155,6 +155,17 @@ local hazardEnabled = {
     "PCPMeltPlasticToGlueUnsafe",
     "PCPMakeMatchboxSafe",
     "PCPMakeMatchboxUnsafe",
+    -- Mechanical hazards (smoke/dust — light PPE tier)
+    "PCPCharHempHurdsSafe",
+    "PCPCharHempHurdsUnsafe",
+    "PCPCharHempHurdsCokeSafe",
+    "PCPCharHempHurdsCokeUnsafe",
+    "PCPCharHempHurdsSimpleSafe",
+    "PCPCharHempHurdsSimpleUnsafe",
+    "PCPMixHempcreteSafe",
+    "PCPMixHempcreteUnsafe",
+    "PCPMixReinforcedHempcreteSafe",
+    "PCPMixReinforcedHempcreteUnsafe",
 }
 for _, name in ipairs(hazardEnabled) do
     filters[name] = PCP_Sandbox.isHealthHazardsEnabled
@@ -169,6 +180,12 @@ local noHazard = {
     "PCPMeltPlasticToGlue",
     "PCPAcidWashElectronics",
     "PCPMakeMatchbox",
+    -- Mechanical hazard base recipes (hidden when hazards enabled)
+    "PCPCharHempHurds",
+    "PCPCharHempHurdsCoke",
+    "PCPCharHempHurdsSimple",
+    "PCPMixHempcrete",
+    "PCPMixReinforcedHempcrete",
 }
 for _, name in ipairs(noHazard) do
     filters[name] = function() return not PCP_Sandbox.isHealthHazardsEnabled() end

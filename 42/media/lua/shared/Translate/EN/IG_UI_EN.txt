@@ -178,4 +178,20 @@ IGUI_EN = {
 	IGUI_PCP_Changelog_Earlier_Stats3 = "v0.17 and earlier: Core chemistry pathways, item definitions",
 	IGUI_PCP_Changelog_FooterWorkshop = "Workshop: search Phobos Industrial Pathways Biomass",
 	IGUI_PCP_Changelog_FooterFeedback = "Bug reports and feedback welcome in the Workshop comments.",
+
+	/* ===== Hemp Expansion Items & Hazards ===== */
+	IGUI_PCP_Item_SeedPressCake = "Seed Press Cake",
+	IGUI_PCP_Tooltip_SeedPressCake = "Compressed seed residue from oil pressing. Rich in nitrogen — useful as compost or fertiliser.",
+	IGUI_PCP_Item_HempSack = "Hemp Sack",
+	IGUI_PCP_Tooltip_HempSack = "A sturdy woven sack stitched from hemp canvas. Worn on the back for extra carrying capacity.",
+	IGUI_PCP_Item_Oakum = "Oakum",
+	IGUI_PCP_Tooltip_Oakum = "Loose hemp fibre soaked in wood tar. Used historically for caulking and waterproofing — also makes effective tinder.",
+	IGUI_PCP_Item_HempFishingNet = "Hemp Fishing Net",
+	IGUI_PCP_Tooltip_HempFishingNet = "A hand-knotted fishing net woven from hemp twine. Functions identically to a standard net.",
+	IGUI_PCP_Item_HempSheetRope = "Hemp Sheet Rope",
+	IGUI_PCP_Tooltip_HempSheetRope = "A hemp rope reinforced with cloth strips. Can be attached to windows for escape.",
+	IGUI_PCP_Item_HempSnare = "Hemp Snare",
+	IGUI_PCP_Tooltip_HempSnare = "A simple loop snare fashioned from hemp twine and a stick. Set near animal paths to catch small game.",
+	IGUI_PCP_Hazard_SmokeInhalation = "*cough* Smoke and fumes!",
+	IGUI_PCP_Hazard_MineralDust = "*cough* Fine dust!",
 }

@@ -640,6 +640,51 @@ table.insert(ProceduralDistributions.list["MedicalClinicDrugs"].items, 0.1)
 table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.HempTincture")
 table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.1)
 
+-- Seed Press Cake — fertiliser crates, farm storage
+table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "PhobosChemistryPathways.SeedPressCake")
+table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 0.4)
+
+table.insert(ProceduralDistributions.list["CrateFarming"].items, "PhobosChemistryPathways.SeedPressCake")
+table.insert(ProceduralDistributions.list["CrateFarming"].items, 0.3)
+
+-- Hemp Sack — farm storage, survivalist stashes
+table.insert(ProceduralDistributions.list["CrateFarming"].items, "PhobosChemistryPathways.HempSack")
+table.insert(ProceduralDistributions.list["CrateFarming"].items, 0.1)
+
+table.insert(VehicleDistributions.SurvivalistTruckBed.items, "PhobosChemistryPathways.HempSack")
+table.insert(VehicleDistributions.SurvivalistTruckBed.items, 0.1)
+
+-- Oakum — tool stores, garages, fertiliser crates (wood tar product)
+table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, "PhobosChemistryPathways.Oakum")
+table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, 0.2)
+
+table.insert(ProceduralDistributions.list["GarageTools"].items, "PhobosChemistryPathways.Oakum")
+table.insert(ProceduralDistributions.list["GarageTools"].items, 0.2)
+
+table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "PhobosChemistryPathways.Oakum")
+table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 0.2)
+
+-- Hemp Fishing Net — fishing stores, survivalist stashes
+table.insert(ProceduralDistributions.list["FishingStoreGear"].items, "PhobosChemistryPathways.HempFishingNet")
+table.insert(ProceduralDistributions.list["FishingStoreGear"].items, 0.2)
+
+table.insert(VehicleDistributions.SurvivalistTruckBed.items, "PhobosChemistryPathways.HempFishingNet")
+table.insert(VehicleDistributions.SurvivalistTruckBed.items, 0.1)
+
+-- Hemp Sheet Rope — tool stores, survivalist stashes
+table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, "PhobosChemistryPathways.HempSheetRope")
+table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, 0.2)
+
+table.insert(VehicleDistributions.SurvivalistTruckBed.items, "PhobosChemistryPathways.HempSheetRope")
+table.insert(VehicleDistributions.SurvivalistTruckBed.items, 0.1)
+
+-- Hemp Snare — survivalist stashes, camping stores
+table.insert(VehicleDistributions.SurvivalistTruckBed.items, "PhobosChemistryPathways.HempSnare")
+table.insert(VehicleDistributions.SurvivalistTruckBed.items, 0.2)
+
+table.insert(ProceduralDistributions.list["CampingStoreGear"].items, "PhobosChemistryPathways.HempSnare")
+table.insert(ProceduralDistributions.list["CampingStoreGear"].items, 0.2)
+
 
 -----------------------------------------------------
 ------------ HORTICULTURE PATHWAY ITEMS -------------

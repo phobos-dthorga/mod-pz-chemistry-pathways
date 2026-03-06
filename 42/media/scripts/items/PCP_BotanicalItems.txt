@@ -171,4 +171,84 @@ module PhobosChemistryPathways {
 		WorldStaticModel = Rope_Ground,
 	}
 
+	item Oakum {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_Oakum,
+		Weight = 0.2,
+		ConditionMax = 100,
+		Tags = base:isfirefuel;base:isfiretinder,
+		FireFuelRatio = 0.3,
+		Tooltip = Tooltip_PCP_Oakum,
+		WorldStaticModel = RippedSheets_Ground,
+	}
+
+/* ============================== BOTANICAL PROCESSING — OIL PRESSING BYPRODUCTS ============================== */
+/*  Solid residue from seed oil extraction. Rich in nitrogen and protein,
+    seed press cake serves as compost feedstock or fertiliser supplement.                                       */
+
+	item SeedPressCake {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_SeedPressCake,
+		Weight = 0.3,
+		ConditionMax = 100,
+		Tooltip = Tooltip_PCP_SeedPressCake,
+		WorldStaticModel = Charcoal_Ground,
+	}
+
+/* ============================== BOTANICAL PROCESSING — FUNCTIONAL END-PRODUCTS ============================== */
+/*  Finished goods crafted from hemp textiles and cordage. These items serve
+    direct gameplay functions (storage, fishing, trapping, escape) rather
+    than acting as chemistry intermediates.                                                                      */
+
+	item HempSack {
+		ItemType = base:container,
+		DisplayCategory = Bag,
+		Icon = PCP_HempSack,
+		Weight = 0.8,
+		CanBeEquipped = base:back,
+		Capacity = 12,
+		WeightReduction = 50,
+		RunSpeedModifier = 0.97,
+		CloseSound = CloseBag,
+		OpenSound = OpenBag,
+		PutInSound = PutItemInBag,
+		EquipSound = EquipBackpackSmall,
+		Tooltip = Tooltip_PCP_HempSack,
+		WorldStaticModel = Bag_Ground,
+		Tags = base:isfirefuel;base:isfiretinder,
+	}
+
+	item HempFishingNet {
+		ItemType = base:normal,
+		DisplayCategory = Fishing,
+		Icon = PCP_HempFishingNet,
+		Weight = 1.0,
+		SurvivalGear = true,
+		Tags = base:fishingnet,
+		Tooltip = Tooltip_PCP_HempFishingNet,
+		WorldStaticModel = FishingNet,
+	}
+
+	item HempSheetRope {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_HempSheetRope,
+		Weight = 0.7,
+		Tags = base:rope;base:isfirefuel;base:isfiretinder,
+		Tooltip = Tooltip_PCP_HempSheetRope,
+		WorldStaticModel = SheetRope,
+	}
+
+	item HempSnare {
+		ItemType = base:normal,
+		DisplayCategory = Trapping,
+		Icon = PCP_HempSnare,
+		Weight = 0.4,
+		Trap = true,
+		Tooltip = Tooltip_PCP_HempSnare,
+		WorldStaticModel = TrapStick,
+	}
+
 }

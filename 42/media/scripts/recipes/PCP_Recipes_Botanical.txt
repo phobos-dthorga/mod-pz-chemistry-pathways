@@ -393,7 +393,7 @@ module Base
 
         inputs
         {
-            item 4 [PhobosChemistryPathways.HempBastFiber],
+            item 4 [PhobosChemistryPathways.HempBastFiber;Base.HempScutched],
         }
         outputs
         {
@@ -449,7 +449,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.HempBastFiber],
+            item 1 [PhobosChemistryPathways.HempBastFiber;Base.HempScutched],
             item 2 tags[base:herb],
             item 1 [*] mode:keep,
             -fluid 0.5 [Water],
@@ -475,7 +475,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.HempBastFiber],
+            item 1 [PhobosChemistryPathways.HempBastFiber;Base.HempScutched],
             item 2 tags[base:herb],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -508,7 +508,7 @@ module Base
 
         inputs
         {
-            item 3 [PhobosChemistryPathways.HempBastFiber],
+            item 3 [PhobosChemistryPathways.HempBastFiber;Base.HempScutched],
             item 1 [*] mode:keep,
             -fluid 1.0 [Water],
         }
@@ -533,7 +533,7 @@ module Base
 
         inputs
         {
-            item 3 [PhobosChemistryPathways.HempBastFiber],
+            item 3 [PhobosChemistryPathways.HempBastFiber;Base.HempScutched],
             item 1 [*],
             -fluid 1.0 [Water],
             item 1 tags[base:cookable] mode:keep,
@@ -570,7 +570,7 @@ module Base
 
         inputs
         {
-            item 2 [PhobosChemistryPathways.HempBastFiber],
+            item 2 [PhobosChemistryPathways.HempBastFiber;Base.HempScutched],
             item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [*] mode:keep,
             -fluid 1.0 [Water],
@@ -596,7 +596,7 @@ module Base
 
         inputs
         {
-            item 2 [PhobosChemistryPathways.HempBastFiber],
+            item 2 [PhobosChemistryPathways.HempBastFiber;Base.HempScutched],
             item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [*],
             -fluid 1.0 [Water],
@@ -656,7 +656,7 @@ module Base
 
         inputs
         {
-            item 2 [PhobosChemistryPathways.HempBastFiber],
+            item 2 [PhobosChemistryPathways.HempBastFiber;Base.HempScutched],
             item 1 [Base.AlcoholBandage;Base.Disinfectant;Base.Whiskey],
             item 1 [*] mode:keep,
             -fluid 0.5 [Water],
@@ -682,7 +682,7 @@ module Base
 
         inputs
         {
-            item 2 [PhobosChemistryPathways.HempBastFiber],
+            item 2 [PhobosChemistryPathways.HempBastFiber;Base.HempScutched],
             item 1 [Base.AlcoholBandage;Base.Disinfectant;Base.Whiskey],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -752,7 +752,7 @@ module Base
         {
             item 4 [PhobosChemistryPathways.HempHurd],
             item 2 [PhobosChemistryPathways.Calcite],
-            item 1 [PhobosChemistryPathways.TarredHempRope],
+            item 1 [PhobosChemistryPathways.TarredHempRope;PhobosChemistryPathways.Oakum],
             item 1 [*] mode:keep,
             -fluid 2.0 [Water],
         }
@@ -939,6 +939,307 @@ module Base
         outputs
         {
             item 1 PhobosChemistryPathways.DilutedCompost,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ========================== VANILLA STATION RECIPES =================================== */
+/* ==================================================================================== */
+/*  Alternative processing routes using vanilla B42 crafting stations.
+    These provide accessible, infrastructure-based alternatives to in-hand
+    chemistry recipes. Lower purity than chemical routes but no reagents
+    required — ideal for early-game or non-chemist survivors.                              */
+
+
+/* ----- S1: SCUTCH HEMP FIBER (Scutching Board) ----- */
+/*  Mechanical fiber extraction on a vanilla Scutching Board. Alternative
+    to chemical retting (KOH/NaOH). Lower purity (30-50 vs 50-70) but
+    requires no alkali reagents — just tools and infrastructure.                           */
+
+    craftRecipe PCPScutchHempFiber
+    {
+        time = 120,
+        category = Phobos Field Chem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpScutchHempFiberPurity,
+
+        Tags = Scutching;CannotBeResearched,
+        timedAction = MakingHammer_Surface,
+        SkillRequired = Farming:1,
+        xpAward = Farming:5,
+        AutoLearnAll = Farming:1,
+
+        inputs
+        {
+            item 2 [Base.HempBundleDried],
+            item 1 tags[base:breakfiber] mode:keep flags[MayDegradeLight],
+            item 1 tags[base:dullknife] mode:keep flags[MayDegradeLight],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.HempBastFiber,
+            item 2 PhobosChemistryPathways.HempHurd,
+        }
+    }
+
+/* ----- S2: WEAVE HEMP CLOTH (Loom) ----- */
+/*  Loom-based weaving of hemp fiber into cloth. Works on both the
+    player-built SimpleLoom (Woodwork 3) and the world-found Loom entity.
+    Uses 3 fiber vs 4 for in-hand weaving — the station's mechanical
+    advantage. Accepts vanilla HempScutched as alternative input.                          */
+
+    craftRecipe PCPWeaveHempClothLoom
+    {
+        time = 150,
+        category = Phobos Kitchen Chem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpWeaveHempClothLoomPurity,
+
+        Tags = Weaving;CannotBeResearched,
+        timedAction = UseLoom,
+        SkillRequired = Tailoring:2,
+        xpAward = Tailoring:10,
+        AutoLearnAll = Tailoring:2,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.HempBastFiber;Base.HempScutched],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.HempCloth,
+        }
+    }
+
+/* ----- S3: WEAVE HEMP CANVAS (Loom) ----- */
+/*  Direct canvas weaving on a loom, skipping the intermediate cloth step.
+    Requires more fiber but produces heavyweight canvas in a single operation.              */
+
+    craftRecipe PCPWeaveHempCanvasLoom
+    {
+        time = 200,
+        category = Phobos Kitchen Chem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpWeaveHempCanvasLoomPurity,
+
+        Tags = Weaving;CannotBeResearched,
+        timedAction = UseLoom,
+        SkillRequired = Tailoring:3,
+        xpAward = Tailoring:15,
+        AutoLearnAll = Tailoring:3,
+
+        inputs
+        {
+            item 5 [PhobosChemistryPathways.HempBastFiber;Base.HempScutched],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.HempCanvas,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ========================== FUNCTIONAL END-PRODUCTS ================================== */
+/* ==================================================================================== */
+/*  Finished goods with direct gameplay utility. These items serve as
+    storage, fishing, trapping, or escape tools rather than chemistry
+    intermediates. No purity tracking — functional items only.                             */
+
+
+/* ----- E1: MAKE OAKUM ----- */
+/*  Soak loose hemp fiber in wood tar to produce oakum — a traditional
+    caulking and fire-starting material. Cross-pathway: uses WoodTar
+    from the existing distillation chain.                                                  */
+
+    craftRecipe PCPMakeOakum
+    {
+        time = 100,
+        category = Phobos Kitchen Chem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpMakeOakumPurity,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:8,
+        AutoLearnAll = AppliedChemistry:1,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.HempBastFiber;Base.HempScutched],
+            item 1 [*],
+            -fluid 1.0 [PhobosChemistryPathways.WoodTar],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.Oakum,
+        }
+    }
+
+/* ----- E2: SEW HEMP SACK ----- */
+/*  Stitch a wearable carrying sack from hemp canvas and rope. Provides
+    12 capacity with 50% weight reduction — a craftable alternative to
+    scavenged bags for early-game survivors.                                               */
+
+    craftRecipe PCPSewHempSack
+    {
+        time = 200,
+        category = Phobos Kitchen Chem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = Tailoring:3,
+        xpAward = Tailoring:15,
+        AutoLearnAll = Tailoring:3,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.HempCanvas],
+            item 1 [PhobosChemistryPathways.HempRope],
+            item 1 [Base.Needle] mode:keep flags[MayDegradeLight],
+            item 1 [Base.Thread],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.HempSack,
+        }
+    }
+
+/* ----- E3: KNOT HEMP FISHING NET ----- */
+/*  Hand-knot a functional fishing net from hemp twine. Functions
+    identically to vanilla FishingNet via the base:fishingnet tag.                         */
+
+    craftRecipe PCPKnotHempFishingNet
+    {
+        time = 250,
+        category = Phobos Field Chem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = Fishing:2,
+        xpAward = Fishing:12,
+        AutoLearnAll = Fishing:2,
+
+        inputs
+        {
+            item 6 [PhobosChemistryPathways.HempTwine],
+            item 2 [Base.LongStick] mode:keep,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.HempFishingNet,
+        }
+    }
+
+/* ----- E4: MAKE HEMP SHEET ROPE ----- */
+/*  Combine hemp rope with cloth strips into a climbable sheet rope.
+    Lighter than vanilla SheetRope (0.7 vs 0.8 kg).                                       */
+
+    craftRecipe PCPMakeHempSheetRope
+    {
+        time = 80,
+        category = Phobos Field Chem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.HempRope],
+            item 1 [PhobosChemistryPathways.HempCloth],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.HempSheetRope,
+        }
+    }
+
+/* ----- E5: CRAFT HEMP SNARE ----- */
+/*  Fashion a simple loop snare from hemp twine and a stick.
+    Functions as a vanilla trapping device (Trap = true).                                   */
+
+    craftRecipe PCPCraftHempSnare
+    {
+        time = 60,
+        category = Phobos Field Chem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = Trapping:1,
+        xpAward = Trapping:5,
+        AutoLearnAll = Trapping:1,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.HempTwine],
+            item 1 [Base.LongStick],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.HempSnare,
+        }
+    }
+
+/* ----- E6: COMPOST SEED CAKE ----- */
+/*  Soak seed press cake in water to decompose into compost.
+    Seed cake is nitrogen-rich — an excellent natural fertiliser.                           */
+
+    craftRecipe PCPCompostSeedCake
+    {
+        time = 100,
+        category = Phobos Field Chem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpCompostSeedCakePurity,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = Farming:0,
+        xpAward = Farming:5,
+        AutoLearnAll = Farming:0,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.SeedPressCake],
+            item 1 [*] mode:keep,
+            -fluid 1.0 [Water],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.DilutedCompost,
+        }
+    }
+
+/* ----- E7: FERTILIZE WITH SEED CAKE ----- */
+/*  Mix seed press cake with commercial fertilizer to create enriched
+    compost. The high-nitrogen cake boosts nutrient content.                                */
+
+    craftRecipe PCPFertilizeSeedCake
+    {
+        time = 80,
+        category = Phobos Field Chem,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = Farming:0,
+        xpAward = Farming:3,
+        AutoLearnAll = Farming:0,
+
+        inputs
+        {
+            item 2 [PhobosChemistryPathways.SeedPressCake],
+            item 1 [Base.Fertilizer],
+        }
+        outputs
+        {
+            item 2 Base.CompostBag,
         }
     }
 

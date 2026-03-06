@@ -18,8 +18,9 @@
     PCP_BotanicalCallbacks.lua — OnCreate callbacks for the Botanical Chemistry Pathway
 
     Purity callbacks for hemp processing recipes: retting, fiber extraction,
-    textile production, paper-making, medicinal extracts, hempcrete, and
-    cross-pathway integrations (charcoal, compost, tar treatment).
+    textile production, paper-making, medicinal extracts, hempcrete,
+    cross-pathway integrations (charcoal, compost, tar treatment), and
+    hemp expansion (scutching, oil pressing, loom weaving, oakum).
 
     Requires: PhobosLib, PCP_PuritySystem
 ]]
@@ -47,7 +48,7 @@ end
 
 
 ---------------------------------------------------------------
--- SOURCE CALLBACKS (5) — Assign base purity, no input tracking
+-- SOURCE CALLBACKS (7) — Assign base purity, no input tracking
 ---------------------------------------------------------------
 
 --- Spin hemp twine (Field tier, hand-spinning): 40-60
@@ -98,7 +99,7 @@ end
 
 
 ---------------------------------------------------------------
--- PROPAGATION CALLBACKS (7) — Read input purity, apply factor
+-- PROPAGATION CALLBACKS (7+3) — Read input purity, apply factor
 ---------------------------------------------------------------
 
 --- Braid hemp rope from twine (factor 0.95)
@@ -181,6 +182,56 @@ end
 
 
 ---------------------------------------------------------------
+-- HEMP EXPANSION — SOURCE CALLBACKS (3)
+---------------------------------------------------------------
+
+--- Scutch hemp fiber (Scutching Board, mechanical): 30-50
+function PCP_BotanicalCallbacks.pcpScutchHempFiberPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(30, 50, player))
+end
+
+--- Press oil Hand Press (station, Farming tier): 45-65
+function PCP_BotanicalCallbacks.pcpPressOilHandPressPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(45, 65, player))
+end
+
+--- Compost seed cake (Field tier): 40-60
+function PCP_BotanicalCallbacks.pcpCompostSeedCakePurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(40, 60, player))
+end
+
+
+---------------------------------------------------------------
+-- HEMP EXPANSION — PROPAGATION CALLBACKS (3)
+---------------------------------------------------------------
+
+--- Weave hemp cloth on loom (station bonus +5): input-averaged
+function PCP_BotanicalCallbacks.pcpWeaveHempClothLoomPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    local base = PCP_PuritySystem.averageInputPurity(items)
+    local bonus = PCP_PuritySystem.getSkillBonus(player) + 5
+    _stampAndAnnounce(result, player, math.min(100, base + bonus))
+end
+
+--- Weave hemp canvas on loom (station bonus +5): input-averaged
+function PCP_BotanicalCallbacks.pcpWeaveHempCanvasLoomPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    local base = PCP_PuritySystem.averageInputPurity(items)
+    local bonus = PCP_PuritySystem.getSkillBonus(player) + 5
+    _stampAndAnnounce(result, player, math.min(100, base + bonus))
+end
+
+--- Make oakum (tar treatment): input-averaged
+function PCP_BotanicalCallbacks.pcpMakeOakumPurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.averageInputPurity(items))
+end
+
+
+---------------------------------------------------------------
 -- HAZARD WRAPPER CALLBACKS (4) — Safe/Unsafe for caustic retting
 -- Uses PCP_HazardSystem public wrappers (promoted from local helpers).
 -- Retting (KOH/NaOH) and chemical pulping produce caustic fumes.
@@ -206,4 +257,41 @@ end
 --- Chemical pulping (NaOH) — Unsafe (caustic_vapor)
 function PCP_BotanicalCallbacks.pcpChemicalPulpingUnsafePurity(items, result, player)
     PCP_HazardSystem.unsafeWrapper(PCP_BotanicalCallbacks.pcpChemicalPulpingPurity, "caustic_vapor", items, result, player)
+end
+
+
+---------------------------------------------------------------
+-- LIGHT-HAZARD WRAPPER CALLBACKS (6) — Safe/Unsafe for smoke & dust
+-- Uses PCP_HazardSystem light wrappers for mechanical hazards.
+-- Charring produces smoke; hempcrete mixing produces mineral dust.
+---------------------------------------------------------------
+
+--- Char hemp hurds — Safe (light filter degrade)
+function PCP_BotanicalCallbacks.pcpCharHempHurdsSafePurity(items, result, player)
+    PCP_HazardSystem.lightSafeWrapper(PCP_BotanicalCallbacks.pcpCharHempHurdsPurity, items, result, player)
+end
+
+--- Char hemp hurds — Unsafe (smoke_inhalation)
+function PCP_BotanicalCallbacks.pcpCharHempHurdsUnsafePurity(items, result, player)
+    PCP_HazardSystem.lightUnsafeWrapper(PCP_BotanicalCallbacks.pcpCharHempHurdsPurity, "smoke_inhalation", items, result, player)
+end
+
+--- Mix hempcrete — Safe (light filter degrade)
+function PCP_BotanicalCallbacks.pcpMixHempcreteSafePurity(items, result, player)
+    PCP_HazardSystem.lightSafeWrapper(PCP_BotanicalCallbacks.pcpMixHempcretePurity, items, result, player)
+end
+
+--- Mix hempcrete — Unsafe (mineral_dust)
+function PCP_BotanicalCallbacks.pcpMixHempcreteUnsafePurity(items, result, player)
+    PCP_HazardSystem.lightUnsafeWrapper(PCP_BotanicalCallbacks.pcpMixHempcretePurity, "mineral_dust", items, result, player)
+end
+
+--- Mix reinforced hempcrete — Safe (light filter degrade)
+function PCP_BotanicalCallbacks.pcpMixReinforcedHempcreteSafePurity(items, result, player)
+    PCP_HazardSystem.lightSafeWrapper(PCP_BotanicalCallbacks.pcpMixReinforcedHempcretePurity, items, result, player)
+end
+
+--- Mix reinforced hempcrete — Unsafe (mineral_dust)
+function PCP_BotanicalCallbacks.pcpMixReinforcedHempcreteUnsafePurity(items, result, player)
+    PCP_HazardSystem.lightUnsafeWrapper(PCP_BotanicalCallbacks.pcpMixReinforcedHempcretePurity, "mineral_dust", items, result, player)
 end

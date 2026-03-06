@@ -25,7 +25,7 @@
 -- Registers:
 --   - 1 custom tag ("Chemical")
 --   - 1 trader archetype ("Chemist") with expertTags
---   - 59 tradeable items (reagents, intermediates, fuels, agriculture, botanical, horticulture, books)
+--   - 65 tradeable items (reagents, intermediates, fuels, agriculture, botanical, horticulture, books)
 --   - Chemical allocations injected into 8 existing DT archetypes
 --
 -- Only runs when PhobosLib.isDynamicTradingActive() returns true.
@@ -184,6 +184,12 @@ local function registerPCPTradeData()
         { item = "PhobosChemistryPathways.HempPoultice",       basePrice = 25,  tags = { "Chemical", "Medical", "Common" },     stockRange = { min = 2, max = 5 } },
         { item = "PhobosChemistryPathways.HempTincture",       basePrice = 45,  tags = { "Chemical", "Medical", "Uncommon" },   stockRange = { min = 1, max = 3 } },
         { item = "PhobosChemistryPathways.HempcreteBlock",     basePrice = 35,  tags = { "Chemical", "Material", "Uncommon" },  stockRange = { min = 1, max = 3 } },
+        { item = "PhobosChemistryPathways.SeedPressCake",    basePrice = 5,   tags = { "Chemical", "Material", "Common" },    stockRange = { min = 3, max = 8 } },
+        { item = "PhobosChemistryPathways.HempSack",         basePrice = 40,  tags = { "Chemical", "Material", "Uncommon" },  stockRange = { min = 1, max = 2 } },
+        { item = "PhobosChemistryPathways.Oakum",            basePrice = 12,  tags = { "Chemical", "Material", "Common" },    stockRange = { min = 2, max = 5 } },
+        { item = "PhobosChemistryPathways.HempFishingNet",   basePrice = 35,  tags = { "Chemical", "Survival", "Uncommon" },  stockRange = { min = 1, max = 2 } },
+        { item = "PhobosChemistryPathways.HempSheetRope",    basePrice = 20,  tags = { "Chemical", "Material", "Common" },    stockRange = { min = 1, max = 3 } },
+        { item = "PhobosChemistryPathways.HempSnare",        basePrice = 15,  tags = { "Chemical", "Survival", "Common" },    stockRange = { min = 2, max = 4 } },
 
         -- Horticulture items (tobacco, hemp buds, smoking, papermaking, cooking)
         { item = "PhobosChemistryPathways.ChewingTobaccoTin",  basePrice = 15,  tags = { "Common" },                            stockRange = { min = 2, max = 5 } },
@@ -223,7 +229,7 @@ local function registerPCPTradeData()
 
     if ok then
         print(_prefix .. " Registration complete: 1 tag, 1 archetype, "
-            .. tostring(count) .. "/59 items, "
+            .. tostring(count) .. "/65 items, "
             .. tostring(injected) .. " archetype injections"
             .. " [" .. (isServer() and "server" or "local") .. "]")
     else

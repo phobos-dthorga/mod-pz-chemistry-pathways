@@ -53,6 +53,17 @@ PCP_HazardSystem.MASK_TYPES = {
     "Base.Hat_ImprovisedGasMask",
 }
 
+--- Mask types accepted by light-hazard safe recipe inputs.
+--- Superset of MASK_TYPES — includes DustMask (sufficient for
+--- particulates and light smoke, but not chemical fumes).
+PCP_HazardSystem.LIGHT_MASK_TYPES = {
+    "Base.Hat_GasMask",
+    "Base.Hat_NBCmask",
+    "Base.Hat_BuildersRespirator",
+    "Base.Hat_ImprovisedGasMask",
+    "Base.Hat_DustMask",
+}
+
 --- Hazard profiles keyed by hazard ID.
 --- Each profile defines EHR disease mapping and vanilla stat fallbacks.
 PCP_HazardSystem.HAZARDS = {
@@ -115,6 +126,28 @@ PCP_HazardSystem.HAZARDS = {
         vanillaPain     = 0.03,
         vanillaStress   = 0.10,
         warningMsg      = "*cough* Resin fumes!",
+    },
+    smoke_inhalation = {
+        ehrDisease      = "corpse_sickness",
+        ehrChance       = 0.20,
+        ehrSevere       = "pneumonia",
+        ehrSevereChance = 0.02,
+        vanillaSickness = 0.05,
+        vanillaPain     = 0.02,
+        vanillaStress   = 0.08,
+        warningMsg      = "*cough* Smoke and fumes!",
+        lightHazard     = true,
+    },
+    mineral_dust = {
+        ehrDisease      = "corpse_sickness",
+        ehrChance       = 0.15,
+        ehrSevere       = "pneumonia",
+        ehrSevereChance = 0.01,
+        vanillaSickness = 0.04,
+        vanillaPain     = 0.01,
+        vanillaStress   = 0.06,
+        warningMsg      = "*cough* Fine dust!",
+        lightHazard     = true,
     },
 }
 
@@ -182,6 +215,66 @@ end
 function PCP_HazardSystem.unsafeWrapper(purityFn, hazardId, items, result, player)
     purityFn(items, result, player)
     PCP_HazardSystem.applyUnsafeEffect(player, hazardId)
+end
+
+--- Wrap an existing purity callback with light-hazard safe filter degradation.
+--- Like safeWrapper but accepts nil purityFn for recipes without purity tracking.
+--- Used for mechanical/thermal hazards (smoke, dust) where a DustMask suffices.
+---@param purityFn function|nil  The base purity callback to invoke first (may be nil)
+---@param items    any           Java ArrayList from OnCreate
+---@param result   any           Result item from OnCreate
+---@param player   any           Player from OnCreate
+function PCP_HazardSystem.lightSafeWrapper(purityFn, items, result, player)
+    if purityFn then purityFn(items, result, player) end
+    if PCP_HazardSystem.isEnabled() then
+        PCP_HazardSystem.degradeFilterFromInputs(items)
+    end
+end
+
+--- Wrap an existing purity callback with light-hazard unsafe dispatch.
+--- Like unsafeWrapper but uses finer-grained protection scaling:
+---   NBC mask:                 5% of base chance
+---   Gas mask / respirator:   15% of base chance
+---   Improvised gas mask:     25% of base chance
+---   Dust mask:               35% of base chance
+---   No mask:                100% of base chance
+--- Warning message only shows when mult >= 0.5 (partial or no protection).
+---@param purityFn function|nil  The base purity callback to invoke first (may be nil)
+---@param hazardId string        Key into PCP_HazardSystem.HAZARDS
+---@param items    any           Java ArrayList from OnCreate
+---@param result   any           Result item from OnCreate
+---@param player   any           Player from OnCreate
+function PCP_HazardSystem.lightUnsafeWrapper(purityFn, hazardId, items, result, player)
+    if purityFn then purityFn(items, result, player) end
+    if not PCP_HazardSystem.isEnabled() then return end
+    local hazard = PCP_HazardSystem.HAZARDS[hazardId]
+    if not hazard then return end
+
+    local prot = PhobosLib.getRespiratoryProtection(player)
+    local mult = 1.0
+    if prot.protectionLevel == "nbc" then mult = 0.05
+    elseif prot.protectionLevel == "gasmask" or prot.protectionLevel == "respirator" then mult = 0.15
+    elseif prot.protectionLevel == "improvised" then mult = 0.25
+    elseif prot.protectionLevel == "dustmask" then mult = 0.35
+    end
+
+    if mult < 1.0 then
+        PCP_HazardSystem.degradeFilterFromInputs(items)
+    end
+
+    PhobosLib.applyHazardEffect(player, {
+        ehrDisease        = hazard.ehrDisease,
+        ehrChance         = hazard.ehrChance * mult,
+        ehrSevereDisease  = hazard.ehrSevere,
+        ehrSevereChance   = hazard.ehrSevereChance * mult,
+        vanillaSickness   = hazard.vanillaSickness * mult,
+        vanillaPain       = hazard.vanillaPain * mult,
+        vanillaStress     = hazard.vanillaStress * mult,
+    })
+
+    if mult >= 0.5 then
+        PhobosLib.warnHazard(player, hazard.warningMsg)
+    end
 end
 
 

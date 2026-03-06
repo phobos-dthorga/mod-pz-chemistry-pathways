@@ -46,6 +46,7 @@ module Base
         }
         outputs
         {
+            item 1 PhobosChemistryPathways.SeedPressCake,
         }
     }
 
@@ -74,6 +75,7 @@ module Base
         }
         outputs
         {
+            item 1 PhobosChemistryPathways.SeedPressCake,
         }
     }
 
@@ -102,6 +104,7 @@ module Base
         }
         outputs
         {
+            item 1 PhobosChemistryPathways.SeedPressCake,
         }
     }
 
@@ -130,6 +133,7 @@ module Base
         }
         outputs
         {
+            item 1 PhobosChemistryPathways.SeedPressCake,
         }
     }
 
@@ -158,6 +162,7 @@ module Base
         }
         outputs
         {
+            item 1 PhobosChemistryPathways.SeedPressCake,
         }
     }
 
@@ -186,6 +191,7 @@ module Base
         }
         outputs
         {
+            item 1 PhobosChemistryPathways.SeedPressCake,
         }
     }
 
@@ -226,6 +232,7 @@ module Base
         outputs
         {
             item 1 LabItems.LabFlaskDirty,
+            item 2 PhobosChemistryPathways.SeedPressCake,
         }
     }
 
@@ -292,6 +299,7 @@ module Base
         outputs
         {
             item 1 LabItems.LabFlaskDirty,
+            item 2 PhobosChemistryPathways.SeedPressCake,
         }
     }
 
@@ -358,6 +366,7 @@ module Base
         outputs
         {
             item 1 LabItems.LabFlaskDirty,
+            item 2 PhobosChemistryPathways.SeedPressCake,
         }
     }
 
@@ -424,6 +433,7 @@ module Base
         outputs
         {
             item 1 LabItems.LabFlaskDirty,
+            item 2 PhobosChemistryPathways.SeedPressCake,
         }
     }
 
@@ -490,6 +500,7 @@ module Base
         outputs
         {
             item 1 LabItems.LabFlaskDirty,
+            item 2 PhobosChemistryPathways.SeedPressCake,
         }
     }
 
@@ -556,6 +567,7 @@ module Base
         outputs
         {
             item 1 LabItems.LabFlaskDirty,
+            item 2 PhobosChemistryPathways.SeedPressCake,
         }
     }
 
@@ -785,6 +797,37 @@ module Base
         }
         outputs
         {
+        }
+    }
+
+/* ----- B1-HP: PRESS OIL (Hand Press) ----- */
+/*  Station-based oil pressing using vanilla Hand Press + SeedPaste.
+    Higher yield than mortar (2.0 vs 1.0) plus seed cake byproduct.
+    Requires Stone Mill output (SeedPaste) as intermediate.                                */
+
+    craftRecipe PCPPressOilHandPress
+    {
+        time = 100,
+        category = Phobos Kitchen Chem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpPressOilHandPressPurity,
+
+        Tags = HandPress;CannotBeResearched,
+        timedAction = UseHandPress,
+        SkillRequired = Farming:2,
+        xpAward = Farming:8,
+        AutoLearnAll = Farming:2,
+
+        inputs
+        {
+            item 1 [Base.SeedPaste],
+            item 1 [Base.CheeseCloth] mode:keep flags[MayDegradeLight],
+            item 1 [*],
+        }
+        outputs
+        {
+            fluid 2.0 PhobosChemistryPathways.CrudeVegetableOil,
+            item 1 PhobosChemistryPathways.SeedPressCake,
         }
     }
 

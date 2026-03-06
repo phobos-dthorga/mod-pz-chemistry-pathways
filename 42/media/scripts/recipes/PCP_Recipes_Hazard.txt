@@ -1016,7 +1016,7 @@ module Base
 
         inputs
         {
-            item 2 [PhobosChemistryPathways.HempBastFiber],
+            item 2 [PhobosChemistryPathways.HempBastFiber;Base.HempScutched],
             item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [*] mode:keep,
             -fluid 1.0 [Water],
@@ -1049,7 +1049,7 @@ module Base
 
         inputs
         {
-            item 2 [PhobosChemistryPathways.HempBastFiber],
+            item 2 [PhobosChemistryPathways.HempBastFiber;Base.HempScutched],
             item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [*] mode:keep,
             -fluid 1.0 [Water],
@@ -1078,7 +1078,7 @@ module Base
 
         inputs
         {
-            item 2 [PhobosChemistryPathways.HempBastFiber],
+            item 2 [PhobosChemistryPathways.HempBastFiber;Base.HempScutched],
             item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [*],
             -fluid 1.0 [Water],
@@ -1110,7 +1110,7 @@ module Base
 
         inputs
         {
-            item 2 [PhobosChemistryPathways.HempBastFiber],
+            item 2 [PhobosChemistryPathways.HempBastFiber;Base.HempScutched],
             item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [*],
             -fluid 1.0 [Water],
@@ -1183,6 +1183,310 @@ module Base
         outputs
         {
             item 1 Base.Glue,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ================== CHARRING HAZARD VARIANTS (smoke_inhalation) ===================== */
+/* ==================================================================================== */
+/*  Pyrolysing hemp hurds produces smoke and particulate. Light hazard:
+    a DustMask suffices for safe variants. Base recipes in
+    PCP_Recipes_Botanical.txt are hidden when EnableHealthHazards is ON.         */
+
+/* ----- CHAR HEMP HURDS (Charcoal) — SAFE ----- */
+
+    craftRecipe PCPCharHempHurdsSafe
+    {
+        time = 200,
+        category = Phobos Field Chem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpCharHempHurdsSafePurity,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.HempHurd],
+            item 3 [Base.Charcoal],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask;Base.Hat_DustMask] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrushedCharcoal,
+        }
+    }
+
+/* ----- CHAR HEMP HURDS (Charcoal) — UNSAFE ----- */
+
+    craftRecipe PCPCharHempHurdsUnsafe
+    {
+        time = 200,
+        category = Phobos Field Chem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpCharHempHurdsUnsafePurity,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.HempHurd],
+            item 3 [Base.Charcoal],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrushedCharcoal,
+        }
+    }
+
+/* ----- CHAR HEMP HURDS (Coke) — SAFE ----- */
+
+    craftRecipe PCPCharHempHurdsCokeSafe
+    {
+        time = 200,
+        category = Phobos Field Chem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpCharHempHurdsSafePurity,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.HempHurd],
+            item 1 [Base.Coke],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask;Base.Hat_DustMask] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrushedCharcoal,
+        }
+    }
+
+/* ----- CHAR HEMP HURDS (Coke) — UNSAFE ----- */
+
+    craftRecipe PCPCharHempHurdsCokeUnsafe
+    {
+        time = 200,
+        category = Phobos Field Chem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpCharHempHurdsUnsafePurity,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.HempHurd],
+            item 1 [Base.Coke],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrushedCharcoal,
+        }
+    }
+
+/* ----- CHAR HEMP HURDS (Simple, no fuel) — SAFE ----- */
+
+    craftRecipe PCPCharHempHurdsSimpleSafe
+    {
+        time = 200,
+        category = Phobos Field Chem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpCharHempHurdsSafePurity,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.HempHurd],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask;Base.Hat_DustMask] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrushedCharcoal,
+        }
+    }
+
+/* ----- CHAR HEMP HURDS (Simple, no fuel) — UNSAFE ----- */
+
+    craftRecipe PCPCharHempHurdsSimpleUnsafe
+    {
+        time = 200,
+        category = Phobos Field Chem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpCharHempHurdsUnsafePurity,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:10,
+        AutoLearnAll = AppliedChemistry:2,
+
+        inputs
+        {
+            item 3 [PhobosChemistryPathways.HempHurd],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.CrushedCharcoal,
+        }
+    }
+
+
+/* ==================================================================================== */
+/* ================== HEMPCRETE MIXING HAZARD VARIANTS (mineral_dust) ================= */
+/* ==================================================================================== */
+/*  Mixing hempcrete in the concrete mixer produces calcium and mineral dust.
+    Light hazard: a DustMask suffices for safe variants. Base recipes in
+    PCP_Recipes_Botanical.txt are hidden when EnableHealthHazards is ON.          */
+
+/* ----- MIX HEMPCRETE — SAFE ----- */
+
+    craftRecipe PCPMixHempcreteSafe
+    {
+        time = 300,
+        category = Phobos Industrial Chem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpMixHempcreteSafePurity,
+
+        Tags = CraftBench;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:15,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.HempHurd],
+            item 2 [PhobosChemistryPathways.Calcite],
+            item 1 [*] mode:keep,
+            -fluid 2.0 [Water],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask;Base.Hat_DustMask] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.HempcreteBlock,
+        }
+    }
+
+/* ----- MIX HEMPCRETE — UNSAFE ----- */
+
+    craftRecipe PCPMixHempcreteUnsafe
+    {
+        time = 300,
+        category = Phobos Industrial Chem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpMixHempcreteUnsafePurity,
+
+        Tags = CraftBench;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:2,
+        xpAward = AppliedChemistry:15,
+        AutoLearnAll = AppliedChemistry:3,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.HempHurd],
+            item 2 [PhobosChemistryPathways.Calcite],
+            item 1 [*] mode:keep,
+            -fluid 2.0 [Water],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 2 PhobosChemistryPathways.HempcreteBlock,
+        }
+    }
+
+/* ----- MIX REINFORCED HEMPCRETE — SAFE ----- */
+
+    craftRecipe PCPMixReinforcedHempcreteSafe
+    {
+        time = 350,
+        category = Phobos Industrial Chem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpMixReinforcedHempcreteSafePurity,
+
+        Tags = CraftBench;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.HempHurd],
+            item 2 [PhobosChemistryPathways.Calcite],
+            item 1 [PhobosChemistryPathways.TarredHempRope;PhobosChemistryPathways.Oakum],
+            item 1 [*] mode:keep,
+            -fluid 2.0 [Water],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask;Base.Hat_DustMask] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.HempcreteBlock,
+        }
+    }
+
+/* ----- MIX REINFORCED HEMPCRETE — UNSAFE ----- */
+
+    craftRecipe PCPMixReinforcedHempcreteUnsafe
+    {
+        time = 350,
+        category = Phobos Industrial Chem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpMixReinforcedHempcreteUnsafePurity,
+
+        Tags = CraftBench;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.HempHurd],
+            item 2 [PhobosChemistryPathways.Calcite],
+            item 1 [PhobosChemistryPathways.TarredHempRope;PhobosChemistryPathways.Oakum],
+            item 1 [*] mode:keep,
+            -fluid 2.0 [Water],
+            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.HempcreteBlock,
         }
     }
 
