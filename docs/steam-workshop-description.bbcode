@@ -1,6 +1,6 @@
 [h1]Phobos' Chemistry Pathways[/h1]
 
-[b]Version:[/b] 1.2.0-alpha | [b]Requires:[/b] Project Zomboid Build 42.14.0+ | [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865]PhobosLib 1.16.0+[/url] | [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168]Zombie Virus Vaccine[/url]
+[b]Version:[/b] 1.2.0 | [b]Requires:[/b] Project Zomboid Build 42.14.0+ | [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865]PhobosLib 1.16.0+[/url] | [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168]Zombie Virus Vaccine[/url]
 
 A complete chemistry suite for Project Zomboid Build 42, adding realistic crafting pathways for blackpowder, biodiesel, soap, bone char, salt extraction, agriculture, recycling, botanical hemp processing, horticulture, and advanced laboratory processes.
 
@@ -9,7 +9,7 @@ A complete chemistry suite for Project Zomboid Build 42, adding realistic crafti
 [h2]Features[/h2]
 
 [h3]Applied Chemistry Skill System[/h3]
-Custom Applied Chemistry perk with a steeper XP curve (75-9000). Two occupations (Chemist and Pharmacist) and two traits (Chemistry Enthusiast and Chemical Aversion) provide starting skill bonuses. Five skill book volumes cover levels 1-10. All 234 recipes award Applied Chemistry XP with 7 tiers of skill requirements.
+Custom Applied Chemistry perk with a steeper XP curve (75-9000). Two occupations (Chemist and Pharmacist) and two traits (Chemistry Enthusiast and Chemical Aversion) provide starting skill bonuses. Five skill book volumes cover levels 1-10. All 276 recipes award Applied Chemistry XP with 7 tiers of skill requirements.
 
 [h3]Blackpowder Pathway[/h3]
 Seven-step chain from raw charcoal to gunpowder: crush, purify (water or alkaline wash), prepare compost, extract battery acid, extract sulphur, synthesize potassium nitrate, and mix blackpowder.
@@ -55,6 +55,17 @@ Powered CraftBench entity for industrial-scale material processing. Build from a
 [h3]In-Game Guide & Changelog[/h3]
 Welcome guide on first install with "Don't show again" option. Version-based "What's New" changelog popup on updates showing changes since your last played version.
 
+[h3]Recipe Books[/h3]
+Six lootable recipe books teaching PCP recipes by category, plus one master compendium:
+[list]
+[*] [b]Field Chemistry Primer[/b] — Blackpowder, recycling, and agriculture recipes
+[*] [b]Kitchen Chemistry Companion[/b] — Fat rendering, soap, biodiesel, and cooking recipes
+[*] [b]Laboratory Chemistry Reference[/b] — Advanced lab processes and salt extraction
+[*] [b]Industrial Processes Manual[/b] — Concrete mixer and bulk processing recipes
+[*] [b]Botanical Horticulture Guide[/b] — Hemp processing, textiles, and horticulture recipes
+[*] [b]Complete Chemistry Compendium[/b] — Master volume teaching all PCP recipes
+[/list]
+
 [h3]Advanced Lab Equipment[/h3]
 Centrifuge, chromatograph, microscope, and spectrometer recipes for enhanced processing. Microscope and spectrometer gated by sandbox option.
 
@@ -78,9 +89,9 @@ Six one-shot sandbox options for version upgrades, mod migration, and mod remova
 
 [h2]Cross-Mod Integration[/h2]
 [list]
-[*] [b]ZScienceSkill[/b] ("Science, Bitch!") — Applied Chemistry XP mirrors to Science at 50% rate; 33 items + 8 fluids registered as microscope specimens
+[*] [b]ZScienceSkill[/b] ("Science, Bitch!") — Applied Chemistry XP mirrors to Science at 50% rate; 52 items + 8 fluids registered as microscope specimens
 [*] [b]EHR[/b] (Extensive Health Rework) — Health hazard recipes dispatch EHR diseases instead of vanilla stat penalties
-[*] [b]Dynamic Trading[/b] — 34 PCP items registered for NPC trading with custom "Chemical" tag and "Chemist" trader archetype; chemical allocations injected into 8 existing vendor archetypes
+[*] [b]Dynamic Trading[/b] — 59 PCP items registered for NPC trading with custom "Chemical" tag and "Chemist" trader archetype; chemical allocations injected into 8 existing vendor archetypes
 [*] [b]Neat Crafting[/b] — Recipe visibility filters applied through NC_FilterBar; runtime-detected, no hard dependency
 [/list]
 
@@ -88,14 +99,15 @@ Six one-shot sandbox options for version upgrades, mod migration, and mod remova
 
 [h2]Content Summary[/h2]
 [list]
-[*] [b]234 recipes[/b] across blackpowder, biodiesel, soap, bone char, salt extraction, recycling, agriculture, concrete mixer, botanical, utility, and advanced lab pathways
-[*] [b]91 items[/b] including chemical reagents, intermediates, container variants, gardening sprays, construction materials, salt products, botanical textiles, horticulture products, and smoking items
-[*] [b]34 tradeable items[/b] registered with Dynamic Trading across 9 vendor archetypes
+[*] [b]276 recipes[/b] across blackpowder, biodiesel, soap, bone char, salt extraction, recycling, agriculture, concrete mixer, botanical, utility, and advanced lab pathways
+[*] [b]101 items[/b] including chemical reagents, intermediates, container variants, gardening sprays, construction materials, salt products, botanical textiles, horticulture products, and smoking items
+[*] [b]59 tradeable items[/b] registered with Dynamic Trading across 9 vendor archetypes
+[*] [b]6 recipe books[/b] (5 category primers + 1 master compendium) teaching recipes by pathway
 [*] [b]5 skill books[/b] covering Applied Chemistry levels 1-10
 [*] [b]2 occupations[/b] (Chemist, Pharmacist) and [b]2 traits[/b] (Chemistry Enthusiast, Chemical Aversion)
 [*] [b]9 fluids[/b] with Build 42 FluidContainer integration and poison profiles
 [*] [b]19 sandbox options[/b] for gameplay customization, vessel replacement, concrete mixer, botanical pathway, and maintenance
-[*] [b]1 handbook[/b] (lootable) teaching all recipes with a coloured pathway guide
+[*] [b]216 OnCreate callbacks[/b] for purity tracking, vessel replacement, and item processing
 [/list]
 
 [hr][/hr]

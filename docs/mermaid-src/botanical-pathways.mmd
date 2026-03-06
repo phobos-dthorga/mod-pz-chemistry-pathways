@@ -25,9 +25,11 @@ graph TB
     %% ═══ BAST FIBER CHAINS ═══
     %% Textile chain
     BAST -->|"spin"| TWINE["HempTwine"]
-    TWINE -->|"braid ×3"| ROPE["HempRope"]
-    ROPE -->|"+ WoodTar<br/>(2 variants)"| TARRED["TarredHempRope"]
+    TWINE -->|"braid ×3"| ROPE["HempRope<br/>(base:rope)"]
+    ROPE -->|"+ WoodTar<br/>(2 variants)"| TARRED["TarredHempRope<br/>(base:rope + fire fuel)"]
     WOODTAR -.-> TARRED
+    TARRED -->|"+HempHurd+Calcite<br/>(mixer H14b)"| REINFORCED["ReinforcedHempcrete<br/>3× blocks"]
+    CALCITE -.-> REINFORCED
 
     BAST -->|"weave ×4"| CLOTH["HempCloth"]
     CLOTH -->|"layer ×2"| CANVAS["HempCanvas"]
@@ -54,15 +56,15 @@ graph TB
     HURD -->|"+ twine"| FIRE["DryFirestarterBlock ×2"]
     TWINE --> FIRE
 
-    %% ═══ HORTICULTURE (Phase 2 — Items Defined, Recipes Planned) ═══
-    subgraph HORT["Horticulture (Phase 2 — Recipes Planned)"]
-        TOB_WET["TobaccoWet"] -.->|"air dry"| TOB_DRY["Tobacco"]
-        TOB_DRY -.->|"pack"| CHEW["ChewingTobacco<br/>(Tin / WaterTin / Jar)"]
-        BUDS["HempBuds"] -.->|"cure / decarb"| BUDS_PROC["Cured / Decarbed"]
-        BUDS_PROC -.->|"can / grind"| LOOSE["HempLoose"]
-        PAPER -.->|"cut"| ROLLING["RollingPapers"]
-        LOOSE -.->|"+ pipe / paper"| SMOKE["Cigarette / Cigar / Pipe"]
-        SYRUP_IN["Sugar + Water"] -.->|"cook"| SYRUP["SimpleSugarSyrup"]
+    %% ═══ HORTICULTURE ═══
+    subgraph HORT["Horticulture"]
+        TOB_WET["TobaccoWet"] -->|"air dry"| TOB_DRY["Tobacco"]
+        TOB_DRY -->|"pack"| CHEW["ChewingTobacco<br/>(Tin / WaterTin / Jar)"]
+        BUDS["HempBuds"] -->|"cure / decarb"| BUDS_PROC["Cured / Decarbed"]
+        BUDS_PROC -->|"can / grind"| LOOSE["HempLoose"]
+        PAPER -->|"cut"| ROLLING["RollingPapers"]
+        LOOSE -->|"+ pipe / paper"| SMOKE["Cigarette / Cigar / Pipe"]
+        SYRUP_IN["Sugar + Water"] -->|"cook"| SYRUP["SimpleSugarSyrup"]
     end
 
     %% ═══ STYLES ═══
@@ -75,4 +77,5 @@ graph TB
     style POULTICE fill:#684,color:#fff
     style TINCTURE fill:#684,color:#fff
     style XREF fill:#446,color:#fff
-    style HORT fill:#555,color:#fff,stroke-dasharray: 5 5
+    style REINFORCED fill:#668,color:#fff
+    style HORT fill:#555,color:#fff

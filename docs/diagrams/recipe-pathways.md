@@ -17,9 +17,9 @@
 
 # Recipe Pathways
 
-PhobosChemistryPathways adds 234 recipes across 10 interconnected crafting pathways: Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture/Downstream, Concrete Mixer, and Botanical. Raw materials flow through intermediate processing steps into terminal outputs, with by-products feeding back into other chains.
+PhobosChemistryPathways adds 276 recipes across 10 interconnected crafting pathways: Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture/Downstream, Concrete Mixer, and Botanical. Raw materials flow through intermediate processing steps into terminal outputs, with by-products feeding back into other chains.
 
-The diagram below shows the complete chemistry recipe flow from raw inputs through all pathways to their terminal outputs. The **Botanical & Horticulture Pathway** (30 recipes + 31 horticulture items) has its own [dedicated diagram](botanical-pathways.md) due to its size.
+The diagram below shows the complete chemistry recipe flow from raw inputs through all pathways to their terminal outputs. The **Botanical & Horticulture Pathway** (31 recipes + 31 horticulture items) has its own [dedicated diagram](botanical-pathways.md) due to its size.
 
 ## Complete Recipe Overview
 
@@ -219,8 +219,8 @@ graph TB
     style REFINED_BD fill:#4a4,color:#fff
     style SOAP fill:#48c,color:#fff
     style BONECHAR fill:#864,color:#fff
-    subgraph BOT["Botanical & Horticulture Pathway (30+ recipes)"]
-        BOT_REF["See separate diagram:<br/>botanical-pathways.md<br/><br/>Hemp stalks → retting → fiber / hurds<br/>Textiles, paper, medicinals, hempcrete<br/>+ 31 horticulture items (Phase 2)"]
+    subgraph BOT["Botanical & Horticulture Pathway (31 recipes)"]
+        BOT_REF["See separate diagram:<br/>botanical-pathways.md<br/><br/>Hemp stalks → retting → fiber / hurds<br/>Textiles, paper, medicinals, hempcrete<br/>+ 31 horticulture items"]
     end
 
     CROPS -.->|"HempBroken"| BOT_REF
@@ -230,7 +230,7 @@ graph TB
     BOT_REF -.->|"CrushedCharcoal"| PURIFY
     BOT_REF -.->|"DilutedCompost"| DCOMPOST
 
-    style BOT fill:#486,color:#fff,stroke-dasharray: 5 5
+    style BOT fill:#486,color:#fff
     style BOT_REF fill:#4a8,color:#fff
     style RC fill:#654,color:#fff
     style AG fill:#486,color:#fff
@@ -245,5 +245,5 @@ graph TB
 - **Teal** -- Agriculture and downstream outputs (garden sprays, water purification, epoxy, etc.)
 - **Purple** -- Concrete Mixer: bulk construction and chemistry outputs (powered workstation, requires electricity)
 - **Dark teal** -- Salt Extraction: brine collection from wells to refined table salt
-- **Green (dashed)** -- Botanical & Horticulture: hemp processing pathway ([separate diagram](botanical-pathways.md))
+- **Green** -- Botanical & Horticulture: hemp processing pathway ([separate diagram](botanical-pathways.md))
 - **Dotted lines** -- Alternative pathways, by-products, or cross-pathway links

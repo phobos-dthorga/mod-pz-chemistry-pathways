@@ -17,7 +17,7 @@
 
 # Botanical & Horticulture Pathways
 
-PhobosChemistryPathways adds a botanical hemp processing pathway with 30 recipes across 4 crafting tiers (Field, Kitchen, Lab, Mixer), plus 31 horticulture items for tobacco, hemp buds, papermaking tools, smoking, and cooking. Hemp stalks from vanilla farming or foraging feed the entire chain, with cross-pathway links to the main chemistry chart via KOH/NaOH (retting), wood tar (tarring), calcite (hempcrete), and charcoal (hurd processing).
+PhobosChemistryPathways adds a botanical hemp processing pathway with 31 recipes across 4 crafting tiers (Field, Kitchen, Lab, Mixer), plus 31 horticulture items for tobacco, hemp buds, papermaking tools, smoking, and cooking. Hemp stalks from vanilla farming or foraging feed the entire chain, with cross-pathway links to the main chemistry chart via KOH/NaOH (retting), wood tar (tarring), calcite (hempcrete), and charcoal (hurd processing).
 
 This is a companion diagram to the [main recipe overview](recipe-pathways.md), kept separate for readability.
 
@@ -51,9 +51,11 @@ graph TB
     %% ═══ BAST FIBER CHAINS ═══
     %% Textile chain
     BAST -->|"spin"| TWINE["HempTwine"]
-    TWINE -->|"braid ×3"| ROPE["HempRope"]
-    ROPE -->|"+ WoodTar<br/>(2 variants)"| TARRED["TarredHempRope"]
+    TWINE -->|"braid ×3"| ROPE["HempRope<br/>(base:rope)"]
+    ROPE -->|"+ WoodTar<br/>(2 variants)"| TARRED["TarredHempRope<br/>(base:rope + fire fuel)"]
     WOODTAR -.-> TARRED
+    TARRED -->|"+HempHurd+Calcite<br/>(mixer H14b)"| REINFORCED["ReinforcedHempcrete<br/>3× blocks"]
+    CALCITE -.-> REINFORCED
 
     BAST -->|"weave ×4"| CLOTH["HempCloth"]
     CLOTH -->|"layer ×2"| CANVAS["HempCanvas"]
@@ -80,15 +82,15 @@ graph TB
     HURD -->|"+ twine"| FIRE["DryFirestarterBlock ×2"]
     TWINE --> FIRE
 
-    %% ═══ HORTICULTURE (Phase 2 — Items Defined, Recipes Planned) ═══
-    subgraph HORT["Horticulture (Phase 2 — Recipes Planned)"]
-        TOB_WET["TobaccoWet"] -.->|"air dry"| TOB_DRY["Tobacco"]
-        TOB_DRY -.->|"pack"| CHEW["ChewingTobacco<br/>(Tin / WaterTin / Jar)"]
-        BUDS["HempBuds"] -.->|"cure / decarb"| BUDS_PROC["Cured / Decarbed"]
-        BUDS_PROC -.->|"can / grind"| LOOSE["HempLoose"]
-        PAPER -.->|"cut"| ROLLING["RollingPapers"]
-        LOOSE -.->|"+ pipe / paper"| SMOKE["Cigarette / Cigar / Pipe"]
-        SYRUP_IN["Sugar + Water"] -.->|"cook"| SYRUP["SimpleSugarSyrup"]
+    %% ═══ HORTICULTURE ═══
+    subgraph HORT["Horticulture"]
+        TOB_WET["TobaccoWet"] -->|"air dry"| TOB_DRY["Tobacco"]
+        TOB_DRY -->|"pack"| CHEW["ChewingTobacco<br/>(Tin / WaterTin / Jar)"]
+        BUDS["HempBuds"] -->|"cure / decarb"| BUDS_PROC["Cured / Decarbed"]
+        BUDS_PROC -->|"can / grind"| LOOSE["HempLoose"]
+        PAPER -->|"cut"| ROLLING["RollingPapers"]
+        LOOSE -->|"+ pipe / paper"| SMOKE["Cigarette / Cigar / Pipe"]
+        SYRUP_IN["Sugar + Water"] -->|"cook"| SYRUP["SimpleSugarSyrup"]
     end
 
     %% ═══ STYLES ═══
@@ -101,23 +103,23 @@ graph TB
     style POULTICE fill:#684,color:#fff
     style TINCTURE fill:#684,color:#fff
     style XREF fill:#446,color:#fff
-    style HORT fill:#555,color:#fff,stroke-dasharray: 5 5
+    style REINFORCED fill:#668,color:#fff
+    style HORT fill:#555,color:#fff
 ```
 
 ## Legend
 
 - **Red** -- Cross-pathway output: CrushedCharcoal (feeds back into blackpowder pathway)
 - **Orange** -- Cross-pathway output: DilutedCompost (feeds back into KNO3 synthesis)
-- **Blue** -- Textile output: TarredHempRope (waterproofed with wood tar from biodiesel by-products)
+- **Blue** -- Textile output: TarredHempRope (waterproofed with wood tar from biodiesel by-products; tagged `base:rope` + fire fuel; feeds into reinforced hempcrete)
 - **Green** -- Medical output: Sterilised bandages (from hemp cloth + disinfectant)
 - **Purple** -- Paper output: HempPaper (for papermaking and rolling papers)
 - **Dark green** -- Medicinal outputs: HempPoultice and HempTincture
 - **Steel blue** -- Construction output: HempcreteBlock (hemp hurds + calcite, mixer recipe)
 - **Dark blue** -- Cross-pathway inputs from the main chemistry chart (KOH, NaOH, WoodTar, Calcite)
-- **Dashed grey** -- Horticulture Phase 2: items are defined, recipes are in development
-- **Dotted lines** -- Cross-pathway links and planned recipe chains
+- **Dotted lines** -- Cross-pathway links
 
-## Botanical Recipe Breakdown (30 recipes)
+## Botanical Recipe Breakdown (31 recipes)
 
 ### Retting & Fiber Extraction (7 recipes)
 - **PCPThreshHempSeeds** -- Thresh hemp stalks for seeds (Field)
@@ -148,23 +150,24 @@ graph TB
 - **PCPCompostHempHurds** -- Compost hurds into diluted compost (Field)
 - **PCPMakeHempFireBundle** -- Bundle hurds + twine into firestarters (Field)
 
-### Cross-Pathway Integrations (3 recipes)
+### Cross-Pathway Integrations (4 recipes)
 - **PCPSterilizeHempBandage / PCPSterilizeHempBandageSimple** -- Sterilise hemp cloth into bandages (Kitchen, 2 heat variants)
 - **PCPMixHempcrete** -- Mix hurds + calcite in concrete mixer (Industrial)
+- **PCPMixReinforcedHempcrete** (H14b) -- TarredHempRope + HempHurd + Calcite + Water in concrete mixer, yields 3x HempcreteBlock (Industrial)
 
 ### Crafting Tier Summary
 
 | Tier | Category | Recipes |
 |------|----------|---------|
-| Field | PhobosFieldChem | 8 |
-| Kitchen | PhobosKitchenChem | 14 |
-| Lab | PhobosLabChem | 7 |
-| Industrial | PhobosIndustrialChem (Mixer) | 1 |
-| **Total** | | **30** |
+| Field | Phobos Field Chem | 8 |
+| Kitchen | Phobos Kitchen Chem | 14 |
+| Lab | Phobos Lab Chem | 7 |
+| Industrial | Phobos Industrial Chem (Mixer) | 2 |
+| **Total** | | **31** |
 
-## Horticulture Items (Phase 2 -- In Development)
+## Horticulture Items
 
-31 horticulture items have been defined with full item scripts, translations, and tooltips. Recipes are in development for Phase 2:
+31 horticulture items with full item scripts, translations, and tooltips:
 
 - **Tobacco** (4 items) -- TobaccoWet (air-dries naturally), ChewingTobacco in 3 container types (Tin, WaterTin, Jar)
 - **Hemp Buds** (9 items) -- Fresh, Cured, and Decarboxylated buds; canned variants (sealed and open); ground HempLoose

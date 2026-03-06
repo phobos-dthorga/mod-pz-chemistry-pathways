@@ -17,7 +17,7 @@
 
 # Skill Progression
 
-PhobosChemistryPathways adds a custom `AppliedChemistry` perk under the Crafting parent with a steeper XP curve (75-9000 per level). Two occupations and two traits provide starting skill levels and recipe grants at character creation. Five skill book volumes distributed as loot cover levels 1-10.
+PhobosChemistryPathways adds a custom `AppliedChemistry` perk under the Crafting parent with a steeper XP curve (75-9000 per level). Two occupations and two traits provide starting skill levels and recipe grants at character creation. Five skill book volumes distributed as loot cover levels 1-10, plus 6 recipe books that teach pathway-specific recipes.
 
 ## Occupations & Traits
 
@@ -52,14 +52,14 @@ graph TB
 
 ## Learning Paths
 
-There are three ways to learn PCP recipes: finding and reading the Chemistry Handbook (teaches all 185 recipes), reaching the auto-learn threshold for each recipe tier, or choosing an occupation/trait at character creation for pre-learned recipes. Tier 7 (advanced lab) recipes can only be learned from the handbook.
+There are three ways to learn PCP recipes: finding and reading the 6 recipe books (which collectively teach all 276 recipes), reaching the auto-learn threshold for each recipe tier, or choosing an occupation/trait at character creation for pre-learned recipes. Tier 7 (advanced lab) recipes can only be learned from recipe books.
 
 ```mermaid
 graph LR
-    HB["Find Handbook<br/>(loot)"] --> LEARN["Learn all 185 recipes"]
+    HB["Find Recipe Books<br/>(6 books, loot)"] --> LEARN["Learn all 276 recipes"]
     LEVEL["Reach AutoLearnAll level"] --> AUTO["Recipes auto-unlock<br/>(most tiers)"]
     CREATE["Choose Occupation/Trait"] --> GRANT["Pre-learned recipes<br/>(character creation)"]
-    T7["Tier 7 recipes"] --> HB_ONLY["Handbook ONLY<br/>(no AutoLearnAll)"]
+    T7["Tier 7 recipes"] --> HB_ONLY["Recipe Books ONLY<br/>(no AutoLearnAll)"]
 
     style T7 fill:#c44,color:#fff
     style HB_ONLY fill:#c44,color:#fff
@@ -67,7 +67,7 @@ graph LR
 
 ## Skill Tiers
 
-All 185 recipes are distributed across 7 skill tiers. Higher tiers require more Applied Chemistry XP and gate access to increasingly complex chemistry.
+All 276 recipes are distributed across 7 skill tiers. Higher tiers require more Applied Chemistry XP and gate access to increasingly complex chemistry.
 
 | Tier | AC Level | Unlocks |
 |------|----------|---------|
@@ -78,4 +78,4 @@ All 185 recipes are distributed across 7 skill tiers. Higher tiers require more 
 | 4 | 4 | Blackpowder mixing, biodiesel washing, recycling recipes |
 | 5 | 5 | Refined biodiesel, advanced recycling, agriculture sprays |
 | 6 | 6 | Centrifuge and chromatograph recipes, chemical tanning |
-| 7 | 7 | Microscope and spectrometer recipes (handbook-only, gated by EnableAdvancedLabRecipes) |
+| 7 | 7 | Microscope and spectrometer recipes (recipe books only, gated by EnableAdvancedLabRecipes) |

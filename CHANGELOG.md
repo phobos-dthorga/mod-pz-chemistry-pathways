@@ -21,17 +21,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project follows Semantic Versioning.
 
-## [Unreleased]
+## [1.2.0] - 2026-03-06
 
 ### Added
-- **Botanical Pathway** — 30 new recipes in `PCP_Recipes_Botanical.txt` covering hemp processing from raw stalks through chemical retting, fiber extraction, and downstream manufacturing:
+- **Botanical Pathway** — 31 new recipes in `PCP_Recipes_Botanical.txt` covering hemp processing from raw stalks through chemical retting, fiber extraction, and downstream manufacturing:
   - **Retting & Extraction** (7 recipes): Chemical retting with KOH or NaOH, fiber/hurd splitting, seed threshing
   - **Textiles** (5 recipes): Spin twine, braid rope, weave cloth, layer canvas, tar rope with wood tar
   - **Papermaking** (5 recipes): Boil pulp, NaOH chemical pulping (+50% yield), press paper sheets
   - **Medicinal** (4 recipes): Herb-infused poultice, alcohol-extracted tincture
   - **Hurd Processing** (5 recipes): Char to charcoal (3 fuel variants), compost, fire bundles
-  - **Cross-Pathway** (3 recipes): Sterilise hemp bandages, hempcrete (mixer), tarred rope
+  - **Cross-Pathway** (4 recipes): Sterilise hemp bandages, hempcrete (mixer), reinforced hempcrete (mixer, tarred rope), tarred rope
   - **1 mixer recipe** (PCPMixHempcrete): Hemp hurds + calcite in concrete mixer
+  - **1 mixer recipe** (PCPMixReinforcedHempcrete): Hemp hurds + calcite + tarred hemp rope → 3 hempcrete blocks (vs 2 for standard)
+- **29 horticulture recipes** in `PCP_Recipes_Horticulture.txt` — Tobacco processing (5), hemp bud curing/canning (8), papermaking (7), smoking (5), cooking (4)
 - **13 botanical items** — RettedHempStalk, HempBastFiber, HempHurd, HempTwine, HempRope, TarredHempRope, HempCloth, HempCanvas, HempPulp, HempPaper, HempPoultice, HempTincture, HempcreteBlock
 - **31 horticulture items** — Full parity with [B42] Horticulture mod:
   - **Tobacco** (4 items): TobaccoWet (air-dries naturally), ChewingTobacco in 3 container types (Tin, WaterTin, Jar)
@@ -39,6 +41,9 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
   - **Papermaking** (5 items): PaperPulpPot (2 pot types), MouldAndDeckle, MouldAndDecklePaperSheet, RollingPapers
   - **Smoking** (10 items): Glass pipe, loaded pipes (wood/glass/can), hemp cigars, hemp cigarettes, cigarette packs, rolled tobacco cigars and cigarettes
   - **Cooking** (3 items): SaucepanSyrup (2 pot types), SimpleSugarSyrup
+- **6 category recipe books** — Field Chemistry Primer, Kitchen Chemistry Companion, Laboratory Chemistry Reference, Industrial Processes Manual, Botanical Horticulture Guide, plus Complete Chemistry Compendium (master book teaching all recipes). Lootable, tradeable, and teachable via ZScience specimens.
+- **Phobos Horticulture crafting category** — Dedicated crafting tab for all horticulture recipes (tobacco, hemp buds, papermaking, smoking, cooking)
+- **Vanilla rope substitution** — HempRope tagged `base:rope` for vanilla recipe substitution (bags, tools, scarecrow, etc.); TarredHempRope tagged `base:rope` + fire fuel tags (`FireFuelRatio = 0.5`)
 - **Horticulture migration system** — Dual-trigger migration converts [B42] Horticulture mod items to PCP equivalents:
   - **Manual trigger**: MigrateHorticultureItems sandbox button (PCP_Reset page) — proactive, works while Horticulture is still subscribed
   - **Automatic trigger**: Detects orphaned Horticulture items after mod unsubscription and converts them automatically on game load
@@ -47,21 +52,28 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 - **MigrateHorticultureItems sandbox option** — One-shot migration button on PCP_Reset settings page
 - **EnableBotanicalPathway sandbox option** — Master switch for botanical/horticulture recipes (default: true)
 - **SkillPurityInfluence sandbox option** — Controls Applied Chemistry skill effect on purity (None/Low/Standard/High, default: Standard)
-- **19 OpenAI-generated icons** — 6 regenerated chemistry icons + 13 new botanical pathway icons
+- **24 OpenAI-generated icons** — 6 regenerated chemistry icons + 13 botanical pathway icons + 5 category recipe book icons
 
 ### Fixed
 - **CTD: Invalid item references in botanical recipes** — `Base.SodiumHydroxide` replaced with `LabItems.ChSodiumHydroxideBag` (4 occurrences); `Base.AlcoholBandages` replaced with `Base.AlcoholBandage` (4 occurrences); `Base.WhiskeyFull` and `Base.WhiskeyHalf` replaced with `Base.Whiskey` (4 occurrences)
+- **41 missing recipe translations** — Added display names for all 29 horticulture recipes and 12 hazard protection variants (hemp retting + chemical pulping Safe/Unsafe)
+- **Crafting category display** — Renamed camelCase categories (PhobosFieldChem, PhobosLabChem, etc.) to human-readable spaced names (Phobos Field Chem, Phobos Lab Chem, etc.) for clean UI display
 
 ### Changed
 - **EnableImpuritySystem default changed to TRUE** — Was false; one-time migration popup auto-enables for existing worlds and notifies admins
-- Recipe count: 204 → **234** (30 botanical recipes added)
-- Item count: 47 → **91** (13 botanical + 31 horticulture items added)
+- Recipe count: 204 → **276** (31 botanical + 29 horticulture + 12 hazard variants added)
+- Item count: 47 → **101** (13 botanical + 31 horticulture + 5 recipe books + 5 skill books already counted)
+- Tradeable item count: 34 → **59** (botanical/horticulture items + recipe books)
+- ZScience specimen count: 33 → **52** items (botanical items + recipe books)
+- OnCreate callback count: 168 → **216**
 - Sandbox option count: 17 → **19** (EnableBotanicalPathway, MigrateHorticultureItems added; SkillPurityInfluence added in v1.1.0)
+- Crafting categories: 4 → **5** + mixer (added Phobos Horticulture)
 - Requires **PhobosLib 1.16.0+** (getSkillBonus, randomBaseQualityWithSkill, isPlayerAdmin, registerNoticePopup)
 
 ### Summary
-- **234 recipes**, **91 items**, **34 tradeable items**, **5 skill books**, **9 fluids**, **19 sandbox options**
+- **276 recipes**, **101 items**, **59 tradeable items**, **6 recipe books**, **5 skill books**, **9 fluids**, **19 sandbox options**, **216 OnCreate callbacks**
 - 10 pathways: Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture, Concrete Mixer, Botanical
+- 6 crafting categories: Phobos Field Chem, Phobos Kitchen Chem, Phobos Lab Chem, Phobos Industrial Chem, Phobos Horticulture, + Concrete Mixer
 - Hard deps: PhobosLib 1.16.0+, Zombie Virus Vaccine
 - Soft deps: ZScienceSkill, EHR, Dynamic Trading, Neat Crafting
 

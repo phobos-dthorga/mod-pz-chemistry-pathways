@@ -1,6 +1,6 @@
 [h1]Phobos' Chemistry Pathways — Changelog[/h1]
 
-[h2]v1.2.0-alpha — Botanical & Horticulture Pathway (Unreleased)[/h2]
+[h2]v1.2.0 — Botanical & Horticulture Pathway (2026-03-06)[/h2]
 
 [h3]New Features[/h3]
 [list]
@@ -18,6 +18,13 @@
 [*] [b]EnableBotanicalPathway sandbox option[/b] — Master switch for botanical recipes (default: ON)
 [*] [b]SkillPurityInfluence sandbox option[/b] — Applied Chemistry skill effect on purity (None/Low/Standard/High)
 [*] [b]19 OpenAI-generated icons[/b] — 6 regenerated chemistry icons + 13 new botanical pathway icons
+[*] [b]6 category recipe books[/b] — Field Chemistry Primer, Kitchen Chemistry Companion, Laboratory Chemistry Reference, Industrial Processes Manual, Botanical Horticulture Guide, plus Complete Chemistry Compendium (master volume teaching all recipes)
+[*] [b]PCPMixReinforcedHempcrete (H14b)[/b] — Tarred rope reinforcement for hempcrete blocks via concrete mixer
+[*] [b]base:rope tags[/b] — HempRope and TarredHempRope tagged with base:rope for vanilla recipe substitution
+[*] [b]TarredHempRope as campfire fuel[/b] — FireFuelRatio 0.5 for use as fire-starting material
+[*] [b]Phobos Horticulture crafting category[/b] — Dedicated crafting tab for horticulture recipes
+[*] [b]41 missing recipe translations fixed[/b] — Added EN translation entries for all untranslated recipe names
+[*] [b]Crafting categories renamed[/b] — Category display names updated to use spaces for clean UI presentation
 [/list]
 
 [h3]Bug Fixes[/h3]
@@ -28,8 +35,12 @@
 [h3]Changed[/h3]
 [list]
 [*] [b]EnableImpuritySystem default = TRUE[/b] (was false); one-time migration popup for existing worlds
-[*] Recipe count: 204 to [b]234[/b] (30 botanical recipes)
-[*] Item count: 47 to [b]91[/b] (13 botanical + 31 horticulture)
+[*] Recipe count: 234 to [b]276[/b] (42 new recipes)
+[*] Item count: 91 to [b]101[/b] (6 recipe books + 4 new items)
+[*] Tradeable items: 34 to [b]59[/b]
+[*] ZScience specimens: 33 to [b]52[/b] items + 8 fluids
+[*] OnCreate callbacks: 168 to [b]216[/b]
+[*] Crafting categories: 4+mixer to [b]5+mixer[/b] (added Phobos Horticulture)
 [*] Sandbox options: 17 to [b]19[/b]
 [*] Requires [b]PhobosLib 1.16.0+[/b]
 [/list]
@@ -216,10 +227,10 @@
 
 [h2]Summary[/h2]
 [list]
-[*] [b]234 recipes[/b] across 10 pathways — Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture, Concrete Mixer, Botanical
-[*] [b]91 items[/b], [b]34 tradeable items[/b], [b]5 skill books[/b], [b]9 fluids[/b]
-[*] [b]19 sandbox options[/b], [b]168+ OnCreate callbacks[/b]
-[*] [b]v1.2.0-alpha[/b]: Botanical pathway (30 recipes), 31 horticulture items, [B42] Horticulture migration system
+[*] [b]276 recipes[/b] across 10 pathways — Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture, Concrete Mixer, Botanical
+[*] [b]101 items[/b], [b]59 tradeable items[/b], [b]6 recipe books[/b], [b]5 skill books[/b], [b]9 fluids[/b]
+[*] [b]19 sandbox options[/b], [b]216 OnCreate callbacks[/b], [b]52 ZScience specimens[/b]
+[*] [b]v1.2.0[/b]: Botanical pathway, 31 horticulture items, 6 recipe books, [B42] Horticulture migration system
 [*] [b]v1.0.0[/b]: Hard dependency migrated from zReVaccin 3 to Zombie Virus Vaccine
 [*] Requires PhobosLib 1.16.0+ and Zombie Virus Vaccine
 [/list]

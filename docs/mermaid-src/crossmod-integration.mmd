@@ -3,7 +3,7 @@ graph TB
     START --> CHECK_EHR{"isModActive<br/>EHR?"}
 
     CHECK_ZSS -->|"Yes"| ZSS_INIT["Register XP Mirror<br/>AC -> Science at 50%<br/>(PCP_SkillXP.lua)"]
-    CHECK_ZSS -->|"Yes"| ZSS_DATA["Register 33 Item + 8 Fluid<br/>Specimens | API: ZScienceSkill.Data.add<br/>(PCP_ZScienceData.lua)"]
+    CHECK_ZSS -->|"Yes"| ZSS_DATA["Register 52 Item + 8 Fluid<br/>Specimens | API: ZScienceSkill.Data.add<br/>(PCP_ZScienceData.lua)"]
     CHECK_ZSS -->|"No"| ZSS_SKIP["No action<br/>Zero errors"]
 
     CHECK_EHR -->|"Yes"| EHR_INIT["Hazard callbacks use<br/>EHR.Disease.TryContract<br/>(pcall-wrapped)"]
@@ -12,7 +12,7 @@ graph TB
     START --> CHECK_DT{"isModActive<br/>DynamicTradingCommon?"}
     START --> CHECK_NC{"NC_FilterBar<br/>exists?"}
 
-    CHECK_DT -->|"Yes"| DT_INIT["Register Chemist Archetype<br/>+ 34 Items across 9 Vendors<br/>(PCP_DynamicTradingData.lua)"]
+    CHECK_DT -->|"Yes"| DT_INIT["Register Chemist Archetype<br/>+ 59 Items across 9 Vendors<br/>(PCP_DynamicTradingData.lua)"]
     CHECK_DT -->|"No"| DT_SKIP["No action<br/>Zero errors"]
 
     CHECK_NC -->|"Yes"| NC_INIT["Hook NC_FilterBar:shouldIncludeRecipe<br/>for recipe visibility filters<br/>(PhobosLib_RecipeFilter.lua)"]

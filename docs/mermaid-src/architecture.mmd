@@ -4,22 +4,22 @@ graph TB
         ZR["Zombie Virus Vaccine<br/>Lab equipment entities"]
     end
 
-    subgraph PCP["PhobosChemistryPathways v1.2.0-alpha"]
+    subgraph PCP["PhobosChemistryPathways v1.2.0"]
         CORE["Core"]
-        REC["234 Recipes<br/>9 recipe files"]
-        ITEMS["91 Items<br/>+ 5 Skill Books"]
+        REC["276 Recipes<br/>9 recipe files"]
+        ITEMS["101 Items<br/>+ 6 Recipe Books"]
         FLUIDS["9 Fluids"]
         SB["19 Sandbox Options"]
         PURITY["Purity System<br/>PCP_PuritySystem.lua"]
         HAZARD["Hazard System<br/>PCP_HazardSystem.lua"]
         SKILL["Skill System<br/>perks + professions + traits"]
-        CALLBACKS["168+ OnCreate Callbacks<br/>PCP_RecipeCallbacks.lua<br/>PCP_BotanicalCallbacks.lua"]
+        CALLBACKS["216 OnCreate Callbacks<br/>PCP_RecipeCallbacks.lua<br/>PCP_BotanicalCallbacks.lua"]
         TRADING["DT Integration<br/>PCP_DynamicTradingData.lua"]
         MIXER["Concrete Mixer<br/>13 Recipes (6 construction<br/>+ 5 bulk chem + 1 plaster + 1 build)<br/>PCP_MixerCompat.lua"]
         POPUP["Guide + Changelog + Notice Popups<br/>PCP_GuidePopup.lua<br/>PCP_ChangelogPopup.lua"]
         SALT["Salt Extraction<br/>6 Recipes (brine → table salt)<br/>PCP_BrineCollection.lua"]
         REBIND["Entity Rebinding<br/>PCP_EntityRebind.lua"]
-        BOTANICAL["Botanical Pathway<br/>30 Recipes (retting, textiles,<br/>paper, medicinals, hempcrete)<br/>PCP_BotanicalCallbacks.lua"]
+        BOTANICAL["Botanical Pathway<br/>31 Recipes (retting, textiles,<br/>paper, medicinals, hempcrete)<br/>PCP_BotanicalCallbacks.lua"]
         HORT["Horticulture Items<br/>31 items (tobacco, hemp buds,<br/>smoking, cooking)<br/>PCP_HorticultureItems.txt"]
         MIGRATE["Migration System<br/>PCP_MigrationSystem.lua<br/>(Horticulture mod migration)"]
     end
@@ -50,7 +50,7 @@ graph TB
 
     HAZARD -.->|"EHR.Disease.TryContract<br/>(pcall-wrapped)"| EHR
     SKILL -.->|"registerXPMirror<br/>AC to Science at 50%"| ZSS
-    TRADING -.->|"registerTradeItems<br/>(34 items, 1 tag, 1 archetype)"| DT
+    TRADING -.->|"registerTradeItems<br/>(59 items, 1 tag, 1 archetype)"| DT
     REC -.->|"PhobosLib_RecipeFilter<br/>(NC_FilterBar hook)"| NC
 
     style HARD fill:#264,color:#fff
