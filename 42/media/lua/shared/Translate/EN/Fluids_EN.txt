@@ -24,5 +24,6 @@ Fluids_EN = {
     Fluid_Name_PCP_CrudeBiodiesel = "Crude Biodiesel",
     Fluid_Name_PCP_Glycerol = "Glycerol",
     Fluid_Name_PCP_WashedBiodiesel = "Washed Biodiesel",
+    Fluid_Name_PCP_HempTincture = "Hemp Tincture",
     Fluid_Name_PCP_Brine = "Brine",
 }

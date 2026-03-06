@@ -138,10 +138,25 @@ module PhobosChemistryPathways {
 		ItemType = base:normal,
 		DisplayCategory = Material,
 		Icon = PCP_HempTincture,
-		Weight = 0.3,
+		IconFluidMask = BottleCrafted_Mask,
+		Weight = 0.6,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_HempTincture,
-		WorldStaticModel = Jar,
+		FillFromDispenserSound = GetWaterFromDispenserGlass,
+		FillFromTapSound = GetWaterFromTapGlass,
+		StaticModel = BottleCrafted,
+		WorldStaticModel = BottleCrafted,
+		Tags = base:glass,
+		component FluidContainer
+		{
+			ContainerName = BottleGlass,
+			Capacity = 0.5,
+			CustomDrinkSound = DrinkingFromBottleGlass,
+			Fluids
+			{
+				fluid = HempTincture:1.0,
+			}
+		}
 	}
 
 	item HempcreteBlock {

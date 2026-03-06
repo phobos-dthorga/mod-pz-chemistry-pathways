@@ -43,13 +43,17 @@
 --   - Convert orphaned zReLabItems (from zReVaccin) to ZVV/vanilla
 --     equivalents, preserving condition and fluid contents
 --
+-- v1.3.0 migration:
+--   - Backfill HempTincture FluidContainer fluid for pre-existing items
+--     (converted from base:normal to FluidContainer in v1.3.0)
+--
 -- Requires: PhobosLib >= 1.9.0
 ---------------------------------------------------------------
 
 require "PhobosLib"
 
 local MOD_ID      = "PCP"
-local MOD_VERSION = "1.2.0"
+local MOD_VERSION = "1.3.0"
 
 ---------------------------------------------------------------
 -- Helpers
@@ -731,6 +735,56 @@ PhobosLib.registerMigration(
     "1.2.0",     -- to: this version
     migrate_1_2_0,
     "PCP v1.2.0: Convert [B42] Horticulture items to PCP equivalents"
+)
+
+---------------------------------------------------------------
+-- v1.3.0 Migration — HempTincture FluidContainer backfill
+---------------------------------------------------------------
+
+--- HempTincture was converted from base:normal to FluidContainer.
+--- Old items loaded from pre-v1.3.0 saves may have empty fluid contents.
+--- This migration fills any empty HempTincture FluidContainers to capacity
+--- and preserves existing condition (purity).
+---@param player any  IsoGameCharacter
+---@return boolean ok, string msg
+local function migrate_1_3_0(player)
+    local filled = 0
+
+    PhobosLib.iterateInventoryDeep(player, function(item, container)
+        local fullType = item:getFullType()
+        if fullType ~= "PhobosChemistryPathways.HempTincture" then return end
+
+        -- Check if FluidContainer exists and is empty
+        local ok, fc = pcall(function() return item:getFluidContainer() end)
+        if not ok or not fc then return end
+
+        local amount = 0
+        pcall(function() amount = fc:getAmount() or 0 end)
+        if amount > 0 then return end  -- already filled, skip
+
+        -- Fill to capacity with HempTincture fluid
+        local capacity = 0.5
+        pcall(function() capacity = fc:getCapacity() or 0.5 end)
+        pcall(function() fc:addFluid("HempTincture", capacity) end)
+
+        -- Sync in MP
+        pcall(function() sendItemStats(item) end)
+
+        filled = filled + 1
+    end)
+
+    if filled == 0 then
+        return true, "No empty HempTincture FluidContainers found."
+    end
+    return true, "Filled " .. filled .. " HempTincture FluidContainer(s) with fluid."
+end
+
+PhobosLib.registerMigration(
+    MOD_ID,
+    "1.2.0",     -- from: v1.2.0
+    "1.3.0",     -- to: this version
+    migrate_1_3_0,
+    "PCP v1.3.0: Backfill HempTincture FluidContainer fluid for pre-existing items"
 )
 
 ---------------------------------------------------------------

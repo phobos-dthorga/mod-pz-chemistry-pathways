@@ -136,7 +136,7 @@ Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" setting
 - **6 recipe books** (1 master compendium + 5 category-specific) teaching pathway-specific recipes
 - **5 skill books** covering Applied Chemistry levels 1-10
 - **2 occupations** (Chemist, Pharmacist) and **2 traits** (Chemistry Enthusiast, Chemical Aversion)
-- **9 fluids** with Build 42 FluidContainer integration and poison profiles
+- **10 fluids** with Build 42 FluidContainer integration and poison profiles
 - **19 sandbox options** for gameplay customization, vessel replacement, concrete mixer, botanical pathway, and maintenance
 - **216 OnCreate callbacks** for purity tracking and propane partial consumption
 

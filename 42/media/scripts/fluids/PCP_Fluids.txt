@@ -275,6 +275,43 @@ module Base
         }
     }
 
+/* ============================== HEMP TINCTURE ============================== */
+/*  Concentrated herbal extract produced by alcohol extraction of bioactive
+    compounds from hemp fiber. Amber-coloured tincture with medicinal
+    applications. Contains ethanol and plant alkaloids — not safe in
+    large quantities. Traditionally stored in small glass bottles.          */
+
+    fluid HempTincture
+    {
+        ColorReference = Peru,
+        DisplayName = Fluid_Name_PCP_HempTincture,
+        Categories
+        {
+            Beverage,
+            Industrial,
+        }
+        Poison
+        {
+            maxEffect = Mild,
+            minAmount = 0.3,
+            diluteRatio = 0.6,
+        }
+        Properties
+        {
+            HungerChange = -5.0,
+            ThirstChange = -5.0,
+            UnhappyChange = -5.0,
+        }
+        BlendWhiteList
+        {
+            whitelist = true,
+            categories
+            {
+                Beverage,
+            }
+        }
+    }
+
 /* ============================== BRINE ============================== */
 /*  Mineral-rich brine water collected from a well.
     Contains dissolved sodium chloride and trace minerals.

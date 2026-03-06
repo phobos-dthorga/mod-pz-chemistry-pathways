@@ -49,6 +49,7 @@ local VESSEL_MAP = {
     ["PhobosChemistryPathways.SulphuricAcidBottle"]      = "Base.BottleCrafted",
     ["PhobosChemistryPathways.WoodMethanol"]             = "Base.BottleCrafted",
     ["PhobosChemistryPathways.Glycerol"]                 = "Base.BottleCrafted",
+    ["PhobosChemistryPathways.HempTincture"]             = "Base.BottleCrafted",
 
     -- Ceramic Crucible (small) -> Base.CeramicCrucibleSmall
     ["PhobosChemistryPathways.SulphuricAcidCrucible"]    = "Base.CeramicCrucibleSmall",

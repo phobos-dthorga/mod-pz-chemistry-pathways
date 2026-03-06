@@ -34,7 +34,7 @@ graph TB
         CORE["Core"]
         REC["297 Recipes<br/>9 recipe files"]
         ITEMS["107 Items<br/>+ 6 Recipe Books"]
-        FLUIDS["9 Fluids"]
+        FLUIDS["10 Fluids"]
         SB["19 Sandbox Options"]
         PURITY["Purity System<br/>PCP_PuritySystem.lua"]
         HAZARD["Hazard System<br/>PCP_HazardSystem.lua"]
