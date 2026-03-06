@@ -88,6 +88,14 @@ function PCP_BotanicalCallbacks.pcpMixHempcretePurity(items, result, player)
     _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(60, 85, player))
 end
 
+--- Mix reinforced hempcrete (Mixer, construction, reinforced): 65-90
+--- Slightly higher range than regular hempcrete (60-85) due to
+--- structural reinforcement from tarred rope
+function PCP_BotanicalCallbacks.pcpMixReinforcedHempcretePurity(items, result, player)
+    if not PCP_PuritySystem.isEnabled() then return end
+    _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(65, 90, player))
+end
+
 
 ---------------------------------------------------------------
 -- PROPAGATION CALLBACKS (7) — Read input purity, apply factor

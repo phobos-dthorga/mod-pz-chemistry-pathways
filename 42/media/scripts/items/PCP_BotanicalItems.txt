@@ -75,6 +75,7 @@ module PhobosChemistryPathways {
 		Icon = PCP_HempRope,
 		Weight = 0.3,
 		ConditionMax = 100,
+		Tags = base:rope,
 		Tooltip = Tooltip_PCP_HempRope,
 		WorldStaticModel = Rope_Ground,
 	}
@@ -164,6 +165,8 @@ module PhobosChemistryPathways {
 		Icon = PCP_TarredHempRope,
 		Weight = 0.4,
 		ConditionMax = 100,
+		Tags = base:rope;base:isfirefuel;base:isfiretinder,
+		FireFuelRatio = 0.5,
 		Tooltip = Tooltip_PCP_TarredHempRope,
 		WorldStaticModel = Rope_Ground,
 	}

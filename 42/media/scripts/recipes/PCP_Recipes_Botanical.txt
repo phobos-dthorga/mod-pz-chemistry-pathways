@@ -730,6 +730,38 @@ module Base
         }
     }
 
+/* ----- H14b: MIX REINFORCED HEMPCRETE ----- */
+/*  Embed tarred hemp rope in hempcrete for tensile reinforcement.
+    Tarred fiber resists moisture degradation inside the lime matrix.
+    Higher yield than standard hempcrete (3 blocks vs 2).               */
+
+    craftRecipe PCPMixReinforcedHempcrete
+    {
+        time = 350,
+        category = Phobos Industrial Chem,
+        NeedToBeLearn = true,
+        OnCreate = PCP_BotanicalCallbacks.pcpMixReinforcedHempcretePurity,
+
+        Tags = CraftBench;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:3,
+        xpAward = AppliedChemistry:20,
+        AutoLearnAll = AppliedChemistry:4,
+
+        inputs
+        {
+            item 4 [PhobosChemistryPathways.HempHurd],
+            item 2 [PhobosChemistryPathways.Calcite],
+            item 1 [PhobosChemistryPathways.TarredHempRope],
+            item 1 [*] mode:keep,
+            -fluid 2.0 [Water],
+        }
+        outputs
+        {
+            item 3 PhobosChemistryPathways.HempcreteBlock,
+        }
+    }
+
 
 /* ==================================================================================== */
 /* =================== CROSS-PATHWAY — CREATIVE INTEGRATIONS ========================== */

@@ -302,6 +302,7 @@ Recipes_EN = {
 
     /* ===== Botanical Pathway — Industrial ===== */
     Recipe_PCPMixHempcrete = "H14. Mix Hempcrete",
+    Recipe_PCPMixReinforcedHempcrete = "H14b. Mix Reinforced Hempcrete",
 
     /* ===== Horticulture — Tobacco ===== */
     Recipe_PCPPackChewTobaccoTin = "HT1. Pack Chewing Tobacco (Tin)",
