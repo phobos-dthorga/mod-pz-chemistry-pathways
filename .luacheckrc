@@ -30,7 +30,7 @@ ignore = {
     "5..",   -- code quality (unreachable code, empty blocks)
 }
 
--- PCP's own global namespaces
+-- PCP's own global namespaces + PZ globals that PCP writes to
 globals = {
     "PCP_BotanicalCallbacks",
     "PCP_CollectBrineAction",
@@ -40,6 +40,9 @@ globals = {
     "PCP_RecipeCallbacks",
     "PCP_Sandbox",
     "PCP_Reset",
+    -- PZ globals PCP writes to (skill book registration, DT integration)
+    "DynamicTrading",
+    "SkillBook",
 }
 
 read_globals = {
@@ -69,6 +72,7 @@ read_globals = {
     "getWorld",
     "instanceof",
     "instanceItem",
+    "forageSystem",
     "isClient",
     "isServer",
     "luautils",
@@ -95,10 +99,8 @@ read_globals = {
     -- PZ registration globals
     "CharacterTrait",
     "CharacterProfession",
-    "SkillBook",
 
     -- Cross-mod (optional, runtime-guarded)
-    "DynamicTrading",
     "ZScienceSkill",
 }
 
