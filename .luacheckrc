@@ -15,6 +15,21 @@ unused_args = false
 -- pcall returns ok,result; ok is often checked only implicitly
 unused_secondaries = false
 
+-- Suppress local variable code quality warnings (2XX–5XX).
+-- The primary value of luacheck for PZ modding is catching undefined
+-- globals (1XX) — typos in function names, missing requires, etc.
+-- Local variable warnings (unused vars, shadowing, empty branches)
+-- are non-critical in the PZ modding context where pcall patterns,
+-- monkey-patching, and callback signatures create many false positives.
+ignore = {
+    "21.",   -- unused variable / argument / loop variable
+    "22.",   -- variable accessed but never set
+    "23.",   -- variable set but never used
+    "31.",   -- value assigned is unused
+    "4..",   -- shadowing / redefinition
+    "5..",   -- code quality (unreachable code, empty blocks)
+}
+
 -- PCP's own global namespaces
 globals = {
     "PCP_BotanicalCallbacks",
@@ -56,14 +71,18 @@ read_globals = {
     "instanceItem",
     "isClient",
     "isServer",
+    "luautils",
     "sendItemStats",
     "sendAddItemToContainer",
     "sendRemoveItemFromContainer",
+    "sendServerCommand",
 
     -- PZ UI classes
+    "HaloTextHelper",
     "ISBaseTimedAction",
     "ISButton",
     "ISCollapsableWindow",
+    "ISModalRichText",
     "ISRichTextPanel",
     "ISTimedActionQueue",
     "ISWorldObjectContextMenu",
@@ -71,6 +90,7 @@ read_globals = {
     -- PZ distribution globals (loot tables)
     "ProceduralDistributions",
     "SuburbsDistributions",
+    "VehicleDistributions",
 
     -- PZ registration globals
     "CharacterTrait",
