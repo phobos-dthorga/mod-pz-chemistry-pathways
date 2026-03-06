@@ -1,95 +1,95 @@
 graph TB
     %% ═══ RAW INPUTS ═══
     subgraph IN["Raw Inputs"]
-        HEMP["Hemp Stalks<br/>(HempBroken)<br/>farming / foraging"]
-        HEMPDRIED["HempBundleDried<br/>(Base.HempBundleDried)"]
-        SEEDPASTE["SeedPaste<br/>(Base.SeedPaste)"]
+        HEMP["Hemp Stalks<br/>(Broken Hemp)<br/>farming / foraging"]
+        HEMPDRIED["Dried Hemp Bundle<br/>(vanilla)"]
+        SEEDPASTE["Seed Paste<br/>(vanilla)"]
         HERBS["Herbs / Plantain<br/>(vanilla)"]
-        ALCOHOL["AlcoholBandage<br/>Disinfectant / Whiskey"]
+        ALCOHOL["Alcohol Bandage<br/>Disinfectant / Whiskey"]
     end
 
     subgraph XREF["Cross-Pathway Inputs (from main chart)"]
-        KOH["KOH<br/>PotassiumHydroxide"]
-        NAOH["NaOH<br/>(LabItems)"]
-        WOODTAR["WoodTar"]
+        KOH["Potassium Hydroxide<br/>(KOH)"]
+        NAOH["Sodium Hydroxide<br/>(NaOH)"]
+        WOODTAR["Wood Tar"]
         CALCITE["Calcite"]
         CHARCOAL["Charcoal / Coke"]
     end
 
     %% ═══ STAGE 1: RETTING & SPLITTING ═══
-    HEMP -->|"thresh"| SEEDS["HempSeed ×5"]
-    HEMP -->|"ret + alkali + water<br/>(4 variants: KOH/NaOH × heat)"| RETTED["RettedHempStalk"]
+    HEMP -->|"thresh"| SEEDS["Hemp Seeds ×5"]
+    HEMP -->|"ret + alkali + water<br/>(4 variants: KOH/NaOH × heat)"| RETTED["Retted Hemp Stalk"]
     KOH -.-> RETTED
     NAOH -.-> RETTED
-    RETTED -->|"extract + water<br/>(2 heat variants)"| BAST["HempBastFiber ×3"]
-    RETTED --> HURD["HempHurd ×2"]
+    RETTED -->|"extract + water<br/>(2 heat variants)"| BAST["Hemp Bast Fiber ×3"]
+    RETTED --> HURD["Hemp Hurd ×2"]
 
     %% ═══ SCUTCHING BOARD ROUTE ═══
-    HEMPDRIED -->|"PCPScutchHempFiber<br/>(Scutching Board)"| BAST
-    HEMPDRIED -->|"PCPScutchHempFiber<br/>(Scutching Board)"| HURD
+    HEMPDRIED -->|"Scutch Fiber<br/>(Scutching Board)"| BAST
+    HEMPDRIED -->|"Scutch Fiber<br/>(Scutching Board)"| HURD
 
     %% ═══ HAND PRESS ROUTE ═══
-    SEEDPASTE -->|"PCPPressOilHandPress<br/>(Hand Press)"| CRUDEOIL["CrudeVegetableOil"]
-    SEEDPASTE -->|"PCPPressOilHandPress<br/>(Hand Press)"| PRESSCAKE["SeedPressCake"]
+    SEEDPASTE -->|"Press Seed Oil<br/>(Hand Press)"| CRUDEOIL["Crude Vegetable Oil"]
+    SEEDPASTE -->|"Press Seed Oil<br/>(Hand Press)"| PRESSCAKE["Seed Press Cake"]
 
     %% ═══ BAST FIBER CHAINS ═══
     %% Textile chain
-    BAST -->|"spin"| TWINE["HempTwine"]
-    TWINE -->|"braid ×3"| ROPE["HempRope<br/>(base:rope)"]
-    ROPE -->|"+ WoodTar<br/>(2 variants)"| TARRED["TarredHempRope<br/>(base:rope + fire fuel)"]
+    BAST -->|"spin"| TWINE["Hemp Twine"]
+    TWINE -->|"braid ×3"| ROPE["Hemp Rope<br/>(rope equivalent)"]
+    ROPE -->|"+ Wood Tar<br/>(2 variants)"| TARRED["Tarred Hemp Rope<br/>(rope + fire fuel)"]
     WOODTAR -.-> TARRED
-    TARRED -->|"+HempHurd+Calcite<br/>(mixer H14b)"| REINFORCED["ReinforcedHempcrete<br/>3× blocks"]
+    TARRED -->|"+ Hemp Hurd + Calcite<br/>(Concrete Mixer)"| REINFORCED["Reinforced Hempcrete<br/>3× blocks"]
     CALCITE -.-> REINFORCED
 
-    BAST -->|"weave ×4"| CLOTH["HempCloth"]
-    BAST -->|"PCPWeaveHempClothLoom<br/>(Loom)"| CLOTH
-    BAST -->|"PCPWeaveHempCanvasLoom<br/>(Loom)"| CANVAS["HempCanvas"]
+    BAST -->|"weave ×4"| CLOTH["Hemp Cloth"]
+    BAST -->|"Weave Cloth<br/>(Loom)"| CLOTH
+    BAST -->|"Weave Canvas<br/>(Loom)"| CANVAS["Hemp Canvas"]
     CLOTH -->|"layer ×2"| CANVAS
     CLOTH -->|"+ disinfectant<br/>(2 variants)"| BANDAGE["Bandage ×2<br/>(sterilised)"]
 
     %% End-product branches
-    TWINE -->|"craft"| FISHNET["HempFishingNet"]
-    TWINE -->|"craft"| SNARE["HempSnare"]
-    ROPE -->|"+ HempCloth"| SHEETROPE["HempSheetRope"]
+    TWINE -->|"craft"| FISHNET["Hemp Fishing Net"]
+    TWINE -->|"craft"| SNARE["Hemp Snare"]
+    ROPE -->|"+ Hemp Cloth"| SHEETROPE["Hemp Sheet Rope"]
     CLOTH -.-> SHEETROPE
-    CANVAS -->|"sew"| SACK["HempSack"]
-    BAST -->|"+ WoodTar"| OAKUM["Oakum"]
+    CANVAS -->|"sew"| SACK["Hemp Sack"]
+    BAST -->|"+ Wood Tar"| OAKUM["Oakum"]
     WOODTAR -.-> OAKUM
 
     %% Paper chain
-    BAST -->|"boil + water<br/>(2 variants)"| PULP["HempPulp"]
+    BAST -->|"boil + water<br/>(2 variants)"| PULP["Hemp Pulp"]
     BAST -->|"NaOH chemical pulp<br/>(2 variants, +50%)"| PULP
     NAOH -.-> PULP
-    PULP -->|"press"| PAPER["HempPaper ×3"]
+    PULP -->|"press"| PAPER["Hemp Paper ×3"]
 
     %% Medicinal chain
-    BAST -->|"+ herbs + water<br/>(2 variants)"| POULTICE["HempPoultice"]
+    BAST -->|"+ herbs + water<br/>(2 variants)"| POULTICE["Hemp Poultice"]
     HERBS -.-> POULTICE
-    BAST -->|"+ alcohol + water<br/>(2 variants)"| TINCTURE["HempTincture"]
+    BAST -->|"+ alcohol + water<br/>(2 variants)"| TINCTURE["Hemp Tincture"]
     ALCOHOL -.-> TINCTURE
 
     %% ═══ HURD CHAINS ═══
-    HURD -->|"char<br/>(3 fuel variants)"| CHARCOAL_OUT["CrushedCharcoal ×2<br/>(→ Blackpowder)"]
+    HURD -->|"char<br/>(3 fuel variants)"| CHARCOAL_OUT["Crushed Charcoal ×2<br/>(→ Blackpowder)"]
     CHARCOAL -.-> CHARCOAL_OUT
-    HURD -->|"+ Calcite + water<br/>(mixer)"| HEMPCRETE["HempcreteBlock ×2"]
+    HURD -->|"+ Calcite + water<br/>(mixer)"| HEMPCRETE["Hempcrete Block ×2"]
     CALCITE -.-> HEMPCRETE
-    HURD -->|"+ water"| COMPOST["DilutedCompost<br/>(→ KNO3)"]
-    HURD -->|"+ twine"| FIRE["DryFirestarterBlock ×2"]
+    HURD -->|"+ water"| COMPOST["Diluted Compost<br/>(→ KNO3)"]
+    HURD -->|"+ twine"| FIRE["Dry Firestarter Block ×2"]
     TWINE --> FIRE
 
     %% ═══ SEED PRESS CAKE CHAINS ═══
     PRESSCAKE -->|"+ water"| COMPOST
-    PRESSCAKE -->|"bag"| COMPOSTBAG["CompostBag"]
+    PRESSCAKE -->|"bag"| COMPOSTBAG["Compost Bag"]
 
     %% ═══ HORTICULTURE ═══
     subgraph HORT["Horticulture"]
-        TOB_WET["TobaccoWet"] -->|"air dry"| TOB_DRY["Tobacco"]
-        TOB_DRY -->|"pack"| CHEW["ChewingTobacco<br/>(Tin / WaterTin / Jar)"]
-        BUDS["HempBuds"] -->|"cure / decarb"| BUDS_PROC["Cured / Decarbed"]
-        BUDS_PROC -->|"can / grind"| LOOSE["HempLoose"]
-        PAPER -->|"cut"| ROLLING["RollingPapers"]
+        TOB_WET["Wet Tobacco"] -->|"air dry"| TOB_DRY["Tobacco"]
+        TOB_DRY -->|"pack"| CHEW["Chewing Tobacco<br/>(Tin / Water Tin / Jar)"]
+        BUDS["Hemp Buds"] -->|"cure / decarb"| BUDS_PROC["Cured / Decarbed"]
+        BUDS_PROC -->|"can / grind"| LOOSE["Loose Hemp"]
+        PAPER -->|"cut"| ROLLING["Rolling Papers"]
         LOOSE -->|"+ pipe / paper"| SMOKE["Cigarette / Cigar / Pipe"]
-        SYRUP_IN["Sugar + Water"] -->|"cook"| SYRUP["SimpleSugarSyrup"]
+        SYRUP_IN["Sugar + Water"] -->|"cook"| SYRUP["Simple Sugar Syrup"]
     end
 
     %% ═══ STYLES ═══

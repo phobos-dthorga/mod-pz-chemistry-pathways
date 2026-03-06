@@ -17,9 +17,9 @@
 
 # Recipe Pathways
 
-PhobosChemistryPathways adds 276 recipes across 10 interconnected crafting pathways: Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture/Downstream, Concrete Mixer, and Botanical. Raw materials flow through intermediate processing steps into terminal outputs, with by-products feeding back into other chains.
+PhobosChemistryPathways adds 297 recipes across 10 interconnected crafting pathways: Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture/Downstream, Concrete Mixer, and Botanical. Raw materials flow through intermediate processing steps into terminal outputs, with by-products feeding back into other chains.
 
-The diagram below shows the complete chemistry recipe flow from raw inputs through all pathways to their terminal outputs. The **Botanical & Horticulture Pathway** (31 recipes + 31 horticulture items) has its own [dedicated diagram](botanical-pathways.md) due to its size.
+The diagram below shows the complete chemistry recipe flow from raw inputs through all pathways to their terminal outputs. The **Botanical & Horticulture Pathway** (37 recipes + 31 horticulture items) has its own [dedicated diagram](botanical-pathways.md) due to its size.
 
 ## Complete Recipe Overview
 
@@ -29,7 +29,7 @@ graph TB
         CHARCOAL["Charcoal<br/>(foraged, crafted,<br/>or methanol byproduct)"]
         CROPS["Crops: Soybeans, Sunflower,<br/>Corn, Flax, Hemp, Peanuts"]
         FATS["Lard / Butter / Margarine"]
-        OILS["OilVegetable / OilOlive"]
+        OILS["Vegetable Oil / Olive Oil"]
         MEAT["Butchered Meat<br/>(any cut)"]
         WOOD["Wood<br/>(Plank / Firewood)"]
         BONES["Animal Bones / Skulls"]
@@ -219,11 +219,11 @@ graph TB
     style REFINED_BD fill:#4a4,color:#fff
     style SOAP fill:#48c,color:#fff
     style BONECHAR fill:#864,color:#fff
-    subgraph BOT["Botanical & Horticulture Pathway (31 recipes)"]
+    subgraph BOT["Botanical & Horticulture Pathway (37 recipes)"]
         BOT_REF["See separate diagram:<br/>botanical-pathways.md<br/><br/>Hemp stalks → retting → fiber / hurds<br/>Textiles, paper, medicinals, hempcrete<br/>+ 31 horticulture items"]
     end
 
-    CROPS -.->|"HempBroken"| BOT_REF
+    CROPS -.->|"Broken Hemp"| BOT_REF
     KOH -.-> BOT_REF
     WOODTAR -.-> BOT_REF
     CALCITE -.-> BOT_REF

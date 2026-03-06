@@ -25,8 +25,8 @@ Four boolean options control which recipe variants are visible in the crafting m
 
 - **RequireHeatSources** (default: TRUE) -- When enabled, heated recipes require fuel inputs (propane, charcoal, coke). When disabled, simplified no-fuel versions appear instead.
 - **EnableAdvancedLabRecipes** (default: FALSE) -- Unlocks microscope and spectrometer recipes requiring Applied Chemistry level 7. Intended for late-game laboratory gameplay.
-- **EnableHealthHazards** (default: FALSE) -- Replaces 11 base hazardous recipes with 22 Protected/Unprotected variant pairs. Protected variants require PPE (gas mask + safety goggles) with filter degradation; Unprotected variants risk disease or stat penalties.
-- **EnableBotanicalPathway** (default: TRUE) -- Enables all 31 botanical hemp processing recipes and horticulture items. When disabled, botanical recipes are hidden but already-crafted items remain usable. Requires game restart.
+- **EnableHealthHazards** (default: FALSE) -- Replaces 16 base hazardous recipes with 32 Protected/Unprotected variant pairs. Protected variants require PPE (gas mask + safety goggles) with filter degradation; Unprotected variants risk disease or stat penalties.
+- **EnableBotanicalPathway** (default: TRUE) -- Enables all 37 botanical hemp processing recipes and horticulture items. When disabled, botanical recipes are hidden but already-crafted items remain usable. Requires game restart.
 
 ```mermaid
 graph TB
@@ -43,10 +43,10 @@ graph TB
     S2 -->|"TRUE"| A_ON["Microscope + Spectrometer<br/>recipes unlocked (AC:7)"]
     S2 -->|"FALSE"| A_OFF["Microscope + Spectrometer<br/>recipes hidden"]
 
-    S3 -->|"TRUE"| Z_ON["11 originals HIDDEN<br/>22 Safe/Unsafe twins VISIBLE"]
-    S3 -->|"FALSE"| Z_OFF["11 originals VISIBLE<br/>22 twins HIDDEN"]
+    S3 -->|"TRUE"| Z_ON["16 originals HIDDEN<br/>32 Safe/Unsafe twins VISIBLE"]
+    S3 -->|"FALSE"| Z_OFF["16 originals VISIBLE<br/>32 twins HIDDEN"]
 
-    S4 -->|"TRUE"| B_ON["31 botanical recipes visible<br/>Horticulture items active"]
+    S4 -->|"TRUE"| B_ON["37 botanical recipes visible<br/>Horticulture items active"]
     S4 -->|"FALSE"| B_OFF["Botanical recipes hidden<br/>Items still usable if crafted"]
 
     Z_ON --> SAFE["SAFE variant:<br/>Mask + Goggles required<br/>Filter degrades 0.025/craft"]

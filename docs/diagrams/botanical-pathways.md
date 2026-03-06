@@ -27,95 +27,95 @@ This is a companion diagram to the [main recipe overview](recipe-pathways.md), k
 graph TB
     %% ═══ RAW INPUTS ═══
     subgraph IN["Raw Inputs"]
-        HEMP["Hemp Stalks<br/>(HempBroken)<br/>farming / foraging"]
-        HEMPDRIED["HempBundleDried<br/>(Base.HempBundleDried)"]
-        SEEDPASTE["SeedPaste<br/>(Base.SeedPaste)"]
+        HEMP["Hemp Stalks<br/>(Broken Hemp)<br/>farming / foraging"]
+        HEMPDRIED["Dried Hemp Bundle<br/>(vanilla)"]
+        SEEDPASTE["Seed Paste<br/>(vanilla)"]
         HERBS["Herbs / Plantain<br/>(vanilla)"]
-        ALCOHOL["AlcoholBandage<br/>Disinfectant / Whiskey"]
+        ALCOHOL["Alcohol Bandage<br/>Disinfectant / Whiskey"]
     end
 
     subgraph XREF["Cross-Pathway Inputs (from main chart)"]
-        KOH["KOH<br/>PotassiumHydroxide"]
-        NAOH["NaOH<br/>(LabItems)"]
-        WOODTAR["WoodTar"]
+        KOH["Potassium Hydroxide<br/>(KOH)"]
+        NAOH["Sodium Hydroxide<br/>(NaOH)"]
+        WOODTAR["Wood Tar"]
         CALCITE["Calcite"]
         CHARCOAL["Charcoal / Coke"]
     end
 
     %% ═══ STAGE 1: RETTING & SPLITTING ═══
-    HEMP -->|"thresh"| SEEDS["HempSeed ×5"]
-    HEMP -->|"ret + alkali + water<br/>(4 variants: KOH/NaOH × heat)"| RETTED["RettedHempStalk"]
+    HEMP -->|"thresh"| SEEDS["Hemp Seeds ×5"]
+    HEMP -->|"ret + alkali + water<br/>(4 variants: KOH/NaOH × heat)"| RETTED["Retted Hemp Stalk"]
     KOH -.-> RETTED
     NAOH -.-> RETTED
-    RETTED -->|"extract + water<br/>(2 heat variants)"| BAST["HempBastFiber ×3"]
-    RETTED --> HURD["HempHurd ×2"]
+    RETTED -->|"extract + water<br/>(2 heat variants)"| BAST["Hemp Bast Fiber ×3"]
+    RETTED --> HURD["Hemp Hurd ×2"]
 
     %% ═══ SCUTCHING BOARD ROUTE ═══
-    HEMPDRIED -->|"PCPScutchHempFiber<br/>(Scutching Board)"| BAST
-    HEMPDRIED -->|"PCPScutchHempFiber<br/>(Scutching Board)"| HURD
+    HEMPDRIED -->|"Scutch Fiber<br/>(Scutching Board)"| BAST
+    HEMPDRIED -->|"Scutch Fiber<br/>(Scutching Board)"| HURD
 
     %% ═══ HAND PRESS ROUTE ═══
-    SEEDPASTE -->|"PCPPressOilHandPress<br/>(Hand Press)"| CRUDEOIL["CrudeVegetableOil"]
-    SEEDPASTE -->|"PCPPressOilHandPress<br/>(Hand Press)"| PRESSCAKE["SeedPressCake"]
+    SEEDPASTE -->|"Press Seed Oil<br/>(Hand Press)"| CRUDEOIL["Crude Vegetable Oil"]
+    SEEDPASTE -->|"Press Seed Oil<br/>(Hand Press)"| PRESSCAKE["Seed Press Cake"]
 
     %% ═══ BAST FIBER CHAINS ═══
     %% Textile chain
-    BAST -->|"spin"| TWINE["HempTwine"]
-    TWINE -->|"braid ×3"| ROPE["HempRope<br/>(base:rope)"]
-    ROPE -->|"+ WoodTar<br/>(2 variants)"| TARRED["TarredHempRope<br/>(base:rope + fire fuel)"]
+    BAST -->|"spin"| TWINE["Hemp Twine"]
+    TWINE -->|"braid ×3"| ROPE["Hemp Rope<br/>(rope equivalent)"]
+    ROPE -->|"+ Wood Tar<br/>(2 variants)"| TARRED["Tarred Hemp Rope<br/>(rope + fire fuel)"]
     WOODTAR -.-> TARRED
-    TARRED -->|"+HempHurd+Calcite<br/>(mixer H14b)"| REINFORCED["ReinforcedHempcrete<br/>3× blocks"]
+    TARRED -->|"+ Hemp Hurd + Calcite<br/>(Concrete Mixer)"| REINFORCED["Reinforced Hempcrete<br/>3× blocks"]
     CALCITE -.-> REINFORCED
 
-    BAST -->|"weave ×4"| CLOTH["HempCloth"]
-    BAST -->|"PCPWeaveHempClothLoom<br/>(Loom)"| CLOTH
-    BAST -->|"PCPWeaveHempCanvasLoom<br/>(Loom)"| CANVAS["HempCanvas"]
+    BAST -->|"weave ×4"| CLOTH["Hemp Cloth"]
+    BAST -->|"Weave Cloth<br/>(Loom)"| CLOTH
+    BAST -->|"Weave Canvas<br/>(Loom)"| CANVAS["Hemp Canvas"]
     CLOTH -->|"layer ×2"| CANVAS
     CLOTH -->|"+ disinfectant<br/>(2 variants)"| BANDAGE["Bandage ×2<br/>(sterilised)"]
 
     %% End-product branches
-    TWINE -->|"craft"| FISHNET["HempFishingNet"]
-    TWINE -->|"craft"| SNARE["HempSnare"]
-    ROPE -->|"+ HempCloth"| SHEETROPE["HempSheetRope"]
+    TWINE -->|"craft"| FISHNET["Hemp Fishing Net"]
+    TWINE -->|"craft"| SNARE["Hemp Snare"]
+    ROPE -->|"+ Hemp Cloth"| SHEETROPE["Hemp Sheet Rope"]
     CLOTH -.-> SHEETROPE
-    CANVAS -->|"sew"| SACK["HempSack"]
-    BAST -->|"+ WoodTar"| OAKUM["Oakum"]
+    CANVAS -->|"sew"| SACK["Hemp Sack"]
+    BAST -->|"+ Wood Tar"| OAKUM["Oakum"]
     WOODTAR -.-> OAKUM
 
     %% Paper chain
-    BAST -->|"boil + water<br/>(2 variants)"| PULP["HempPulp"]
+    BAST -->|"boil + water<br/>(2 variants)"| PULP["Hemp Pulp"]
     BAST -->|"NaOH chemical pulp<br/>(2 variants, +50%)"| PULP
     NAOH -.-> PULP
-    PULP -->|"press"| PAPER["HempPaper ×3"]
+    PULP -->|"press"| PAPER["Hemp Paper ×3"]
 
     %% Medicinal chain
-    BAST -->|"+ herbs + water<br/>(2 variants)"| POULTICE["HempPoultice"]
+    BAST -->|"+ herbs + water<br/>(2 variants)"| POULTICE["Hemp Poultice"]
     HERBS -.-> POULTICE
-    BAST -->|"+ alcohol + water<br/>(2 variants)"| TINCTURE["HempTincture"]
+    BAST -->|"+ alcohol + water<br/>(2 variants)"| TINCTURE["Hemp Tincture"]
     ALCOHOL -.-> TINCTURE
 
     %% ═══ HURD CHAINS ═══
-    HURD -->|"char<br/>(3 fuel variants)"| CHARCOAL_OUT["CrushedCharcoal ×2<br/>(→ Blackpowder)"]
+    HURD -->|"char<br/>(3 fuel variants)"| CHARCOAL_OUT["Crushed Charcoal ×2<br/>(→ Blackpowder)"]
     CHARCOAL -.-> CHARCOAL_OUT
-    HURD -->|"+ Calcite + water<br/>(mixer)"| HEMPCRETE["HempcreteBlock ×2"]
+    HURD -->|"+ Calcite + water<br/>(mixer)"| HEMPCRETE["Hempcrete Block ×2"]
     CALCITE -.-> HEMPCRETE
-    HURD -->|"+ water"| COMPOST["DilutedCompost<br/>(→ KNO3)"]
-    HURD -->|"+ twine"| FIRE["DryFirestarterBlock ×2"]
+    HURD -->|"+ water"| COMPOST["Diluted Compost<br/>(→ KNO3)"]
+    HURD -->|"+ twine"| FIRE["Dry Firestarter Block ×2"]
     TWINE --> FIRE
 
     %% ═══ SEED PRESS CAKE CHAINS ═══
     PRESSCAKE -->|"+ water"| COMPOST
-    PRESSCAKE -->|"bag"| COMPOSTBAG["CompostBag"]
+    PRESSCAKE -->|"bag"| COMPOSTBAG["Compost Bag"]
 
     %% ═══ HORTICULTURE ═══
     subgraph HORT["Horticulture"]
-        TOB_WET["TobaccoWet"] -->|"air dry"| TOB_DRY["Tobacco"]
-        TOB_DRY -->|"pack"| CHEW["ChewingTobacco<br/>(Tin / WaterTin / Jar)"]
-        BUDS["HempBuds"] -->|"cure / decarb"| BUDS_PROC["Cured / Decarbed"]
-        BUDS_PROC -->|"can / grind"| LOOSE["HempLoose"]
-        PAPER -->|"cut"| ROLLING["RollingPapers"]
+        TOB_WET["Wet Tobacco"] -->|"air dry"| TOB_DRY["Tobacco"]
+        TOB_DRY -->|"pack"| CHEW["Chewing Tobacco<br/>(Tin / Water Tin / Jar)"]
+        BUDS["Hemp Buds"] -->|"cure / decarb"| BUDS_PROC["Cured / Decarbed"]
+        BUDS_PROC -->|"can / grind"| LOOSE["Loose Hemp"]
+        PAPER -->|"cut"| ROLLING["Rolling Papers"]
         LOOSE -->|"+ pipe / paper"| SMOKE["Cigarette / Cigar / Pipe"]
-        SYRUP_IN["Sugar + Water"] -->|"cook"| SYRUP["SimpleSugarSyrup"]
+        SYRUP_IN["Sugar + Water"] -->|"cook"| SYRUP["Simple Sugar Syrup"]
     end
 
     %% ═══ STYLES ═══
@@ -142,19 +142,19 @@ graph TB
 
 ## Legend
 
-- **Red** -- Cross-pathway output: CrushedCharcoal (feeds back into blackpowder pathway)
-- **Orange** -- Cross-pathway output: DilutedCompost (feeds back into KNO3 synthesis); also CrudeVegetableOil, SeedPressCake, and CompostBag from Hand Press route
-- **Blue** -- Textile output: TarredHempRope (waterproofed with wood tar; tagged `base:rope` + fire fuel; feeds into reinforced hempcrete); also HempSheetRope
-- **Green** -- Medical output: Sterilised bandages (from hemp cloth + disinfectant)
-- **Purple** -- Paper output: HempPaper (for papermaking and rolling papers)
-- **Dark green** -- Medicinal outputs: HempPoultice and HempTincture
-- **Steel blue** -- Construction output: HempcreteBlock (hemp hurds + calcite, mixer recipe)
-- **Teal** -- End-product outputs: HempFishingNet, HempSnare, HempSack (from textile branches)
-- **Brown** -- Oakum (bast fiber + wood tar, used as reinforcement)
-- **Dark blue** -- Cross-pathway inputs from the main chemistry chart (KOH, NaOH, WoodTar, Calcite)
+- **Red** -- Cross-pathway output: Crushed Charcoal (feeds back into blackpowder pathway)
+- **Orange** -- Cross-pathway output: Diluted Compost (feeds back into KNO3 synthesis); also Crude Vegetable Oil, Seed Press Cake, and Compost Bag from Hand Press route
+- **Blue** -- Textile output: Tarred Hemp Rope (waterproofed with wood tar; rope equivalent + fire fuel; feeds into Reinforced Hempcrete); also Hemp Sheet Rope
+- **Green** -- Medical output: Sterilised bandages (from Hemp Cloth + disinfectant)
+- **Purple** -- Paper output: Hemp Paper (for papermaking and Rolling Papers)
+- **Dark green** -- Medicinal outputs: Hemp Poultice and Hemp Tincture
+- **Steel blue** -- Construction output: Hempcrete Block (Hemp Hurd + Calcite, mixer recipe)
+- **Teal** -- End-product outputs: Hemp Fishing Net, Hemp Snare, Hemp Sack (from textile branches)
+- **Brown** -- Oakum (bast fiber + wood tar, used as waterproofing)
+- **Dark blue** -- Cross-pathway inputs from the main chemistry chart (KOH, NaOH, Wood Tar, Calcite)
 - **Dotted lines** -- Cross-pathway links
 
-## Botanical Recipe Breakdown (31 recipes)
+## Botanical Recipe Breakdown (37 recipes)
 
 ### Retting & Fiber Extraction (7 recipes)
 - **PCPThreshHempSeeds** -- Thresh hemp stalks for seeds (Field)
@@ -190,24 +190,32 @@ graph TB
 - **PCPMixHempcrete** -- Mix hurds + calcite in concrete mixer (Industrial)
 - **PCPMixReinforcedHempcrete** (H14b) -- TarredHempRope + HempHurd + Calcite + Water in concrete mixer, yields 3x HempcreteBlock (Industrial)
 
+### Hemp Expansion (6 recipes)
+- **PCPPressOilHandPress** -- Press seed paste for crude vegetable oil on the Hand Press (Kitchen / Hand Press)
+- **PCPMakeOakum** -- Tar bast fiber into oakum waterproofing (Kitchen / Loom)
+- **PCPSewHempSack** -- Sew a carrying sack from hemp canvas and rope (Kitchen / Loom)
+- **PCPKnotHempFishingNet** -- Knot a fishing net from hemp twine (Field)
+- **PCPMakeHempSheetRope** -- Tie a sheet rope from hemp rope and cloth (Field)
+- **PCPCraftHempSnare** -- Craft a snare trap from hemp twine and a stick (Field)
+
 ### Crafting Tier Summary
 
 | Tier | Category | Recipes |
 |------|----------|---------|
-| Field | Phobos Field Chem | 8 |
-| Kitchen | Phobos Kitchen Chem | 14 |
+| Field | Phobos Field Chem | 11 |
+| Kitchen | Phobos Kitchen Chem | 17 |
 | Lab | Phobos Lab Chem | 7 |
 | Industrial | Phobos Industrial Chem (Mixer) | 2 |
-| **Total** | | **31** |
+| **Total** | | **37** |
 
 ## Horticulture Items
 
 31 horticulture items with full item scripts, translations, and tooltips:
 
-- **Tobacco** (4 items) -- TobaccoWet (air-dries naturally), ChewingTobacco in 3 container types (Tin, WaterTin, Jar)
-- **Hemp Buds** (9 items) -- Fresh, Cured, and Decarboxylated buds; canned variants (sealed and open); ground HempLoose
-- **Papermaking** (5 items) -- PaperPulpPot (2 pot types), MouldAndDeckle, MouldAndDecklePaperSheet, RollingPapers
-- **Smoking** (10 items) -- Glass pipe, loaded pipes (wood/glass/can), hemp cigars, hemp cigarettes, cigarette packs, rolled tobacco cigars and cigarettes
-- **Cooking** (3 items) -- SaucepanSyrup (2 pot types), SimpleSugarSyrup
+- **Tobacco** (4 items) -- Wet Tobacco (air-dries naturally), Chewing Tobacco in 3 container types (Tin, Water Tin, Jar)
+- **Hemp Buds** (9 items) -- Fresh, Cured, and Decarboxylated buds; canned variants (sealed and open); ground Loose Hemp
+- **Papermaking** (5 items) -- Pot of Paper Pulp (2 pot types), Mould and Deckle, Mould and Deckle (Sheet), Rolling Papers
+- **Smoking** (10 items) -- Glass Smoking Pipe, loaded pipes (wood/glass/can), Hemp Cigars, Hemp Cigarettes, cigarette packs, rolled tobacco cigars and cigarettes
+- **Cooking** (3 items) -- Saucepan of Sugar Syrup (2 pot types), Simple Sugar Syrup
 
 These items support a [B42] Horticulture mod migration system (see [Sandbox Settings Guide](sandbox-gating.md) for the MigrateHorticultureItems option).

@@ -105,9 +105,11 @@ All EHR calls are `pcall`-wrapped -- if EHR is removed mid-save, the fallback tr
 | Hazard Profile | Disease (EHR) | Fallback (vanilla) | Recipes |
 |---------------|--------------|-------------------|---------|
 | `methanol_fumes` | corpse_sickness | Sickness + Pain | Methanol distillation |
-| `acid_fumes` | pneumonia | Sickness + Stress | Sulphur extraction, Battery acid |
-| `lye_burn` | wound_infection | Pain + Stress | KOH synthesis |
+| `acid_fumes` | pneumonia | Sickness + Stress | Sulphur extraction, Battery acid, Acid wash electronics |
+| `lye_burn` | wound_infection | Pain + Stress | KOH synthesis, Caustic retting (KOH and NaOH), Chemical pulping, Epoxy synthesis |
 | `plastic_fumes` | corpse_sickness | Sickness + Pain | Plastic scrap melting |
+| `smoke_inhalation` | corpse_sickness | Sickness + Pain | Hemp hurd charring (open fire, coke, simple) |
+| `mineral_dust` | pneumonia | Sickness + Stress | Hempcrete mixing, Reinforced hempcrete mixing, Matchbox crafting |
 
 ---
 
@@ -149,19 +151,19 @@ Some recipes support different container sizes:
 
 ---
 
-## Variant Counts (v1.0.0)
+## Variant Counts (v1.3.0)
 
 | Suffix | Count | Controlled By |
 |--------|-------|---------------|
-| Simple | 33 | `RequireHeatSources` |
-| Safe | 10 | `EnableHealthHazards` |
-| Unsafe | 10 | `EnableHealthHazards` |
-| SimpleSafe | 8 | Both |
-| SimpleUnsafe | 8 | Both |
-| **Total gated variants** | **69** | |
-| Equipment/catalyst/fuel/container | ~30 | Always visible |
-| Non-variant recipes | ~105 | Always visible |
-| **Grand total** | **204** | |
+| Simple | 48 | `RequireHeatSources` |
+| Safe | 16 | `EnableHealthHazards` |
+| Unsafe | 16 | `EnableHealthHazards` |
+| SimpleSafe | 9 | Both |
+| SimpleUnsafe | 9 | Both |
+| **Total gated variants** | **98** | |
+| Equipment/catalyst/fuel/container | ~35 | Always visible |
+| Non-variant recipes | ~164 | Always visible |
+| **Grand total** | **297** | |
 
 ---
 

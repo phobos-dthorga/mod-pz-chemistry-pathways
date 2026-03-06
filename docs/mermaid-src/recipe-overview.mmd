@@ -3,7 +3,7 @@ graph TB
         CHARCOAL["Charcoal<br/>(foraged, crafted,<br/>or methanol byproduct)"]
         CROPS["Crops: Soybeans, Sunflower,<br/>Corn, Flax, Hemp, Peanuts"]
         FATS["Lard / Butter / Margarine"]
-        OILS["OilVegetable / OilOlive"]
+        OILS["Vegetable Oil / Olive Oil"]
         MEAT["Butchered Meat<br/>(any cut)"]
         WOOD["Wood<br/>(Plank / Firewood)"]
         BONES["Animal Bones / Skulls"]
@@ -180,11 +180,11 @@ graph TB
     style REFINED_BD fill:#4a4,color:#fff
     style SOAP fill:#48c,color:#fff
     style BONECHAR fill:#864,color:#fff
-    subgraph BOT["Botanical & Horticulture Pathway (31 recipes)"]
+    subgraph BOT["Botanical & Horticulture Pathway (37 recipes)"]
         BOT_REF["See separate diagram:<br/>botanical-pathways.mmd<br/><br/>Hemp stalks → retting → fiber / hurds<br/>Textiles, paper, medicinals, hempcrete<br/>+ 31 horticulture items"]
     end
 
-    CROPS -.->|"HempBroken"| BOT_REF
+    CROPS -.->|"Broken Hemp"| BOT_REF
     KOH -.-> BOT_REF
     WOODTAR -.-> BOT_REF
     CALCITE -.-> BOT_REF
