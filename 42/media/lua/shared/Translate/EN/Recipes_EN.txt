@@ -302,4 +302,57 @@ Recipes_EN = {
 
     /* ===== Botanical Pathway — Industrial ===== */
     Recipe_PCPMixHempcrete = "H14. Mix Hempcrete",
+
+    /* ===== Horticulture — Tobacco ===== */
+    Recipe_PCPPackChewTobaccoTin = "HT1. Pack Chewing Tobacco (Tin)",
+    Recipe_PCPPackChewTobaccoWaterTin = "HT2. Pack Chewing Tobacco (Water Tin)",
+    Recipe_PCPPackChewTobaccoJar = "HT3. Pack Chewing Tobacco (Jar)",
+    Recipe_PCPRollCigarTobacco = "HT4. Roll Tobacco Cigar",
+    Recipe_PCPRollCigarettesTobacco = "HT5. Roll Tobacco Cigarettes",
+
+    /* ===== Horticulture — Hemp Buds ===== */
+    Recipe_PCPCureHempBuds = "HB1. Cure Hemp Buds",
+    Recipe_PCPCanHempBuds = "HB2. Can Fresh Hemp Buds",
+    Recipe_PCPCanHempBudsDecarbed = "HB3. Can Decarbed Hemp Buds",
+    Recipe_PCPOpenCannedHempBuds = "HB4. Open Canned Hemp Buds",
+    Recipe_PCPOpenCannedHempBudsDecarbed = "HB5. Open Canned Decarbed Buds",
+    Recipe_PCPGrindHempBuds = "HB6. Grind Hemp Buds",
+    Recipe_PCPRollHempCigarettes = "HB7. Roll Hemp Cigarettes",
+    Recipe_PCPRollHempCigar = "HB8. Roll Hemp Cigar",
+
+    /* ===== Horticulture — Papermaking ===== */
+    Recipe_PCPCraftMouldAndDeckle = "HP1. Craft Mould and Deckle",
+    Recipe_PCPFillPulpPot = "HP2. Fill Pulp Pot",
+    Recipe_PCPFillPulpPotForged = "HP2b. Fill Pulp Pot (Forged)",
+    Recipe_PCPFormWetPaperSheet = "HP3. Form Wet Paper Sheet",
+    Recipe_PCPFormWetPaperSheetForged = "HP3b. Form Wet Paper Sheet (Forged)",
+    Recipe_PCPPressPaperSheet = "HP4. Press Paper Sheet",
+    Recipe_PCPCutRollingPapers = "HP5. Cut Rolling Papers",
+
+    /* ===== Horticulture — Smoking ===== */
+    Recipe_PCPCraftSmokingPipeGlass = "HS1. Craft Glass Smoking Pipe",
+    Recipe_PCPLoadPipeHemp = "HS2. Load Pipe (Hemp)",
+    Recipe_PCPLoadGlassPipeHemp = "HS3. Load Glass Pipe (Hemp)",
+    Recipe_PCPLoadGlassPipeTobacco = "HS4. Load Glass Pipe (Tobacco)",
+    Recipe_PCPLoadCanPipeHemp = "HS5. Load Can Pipe (Hemp)",
+
+    /* ===== Horticulture — Cooking ===== */
+    Recipe_PCPMakeSyrupSaucepan = "HC1. Make Sugar Syrup (Saucepan)",
+    Recipe_PCPMakeSyrupSaucepanCopper = "HC2. Make Sugar Syrup (Copper Saucepan)",
+    Recipe_PCPBottleSyrup = "HC3. Bottle Syrup",
+    Recipe_PCPBottleSyrupCopper = "HC4. Bottle Syrup (Copper Saucepan)",
+
+    /* ===== Hazard — Botanical Protection Variants ===== */
+    Recipe_PCPRetHempSafe = "H5. Chemical Retting — KOH (Protected)",
+    Recipe_PCPRetHempUnsafe = "H5. Chemical Retting — KOH (No Mask!)",
+    Recipe_PCPRetHempSimpleSafe = "H5. Chemical Retting — KOH (Protected)",
+    Recipe_PCPRetHempSimpleUnsafe = "H5. Chemical Retting — KOH (No Mask!)",
+    Recipe_PCPRetHempNaOHSafe = "H5b. Chemical Retting — NaOH (Protected)",
+    Recipe_PCPRetHempNaOHUnsafe = "H5b. Chemical Retting — NaOH (No Mask!)",
+    Recipe_PCPRetHempNaOHSimpleSafe = "H5b. Chemical Retting — NaOH (Protected)",
+    Recipe_PCPRetHempNaOHSimpleUnsafe = "H5b. Chemical Retting — NaOH (No Mask!)",
+    Recipe_PCPChemicalPulpingSafe = "H11. Chemical Pulping — NaOH (Protected)",
+    Recipe_PCPChemicalPulpingUnsafe = "H11. Chemical Pulping — NaOH (No Mask!)",
+    Recipe_PCPChemicalPulpingSimpleSafe = "H11. Chemical Pulping — NaOH (Protected)",
+    Recipe_PCPChemicalPulpingSimpleUnsafe = "H11. Chemical Pulping — NaOH (No Mask!)",
 }
