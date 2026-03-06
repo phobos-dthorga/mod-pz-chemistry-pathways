@@ -1070,7 +1070,7 @@ module Base
         {
             item 2 [PhobosChemistryPathways.HempBastFiber;Base.HempScutched],
             item 1 [*],
-            -fluid 1.0 [PhobosChemistryPathways.WoodTar],
+            -fluid 1.0 [WoodTar],
         }
         outputs
         {
