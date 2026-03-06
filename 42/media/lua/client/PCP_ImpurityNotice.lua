@@ -88,11 +88,14 @@ end
 
 -- Register with PhobosLib notice popup system
 PhobosLib.registerNoticePopup("PCP", "impurity_enabled", {
-    title        = "Phobos' Industrial Pathways: Biomass  \226\128\148  Settings Update",
-    buildContent = buildContent,
-    shouldShow   = shouldShow,
-    width        = 560,
-    height       = 540,
+    series            = "PIP",
+    seriesDisplayName = "Phobos' Industrial Pathways",
+    seriesLabel       = "Biomass",
+    title             = "Phobos' Industrial Pathways: Biomass  \226\128\148  Settings Update",
+    buildContent      = buildContent,
+    shouldShow        = shouldShow,
+    width             = 560,
+    height            = 540,
 })
 
 print("[PCP] ImpurityNotice: registered [client]")

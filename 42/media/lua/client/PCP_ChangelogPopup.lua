@@ -279,11 +279,14 @@ end
 
 -- Register with PhobosLib popup system
 PhobosLib.registerChangelogPopup("PCP", {
-    title          = "Phobos' Industrial Pathways: Biomass  \226\128\148  What's New",
-    buildContent   = buildChangelogContent,
-    currentVersion = PCP_VERSION,
-    width          = 620,
-    height         = 680,
+    series            = "PIP",
+    seriesDisplayName = "Phobos' Industrial Pathways",
+    seriesLabel       = "Biomass",
+    title             = "Phobos' Industrial Pathways: Biomass  \226\128\148  What's New",
+    buildContent      = buildChangelogContent,
+    currentVersion    = PCP_VERSION,
+    width             = 620,
+    height            = 680,
 })
 
 print("[PCP] ChangelogPopup: registered [client] (v" .. PCP_VERSION .. ")")
