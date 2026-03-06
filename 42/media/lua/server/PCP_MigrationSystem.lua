@@ -663,9 +663,6 @@ local function convertHorticultureItems(player)
             return
         end
 
-        -- Preserve state based on item type
-        local itemType = item:getType and item:getType()
-
         -- Drainable items: preserve UsedDelta
         local okDrain, srcDelta = pcall(function() return item:getUsedDelta() end)
         local okDrainNew = pcall(function() return newItem:getUsedDelta() end)
