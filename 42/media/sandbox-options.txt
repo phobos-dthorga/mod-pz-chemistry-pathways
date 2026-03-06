@@ -94,6 +94,12 @@ option PCP.EnableBotanicalPathway
 	page = PCP_Sandbox, translation = PCP_EnableBotanicalPathway,
 }
 
+option PCP.EnableDebugLogging
+{
+	type = boolean, default = false,
+	page = PCP_Sandbox, translation = PCP_EnableDebugLogging,
+}
+
 option PCP.ResetStripPurity
 {
 	type = boolean, default = false,

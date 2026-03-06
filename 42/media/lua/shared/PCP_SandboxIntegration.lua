@@ -117,4 +117,10 @@ function PCP_Sandbox.isEHRActive()
     return PhobosLib.isEHRActive()
 end
 
+--- Check if debug logging is enabled for PCP.
+-- @return boolean  true if enabled (default false)
+function PCP_Sandbox.isDebugEnabled()
+    return PhobosLib.getSandboxVar("PCP", "EnableDebugLogging", false) == true
+end
+
 print("[PCP] Sandbox: queries loaded [" .. (isServer() and "server" or "local") .. "]")

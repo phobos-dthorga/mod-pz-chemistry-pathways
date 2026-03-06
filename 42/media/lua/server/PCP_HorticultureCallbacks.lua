@@ -33,6 +33,9 @@ require "PCP_PuritySystem"
 
 PCP_HorticultureCallbacks = {}
 
+local _TAG = "[PCP:Horticulture]"
+local function _debug(msg) PhobosLib.debug("PCP", _TAG, msg) end
+
 
 ---------------------------------------------------------------
 -- Internal Helpers (duplicated from PCP_RecipeCallbacks.lua)
@@ -44,6 +47,7 @@ local function _stampAndAnnounce(result, player, purity)
     if not result then return end
     local ok, ft = pcall(result.getFullType, result)
     if not ok or not ft or not string.find(ft, "PhobosChemistryPathways.", 1, true) then return end
+    _debug("_stampAndAnnounce: " .. tostring(ft) .. " purity=" .. tostring(purity))
     PCP_PuritySystem.setPurity(result, purity)
     PCP_PuritySystem.stampOutputs(player, ft, purity)
     PCP_PuritySystem.announcePurity(player, purity)

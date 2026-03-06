@@ -30,6 +30,10 @@ require "PhobosLib"
 
 PCP_PuritySystem = {}
 
+local _TAG = "[PCP:Purity]"
+local function _debug(msg) PhobosLib.debug("PCP", _TAG, msg) end
+local function _trace(msg) PhobosLib.trace("PCP", _TAG, msg) end
+
 ---------------------------------------------------------------
 -- Constants
 ---------------------------------------------------------------
@@ -174,7 +178,16 @@ function PCP_PuritySystem.calculateOutputPurity(inputPurity, equipFactor, player
     local severity = PCP_PuritySystem.getSeverity()
     local adjusted = PhobosLib.adjustFactorBySeverity(equipFactor, severity)
     local bonus = PCP_PuritySystem.getSkillBonus(player)
-    return PhobosLib.calculateOutputQuality(inputPurity, adjusted, PCP_PuritySystem.VARIANCE, bonus)
+    local result = PhobosLib.calculateOutputQuality(inputPurity, adjusted, PCP_PuritySystem.VARIANCE, bonus)
+    if PhobosLib.isDebugEnabled("PCP") then
+        _debug("calculateOutputPurity: input=" .. tostring(inputPurity)
+            .. " equipFactor=" .. tostring(equipFactor)
+            .. " severity=" .. tostring(severity)
+            .. " adjusted=" .. tostring(adjusted)
+            .. " skillBonus=" .. tostring(bonus)
+            .. " -> output=" .. tostring(result))
+    end
+    return result
 end
 
 --- Generate random base purity for source recipes.
@@ -236,6 +249,9 @@ function PCP_PuritySystem.stampOutputs(player, resultType, value)
     if not PCP_PuritySystem.isEnabled() then return end
     if not player then return end
     value = math.max(0, math.min(100, math.floor(value + 0.5)))
+    if PhobosLib.isDebugEnabled("PCP") then
+        _debug("stampOutputs: type=" .. tostring(resultType) .. " purity=" .. tostring(value))
+    end
     pcall(function()
         local inv = player:getInventory()
         if not inv then return end
