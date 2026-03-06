@@ -9,6 +9,12 @@ allow_defined_top = true
 -- PZ modding uses long lines freely
 max_line_length = false
 
+-- PZ callback signatures have fixed args that aren't always used
+unused_args = false
+
+-- pcall returns ok,result; ok is often checked only implicitly
+unused_secondaries = false
+
 -- PCP's own global namespaces
 globals = {
     "PCP_BotanicalCallbacks",
@@ -38,6 +44,7 @@ read_globals = {
     "getCore",
     "getDebug",
     "getGameTime",
+    "getOnlinePlayers",
     "getPlayer",
     "getSpecificPlayer",
     "getSandboxOptions",
