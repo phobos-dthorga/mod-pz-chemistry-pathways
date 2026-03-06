@@ -26,7 +26,7 @@
 --   3. Push to Workshop.
 ---------------------------------------------------------------
 
-local PCP_VERSION = "1.2.0"
+local PCP_VERSION = "1.3.0"
 
 --- Returns true if `version` (e.g. "0.23") is strictly newer than `baseline`.
 --- If baseline is nil, returns true (show everything).
@@ -52,10 +52,42 @@ local function buildChangelogContent(lastSeenVersion)
           .. " " .. PCP_VERSION .. "  |  " .. getText("IGUI_PCP_Changelog_VersionDate") .. " <LINE> <LINE> "
 
     -- ════════════════════════════════════════════════════════════════ --
-    -- v1.2  ·  current release  (Botanical + Horticulture)
+    -- v1.3  ·  current release  (Hemp Expansion + Audit)
+    -- ════════════════════════════════════════════════════════════════ --
+    if isNewerThan("1.3", lastSeenVersion) then
+    t = t .. "<LEFT> <SIZE:medium> <RGB:0.40,0.80,1.00> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_3_Marker") .. " "
+    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  " .. getText("IGUI_PCP_Changelog_V1_3_Date") .. " <LINE> <LINE> "
+
+    t = t .. "<SIZE:small> <RGB:1.00,0.75,0.20> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_3_HempTitle") .. " <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_3_HempBody") .. " <LINE> "
+    t = t .. "<LINE> "
+
+    t = t .. "<RGB:1.00,0.75,0.20> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_3_HazardTitle") .. " <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_3_HazardBody") .. " <LINE> "
+    t = t .. "<LINE> "
+
+    t = t .. "<RGB:1.00,0.75,0.20> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_3_AuditTitle") .. " <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_3_AuditBody") .. " <LINE> "
+    t = t .. "<LINE> "
+
+    t = t .. "<RGB:0.80,0.80,0.80> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_3_Stats1") .. " <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_3_Stats2") .. " <LINE> "
+    t = t .. "<LINE> "
+    end
+
+    -- ════════════════════════════════════════════════════════════════ --
+    -- v1.2  (Botanical + Horticulture)
     -- ════════════════════════════════════════════════════════════════ --
     if isNewerThan("1.2", lastSeenVersion) then
-    t = t .. "<LEFT> <SIZE:medium> <RGB:0.40,0.80,1.00> "
+    t = t .. "<LEFT> <SIZE:medium> <RGB:0.40,0.78,0.95> "
     t = t .. getText("IGUI_PCP_Changelog_V1_2_Marker") .. " "
     t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  " .. getText("IGUI_PCP_Changelog_V1_2_Date") .. " <LINE> <LINE> "
 

@@ -826,7 +826,7 @@ module Base
         }
         outputs
         {
-            fluid 2.0 PhobosChemistryPathways.CrudeVegetableOil,
+            fluid 2.0 CrudeVegetableOil,
             item 1 PhobosChemistryPathways.SeedPressCake,
         }
     }
