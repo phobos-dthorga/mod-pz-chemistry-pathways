@@ -148,7 +148,7 @@ end
 
 -- Register with PhobosLib popup system
 PhobosLib.registerGuidePopup("PCP", {
-    title        = "Phobos' Chemistry Pathways  \226\128\148  Quick Guide",
+    title        = "Phobos' Industrial Pathways: Biomass  \226\128\148  Quick Guide",
     buildContent = buildGuideContent,
     width        = 560,
     height       = 620,

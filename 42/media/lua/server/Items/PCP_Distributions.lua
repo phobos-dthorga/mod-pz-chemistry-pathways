@@ -15,7 +15,7 @@
 --
 
 -----------------------------------------------------
--- Phobos' Chemistry Pathways - Loot Distributions
+-- Phobos' Industrial Pathways: Biomass - Loot Distributions
 -----------------------------------------------------
 require 'Items/ItemPicker'
 require 'Items/Distributions'

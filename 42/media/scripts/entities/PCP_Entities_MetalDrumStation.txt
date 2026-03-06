@@ -13,7 +13,7 @@
  * |                                                                        |
  * \________________________________________________________________________/
  *
- * Phobos' Chemistry Pathways - Metal Drum Station
+ * Phobos' Industrial Pathways: Biomass - Metal Drum Station
  *
  * Defines the Metal Drum as a CraftBench workstation
  * so that bulk biodiesel recipes can be performed by

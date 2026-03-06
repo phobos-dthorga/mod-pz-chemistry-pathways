@@ -13,7 +13,7 @@
  * |                                                                        |
  * \________________________________________________________________________/
  *
- * Phobos' Chemistry Pathways - Concrete Mixer Station
+ * Phobos' Industrial Pathways: Biomass - Concrete Mixer Station
  *
  * Defines the Concrete Mixer as a CraftBench workstation
  * for construction material mixing and bulk chemistry.

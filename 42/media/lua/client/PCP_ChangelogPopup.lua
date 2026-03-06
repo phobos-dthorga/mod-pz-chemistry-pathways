@@ -81,6 +81,12 @@ local function buildChangelogContent(lastSeenVersion)
     t = t .. getText("IGUI_PCP_Changelog_V1_2_Stats1") .. " <LINE> "
     t = t .. getText("IGUI_PCP_Changelog_V1_2_Stats2") .. " <LINE> "
     t = t .. "<LINE> "
+
+    t = t .. "<RGB:1.00,0.75,0.20> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_2_RebrandTitle") .. " <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_2_RebrandBody") .. " <LINE> "
+    t = t .. "<LINE> "
     end
 
     -- ════════════════════════════════════════════════════════════════ --
@@ -273,7 +279,7 @@ end
 
 -- Register with PhobosLib popup system
 PhobosLib.registerChangelogPopup("PCP", {
-    title          = "Phobos' Chemistry Pathways  \226\128\148  What's New",
+    title          = "Phobos' Industrial Pathways: Biomass  \226\128\148  What's New",
     buildContent   = buildChangelogContent,
     currentVersion = PCP_VERSION,
     width          = 620,

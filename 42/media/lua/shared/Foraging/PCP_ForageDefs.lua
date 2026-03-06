@@ -15,7 +15,7 @@
 --
 
 -----------------------------------------------------
--- Phobos' Chemistry Pathways - Foraging Definitions
+-- Phobos' Industrial Pathways: Biomass - Foraging Definitions
 -----------------------------------------------------
 -- Adds Calcite and Sulphur as forageable minerals
 -- in zones appropriate for Kentucky geology.

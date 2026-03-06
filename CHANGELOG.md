@@ -60,6 +60,7 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 - **Crafting category display** — Renamed camelCase categories (PhobosFieldChem, PhobosLabChem, etc.) to human-readable spaced names (Phobos Field Chem, Phobos Lab Chem, etc.) for clean UI display
 
 ### Changed
+- **Mod renamed** from "Phobos' Chemistry Pathways" to "Phobos' Industrial Pathways: Biomass". Display-name-only change — internal mod ID (`PhobosChemistryPathways`), PCP prefix, and all save data remain unchanged. Part of the new Phobos' Industrial Pathways mod series.
 - **EnableImpuritySystem default changed to TRUE** — Was false; one-time migration popup auto-enables for existing worlds and notifies admins
 - Recipe count: 204 → **276** (31 botanical + 29 horticulture + 12 hazard variants added)
 - Item count: 47 → **101** (13 botanical + 31 horticulture + 5 recipe books + 5 skill books already counted)

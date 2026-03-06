@@ -17,7 +17,7 @@
 
 # Project Identity Policy
 
-The name "PhobosChemistryPathways" represents the official maintained release.
+The name "PhobosChemistryPathways" (display name: "Phobos' Industrial Pathways: Biomass") represents the official maintained release. This mod is part of the Phobos' Industrial Pathways mod series.
 
 Allowed:
 - Fork and modify

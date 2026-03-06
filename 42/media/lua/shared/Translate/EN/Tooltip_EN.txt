@@ -26,7 +26,7 @@ Tooltip_EN = {
     Tooltip_PCP_LeadScrap = "Salvaged lead plates from a dismantled car battery.<br>Heavy but valuable for constructing deep-cycle batteries<br>or melting down for other uses.",
     Tooltip_PCP_PlasticScrap = "Small pieces of cut plastic salvaged from bottles and containers.<br>Can be shaped into battery casings or used as insulation.",
     Tooltip_PCP_AcidWashedElectronics = "Electronic components cleaned with dilute sulphuric acid.<br>Oxide layers and corrosion removed, exposing pristine<br>copper traces. Superior quality for precision assembly.",
-    Tooltip_PCP_BkChemistryPathways = "The complete compendium of all Phobos Chemistry Pathways recipes.<br>Covers every crafting category: field chemistry, kitchen chemistry,<br>laboratory chemistry, industrial processes, and horticulture.<br><br>An extremely rare find. Most survivors will only ever find<br>the individual category primers.<br><br>Reading this book unlocks ALL chemistry recipes.",
+    Tooltip_PCP_BkChemistryPathways = "The complete compendium of all Phobos' Industrial Pathways: Biomass recipes.<br>Covers every crafting category: field chemistry, kitchen chemistry,<br>laboratory chemistry, industrial processes, and horticulture.<br><br>An extremely rare find. Most survivors will only ever find<br>the individual category primers.<br><br>Reading this book unlocks ALL chemistry recipes.",
 
     /* ===== Category Recipe Book Tooltips ===== */
     Tooltip_PCP_BkFieldChemistry = "A practical field guide to chemistry without laboratory equipment.<br>Covers charcoal processing, sulphur extraction, blackpowder<br>synthesis, and basic purification techniques.<br><br>Reading this book unlocks all Field Chemistry recipes.",
