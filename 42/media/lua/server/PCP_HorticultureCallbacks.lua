@@ -70,7 +70,7 @@ end
 --- Press paper sheet: propagate from MouldAndDecklePaperSheet (×0.95)
 function PCP_HorticultureCallbacks.pcpPressPaperSheetPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    local avgPurity = PCP_PuritySystem.averageStampedQuality(items)
-    local finalPurity = PCP_PuritySystem.calculateOutputQuality(avgPurity, 0.95, player)
+    local avgPurity = PCP_PuritySystem.averageInputPurity(items)
+    local finalPurity = PCP_PuritySystem.calculateOutputPurity(avgPurity, 0.95, player)
     _stampAndAnnounce(result, player, finalPurity)
 end

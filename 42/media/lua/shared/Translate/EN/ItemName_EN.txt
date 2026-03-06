@@ -121,7 +121,9 @@ ItemName_EN = {
 
     /* ===== Horticulture — Papermaking ===== */
     ItemName_PhobosChemistryPathways.PaperPulpPot = "Pot of Paper Pulp",
+    ItemName_PhobosChemistryPathways.PaperPulpPotCooked = "Pot of Boiled Paper Pulp",
     ItemName_PhobosChemistryPathways.PaperPulpPotForged = "Forged Pot of Paper Pulp",
+    ItemName_PhobosChemistryPathways.PaperPulpPotForgedCooked = "Forged Pot of Boiled Paper Pulp",
     ItemName_PhobosChemistryPathways.MouldAndDeckle = "Mould and Deckle",
     ItemName_PhobosChemistryPathways.MouldAndDecklePaperSheet = "Mould and Deckle (Sheet)",
     ItemName_PhobosChemistryPathways.RollingPapers = "Rolling Papers",
@@ -140,7 +142,9 @@ ItemName_EN = {
 
     /* ===== Horticulture — Cooking ===== */
     ItemName_PhobosChemistryPathways.SaucepanSyrup = "Saucepan of Sugar Syrup",
+    ItemName_PhobosChemistryPathways.SaucepanSyrupCooked = "Saucepan of Cooked Sugar Syrup",
     ItemName_PhobosChemistryPathways.SaucepanCopperSyrup = "Copper Saucepan of Sugar Syrup",
+    ItemName_PhobosChemistryPathways.SaucepanCopperSyrupCooked = "Copper Saucepan of Cooked Sugar Syrup",
     ItemName_PhobosChemistryPathways.SimpleSugarSyrup = "Simple Sugar Syrup",
 
     /* ===== Skill Books ===== */

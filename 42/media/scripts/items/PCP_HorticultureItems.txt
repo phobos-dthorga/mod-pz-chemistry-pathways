@@ -222,9 +222,22 @@ module PhobosChemistryPathways {
 		IsCookable = true,
 		MinutesToCook = 70,
 		MinutesToBurn = 140,
+		ReplaceOnCooked = PhobosChemistryPathways.PaperPulpPotCooked,
 		ReplaceOnUse = Base.Pot,
 		CantEat = true,
 		Tags = base:hasmetal,
+	}
+
+	item PaperPulpPotCooked {
+		ItemType = base:food,
+		DisplayCategory = Food,
+		Icon = PCP_PaperPulpPotCooked,
+		Weight = 3.0,
+		Tooltip = Tooltip_PCP_PaperPulpPotCooked,
+		WorldStaticModel = Pot_Ground,
+		ReplaceOnUse = Base.Pot,
+		CantEat = true,
+		Tags = base:hasmetal;base:alreadycooked,
 	}
 
 	item PaperPulpPotForged {
@@ -238,9 +251,22 @@ module PhobosChemistryPathways {
 		IsCookable = true,
 		MinutesToCook = 70,
 		MinutesToBurn = 140,
+		ReplaceOnCooked = PhobosChemistryPathways.PaperPulpPotForgedCooked,
 		ReplaceOnUse = Base.PotForged,
 		CantEat = true,
 		Tags = base:hasmetal,
+	}
+
+	item PaperPulpPotForgedCooked {
+		ItemType = base:food,
+		DisplayCategory = Food,
+		Icon = PCP_PaperPulpPotForgedCooked,
+		Weight = 3.0,
+		Tooltip = Tooltip_PCP_PaperPulpPotForgedCooked,
+		WorldStaticModel = Pot_Ground,
+		ReplaceOnUse = Base.PotForged,
+		CantEat = true,
+		Tags = base:hasmetal;base:alreadycooked,
 	}
 
 	item MouldAndDeckle {
@@ -502,12 +528,28 @@ module PhobosChemistryPathways {
 		IsCookable = true,
 		MinutesToCook = 20,
 		MinutesToBurn = 50,
+		ReplaceOnCooked = PhobosChemistryPathways.SaucepanSyrupCooked,
 		ReplaceOnUse = Base.Saucepan,
 		HungerChange = -30,
 		Calories = 330,
 		Carbohydrates = 90,
 		CantEat = true,
 		Tags = base:hasmetal,
+	}
+
+	item SaucepanSyrupCooked {
+		ItemType = base:food,
+		DisplayCategory = Food,
+		Icon = PCP_SaucepanSyrupCooked,
+		Weight = 3.0,
+		Tooltip = Tooltip_PCP_SaucepanSyrupCooked,
+		WorldStaticModel = Saucepan_Ground,
+		ReplaceOnUse = Base.Saucepan,
+		HungerChange = -30,
+		Calories = 330,
+		Carbohydrates = 90,
+		CantEat = true,
+		Tags = base:hasmetal;base:alreadycooked,
 	}
 
 	item SaucepanCopperSyrup {
@@ -521,12 +563,28 @@ module PhobosChemistryPathways {
 		IsCookable = true,
 		MinutesToCook = 20,
 		MinutesToBurn = 50,
+		ReplaceOnCooked = PhobosChemistryPathways.SaucepanCopperSyrupCooked,
 		ReplaceOnUse = Base.SaucepanCopper,
 		HungerChange = -30,
 		Calories = 330,
 		Carbohydrates = 90,
 		CantEat = true,
 		Tags = base:hasmetal,
+	}
+
+	item SaucepanCopperSyrupCooked {
+		ItemType = base:food,
+		DisplayCategory = Food,
+		Icon = PCP_SaucepanCopperSyrupCooked,
+		Weight = 3.0,
+		Tooltip = Tooltip_PCP_SaucepanCopperSyrupCooked,
+		WorldStaticModel = Saucepan_Ground,
+		ReplaceOnUse = Base.SaucepanCopper,
+		HungerChange = -30,
+		Calories = 330,
+		Carbohydrates = 90,
+		CantEat = true,
+		Tags = base:hasmetal;base:alreadycooked,
 	}
 
 	item SimpleSugarSyrup {

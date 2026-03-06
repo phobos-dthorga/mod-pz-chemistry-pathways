@@ -105,6 +105,8 @@ Tooltip_EN = {
     /* ===== Horticulture — Papermaking ===== */
     Tooltip_PCP_PaperPulpPot = "A pot of hemp fiber simmering in water to break down<br>into paper pulp. Needs to finish cooking on a heat source.",
     Tooltip_PCP_PaperPulpPotForged = "A forged pot of hemp fiber simmering in water to break<br>down into paper pulp. Needs to finish cooking on a heat source.",
+    Tooltip_PCP_PaperPulpPotCooked = "Boiled hemp fiber pulp ready to be formed into<br>a paper sheet using a mould and deckle.",
+    Tooltip_PCP_PaperPulpPotForgedCooked = "Boiled hemp fiber pulp (forged pot) ready to be formed<br>into a paper sheet using a mould and deckle.",
     Tooltip_PCP_MouldAndDeckle = "A wooden frame with fine mesh screen used for forming<br>paper sheets from wet pulp. Reusable papermaking tool.",
     Tooltip_PCP_MouldAndDecklePaperSheet = "A mould and deckle with a freshly formed wet paper sheet.<br>The sheet needs to be removed and pressed to dry.",
     Tooltip_PCP_RollingPapers = "Thin sheets of paper cut to size for rolling cigarettes<br>or cigars. Made from hemp paper.",
@@ -124,5 +126,7 @@ Tooltip_EN = {
     /* ===== Horticulture — Cooking ===== */
     Tooltip_PCP_SaucepanSyrup = "A saucepan of sugar water being cooked into syrup.<br>Leave on a heat source until done.",
     Tooltip_PCP_SaucepanCopperSyrup = "A copper saucepan of sugar water being cooked into syrup.<br>Leave on a heat source until done.",
+    Tooltip_PCP_SaucepanSyrupCooked = "Cooked sugar syrup ready to be bottled.<br>Pour into a jar to produce simple sugar syrup.",
+    Tooltip_PCP_SaucepanCopperSyrupCooked = "Cooked sugar syrup (copper saucepan) ready to be bottled.<br>Pour into a jar to produce simple sugar syrup.",
     Tooltip_PCP_SimpleSugarSyrup = "Simple sugar syrup made by dissolving sugar in hot water.<br>Use as a sweetener in cooking and beverages.",
 }

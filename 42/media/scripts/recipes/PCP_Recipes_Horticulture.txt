@@ -495,7 +495,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.PaperPulpPot] flags[IsCooked],
+            item 1 [PhobosChemistryPathways.PaperPulpPotCooked],
             item 1 [PhobosChemistryPathways.MouldAndDeckle] mode:keep,
         }
         outputs
@@ -523,7 +523,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.PaperPulpPotForged] flags[IsCooked],
+            item 1 [PhobosChemistryPathways.PaperPulpPotForgedCooked],
             item 1 [PhobosChemistryPathways.MouldAndDeckle] mode:keep,
         }
         outputs
@@ -805,7 +805,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.SaucepanSyrup] flags[IsCooked],
+            item 1 [PhobosChemistryPathways.SaucepanSyrupCooked],
             item 1 [Base.EmptyJar],
         }
         outputs
@@ -833,7 +833,7 @@ module Base
 
         inputs
         {
-            item 1 [PhobosChemistryPathways.SaucepanCopperSyrup] flags[IsCooked],
+            item 1 [PhobosChemistryPathways.SaucepanCopperSyrupCooked],
             item 1 [Base.EmptyJar],
         }
         outputs
