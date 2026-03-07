@@ -806,6 +806,10 @@ PhobosLib.registerMigration(
 --- Uses consumeSandboxFlag to auto-reset the boolean after execution.
 --- Re-runnable: no world guard — users can re-trigger if items were missed.
 local function runManualHortMigration(players)
+    -- Undo any previous consumeSandboxFlag — this migration is designed
+    -- to be re-runnable while the toggle is ON.
+    PhobosLib.unconsumeSandboxFlag("PCP", "MigrateHorticultureItems")
+
     -- Check sandbox button
     local requested = false
     pcall(function()
@@ -825,14 +829,8 @@ local function runManualHortMigration(players)
         totalFailed    = totalFailed + failed
     end
 
-    -- Consume the sandbox flag (auto-resets to OFF)
-    PhobosLib.consumeSandboxFlag("PCP", "MigrateHorticultureItems")
-
-    -- Notify players
-    local msg
-    if totalConverted == 0 and totalFailed == 0 then
-        msg = "No [B42] Horticulture items found in any inventory."
-    else
+    -- Notify players (suppress popup when nothing to report)
+    if totalConverted > 0 or totalFailed > 0 then
         local parts = {}
         if totalConverted > 0 then
             table.insert(parts, "Converted " .. totalConverted .. " Horticulture item(s)")
@@ -840,16 +838,18 @@ local function runManualHortMigration(players)
         if totalFailed > 0 then
             table.insert(parts, totalFailed .. " item(s) could not be converted")
         end
-        msg = table.concat(parts, ". ") .. "."
-    end
+        local msg = table.concat(parts, ". ") .. "."
 
-    print("[PCP] Horticulture migration: " .. msg)
-    for _, player in ipairs(players) do
-        PhobosLib.notifyMigrationResult(player, MOD_ID, {
-            ok = true,
-            label = "PCP: Horticulture Item Migration",
-            msg = msg,
-        })
+        print("[PCP] Horticulture migration: " .. msg)
+        for _, player in ipairs(players) do
+            PhobosLib.notifyMigrationResult(player, MOD_ID, {
+                ok = true,
+                label = "PCP: Horticulture Item Migration",
+                msg = msg,
+            })
+        end
+    else
+        print("[PCP] Horticulture migration: no Horticulture items found.")
     end
 end
 
