@@ -731,7 +731,7 @@ module Base
 
 /* ----- HS6: LOAD PIPE WITH HEMP (FROM POUCH) ----- */
 /*  Pack ground hemp from a pouch into a vanilla smoking pipe.
-    Uses tag-based partial consumption — 3 uses per pipe bowl.                                */
+    Consumes 3 uses of the drainable Pouch of Hemp per pipe bowl.                             */
 
     craftRecipe PCPLoadPipeHempFromPouch
     {
@@ -748,7 +748,7 @@ module Base
         inputs
         {
             item 1 [Base.SmokingPipe],
-            item 3 tags[base:hempground],
+            item 3 [PhobosChemistryPathways.HempLoose],
         }
         outputs
         {
@@ -774,7 +774,7 @@ module Base
         inputs
         {
             item 1 [PhobosChemistryPathways.SmokingPipeGlass],
-            item 3 tags[base:hempground],
+            item 3 [PhobosChemistryPathways.HempLoose],
         }
         outputs
         {
@@ -800,7 +800,7 @@ module Base
         inputs
         {
             item 1 [Base.CanPipe],
-            item 3 tags[base:hempground],
+            item 3 [PhobosChemistryPathways.HempLoose],
         }
         outputs
         {
