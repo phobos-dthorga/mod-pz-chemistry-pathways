@@ -664,15 +664,18 @@ local function convertHorticultureItems(player)
         end
     end)
 
-    PhobosLib.debugLog("PCP", "Horticulture migration: found " .. #pending .. " item(s) to convert")
+    PhobosLib.debug("PCP", "[PCP:Migration]", "Horticulture: found " .. #pending .. " item(s) to convert")
 
     -- Pass 2: convert collected items (safe to modify containers now)
     for _, entry in ipairs(pending) do
-        local newItem = instanceItem(entry.replacement)
-        if not newItem then
-            PhobosLib.debugLog("PCP", "  FAILED: instanceItem(" .. entry.replacement .. ") returned nil for source " .. entry.fullType)
-            failed = failed + 1
-        else
+        local ok, err = pcall(function()
+            local newItem = instanceItem(entry.replacement)
+            if not newItem then
+                PhobosLib.debug("PCP", "[PCP:Migration]", "FAILED: instanceItem(" .. entry.replacement .. ") returned nil for " .. entry.fullType)
+                failed = failed + 1
+                return
+            end
+
             local item      = entry.item
             local container = entry.container
 
@@ -689,10 +692,10 @@ local function convertHorticultureItems(player)
                 pcall(function() newItem:setAge(srcAge) end)
             end
 
-            -- Condition items: preserve as percentage via PhobosLib
-            local cond    = item:getCondition()
-            local maxCond = item:getConditionMax()
-            if cond and maxCond and maxCond > 0 and cond < maxCond then
+            -- Condition items: preserve as percentage
+            local okCond, cond = pcall(function() return item:getCondition() end)
+            local okMax, maxCond = pcall(function() return item:getConditionMax() end)
+            if okCond and cond and okMax and maxCond and maxCond > 0 and cond < maxCond then
                 local newMax = newItem:getConditionMax()
                 if newMax and newMax > 0 then
                     local pct = cond / maxCond
@@ -713,8 +716,12 @@ local function convertHorticultureItems(player)
             container:Remove(item)
             pcall(function() sendRemoveItemFromContainer(container, item) end)
 
-            PhobosLib.debugLog("PCP", "  OK: " .. entry.fullType .. " -> " .. entry.replacement)
+            PhobosLib.debug("PCP", "[PCP:Migration]", "OK: " .. entry.fullType .. " -> " .. entry.replacement)
             converted = converted + 1
+        end)
+        if not ok then
+            print("[PCP] Horticulture migration ERROR on " .. tostring(entry.fullType) .. ": " .. tostring(err))
+            failed = failed + 1
         end
     end
 
