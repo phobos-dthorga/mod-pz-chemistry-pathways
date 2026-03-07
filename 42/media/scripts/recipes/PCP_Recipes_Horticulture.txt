@@ -115,8 +115,9 @@ module Base
     }
 
 /* ----- HT4: ROLL TOBACCO CIGAR ----- */
-/*  Roll dried tobacco leaves in ripped sheet wrapping to form a hand-rolled cigar.
-    A rough but effective way to smoke without rolling papers.                              */
+/*  Roll dried tobacco leaves with a touch of sugar into a hand-rolled cigar.
+    One leaf serves as the outer wrapper while the rest provide the filling.
+    The sugar sweetens the wrapper and helps bind the leaves.                               */
 
     craftRecipe PCPRollCigarTobacco
     {
@@ -132,8 +133,8 @@ module Base
 
         inputs
         {
-            item 2 [Base.TobaccoDried],
-            item 1 [Base.RippedSheets],
+            item 3 [Base.TobaccoDried],
+            item 1 tags[base:sugar],
         }
         outputs
         {
@@ -142,8 +143,8 @@ module Base
     }
 
 /* ----- HT5: ROLL TOBACCO CIGARETTES ----- */
-/*  Roll dried tobacco into proper rolling papers to produce a pack
-    of hand-rolled cigarettes. Uses the full pack of papers.                                */
+/*  Roll dried tobacco into rolling papers to produce a pack of hand-rolled
+    cigarettes. Accepts any rolling papers (PCP hemp papers or vanilla).                    */
 
     craftRecipe PCPRollCigarettesTobacco
     {
@@ -160,7 +161,7 @@ module Base
         inputs
         {
             item 1 [Base.TobaccoDried],
-            item 1 [PhobosChemistryPathways.RollingPapers],
+            item 1 tags[base:rollingpaper],
         }
         outputs
         {
@@ -335,8 +336,8 @@ module Base
     }
 
 /* ----- HB7: ROLL HEMP CIGARETTES ----- */
-/*  Roll ground hemp into rolling papers to produce a pack
-    of hemp cigarettes. Uses the full supply of both inputs.                                 */
+/*  Roll ground hemp into rolling papers to produce a pack of hemp cigarettes.
+    Accepts any rolling papers (PCP hemp papers or vanilla).                                 */
 
     craftRecipe PCPRollHempCigarettes
     {
@@ -353,7 +354,7 @@ module Base
         inputs
         {
             item 1 [PhobosChemistryPathways.HempLoose],
-            item 1 [PhobosChemistryPathways.RollingPapers],
+            item 1 tags[base:rollingpaper],
         }
         outputs
         {
