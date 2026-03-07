@@ -679,15 +679,23 @@ local function convertHorticultureItems(player)
             local item      = entry.item
             local container = entry.container
 
-            -- Drainable items: preserve UsedDelta (only valid on DrainableComboItem)
-            if instanceof(item, "DrainableComboItem") and instanceof(newItem, "DrainableComboItem") then
-                newItem:setUsedDelta(item:getUsedDelta())
-            end
+            -- Drainable items: preserve UsedDelta (best-effort).
+            -- Orphaned drainable items from unsubscribed mods can throw
+            -- RuntimeException on getUsedDelta/setUsedDelta — inner pcall
+            -- ensures conversion continues even if state can't be preserved.
+            pcall(function()
+                if item.getUsedDelta and newItem.setUsedDelta then
+                    local delta = item:getUsedDelta()
+                    if delta then newItem:setUsedDelta(delta) end
+                end
+            end)
 
-            -- Food items: preserve age (only valid on Food)
-            if instanceof(item, "Food") and instanceof(newItem, "Food") then
-                newItem:setAge(item:getAge())
-            end
+            -- Food items: preserve age (best-effort, same defensive pattern)
+            pcall(function()
+                if instanceof(item, "Food") and instanceof(newItem, "Food") then
+                    newItem:setAge(item:getAge())
+                end
+            end)
 
             -- Condition: preserve as percentage (safe on all InventoryItem subtypes)
             local cond    = item:getCondition()
@@ -840,7 +848,7 @@ local function runManualHortMigration(players)
         PhobosLib.notifyMigrationResult(player, MOD_ID, {
             ok = true,
             label = "PCP: Horticulture Item Migration",
-            message = msg,
+            msg = msg,
         })
     end
 end
