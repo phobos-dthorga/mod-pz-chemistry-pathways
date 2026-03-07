@@ -644,86 +644,89 @@ local HORT_TO_PCP = {
 
 --- Core conversion: scan all player containers and convert Horticulture
 --- items to PCP equivalents, preserving condition / UsedDelta / food stats.
+--- Uses a two-pass approach (collect then convert) to avoid skipping items
+--- due to container index shifting during removal.
 ---@param player any  IsoGameCharacter
 ---@return number converted, number failed
 local function convertHorticultureItems(player)
     local converted = 0
     local failed    = 0
 
+    -- Pass 1: collect matching items (no container modifications)
+    local pending = {}
     PhobosLib.iterateInventoryDeep(player, function(item, container)
         local fullType = item:getFullType()
         if not fullType then return end
 
         local replacement = HORT_TO_PCP[fullType]
-        if not replacement then return end
-
-        local newItem = instanceItem(replacement)
-        if not newItem then
-            failed = failed + 1
-            return
+        if replacement then
+            table.insert(pending, {item = item, container = container, replacement = replacement, fullType = fullType})
         end
-
-        -- Drainable items: preserve UsedDelta
-        local okDrain, srcDelta = pcall(function() return item:getUsedDelta() end)
-        local okDrainNew = pcall(function() return newItem:getUsedDelta() end)
-        if okDrain and srcDelta and okDrainNew then
-            pcall(function() newItem:setUsedDelta(srcDelta) end)
-        end
-
-        -- Food items: preserve hunger, thirst, boredom, age
-        local okAge, srcAge = pcall(function() return item:getAge() end)
-        if okAge and srcAge then
-            pcall(function() newItem:setAge(srcAge) end)
-        end
-
-        -- Condition items: preserve as percentage via PhobosLib
-        local cond    = item:getCondition()
-        local maxCond = item:getConditionMax()
-        if cond and maxCond and maxCond > 0 and cond < maxCond then
-            local newMax = newItem:getConditionMax()
-            if newMax and newMax > 0 then
-                local pct = cond / maxCond
-                newItem:setCondition(math.max(1, math.floor(pct * newMax + 0.5)))
-            end
-        end
-
-        -- Wet items: preserve wet state
-        local okWet, isWet = pcall(function() return item:isWet() end)
-        if okWet and isWet then
-            pcall(function() newItem:setWet(true) end)
-        end
-
-        container:AddItem(newItem)
-        pcall(function() sendItemStats(newItem) end)
-        pcall(function() sendAddItemToContainer(container, newItem) end)
-
-        container:Remove(item)
-        pcall(function() sendRemoveItemFromContainer(container, item) end)
-
-        converted = converted + 1
     end)
+
+    PhobosLib.debugLog("PCP", "Horticulture migration: found " .. #pending .. " item(s) to convert")
+
+    -- Pass 2: convert collected items (safe to modify containers now)
+    for _, entry in ipairs(pending) do
+        local newItem = instanceItem(entry.replacement)
+        if not newItem then
+            PhobosLib.debugLog("PCP", "  FAILED: instanceItem(" .. entry.replacement .. ") returned nil for source " .. entry.fullType)
+            failed = failed + 1
+        else
+            local item      = entry.item
+            local container = entry.container
+
+            -- Drainable items: preserve UsedDelta
+            local okDrain, srcDelta = pcall(function() return item:getUsedDelta() end)
+            local okDrainNew = pcall(function() return newItem:getUsedDelta() end)
+            if okDrain and srcDelta and okDrainNew then
+                pcall(function() newItem:setUsedDelta(srcDelta) end)
+            end
+
+            -- Food items: preserve hunger, thirst, boredom, age
+            local okAge, srcAge = pcall(function() return item:getAge() end)
+            if okAge and srcAge then
+                pcall(function() newItem:setAge(srcAge) end)
+            end
+
+            -- Condition items: preserve as percentage via PhobosLib
+            local cond    = item:getCondition()
+            local maxCond = item:getConditionMax()
+            if cond and maxCond and maxCond > 0 and cond < maxCond then
+                local newMax = newItem:getConditionMax()
+                if newMax and newMax > 0 then
+                    local pct = cond / maxCond
+                    newItem:setCondition(math.max(1, math.floor(pct * newMax + 0.5)))
+                end
+            end
+
+            -- Wet items: preserve wet state
+            local okWet, isWet = pcall(function() return item:isWet() end)
+            if okWet and isWet then
+                pcall(function() newItem:setWet(true) end)
+            end
+
+            container:AddItem(newItem)
+            pcall(function() sendItemStats(newItem) end)
+            pcall(function() sendAddItemToContainer(container, newItem) end)
+
+            container:Remove(item)
+            pcall(function() sendRemoveItemFromContainer(container, item) end)
+
+            PhobosLib.debugLog("PCP", "  OK: " .. entry.fullType .. " -> " .. entry.replacement)
+            converted = converted + 1
+        end
+    end
 
     return converted, failed
 end
 
---- Execute v1.2.0 Horticulture migration for a single player.
----@param player any  IsoGameCharacter
+--- v1.2.0 Horticulture migration — now manual-only via sandbox option.
+--- Registration kept to maintain the version chain for v1.2.0 → v1.3.0.
+---@param _player any  IsoGameCharacter (unused)
 ---@return boolean ok, string msg
-local function migrate_1_2_0(player)
-    local converted, failed = convertHorticultureItems(player)
-
-    if converted == 0 and failed == 0 then
-        return true, "No [B42] Horticulture items found."
-    end
-
-    local parts = {}
-    if converted > 0 then
-        table.insert(parts, "Converted " .. converted .. " Horticulture item(s) to PCP equivalents")
-    end
-    if failed > 0 then
-        table.insert(parts, failed .. " item(s) could not be converted")
-    end
-    return true, table.concat(parts, ". ") .. "."
+local function migrate_1_2_0(_player)
+    return true, "Horticulture migration is manual-only. Enable 'Migrate Horticulture Items' in sandbox settings."
 end
 
 PhobosLib.registerMigration(
@@ -788,12 +791,9 @@ PhobosLib.registerMigration(
 -- Horticulture manual migration trigger (sandbox button)
 ---------------------------------------------------------------
 
---- World modData guard flag for the manual Horticulture migration.
-local HORT_MIGRATION_FLAG = "PCP_HortMigration_done"
-
 --- Run the manual Horticulture migration if the sandbox button is enabled.
 --- Uses consumeSandboxFlag to auto-reset the boolean after execution.
---- World modData guard prevents re-execution.
+--- Re-runnable: no world guard — users can re-trigger if items were missed.
 local function runManualHortMigration(players)
     -- Check sandbox button
     local requested = false
@@ -802,14 +802,6 @@ local function runManualHortMigration(players)
         requested = PCP_Sandbox.isHorticultureMigrationRequested()
     end)
     if not requested then return end
-
-    -- Check world guard
-    local worldData = ModData.getOrCreate("PCP_WorldFlags")
-    if worldData[HORT_MIGRATION_FLAG] then
-        print("[PCP] Horticulture migration: already completed, skipping.")
-        PhobosLib.consumeSandboxFlag("PCP", "MigrateHorticultureItems")
-        return
-    end
 
     print("[PCP] Horticulture migration: manual trigger activated!")
 
@@ -822,9 +814,7 @@ local function runManualHortMigration(players)
         totalFailed    = totalFailed + failed
     end
 
-    -- Mark done and consume the sandbox flag
-    worldData[HORT_MIGRATION_FLAG] = true
-    ModData.transmit("PCP_WorldFlags")
+    -- Consume the sandbox flag (auto-resets to OFF)
     PhobosLib.consumeSandboxFlag("PCP", "MigrateHorticultureItems")
 
     -- Notify players
@@ -847,63 +837,6 @@ local function runManualHortMigration(players)
         PhobosLib.notifyMigrationResult(player, MOD_ID, {
             ok = true,
             label = "PCP: Horticulture Item Migration",
-            message = msg,
-        })
-    end
-end
-
---- Auto-detect orphaned Horticulture items when the mod is NOT subscribed.
---- Safety net for users who unsubscribed without using the sandbox button.
-local function runAutoHortDetection(players)
-    -- Only trigger when Horticulture is NOT active
-    local hortActive = false
-    pcall(function()
-        hortActive = getActivatedMods():contains("B42Horticulture")
-    end)
-    if hortActive then return end
-
-    -- Check world guard
-    local worldData = ModData.getOrCreate("PCP_WorldFlags")
-    if worldData[HORT_MIGRATION_FLAG] then return end
-
-    -- Quick probe: does any player have a Horticulture item?
-    local hasOrphaned = false
-    for _, player in ipairs(players) do
-        PhobosLib.iterateInventoryDeep(player, function(item)
-            local ft = item:getFullType()
-            if ft and HORT_TO_PCP[ft] then
-                hasOrphaned = true
-            end
-        end)
-        if hasOrphaned then break end
-    end
-
-    if not hasOrphaned then return end
-
-    print("[PCP] Auto-detected orphaned Horticulture items — running migration.")
-
-    local totalConverted = 0
-    local totalFailed    = 0
-
-    for _, player in ipairs(players) do
-        local converted, failed = convertHorticultureItems(player)
-        totalConverted = totalConverted + converted
-        totalFailed    = totalFailed + failed
-    end
-
-    worldData[HORT_MIGRATION_FLAG] = true
-    ModData.transmit("PCP_WorldFlags")
-
-    local msg = "Auto-migrated " .. totalConverted .. " orphaned Horticulture item(s) to PCP equivalents."
-    if totalFailed > 0 then
-        msg = msg .. " " .. totalFailed .. " item(s) could not be converted."
-    end
-
-    print("[PCP] " .. msg)
-    for _, player in ipairs(players) do
-        PhobosLib.notifyMigrationResult(player, MOD_ID, {
-            ok = true,
-            label = "PCP: Horticulture Auto-Migration",
             message = msg,
         })
     end
@@ -952,9 +885,8 @@ local function onGameStart()
         print("[PCP] MigrationSystem: no pending migrations")
     end
 
-    -- Horticulture migration (dual-trigger: manual sandbox button + auto-detection)
+    -- Horticulture migration (manual sandbox button only)
     runManualHortMigration(players)
-    runAutoHortDetection(players)
 
     print("[PCP] MigrationSystem: loaded [" .. (isServer() and "server" or "local") .. "]")
 end
