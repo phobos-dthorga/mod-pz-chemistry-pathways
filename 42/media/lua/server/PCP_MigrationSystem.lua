@@ -679,23 +679,20 @@ local function convertHorticultureItems(player)
             local item      = entry.item
             local container = entry.container
 
-            -- Drainable items: preserve UsedDelta
-            local okDrain, srcDelta = pcall(function() return item:getUsedDelta() end)
-            local okDrainNew = pcall(function() return newItem:getUsedDelta() end)
-            if okDrain and srcDelta and okDrainNew then
-                pcall(function() newItem:setUsedDelta(srcDelta) end)
+            -- Drainable items: preserve UsedDelta (only valid on DrainableComboItem)
+            if instanceof(item, "DrainableComboItem") and instanceof(newItem, "DrainableComboItem") then
+                newItem:setUsedDelta(item:getUsedDelta())
             end
 
-            -- Food items: preserve hunger, thirst, boredom, age
-            local okAge, srcAge = pcall(function() return item:getAge() end)
-            if okAge and srcAge then
-                pcall(function() newItem:setAge(srcAge) end)
+            -- Food items: preserve age (only valid on Food)
+            if instanceof(item, "Food") and instanceof(newItem, "Food") then
+                newItem:setAge(item:getAge())
             end
 
-            -- Condition items: preserve as percentage
-            local okCond, cond = pcall(function() return item:getCondition() end)
-            local okMax, maxCond = pcall(function() return item:getConditionMax() end)
-            if okCond and cond and okMax and maxCond and maxCond > 0 and cond < maxCond then
+            -- Condition: preserve as percentage (safe on all InventoryItem subtypes)
+            local cond    = item:getCondition()
+            local maxCond = item:getConditionMax()
+            if cond and maxCond and maxCond > 0 and cond < maxCond then
                 local newMax = newItem:getConditionMax()
                 if newMax and newMax > 0 then
                     local pct = cond / maxCond
@@ -703,10 +700,9 @@ local function convertHorticultureItems(player)
                 end
             end
 
-            -- Wet items: preserve wet state
-            local okWet, isWet = pcall(function() return item:isWet() end)
-            if okWet and isWet then
-                pcall(function() newItem:setWet(true) end)
+            -- Wet items: preserve wet state (safe on all InventoryItem subtypes)
+            if item:isWet() then
+                newItem:setWet(true)
             end
 
             container:AddItem(newItem)
