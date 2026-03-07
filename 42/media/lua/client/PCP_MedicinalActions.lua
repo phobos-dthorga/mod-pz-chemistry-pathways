@@ -319,35 +319,35 @@ local function onFillInventoryObjectContextMenu(playerNum, context, items)
         if type(itemOrStack) == "table" then
             item = itemOrStack.items and itemOrStack.items[1]
         end
-        if not item then goto continue end
 
-        local fullType = nil
-        pcall(function() fullType = item:getFullType() end)
-        if not fullType then goto continue end
+        if item then
+            local fullType = nil
+            pcall(function() fullType = item:getFullType() end)
 
-        -- Hemp Poultice: "Apply Poultice"
-        if fullType == "PhobosChemistryPathways.HempPoultice" then
-            local label = getText("ContextMenu_PCP_ApplyPoultice")
-            context:addOption(label, player, function(pl)
-                ISTimedActionQueue.add(PCP_ApplyPoulticeAction:new(pl, item))
-            end)
-        end
+            if fullType then
+                -- Hemp Poultice: "Apply Poultice"
+                if fullType == "PhobosChemistryPathways.HempPoultice" then
+                    local label = getText("ContextMenu_PCP_ApplyPoultice")
+                    context:addOption(label, player, function(pl)
+                        ISTimedActionQueue.add(PCP_ApplyPoulticeAction:new(pl, item))
+                    end)
+                end
 
-        -- Hemp Tincture: "Take Tincture" (only if fluid remaining)
-        if fullType == "PhobosChemistryPathways.HempTincture" then
-            local fc = PhobosLib.tryGetFluidContainer(item)
-            local amt = fc and PhobosLib.tryGetAmount(fc)
-            if amt and amt >= TINCTURE_DOSE * 0.5 then
-                local dosesLeft = math.floor(amt / TINCTURE_DOSE + 0.5)
-                local label = getText("ContextMenu_PCP_TakeTincture")
-                    .. " (" .. tostring(dosesLeft) .. ")"
-                context:addOption(label, player, function(pl)
-                    ISTimedActionQueue.add(PCP_TakeTinctureAction:new(pl, item))
-                end)
+                -- Hemp Tincture: "Take Tincture" (only if fluid remaining)
+                if fullType == "PhobosChemistryPathways.HempTincture" then
+                    local fc = PhobosLib.tryGetFluidContainer(item)
+                    local amt = fc and PhobosLib.tryGetAmount(fc)
+                    if amt and amt >= TINCTURE_DOSE * 0.5 then
+                        local dosesLeft = math.floor(amt / TINCTURE_DOSE + 0.5)
+                        local label = getText("ContextMenu_PCP_TakeTincture")
+                            .. " (" .. tostring(dosesLeft) .. ")"
+                        context:addOption(label, player, function(pl)
+                            ISTimedActionQueue.add(PCP_TakeTinctureAction:new(pl, item))
+                        end)
+                    end
+                end
             end
         end
-
-        ::continue::
     end
 end
 

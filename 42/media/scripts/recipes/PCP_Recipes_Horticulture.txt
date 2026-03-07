@@ -998,7 +998,7 @@ module Base
 
         inputs
         {
-            item 1 [Base.OliveOil;Base.VegetableOil],
+            item 1 [Base.OilOlive;Base.OilVegetable],
             item 2 [PhobosChemistryPathways.HempBudsDecarbed;PhobosChemistryPathways.HempLoose],
             item 1 [Base.Saucepan],
         }
