@@ -204,4 +204,8 @@ IGUI_EN = {
 	IGUI_PCP_Tooltip_HempSnare = "A simple loop snare fashioned from hemp twine and a stick. Set near animal paths to catch small game.",
 	IGUI_PCP_Hazard_SmokeInhalation = "*cough* Smoke and fumes!",
 	IGUI_PCP_Hazard_MineralDust = "*cough* Fine dust!",
+
+	/* ===== Medicinal Actions ===== */
+	IGUI_PCP_Medicated_Applied = "The poultice soothes the pain...",
+	IGUI_PCP_Medicated_Tincture = "The tincture takes effect...",
 }

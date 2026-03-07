@@ -80,8 +80,8 @@ Tooltip_EN = {
     Tooltip_PCP_HempCanvas = "Thick, heavy-duty hemp fabric layered for strength.<br>Historically used for sails, tarpaulins, and tents.<br>The word 'canvas' derives from 'cannabis'.",
     Tooltip_PCP_HempPulp = "Softened hemp fiber broken down into crude paper pulp.<br>Ready for pressing into paper sheets.<br>Lab-grade NaOH pulping produces higher quality.",
     Tooltip_PCP_HempPaper = "Paper sheets pressed from hemp pulp.<br>More durable than wood-pulp paper and resistant to yellowing.<br>Pre-1883, most paper was made from hemp.",
-    Tooltip_PCP_HempPoultice = "A warm herbal compress of hemp fiber infused with medicinal herbs.<br>Applied topically to reduce inflammation and promote healing.",
-    Tooltip_PCP_HempTincture = "Concentrated herbal extract produced by alcohol extraction<br>of bioactive compounds from hemp fiber.<br>A potent botanical medicine.",
+    Tooltip_PCP_HempPoultice = "A warm herbal compress of hemp fiber infused with medicinal herbs.<br>Right-click to apply: reduces pain on all body parts<br>and relieves stress. Consumed on use.",
+    Tooltip_PCP_HempTincture = "Concentrated herbal extract produced by alcohol extraction<br>of bioactive compounds from hemp fiber.<br>Right-click to take a dose: strong pain and stress relief,<br>reduces unhappiness and boredom, causes mild drowsiness.<br>5 doses per bottle.",
     Tooltip_PCP_HempcreteBlock = "Lightweight building block made from hemp hurds and lime.<br>Excellent thermal insulation and moisture regulation.<br>Carbon-negative construction material.",
     Tooltip_PCP_TarredHempRope = "Hemp rope coated in hot wood tar for waterproofing.<br>Resists rot, mildew, and abrasion in wet conditions.<br>Traditionally used for rigging, well buckets, and outdoor lashing.",
 
@@ -94,7 +94,7 @@ Tooltip_EN = {
     /* ===== Horticulture — Hemp Buds ===== */
     Tooltip_PCP_HempBuds = "Fresh hemp flower buds harvested from the plant.<br>Can be cured by slow drying or decarboxylated by<br>heating to activate medicinal compounds.",
     Tooltip_PCP_HempBudsCured = "Slowly dried and cured hemp buds.<br>More potent than fresh buds. Can be further<br>decarboxylated by cooking.",
-    Tooltip_PCP_HempBudsDecarbed = "Hemp buds heated to activate cannabinoid compounds.<br>Ready for extraction, smoking, or infusion into oils.",
+    Tooltip_PCP_HempBudsDecarbed = "Hemp buds heated to activate cannabinoid compounds.<br>Edible: reduces stress, boredom, and pain but tastes<br>terrible. Also used for extraction and smoking.",
     Tooltip_PCP_CannedHempBuds = "Fresh hemp buds preserved in a sealed can.<br>Slowly cures over time. Can be cooked to decarboxylate.",
     Tooltip_PCP_CannedHempBudsCured = "Cured hemp buds in a sealed can.<br>Can be cooked to decarboxylate the contents.",
     Tooltip_PCP_CannedHempBudsDecarbed = "Decarboxylated hemp buds in a sealed can.<br>Ready to be opened and used.",
@@ -128,5 +128,5 @@ Tooltip_EN = {
     Tooltip_PCP_SaucepanCopperSyrup = "A copper saucepan of sugar water being cooked into syrup.<br>Leave on a heat source until done.",
     Tooltip_PCP_SaucepanSyrupCooked = "Cooked sugar syrup ready to be bottled.<br>Pour into a jar to produce simple sugar syrup.",
     Tooltip_PCP_SaucepanCopperSyrupCooked = "Cooked sugar syrup (copper saucepan) ready to be bottled.<br>Pour into a jar to produce simple sugar syrup.",
-    Tooltip_PCP_SimpleSugarSyrup = "Simple sugar syrup made by dissolving sugar in hot water.<br>Use as a sweetener in cooking and beverages.",
+    Tooltip_PCP_SimpleSugarSyrup = "Simple sugar syrup made by dissolving sugar in hot water.<br>A comforting treat that improves mood and relieves boredom.<br>Use as a sweetener in cooking and beverages.",
 }

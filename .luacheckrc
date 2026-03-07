@@ -32,6 +32,7 @@ ignore = {
 
 -- PCP's own global namespaces + PZ globals that PCP writes to
 globals = {
+    "PCP_ApplyPoulticeAction",
     "PCP_BotanicalCallbacks",
     "PCP_CollectBrineAction",
     "PCP_HazardSystem",
@@ -40,6 +41,7 @@ globals = {
     "PCP_RecipeCallbacks",
     "PCP_Sandbox",
     "PCP_Reset",
+    "PCP_TakeTinctureAction",
     -- PZ globals PCP writes to (skill book registration, DT integration)
     "DynamicTrading",
     "SkillBook",
@@ -56,6 +58,9 @@ read_globals = {
     "ModData",
     "FluidType",
     "UIFont",
+
+    -- PZ engine core
+    "ScriptManager",
 
     -- PZ engine functions
     "getActivatedMods",
