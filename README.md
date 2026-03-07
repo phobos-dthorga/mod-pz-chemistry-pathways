@@ -17,6 +17,8 @@
 
 # PhobosChemistryPathways
 
+![CI](https://github.com/phobos-dthorga/mod-pz-chemistry-pathways/actions/workflows/ci.yml/badge.svg)
+
 **Version:** 1.3.0 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.16.0+ | [Zombie Virus Vaccine](https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168)
 
 > **Players:** Subscribe on [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3668197831) for easy installation. This GitHub repo is for source code, documentation, and development.
