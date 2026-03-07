@@ -134,7 +134,7 @@ module Base
         inputs
         {
             item 3 [Base.TobaccoDried],
-            item 1 tags[base:sugar],
+            item 2 tags[base:sugar],
         }
         outputs
         {
