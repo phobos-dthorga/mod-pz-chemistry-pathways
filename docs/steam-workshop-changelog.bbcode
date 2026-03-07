@@ -1,6 +1,35 @@
 [h1]Phobos' Industrial Pathways: Biomass — Changelog[/h1]
 
-[h2]v1.3.0 — Hemp Expansion & Audit[/h2]
+[h2]v1.4.0 — Medicinal Effects & Moodle Framework (2026-03-08)[/h2]
+
+[h3]New Features[/h3]
+[list]
+[*] [b]Medicated custom moodle[/b] — Medicinal hemp items (poultice, tincture) trigger a Medicated moodle via Moodle Framework integration. Configurable duration. Graceful no-op when Moodle Framework is not installed.
+[*] [b]Medicinal timed actions[/b] — Poultice and tincture now have timed application actions with visual and audio feedback instead of instant use.
+[*] [b]Hemp product effects system[/b] — Doubled base effects on hemp products. New effects on decarboxylated buds and sugar syrup.
+[*] [b]33 new sandbox options[/b] — New PCP_HempEffects settings page with per-product stat tuning for pipes, cigars, cigarettes, decarbed buds, poultice, tincture, sugar syrup, plus moodle duration controls.
+[*] [b]EnableDebugLogging sandbox option[/b] — Centralised debug logging via PhobosLib_Debug.
+[*] [b]Fermentation tooltip[/b] — Canned hemp buds show dynamic curing progress (%) and estimated days remaining. Canning date stamped on creation and displayed in tooltip.
+[*] [b]Improved static tooltips[/b] — Explicit ~4 week curing duration and "not spoilage" clarification on fermentable items.
+[/list]
+
+[h3]Bug Fixes[/h3]
+[list]
+[*] [b]Cigar recipe[/b] — Now uses tobacco leaves + sugar with partial sugar consumption (was incorrectly consuming full sugar item).
+[*] [b]Horticulture migration re-runnable[/b] — Migration sandbox flag can now be re-enabled for repeated use.
+[*] [b]Drainable migration RuntimeException[/b] — Fixed crash in drainable item migration path.
+[/list]
+
+[h3]Changed[/h3]
+[list]
+[*] Sandbox options: 19 to [b]52[/b] (+33 on PCP_HempEffects page)
+[*] Requires [b]PhobosLib 1.18.0+[/b] (was 1.16.0+)
+[*] Optional: [b]Moodle Framework[/b] (new soft dependency)
+[/list]
+
+[hr][/hr]
+
+[h2]v1.3.0 — Hemp Expansion & Audit (2026-03-08)[/h2]
 [list]
 [*] Added 6 new items: Seed Press Cake, Hemp Sack, Oakum, Hemp Fishing Net, Hemp Sheet Rope, Hemp Snare
 [*] Vanilla station integration: Scutching Board, Simple Loom, Full Loom, Hand Press
@@ -247,10 +276,11 @@
 [h2]Summary[/h2]
 [list]
 [*] [b]297 recipes[/b] across 10 pathways — Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture, Concrete Mixer, Botanical
-[*] [b]107 items[/b], [b]67 tradeable items[/b], [b]6 recipe books[/b], [b]5 skill books[/b], [b]9 fluids[/b]
-[*] [b]19 sandbox options[/b], [b]216 OnCreate callbacks[/b], [b]87 ZScience specimens[/b]
+[*] [b]112 items[/b], [b]67 tradeable items[/b], [b]6 recipe books[/b], [b]5 skill books[/b], [b]10 fluids[/b]
+[*] [b]52 sandbox options[/b], [b]216 OnCreate callbacks[/b], [b]87 ZScience specimens[/b]
+[*] [b]v1.4.0[/b]: Medicated moodle, medicinal timed actions, hemp effects system, 33 sandbox options, fermentation tooltip
 [*] [b]v1.3.0[/b]: Hemp expansion (6 new items), vanilla station integration, mechanical hazards, 26 new ZScience specimens
 [*] [b]v1.2.0[/b]: Botanical pathway, 31 horticulture items, 6 recipe books, [B42] Horticulture migration system
 [*] [b]v1.0.0[/b]: Hard dependency migrated from zReVaccin 3 to Zombie Virus Vaccine
-[*] Requires PhobosLib 1.16.0+ and Zombie Virus Vaccine
+[*] Requires PhobosLib 1.18.0+ and Zombie Virus Vaccine | Optional: Moodle Framework
 [/list]

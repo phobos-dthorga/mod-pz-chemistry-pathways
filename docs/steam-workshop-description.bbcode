@@ -1,6 +1,6 @@
 [h1]Phobos' Industrial Pathways: Biomass[/h1]
 
-[b]Version:[/b] 1.3.0 | [b]Requires:[/b] Project Zomboid Build 42.14.0+ | [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865]PhobosLib 1.16.0+[/url] | [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168]Zombie Virus Vaccine[/url]
+[b]Version:[/b] 1.4.0 | [b]Requires:[/b] Project Zomboid Build 42.14.0+ | [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865]PhobosLib 1.18.0+[/url] | [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168]Zombie Virus Vaccine[/url]
 
 A complete industrial chemistry and biomass processing suite for Project Zomboid Build 42, adding realistic crafting pathways for blackpowder, biodiesel, soap, bone char, salt extraction, agriculture, recycling, botanical hemp processing, horticulture, and advanced laboratory processes.
 
@@ -49,7 +49,10 @@ Six pathways connecting chemistry intermediates to vanilla gameplay systems:
 Hemp processing with chemical retting (KOH or NaOH), fiber/hurd splitting, then branching into textiles (twine, rope, tarred rope, cloth, canvas, sack, sheet rope), papermaking (pulp, chemical pulping, paper sheets), medicinals (poultice, tincture), fishing (hemp fishing net), trapping (hemp snare), caulking (oakum), and hurd processing (charcoal, hempcrete blocks, compost, fire bundles). Vanilla station integration: Scutching Board for fiber extraction, Simple/Full Loom for weaving, Hand Press for oil pressing (with Seed Press Cake byproduct). Cross-links to blackpowder (charcoal from hurds), biodiesel (wood tar for tarring), and construction (hempcrete via concrete mixer). Gated by EnableBotanicalPathway sandbox option.
 
 [h3]Horticulture Items[/h3]
-31 items providing full parity with the [B42] Horticulture mod: tobacco (wet leaves, chewing tobacco in 3 container types), hemp buds (fresh, cured, decarboxylated, canned variants, ground loose), papermaking tools (mould and deckle, rolling papers), smoking products (glass pipe, loaded pipes, cigars, cigarettes, packs), and cooking (sugar syrup). Dual-trigger migration system converts existing Horticulture mod items to PCP equivalents.
+31 items providing full parity with the [B42] Horticulture mod: tobacco (wet leaves, chewing tobacco in 3 container types), hemp buds (fresh, cured, decarboxylated, canned variants, ground loose), papermaking tools (mould and deckle, rolling papers), smoking products (glass pipe, loaded pipes, cigars, cigarettes, packs), and cooking (sugar syrup). Dual-trigger migration system converts existing Horticulture mod items to PCP equivalents. Canned hemp buds display fermentation progress and remaining days via dynamic tooltip.
+
+[h3]Medicinal Effects & Hemp Products[/h3]
+Poultice and tincture have timed application actions with visual and audio feedback, triggering a Medicated custom moodle (requires Moodle Framework). Hemp product effects are fully configurable via 33 sandbox options on the PCP_HempEffects settings page — tune individual stat values for pipes, cigars, cigarettes, decarbed buds, poultice, tincture, and sugar syrup.
 
 [h3]Concrete Mixer Workstation[/h3]
 Powered CraftBench entity for industrial-scale material processing. Build from a metal drum, salvaged motor, and welding equipment. Requires electricity (grid or generator). 13 recipes including concrete, mortar, reinforced concrete, and bulk chemistry operations. Generator fuel drain during crafting.
@@ -95,6 +98,7 @@ Six one-shot sandbox options for version upgrades, mod migration, and mod remova
 [*] [b]EHR[/b] (Extensive Health Rework) — Health hazard recipes dispatch EHR diseases instead of vanilla stat penalties
 [*] [b]Dynamic Trading[/b] — 67 PCP items registered for NPC trading with custom "Chemical" tag and "Chemist" trader archetype; chemical allocations injected into 8 existing vendor archetypes
 [*] [b]Neat Crafting[/b] — Recipe visibility filters applied through NC_FilterBar; runtime-detected, no hard dependency
+[*] [b]Moodle Framework[/b] — Medicinal items (poultice, tincture) trigger a Medicated custom moodle with configurable duration; graceful no-op when not installed
 [/list]
 
 [hr][/hr]
@@ -102,13 +106,13 @@ Six one-shot sandbox options for version upgrades, mod migration, and mod remova
 [h2]Content Summary[/h2]
 [list]
 [*] [b]297 recipes[/b] across blackpowder, biodiesel, soap, bone char, salt extraction, recycling, agriculture, concrete mixer, botanical, utility, and advanced lab pathways
-[*] [b]107 items[/b] including chemical reagents, intermediates, container variants, gardening sprays, construction materials, salt products, botanical textiles, horticulture products, and smoking items
+[*] [b]112 items[/b] including chemical reagents, intermediates, container variants, gardening sprays, construction materials, salt products, botanical textiles, horticulture products, and smoking items
 [*] [b]67 tradeable items[/b] registered with Dynamic Trading across 9 vendor archetypes
 [*] [b]6 recipe books[/b] (5 category primers + 1 master compendium) teaching recipes by pathway
 [*] [b]5 skill books[/b] covering Applied Chemistry levels 1-10
 [*] [b]2 occupations[/b] (Chemist, Pharmacist) and [b]2 traits[/b] (Chemistry Enthusiast, Chemical Aversion)
 [*] [b]10 fluids[/b] with Build 42 FluidContainer integration and poison profiles
-[*] [b]19 sandbox options[/b] for gameplay customization, vessel replacement, concrete mixer, botanical pathway, and maintenance
+[*] [b]52 sandbox options[/b] for gameplay customization, vessel replacement, concrete mixer, botanical pathway, hemp effects tuning, and maintenance
 [*] [b]216 OnCreate callbacks[/b] for purity tracking, vessel replacement, and item processing
 [/list]
 
@@ -128,18 +132,22 @@ Six one-shot sandbox options for version upgrades, mod migration, and mod remova
 [*] [b]Concrete Mixer[/b] — Enable/disable mixer, output yield multiplier, generator fuel drain rate
 [*] [b]Maintenance/Reset[/b] — Six one-shot reset/migration options for upgrades and mod removal
 [*] [b]Migrate Horticulture[/b] — One-shot conversion of [B42] Horticulture items to PCP equivalents
+[*] [b]Hemp Effects[/b] — Enable/disable medicinal and recreational effects on hemp and tobacco items
+[*] [b]Hemp Effects Tuning[/b] — 33 per-product stat knobs on the PCP_HempEffects settings page (pipes, cigars, cigarettes, decarbed buds, poultice, tincture, sugar syrup) plus moodle duration controls
+[*] [b]Debug Logging[/b] — Enable debug logging to console.txt for troubleshooting
 [/list]
 
 [hr][/hr]
 
 [h2]Requirements[/h2]
 [list]
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865]PhobosLib 1.16.0+[/url] — Required shared utility library
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865]PhobosLib 1.18.0+[/url] — Required shared utility library
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168][b]Zombie Virus Vaccine[/b][/url] — Required for lab equipment (chemistry set, centrifuge, chromatograph, microscope, spectrometer)
 [*] [b]EHR[/b] (optional) — Disease system for health hazard integration
 [*] [b]ZScienceSkill[/b] (optional) — Science skill XP mirroring and microscope specimens
 [*] [b]Dynamic Trading[/b] (optional) — NPC trader item registration
 [*] [b]Neat Crafting[/b] (optional) — Recipe visibility filter compatibility
+[*] [b]Moodle Framework[/b] (optional) — Custom Medicated moodle for medicinal hemp items
 [/list]
 
 [h2]Links[/h2]

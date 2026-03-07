@@ -21,6 +21,52 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project follows Semantic Versioning.
 
+## [1.4.0] - 2026-03-08
+
+### Added
+- **Medicated custom moodle** — Moodle Framework integration. Poultice and tincture medicinal items trigger a "Medicated" moodle with configurable duration via sandbox options. Soft dependency: functions gracefully when Moodle Framework is not installed.
+- **Poultice and tincture timed actions** — Medicinal hemp items (poultice, tincture) now use ISTimedActionQueue with visual progress bar and audio feedback instead of instant application.
+- **Hemp product effects system** — Doubled base effects for all hemp smoking items. Added effects to HempBudsDecarbed and SimpleSugarSyrup. All effects are individually tunable via sandbox options.
+- **33 new sandbox options** on dedicated PCP_HempEffects settings page — Per-product stat tuning (Fatigue, Stress, Unhappy, Boredom, Pain) for pipes, cigars, cigarettes, decarbed buds, poultice, tincture, and sugar syrup. Includes moodle duration controls for poultice and tincture. Master toggle via EnableHempEffects.
+- **EnableDebugLogging sandbox option** — Enables PhobosLib debug logging for PCP diagnostics.
+- **Fermentation tooltip** — Dynamic curing progress percentage and remaining days displayed on CannedHempBuds via PhobosLib tooltip provider. Colour gradient from yellow (0%) to green (100%). Shows "Complete" when curing finishes.
+- **Canning date stamp** — OnCreate callback on PCPCanHempBuds recipe stamps game date into item modData. Tooltip shows "Canned: Jul 12" in grey. Pre-existing items gracefully omit the date line.
+- **Improved static tooltips** — CannedHempBuds tooltip now explicitly mentions ~4 week curing duration and clarifies that the freshness bar shows curing progress, not spoilage.
+
+### Fixed
+- **Cigar recipe ingredients** — Replaced cloth wrapper with tobacco leaves and sugar. Accept vanilla rolling papers as alternative.
+- **Partial sugar consumption** — Changed from `item 1` (consumed entire bag) to `item 2` (partial consumption matching vanilla recipes).
+- **Horticulture migration re-runnable** — Migration can now be triggered again after bug fixes via `unconsumeSandboxFlag()`.
+- **RuntimeException in drainable migration** — Prevented exception from aborting entire conversion batch. Fixed notification field name mismatch.
+- **Instanceof checks in migration** — Replaced pcall probing with instanceof checks for Horticulture migration item type detection.
+
+### Changed
+- Sandbox options: 19 → **52** (33 new on PCP_HempEffects page + EnableDebugLogging)
+- Requires **PhobosLib 1.18.0+** (was 1.16.0+)
+- Optional dependency: **Moodle Framework** (new soft dependency for Medicated moodle)
+
+## [1.3.0] - 2026-03-07
+
+### Added
+- **Hemp Expansion** — 6 new items: Seed Press Cake, Hemp Sack, Oakum, Hemp Fishing Net, Hemp Sheet Rope, Hemp Snare.
+- **Vanilla station integration** — Scutching Board for fiber extraction, Simple/Full Loom for weaving (oakum, sack), Hand Press for oil pressing with Seed Press Cake byproduct.
+- **Mechanical hazard system** — Safe/Unsafe recipe variants for botanical processing (hurd charring, fiber extraction, cloth weaving, hempcrete mixing). Smoke inhalation and mineral dust exposure with light PPE tier (dust mask sufficient).
+- **HempScutched acceptance** expanded across all fiber-consuming recipes.
+- **Diversified skill requirements** — Farming, Tailoring, Fishing, and Trapping skills added to relevant botanical recipes alongside Applied Chemistry.
+- **26 new ZScienceSkill specimens** — Horticulture items, salt products, and hemp expansion items registered for microscope research.
+- **Expanded world loot distributions** — 13 additional B42 locations for new items.
+- **Gas Mask Filter recipe cross-trains Doctor** — Activates Doctor XP mirroring via PhobosLib_Skill.
+- **Art style guidelines** documented for icon contributors.
+- **HempTincture FluidContainer conversion** — Converted from base:normal to B42 FluidContainer with save migration for pre-existing items.
+
+### Changed
+- **Mod renamed** — Display name changed from "Phobos' Chemistry Pathways" to "Phobos' Industrial Pathways: Biomass" as part of the Phobos' Industrial Pathways mod series. Internal mod ID and save data unchanged.
+- Recipe count: 276 → **297**
+- Item count: 101 → **112**
+- Tradeable items: 59 → **67**
+- ZScience specimens: 60 → **87**
+- 15 non-conforming icons identified and regenerated via gpt-image-1
+
 ## [1.2.0] - 2026-03-06
 
 ### Added

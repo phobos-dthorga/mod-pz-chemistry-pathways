@@ -52,7 +52,45 @@ local function buildChangelogContent(lastSeenVersion)
           .. " " .. PCP_VERSION .. "  |  " .. getText("IGUI_PCP_Changelog_VersionDate") .. " <LINE> <LINE> "
 
     -- ════════════════════════════════════════════════════════════════ --
-    -- v1.3  ·  current release  (Hemp Expansion + Audit)
+    -- v1.4  ·  current release  (Medicinal Effects & Moodle)
+    -- ════════════════════════════════════════════════════════════════ --
+    if isNewerThan("1.4", lastSeenVersion) then
+    t = t .. "<LEFT> <SIZE:medium> <RGB:0.40,0.80,1.00> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_4_Marker") .. " "
+    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  " .. getText("IGUI_PCP_Changelog_V1_4_Date") .. " <LINE> <LINE> "
+
+    t = t .. "<SIZE:small> <RGB:1.00,0.75,0.20> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_4_MedicinalTitle") .. " <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_4_MedicinalBody") .. " <LINE> "
+    t = t .. "<LINE> "
+
+    t = t .. "<RGB:1.00,0.75,0.20> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_4_FermentTitle") .. " <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_4_FermentBody") .. " <LINE> "
+    t = t .. "<LINE> "
+
+    t = t .. "<RGB:1.00,0.75,0.20> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_4_SandboxTitle") .. " <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_4_SandboxBody") .. " <LINE> "
+    t = t .. "<LINE> "
+
+    t = t .. "<RGB:1.00,0.75,0.20> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_4_BugfixTitle") .. " <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_4_BugfixBody") .. " <LINE> "
+    t = t .. "<LINE> "
+
+    t = t .. "<RGB:0.80,0.80,0.80> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_4_Stats1") .. " <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_4_Stats2") .. " <LINE> "
+    t = t .. "<LINE> "
+    end
+
+    -- ════════════════════════════════════════════════════════════════ --
+    -- v1.3  (Hemp Expansion + Audit)
     -- ════════════════════════════════════════════════════════════════ --
     if isNewerThan("1.3", lastSeenVersion) then
     t = t .. "<LEFT> <SIZE:medium> <RGB:0.40,0.80,1.00> "
