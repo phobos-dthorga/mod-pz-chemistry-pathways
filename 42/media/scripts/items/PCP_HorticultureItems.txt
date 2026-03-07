@@ -211,7 +211,7 @@ module PhobosChemistryPathways {
 		WorldStaticModel = Herbs_Ground,
 		UseDelta = 0.02,
 		UseWhileEquipped = false,
-		Tags = base:ignorezombiedensity;base:lessfull;pcp:hempground,
+		Tags = base:ignorezombiedensity;base:lessfull;base:hempground,
 	}
 
 /* ============================== HORTICULTURE — PAPERMAKING ============================== */

@@ -275,6 +275,20 @@ Recipes_EN = {
     Recipe_PCPMakeHempFireBundle = "H17. Make Hemp Fire Bundle",
     Recipe_PCPCompostHempHurds = "H18. Compost Hemp Hurds",
 
+    /* ===== Botanical Pathway — Functional End-Products ===== */
+    Recipe_PCPMakeOakum = "Make Oakum",
+    Recipe_PCPSewHempSack = "Sew Hemp Sack",
+    Recipe_PCPKnotHempFishingNet = "Knot Hemp Fishing Net",
+    Recipe_PCPMakeHempSheetRope = "Make Hemp Sheet Rope",
+    Recipe_PCPCraftHempSnare = "Craft Hemp Snare",
+    Recipe_PCPCompostSeedCake = "Compost Seed Press Cake",
+    Recipe_PCPFertilizeSeedCake = "Fertilize with Seed Cake",
+
+    /* ===== Botanical Pathway — Vanilla Station Recipes ===== */
+    Recipe_PCPScutchHempFiber = "S1. Scutch Hemp Fiber",
+    Recipe_PCPWeaveHempClothLoom = "S2. Weave Hemp Cloth (Loom)",
+    Recipe_PCPWeaveHempCanvasLoom = "S3. Weave Hemp Canvas (Loom)",
+
     /* ===== Botanical Pathway — Kitchen Chemistry ===== */
     Recipe_PCPRetHemp = "H5. Chemical Retting (KOH)",
     Recipe_PCPRetHempSimple = "H5. Chemical Retting (KOH)",
@@ -303,6 +317,9 @@ Recipes_EN = {
     /* ===== Botanical Pathway — Industrial ===== */
     Recipe_PCPMixHempcrete = "H14. Mix Hempcrete",
     Recipe_PCPMixReinforcedHempcrete = "H14b. Mix Reinforced Hempcrete",
+
+    /* ===== Biodiesel Pathway — Hand Press ===== */
+    Recipe_PCPPressOilHandPress = "Press Seed Oil (Hand Press)",
 
     /* ===== Horticulture — Tobacco ===== */
     Recipe_PCPPackChewTobaccoTin = "HT1. Pack Chewing Tobacco (Tin)",
@@ -336,12 +353,19 @@ Recipes_EN = {
     Recipe_PCPLoadGlassPipeHemp = "HS3. Load Glass Pipe (Hemp)",
     Recipe_PCPLoadGlassPipeTobacco = "HS4. Load Glass Pipe (Tobacco)",
     Recipe_PCPLoadCanPipeHemp = "HS5. Load Can Pipe (Hemp)",
+    Recipe_PCPLoadPipeHempFromPouch = "HS6. Load Pipe (Hemp Pouch)",
+    Recipe_PCPLoadGlassPipeHempFromPouch = "HS7. Load Glass Pipe (Hemp Pouch)",
+    Recipe_PCPLoadCanPipeHempFromPouch = "HS8. Load Can Pipe (Hemp Pouch)",
 
     /* ===== Horticulture — Cooking ===== */
     Recipe_PCPMakeSyrupSaucepan = "HC1. Make Sugar Syrup (Saucepan)",
     Recipe_PCPMakeSyrupSaucepanCopper = "HC2. Make Sugar Syrup (Copper Saucepan)",
     Recipe_PCPBottleSyrup = "HC3. Bottle Syrup",
     Recipe_PCPBottleSyrupCopper = "HC4. Bottle Syrup (Copper Saucepan)",
+    Recipe_PCPMakeHempButter = "HC5. Make Hemp Butter",
+    Recipe_PCPBottleHempButter = "HC6. Bottle Hemp Butter",
+    Recipe_PCPMakeHempInfusedOil = "HC7. Make Hemp-Infused Oil",
+    Recipe_PCPBottleHempInfusedOil = "HC8. Bottle Hemp-Infused Oil",
 
     /* ===== Hazard — Botanical Protection Variants ===== */
     Recipe_PCPRetHempSafe = "H5. Chemical Retting — KOH (Protected)",
@@ -356,4 +380,18 @@ Recipes_EN = {
     Recipe_PCPChemicalPulpingUnsafe = "H11. Chemical Pulping — NaOH (No Mask!)",
     Recipe_PCPChemicalPulpingSimpleSafe = "H11. Chemical Pulping — NaOH (Protected)",
     Recipe_PCPChemicalPulpingSimpleUnsafe = "H11. Chemical Pulping — NaOH (No Mask!)",
+
+    /* ===== Hazard — Botanical Charring Variants ===== */
+    Recipe_PCPCharHempHurdsSafe = "H4. Char Hemp Hurds — Charcoal (Protected)",
+    Recipe_PCPCharHempHurdsUnsafe = "H4. Char Hemp Hurds — Charcoal (No Mask!)",
+    Recipe_PCPCharHempHurdsCokeSafe = "H4. Char Hemp Hurds — Coke (Protected)",
+    Recipe_PCPCharHempHurdsCokeUnsafe = "H4. Char Hemp Hurds — Coke (No Mask!)",
+    Recipe_PCPCharHempHurdsSimpleSafe = "H4. Char Hemp Hurds (Protected)",
+    Recipe_PCPCharHempHurdsSimpleUnsafe = "H4. Char Hemp Hurds (No Mask!)",
+
+    /* ===== Hazard — Hempcrete Variants ===== */
+    Recipe_PCPMixHempcreteSafe = "H14. Mix Hempcrete (Protected)",
+    Recipe_PCPMixHempcreteUnsafe = "H14. Mix Hempcrete (No Mask!)",
+    Recipe_PCPMixReinforcedHempcreteSafe = "H14b. Mix Reinforced Hempcrete (Protected)",
+    Recipe_PCPMixReinforcedHempcreteUnsafe = "H14b. Mix Reinforced Hempcrete (No Mask!)",
 }

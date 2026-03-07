@@ -748,7 +748,7 @@ module Base
         inputs
         {
             item 1 [Base.SmokingPipe],
-            item 3 tags[pcp:hempground],
+            item 3 tags[base:hempground],
         }
         outputs
         {
@@ -774,7 +774,7 @@ module Base
         inputs
         {
             item 1 [PhobosChemistryPathways.SmokingPipeGlass],
-            item 3 tags[pcp:hempground],
+            item 3 tags[base:hempground],
         }
         outputs
         {
@@ -800,7 +800,7 @@ module Base
         inputs
         {
             item 1 [Base.CanPipe],
-            item 3 tags[pcp:hempground],
+            item 3 tags[base:hempground],
         }
         outputs
         {

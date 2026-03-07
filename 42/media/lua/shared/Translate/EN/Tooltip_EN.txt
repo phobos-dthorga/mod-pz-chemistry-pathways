@@ -84,6 +84,12 @@ Tooltip_EN = {
     Tooltip_PCP_HempTincture = "Concentrated herbal extract produced by alcohol extraction<br>of bioactive compounds from hemp fiber.<br>Right-click to take a dose: strong pain and stress relief,<br>reduces unhappiness and boredom, causes mild drowsiness.<br>5 doses per bottle.",
     Tooltip_PCP_HempcreteBlock = "Lightweight building block made from hemp hurds and lime.<br>Excellent thermal insulation and moisture regulation.<br>Carbon-negative construction material.",
     Tooltip_PCP_TarredHempRope = "Hemp rope coated in hot wood tar for waterproofing.<br>Resists rot, mildew, and abrasion in wet conditions.<br>Traditionally used for rigging, well buckets, and outdoor lashing.",
+    Tooltip_PCP_Oakum = "Loose hemp fibre soaked in wood tar.<br>Used historically for caulking and waterproofing<br>— also makes effective tinder.",
+    Tooltip_PCP_SeedPressCake = "Compressed seed residue from oil pressing.<br>Rich in nitrogen — useful as compost or fertiliser.",
+    Tooltip_PCP_HempSack = "A sturdy woven sack stitched from hemp canvas.<br>Worn on the back for extra carrying capacity.",
+    Tooltip_PCP_HempFishingNet = "A hand-knotted fishing net woven from hemp twine.<br>Functions identically to a standard net.",
+    Tooltip_PCP_HempSheetRope = "A hemp rope reinforced with cloth strips.<br>Can be attached to windows for escape.",
+    Tooltip_PCP_HempSnare = "A simple loop snare fashioned from hemp twine<br>and a stick. Set near animal paths to catch small game.",
 
     /* ===== Horticulture — Tobacco ===== */
     Tooltip_PCP_TobaccoWet = "Freshly harvested tobacco leaves, still damp.<br>Needs to air-dry before use. Leave in inventory or<br>hang to dry naturally.",

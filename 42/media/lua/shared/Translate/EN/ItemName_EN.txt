@@ -101,6 +101,12 @@ ItemName_EN = {
     ItemName_PhobosChemistryPathways.HempTincture = "Hemp Tincture",
     ItemName_PhobosChemistryPathways.HempcreteBlock = "Hempcrete Block",
     ItemName_PhobosChemistryPathways.TarredHempRope = "Tarred Hemp Rope",
+    ItemName_PhobosChemistryPathways.Oakum = "Oakum",
+    ItemName_PhobosChemistryPathways.SeedPressCake = "Seed Press Cake",
+    ItemName_PhobosChemistryPathways.HempSack = "Hemp Sack",
+    ItemName_PhobosChemistryPathways.HempFishingNet = "Hemp Fishing Net",
+    ItemName_PhobosChemistryPathways.HempSheetRope = "Hemp Sheet Rope",
+    ItemName_PhobosChemistryPathways.HempSnare = "Hemp Snare",
 
     /* ===== Horticulture — Tobacco ===== */
     ItemName_PhobosChemistryPathways.TobaccoWet = "Wet Tobacco",
