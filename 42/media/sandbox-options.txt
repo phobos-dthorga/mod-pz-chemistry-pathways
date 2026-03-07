@@ -100,6 +100,200 @@ option PCP.EnableDebugLogging
 	page = PCP_Sandbox, translation = PCP_EnableDebugLogging,
 }
 
+/* ===== Hemp Effects Page ===== */
+
+option PCP.EnableHempEffects
+{
+	type = boolean, default = true,
+	page = PCP_HempEffects, translation = PCP_EnableHempEffects,
+}
+
+option PCP.HempPipeFatigue
+{
+	type = integer, min = 0, max = 200, default = 16,
+	page = PCP_HempEffects, translation = PCP_HempPipeFatigue,
+}
+
+option PCP.HempPipeStress
+{
+	type = integer, min = -200, max = 0, default = -30,
+	page = PCP_HempEffects, translation = PCP_HempPipeStress,
+}
+
+option PCP.HempPipeUnhappy
+{
+	type = integer, min = -200, max = 200, default = -40,
+	page = PCP_HempEffects, translation = PCP_HempPipeUnhappy,
+}
+
+option PCP.HempPipeBoredom
+{
+	type = integer, min = -200, max = 0, default = -28,
+	page = PCP_HempEffects, translation = PCP_HempPipeBoredom,
+}
+
+option PCP.HempPipePain
+{
+	type = integer, min = 0, max = 200, default = 28,
+	page = PCP_HempEffects, translation = PCP_HempPipePain,
+}
+
+option PCP.HempCigarFatigue
+{
+	type = integer, min = 0, max = 200, default = 30,
+	page = PCP_HempEffects, translation = PCP_HempCigarFatigue,
+}
+
+option PCP.HempCigarStress
+{
+	type = integer, min = -200, max = 0, default = -20,
+	page = PCP_HempEffects, translation = PCP_HempCigarStress,
+}
+
+option PCP.HempCigarUnhappy
+{
+	type = integer, min = -200, max = 200, default = -80,
+	page = PCP_HempEffects, translation = PCP_HempCigarUnhappy,
+}
+
+option PCP.HempCigarBoredom
+{
+	type = integer, min = -200, max = 0, default = -60,
+	page = PCP_HempEffects, translation = PCP_HempCigarBoredom,
+}
+
+option PCP.HempCigarPain
+{
+	type = integer, min = 0, max = 200, default = 56,
+	page = PCP_HempEffects, translation = PCP_HempCigarPain,
+}
+
+option PCP.HempCigaretteFatigue
+{
+	type = integer, min = 0, max = 200, default = 8,
+	page = PCP_HempEffects, translation = PCP_HempCigaretteFatigue,
+}
+
+option PCP.HempCigaretteStress
+{
+	type = integer, min = -200, max = 0, default = -8,
+	page = PCP_HempEffects, translation = PCP_HempCigaretteStress,
+}
+
+option PCP.HempCigaretteUnhappy
+{
+	type = integer, min = -200, max = 200, default = -20,
+	page = PCP_HempEffects, translation = PCP_HempCigaretteUnhappy,
+}
+
+option PCP.HempCigaretteBoredom
+{
+	type = integer, min = -200, max = 0, default = -14,
+	page = PCP_HempEffects, translation = PCP_HempCigaretteBoredom,
+}
+
+option PCP.HempCigarettePain
+{
+	type = integer, min = 0, max = 200, default = 14,
+	page = PCP_HempEffects, translation = PCP_HempCigarettePain,
+}
+
+option PCP.DecarbedBudsFatigue
+{
+	type = integer, min = 0, max = 200, default = 12,
+	page = PCP_HempEffects, translation = PCP_DecarbedBudsFatigue,
+}
+
+option PCP.DecarbedBudsStress
+{
+	type = integer, min = -200, max = 0, default = -16,
+	page = PCP_HempEffects, translation = PCP_DecarbedBudsStress,
+}
+
+option PCP.DecarbedBudsUnhappy
+{
+	type = integer, min = -200, max = 200, default = 15,
+	page = PCP_HempEffects, translation = PCP_DecarbedBudsUnhappy,
+}
+
+option PCP.DecarbedBudsBoredom
+{
+	type = integer, min = -200, max = 0, default = -20,
+	page = PCP_HempEffects, translation = PCP_DecarbedBudsBoredom,
+}
+
+option PCP.DecarbedBudsPain
+{
+	type = integer, min = 0, max = 200, default = 20,
+	page = PCP_HempEffects, translation = PCP_DecarbedBudsPain,
+}
+
+option PCP.PoulticePain
+{
+	type = integer, min = 0, max = 100, default = 30,
+	page = PCP_HempEffects, translation = PCP_PoulticePain,
+}
+
+option PCP.PoulticeStress
+{
+	type = integer, min = 0, max = 100, default = 30,
+	page = PCP_HempEffects, translation = PCP_PoulticeStress,
+}
+
+option PCP.TincturePain
+{
+	type = integer, min = 0, max = 100, default = 50,
+	page = PCP_HempEffects, translation = PCP_TincturePain,
+}
+
+option PCP.TinctureStress
+{
+	type = integer, min = 0, max = 100, default = 50,
+	page = PCP_HempEffects, translation = PCP_TinctureStress,
+}
+
+option PCP.TinctureUnhappy
+{
+	type = integer, min = 0, max = 200, default = 30,
+	page = PCP_HempEffects, translation = PCP_TinctureUnhappy,
+}
+
+option PCP.TinctureBoredom
+{
+	type = integer, min = 0, max = 200, default = 20,
+	page = PCP_HempEffects, translation = PCP_TinctureBoredom,
+}
+
+option PCP.TinctureFatigue
+{
+	type = integer, min = 0, max = 100, default = 16,
+	page = PCP_HempEffects, translation = PCP_TinctureFatigue,
+}
+
+option PCP.SugarSyrupUnhappy
+{
+	type = integer, min = -200, max = 0, default = -8,
+	page = PCP_HempEffects, translation = PCP_SugarSyrupUnhappy,
+}
+
+option PCP.SugarSyrupBoredom
+{
+	type = integer, min = -200, max = 0, default = -5,
+	page = PCP_HempEffects, translation = PCP_SugarSyrupBoredom,
+}
+
+option PCP.PoulticeMoodleDuration
+{
+	type = integer, min = 10, max = 1440, default = 180,
+	page = PCP_HempEffects, translation = PCP_PoulticeMoodleDuration,
+}
+
+option PCP.TinctureMoodleDuration
+{
+	type = integer, min = 10, max = 1440, default = 360,
+	page = PCP_HempEffects, translation = PCP_TinctureMoodleDuration,
+}
+
 option PCP.ResetStripPurity
 {
 	type = boolean, default = false,

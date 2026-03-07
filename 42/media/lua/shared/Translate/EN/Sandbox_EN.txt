@@ -85,4 +85,120 @@ Sandbox_EN = {
 
     Sandbox_PCP_MigrateHorticultureItems = "MIGRATE HORTICULTURE ITEMS:",
     Sandbox_PCP_MigrateHorticultureItems_tooltip = "Converts all [B42] Horticulture mod items in every player's inventory to their PCP equivalents. This is the only way to trigger migration — it will never run automatically.<br><br> <INDENT:20>-Scans all containers including bags, backpacks, and vehicles;<br> <INDENT:20>-Preserves item condition, fill level, and food stats;<br> <INDENT:20>-Safe to run while [B42] Horticulture is still subscribed;<br> <INDENT:20>-Can be re-run if items were missed on a previous attempt.<br><br> <RGB:1,0.6,0.2> Requires a game restart. Executes once on next game load, then resets to OFF. <RGB:1,1,1>",
+
+    /* ===== Hemp Effects Page ===== */
+
+    Sandbox_PCP_HempEffects = "Phobos' Industrial Pathways: Hemp Effects",
+
+    Sandbox_PCP_EnableHempEffects = "ENABLE HEMP EFFECTS:",
+    Sandbox_PCP_EnableHempEffects_tooltip = "Master toggle for all psychoactive and medicinal effects on hemp products.<br><br> <INDENT:20>-ON (default): Hemp smoking, eating, poultice, and tincture items produce their configured effects;<br> <INDENT:20>-OFF: All hemp item effects are zeroed out. Items remain craftable but have no gameplay effects.<br><br> <RGB:0.7,0.7,0.7> Does not affect tobacco or sugar syrup products. <RGB:1,1,1><br><br> <RGB:1,0.6,0.2> Requires a game restart to take effect. <RGB:1,1,1>",
+
+    /* ----- Hemp Pipe (SmokingPipeHemp, SmokingPipeGlassHemp, CanPipeHemp) ----- */
+
+    Sandbox_PCP_HempPipeFatigue = "HEMP PIPE — FATIGUE:",
+    Sandbox_PCP_HempPipeFatigue_tooltip = "Drowsiness added when smoking a hemp pipe (wooden, glass, or can pipe).<br> <INDENT:20>-Higher values = more drowsiness;<br> <INDENT:20>-0 = no drowsiness;<br> <INDENT:20>-Default: 16.<br>",
+
+    Sandbox_PCP_HempPipeStress = "HEMP PIPE — STRESS:",
+    Sandbox_PCP_HempPipeStress_tooltip = "Stress change when smoking a hemp pipe.<br> <INDENT:20>-Negative values = stress relief;<br> <INDENT:20>-0 = no stress change;<br> <INDENT:20>-Default: -30.<br>",
+
+    Sandbox_PCP_HempPipeUnhappy = "HEMP PIPE — UNHAPPINESS:",
+    Sandbox_PCP_HempPipeUnhappy_tooltip = "Unhappiness change when smoking a hemp pipe.<br> <INDENT:20>-Negative values = mood improvement;<br> <INDENT:20>-Positive values = mood worsening;<br> <INDENT:20>-Default: -40.<br>",
+
+    Sandbox_PCP_HempPipeBoredom = "HEMP PIPE — BOREDOM:",
+    Sandbox_PCP_HempPipeBoredom_tooltip = "Boredom change when smoking a hemp pipe.<br> <INDENT:20>-Negative values = boredom relief;<br> <INDENT:20>-0 = no boredom change;<br> <INDENT:20>-Default: -28.<br>",
+
+    Sandbox_PCP_HempPipePain = "HEMP PIPE — PAIN REDUCTION:",
+    Sandbox_PCP_HempPipePain_tooltip = "Pain reduction when smoking a hemp pipe.<br> <INDENT:20>-Higher values = more pain relief;<br> <INDENT:20>-0 = no pain relief;<br> <INDENT:20>-Default: 28.<br>",
+
+    /* ----- Hemp Cigar (CigarHemp) ----- */
+
+    Sandbox_PCP_HempCigarFatigue = "HEMP CIGAR — FATIGUE:",
+    Sandbox_PCP_HempCigarFatigue_tooltip = "Drowsiness added when smoking a hemp cigar.<br> <INDENT:20>-Higher values = more drowsiness;<br> <INDENT:20>-0 = no drowsiness;<br> <INDENT:20>-Default: 30.<br>",
+
+    Sandbox_PCP_HempCigarStress = "HEMP CIGAR — STRESS:",
+    Sandbox_PCP_HempCigarStress_tooltip = "Stress change when smoking a hemp cigar.<br> <INDENT:20>-Negative values = stress relief;<br> <INDENT:20>-0 = no stress change;<br> <INDENT:20>-Default: -20.<br>",
+
+    Sandbox_PCP_HempCigarUnhappy = "HEMP CIGAR — UNHAPPINESS:",
+    Sandbox_PCP_HempCigarUnhappy_tooltip = "Unhappiness change when smoking a hemp cigar.<br> <INDENT:20>-Negative values = mood improvement;<br> <INDENT:20>-Positive values = mood worsening;<br> <INDENT:20>-Default: -80.<br>",
+
+    Sandbox_PCP_HempCigarBoredom = "HEMP CIGAR — BOREDOM:",
+    Sandbox_PCP_HempCigarBoredom_tooltip = "Boredom change when smoking a hemp cigar.<br> <INDENT:20>-Negative values = boredom relief;<br> <INDENT:20>-0 = no boredom change;<br> <INDENT:20>-Default: -60.<br>",
+
+    Sandbox_PCP_HempCigarPain = "HEMP CIGAR — PAIN REDUCTION:",
+    Sandbox_PCP_HempCigarPain_tooltip = "Pain reduction when smoking a hemp cigar.<br> <INDENT:20>-Higher values = more pain relief;<br> <INDENT:20>-0 = no pain relief;<br> <INDENT:20>-Default: 56.<br>",
+
+    /* ----- Hemp Cigarette (CigaretteHemp, CigarettePackHemp) ----- */
+
+    Sandbox_PCP_HempCigaretteFatigue = "HEMP CIGARETTE — FATIGUE:",
+    Sandbox_PCP_HempCigaretteFatigue_tooltip = "Drowsiness added when smoking a hemp cigarette (single or from pack).<br> <INDENT:20>-Higher values = more drowsiness;<br> <INDENT:20>-0 = no drowsiness;<br> <INDENT:20>-Default: 8.<br>",
+
+    Sandbox_PCP_HempCigaretteStress = "HEMP CIGARETTE — STRESS:",
+    Sandbox_PCP_HempCigaretteStress_tooltip = "Stress change when smoking a hemp cigarette.<br> <INDENT:20>-Negative values = stress relief;<br> <INDENT:20>-0 = no stress change;<br> <INDENT:20>-Default: -8.<br>",
+
+    Sandbox_PCP_HempCigaretteUnhappy = "HEMP CIGARETTE — UNHAPPINESS:",
+    Sandbox_PCP_HempCigaretteUnhappy_tooltip = "Unhappiness change when smoking a hemp cigarette.<br> <INDENT:20>-Negative values = mood improvement;<br> <INDENT:20>-Positive values = mood worsening;<br> <INDENT:20>-Default: -20.<br>",
+
+    Sandbox_PCP_HempCigaretteBoredom = "HEMP CIGARETTE — BOREDOM:",
+    Sandbox_PCP_HempCigaretteBoredom_tooltip = "Boredom change when smoking a hemp cigarette.<br> <INDENT:20>-Negative values = boredom relief;<br> <INDENT:20>-0 = no boredom change;<br> <INDENT:20>-Default: -14.<br>",
+
+    Sandbox_PCP_HempCigarettePain = "HEMP CIGARETTE — PAIN REDUCTION:",
+    Sandbox_PCP_HempCigarettePain_tooltip = "Pain reduction when smoking a hemp cigarette.<br> <INDENT:20>-Higher values = more pain relief;<br> <INDENT:20>-0 = no pain relief;<br> <INDENT:20>-Default: 14.<br>",
+
+    /* ----- Decarbed Buds (HempBudsDecarbed) ----- */
+
+    Sandbox_PCP_DecarbedBudsFatigue = "DECARBED BUDS — FATIGUE:",
+    Sandbox_PCP_DecarbedBudsFatigue_tooltip = "Drowsiness added when eating decarboxylated hemp buds.<br> <INDENT:20>-Higher values = more drowsiness;<br> <INDENT:20>-0 = no drowsiness;<br> <INDENT:20>-Default: 12.<br>",
+
+    Sandbox_PCP_DecarbedBudsStress = "DECARBED BUDS — STRESS:",
+    Sandbox_PCP_DecarbedBudsStress_tooltip = "Stress change when eating decarboxylated hemp buds.<br> <INDENT:20>-Negative values = stress relief;<br> <INDENT:20>-0 = no stress change;<br> <INDENT:20>-Default: -16.<br>",
+
+    Sandbox_PCP_DecarbedBudsUnhappy = "DECARBED BUDS — UNHAPPINESS:",
+    Sandbox_PCP_DecarbedBudsUnhappy_tooltip = "Unhappiness change when eating decarboxylated hemp buds.<br> <INDENT:20>-Positive values = taste penalty (buds taste terrible);<br> <INDENT:20>-Negative values = mood improvement;<br> <INDENT:20>-Default: 15 (taste penalty).<br>",
+
+    Sandbox_PCP_DecarbedBudsBoredom = "DECARBED BUDS — BOREDOM:",
+    Sandbox_PCP_DecarbedBudsBoredom_tooltip = "Boredom change when eating decarboxylated hemp buds.<br> <INDENT:20>-Negative values = boredom relief;<br> <INDENT:20>-0 = no boredom change;<br> <INDENT:20>-Default: -20.<br>",
+
+    Sandbox_PCP_DecarbedBudsPain = "DECARBED BUDS — PAIN REDUCTION:",
+    Sandbox_PCP_DecarbedBudsPain_tooltip = "Pain reduction when eating decarboxylated hemp buds.<br> <INDENT:20>-Higher values = more pain relief;<br> <INDENT:20>-0 = no pain relief;<br> <INDENT:20>-Default: 20.<br>",
+
+    /* ----- Hemp Poultice (timed action) ----- */
+
+    Sandbox_PCP_PoulticePain = "HEMP POULTICE — PAIN REDUCTION:",
+    Sandbox_PCP_PoulticePain_tooltip = "Pain reduction per body part when applying a hemp poultice.<br> <INDENT:20>-Applied to every body part simultaneously;<br> <INDENT:20>-Higher values = more pain relief;<br> <INDENT:20>-0 = no pain relief;<br> <INDENT:20>-Default: 30.<br>",
+
+    Sandbox_PCP_PoulticeStress = "HEMP POULTICE — STRESS REDUCTION:",
+    Sandbox_PCP_PoulticeStress_tooltip = "Stress reduction when applying a hemp poultice.<br> <INDENT:20>-Value is divided by 100 internally (30 = 0.30 stress reduction);<br> <INDENT:20>-Higher values = more stress relief;<br> <INDENT:20>-0 = no stress relief;<br> <INDENT:20>-Default: 30.<br>",
+
+    /* ----- Hemp Tincture (timed action) ----- */
+
+    Sandbox_PCP_TincturePain = "HEMP TINCTURE — PAIN REDUCTION:",
+    Sandbox_PCP_TincturePain_tooltip = "Pain reduction per body part when taking a dose of hemp tincture.<br> <INDENT:20>-Applied to every body part simultaneously;<br> <INDENT:20>-Higher values = more pain relief;<br> <INDENT:20>-0 = no pain relief;<br> <INDENT:20>-Default: 50.<br>",
+
+    Sandbox_PCP_TinctureStress = "HEMP TINCTURE — STRESS REDUCTION:",
+    Sandbox_PCP_TinctureStress_tooltip = "Stress reduction when taking a dose of hemp tincture.<br> <INDENT:20>-Value is divided by 100 internally (50 = 0.50 stress reduction);<br> <INDENT:20>-Higher values = more stress relief;<br> <INDENT:20>-0 = no stress relief;<br> <INDENT:20>-Default: 50.<br>",
+
+    Sandbox_PCP_TinctureUnhappy = "HEMP TINCTURE — UNHAPPINESS REDUCTION:",
+    Sandbox_PCP_TinctureUnhappy_tooltip = "Unhappiness reduction when taking a dose of hemp tincture.<br> <INDENT:20>-Higher values = more mood improvement;<br> <INDENT:20>-0 = no mood change;<br> <INDENT:20>-Default: 30.<br>",
+
+    Sandbox_PCP_TinctureBoredom = "HEMP TINCTURE — BOREDOM REDUCTION:",
+    Sandbox_PCP_TinctureBoredom_tooltip = "Boredom reduction when taking a dose of hemp tincture.<br> <INDENT:20>-Higher values = more boredom relief;<br> <INDENT:20>-0 = no boredom change;<br> <INDENT:20>-Default: 20.<br>",
+
+    Sandbox_PCP_TinctureFatigue = "HEMP TINCTURE — DROWSINESS:",
+    Sandbox_PCP_TinctureFatigue_tooltip = "Drowsiness added when taking a dose of hemp tincture.<br> <INDENT:20>-Value is divided by 100 internally (16 = 0.16 fatigue);<br> <INDENT:20>-Higher values = more drowsiness;<br> <INDENT:20>-0 = no drowsiness;<br> <INDENT:20>-Default: 16.<br>",
+
+    /* ----- Sugar Syrup (SimpleSugarSyrup) ----- */
+
+    Sandbox_PCP_SugarSyrupUnhappy = "SUGAR SYRUP — UNHAPPINESS:",
+    Sandbox_PCP_SugarSyrupUnhappy_tooltip = "Unhappiness change when consuming simple sugar syrup.<br> <INDENT:20>-Negative values = mood improvement (comfort food);<br> <INDENT:20>-0 = no mood change;<br> <INDENT:20>-Default: -8.<br>",
+
+    Sandbox_PCP_SugarSyrupBoredom = "SUGAR SYRUP — BOREDOM:",
+    Sandbox_PCP_SugarSyrupBoredom_tooltip = "Boredom change when consuming simple sugar syrup.<br> <INDENT:20>-Negative values = boredom relief;<br> <INDENT:20>-0 = no boredom change;<br> <INDENT:20>-Default: -5.<br>",
+
+    /* ----- Moodle Durations ----- */
+
+    Sandbox_PCP_PoulticeMoodleDuration = "POULTICE MOODLE DURATION:",
+    Sandbox_PCP_PoulticeMoodleDuration_tooltip = "Duration of the 'Medicated' moodle after applying a hemp poultice, in game minutes.<br> <INDENT:20>-60 game minutes = 1 in-game hour;<br> <INDENT:20>-180 = 3 in-game hours (default);<br> <INDENT:20>-1440 = 1 full in-game day.<br><br> <RGB:0.7,0.7,0.7> Only applies when Moodle Framework mod is installed. <RGB:1,1,1>",
+
+    Sandbox_PCP_TinctureMoodleDuration = "TINCTURE MOODLE DURATION:",
+    Sandbox_PCP_TinctureMoodleDuration_tooltip = "Duration of the 'Medicated' moodle after taking a dose of hemp tincture, in game minutes.<br> <INDENT:20>-60 game minutes = 1 in-game hour;<br> <INDENT:20>-360 = 6 in-game hours (default);<br> <INDENT:20>-1440 = 1 full in-game day.<br><br> <RGB:0.7,0.7,0.7> Only applies when Moodle Framework mod is installed. <RGB:1,1,1>",
 }
