@@ -106,6 +106,7 @@ read_globals = {
     "CharacterProfession",
 
     -- Cross-mod (optional, runtime-guarded)
+    "MF",
     "ZScienceSkill",
 }
 

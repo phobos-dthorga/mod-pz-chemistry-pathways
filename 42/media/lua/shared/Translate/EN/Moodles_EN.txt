@@ -1,0 +1,37 @@
+/*  ________________________________________________________________________
+ * / Copyright (c) 2026 Phobos A. D'thorga                                \
+ * |                                                                        |
+ * |           /\_/\                                                         |
+ * |         =/ o o \=    Phobos' PZ Modding                                |
+ * |          (  V  )     All rights reserved.                              |
+ * |     /\  / \   / \                                                      |
+ * |    /  \/   '-'   \   This source code is part of the Phobos            |
+ * |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+ * |  (__/    \_/ \/  \__)                                                  |
+ * |     |   | |  | |     Unauthorised copying, modification, or            |
+ * |     |___|_|  |_|     distribution of this file is prohibited.          |
+ * |                                                                        |
+ * \________________________________________________________________________/
+ */
+
+Moodles_EN = {
+    /* ===== Medicated Moodle — Good Levels ===== */
+    Moodles_Medicated_lvl1 = "Slightly Medicated",
+    Moodles_Medicated_desc_lvl1 = "A mild herbal remedy is easing some discomfort.",
+    Moodles_Medicated_lvl2 = "Medicated",
+    Moodles_Medicated_desc_lvl2 = "Herbal medicine is actively reducing pain and stress.",
+    Moodles_Medicated_lvl3 = "Well Medicated",
+    Moodles_Medicated_desc_lvl3 = "Strong herbal effects are providing significant relief.",
+    Moodles_Medicated_lvl4 = "Heavily Medicated",
+    Moodles_Medicated_desc_lvl4 = "Powerful herbal medicine is numbing pain and inducing calm.",
+
+    /* ===== Medicated Moodle — Bad Levels (required by MF, unused) ===== */
+    Moodles_Medicated_bad_lvl1 = "Wearing Off",
+    Moodles_Medicated_desc_bad_lvl1 = "The medicinal effects are fading.",
+    Moodles_Medicated_bad_lvl2 = "Wearing Off",
+    Moodles_Medicated_desc_bad_lvl2 = "The medicinal effects are fading.",
+    Moodles_Medicated_bad_lvl3 = "Wearing Off",
+    Moodles_Medicated_desc_bad_lvl3 = "The medicinal effects are fading.",
+    Moodles_Medicated_bad_lvl4 = "Wearing Off",
+    Moodles_Medicated_desc_bad_lvl4 = "The medicinal effects are fading.",
+}
