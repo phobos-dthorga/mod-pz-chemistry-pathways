@@ -151,6 +151,36 @@ local function applyItemEffectPatches()
     end
     patchItem("PhobosChemistryPathways.HempBudsDecarbed", decarbedParams)
 
+    -- Hemp Butter: HempButter
+    local butterParams
+    if enabled then
+        butterParams = buildEffectParams(
+            PCP_Sandbox.getHempButterFatigue(),
+            PCP_Sandbox.getHempButterStress(),
+            PCP_Sandbox.getHempButterUnhappy(),
+            PCP_Sandbox.getHempButterBoredom(),
+            PCP_Sandbox.getHempButterPain()
+        )
+    else
+        butterParams = buildEffectParams(0, 0, 0, 0, 0)
+    end
+    patchItem("PhobosChemistryPathways.HempButter", butterParams)
+
+    -- Hemp-Infused Oil: HempInfusedOil
+    local oilParams
+    if enabled then
+        oilParams = buildEffectParams(
+            PCP_Sandbox.getHempOilFatigue(),
+            PCP_Sandbox.getHempOilStress(),
+            PCP_Sandbox.getHempOilUnhappy(),
+            PCP_Sandbox.getHempOilBoredom(),
+            PCP_Sandbox.getHempOilPain()
+        )
+    else
+        oilParams = buildEffectParams(0, 0, 0, 0, 0)
+    end
+    patchItem("PhobosChemistryPathways.HempInfusedOil", oilParams)
+
     -- Sugar Syrup: SimpleSugarSyrup (not gated by EnableHempEffects)
     local syrupParams = {
         "UnhappyChange = " .. tostring(PCP_Sandbox.getSugarSyrupUnhappy()),

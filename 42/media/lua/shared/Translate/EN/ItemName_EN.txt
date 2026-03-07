@@ -117,7 +117,7 @@ ItemName_EN = {
     ItemName_PhobosChemistryPathways.CannedHempBudsDecarbed = "Canned Decarbed Hemp Buds",
     ItemName_PhobosChemistryPathways.CannedHempBudsOpen = "Open Canned Hemp Buds",
     ItemName_PhobosChemistryPathways.CannedHempBudsDecarbedOpen = "Open Canned Decarbed Buds",
-    ItemName_PhobosChemistryPathways.HempLoose = "Loose Hemp",
+    ItemName_PhobosChemistryPathways.HempLoose = "Pouch of Hemp",
 
     /* ===== Horticulture — Papermaking ===== */
     ItemName_PhobosChemistryPathways.PaperPulpPot = "Pot of Paper Pulp",
@@ -139,6 +139,14 @@ ItemName_EN = {
     ItemName_PhobosChemistryPathways.CigaretteHemp = "Hemp Cigarette",
     ItemName_PhobosChemistryPathways.CigarettePackHemp = "Hemp Cigarette Pack",
     ItemName_PhobosChemistryPathways.CigarettePackRolled = "Rolled Cigarette Pack",
+
+    /* ===== Horticulture — Hemp Edibles ===== */
+    ItemName_PhobosChemistryPathways.SaucepanHempButter = "Saucepan of Hemp Butter",
+    ItemName_PhobosChemistryPathways.SaucepanHempButterCooked = "Saucepan of Cooked Hemp Butter",
+    ItemName_PhobosChemistryPathways.SaucepanHempInfusedOil = "Saucepan of Hemp Oil",
+    ItemName_PhobosChemistryPathways.SaucepanHempInfusedOilCooked = "Saucepan of Cooked Hemp Oil",
+    ItemName_PhobosChemistryPathways.HempButter = "Hemp Butter",
+    ItemName_PhobosChemistryPathways.HempInfusedOil = "Hemp-Infused Oil",
 
     /* ===== Horticulture — Cooking ===== */
     ItemName_PhobosChemistryPathways.SaucepanSyrup = "Saucepan of Sugar Syrup",

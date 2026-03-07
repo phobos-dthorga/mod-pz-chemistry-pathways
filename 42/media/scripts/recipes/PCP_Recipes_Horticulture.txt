@@ -51,7 +51,7 @@ module Base
 
         inputs
         {
-            item 3 [Base.TobaccoDried],
+            item 3 [Base.TobaccoDried;Base.TobaccoLoose],
             item 1 [Base.TinCanEmpty],
         }
         outputs
@@ -78,7 +78,7 @@ module Base
 
         inputs
         {
-            item 3 [Base.TobaccoDried],
+            item 3 [Base.TobaccoDried;Base.TobaccoLoose],
             item 1 [Base.WaterRationCanEmpty],
         }
         outputs
@@ -105,7 +105,7 @@ module Base
 
         inputs
         {
-            item 4 [Base.TobaccoDried],
+            item 4 [Base.TobaccoDried;Base.TobaccoLoose],
             item 1 [Base.EmptyJar],
         }
         outputs
@@ -133,7 +133,7 @@ module Base
 
         inputs
         {
-            item 3 [Base.TobaccoDried],
+            item 3 [Base.TobaccoDried;Base.TobaccoLoose],
             item 2 tags[base:sugar],
         }
         outputs
@@ -160,7 +160,7 @@ module Base
 
         inputs
         {
-            item 1 [Base.TobaccoDried],
+            item 1 [Base.TobaccoDried;Base.TobaccoLoose],
             item 1 tags[base:rollingpaper],
         }
         outputs
@@ -694,7 +694,7 @@ module Base
         inputs
         {
             item 1 [PhobosChemistryPathways.SmokingPipeGlass],
-            item 1 [Base.TobaccoDried],
+            item 1 [Base.TobaccoDried;Base.TobaccoLoose],
         }
         outputs
         {
@@ -729,9 +729,88 @@ module Base
         }
     }
 
+/* ----- HS6: LOAD PIPE WITH HEMP (FROM POUCH) ----- */
+/*  Pack ground hemp from a pouch into a vanilla smoking pipe.
+    Uses tag-based partial consumption — 3 uses per pipe bowl.                                */
+
+    craftRecipe PCPLoadPipeHempFromPouch
+    {
+        time = 30,
+        category = Phobos Horticulture,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:1,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 1 [Base.SmokingPipe],
+            item 3 tags[pcp:hempground],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.SmokingPipeHemp,
+        }
+    }
+
+/* ----- HS7: LOAD GLASS PIPE WITH HEMP (FROM POUCH) ----- */
+/*  Pack ground hemp from a pouch into the PCP glass smoking pipe.                            */
+
+    craftRecipe PCPLoadGlassPipeHempFromPouch
+    {
+        time = 30,
+        category = Phobos Horticulture,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:1,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.SmokingPipeGlass],
+            item 3 tags[pcp:hempground],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.SmokingPipeGlassHemp,
+        }
+    }
+
+/* ----- HS8: LOAD CAN PIPE WITH HEMP (FROM POUCH) ----- */
+/*  Pack ground hemp from a pouch into a makeshift can pipe.                                  */
+
+    craftRecipe PCPLoadCanPipeHempFromPouch
+    {
+        time = 30,
+        category = Phobos Horticulture,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:1,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 1 [Base.CanPipe],
+            item 3 tags[pcp:hempground],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.CanPipeHemp,
+        }
+    }
+
 
 /* ==================================================================================== */
-/* ============================== COOKING (4 recipes) ================================== */
+/* ============================== COOKING (8 recipes) ================================== */
 /* ==================================================================================== */
 
 /* ----- HC1: MAKE SUGAR SYRUP (SAUCEPAN) ----- */
@@ -842,6 +921,118 @@ module Base
         {
             item 1 PhobosChemistryPathways.SimpleSugarSyrup,
             item 1 Base.SaucepanCopper,
+        }
+    }
+
+/* ----- HC5: MAKE HEMP BUTTER ----- */
+/*  Melt butter with decarboxylated hemp in a saucepan to infuse the
+    fat with cannabinoid compounds. Must be cooked on a heat source.                          */
+
+    craftRecipe PCPMakeHempButter
+    {
+        time = 80,
+        category = Phobos Horticulture,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:5,
+        AutoLearnAll = AppliedChemistry:1,
+
+        inputs
+        {
+            item 1 [Base.Butter],
+            item 2 [PhobosChemistryPathways.HempBudsDecarbed;PhobosChemistryPathways.HempLoose],
+            item 1 [Base.Saucepan],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.SaucepanHempButter,
+        }
+    }
+
+/* ----- HC6: BOTTLE HEMP BUTTER ----- */
+/*  Strain cooked hemp butter from the saucepan into a glass jar.
+    Recovers the saucepan for reuse.                                                          */
+
+    craftRecipe PCPBottleHempButter
+    {
+        time = 40,
+        category = Phobos Horticulture,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:2,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.SaucepanHempButterCooked],
+            item 1 [Base.EmptyJar],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.HempButter,
+            item 1 Base.Saucepan,
+        }
+    }
+
+/* ----- HC7: MAKE HEMP-INFUSED OIL ----- */
+/*  Warm vegetable or olive oil with decarboxylated hemp in a saucepan
+    to extract compounds into the oil. Must be cooked on a heat source.                       */
+
+    craftRecipe PCPMakeHempInfusedOil
+    {
+        time = 80,
+        category = Phobos Horticulture,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:1,
+        xpAward = AppliedChemistry:5,
+        AutoLearnAll = AppliedChemistry:1,
+
+        inputs
+        {
+            item 1 [Base.OliveOil;Base.VegetableOil],
+            item 2 [PhobosChemistryPathways.HempBudsDecarbed;PhobosChemistryPathways.HempLoose],
+            item 1 [Base.Saucepan],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.SaucepanHempInfusedOil,
+        }
+    }
+
+/* ----- HC8: BOTTLE HEMP-INFUSED OIL ----- */
+/*  Strain cooked hemp-infused oil from the saucepan into a glass jar.
+    Recovers the saucepan for reuse.                                                          */
+
+    craftRecipe PCPBottleHempInfusedOil
+    {
+        time = 40,
+        category = Phobos Horticulture,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:2,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.SaucepanHempInfusedOilCooked],
+            item 1 [Base.EmptyJar],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.HempInfusedOil,
+            item 1 Base.Saucepan,
         }
     }
 

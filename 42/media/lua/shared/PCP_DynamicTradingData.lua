@@ -202,6 +202,8 @@ local function registerPCPTradeData()
         { item = "PhobosChemistryPathways.RollingPapers",      basePrice = 8,   tags = { "Common" },                            stockRange = { min = 3, max = 8 } },
         { item = "PhobosChemistryPathways.MouldAndDeckle",     basePrice = 20,  tags = { "Material", "Uncommon" },              stockRange = { min = 1, max = 2 } },
         { item = "PhobosChemistryPathways.SimpleSugarSyrup",   basePrice = 10,  tags = { "Common" },                            stockRange = { min = 2, max = 5 } },
+        { item = "PhobosChemistryPathways.HempButter",         basePrice = 30,  tags = { "Chemical", "Uncommon" },              stockRange = { min = 1, max = 3 } },
+        { item = "PhobosChemistryPathways.HempInfusedOil",     basePrice = 25,  tags = { "Chemical", "Uncommon" },              stockRange = { min = 1, max = 3 } },
         { item = "PhobosChemistryPathways.HempBudsCured",      basePrice = 15,  tags = { "Uncommon" },                          stockRange = { min = 1, max = 3 } },
 
         -- Category recipe books (tiered by survival value)

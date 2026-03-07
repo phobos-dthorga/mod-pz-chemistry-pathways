@@ -100,7 +100,7 @@ Tooltip_EN = {
     Tooltip_PCP_CannedHempBudsDecarbed = "Decarboxylated hemp buds in a sealed container.<br>Ready to be opened and used.",
     Tooltip_PCP_CannedHempBudsOpen = "Opened container of cured hemp buds.<br>Use portions for smoking, cooking, or extraction.",
     Tooltip_PCP_CannedHempBudsDecarbedOpen = "Opened container of decarboxylated hemp buds.<br>Ready to use in recipes or for smoking.",
-    Tooltip_PCP_HempLoose = "Loosely ground hemp material.<br>Ready for rolling into cigarettes or cigars,<br>or loading into a smoking pipe.",
+    Tooltip_PCP_HempLoose = "Ground hemp in a resealable pouch.<br>Pack into pipes, roll into cigarettes or cigars,<br>or infuse into butter or oil for edible preparations.",
 
     /* ===== Horticulture — Papermaking ===== */
     Tooltip_PCP_PaperPulpPot = "A pot of hemp fiber simmering in water to break down<br>into paper pulp. Needs to finish cooking on a heat source.",
@@ -122,6 +122,14 @@ Tooltip_EN = {
     Tooltip_PCP_CigaretteHemp = "A single hemp cigarette rolled in hemp paper.<br>Mild stress and pain relief. Lighter effects than a cigar.",
     Tooltip_PCP_CigarettePackHemp = "A pack of hemp cigarettes.<br>Each use smokes one cigarette for mild stress<br>and pain relief.",
     Tooltip_PCP_CigarettePackRolled = "A pack of rolled tobacco cigarettes.<br>Each use smokes one cigarette for stress relief<br>but causes nausea.",
+
+    /* ===== Horticulture — Hemp Edibles ===== */
+    Tooltip_PCP_SaucepanHempButter = "Butter melting with decarboxylated hemp in a saucepan.<br>Leave on a heat source to infuse the cannabinoid compounds.",
+    Tooltip_PCP_SaucepanHempButterCooked = "Infused hemp butter ready to be strained into a jar.<br>The fat has absorbed the active compounds.",
+    Tooltip_PCP_SaucepanHempInfusedOil = "Oil warming with decarboxylated hemp in a saucepan.<br>Leave on a heat source to extract the active compounds.",
+    Tooltip_PCP_SaucepanHempInfusedOilCooked = "Infused hemp oil ready to be strained into a jar.<br>The oil has absorbed the active compounds.",
+    Tooltip_PCP_HempButter = "Butter infused with hemp compounds.<br>Reduces stress, boredom, and pain but causes drowsiness.<br>The fat-eating experience tempers the mood boost.<br>Use as a spice in cooking for evolved recipes.",
+    Tooltip_PCP_HempInfusedOil = "Cooking oil infused with hemp compounds.<br>Reduces stress, boredom, and pain but causes mild drowsiness.<br>Lighter effects than hemp butter.<br>Use as a spice in cooking for evolved recipes.",
 
     /* ===== Horticulture — Cooking ===== */
     Tooltip_PCP_SaucepanSyrup = "A saucepan of sugar water being cooked into syrup.<br>Leave on a heat source until done.",

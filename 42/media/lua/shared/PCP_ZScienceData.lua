@@ -187,6 +187,8 @@ local function registerPCPSpecimens()
                 ["PhobosChemistryPathways.RollingPapers"]        = xp(8, 6),
                 ["PhobosChemistryPathways.PaperPulpPot"]         = xp(12, 10),
                 ["PhobosChemistryPathways.SimpleSugarSyrup"]     = xp(10, 8),
+                ["PhobosChemistryPathways.HempButter"]          = xp(18, 15),
+                ["PhobosChemistryPathways.HempInfusedOil"]      = xp(16, 12),
 
                 -- Salt pathway
                 ["PhobosChemistryPathways.BrineConcentrate"]     = xp(15, 12),

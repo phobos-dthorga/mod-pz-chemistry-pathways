@@ -172,6 +172,20 @@ function PCP_Sandbox.getTinctureUnhappy()  return PhobosLib.getSandboxVar("PCP",
 function PCP_Sandbox.getTinctureBoredom()  return PhobosLib.getSandboxVar("PCP", "TinctureBoredom", 20) end
 function PCP_Sandbox.getTinctureFatigue()  return PhobosLib.getSandboxVar("PCP", "TinctureFatigue", 16) end
 
+-- Hemp Butter effects (HempButter)
+function PCP_Sandbox.getHempButterFatigue() return PhobosLib.getSandboxVar("PCP", "HempButterFatigue", 10) end
+function PCP_Sandbox.getHempButterStress()  return PhobosLib.getSandboxVar("PCP", "HempButterStress", -14) end
+function PCP_Sandbox.getHempButterUnhappy() return PhobosLib.getSandboxVar("PCP", "HempButterUnhappy", -6) end
+function PCP_Sandbox.getHempButterBoredom() return PhobosLib.getSandboxVar("PCP", "HempButterBoredom", -16) end
+function PCP_Sandbox.getHempButterPain()    return PhobosLib.getSandboxVar("PCP", "HempButterPain", 16) end
+
+-- Hemp-Infused Oil effects (HempInfusedOil)
+function PCP_Sandbox.getHempOilFatigue() return PhobosLib.getSandboxVar("PCP", "HempOilFatigue", 8) end
+function PCP_Sandbox.getHempOilStress()  return PhobosLib.getSandboxVar("PCP", "HempOilStress", -12) end
+function PCP_Sandbox.getHempOilUnhappy() return PhobosLib.getSandboxVar("PCP", "HempOilUnhappy", -4) end
+function PCP_Sandbox.getHempOilBoredom() return PhobosLib.getSandboxVar("PCP", "HempOilBoredom", -14) end
+function PCP_Sandbox.getHempOilPain()    return PhobosLib.getSandboxVar("PCP", "HempOilPain", 14) end
+
 -- Sugar Syrup effects (SimpleSugarSyrup)
 function PCP_Sandbox.getSugarSyrupUnhappy() return PhobosLib.getSandboxVar("PCP", "SugarSyrupUnhappy", -8) end
 function PCP_Sandbox.getSugarSyrupBoredom() return PhobosLib.getSandboxVar("PCP", "SugarSyrupBoredom", -5) end

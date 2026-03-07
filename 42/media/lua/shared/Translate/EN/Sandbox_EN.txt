@@ -186,6 +186,40 @@ Sandbox_EN = {
     Sandbox_PCP_TinctureFatigue = "HEMP TINCTURE — DROWSINESS:",
     Sandbox_PCP_TinctureFatigue_tooltip = "Drowsiness added when taking a dose of hemp tincture.<br> <INDENT:20>-Value is divided by 100 internally (16 = 0.16 fatigue);<br> <INDENT:20>-Higher values = more drowsiness;<br> <INDENT:20>-0 = no drowsiness;<br> <INDENT:20>-Default: 16.<br>",
 
+    /* ----- Hemp Butter (HempButter) ----- */
+
+    Sandbox_PCP_HempButterFatigue = "HEMP BUTTER — FATIGUE:",
+    Sandbox_PCP_HempButterFatigue_tooltip = "Drowsiness added when eating hemp butter.<br> <INDENT:20>-Higher values = more drowsiness;<br> <INDENT:20>-0 = no drowsiness;<br> <INDENT:20>-Default: 10.<br>",
+
+    Sandbox_PCP_HempButterStress = "HEMP BUTTER — STRESS:",
+    Sandbox_PCP_HempButterStress_tooltip = "Stress change when eating hemp butter.<br> <INDENT:20>-Negative values = stress relief;<br> <INDENT:20>-0 = no stress change;<br> <INDENT:20>-Default: -14.<br>",
+
+    Sandbox_PCP_HempButterUnhappy = "HEMP BUTTER — UNHAPPINESS:",
+    Sandbox_PCP_HempButterUnhappy_tooltip = "Unhappiness change when eating hemp butter.<br> <INDENT:20>-Negative values = mood improvement;<br> <INDENT:20>-Positive values = mood penalty (eating fat);<br> <INDENT:20>-Default: -6 (net slightly pleasant).<br>",
+
+    Sandbox_PCP_HempButterBoredom = "HEMP BUTTER — BOREDOM:",
+    Sandbox_PCP_HempButterBoredom_tooltip = "Boredom change when eating hemp butter.<br> <INDENT:20>-Negative values = boredom relief;<br> <INDENT:20>-0 = no boredom change;<br> <INDENT:20>-Default: -16.<br>",
+
+    Sandbox_PCP_HempButterPain = "HEMP BUTTER — PAIN REDUCTION:",
+    Sandbox_PCP_HempButterPain_tooltip = "Pain reduction when eating hemp butter.<br> <INDENT:20>-Higher values = more pain relief;<br> <INDENT:20>-0 = no pain relief;<br> <INDENT:20>-Default: 16.<br>",
+
+    /* ----- Hemp-Infused Oil (HempInfusedOil) ----- */
+
+    Sandbox_PCP_HempOilFatigue = "HEMP OIL — FATIGUE:",
+    Sandbox_PCP_HempOilFatigue_tooltip = "Drowsiness added when consuming hemp-infused oil.<br> <INDENT:20>-Higher values = more drowsiness;<br> <INDENT:20>-0 = no drowsiness;<br> <INDENT:20>-Default: 8.<br>",
+
+    Sandbox_PCP_HempOilStress = "HEMP OIL — STRESS:",
+    Sandbox_PCP_HempOilStress_tooltip = "Stress change when consuming hemp-infused oil.<br> <INDENT:20>-Negative values = stress relief;<br> <INDENT:20>-0 = no stress change;<br> <INDENT:20>-Default: -12.<br>",
+
+    Sandbox_PCP_HempOilUnhappy = "HEMP OIL — UNHAPPINESS:",
+    Sandbox_PCP_HempOilUnhappy_tooltip = "Unhappiness change when consuming hemp-infused oil.<br> <INDENT:20>-Negative values = mood improvement;<br> <INDENT:20>-Positive values = mood penalty (drinking oil);<br> <INDENT:20>-Default: -4 (net slightly pleasant).<br>",
+
+    Sandbox_PCP_HempOilBoredom = "HEMP OIL — BOREDOM:",
+    Sandbox_PCP_HempOilBoredom_tooltip = "Boredom change when consuming hemp-infused oil.<br> <INDENT:20>-Negative values = boredom relief;<br> <INDENT:20>-0 = no boredom change;<br> <INDENT:20>-Default: -14.<br>",
+
+    Sandbox_PCP_HempOilPain = "HEMP OIL — PAIN REDUCTION:",
+    Sandbox_PCP_HempOilPain_tooltip = "Pain reduction when consuming hemp-infused oil.<br> <INDENT:20>-Higher values = more pain relief;<br> <INDENT:20>-0 = no pain relief;<br> <INDENT:20>-Default: 14.<br>",
+
     /* ----- Sugar Syrup (SimpleSugarSyrup) ----- */
 
     Sandbox_PCP_SugarSyrupUnhappy = "SUGAR SYRUP — UNHAPPINESS:",

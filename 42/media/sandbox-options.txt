@@ -270,6 +270,66 @@ option PCP.TinctureFatigue
 	page = PCP_HempEffects, translation = PCP_TinctureFatigue,
 }
 
+option PCP.HempButterFatigue
+{
+	type = integer, min = 0, max = 200, default = 10,
+	page = PCP_HempEffects, translation = PCP_HempButterFatigue,
+}
+
+option PCP.HempButterStress
+{
+	type = integer, min = -200, max = 0, default = -14,
+	page = PCP_HempEffects, translation = PCP_HempButterStress,
+}
+
+option PCP.HempButterUnhappy
+{
+	type = integer, min = -200, max = 200, default = -6,
+	page = PCP_HempEffects, translation = PCP_HempButterUnhappy,
+}
+
+option PCP.HempButterBoredom
+{
+	type = integer, min = -200, max = 0, default = -16,
+	page = PCP_HempEffects, translation = PCP_HempButterBoredom,
+}
+
+option PCP.HempButterPain
+{
+	type = integer, min = 0, max = 200, default = 16,
+	page = PCP_HempEffects, translation = PCP_HempButterPain,
+}
+
+option PCP.HempOilFatigue
+{
+	type = integer, min = 0, max = 200, default = 8,
+	page = PCP_HempEffects, translation = PCP_HempOilFatigue,
+}
+
+option PCP.HempOilStress
+{
+	type = integer, min = -200, max = 0, default = -12,
+	page = PCP_HempEffects, translation = PCP_HempOilStress,
+}
+
+option PCP.HempOilUnhappy
+{
+	type = integer, min = -200, max = 200, default = -4,
+	page = PCP_HempEffects, translation = PCP_HempOilUnhappy,
+}
+
+option PCP.HempOilBoredom
+{
+	type = integer, min = -200, max = 0, default = -14,
+	page = PCP_HempEffects, translation = PCP_HempOilBoredom,
+}
+
+option PCP.HempOilPain
+{
+	type = integer, min = 0, max = 200, default = 14,
+	page = PCP_HempEffects, translation = PCP_HempOilPain,
+}
+
 option PCP.SugarSyrupUnhappy
 {
 	type = integer, min = -200, max = 0, default = -8,

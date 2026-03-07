@@ -211,7 +211,7 @@ module PhobosChemistryPathways {
 		WorldStaticModel = Herbs_Ground,
 		UseDelta = 0.02,
 		UseWhileEquipped = false,
-		Tags = base:ignorezombiedensity;base:lessfull,
+		Tags = base:ignorezombiedensity;base:lessfull;pcp:hempground,
 	}
 
 /* ============================== HORTICULTURE — PAPERMAKING ============================== */
@@ -592,6 +592,111 @@ module PhobosChemistryPathways {
 		Carbohydrates = 90,
 		CantEat = true,
 		Tags = base:hasmetal;base:alreadycooked,
+	}
+
+/* ============================== HORTICULTURE — HEMP EDIBLES ============================== */
+/*  Hemp-infused edible products. Butter and oil are cooked in saucepans
+    then bottled into jars. Both are Spice items that work in evolved
+    recipes (stews, soups, sandwiches). Effects gated by EnableHempEffects.              */
+
+	item SaucepanHempButter {
+		ItemType = base:food,
+		DisplayCategory = Food,
+		Icon = PCP_SaucepanHempButter,
+		Weight = 3.0,
+		Tooltip = Tooltip_PCP_SaucepanHempButter,
+		WorldStaticModel = Saucepan_Ground,
+		CookingSound = FryingFood,
+		IsCookable = true,
+		MinutesToCook = 40,
+		MinutesToBurn = 80,
+		ReplaceOnCooked = PhobosChemistryPathways.SaucepanHempButterCooked,
+		ReplaceOnUse = Base.Saucepan,
+		CantEat = true,
+		Tags = base:hasmetal,
+	}
+
+	item SaucepanHempButterCooked {
+		ItemType = base:food,
+		DisplayCategory = Food,
+		Icon = PCP_SaucepanHempButterCooked,
+		Weight = 3.0,
+		Tooltip = Tooltip_PCP_SaucepanHempButterCooked,
+		WorldStaticModel = Saucepan_Ground,
+		ReplaceOnUse = Base.Saucepan,
+		CantEat = true,
+		Tags = base:hasmetal;base:alreadycooked,
+	}
+
+	item SaucepanHempInfusedOil {
+		ItemType = base:food,
+		DisplayCategory = Food,
+		Icon = PCP_SaucepanHempOil,
+		Weight = 3.0,
+		Tooltip = Tooltip_PCP_SaucepanHempInfusedOil,
+		WorldStaticModel = Saucepan_Ground,
+		CookingSound = FryingFood,
+		IsCookable = true,
+		MinutesToCook = 40,
+		MinutesToBurn = 80,
+		ReplaceOnCooked = PhobosChemistryPathways.SaucepanHempInfusedOilCooked,
+		ReplaceOnUse = Base.Saucepan,
+		CantEat = true,
+		Tags = base:hasmetal,
+	}
+
+	item SaucepanHempInfusedOilCooked {
+		ItemType = base:food,
+		DisplayCategory = Food,
+		Icon = PCP_SaucepanHempOilCooked,
+		Weight = 3.0,
+		Tooltip = Tooltip_PCP_SaucepanHempInfusedOilCooked,
+		WorldStaticModel = Saucepan_Ground,
+		ReplaceOnUse = Base.Saucepan,
+		CantEat = true,
+		Tags = base:hasmetal;base:alreadycooked,
+	}
+
+	item HempButter {
+		ItemType = base:food,
+		DisplayCategory = Food,
+		Icon = PCP_HempButter,
+		Weight = 0.3,
+		Tooltip = Tooltip_PCP_HempButter,
+		WorldStaticModel = Jar,
+		CustomContextMenu = Eat,
+		Spice = true,
+		HungerChange = -15,
+		Calories = 200,
+		Lipids = 20,
+		fatigueChange = 10,
+		StressChange = -14,
+		UnhappyChange = -6,
+		BoredomChange = -16,
+		painReduction = 16,
+		Eattime = 460,
+		ReplaceOnUse = Base.EmptyJar,
+	}
+
+	item HempInfusedOil {
+		ItemType = base:food,
+		DisplayCategory = Food,
+		Icon = PCP_HempInfusedOil,
+		Weight = 0.3,
+		Tooltip = Tooltip_PCP_HempInfusedOil,
+		WorldStaticModel = Jar,
+		CustomContextMenu = Eat,
+		Spice = true,
+		HungerChange = -10,
+		Calories = 120,
+		Lipids = 15,
+		fatigueChange = 8,
+		StressChange = -12,
+		UnhappyChange = -4,
+		BoredomChange = -14,
+		painReduction = 14,
+		Eattime = 460,
+		ReplaceOnUse = Base.EmptyJar,
 	}
 
 	item SimpleSugarSyrup {
