@@ -95,11 +95,11 @@ Tooltip_EN = {
     Tooltip_PCP_HempBuds = "Fresh hemp flower buds harvested from the plant.<br>Can be cured by slow drying or decarboxylated by<br>heating to activate medicinal compounds.",
     Tooltip_PCP_HempBudsCured = "Slowly dried and cured hemp buds.<br>More potent than fresh buds. Can be further<br>decarboxylated by cooking.",
     Tooltip_PCP_HempBudsDecarbed = "Hemp buds heated to activate cannabinoid compounds.<br>Edible: reduces stress, boredom, and pain but tastes<br>terrible. Also used for extraction and smoking.",
-    Tooltip_PCP_CannedHempBuds = "Fresh hemp buds preserved in a sealed can.<br>Slowly cures over time. Can be cooked to decarboxylate.",
-    Tooltip_PCP_CannedHempBudsCured = "Cured hemp buds in a sealed can.<br>Can be cooked to decarboxylate the contents.",
-    Tooltip_PCP_CannedHempBudsDecarbed = "Decarboxylated hemp buds in a sealed can.<br>Ready to be opened and used.",
-    Tooltip_PCP_CannedHempBudsOpen = "Opened can of cured hemp buds.<br>Use portions for smoking, cooking, or extraction.",
-    Tooltip_PCP_CannedHempBudsDecarbedOpen = "Opened can of decarboxylated hemp buds.<br>Ready to use in recipes or for smoking.",
+    Tooltip_PCP_CannedHempBuds = "Fresh hemp buds sealed in a container for curing.<br>Leave sealed for approximately 4 weeks — the freshness<br>bar shows curing progress, not spoilage.<br>Can also be cooked to decarboxylate.",
+    Tooltip_PCP_CannedHempBudsCured = "Cured hemp buds in a sealed container.<br>Fermentation complete. Cook to decarboxylate<br>or open to use the cured buds.",
+    Tooltip_PCP_CannedHempBudsDecarbed = "Decarboxylated hemp buds in a sealed container.<br>Ready to be opened and used.",
+    Tooltip_PCP_CannedHempBudsOpen = "Opened container of cured hemp buds.<br>Use portions for smoking, cooking, or extraction.",
+    Tooltip_PCP_CannedHempBudsDecarbedOpen = "Opened container of decarboxylated hemp buds.<br>Ready to use in recipes or for smoking.",
     Tooltip_PCP_HempLoose = "Loosely ground hemp material.<br>Ready for rolling into cigarettes or cigars,<br>or loading into a smoking pipe.",
 
     /* ===== Horticulture — Papermaking ===== */

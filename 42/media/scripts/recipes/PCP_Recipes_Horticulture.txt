@@ -216,6 +216,7 @@ module Base
         SkillRequired = AppliedChemistry:0,
         xpAward = AppliedChemistry:3,
         AutoLearnAll = AppliedChemistry:0,
+        OnCreate = PCP_HorticultureCallbacks.pcpStampFermentDate,
 
         inputs
         {

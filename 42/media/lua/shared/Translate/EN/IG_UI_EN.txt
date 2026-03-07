@@ -208,4 +208,7 @@ IGUI_EN = {
 	/* ===== Medicinal Actions ===== */
 	IGUI_PCP_Medicated_Applied = "The poultice soothes the pain...",
 	IGUI_PCP_Medicated_Tincture = "The tincture takes effect...",
+
+	/* ===== Fermentation System ===== */
+	IGUI_PCP_FermentCuring = "Curing",
 }

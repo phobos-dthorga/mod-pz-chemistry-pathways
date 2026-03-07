@@ -78,3 +78,13 @@ function PCP_HorticultureCallbacks.pcpPressPaperSheetPurity(items, result, playe
     local finalPurity = PCP_PuritySystem.calculateOutputPurity(avgPurity, 0.95, player)
     _stampAndAnnounce(result, player, finalPurity)
 end
+
+
+---------------------------------------------------------------
+-- FERMENTATION CALLBACKS — Stamp creation date for progress UI
+---------------------------------------------------------------
+
+--- Stamp the game date on canned hemp buds for fermentation tracking.
+function PCP_HorticultureCallbacks.pcpStampFermentDate(items, result, player)
+    PhobosLib.stampFermentationDate(result)
+end
