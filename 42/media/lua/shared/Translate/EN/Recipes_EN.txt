@@ -353,9 +353,6 @@ Recipes_EN = {
     Recipe_PCPLoadGlassPipeHemp = "HS3. Load Glass Pipe (Hemp)",
     Recipe_PCPLoadGlassPipeTobacco = "HS4. Load Glass Pipe (Tobacco)",
     Recipe_PCPLoadCanPipeHemp = "HS5. Load Can Pipe (Hemp)",
-    Recipe_PCPLoadPipeHempFromPouch = "HS6. Load Pipe (Hemp Pouch)",
-    Recipe_PCPLoadGlassPipeHempFromPouch = "HS7. Load Glass Pipe (Hemp Pouch)",
-    Recipe_PCPLoadCanPipeHempFromPouch = "HS8. Load Can Pipe (Hemp Pouch)",
 
     /* ===== Horticulture — Cooking ===== */
     Recipe_PCPMakeSyrupSaucepan = "HC1. Make Sugar Syrup (Saucepan)",

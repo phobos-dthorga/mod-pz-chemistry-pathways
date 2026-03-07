@@ -625,6 +625,7 @@ module Base
 
 /* ----- HS2: LOAD PIPE WITH HEMP ----- */
 /*  Pack ground hemp into a vanilla smoking pipe bowl.
+    Accepts decarbed buds (1 bud) or Pouch of Hemp (3 uses).
     The loaded pipe can be smoked for stress and pain relief.                                */
 
     craftRecipe PCPLoadPipeHemp
@@ -642,7 +643,7 @@ module Base
         inputs
         {
             item 1 [Base.SmokingPipe],
-            item 1 [PhobosChemistryPathways.HempBudsDecarbed],
+            item 1 [PhobosChemistryPathways.HempBudsDecarbed;3:PhobosChemistryPathways.HempLoose],
         }
         outputs
         {
@@ -651,7 +652,8 @@ module Base
     }
 
 /* ----- HS3: LOAD GLASS PIPE WITH HEMP ----- */
-/*  Pack ground hemp into the PCP glass smoking pipe.                                       */
+/*  Pack ground hemp into the PCP glass smoking pipe.
+    Accepts decarbed buds (1 bud) or Pouch of Hemp (3 uses).                                */
 
     craftRecipe PCPLoadGlassPipeHemp
     {
@@ -668,7 +670,7 @@ module Base
         inputs
         {
             item 1 [PhobosChemistryPathways.SmokingPipeGlass],
-            item 1 [PhobosChemistryPathways.HempBudsDecarbed],
+            item 1 [PhobosChemistryPathways.HempBudsDecarbed;3:PhobosChemistryPathways.HempLoose],
         }
         outputs
         {
@@ -704,6 +706,7 @@ module Base
 
 /* ----- HS5: LOAD CAN PIPE WITH HEMP ----- */
 /*  Pack ground hemp into a makeshift can pipe.
+    Accepts decarbed buds (1 bud) or Pouch of Hemp (3 uses).
     The aluminium pipe heats unevenly but works in a pinch.                                 */
 
     craftRecipe PCPLoadCanPipeHemp
@@ -721,86 +724,7 @@ module Base
         inputs
         {
             item 1 [Base.CanPipe],
-            item 1 [PhobosChemistryPathways.HempBudsDecarbed],
-        }
-        outputs
-        {
-            item 1 PhobosChemistryPathways.CanPipeHemp,
-        }
-    }
-
-/* ----- HS6: LOAD PIPE WITH HEMP (FROM POUCH) ----- */
-/*  Pack ground hemp from a pouch into a vanilla smoking pipe.
-    Consumes 3 uses of the drainable Pouch of Hemp per pipe bowl.                             */
-
-    craftRecipe PCPLoadPipeHempFromPouch
-    {
-        time = 30,
-        category = Phobos Horticulture,
-        NeedToBeLearn = true,
-
-        Tags = InHandCraft;CannotBeResearched,
-        timedAction = Making,
-        SkillRequired = AppliedChemistry:0,
-        xpAward = AppliedChemistry:1,
-        AutoLearnAll = AppliedChemistry:0,
-
-        inputs
-        {
-            item 1 [Base.SmokingPipe],
-            item 3 [PhobosChemistryPathways.HempLoose],
-        }
-        outputs
-        {
-            item 1 PhobosChemistryPathways.SmokingPipeHemp,
-        }
-    }
-
-/* ----- HS7: LOAD GLASS PIPE WITH HEMP (FROM POUCH) ----- */
-/*  Pack ground hemp from a pouch into the PCP glass smoking pipe.                            */
-
-    craftRecipe PCPLoadGlassPipeHempFromPouch
-    {
-        time = 30,
-        category = Phobos Horticulture,
-        NeedToBeLearn = true,
-
-        Tags = InHandCraft;CannotBeResearched,
-        timedAction = Making,
-        SkillRequired = AppliedChemistry:0,
-        xpAward = AppliedChemistry:1,
-        AutoLearnAll = AppliedChemistry:0,
-
-        inputs
-        {
-            item 1 [PhobosChemistryPathways.SmokingPipeGlass],
-            item 3 [PhobosChemistryPathways.HempLoose],
-        }
-        outputs
-        {
-            item 1 PhobosChemistryPathways.SmokingPipeGlassHemp,
-        }
-    }
-
-/* ----- HS8: LOAD CAN PIPE WITH HEMP (FROM POUCH) ----- */
-/*  Pack ground hemp from a pouch into a makeshift can pipe.                                  */
-
-    craftRecipe PCPLoadCanPipeHempFromPouch
-    {
-        time = 30,
-        category = Phobos Horticulture,
-        NeedToBeLearn = true,
-
-        Tags = InHandCraft;CannotBeResearched,
-        timedAction = Making,
-        SkillRequired = AppliedChemistry:0,
-        xpAward = AppliedChemistry:1,
-        AutoLearnAll = AppliedChemistry:0,
-
-        inputs
-        {
-            item 1 [Base.CanPipe],
-            item 3 [PhobosChemistryPathways.HempLoose],
+            item 1 [PhobosChemistryPathways.HempBudsDecarbed;3:PhobosChemistryPathways.HempLoose],
         }
         outputs
         {
