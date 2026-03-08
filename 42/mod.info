@@ -8,5 +8,5 @@ authors=phobosgekko
 versionMin=42.14.0
 modversion=1.5.0
 require=\PhobosLib,\ZVirusVaccine42BETA
-loadModAfter=\PhobosLib,\ZVirusVaccine42BETA,\ZScienceSkill,\EHR,\DynamicTradingCommon
+loadModAfter=\PhobosLib,\ZVirusVaccine42BETA,\ZScienceSkill,\EHR,\DynamicTradingCommon,\MoodleFramework
 category=features
