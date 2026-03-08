@@ -23,7 +23,7 @@
 
 ![CI](https://github.com/phobos-dthorga/mod-pz-chemistry-pathways/actions/workflows/ci.yml/badge.svg)
 
-**Version:** 1.4.0 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.18.0+ | [Zombie Virus Vaccine](https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168)
+**Version:** 1.5.0 | **Requires:** Project Zomboid Build 42.14.0+ | PhobosLib 1.18.1+ | [Zombie Virus Vaccine](https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168)
 
 > **Players:** Subscribe on [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3668197831) for easy installation. This GitHub repo is for source code, documentation, and development.
 >
@@ -44,7 +44,7 @@ This project is open-source, but the Steam Workshop upload is the official distr
 ## Features
 
 ### Applied Chemistry Skill System
-Custom `AppliedChemistry` perk under the Crafting parent with a steeper XP curve (75-9000). Two occupations (Chemist and Pharmacist) and two traits (Chemistry Enthusiast and Chemical Aversion) provide starting skill bonuses. Five skill book volumes cover levels 1-10, distributed in loot from common (Vol 1-2) to very rare (Vol 5). Six category recipe books (Field, Kitchen, Lab, Industrial, Horticulture, plus Complete Chemistry Compendium) unlock pathway-specific recipes. All 297 recipes award Applied Chemistry XP with 7 tiers of skill requirements.
+Custom `AppliedChemistry` perk under the Crafting parent with a steeper XP curve (75-9000). Two occupations (Chemist and Pharmacist) and two traits (Chemistry Enthusiast and Chemical Aversion) provide starting skill bonuses. Five skill book volumes cover levels 1-10, distributed in loot from common (Vol 1-2) to very rare (Vol 5). Six category recipe books (Field, Kitchen, Lab, Industrial, Horticulture, plus Complete Chemistry Compendium) unlock pathway-specific recipes. All 301 recipes award Applied Chemistry XP with 7 tiers of skill requirements.
 
 ### <img src="docs/images/pathway-blackpowder.png" width="24"> Blackpowder Pathway
 Seven-step chain from raw charcoal to gunpowder: crush, purify (water or alkaline wash), prepare compost, extract battery acid, extract sulphur, synthesize potassium nitrate, and mix blackpowder.
@@ -68,7 +68,7 @@ Collect brine from water wells via right-click context menu, concentrate through
 Thirty-one recipes for hemp processing: chemical retting with KOH or NaOH, fiber/hurd splitting, then branching into textiles (twine, rope, tarred rope, cloth, canvas), papermaking (pulp, chemical pulping, paper sheets), medicinals (poultice, tincture), and hurd processing (charcoal, hempcrete blocks, compost, fire bundles). Reinforced hempcrete (H14b) embeds tarred rope for higher yield (3 blocks vs 2). HempRope and TarredHempRope are tagged `base:rope` for vanilla recipe substitution; TarredHempRope is also usable as campfire fuel. Cross-links to blackpowder (charcoal from hurds), biodiesel (wood tar for tarring), and construction (hempcrete via concrete mixer). Vanilla station integration (Scutching Board, Looms, Hand Press) for fiber extraction, weaving, and oil pressing. Gated by `EnableBotanicalPathway` sandbox option.
 
 ### Horticulture Items
-Thirty-one items providing full parity with the [B42] Horticulture mod: tobacco (wet leaves with air-dry mechanic, chewing tobacco in 3 container types), hemp buds (fresh, cured, decarboxylated, canned variants, ground loose), papermaking tools (mould and deckle, rolling papers), smoking products (glass pipe, loaded pipes, cigars, cigarettes, packs), and cooking (sugar syrup). Dual-trigger migration system converts existing Horticulture mod items to PCP equivalents. Canned hemp buds show fermentation progress (%) and remaining days via dynamic tooltip; canning date stamped on creation. Medicinal items (poultice, tincture) trigger timed actions with visual/audio feedback and a Medicated custom moodle (requires Moodle Framework). Hemp product effects are fully configurable via 33 sandbox options on the PCP_HempEffects settings page.
+45 items providing full parity with the [B42] Horticulture mod: tobacco (wet leaves with air-dry mechanic, dual-path chewing tobacco via fire-cure or 14-day jar fermentation), hemp buds (fresh, cured, decarboxylated, canned variants, ground loose pouch), papermaking tools (mould and deckle, rolling papers), smoking products (glass pipe, loaded pipes, cigars, cigarettes, packs), edibles (hemp butter, hemp-infused oil), and cooking (sugar syrup). Dual-trigger migration system converts existing Horticulture mod items to PCP equivalents. Canned hemp buds show fermentation progress (%) and remaining days via dynamic tooltip; canning date stamped on creation. Medicinal items (poultice, tincture) trigger timed actions with visual/audio feedback and a Medicated custom moodle (requires Moodle Framework). Hemp product effects are fully configurable via 33 sandbox options on the PCP_HempEffects settings page.
 
 ### Advanced Lab Equipment
 Centrifuge, chromatograph, microscope, and spectrometer recipes for enhanced processing. Microscope and spectrometer are gated by the EnableAdvancedLabRecipes sandbox option.
@@ -98,9 +98,9 @@ Optional hazard system for 11 dangerous chemistry recipes. Each splits into Prot
 Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" settings page for version upgrades and mod removal. Strip purity data, forget recipes, reset skill XP, remove all PCP items, or execute all four as a nuclear reset. Each option executes once on game load, then auto-resets to OFF with persistent notifications. Reset flags persist across game restarts via world modData.
 
 ### Cross-Mod Integration
-- **ZScienceSkill** ("Science, Bitch!"): When active, Applied Chemistry XP mirrors to Science at 50% rate, and 79 items + 8 fluids are registered as researchable microscope specimens.
+- **ZScienceSkill** ("Science, Bitch!"): When active, Applied Chemistry XP mirrors to Science at 50% rate, and 83 items + 8 fluids are registered as researchable microscope specimens.
 - **EHR** (Extensive Health Rework): When active, health hazard recipes dispatch EHR diseases instead of vanilla stat penalties.
-- **Dynamic Trading** (DynamicTradingCommon): When active, 67 PCP items are registered for NPC trading with a custom "Chemical" tag and "Chemist" trader archetype (with chemistry-themed dialogue) via PhobosLib_Trading. Chemical allocations injected into 8 existing DT archetypes.
+- **Dynamic Trading** (DynamicTradingCommon): When active, 68 PCP items are registered for NPC trading with a custom "Chemical" tag and "Chemist" trader archetype (with chemistry-themed dialogue) via PhobosLib_Trading. Chemical allocations injected into 8 existing DT archetypes.
 - **Neat Crafting**: When active, recipe visibility filters are applied through `NC_FilterBar:shouldIncludeRecipe()` in addition to vanilla UI hooks. Runtime-detected, no hard dependency.
 - **Moodle Framework**: When active, medicinal hemp items (poultice, tincture) trigger a "Medicated" custom moodle with configurable duration. Graceful no-op when not installed.
 
@@ -108,7 +108,7 @@ Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" setting
 
 | Dependency | Purpose |
 |------------|---------|
-| **PhobosLib 1.18.0+** | Shared utility library (sandbox access, fluid helpers, quality tracking, hazard dispatch, skill XP mirroring, reset utilities, startup validation, recipe visibility filters, item tooltip customisation, lazy container stamping, empty vessel replacement, farming spray registration, versioned migration framework, Dynamic Trading wrapper, powered workstation support, in-game popup system, world object context menus, entity rebinding, skill bonus helpers, notice popups, debug logging, fermentation registry, Moodle Framework wrapper) |
+| **PhobosLib 1.18.1+** | Shared utility library (sandbox access, fluid helpers, quality tracking, hazard dispatch, skill XP mirroring, reset utilities, startup validation, recipe visibility filters, item tooltip customisation, lazy container stamping, empty vessel replacement, farming spray registration, versioned migration framework, Dynamic Trading wrapper, powered workstation support, in-game popup system, world object context menus, entity rebinding, skill bonus helpers, notice popups, debug logging, fermentation registry, Moodle Framework wrapper) |
 | **Zombie Virus Vaccine** (ZVirusVaccine42BETA) | Lab equipment entities (chemistry set, centrifuge, chromatograph, microscope, spectrometer) |
 | **EHR** (optional) | Disease system for health hazard integration; vanilla stat penalties used as fallback |
 | **ZScienceSkill** (optional) | Science skill XP mirroring and microscope specimen registration |
@@ -146,14 +146,14 @@ The **PCP_HempEffects** settings page provides 33 additional per-product stat kn
 
 ## Content Summary
 
-- **297 recipes** across blackpowder, biodiesel, soap, bone char, salt extraction, recycling, agriculture, concrete mixer, botanical, horticulture, utility, and advanced lab pathways
-- **112 items** including chemical reagents, intermediates, container variants, gardening sprays, construction materials, salt products, botanical textiles, horticulture products, and smoking items
-- **67 tradeable items** registered with Dynamic Trading across 9 vendor archetypes
+- **301 recipes** across blackpowder, biodiesel, soap, bone char, salt extraction, recycling, agriculture, concrete mixer, botanical, horticulture, utility, and advanced lab pathways
+- **122 items** including chemical reagents, intermediates, container variants, gardening sprays, construction materials, salt products, botanical textiles, horticulture products, and smoking items
+- **68 tradeable items** registered with Dynamic Trading across 9 vendor archetypes
 - **6 recipe books** (1 master compendium + 5 category-specific) teaching pathway-specific recipes
 - **5 skill books** covering Applied Chemistry levels 1-10
 - **2 occupations** (Chemist, Pharmacist) and **2 traits** (Chemistry Enthusiast, Chemical Aversion)
 - **10 fluids** with Build 42 FluidContainer integration and poison profiles
-- **52 sandbox options** for gameplay customization, vessel replacement, concrete mixer, botanical pathway, hemp effects tuning, and maintenance
+- **62 sandbox options** for gameplay customization, vessel replacement, concrete mixer, botanical pathway, hemp effects tuning, and maintenance
 - **216 OnCreate callbacks** for purity tracking and propane partial consumption
 
 ## License
@@ -171,7 +171,7 @@ Visual guides for understanding recipe chains, sandbox settings, and mod archite
 - [Recipe Pathways](docs/diagrams/recipe-pathways.md) — Complete crafting chain flowcharts for all chemistry pathways
 - [Botanical & Horticulture Pathways](docs/diagrams/botanical-pathways.md) — Hemp processing, textiles, paper, medicinals, and horticulture items
 - [Recipe Variants](docs/diagrams/recipe-variants.md) — Why PCP recipes have multiple versions, naming conventions, and troubleshooting
-- [Sandbox Settings Guide](docs/diagrams/sandbox-gating.md) — How 52 sandbox options control recipe visibility, behavior, hemp effects, and maintenance
+- [Sandbox Settings Guide](docs/diagrams/sandbox-gating.md) — How 62 sandbox options control recipe visibility, behavior, hemp effects, and maintenance
 - [Skill Progression](docs/diagrams/skill-progression.md) — Applied Chemistry skill tiers, XP curve, occupations, and traits
 - [Architecture & Dependencies](docs/diagrams/architecture.md) — Dependency graph, PhobosLib modules, and cross-mod integration
 
