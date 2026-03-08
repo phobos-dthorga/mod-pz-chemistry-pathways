@@ -167,7 +167,7 @@ module Base
             item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [LabItems.LabFlask],
             item 1 [Base.Cork],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -199,7 +199,7 @@ module Base
             item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [LabItems.LabFlask],
             item 1 [Base.Cork],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 [*],
             -fluid 0.5 [Water],
         }
@@ -234,7 +234,7 @@ module Base
         {
             item 4 [PhobosChemistryPathways.CrushedCharcoal],
             item 1 [LabItems.ChSodiumHydroxideBag],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 [*] mode:keep,
             -fluid 0.5 [Water],
         }
@@ -334,12 +334,12 @@ module Base
         inputs
         {
             item 1 tags[base:carbattery] mode:destroy,
-            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
             +fluid 1.0 SulphuricAcid,
-            item 1 [Base.EmptyJar;Base.JarCrafted;Base.BottleCrafted;Base.CeramicCrucibleSmall;Base.ClayJarGlazed] flags[IsEmpty],
+            item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
             +fluid 1.0 SulphuricAcid,
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
-            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
         }
         outputs
         {
@@ -375,8 +375,8 @@ module Base
             item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
             item 1 [LabItems.LabFlask],
             item 1 [Base.Cork],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
-            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.2 [Water],
@@ -407,8 +407,8 @@ module Base
             item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
             item 1 [LabItems.LabFlask],
             item 1 [Base.Cork],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
-            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 [*],
             -fluid 0.2 [Water],
         }
@@ -441,8 +441,8 @@ module Base
             item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
             item 1 [LabItems.LabFlask],
             item 1 [Base.Cork],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
-            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 1.0 [SulphuricAcid],
@@ -472,8 +472,8 @@ module Base
             item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
             item 1 [LabItems.LabFlask],
             item 1 [Base.Cork],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
-            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 [*],
             -fluid 1.0 [SulphuricAcid],
         }
@@ -513,7 +513,7 @@ module Base
             item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [LabItems.LabFlask],
             item 1 [Base.Cork],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -545,7 +545,7 @@ module Base
             item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [LabItems.LabFlask],
             item 1 [Base.Cork],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 [*],
             -fluid 0.5 [Water],
         }
@@ -580,7 +580,7 @@ module Base
             item 2 [Base.Fertilizer],
             item 3 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
             item 1 [LabItems.ChSodiumHydroxideBag],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 [*] mode:keep,
             -fluid 0.5 [Water],
         }
@@ -716,7 +716,7 @@ module Base
             item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
             item 1 [LabItems.LabFlask],
             item 1 [Base.Cork],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
         }
         outputs
         {

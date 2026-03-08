@@ -442,8 +442,8 @@ module Base
             -fluid 0.5 [Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
-            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
         }
         outputs
@@ -473,7 +473,7 @@ module Base
             -fluid 0.5 [Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
         }
         outputs
@@ -503,8 +503,8 @@ module Base
             -fluid 0.5 [Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
-            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
         }
         outputs
         {
@@ -533,7 +533,7 @@ module Base
             -fluid 0.5 [Glycerol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [Base.BottleCrafted] mode:destroy flags[IsEmpty],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
         }
         outputs
         {
@@ -721,8 +721,8 @@ module Base
             item 1 [PhobosChemistryPathways.PotassiumNitratePowder] mode:destroy,
             item 1 [PhobosChemistryPathways.BoneChar] mode:destroy,
             item 2 [Base.TreeBranch2;Base.WoodenStick2] mode:destroy,
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
-            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles;Base.Glasses_SkiGoggles] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 tags[base:gasmaskfilter] mode:keep flags[NoBrokenItems],
         }
         outputs
@@ -752,7 +752,7 @@ module Base
             item 1 [PhobosChemistryPathways.PotassiumNitratePowder] mode:destroy,
             item 1 [PhobosChemistryPathways.BoneChar] mode:destroy,
             item 2 [Base.TreeBranch2;Base.WoodenStick2] mode:destroy,
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
         }
         outputs
         {
