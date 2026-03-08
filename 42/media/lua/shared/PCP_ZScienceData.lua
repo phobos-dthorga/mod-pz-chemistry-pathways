@@ -220,7 +220,7 @@ local function registerPCPSpecimens()
     end)
 
     if success then
-        print("[PCP] ZScienceSkill: 78 items + 8 fluids registered [" .. (isServer() and "server" or "local") .. "]")
+        print("[PCP] ZScienceSkill: 83 items + 8 fluids registered [" .. (isServer() and "server" or "local") .. "]")
     else
         print("[PCP] ZScienceSkill: registration failed — " .. tostring(err))
     end

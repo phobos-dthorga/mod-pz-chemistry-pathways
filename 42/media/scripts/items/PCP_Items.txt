@@ -807,7 +807,7 @@ module PhobosChemistryPathways {
 	}
 
 /* ============================== BOOKS ============================== */
-/*  Master compendium teaches ALL 275 recipes. Ultra-rare jackpot find.
+/*  Master compendium teaches ALL 301 recipes. Ultra-rare jackpot find.
     Category-specific books each teach only their own category's recipes.  */
 
 	item BkChemistryPathways {
