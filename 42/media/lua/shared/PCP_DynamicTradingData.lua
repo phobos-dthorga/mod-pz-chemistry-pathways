@@ -57,7 +57,7 @@ local function injectChemicalAllocations()
         { id = "Herbalist",   slots = 3 },  -- Oils, rendered fat, glycerol, botanical fiber/medical
         { id = "Brewer",      slots = 1 },  -- Methanol, glycerol
         { id = "Farmer",      slots = 2 },  -- Fertilizers (potash, calcite, compost)
-        { id = "Smuggler",    slots = 2 },  -- Non-illegal chemicals, tobacco/hemp contraband
+        { id = "Smuggler",    slots = 2 },  -- Chemicals + Illegal hemp/tobacco products
         { id = "General",     slots = 2 },  -- Small general chemical stock, common smoking/paper
     }
 
@@ -192,18 +192,18 @@ local function registerPCPTradeData()
         { item = "PhobosChemistryPathways.HempSnare",        basePrice = 15,  tags = { "Chemical", "Survival", "Common" },    stockRange = { min = 2, max = 4 } },
 
         -- Horticulture items (tobacco, hemp buds, smoking, papermaking, cooking)
-        { item = "PhobosChemistryPathways.ChewingTobacco",      basePrice = 16,  tags = { "Common" },                            stockRange = { min = 2, max = 5 } },
-        { item = "PhobosChemistryPathways.CigarRolled",        basePrice = 12,  tags = { "Common" },                            stockRange = { min = 2, max = 6 } },
-        { item = "PhobosChemistryPathways.CigarHemp",          basePrice = 20,  tags = { "Uncommon" },                          stockRange = { min = 1, max = 3 } },
-        { item = "PhobosChemistryPathways.CigarettePackHemp",  basePrice = 25,  tags = { "Uncommon" },                          stockRange = { min = 1, max = 3 } },
-        { item = "PhobosChemistryPathways.CigarettePackRolled", basePrice = 15, tags = { "Common" },                            stockRange = { min = 2, max = 5 } },
-        { item = "PhobosChemistryPathways.SmokingPipeGlass",   basePrice = 35,  tags = { "Uncommon" },                          stockRange = { min = 1, max = 2 } },
-        { item = "PhobosChemistryPathways.RollingPapers",      basePrice = 8,   tags = { "Common" },                            stockRange = { min = 3, max = 8 } },
+        { item = "PhobosChemistryPathways.ChewingTobacco",      basePrice = 16,  tags = { "Herb", "Common" },                    stockRange = { min = 2, max = 5 } },
+        { item = "PhobosChemistryPathways.CigarRolled",        basePrice = 12,  tags = { "Herb", "Common" },                    stockRange = { min = 2, max = 6 } },
+        { item = "PhobosChemistryPathways.CigarHemp",          basePrice = 20,  tags = { "Herb", "Illegal", "Uncommon" },       stockRange = { min = 1, max = 3 } },
+        { item = "PhobosChemistryPathways.CigarettePackHemp",  basePrice = 25,  tags = { "Herb", "Illegal", "Uncommon" },       stockRange = { min = 1, max = 3 } },
+        { item = "PhobosChemistryPathways.CigarettePackRolled", basePrice = 15, tags = { "Herb", "Common" },                    stockRange = { min = 2, max = 5 } },
+        { item = "PhobosChemistryPathways.SmokingPipeGlass",   basePrice = 35,  tags = { "Material", "Uncommon" },              stockRange = { min = 1, max = 2 } },
+        { item = "PhobosChemistryPathways.RollingPapers",      basePrice = 8,   tags = { "Material", "Common" },                stockRange = { min = 3, max = 8 } },
         { item = "PhobosChemistryPathways.MouldAndDeckle",     basePrice = 20,  tags = { "Material", "Uncommon" },              stockRange = { min = 1, max = 2 } },
-        { item = "PhobosChemistryPathways.SimpleSugarSyrup",   basePrice = 10,  tags = { "Common" },                            stockRange = { min = 2, max = 5 } },
+        { item = "PhobosChemistryPathways.SimpleSugarSyrup",   basePrice = 10,  tags = { "Herb", "Common" },                    stockRange = { min = 2, max = 5 } },
         { item = "PhobosChemistryPathways.HempButter",         basePrice = 30,  tags = { "Chemical", "Uncommon" },              stockRange = { min = 1, max = 3 } },
         { item = "PhobosChemistryPathways.HempInfusedOil",     basePrice = 25,  tags = { "Chemical", "Uncommon" },              stockRange = { min = 1, max = 3 } },
-        { item = "PhobosChemistryPathways.HempBudsCured",      basePrice = 15,  tags = { "Uncommon" },                          stockRange = { min = 1, max = 3 } },
+        { item = "PhobosChemistryPathways.HempBudsCured",      basePrice = 15,  tags = { "Herb", "Illegal", "Uncommon" },       stockRange = { min = 1, max = 3 } },
 
         -- Category recipe books (tiered by survival value)
         { item = "PhobosChemistryPathways.BkFieldChemistry",      basePrice = 80,  tags = { "Literature", "Common" },                       stockRange = { min = 0, max = 2 } },
