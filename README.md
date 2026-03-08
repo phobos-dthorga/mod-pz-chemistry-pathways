@@ -100,7 +100,7 @@ Five one-shot sandbox options on a dedicated "PCP - Maintenance / Reset" setting
 ### Cross-Mod Integration
 - **ZScienceSkill** ("Science, Bitch!"): When active, Applied Chemistry XP mirrors to Science at 50% rate, and 83 items + 8 fluids are registered as researchable microscope specimens.
 - **EHR** (Extensive Health Rework): When active, health hazard recipes dispatch EHR diseases instead of vanilla stat penalties.
-- **Dynamic Trading** (DynamicTradingCommon): When active, 68 PCP items are registered for NPC trading with a custom "Chemical" tag and "Chemist" trader archetype (with chemistry-themed dialogue) via PhobosLib_Trading. Chemical allocations injected into 8 existing DT archetypes.
+- **Dynamic Trading** (DynamicTradingCommon): When active, 76 PCP items are registered for NPC trading with a custom "Chemical" tag and "Chemist" trader archetype (with chemistry-themed dialogue) via PhobosLib_Trading. Chemical allocations injected into 8 existing DT archetypes.
 - **Neat Crafting**: When active, recipe visibility filters are applied through `NC_FilterBar:shouldIncludeRecipe()` in addition to vanilla UI hooks. Runtime-detected, no hard dependency.
 - **Moodle Framework**: When active, medicinal hemp items (poultice, tincture) trigger a "Medicated" custom moodle with configurable duration. Graceful no-op when not installed.
 
@@ -147,8 +147,8 @@ The **PCP_HempEffects** settings page provides 33 additional per-product stat kn
 ## Content Summary
 
 - **301 recipes** across blackpowder, biodiesel, soap, bone char, salt extraction, recycling, agriculture, concrete mixer, botanical, horticulture, utility, and advanced lab pathways
-- **122 items** including chemical reagents, intermediates, container variants, gardening sprays, construction materials, salt products, botanical textiles, horticulture products, and smoking items
-- **68 tradeable items** registered with Dynamic Trading across 9 vendor archetypes
+- **121 items** including chemical reagents, intermediates, container variants, gardening sprays, construction materials, salt products, botanical textiles, horticulture products, and smoking items
+- **76 tradeable items** registered with Dynamic Trading across 9 vendor archetypes
 - **6 recipe books** (1 master compendium + 5 category-specific) teaching pathway-specific recipes
 - **5 skill books** covering Applied Chemistry levels 1-10
 - **2 occupations** (Chemist, Pharmacist) and **2 traits** (Chemistry Enthusiast, Chemical Aversion)

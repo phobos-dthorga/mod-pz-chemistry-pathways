@@ -35,8 +35,8 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 ### Changed
 - 3 deprecated items: ChewingTobaccoTin, ChewingTobaccoWaterTin, ChewingTobaccoJar (save migration v1.5.0 converts to ChewingTobacco + teaches new recipes).
 - Recipe count: 297 → **301**
-- Item count: 112 → **122**
-- Tradeable items: 67 → **68**
+- Item count: 112 → **121**
+- Tradeable items: 67 → **76**
 - Sandbox options: 52 → **62**
 - ZScience specimens: 87 → **91**
 - Save migrations: 8 → **9**

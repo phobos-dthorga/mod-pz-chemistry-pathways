@@ -79,7 +79,7 @@ graph TB
 
     HAZARD -.->|"EHR.Disease.TryContract<br/>(pcall-wrapped)"| EHR
     SKILL -.->|"registerXPMirror<br/>AC to Science at 50%"| ZSS
-    TRADING -.->|"registerTradeItems<br/>(68 items, 1 tag, 1 archetype)"| DT
+    TRADING -.->|"registerTradeItems<br/>(76 items, 1 tag, 1 archetype)"| DT
     REC -.->|"PhobosLib_RecipeFilter<br/>(NC_FilterBar hook)"| NC
     HORT -.->|"Medicated moodle<br/>(pcall-wrapped)"| MF
 
@@ -106,7 +106,7 @@ graph TB
     START --> CHECK_DT{"isModActive<br/>DynamicTradingCommon?"}
     START --> CHECK_NC{"NC_FilterBar<br/>exists?"}
 
-    CHECK_DT -->|"Yes"| DT_INIT["Register Chemist Archetype<br/>+ 68 Items across 9 Vendors<br/>(PCP_DynamicTradingData.lua)"]
+    CHECK_DT -->|"Yes"| DT_INIT["Register Chemist Archetype<br/>+ 76 Items across 9 Vendors<br/>(PCP_DynamicTradingData.lua)"]
     CHECK_DT -->|"No"| DT_SKIP["No action<br/>Zero errors"]
 
     CHECK_NC -->|"Yes"| NC_INIT["Hook NC_FilterBar:shouldIncludeRecipe<br/>for recipe visibility filters<br/>(PhobosLib_RecipeFilter.lua)"]
