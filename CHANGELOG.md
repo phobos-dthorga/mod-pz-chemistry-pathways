@@ -21,6 +21,30 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project follows Semantic Versioning.
 
+## [1.5.0] - 2026-03-09
+
+### Added
+- **Dual-path chewing tobacco curing** — Prepare Chewing Tobacco Mix (tobacco + salt + sweetener + alkali + water), then fire-cure on a heat source (instant via ReplaceOnCooked) or seal in a jar for 14-day fermentation (ReplaceOnRotten).
+- **4 new items** — ChewingTobaccoMixRaw, SealedChewingTobaccoJar, CuredChewingTobaccoJar, ChewingTobacco (20-use drainable with stress reduction).
+- **4 chewing tobacco icons** generated via gpt-image-1 pipeline.
+- **Custom ItemTag system** — 4 registered tags (pcp:protectivegloves, pcp:protectivegoggles, pcp:respirator, pcp:acidresistantvessel) replace 382 recipe OR-list inputs.
+- **Pouch of Hemp** — HempLoose drainable integrated into pipe recipes via OR-list quantity override (1 bud OR 3 uses of pouch).
+- **Vanilla tobacco integration** — TobaccoLoose integrated into all 6 PCP tobacco recipes via OR-list.
+- **Farming spray tooltips** — Plain-English descriptions explaining crop problems and usage instructions on all 3 spray items.
+
+### Changed
+- 3 deprecated items: ChewingTobaccoTin, ChewingTobaccoWaterTin, ChewingTobaccoJar (save migration v1.5.0 converts to ChewingTobacco + teaches new recipes).
+- Recipe count: 297 → **301**
+- Item count: 112 → **122**
+- Tradeable items: 67 → **68**
+- Sandbox options: 52 → **62**
+- ZScience specimens: 87 → **91**
+- Save migrations: 8 → **9**
+- Requires PhobosLib **1.18.1+** (was 1.18.0+)
+
+### Fixed
+- **Farming spray context menu** — Custom spray options now correctly appear in the "Treat Problem" submenu on diseased plants (fixed in PhobosLib 1.18.1).
+
 ## [1.4.0] - 2026-03-08
 
 ### Added

@@ -1,5 +1,29 @@
 [h1]Phobos' Industrial Pathways: Biomass — Changelog[/h1]
 
+[h2]v1.5.0 — Chewing Tobacco Curing & Tag System (2026-03-09)[/h2]
+
+[h3]New Features[/h3]
+[list]
+[*] [b]Dual-path chewing tobacco curing[/b] — Prepare Chewing Tobacco Mix (tobacco + salt + sweetener + alkali + water), then choose: fire-cure on a heat source (instant) or seal in a jar for 14-day fermentation. Both paths produce the same chewing tobacco.
+[*] [b]4 new items[/b] — ChewingTobaccoMixRaw, SealedChewingTobaccoJar, CuredChewingTobaccoJar, ChewingTobacco
+[*] [b]Custom ItemTag system[/b] — 382 recipe OR-list inputs converted to 4 registered tags (protective gloves, goggles, respirators, acid-resistant vessels). New PPE items are automatically recognised.
+[*] [b]Pouch of Hemp & vanilla tobacco[/b] — HempLoose drainable and vanilla TobaccoLoose integrated into pipe and tobacco recipes
+[*] [b]Farming spray tooltips[/b] — Plain-English descriptions on spray items explaining which crop problems they treat and how to use them
+[/list]
+
+[h3]Changed[/h3]
+[list]
+[*] 3 deprecated items (ChewingTobaccoTin, ChewingTobaccoWaterTin, ChewingTobaccoJar) — save migration converts to ChewingTobacco
+[*] Requires [b]PhobosLib 1.18.1+[/b] (was 1.18.0+)
+[/list]
+
+[h3]Bug Fixes[/h3]
+[list]
+[*] [b]Farming spray context menu[/b] — Custom spray options now correctly appear in the "Treat Problem" submenu (fixed in PhobosLib 1.18.1)
+[/list]
+
+[hr][/hr]
+
 [h2]v1.4.0 — Medicinal Effects & Moodle Framework (2026-03-08)[/h2]
 
 [h3]New Features[/h3]
@@ -275,9 +299,9 @@
 
 [h2]Summary[/h2]
 [list]
-[*] [b]297 recipes[/b] across 10 pathways — Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture, Concrete Mixer, Botanical
-[*] [b]112 items[/b], [b]67 tradeable items[/b], [b]6 recipe books[/b], [b]5 skill books[/b], [b]10 fluids[/b]
-[*] [b]52 sandbox options[/b], [b]216 OnCreate callbacks[/b], [b]87 ZScience specimens[/b]
+[*] [b]301 recipes[/b] across 10 pathways — Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture, Concrete Mixer, Botanical
+[*] [b]122 items[/b], [b]68 tradeable items[/b], [b]6 recipe books[/b], [b]5 skill books[/b], [b]10 fluids[/b]
+[*] [b]62 sandbox options[/b], [b]216 OnCreate callbacks[/b], [b]91 ZScience specimens[/b]
 [*] [b]v1.4.0[/b]: Medicated moodle, medicinal timed actions, hemp effects system, 33 sandbox options, fermentation tooltip
 [*] [b]v1.3.0[/b]: Hemp expansion (6 new items), vanilla station integration, mechanical hazards, 26 new ZScience specimens
 [*] [b]v1.2.0[/b]: Botanical pathway, 31 horticulture items, 6 recipe books, [B42] Horticulture migration system
