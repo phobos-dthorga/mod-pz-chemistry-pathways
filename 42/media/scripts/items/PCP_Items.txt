@@ -683,6 +683,7 @@ module PhobosChemistryPathways {
 		UseWhileEquipped = false,
 		StaticModel = GardenSpray,
 		WorldStaticModel = GardenSprayGround,
+		Tooltip = Tooltip_PCP_SulphurFungicideSpray,
 	}
 
 	item InsecticidalSoapSpray {
@@ -695,6 +696,7 @@ module PhobosChemistryPathways {
 		UseWhileEquipped = false,
 		StaticModel = GardenSpray,
 		WorldStaticModel = GardenSprayGround,
+		Tooltip = Tooltip_PCP_InsecticidalSoapSpray,
 	}
 
 	item PotashFoliarSpray {
@@ -707,6 +709,7 @@ module PhobosChemistryPathways {
 		UseWhileEquipped = false,
 		StaticModel = GardenSpray,
 		WorldStaticModel = GardenSprayGround,
+		Tooltip = Tooltip_PCP_PotashFoliarSpray,
 	}
 
 /* ============================== CONCRETE MIXER PRODUCTS ============================== */
