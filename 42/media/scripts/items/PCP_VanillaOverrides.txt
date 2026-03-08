@@ -18,11 +18,18 @@
  * PCP_VanillaOverrides.txt
  * Patches to vanilla item definitions required by PCP.
  *
- * JarLid: Vanilla ConditionMax = 10.  PCP's vessel replacement
- *         system returns a JarLid alongside EmptyJar when an
- *         empty jar-type FluidContainer is replaced.  Raising
- *         ConditionMax to 100 ensures the JarLid condition
- *         value directly matches the EmptyJar (also max 100).
+ * JarLid:  Vanilla ConditionMax = 10.  PCP's vessel replacement
+ *          system returns a JarLid alongside EmptyJar when an
+ *          empty jar-type FluidContainer is replaced.  Raising
+ *          ConditionMax to 100 ensures the JarLid condition
+ *          value directly matches the EmptyJar (also max 100).
+ *
+ * Tags:    PCP registers four custom item tags via registries.lua
+ *          (pcp:protectivegloves, pcp:protectivegoggles,
+ *          pcp:respirator, pcp:acidresistantvessel) and applies
+ *          them to vanilla PPE and vessel items so that recipe
+ *          inputs can use  tags[pcp:tagname]  instead of long
+ *          OR-lists.  Existing vanilla tags are preserved.
  * --------------------------------------------------------------- */
 
 module Base
@@ -30,5 +37,98 @@ module Base
     item JarLid
     {
         ConditionMax = 100,
+    }
+
+    /* --- pcp:protectivegloves ---------------------------------- */
+
+    item Gloves_Dish
+    {
+        Tags = pcp:protectivegloves,
+    }
+
+    item Gloves_LeatherGloves
+    {
+        Tags = pcp:protectivegloves,
+    }
+
+    item Gloves_LeatherGlovesBlack
+    {
+        Tags = pcp:protectivegloves,
+    }
+
+    item Gloves_LeatherGlovesBrown
+    {
+        Tags = pcp:protectivegloves,
+    }
+
+    item Gloves_Surgical
+    {
+        Tags = base:fitswallet;pcp:protectivegloves,
+    }
+
+    /* --- pcp:protectivegoggles --------------------------------- */
+
+    item Glasses_SafetyGoggles
+    {
+        Tags = pcp:protectivegoggles,
+    }
+
+    item Glasses_SwimmingGoggles
+    {
+        Tags = pcp:protectivegoggles,
+    }
+
+    item Glasses_SkiGoggles
+    {
+        Tags = base:isupperdisguise;pcp:protectivegoggles,
+    }
+
+    /* --- pcp:respirator ---------------------------------------- */
+
+    item Hat_GasMask
+    {
+        Tags = base:gasmask;base:isdisguise;pcp:respirator,
+    }
+
+    item Hat_NBCmask
+    {
+        Tags = base:gasmask;base:isdisguise;pcp:respirator,
+    }
+
+    item Hat_BuildersRespirator
+    {
+        Tags = base:respirator;base:islowerdisguise;pcp:respirator,
+    }
+
+    item Hat_ImprovisedGasMask
+    {
+        Tags = base:gasmask;base:isdisguise;base:ignorezombiedensity;pcp:respirator,
+    }
+
+    /* --- pcp:acidresistantvessel ------------------------------- */
+
+    item EmptyJar
+    {
+        Tags = base:glass;base:jar;pcp:acidresistantvessel,
+    }
+
+    item JarCrafted
+    {
+        Tags = base:glass;base:jar;pcp:acidresistantvessel,
+    }
+
+    item BottleCrafted
+    {
+        Tags = base:glass;base:glassbottle;pcp:acidresistantvessel,
+    }
+
+    item CeramicCrucibleSmall
+    {
+        Tags = pcp:acidresistantvessel,
+    }
+
+    item ClayJarGlazed
+    {
+        Tags = pcp:acidresistantvessel,
     }
 }

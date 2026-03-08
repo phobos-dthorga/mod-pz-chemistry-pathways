@@ -76,8 +76,8 @@ module Base
             item 2 [Base.ElectronicsScrap],
             item 1 [LabItems.LabFlask],
             item 1 [Base.Cork],
-            item 1 [Base.Gloves_Dish;Base.Gloves_LeatherGloves;Base.Gloves_LeatherGlovesBlack;Base.Gloves_LeatherGlovesBrown;Base.Gloves_Surgical] mode:keep flags[NoBrokenItems],
-            item 1 [Base.Glasses_SafetyGoggles;Base.Glasses_SwimmingGoggles] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
+            item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 [*],
             -fluid 0.3 [SulphuricAcid],
         }

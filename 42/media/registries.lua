@@ -32,3 +32,9 @@ CharacterTrait.register("pcp:pcp_chem_aversion")
 -- Character Professions
 CharacterProfession.register("pcp:pcp_chemist")
 CharacterProfession.register("pcp:pcp_pharmacist")
+
+-- Item Tags (PPE & vessel categories for recipe inputs)
+ItemTag.register("pcp:protectivegloves")
+ItemTag.register("pcp:protectivegoggles")
+ItemTag.register("pcp:respirator")
+ItemTag.register("pcp:acidresistantvessel")
