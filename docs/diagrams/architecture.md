@@ -26,16 +26,16 @@ The diagram below shows PCP's internal module structure, its hard dependencies, 
 ```mermaid
 graph TB
     subgraph HARD["Hard Dependencies (mod.info require)"]
-        PL["PhobosLib v1.16.0+<br/>23 modules (12 shared + 11 client/server)"]
+        PL["PhobosLib v1.18.1+<br/>24 modules (13 shared + 11 client/server)"]
         ZR["Zombie Virus Vaccine<br/>Lab equipment entities"]
     end
 
-    subgraph PCP["PhobosChemistryPathways v1.3.0"]
+    subgraph PCP["PhobosChemistryPathways v1.5.0"]
         CORE["Core"]
-        REC["297 Recipes<br/>9 recipe files"]
-        ITEMS["107 Items<br/>+ 6 Recipe Books"]
+        REC["301 Recipes<br/>9 recipe files"]
+        ITEMS["116 Items<br/>+ 6 Recipe Books"]
         FLUIDS["10 Fluids"]
-        SB["19 Sandbox Options"]
+        SB["62 Sandbox Options"]
         PURITY["Purity System<br/>PCP_PuritySystem.lua"]
         HAZARD["Hazard System<br/>PCP_HazardSystem.lua"]
         SKILL["Skill System<br/>perks + professions + traits"]
@@ -46,7 +46,7 @@ graph TB
         SALT["Salt Extraction<br/>6 Recipes (brine → table salt)<br/>PCP_BrineCollection.lua"]
         REBIND["Entity Rebinding<br/>PCP_EntityRebind.lua"]
         BOTANICAL["Botanical Pathway<br/>31 Recipes (retting, textiles,<br/>paper, medicinals, hempcrete)<br/>PCP_BotanicalCallbacks.lua"]
-        HORT["Horticulture Items<br/>31 items (tobacco, hemp buds,<br/>smoking, cooking)<br/>PCP_HorticultureItems.txt"]
+        HORT["Horticulture Items<br/>45 items (tobacco, hemp buds,<br/>smoking, edibles, cooking)<br/>PCP_HorticultureItems.txt"]
         MIGRATE["Migration System<br/>PCP_MigrationSystem.lua<br/>(Horticulture mod migration)"]
     end
 
@@ -55,6 +55,7 @@ graph TB
         EHR["EHR v2.8.1<br/>Extensive Health Rework"]
         DT["DynamicTradingCommon<br/>NPC Trading"]
         NC["NeatCrafting<br/>Neat Crafting"]
+        MF["MoodleFramework<br/>Custom Moodles"]
     end
 
     PL --> CORE
@@ -73,11 +74,14 @@ graph TB
     REBIND -->|"uses<br/>PhobosLib_EntityRebind"| PL
     BOTANICAL -->|"uses<br/>PhobosLib_Sandbox<br/>PhobosLib_Fluid"| PL
     MIGRATE -->|"uses<br/>PhobosLib_Migrate<br/>PhobosLib_Sandbox"| PL
+    HORT -->|"uses<br/>PhobosLib_Debug<br/>PhobosLib_Fermentation"| PL
+    POPUP -->|"uses<br/>PhobosLib_Moodle"| PL
 
     HAZARD -.->|"EHR.Disease.TryContract<br/>(pcall-wrapped)"| EHR
     SKILL -.->|"registerXPMirror<br/>AC to Science at 50%"| ZSS
-    TRADING -.->|"registerTradeItems<br/>(59 items, 1 tag, 1 archetype)"| DT
+    TRADING -.->|"registerTradeItems<br/>(68 items, 1 tag, 1 archetype)"| DT
     REC -.->|"PhobosLib_RecipeFilter<br/>(NC_FilterBar hook)"| NC
+    HORT -.->|"Medicated moodle<br/>(pcall-wrapped)"| MF
 
     style HARD fill:#264,color:#fff
     style SOFT fill:#446,color:#fff
@@ -93,7 +97,7 @@ graph TB
     START --> CHECK_EHR{"isModActive<br/>EHR?"}
 
     CHECK_ZSS -->|"Yes"| ZSS_INIT["Register XP Mirror<br/>AC -> Science at 50%<br/>(PCP_SkillXP.lua)"]
-    CHECK_ZSS -->|"Yes"| ZSS_DATA["Register 52 Item + 8 Fluid<br/>Specimens | API: ZScienceSkill.Data.add<br/>(PCP_ZScienceData.lua)"]
+    CHECK_ZSS -->|"Yes"| ZSS_DATA["Register 83 Item + 8 Fluid<br/>Specimens | API: ZScienceSkill.Data.add<br/>(PCP_ZScienceData.lua)"]
     CHECK_ZSS -->|"No"| ZSS_SKIP["No action<br/>Zero errors"]
 
     CHECK_EHR -->|"Yes"| EHR_INIT["Hazard callbacks use<br/>EHR.Disease.TryContract<br/>(pcall-wrapped)"]
@@ -102,7 +106,7 @@ graph TB
     START --> CHECK_DT{"isModActive<br/>DynamicTradingCommon?"}
     START --> CHECK_NC{"NC_FilterBar<br/>exists?"}
 
-    CHECK_DT -->|"Yes"| DT_INIT["Register Chemist Archetype<br/>+ 59 Items across 9 Vendors<br/>(PCP_DynamicTradingData.lua)"]
+    CHECK_DT -->|"Yes"| DT_INIT["Register Chemist Archetype<br/>+ 68 Items across 9 Vendors<br/>(PCP_DynamicTradingData.lua)"]
     CHECK_DT -->|"No"| DT_SKIP["No action<br/>Zero errors"]
 
     CHECK_NC -->|"Yes"| NC_INIT["Hook NC_FilterBar:shouldIncludeRecipe<br/>for recipe visibility filters<br/>(PhobosLib_RecipeFilter.lua)"]

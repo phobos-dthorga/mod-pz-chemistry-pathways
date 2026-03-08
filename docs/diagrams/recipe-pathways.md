@@ -17,9 +17,9 @@
 
 # Recipe Pathways
 
-PhobosChemistryPathways adds 297 recipes across 10 interconnected crafting pathways: Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture/Downstream, Concrete Mixer, and Botanical. Raw materials flow through intermediate processing steps into terminal outputs, with by-products feeding back into other chains.
+PhobosChemistryPathways adds 301 recipes across 10 interconnected crafting pathways: Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture/Downstream, Concrete Mixer, and Botanical. Raw materials flow through intermediate processing steps into terminal outputs, with by-products feeding back into other chains.
 
-The diagram below shows the complete chemistry recipe flow from raw inputs through all pathways to their terminal outputs. The **Botanical & Horticulture Pathway** (37 recipes + 31 horticulture items) has its own [dedicated diagram](botanical-pathways.md) due to its size.
+The diagram below shows the complete chemistry recipe flow from raw inputs through all pathways to their terminal outputs. The **Botanical & Horticulture Pathway** (37 recipes + 45 horticulture items) has its own [dedicated diagram](botanical-pathways.md) due to its size.
 
 ## Complete Recipe Overview
 

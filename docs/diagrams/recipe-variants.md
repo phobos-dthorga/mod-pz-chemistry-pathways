@@ -151,7 +151,7 @@ Some recipes support different container sizes:
 
 ---
 
-## Variant Counts (v1.3.0)
+## Variant Counts (v1.5.0)
 
 | Suffix | Count | Controlled By |
 |--------|-------|---------------|
@@ -163,7 +163,7 @@ Some recipes support different container sizes:
 | **Total gated variants** | **98** | |
 | Equipment/catalyst/fuel/container | ~35 | Always visible |
 | Non-variant recipes | ~164 | Always visible |
-| **Grand total** | **297** | |
+| **Grand total** | **301** | |
 
 ---
 

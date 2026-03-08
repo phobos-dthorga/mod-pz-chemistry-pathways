@@ -26,7 +26,7 @@ Visual documentation for PhobosChemistryPathways (PCP), covering recipe chains, 
 | [Recipe Pathways](diagrams/recipe-pathways.md) | Complete crafting chain flowcharts for all chemistry pathways |
 | [Botanical & Horticulture Pathways](diagrams/botanical-pathways.md) | Hemp processing, textiles, paper, medicinals, hempcrete, and horticulture items |
 | [Recipe Variants](diagrams/recipe-variants.md) | Recipe variant naming conventions and troubleshooting |
-| [Sandbox Settings Guide](diagrams/sandbox-gating.md) | How 19 sandbox options control recipe visibility, behaviour, and maintenance |
+| [Sandbox Settings Guide](diagrams/sandbox-gating.md) | How 62 sandbox options control recipe visibility, behaviour, and maintenance |
 | [Skill Progression](diagrams/skill-progression.md) | Applied Chemistry skill tiers, XP curve, occupations, and traits |
 | [Architecture & Dependencies](diagrams/architecture.md) | Dependency graph, PhobosLib modules, and cross-mod integration |
 | [Mermaid Sources](mermaid-src/README.md) | Standalone `.mmd` files for CLI re-rendering |

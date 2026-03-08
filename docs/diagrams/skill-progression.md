@@ -52,11 +52,11 @@ graph TB
 
 ## Learning Paths
 
-There are three ways to learn PCP recipes: finding and reading the 6 recipe books (which collectively teach all 297 recipes), reaching the auto-learn threshold for each recipe tier, or choosing an occupation/trait at character creation for pre-learned recipes. Tier 7 (advanced lab) recipes can only be learned from recipe books.
+There are three ways to learn PCP recipes: finding and reading the 6 recipe books (which collectively teach all 301 recipes), reaching the auto-learn threshold for each recipe tier, or choosing an occupation/trait at character creation for pre-learned recipes. Tier 7 (advanced lab) recipes can only be learned from recipe books.
 
 ```mermaid
 graph LR
-    HB["Find Recipe Books<br/>(6 books, loot)"] --> LEARN["Learn all 297 recipes"]
+    HB["Find Recipe Books<br/>(6 books, loot)"] --> LEARN["Learn all 301 recipes"]
     LEVEL["Reach AutoLearnAll level"] --> AUTO["Recipes auto-unlock<br/>(most tiers)"]
     CREATE["Choose Occupation/Trait"] --> GRANT["Pre-learned recipes<br/>(character creation)"]
     T7["Tier 7 recipes"] --> HB_ONLY["Recipe Books ONLY<br/>(no AutoLearnAll)"]
@@ -67,7 +67,7 @@ graph LR
 
 ## Skill Tiers
 
-All 297 recipes are distributed across 7 skill tiers. Higher tiers require more Applied Chemistry XP and gate access to increasingly complex chemistry.
+All 301 recipes are distributed across 7 skill tiers. Higher tiers require more Applied Chemistry XP and gate access to increasingly complex chemistry.
 
 | Tier | AC Level | Unlocks |
 |------|----------|---------|

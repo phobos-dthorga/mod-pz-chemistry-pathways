@@ -17,7 +17,7 @@
 
 # Botanical & Horticulture Pathways
 
-PhobosChemistryPathways adds a botanical hemp processing pathway across 4 crafting tiers (Field, Kitchen, Lab, Mixer) plus vanilla station integration (Scutching Board, Looms, Hand Press), along with 31 horticulture items for tobacco, hemp buds, papermaking tools, smoking, and cooking. Hemp stalks from vanilla farming or foraging feed the entire chain, with cross-pathway links to the main chemistry chart via KOH/NaOH (retting), wood tar (tarring), calcite (hempcrete), and charcoal (hurd processing). The hemp expansion adds 6 new items (Seed Press Cake, Hemp Sack, Oakum, Hemp Fishing Net, Hemp Sheet Rope, Hemp Snare) and end-product branches for fishing, trapping, and construction.
+PhobosChemistryPathways adds a botanical hemp processing pathway across 4 crafting tiers (Field, Kitchen, Lab, Mixer) plus vanilla station integration (Scutching Board, Looms, Hand Press), along with 45 horticulture items for tobacco, hemp buds, edibles, papermaking tools, smoking, and cooking. Hemp stalks from vanilla farming or foraging feed the entire chain, with cross-pathway links to the main chemistry chart via KOH/NaOH (retting), wood tar (tarring), calcite (hempcrete), and charcoal (hurd processing). The hemp expansion adds 6 new items (Seed Press Cake, Hemp Sack, Oakum, Hemp Fishing Net, Hemp Sheet Rope, Hemp Snare) and end-product branches for fishing, trapping, and construction.
 
 This is a companion diagram to the [main recipe overview](recipe-pathways.md), kept separate for readability.
 
@@ -110,7 +110,7 @@ graph TB
     %% ═══ HORTICULTURE ═══
     subgraph HORT["Horticulture"]
         TOB_WET["Wet Tobacco"] -->|"air dry"| TOB_DRY["Tobacco"]
-        TOB_DRY -->|"pack"| CHEW["Chewing Tobacco<br/>(Tin / Water Tin / Jar)"]
+        TOB_DRY -->|"mix + cure"| CHEW["Chewing Tobacco<br/>(fire-cure or 14-day jar)"]
         BUDS["Hemp Buds"] -->|"cure / decarb"| BUDS_PROC["Cured / Decarbed"]
         BUDS_PROC -->|"can / grind"| LOOSE["Loose Hemp"]
         PAPER -->|"cut"| ROLLING["Rolling Papers"]
@@ -210,12 +210,14 @@ graph TB
 
 ## Horticulture Items
 
-31 horticulture items with full item scripts, translations, and tooltips:
+45 horticulture items with full item scripts, translations, and tooltips:
 
-- **Tobacco** (4 items) -- Wet Tobacco (air-dries naturally), Chewing Tobacco in 3 container types (Tin, Water Tin, Jar)
+- **Tobacco** (6 items) -- Wet Tobacco (air-dries naturally), Chewing Tobacco Mix (raw), Sealed Chewing Tobacco Jar, Cured Chewing Tobacco Jar, Chewing Tobacco (20-use drainable), Pouch of Hemp (HempLoose drainable)
 - **Hemp Buds** (9 items) -- Fresh, Cured, and Decarboxylated buds; canned variants (sealed and open); ground Loose Hemp
+- **Edibles** (2 items) -- Hemp Butter, Hemp-Infused Oil (evolved recipe compatible)
 - **Papermaking** (5 items) -- Pot of Paper Pulp (2 pot types), Mould and Deckle, Mould and Deckle (Sheet), Rolling Papers
 - **Smoking** (10 items) -- Glass Smoking Pipe, loaded pipes (wood/glass/can), Hemp Cigars, Hemp Cigarettes, cigarette packs, rolled tobacco cigars and cigarettes
 - **Cooking** (3 items) -- Saucepan of Sugar Syrup (2 pot types), Simple Sugar Syrup
+- **Deprecated** (3 items, save-compat) -- ChewingTobaccoTin, ChewingTobaccoWaterTin, ChewingTobaccoJar (migration v1.5.0 converts to ChewingTobacco)
 
 These items support a [B42] Horticulture mod migration system (see [Sandbox Settings Guide](sandbox-gating.md) for the MigrateHorticultureItems option).

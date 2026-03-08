@@ -17,7 +17,7 @@
 
 # Sandbox Settings Guide
 
-PhobosChemistryPathways provides 19 sandbox options split across four settings pages: gameplay options (recipe gating, purity, yield), concrete mixer options, botanical pathway options, and maintenance/reset options. These settings allow server admins and solo players to tune recipe complexity, difficulty, and perform version-upgrade housekeeping.
+PhobosChemistryPathways provides 62 sandbox options split across five settings pages: gameplay options (recipe gating, purity, yield), concrete mixer options, botanical pathway options, hemp effects options (33 per-product stat knobs + moodle duration), and maintenance/reset options. A debug logging toggle is also available. These settings allow server admins and solo players to tune recipe complexity, difficulty, hemp product effects, and perform version-upgrade housekeeping.
 
 ## Recipe Gating Options
 
@@ -121,3 +121,15 @@ Three options control the concrete mixer workstation:
 - **EnableConcreteMixer** (default: TRUE) -- Master switch for the concrete mixer workstation entity. When disabled, mixer recipes are hidden from the crafting menu.
 - **ConcreteMixerYieldBonus** (default: 1.0) -- Output yield multiplier for mixer recipes (0.5x to 3.0x). Stacks with the global YieldMultiplier.
 - **MixerFuelDrainRate** (default: 1.0) -- Generator fuel drain rate multiplier during mixer crafting (0.0 to 5.0). Set to 0.0 for free power.
+
+## Hemp Effects Options
+
+35 options on the dedicated "PCP - Hemp Effects" sandbox settings page. These control medicinal and recreational stat effects on hemp and tobacco products, plus moodle duration when Moodle Framework is installed.
+
+- **EnableHempEffects** (default: TRUE) -- Master switch for all hemp product stat effects. When disabled, hemp items have no gameplay effects beyond their base properties.
+- **33 per-product stat knobs** -- Individual stat adjustments (Stress, Boredom, Pain, Fatigue, Hunger, Thirst, Unhappiness) for pipes, cigars, cigarettes, decarbed buds, poultice, tincture, and sugar syrup.
+- **MoodleDuration** (default: 300) -- Duration in seconds for the Medicated custom moodle triggered by poultice and tincture (requires Moodle Framework).
+
+## Debug Logging
+
+- **EnableDebugLogging** (default: FALSE) -- Enables verbose debug output to console.txt via PhobosLib_Debug. Useful for troubleshooting recipe callbacks, migration, and cross-mod integration.
