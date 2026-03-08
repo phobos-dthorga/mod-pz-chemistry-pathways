@@ -52,7 +52,39 @@ local function buildChangelogContent(lastSeenVersion)
           .. " " .. PCP_VERSION .. "  |  " .. getText("IGUI_PCP_Changelog_VersionDate") .. " <LINE> <LINE> "
 
     -- ════════════════════════════════════════════════════════════════ --
-    -- v1.4  ·  current release  (Medicinal Effects & Moodle)
+    -- v1.5  ·  current release  (Chewing Tobacco Curing & Tags)
+    -- ════════════════════════════════════════════════════════════════ --
+    if isNewerThan("1.5", lastSeenVersion) then
+    t = t .. "<LEFT> <SIZE:medium> <RGB:0.40,0.80,1.00> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_5_Marker") .. " "
+    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  " .. getText("IGUI_PCP_Changelog_V1_5_Date") .. " <LINE> <LINE> "
+
+    t = t .. "<SIZE:small> <RGB:1.00,0.75,0.20> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_5_ChewingTitle") .. " <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_5_ChewingBody") .. " <LINE> "
+    t = t .. "<LINE> "
+
+    t = t .. "<RGB:1.00,0.75,0.20> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_5_TagsTitle") .. " <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_5_TagsBody") .. " <LINE> "
+    t = t .. "<LINE> "
+
+    t = t .. "<RGB:1.00,0.75,0.20> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_5_SprayTitle") .. " <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_5_SprayBody") .. " <LINE> "
+    t = t .. "<LINE> "
+
+    t = t .. "<RGB:0.80,0.80,0.80> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_5_Stats1") .. " <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_5_Stats2") .. " <LINE> "
+    t = t .. "<LINE> "
+    end
+
+    -- ════════════════════════════════════════════════════════════════ --
+    -- v1.4  ·  Medicinal Effects & Moodle
     -- ════════════════════════════════════════════════════════════════ --
     if isNewerThan("1.4", lastSeenVersion) then
     t = t .. "<LEFT> <SIZE:medium> <RGB:0.40,0.80,1.00> "
