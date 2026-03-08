@@ -32,88 +32,98 @@ module Base
 /* ==================================================================================== */
 /* =========================== TOBACCO PROCESSING (5 recipes) ========================= */
 /* ==================================================================================== */
+/*  Dual-path curing system for chewing tobacco:
+      Path A (fire-cure):  HT1 mix → place on heat source → ChewingTobacco (instant)
+      Path B (jar-cure):   HT1 mix → HT2 seal in jar → 14 days → HT3 open jar
+    HT4 (cigar) and HT5 (cigarettes) unchanged.                                           */
 
-/* ----- HT1: PACK CHEWING TOBACCO TIN ----- */
-/*  Pack dried tobacco leaves into a tin can for long-term chewing.
-    Accepts dried leaves (3) or loose tobacco pouch (3 uses).
-    Simple field assembly — no chemistry involved.                                         */
+/* ----- HT1: PREPARE CHEWING TOBACCO MIX ----- */
+/*  Combine dried tobacco with salt, sweetener, alkali, and water to
+    produce a raw mix.  The mix can be fire-cured instantly on any heat
+    source (ReplaceOnCooked) or sealed in a jar for slow 14-day curing.
+    Accepts dried leaves (4) or loose tobacco pouch (4 uses).                              */
 
-    craftRecipe PCPPackChewTobaccoTin
+    craftRecipe PCPPrepareChewingTobaccoMix
     {
-        time = 60,
+        time = 80,
         category = Phobos Horticulture,
         NeedToBeLearn = true,
 
         Tags = InHandCraft;CannotBeResearched,
         timedAction = Making,
         SkillRequired = AppliedChemistry:0,
-        xpAward = AppliedChemistry:2,
-        AutoLearnAll = AppliedChemistry:0,
-
-        inputs
-        {
-            item 3 [Base.TobaccoDried;3:Base.TobaccoLoose],
-            item 1 [Base.TinCanEmpty],
-        }
-        outputs
-        {
-            item 1 PhobosChemistryPathways.ChewingTobaccoTin,
-        }
-    }
-
-/* ----- HT2: PACK CHEWING TOBACCO WATER TIN ----- */
-/*  Pack dried tobacco into a water ration tin — the sealed container
-    keeps the tobacco moist for a richer chew.
-    Accepts dried leaves (3) or loose tobacco pouch (3 uses).                               */
-
-    craftRecipe PCPPackChewTobaccoWaterTin
-    {
-        time = 60,
-        category = Phobos Horticulture,
-        NeedToBeLearn = true,
-
-        Tags = InHandCraft;CannotBeResearched,
-        timedAction = Making,
-        SkillRequired = AppliedChemistry:0,
-        xpAward = AppliedChemistry:2,
-        AutoLearnAll = AppliedChemistry:0,
-
-        inputs
-        {
-            item 3 [Base.TobaccoDried;3:Base.TobaccoLoose],
-            item 1 [Base.WaterRationCanEmpty],
-        }
-        outputs
-        {
-            item 1 PhobosChemistryPathways.ChewingTobaccoWaterTin,
-        }
-    }
-
-/* ----- HT3: PACK CHEWING TOBACCO JAR ----- */
-/*  Pack dried tobacco into a glass jar for bulk storage.
-    Accepts dried leaves (4) or loose tobacco pouch (4 uses).
-    Slightly more tobacco needed to fill the larger container.                              */
-
-    craftRecipe PCPPackChewTobaccoJar
-    {
-        time = 60,
-        category = Phobos Horticulture,
-        NeedToBeLearn = true,
-
-        Tags = InHandCraft;CannotBeResearched,
-        timedAction = Making,
-        SkillRequired = AppliedChemistry:0,
-        xpAward = AppliedChemistry:2,
+        xpAward = AppliedChemistry:3,
         AutoLearnAll = AppliedChemistry:0,
 
         inputs
         {
             item 4 [Base.TobaccoDried;4:Base.TobaccoLoose],
-            item 1 [Base.EmptyJar],
+            item 1 [1:Base.Sugar;1:Base.SugarBrown;Base.SugarCubes;Base.SugarPacket;Base.Honey],
+            item 1 [Base.Salt],
+            item 1 [Base.Quicklime;PhobosChemistryPathways.Potash],
+            -fluid 0.2 [Water],
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.ChewingTobaccoJar,
+            item 1 PhobosChemistryPathways.ChewingTobaccoMixRaw,
+        }
+    }
+
+/* ----- HT2: SEAL CHEWING TOBACCO JAR ----- */
+/*  Seal the raw chewing tobacco mix into a glass jar with a lid for
+    slow 14-day fermentation.  The jar transforms into a cured variant
+    via ReplaceOnRotten after the full curing period.                                      */
+
+    craftRecipe PCPSealChewingTobaccoJar
+    {
+        time = 40,
+        category = Phobos Horticulture,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:2,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.ChewingTobaccoMixRaw],
+            item 1 [Base.EmptyJar],
+            item 1 [Base.JarLid],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.SealedChewingTobaccoJar,
+        }
+        OnCreate = PCP_HorticultureCallbacks.pcpStampFermentDate,
+    }
+
+/* ----- HT3: OPEN CURED TOBACCO JAR ----- */
+/*  Crack open a fully cured tobacco jar to retrieve the finished
+    chewing tobacco.  Returns the empty jar and lid for reuse.                             */
+
+    craftRecipe PCPOpenCuredTobaccoJar
+    {
+        time = 30,
+        category = Phobos Horticulture,
+        NeedToBeLearn = true,
+
+        Tags = InHandCraft;CannotBeResearched,
+        timedAction = Making,
+        SkillRequired = AppliedChemistry:0,
+        xpAward = AppliedChemistry:1,
+        AutoLearnAll = AppliedChemistry:0,
+
+        inputs
+        {
+            item 1 [PhobosChemistryPathways.CuredChewingTobaccoJar],
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.ChewingTobacco,
+            item 1 Base.EmptyJar,
+            item 1 Base.JarLid,
         }
     }
 

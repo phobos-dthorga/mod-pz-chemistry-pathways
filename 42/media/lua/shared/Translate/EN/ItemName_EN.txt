@@ -110,6 +110,11 @@ ItemName_EN = {
 
     /* ===== Horticulture — Tobacco ===== */
     ItemName_PhobosChemistryPathways.TobaccoWet = "Wet Tobacco",
+    ItemName_PhobosChemistryPathways.ChewingTobaccoMixRaw = "Raw Chewing Tobacco Mix",
+    ItemName_PhobosChemistryPathways.SealedChewingTobaccoJar = "Sealed Chewing Tobacco Jar",
+    ItemName_PhobosChemistryPathways.CuredChewingTobaccoJar = "Cured Chewing Tobacco Jar",
+    ItemName_PhobosChemistryPathways.ChewingTobacco = "Chewing Tobacco",
+    /* deprecated — kept for save compat display names */
     ItemName_PhobosChemistryPathways.ChewingTobaccoTin = "Chewing Tobacco (Tin)",
     ItemName_PhobosChemistryPathways.ChewingTobaccoWaterTin = "Chewing Tobacco (Water Tin)",
     ItemName_PhobosChemistryPathways.ChewingTobaccoJar = "Chewing Tobacco (Jar)",

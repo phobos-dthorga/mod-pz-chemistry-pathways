@@ -20,8 +20,9 @@ module PhobosChemistryPathways {
 	}
 
 /* ============================== HORTICULTURE — TOBACCO ============================== */
-/*  Tobacco processing items. Wet tobacco dries naturally; chewing tobacco
-    is packed into various containers and consumed over time.                              */
+/*  Tobacco processing items.  Wet tobacco dries naturally.  Chewing tobacco
+    is prepared with salt, sweetener, and alkali, then cured either instantly
+    over a heat source (fire-curing) or in a sealed jar for 14 days.                      */
 
 	item TobaccoWet {
 		ItemType = base:normal,
@@ -35,6 +36,74 @@ module PhobosChemistryPathways {
 		WetCooldown = 8000,
 		ItemWhenDry = Base.TobaccoDried,
 	}
+
+	/* -- Chewing tobacco: intermediate raw mix (curable via heat or jar) ---------- */
+
+	item ChewingTobaccoMixRaw {
+		ItemType = base:food,
+		DisplayCategory = Material,
+		Icon = PCP_ChewingTobaccoMixRaw,
+		Weight = 0.3,
+		Tooltip = Tooltip_PCP_ChewingTobaccoMixRaw,
+		WorldStaticModel = Herbs_Ground,
+		IsCookable = true,
+		MinutesToCook = 40,
+		MinutesToBurn = 80,
+		ReplaceOnCooked = PhobosChemistryPathways.ChewingTobacco,
+		CookingSound = FryingFood,
+		DaysFresh = 7,
+		DaysTotallyRotten = 7,
+		CantEat = true,
+		Tags = base:hideuncooked,
+	}
+
+	/* -- Chewing tobacco: jar fermentation path (14 days) ------------------------- */
+
+	item SealedChewingTobaccoJar {
+		ItemType = base:food,
+		DisplayCategory = Material,
+		Icon = PCP_SealedChewingTobaccoJar,
+		Weight = 0.5,
+		Tooltip = Tooltip_PCP_SealedChewingTobaccoJar,
+		WorldStaticModel = Jar,
+		DaysFresh = 7,
+		DaysTotallyRotten = 7,
+		ReplaceOnRotten = PhobosChemistryPathways.CuredChewingTobaccoJar,
+		CantEat = true,
+		Tags = base:glass,
+	}
+
+	item CuredChewingTobaccoJar {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_CuredChewingTobaccoJar,
+		Weight = 0.5,
+		ConditionMax = 100,
+		Tooltip = Tooltip_PCP_CuredChewingTobaccoJar,
+		WorldStaticModel = Jar,
+		Tags = base:glass,
+	}
+
+	/* -- Chewing tobacco: final consumable product -------------------------------- */
+
+	item ChewingTobacco {
+		ItemType = base:food,
+		DisplayCategory = Food,
+		Icon = PCP_ChewingTobacco,
+		Weight = 0.15,
+		Tooltip = Tooltip_PCP_ChewingTobacco,
+		WorldStaticModel = Herbs_Ground,
+		UseDelta = 0.05,
+		UseWhileEquipped = false,
+		CustomContextMenu = Chew,
+		StressChange = -12,
+		FoodSicknessChange = 12,
+		CantBeFrozen = true,
+	}
+
+	/* -- DEPRECATED tobacco items (save compat only, no recipes produce these) ---- */
+	/* Players upgrading from pre-v1.5.0 saves will have these converted to
+	   ChewingTobacco by PCP_MigrationSystem.lua.                                    */
 
 	item ChewingTobaccoTin {
 		ItemType = base:drainable,

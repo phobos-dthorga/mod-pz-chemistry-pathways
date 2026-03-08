@@ -693,25 +693,22 @@ table.insert(ProceduralDistributions.list["CampingStoreGear"].items, 0.2)
 -- ===== TOBACCO PRODUCTS =====
 -- Smoke shops, bars, living rooms
 
--- Smoke shop counters (chewing tobacco tins, rolled cigars)
-table.insert(ProceduralDistributions.list["StoreCounterSmoke"].items, "PhobosChemistryPathways.ChewingTobaccoTin")
+-- Smoke shop counters (chewing tobacco, rolled cigars)
+table.insert(ProceduralDistributions.list["StoreCounterSmoke"].items, "PhobosChemistryPathways.ChewingTobacco")
 table.insert(ProceduralDistributions.list["StoreCounterSmoke"].items, 0.5)
 
 table.insert(ProceduralDistributions.list["StoreCounterSmoke"].items, "PhobosChemistryPathways.CigarRolled")
 table.insert(ProceduralDistributions.list["StoreCounterSmoke"].items, 0.3)
 
--- Bar counters (chewing tobacco in tins and jars)
-table.insert(ProceduralDistributions.list["BarCounterMisc"].items, "PhobosChemistryPathways.ChewingTobaccoTin")
+-- Bar counters (chewing tobacco)
+table.insert(ProceduralDistributions.list["BarCounterMisc"].items, "PhobosChemistryPathways.ChewingTobacco")
 table.insert(ProceduralDistributions.list["BarCounterMisc"].items, 0.3)
 
-table.insert(ProceduralDistributions.list["BarCounterMisc"].items, "PhobosChemistryPathways.ChewingTobaccoJar")
-table.insert(ProceduralDistributions.list["BarCounterMisc"].items, 0.2)
-
 -- Residential (occasional find)
-table.insert(ProceduralDistributions.list["LivingRoomShelf"].items, "PhobosChemistryPathways.ChewingTobaccoTin")
+table.insert(ProceduralDistributions.list["LivingRoomShelf"].items, "PhobosChemistryPathways.ChewingTobacco")
 table.insert(ProceduralDistributions.list["LivingRoomShelf"].items, 0.1)
 
-table.insert(ProceduralDistributions.list["KitchenRandom"].items, "PhobosChemistryPathways.ChewingTobaccoJar")
+table.insert(ProceduralDistributions.list["KitchenRandom"].items, "PhobosChemistryPathways.ChewingTobacco")
 table.insert(ProceduralDistributions.list["KitchenRandom"].items, 0.1)
 
 

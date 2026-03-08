@@ -47,13 +47,18 @@
 --   - Backfill HempTincture FluidContainer fluid for pre-existing items
 --     (converted from base:normal to FluidContainer in v1.3.0)
 --
+-- v1.5.0 migration:
+--   - Convert old ChewingTobaccoTin/WaterTin/Jar to unified ChewingTobacco
+--   - Teach new chewing tobacco recipes (HT1-HT3) to players who knew old ones
+--   - Update HORT_TO_PCP map entries for old Horticulture tobacco items
+--
 -- Requires: PhobosLib >= 1.9.0
 ---------------------------------------------------------------
 
 require "PhobosLib"
 
 local MOD_ID      = "PCP"
-local MOD_VERSION = "1.4.0"
+local MOD_VERSION = "1.5.0"
 
 ---------------------------------------------------------------
 -- Helpers
@@ -606,9 +611,9 @@ local HORT_TO_PCP = {
     ["Base.HempLeaves"]                    = "PhobosChemistryPathways.HempBastFiber",
     -- Tobacco
     ["Base.TobaccoWet"]                    = "PhobosChemistryPathways.TobaccoWet",
-    ["Base.TobaccoChewing_Tin"]            = "PhobosChemistryPathways.ChewingTobaccoTin",
-    ["Base.TobaccoChewing_WaterTin"]       = "PhobosChemistryPathways.ChewingTobaccoWaterTin",
-    ["Base.TobaccoChewing_Jar"]            = "PhobosChemistryPathways.ChewingTobaccoJar",
+    ["Base.TobaccoChewing_Tin"]            = "PhobosChemistryPathways.ChewingTobacco",
+    ["Base.TobaccoChewing_WaterTin"]       = "PhobosChemistryPathways.ChewingTobacco",
+    ["Base.TobaccoChewing_Jar"]            = "PhobosChemistryPathways.ChewingTobacco",
     -- Hemp buds
     ["Base.HempBuds"]                      = "PhobosChemistryPathways.HempBuds",
     ["Base.HempBuds_Cured"]               = "PhobosChemistryPathways.HempBudsCured",
@@ -796,6 +801,96 @@ PhobosLib.registerMigration(
     "1.3.0",     -- to: this version
     migrate_1_3_0,
     "PCP v1.3.0: Backfill HempTincture FluidContainer fluid for pre-existing items"
+)
+
+---------------------------------------------------------------
+-- v1.5.0 Migration — Chewing Tobacco redesign
+---------------------------------------------------------------
+
+--- Old PCP chewing tobacco fullTypes → new unified ChewingTobacco.
+local OLD_CHEW_ITEMS = {
+    ["PhobosChemistryPathways.ChewingTobaccoTin"]      = true,
+    ["PhobosChemistryPathways.ChewingTobaccoWaterTin"]  = true,
+    ["PhobosChemistryPathways.ChewingTobaccoJar"]       = true,
+}
+
+--- Old recipe names → new recipe names for knowledge migration.
+local OLD_CHEW_RECIPES = {
+    "PCPPackChewTobaccoTin",
+    "PCPPackChewTobaccoWaterTin",
+    "PCPPackChewTobaccoJar",
+}
+
+local NEW_CHEW_RECIPES = {
+    "PCPPrepareChewingTobaccoMix",
+    "PCPSealChewingTobaccoJar",
+    "PCPOpenCuredTobaccoJar",
+}
+
+--- Convert old ChewingTobaccoTin/WaterTin/Jar to new ChewingTobacco,
+--- preserving UsedDelta.  Teach new recipes to players who knew old ones.
+---@param player any  IsoGameCharacter
+---@return boolean ok, string msg
+local function migrate_1_5_0(player)
+    local converted = 0
+
+    -- 1. Convert old chewing tobacco items to new unified item
+    PhobosLib.iterateInventoryDeep(player, function(item, container)
+        local fullType = item:getFullType()
+        if not fullType or not OLD_CHEW_ITEMS[fullType] then return end
+
+        local newItem = instanceItem("PhobosChemistryPathways.ChewingTobacco")
+        if not newItem then return end
+
+        -- Preserve UsedDelta (amount remaining)
+        pcall(function()
+            if item.getUsedDelta and newItem.setUsedDelta then
+                local delta = item:getUsedDelta()
+                if delta then newItem:setUsedDelta(delta) end
+            end
+        end)
+
+        container:AddItem(newItem)
+        pcall(function() sendItemStats(newItem) end)
+        pcall(function() sendAddItemToContainer(container, newItem) end)
+
+        container:Remove(item)
+        pcall(function() sendRemoveItemFromContainer(container, item) end)
+
+        converted = converted + 1
+    end)
+
+    -- 2. Teach new recipes to players who knew any old recipe
+    local known = player:getKnownRecipes()
+    local recipesLearned = 0
+    if known and knowsAny(known, OLD_CHEW_RECIPES) then
+        for _, name in ipairs(NEW_CHEW_RECIPES) do
+            if teachRecipe(known, name) then
+                recipesLearned = recipesLearned + 1
+            end
+        end
+    end
+
+    if converted == 0 and recipesLearned == 0 then
+        return true, "No chewing tobacco migration needed."
+    end
+
+    local parts = {}
+    if converted > 0 then
+        table.insert(parts, "Converted " .. converted .. " old chewing tobacco item(s)")
+    end
+    if recipesLearned > 0 then
+        table.insert(parts, "Taught " .. recipesLearned .. " new chewing tobacco recipe(s)")
+    end
+    return true, table.concat(parts, ". ") .. "."
+end
+
+PhobosLib.registerMigration(
+    MOD_ID,
+    "1.3.0",     -- from: v1.3.0
+    "1.5.0",     -- to: this version
+    migrate_1_5_0,
+    "PCP v1.5.0: Convert old chewing tobacco items and teach new recipes"
 )
 
 ---------------------------------------------------------------

@@ -93,6 +93,11 @@ Tooltip_EN = {
 
     /* ===== Horticulture — Tobacco ===== */
     Tooltip_PCP_TobaccoWet = "Freshly harvested tobacco leaves, still damp.<br>Needs to air-dry before use. Leave in inventory or<br>hang to dry naturally.",
+    Tooltip_PCP_ChewingTobaccoMixRaw = "A moist blend of dried tobacco, salt, sweetener,<br>and alkali. Place on a heat source to fire-cure<br>instantly, or seal in a jar for 14-day fermentation.",
+    Tooltip_PCP_SealedChewingTobaccoJar = "Chewing tobacco mix sealed in a glass jar.<br>Leave sealed for approximately 2 weeks — the freshness<br>bar shows curing progress, not spoilage.",
+    Tooltip_PCP_CuredChewingTobaccoJar = "Fully cured chewing tobacco in a sealed jar.<br>Open the jar to retrieve the finished tobacco.",
+    Tooltip_PCP_ChewingTobacco = "Authentically prepared chewing tobacco, fire-cured<br>or jar-fermented. Relieves stress but causes nausea.<br>Use sparingly.",
+    /* deprecated — kept for save compat tooltips */
     Tooltip_PCP_ChewingTobaccoTin = "Chewing tobacco packed in a tin can.<br>Relieves stress but causes nausea. Use sparingly.",
     Tooltip_PCP_ChewingTobaccoWaterTin = "Chewing tobacco packed in a water ration tin.<br>Relieves stress but causes nausea. Use sparingly.",
     Tooltip_PCP_ChewingTobaccoJar = "Chewing tobacco packed in a glass jar.<br>Relieves stress but causes nausea. Use sparingly.",

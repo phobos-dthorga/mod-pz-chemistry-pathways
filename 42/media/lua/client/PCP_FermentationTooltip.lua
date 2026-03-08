@@ -18,9 +18,10 @@
 -- PCP_FermentationTooltip.lua
 -- Client-side fermentation registration and tooltip provider.
 --
--- Registers CannedHempBuds as a "positive rot" fermentation
--- item with PhobosLib's fermentation system. Appends dynamic
--- progress and canning-date lines to the item tooltip.
+-- Registers fermentation items with PhobosLib's fermentation
+-- system. Appends dynamic progress and date lines to tooltips.
+--   CannedHempBuds          — 28-day bud curing
+--   SealedChewingTobaccoJar — 14-day tobacco curing
 --
 -- Requires: PhobosLib >= 1.18.0
 -- Runs client-side only (42/media/lua/client/).
@@ -37,6 +38,15 @@ PhobosLib.registerFermentation(
     {
         label          = "Curing",
         totalHours     = (14 + 14) * 24,   -- 672 hours = 28 days
+        translationKey = "IGUI_PCP_FermentCuring",
+    }
+)
+
+PhobosLib.registerFermentation(
+    "PhobosChemistryPathways.SealedChewingTobaccoJar",
+    {
+        label          = "Curing",
+        totalHours     = (7 + 7) * 24,    -- 336 hours = 14 days
         translationKey = "IGUI_PCP_FermentCuring",
     }
 )
@@ -72,11 +82,18 @@ PhobosLib.registerTooltipProvider("PhobosChemistryPathways.", function(item)
 
     table.insert(lines, { text = text, r = r, g = g, b = b })
 
-    -- Line 2: canned date (if stamped via OnCreate)
+    -- Line 2: date stamp (if stamped via OnCreate)
     local dateTable = PhobosLib.getFermentationDate(item)
     if dateTable then
         local dateStr = PhobosLib.formatGameDate(dateTable)
-        table.insert(lines, { text = "Canned: " .. dateStr, r = 0.6, g = 0.6, b = 0.6 })
+        local dateLabel = "Prepared"
+        local fullType = item:getFullType()
+        if fullType == "PhobosChemistryPathways.CannedHempBuds" then
+            dateLabel = "Canned"
+        elseif fullType == "PhobosChemistryPathways.SealedChewingTobaccoJar" then
+            dateLabel = "Sealed"
+        end
+        table.insert(lines, { text = dateLabel .. ": " .. dateStr, r = 0.6, g = 0.6, b = 0.6 })
     end
 
     return lines

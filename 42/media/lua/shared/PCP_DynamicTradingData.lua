@@ -192,8 +192,7 @@ local function registerPCPTradeData()
         { item = "PhobosChemistryPathways.HempSnare",        basePrice = 15,  tags = { "Chemical", "Survival", "Common" },    stockRange = { min = 2, max = 4 } },
 
         -- Horticulture items (tobacco, hemp buds, smoking, papermaking, cooking)
-        { item = "PhobosChemistryPathways.ChewingTobaccoTin",  basePrice = 15,  tags = { "Common" },                            stockRange = { min = 2, max = 5 } },
-        { item = "PhobosChemistryPathways.ChewingTobaccoJar",  basePrice = 18,  tags = { "Common" },                            stockRange = { min = 2, max = 5 } },
+        { item = "PhobosChemistryPathways.ChewingTobacco",      basePrice = 16,  tags = { "Common" },                            stockRange = { min = 2, max = 5 } },
         { item = "PhobosChemistryPathways.CigarRolled",        basePrice = 12,  tags = { "Common" },                            stockRange = { min = 2, max = 6 } },
         { item = "PhobosChemistryPathways.CigarHemp",          basePrice = 20,  tags = { "Uncommon" },                          stockRange = { min = 1, max = 3 } },
         { item = "PhobosChemistryPathways.CigarettePackHemp",  basePrice = 25,  tags = { "Uncommon" },                          stockRange = { min = 1, max = 3 } },

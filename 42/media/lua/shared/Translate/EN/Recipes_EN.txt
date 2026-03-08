@@ -322,9 +322,9 @@ Recipes_EN = {
     Recipe_PCPPressOilHandPress = "Press Seed Oil (Hand Press)",
 
     /* ===== Horticulture — Tobacco ===== */
-    Recipe_PCPPackChewTobaccoTin = "HT1. Pack Chewing Tobacco (Tin)",
-    Recipe_PCPPackChewTobaccoWaterTin = "HT2. Pack Chewing Tobacco (Water Tin)",
-    Recipe_PCPPackChewTobaccoJar = "HT3. Pack Chewing Tobacco (Jar)",
+    Recipe_PCPPrepareChewingTobaccoMix = "HT1. Prepare Chewing Tobacco Mix",
+    Recipe_PCPSealChewingTobaccoJar = "HT2. Seal Chewing Tobacco Jar",
+    Recipe_PCPOpenCuredTobaccoJar = "HT3. Open Cured Tobacco Jar",
     Recipe_PCPRollCigarTobacco = "HT4. Roll Tobacco Cigar",
     Recipe_PCPRollCigarettesTobacco = "HT5. Roll Tobacco Cigarettes",
 

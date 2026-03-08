@@ -169,9 +169,11 @@ local function registerPCPSpecimens()
                 ["PhobosChemistryPathways.HempSnare"]            = xp(10, 8),
 
                 -- Horticulture pathway — tobacco
-                ["PhobosChemistryPathways.TobaccoWet"]           = xp(8, 6),
-                ["PhobosChemistryPathways.ChewingTobaccoTin"]    = xp(12, 10),
-                ["PhobosChemistryPathways.ChewingTobaccoJar"]    = xp(12, 10),
+                ["PhobosChemistryPathways.TobaccoWet"]                = xp(8, 6),
+                ["PhobosChemistryPathways.ChewingTobaccoMixRaw"]      = xp(10, 8),
+                ["PhobosChemistryPathways.SealedChewingTobaccoJar"]   = xp(12, 10),
+                ["PhobosChemistryPathways.CuredChewingTobaccoJar"]    = xp(14, 12),
+                ["PhobosChemistryPathways.ChewingTobacco"]            = xp(12, 10),
 
                 -- Horticulture pathway — hemp buds & smoking
                 ["PhobosChemistryPathways.HempBuds"]             = xp(10, 8),
