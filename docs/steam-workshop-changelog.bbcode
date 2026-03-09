@@ -1,5 +1,15 @@
 [h1]Phobos' Industrial Pathways: Biomass — Changelog[/h1]
 
+[h2]v1.5.1 — Distribution Key Hotfix (2026-03-09)[/h2]
+
+[h3]Bug Fixes[/h3]
+[list]
+[*] [b]Server crash on startup[/b] — Fixed RuntimeException crash on B42.14.1 multiplayer dedicated servers caused by 4 invalid distribution keys (StoreCounterSmoke, GardenStorageMisc, RestaurantKitchen, GroceryStoreSnacks). Replaced with correct B42 equivalents. Added BarShelfLiquor for SimpleSugarSyrup.
+[*] [b]Nil-guard helper[/b] — All distribution inserts now safely skip missing keys instead of crashing, preventing future breakage if B42 renames or removes distribution tables.
+[/list]
+
+[hr][/hr]
+
 [h2]v1.5.0 — Chewing Tobacco Curing & Tag System (2026-03-09)[/h2]
 
 [h3]New Features[/h3]
@@ -306,9 +316,10 @@
 [*] [b]301 recipes[/b] across 10 pathways — Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture, Concrete Mixer, Botanical
 [*] [b]121 items[/b], [b]76 tradeable items[/b], [b]6 recipe books[/b], [b]5 skill books[/b], [b]10 fluids[/b]
 [*] [b]66 sandbox options[/b], [b]216 OnCreate callbacks[/b], [b]91 ZScience specimens[/b]
+[*] [b]v1.5.1[/b]: Distribution key hotfix — fixed server crash on B42.14.1 MP servers, nil-guard helper for future-proofing
 [*] [b]v1.4.0[/b]: Medicated moodle, medicinal timed actions, hemp effects system, 33 sandbox options, fermentation tooltip
 [*] [b]v1.3.0[/b]: Hemp expansion (6 new items), vanilla station integration, mechanical hazards, 26 new ZScience specimens
 [*] [b]v1.2.0[/b]: Botanical pathway, 31 horticulture items, 6 recipe books, [B42] Horticulture migration system
 [*] [b]v1.0.0[/b]: Hard dependency migrated from zReVaccin 3 to Zombie Virus Vaccine
-[*] Requires PhobosLib 1.18.0+ and Zombie Virus Vaccine | Optional: Moodle Framework
+[*] Requires PhobosLib 1.18.1+ and Zombie Virus Vaccine | Optional: Moodle Framework
 [/list]
