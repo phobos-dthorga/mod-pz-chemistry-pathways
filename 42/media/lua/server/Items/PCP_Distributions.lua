@@ -24,666 +24,227 @@ require 'Items/SuburbsDistributions'
 require 'Vehicles/VehicleDistributions'
 
 -----------------------------------------------------
+-- Nil-guarded distribution helpers.
+-- Prevents crash if a distribution key is renamed,
+-- removed, or absent in the current B42 build.
+-----------------------------------------------------
+local function dist(listName, itemType, chance)
+    local entry = ProceduralDistributions.list[listName]
+    if entry and entry.items then
+        table.insert(entry.items, itemType)
+        table.insert(entry.items, chance)
+    end
+end
+
+local function vdist(vehTable, itemType, chance)
+    if vehTable and vehTable.items then
+        table.insert(vehTable.items, itemType)
+        table.insert(vehTable.items, chance)
+    end
+end
+
+-----------------------------------------------------
 ------------- CATEGORY RECIPE BOOKS -----------------
 -----------------------------------------------------
 -- 5 category-specific books + 1 ultra-rare master compendium.
 -- Each category book teaches only its own category's recipes.
--- Master compendium teaches ALL 275 recipes — ultra-rare jackpot find.
+-- Master compendium teaches ALL 301 recipes — ultra-rare jackpot find.
 -- Rarity tiers based on survival value: practical books are easier to find.
 
 -- ===== BkFieldChemistry (Common) =====
 -- Practical field recipes — most accessible book
-table.insert(ProceduralDistributions.list["ShelfGeneric"].items, "PhobosChemistryPathways.BkFieldChemistry")
-table.insert(ProceduralDistributions.list["ShelfGeneric"].items, 1.5)
+dist("ShelfGeneric",      "PhobosChemistryPathways.BkFieldChemistry", 1.5)
+dist("CrateBooks",        "PhobosChemistryPathways.BkFieldChemistry", 1)
+dist("BookstoreBooks",    "PhobosChemistryPathways.BkFieldChemistry", 2.5)
+dist("GarageTools",       "PhobosChemistryPathways.BkFieldChemistry", 0.5)
+dist("CrateFertilizer",   "PhobosChemistryPathways.BkFieldChemistry", 1)
 
-table.insert(ProceduralDistributions.list["CrateBooks"].items, "PhobosChemistryPathways.BkFieldChemistry")
-table.insert(ProceduralDistributions.list["CrateBooks"].items, 1)
+-- ===== BkKitchenChemistry (Common) =====
+-- Fat rendering, soap-making, basic biodiesel
+dist("ShelfGeneric",      "PhobosChemistryPathways.BkKitchenChemistry", 1)
+dist("CrateBooks",        "PhobosChemistryPathways.BkKitchenChemistry", 0.8)
+dist("BookstoreBooks",    "PhobosChemistryPathways.BkKitchenChemistry", 2)
+dist("ClassroomShelves",  "PhobosChemistryPathways.BkKitchenChemistry", 0.3)
 
-table.insert(ProceduralDistributions.list["BookstoreBooks"].items, "PhobosChemistryPathways.BkFieldChemistry")
-table.insert(ProceduralDistributions.list["BookstoreBooks"].items, 2.5)
+-- ===== BkLabChemistry (Uncommon) =====
+-- Lab-based recipes requiring chemistry equipment
+dist("ShelfGeneric",      "PhobosChemistryPathways.BkLabChemistry", 0.3)
+dist("CrateBooks",        "PhobosChemistryPathways.BkLabChemistry", 0.5)
+dist("BookstoreBooks",    "PhobosChemistryPathways.BkLabChemistry", 1)
+dist("LibraryScience",    "PhobosChemistryPathways.BkLabChemistry", 1)
+dist("LaboratoryBooks",   "PhobosChemistryPathways.BkLabChemistry", 2)
 
-table.insert(ProceduralDistributions.list["GarageTools"].items, "PhobosChemistryPathways.BkFieldChemistry")
-table.insert(ProceduralDistributions.list["GarageTools"].items, 0.5)
+-- ===== BkIndustrialChemistry (Uncommon) =====
+-- Concrete mixer and industrial-scale recipes
+dist("ShelfGeneric",      "PhobosChemistryPathways.BkIndustrialChemistry", 0.2)
+dist("CrateBooks",        "PhobosChemistryPathways.BkIndustrialChemistry", 0.3)
+dist("BookstoreBooks",    "PhobosChemistryPathways.BkIndustrialChemistry", 0.8)
+dist("LibraryScience",    "PhobosChemistryPathways.BkIndustrialChemistry", 0.5)
 
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "PhobosChemistryPathways.BkFieldChemistry")
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 1)
+-- ===== BkHorticulture (Common) =====
+-- Botanical pathway, tobacco, hemp cultivation
+dist("ShelfGeneric",      "PhobosChemistryPathways.BkHorticulture", 1.2)
+dist("CrateBooks",        "PhobosChemistryPathways.BkHorticulture", 0.8)
+dist("BookstoreBooks",    "PhobosChemistryPathways.BkHorticulture", 2)
+dist("CrateFertilizer",   "PhobosChemistryPathways.BkHorticulture", 1.5)
+dist("GarageTools",       "PhobosChemistryPathways.BkHorticulture", 0.3)
 
--- ===== BkKitchenChemistry (Medium) =====
-table.insert(ProceduralDistributions.list["BookstoreBooks"].items, "PhobosChemistryPathways.BkKitchenChemistry")
-table.insert(ProceduralDistributions.list["BookstoreBooks"].items, 2)
-
-table.insert(ProceduralDistributions.list["ClassroomShelves"].items, "PhobosChemistryPathways.BkKitchenChemistry")
-table.insert(ProceduralDistributions.list["ClassroomShelves"].items, 0.8)
-
-table.insert(ProceduralDistributions.list["ShelfGeneric"].items, "PhobosChemistryPathways.BkKitchenChemistry")
-table.insert(ProceduralDistributions.list["ShelfGeneric"].items, 0.8)
-
-table.insert(ProceduralDistributions.list["LibraryScience"].items, "PhobosChemistryPathways.BkKitchenChemistry")
-table.insert(ProceduralDistributions.list["LibraryScience"].items, 0.5)
-
--- ===== BkLabChemistry (Rare) =====
--- Found primarily in laboratories and universities
-table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, "PhobosChemistryPathways.BkLabChemistry")
-table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, 2)
-
-table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, "PhobosChemistryPathways.BkLabChemistry")
-table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, 1.5)
-
-table.insert(ProceduralDistributions.list["BookstoreBooks"].items, "PhobosChemistryPathways.BkLabChemistry")
-table.insert(ProceduralDistributions.list["BookstoreBooks"].items, 1.5)
-
-table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, "PhobosChemistryPathways.BkLabChemistry")
-table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, 1.5)
-
-table.insert(ProceduralDistributions.list["LibraryScience"].items, "PhobosChemistryPathways.BkLabChemistry")
-table.insert(ProceduralDistributions.list["LibraryScience"].items, 1)
-
-table.insert(ProceduralDistributions.list["ClassroomShelves"].items, "PhobosChemistryPathways.BkLabChemistry")
-table.insert(ProceduralDistributions.list["ClassroomShelves"].items, 0.5)
-
--- ===== BkIndustrialChemistry (Very Rare) =====
-table.insert(ProceduralDistributions.list["BookstoreBooks"].items, "PhobosChemistryPathways.BkIndustrialChemistry")
-table.insert(ProceduralDistributions.list["BookstoreBooks"].items, 0.8)
-
-table.insert(ProceduralDistributions.list["GarageTools"].items, "PhobosChemistryPathways.BkIndustrialChemistry")
-table.insert(ProceduralDistributions.list["GarageTools"].items, 0.3)
-
-table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, "PhobosChemistryPathways.BkIndustrialChemistry")
-table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, 0.5)
-
-table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, "PhobosChemistryPathways.BkIndustrialChemistry")
-table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, 0.3)
-
--- ===== BkHorticulture (Common-Medium) =====
-table.insert(ProceduralDistributions.list["BookstoreBooks"].items, "PhobosChemistryPathways.BkHorticulture")
-table.insert(ProceduralDistributions.list["BookstoreBooks"].items, 2)
-
-table.insert(ProceduralDistributions.list["ShelfGeneric"].items, "PhobosChemistryPathways.BkHorticulture")
-table.insert(ProceduralDistributions.list["ShelfGeneric"].items, 1)
-
-table.insert(ProceduralDistributions.list["CrateBooks"].items, "PhobosChemistryPathways.BkHorticulture")
-table.insert(ProceduralDistributions.list["CrateBooks"].items, 0.8)
-
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "PhobosChemistryPathways.BkHorticulture")
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 1.5)
-
-table.insert(ProceduralDistributions.list["ClassroomShelves"].items, "PhobosChemistryPathways.BkHorticulture")
-table.insert(ProceduralDistributions.list["ClassroomShelves"].items, 0.5)
-
-table.insert(ProceduralDistributions.list["LibraryScience"].items, "PhobosChemistryPathways.BkHorticulture")
-table.insert(ProceduralDistributions.list["LibraryScience"].items, 0.5)
-
--- ===== BkChemistryPathways — Master Compendium (Ultra-Rare) =====
--- Teaches ALL 275 recipes. Jackpot find for dedicated survivors.
-table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, "PhobosChemistryPathways.BkChemistryPathways")
-table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, 0.3)
-
-table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, "PhobosChemistryPathways.BkChemistryPathways")
-table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, 0.2)
-
-table.insert(ProceduralDistributions.list["BookstoreBooks"].items, "PhobosChemistryPathways.BkChemistryPathways")
-table.insert(ProceduralDistributions.list["BookstoreBooks"].items, 0.2)
-
-table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, "PhobosChemistryPathways.BkChemistryPathways")
-table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, 0.1)
+-- ===== BkChemistryPathways (Rare master compendium) =====
+-- Teaches ALL recipes — extremely rare find
+dist("BookstoreBooks",    "PhobosChemistryPathways.BkChemistryPathways", 0.1)
+dist("LibraryScience",    "PhobosChemistryPathways.BkChemistryPathways", 0.2)
+dist("LaboratoryBooks",   "PhobosChemistryPathways.BkChemistryPathways", 0.3)
+dist("CrateBooks",        "PhobosChemistryPathways.BkChemistryPathways", 0.05)
 
 
 -----------------------------------------------------
---------------- SULPHUR POWDER ----------------------
+------------- SKILL BOOKS ---------------------------
 -----------------------------------------------------
--- Found in: chemistry labs, farming supply (fungicide),
--- industrial warehouses, hardware/tool stores
+-- 5 skill books for Applied Chemistry skill levels 1-10.
+-- Rarity scales with skill tier to match vanilla skill book distribution.
 
--- Farming and garden supply (sulphur is a common fungicide/soil amendment)
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "PhobosChemistryPathways.SulphurPowder")
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 2)
+-- ===== BookAppliedChemistry1 (Levels 1-2, Common) =====
+dist("ShelfGeneric",      "PhobosChemistryPathways.BookAppliedChemistry1", 2)
+dist("CrateBooks",        "PhobosChemistryPathways.BookAppliedChemistry1", 1.5)
+dist("BookstoreBooks",    "PhobosChemistryPathways.BookAppliedChemistry1", 3)
+dist("ClassroomShelves",  "PhobosChemistryPathways.BookAppliedChemistry1", 0.5)
 
--- Janitor / cleaning chemical storage
-table.insert(ProceduralDistributions.list["JanitorChemicals"].items, "PhobosChemistryPathways.SulphurPowder")
-table.insert(ProceduralDistributions.list["JanitorChemicals"].items, 1)
+-- ===== BookAppliedChemistry2 (Levels 3-4, Common) =====
+dist("ShelfGeneric",      "PhobosChemistryPathways.BookAppliedChemistry2", 1.5)
+dist("CrateBooks",        "PhobosChemistryPathways.BookAppliedChemistry2", 1)
+dist("BookstoreBooks",    "PhobosChemistryPathways.BookAppliedChemistry2", 2)
+dist("LibraryScience",    "PhobosChemistryPathways.BookAppliedChemistry2", 0.5)
 
-table.insert(ProceduralDistributions.list["JanitorMisc"].items, "PhobosChemistryPathways.SulphurPowder")
-table.insert(ProceduralDistributions.list["JanitorMisc"].items, 0.5)
+-- ===== BookAppliedChemistry3 (Levels 5-6, Uncommon) =====
+dist("ShelfGeneric",      "PhobosChemistryPathways.BookAppliedChemistry3", 0.5)
+dist("CrateBooks",        "PhobosChemistryPathways.BookAppliedChemistry3", 0.5)
+dist("BookstoreBooks",    "PhobosChemistryPathways.BookAppliedChemistry3", 1)
+dist("LibraryScience",    "PhobosChemistryPathways.BookAppliedChemistry3", 1)
+dist("LaboratoryBooks",   "PhobosChemistryPathways.BookAppliedChemistry3", 1)
 
--- Medical / lab storage (reagent)
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.SulphurPowder")
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 1)
+-- ===== BookAppliedChemistry4 (Levels 7-8, Rare) =====
+dist("CrateBooks",        "PhobosChemistryPathways.BookAppliedChemistry4", 0.2)
+dist("BookstoreBooks",    "PhobosChemistryPathways.BookAppliedChemistry4", 0.5)
+dist("LibraryScience",    "PhobosChemistryPathways.BookAppliedChemistry4", 0.5)
+dist("LaboratoryBooks",   "PhobosChemistryPathways.BookAppliedChemistry4", 0.8)
 
-table.insert(ProceduralDistributions.list["MedicalClinicDrugs"].items, "PhobosChemistryPathways.SulphurPowder")
-table.insert(ProceduralDistributions.list["MedicalClinicDrugs"].items, 0.5)
-
--- Hardware / tool stores (used in various industrial applications)
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, "PhobosChemistryPathways.SulphurPowder")
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, 1)
-
--- Army surplus (military chemical stores)
-table.insert(ProceduralDistributions.list["ArmySurplusTools"].items, "PhobosChemistryPathways.SulphurPowder")
-table.insert(ProceduralDistributions.list["ArmySurplusTools"].items, 0.5)
-
-table.insert(ProceduralDistributions.list["ArmyStorageMedical"].items, "PhobosChemistryPathways.SulphurPowder")
-table.insert(ProceduralDistributions.list["ArmyStorageMedical"].items, 0.5)
-
--- Farmer truck beds
-table.insert(VehicleDistributions.FarmerTruckBed.items, "PhobosChemistryPathways.SulphurPowder")
-table.insert(VehicleDistributions.FarmerTruckBed.items, 1)
-
--- Survivalist stash
-table.insert(VehicleDistributions.SurvivalistTruckBed.items, "PhobosChemistryPathways.SulphurPowder")
-table.insert(VehicleDistributions.SurvivalistTruckBed.items, 0.5)
+-- ===== BookAppliedChemistry5 (Levels 9-10, Very Rare) =====
+dist("BookstoreBooks",    "PhobosChemistryPathways.BookAppliedChemistry5", 0.1)
+dist("LibraryScience",    "PhobosChemistryPathways.BookAppliedChemistry5", 0.2)
+dist("LaboratoryBooks",   "PhobosChemistryPathways.BookAppliedChemistry5", 0.5)
 
 
 -----------------------------------------------------
------------ POTASSIUM NITRATE POWDER ----------------
+------------ CHEMISTRY PATHWAY ITEMS ----------------
 -----------------------------------------------------
--- Found in: farming supply (fertiliser component / stump remover),
--- garden stores, chemistry labs, hardware stores
 
--- Farming and garden supply (KNO3 is sold as stump remover and fertiliser)
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "PhobosChemistryPathways.PotassiumNitratePowder")
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 2)
-
--- Janitor / cleaning storage
-table.insert(ProceduralDistributions.list["JanitorChemicals"].items, "PhobosChemistryPathways.PotassiumNitratePowder")
-table.insert(ProceduralDistributions.list["JanitorChemicals"].items, 1)
-
-table.insert(ProceduralDistributions.list["JanitorMisc"].items, "PhobosChemistryPathways.PotassiumNitratePowder")
-table.insert(ProceduralDistributions.list["JanitorMisc"].items, 0.5)
-
--- Medical / lab storage (reagent)
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.PotassiumNitratePowder")
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 1)
-
-table.insert(ProceduralDistributions.list["MedicalClinicDrugs"].items, "PhobosChemistryPathways.PotassiumNitratePowder")
-table.insert(ProceduralDistributions.list["MedicalClinicDrugs"].items, 0.5)
-
--- Hardware / tool stores (stump remover, industrial)
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, "PhobosChemistryPathways.PotassiumNitratePowder")
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, 1)
-
-table.insert(ProceduralDistributions.list["StoreShelfMechanics"].items, "PhobosChemistryPathways.PotassiumNitratePowder")
-table.insert(ProceduralDistributions.list["StoreShelfMechanics"].items, 0.5)
-
--- Garage / workshop (general chemical)
-table.insert(ProceduralDistributions.list["GarageTools"].items, "PhobosChemistryPathways.PotassiumNitratePowder")
-table.insert(ProceduralDistributions.list["GarageTools"].items, 0.3)
-
--- Army surplus
-table.insert(ProceduralDistributions.list["ArmySurplusTools"].items, "PhobosChemistryPathways.PotassiumNitratePowder")
-table.insert(ProceduralDistributions.list["ArmySurplusTools"].items, 0.5)
-
-table.insert(ProceduralDistributions.list["ArmyStorageMedical"].items, "PhobosChemistryPathways.PotassiumNitratePowder")
-table.insert(ProceduralDistributions.list["ArmyStorageMedical"].items, 0.5)
-
--- Farmer truck beds
-table.insert(VehicleDistributions.FarmerTruckBed.items, "PhobosChemistryPathways.PotassiumNitratePowder")
-table.insert(VehicleDistributions.FarmerTruckBed.items, 1)
-
--- Survivalist stash
-table.insert(VehicleDistributions.SurvivalistTruckBed.items, "PhobosChemistryPathways.PotassiumNitratePowder")
-table.insert(VehicleDistributions.SurvivalistTruckBed.items, 0.5)
-
-
------------------------------------------------------
------------ POTASSIUM HYDROXIDE (KOH) --------------
------------------------------------------------------
--- Found in: hardware stores (drain cleaner / lye),
--- janitor chemical storage, medical/lab storage
-
--- Hardware stores (drain cleaner / lye)
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, "PhobosChemistryPathways.PotassiumHydroxide")
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, 0.5)
-
--- Janitor chemical storage
-table.insert(ProceduralDistributions.list["JanitorChemicals"].items, "PhobosChemistryPathways.PotassiumHydroxide")
-table.insert(ProceduralDistributions.list["JanitorChemicals"].items, 0.5)
-
--- Medical / lab storage
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.PotassiumHydroxide")
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.3)
-
-
------------------------------------------------------
--------------- WOOD METHANOL -----------------------
------------------------------------------------------
--- Found in: hardware stores (paint thinner / solvent),
--- garages, janitor supplies, mechanics shelves
-
--- Hardware stores (solvent / methylated spirits)
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, "PhobosChemistryPathways.WoodMethanol")
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, 0.5)
-
--- Garage / workshop
-table.insert(ProceduralDistributions.list["GarageTools"].items, "PhobosChemistryPathways.WoodMethanol")
-table.insert(ProceduralDistributions.list["GarageTools"].items, 0.3)
-
--- Janitor supplies
-table.insert(ProceduralDistributions.list["JanitorChemicals"].items, "PhobosChemistryPathways.WoodMethanol")
-table.insert(ProceduralDistributions.list["JanitorChemicals"].items, 0.3)
-
--- Mechanics shelves
-table.insert(ProceduralDistributions.list["StoreShelfMechanics"].items, "PhobosChemistryPathways.WoodMethanol")
-table.insert(ProceduralDistributions.list["StoreShelfMechanics"].items, 0.3)
-
-
------------------------------------------------------
------------------ GLYCEROL -------------------------
------------------------------------------------------
--- Found in: medical storage (pharmaceutical glycerine)
-
--- Medical storage
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.Glycerol")
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.3)
-
-table.insert(ProceduralDistributions.list["MedicalClinicDrugs"].items, "PhobosChemistryPathways.Glycerol")
-table.insert(ProceduralDistributions.list["MedicalClinicDrugs"].items, 0.2)
-
-
------------------------------------------------------
------------------ CALCITE (CHALK) ------------------
------------------------------------------------------
--- Found in: school classrooms (blackboard chalk),
--- hardware stores (calcium carbonate filler),
--- farm supply (soil amendment / liming agent)
-
--- School classrooms (chalk sticks, science demo)
-table.insert(ProceduralDistributions.list["ClassroomShelves"].items, "PhobosChemistryPathways.Calcite")
-table.insert(ProceduralDistributions.list["ClassroomShelves"].items, 1)
-
-table.insert(ProceduralDistributions.list["ClassroomDesk"].items, "PhobosChemistryPathways.Calcite")
-table.insert(ProceduralDistributions.list["ClassroomDesk"].items, 0.5)
-
-table.insert(ProceduralDistributions.list["ClassroomMisc"].items, "PhobosChemistryPathways.Calcite")
-table.insert(ProceduralDistributions.list["ClassroomMisc"].items, 0.3)
-
--- Hardware stores (filler / calcium carbonate powder)
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, "PhobosChemistryPathways.Calcite")
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, 0.3)
-
--- Farming supply (agricultural lime / soil pH)
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "PhobosChemistryPathways.Calcite")
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 0.5)
-
--- Farmer truck beds
-table.insert(VehicleDistributions.FarmerTruckBed.items, "PhobosChemistryPathways.Calcite")
-table.insert(VehicleDistributions.FarmerTruckBed.items, 0.3)
-
-
------------------------------------------------------
------------------ POTASH (K2CO3) -------------------
------------------------------------------------------
--- Found in: farm/garden supply (potash fertiliser),
--- hardware stores (water softener / pH adjuster),
--- janitor supplies (cleaning agent)
-
--- Farming and garden supply (potash fertiliser, soil amendment)
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "PhobosChemistryPathways.Potash")
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 1)
-
--- Hardware stores (water softener)
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, "PhobosChemistryPathways.Potash")
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, 0.3)
-
--- Janitor chemical storage
-table.insert(ProceduralDistributions.list["JanitorChemicals"].items, "PhobosChemistryPathways.Potash")
-table.insert(ProceduralDistributions.list["JanitorChemicals"].items, 0.3)
-
--- Medical / lab storage (analytical reagent)
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.Potash")
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.2)
-
--- Farmer truck beds (common fertiliser component)
-table.insert(VehicleDistributions.FarmerTruckBed.items, "PhobosChemistryPathways.Potash")
-table.insert(VehicleDistributions.FarmerTruckBed.items, 0.5)
-
-
------------------------------------------------------
------------- CRUSHED CHARCOAL ----------------------
------------------------------------------------------
--- Found in: medical storage (activated charcoal for
--- poison treatment), garages (filtration media),
--- survivalist stashes (water purification)
-
--- Medical storage (activated charcoal / poison antidote)
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.CrushedCharcoal")
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.3)
-
-table.insert(ProceduralDistributions.list["MedicalClinicDrugs"].items, "PhobosChemistryPathways.CrushedCharcoal")
-table.insert(ProceduralDistributions.list["MedicalClinicDrugs"].items, 0.2)
-
--- Garage / workshop (filtration / cleaning)
-table.insert(ProceduralDistributions.list["GarageTools"].items, "PhobosChemistryPathways.CrushedCharcoal")
-table.insert(ProceduralDistributions.list["GarageTools"].items, 0.2)
-
--- Survivalist stash (water purification prep)
-table.insert(VehicleDistributions.SurvivalistTruckBed.items, "PhobosChemistryPathways.CrushedCharcoal")
-table.insert(VehicleDistributions.SurvivalistTruckBed.items, 0.3)
-
-
------------------------------------------------------
------------ PURIFIED CHARCOAL ----------------------
------------------------------------------------------
--- Found in: medical/lab storage only (lab-grade
--- activated carbon is a specialist reagent)
-
--- Medical / lab storage (pharmaceutical-grade activated carbon)
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.PurifiedCharcoal")
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.1)
-
-
------------------------------------------------------
------------------ WOOD TAR -------------------------
------------------------------------------------------
--- Found in: hardware stores (wood preservative / sealant),
--- farm supply (pine tar for fencing/timber treatment),
--- garages (rustproofing / lubricant)
-
--- Hardware stores (wood preservative / pine tar)
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, "PhobosChemistryPathways.WoodTar")
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, 0.3)
-
--- Farm supply (timber treatment / fencing tar)
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "PhobosChemistryPathways.WoodTar")
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 0.2)
-
--- Garage / workshop (sealant / lubricant)
-table.insert(ProceduralDistributions.list["GarageTools"].items, "PhobosChemistryPathways.WoodTar")
-table.insert(ProceduralDistributions.list["GarageTools"].items, 0.2)
-
--- Mechanics shelves
-table.insert(ProceduralDistributions.list["StoreShelfMechanics"].items, "PhobosChemistryPathways.WoodTar")
-table.insert(ProceduralDistributions.list["StoreShelfMechanics"].items, 0.2)
-
--- Farmer truck beds
-table.insert(VehicleDistributions.FarmerTruckBed.items, "PhobosChemistryPathways.WoodTar")
-table.insert(VehicleDistributions.FarmerTruckBed.items, 0.2)
-
-
------------------------------------------------------
--------------- CRUDE SOAP --------------------------
------------------------------------------------------
--- Found in: rural/farm households (homemade lye soap),
--- survivalist stashes (handmade hygiene supplies)
-
--- Farmhouse kitchen shelves (homemade soap tradition)
-table.insert(ProceduralDistributions.list["ShelfGeneric"].items, "PhobosChemistryPathways.CrudeSoap")
-table.insert(ProceduralDistributions.list["ShelfGeneric"].items, 0.1)
-
--- Survivalist stash (handmade soap)
-table.insert(VehicleDistributions.SurvivalistTruckBed.items, "PhobosChemistryPathways.CrudeSoap")
-table.insert(VehicleDistributions.SurvivalistTruckBed.items, 0.2)
-
-
------------------------------------------------------
--------- APPLIED CHEMISTRY SKILL BOOKS -------------
------------------------------------------------------
--- Vol 1-2: Bookstores, classrooms, medical offices
--- Vol 3-4: Medical offices, labs (rare)
--- Vol 5:   Medical storage only (very rare)
-
--- ===== Volume 1 (Levels 1-2) =====
-table.insert(ProceduralDistributions.list["BookstoreBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry1")
-table.insert(ProceduralDistributions.list["BookstoreBooks"].items, 1.5)
-
-table.insert(ProceduralDistributions.list["ClassroomShelves"].items, "PhobosChemistryPathways.BookAppliedChemistry1")
-table.insert(ProceduralDistributions.list["ClassroomShelves"].items, 0.8)
-
-table.insert(ProceduralDistributions.list["CrateBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry1")
-table.insert(ProceduralDistributions.list["CrateBooks"].items, 0.5)
-
-table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry1")
-table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, 1)
-
-table.insert(ProceduralDistributions.list["ShelfGeneric"].items, "PhobosChemistryPathways.BookAppliedChemistry1")
-table.insert(ProceduralDistributions.list["ShelfGeneric"].items, 0.3)
-
--- ===== Volume 2 (Levels 3-4) =====
-table.insert(ProceduralDistributions.list["BookstoreBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry2")
-table.insert(ProceduralDistributions.list["BookstoreBooks"].items, 1)
-
-table.insert(ProceduralDistributions.list["ClassroomShelves"].items, "PhobosChemistryPathways.BookAppliedChemistry2")
-table.insert(ProceduralDistributions.list["ClassroomShelves"].items, 0.5)
-
-table.insert(ProceduralDistributions.list["CrateBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry2")
-table.insert(ProceduralDistributions.list["CrateBooks"].items, 0.3)
-
-table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry2")
-table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, 1)
-
--- ===== Volume 3 (Levels 5-6) =====
-table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry3")
-table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, 0.5)
-
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.BookAppliedChemistry3")
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.3)
-
-table.insert(ProceduralDistributions.list["BookstoreBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry3")
-table.insert(ProceduralDistributions.list["BookstoreBooks"].items, 0.5)
-
--- ===== Volume 4 (Levels 7-8) =====
-table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry4")
-table.insert(ProceduralDistributions.list["MedicalOfficeBooks"].items, 0.3)
-
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.BookAppliedChemistry4")
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.2)
-
--- ===== Volume 5 (Levels 9-10) =====
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.BookAppliedChemistry5")
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.1)
-
-
------------------------------------------------------
-------- LAB & UNIVERSITY DISTRIBUTION EXPANSION -----
------------------------------------------------------
--- New lab/university containers discovered in vanilla PZ B42.
--- Adds thematic spawns for chemistry books, reagents, and
--- select recipe-only items at low weights.
-
--- ===== Skill Books → lab/university shelves =====
-table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry1")
-table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, 1)
-table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, "PhobosChemistryPathways.BookAppliedChemistry1")
-table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, 1)
-
-table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry2")
-table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, 0.8)
-table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, "PhobosChemistryPathways.BookAppliedChemistry2")
-table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, 0.8)
-
-table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry3")
-table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, 0.5)
-table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, "PhobosChemistryPathways.BookAppliedChemistry3")
-table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, 0.5)
-
-table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry4")
-table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, 0.3)
-table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, "PhobosChemistryPathways.BookAppliedChemistry4")
-table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, 0.3)
-
-table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, "PhobosChemistryPathways.BookAppliedChemistry5")
-table.insert(ProceduralDistributions.list["LaboratoryBooks"].items, 0.1)
-table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, "PhobosChemistryPathways.BookAppliedChemistry5")
-table.insert(ProceduralDistributions.list["UniversityLibraryScience"].items, 0.2)
-
--- ===== Chemical reagents → lab containers =====
-table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.SulphurPowder")
-table.insert(ProceduralDistributions.list["TestingLab"].items, 0.5)
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.SulphurPowder")
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.3)
-table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, "PhobosChemistryPathways.SulphurPowder")
-table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, 0.3)
-
-table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.PotassiumNitratePowder")
-table.insert(ProceduralDistributions.list["TestingLab"].items, 0.5)
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.PotassiumNitratePowder")
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.3)
-table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, "PhobosChemistryPathways.PotassiumNitratePowder")
-table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, 0.3)
-
-table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.PotassiumHydroxide")
-table.insert(ProceduralDistributions.list["TestingLab"].items, 0.3)
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.PotassiumHydroxide")
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.3)
-table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, "PhobosChemistryPathways.PotassiumHydroxide")
-table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, 0.2)
-
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.Calcite")
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.3)
-table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, "PhobosChemistryPathways.Calcite")
-table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, 0.2)
-
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.Potash")
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.2)
-table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, "PhobosChemistryPathways.Potash")
-table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, 0.2)
-
--- ===== Carbon materials & glycerol =====
-table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.CrushedCharcoal")
-table.insert(ProceduralDistributions.list["TestingLab"].items, 0.2)
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.CrushedCharcoal")
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.2)
-
-table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.PurifiedCharcoal")
-table.insert(ProceduralDistributions.list["TestingLab"].items, 0.1)
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.PurifiedCharcoal")
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.1)
-
-table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.ActivatedCarbon")
-table.insert(ProceduralDistributions.list["TestingLab"].items, 0.2)
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.ActivatedCarbon")
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.2)
-table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, "PhobosChemistryPathways.ActivatedCarbon")
-table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, 0.1)
-
-table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.Glycerol")
-table.insert(ProceduralDistributions.list["TestingLab"].items, 0.2)
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.Glycerol")
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.2)
-
--- ===== Recipe-only items — NEW low-weight lab spawns =====
--- Previously craft-only; realistic to find in a university chemistry lab.
-table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.SulphuricAcidBottle")
-table.insert(ProceduralDistributions.list["TestingLab"].items, 0.2)
-table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, "PhobosChemistryPathways.SulphuricAcidBottle")
-table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, 0.1)
-
-table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.SulphuricAcidJar")
-table.insert(ProceduralDistributions.list["TestingLab"].items, 0.1)
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.SulphuricAcidJar")
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.1)
-
-table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.WoodMethanol")
-table.insert(ProceduralDistributions.list["TestingLab"].items, 0.2)
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.WoodMethanol")
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.1)
-
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, "PhobosChemistryPathways.BrineJar")
-table.insert(ProceduralDistributions.list["ScienceMisc"].items, 0.1)
+-- ===== CHEMICAL REAGENTS =====
+-- Medical storage, janitor closets, labs
+
+-- Medical storage (common chemical source)
+dist("MedicalStorageDrugs",  "PhobosChemistryPathways.SulphurPowder", 0.5)
+dist("MedicalClinicDrugs",   "PhobosChemistryPathways.SulphurPowder", 0.3)
+dist("MedicalStorageDrugs",  "PhobosChemistryPathways.PotassiumHydroxide", 0.3)
+
+-- Janitor closets (cleaning chemicals)
+dist("JanitorChemicals",    "PhobosChemistryPathways.PotassiumHydroxide", 0.5)
+dist("JanitorChemicals",    "PhobosChemistryPathways.CrudeSoap", 0.8)
+dist("JanitorMisc",         "PhobosChemistryPathways.CrudeSoap", 0.3)
+
+-- ===== INTERMEDIATES =====
+-- Tool stores, garages, mechanics
+
+-- Tool stores (charcoal, bone char, carbon)
+dist("ToolStoreMisc",        "PhobosChemistryPathways.CrushedCharcoal", 0.3)
+dist("ToolStoreMisc",        "PhobosChemistryPathways.PurifiedCharcoal", 0.1)
+dist("ToolStoreMisc",        "PhobosChemistryPathways.BoneChar", 0.1)
+
+-- Garages (tar, methanol)
+dist("GarageTools",          "PhobosChemistryPathways.WoodTar", 0.2)
+dist("GarageTools",          "PhobosChemistryPathways.WoodMethanol", 0.1)
+
+-- ===== MILITARY =====
+-- Surplus stores, military storage
+
+-- Army surplus (blackpowder ingredients, charcoal)
+dist("ArmySurplusTools",     "PhobosChemistryPathways.SulphurPowder", 0.3)
+dist("ArmySurplusTools",     "PhobosChemistryPathways.PotassiumNitratePowder", 0.2)
+dist("ArmySurplusTools",     "PhobosChemistryPathways.CrushedCharcoal", 0.5)
+
+-- Army medical (sulphur for antiseptic, crude soap)
+dist("ArmyStorageMedical",   "PhobosChemistryPathways.SulphurPowder", 0.3)
+dist("ArmyStorageMedical",   "PhobosChemistryPathways.CrudeSoap", 0.5)
+
+-- ===== AUTOMOTIVE =====
+-- Mechanic shops (biodiesel chain)
+dist("StoreShelfMechanics",  "PhobosChemistryPathways.CrudeBiodiesel", 0.1)
+dist("StoreShelfMechanics",  "PhobosChemistryPathways.WoodMethanol", 0.1)
+
+-- ===== EDUCATION =====
+-- Classrooms and science labs
+dist("ClassroomDesk",        "PhobosChemistryPathways.SulphurPowder", 0.1)
+dist("ClassroomDesk",        "PhobosChemistryPathways.Calcite", 0.2)
+dist("ClassroomMisc",        "PhobosChemistryPathways.CrushedCharcoal", 0.2)
+dist("TestingLab",           "PhobosChemistryPathways.SulphuricAcidBottle", 0.1)
+dist("ScienceMisc",          "PhobosChemistryPathways.PotassiumHydroxide", 0.2)
+dist("ScienceMisc",          "PhobosChemistryPathways.Calcite", 0.3)
+dist("MedicalOfficeBooks",   "PhobosChemistryPathways.BkLabChemistry", 0.3)
+
+-- ===== AGRICULTURE =====
+-- Farm supply, fertilizer crates
+dist("CrateFertilizer",     "PhobosChemistryPathways.BoneMeal", 0.5)
+dist("CrateFertilizer",     "PhobosChemistryPathways.Calcite", 0.5)
+dist("CrateFertilizer",     "PhobosChemistryPathways.DilutedCompost", 0.8)
+dist("CrateFertilizer",     "PhobosChemistryPathways.SulphurFungicideSpray", 0.3)
+dist("CrateFertilizer",     "PhobosChemistryPathways.InsecticidalSoapSpray", 0.3)
+dist("CrateFertilizer",     "PhobosChemistryPathways.PotashFoliarSpray", 0.2)
+dist("CrateFarming",        "PhobosChemistryPathways.BoneMeal", 0.3)
+dist("CrateFarming",        "PhobosChemistryPathways.MineralFeedSupplement", 0.1)
+vdist(VehicleDistributions.FarmerTruckBed, "PhobosChemistryPathways.DilutedCompost", 0.3)
+vdist(VehicleDistributions.FarmerTruckBed, "PhobosChemistryPathways.SulphurFungicideSpray", 0.2)
+
+-- ===== SALVAGE =====
+-- Tool stores, garages (scrap materials)
+dist("ToolStoreMisc",        "PhobosChemistryPathways.LeadScrap", 0.2)
+dist("ToolStoreMisc",        "PhobosChemistryPathways.PlasticScrap", 0.3)
+dist("GarageTools",          "PhobosChemistryPathways.LeadScrap", 0.3)
+dist("GarageTools",          "PhobosChemistryPathways.PlasticScrap", 0.2)
+dist("GarageTools",          "PhobosChemistryPathways.AcidWashedElectronics", 0.05)
 
 
 -----------------------------------------------------
 ------------ BOTANICAL PATHWAY ITEMS ----------------
 -----------------------------------------------------
 
--- Hemp Seed Bags — farm supply / garden centres / farm trucks
--- (vanilla HempBagSeed exists but adding to additional farm locations)
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "Base.HempBagSeed")
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 1)
+-- ===== HEMP TEXTILES =====
+-- Camping and survivalist stores
+dist("CampingStoreGear",    "PhobosChemistryPathways.HempRope", 0.3)
+dist("CampingStoreGear",    "PhobosChemistryPathways.HempTwine", 0.5)
+dist("CampingStoreGear",    "PhobosChemistryPathways.HempCanvas", 0.1)
 
-table.insert(VehicleDistributions.FarmerTruckBed.items, "Base.HempBagSeed")
-table.insert(VehicleDistributions.FarmerTruckBed.items, 0.5)
+-- Fishing stores (fishing net, oakum for boat caulking)
+dist("FishingStoreGear",    "PhobosChemistryPathways.HempFishingNet", 0.3)
+dist("FishingStoreGear",    "PhobosChemistryPathways.Oakum", 0.2)
+dist("FishingStoreGear",    "PhobosChemistryPathways.HempTwine", 0.3)
 
--- Hemp Twine — farm supply (baling twine), hardware stores
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "PhobosChemistryPathways.HempTwine")
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 0.5)
+-- Survivalist truck beds (rope, snares)
+vdist(VehicleDistributions.SurvivalistTruckBed, "PhobosChemistryPathways.HempRope", 0.3)
+vdist(VehicleDistributions.SurvivalistTruckBed, "PhobosChemistryPathways.HempTwine", 0.5)
 
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, "PhobosChemistryPathways.HempTwine")
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, 0.3)
+-- ===== HEMP MEDICAL =====
+-- Medical storage (poultice, tincture)
+dist("MedicalStorageDrugs",  "PhobosChemistryPathways.HempPoultice", 0.2)
+dist("MedicalStorageDrugs",  "PhobosChemistryPathways.HempTincture", 0.1)
+dist("MedicalClinicDrugs",   "PhobosChemistryPathways.HempPoultice", 0.1)
 
-table.insert(ProceduralDistributions.list["GarageTools"].items, "PhobosChemistryPathways.HempTwine")
-table.insert(ProceduralDistributions.list["GarageTools"].items, 0.2)
-
-table.insert(VehicleDistributions.FarmerTruckBed.items, "PhobosChemistryPathways.HempTwine")
-table.insert(VehicleDistributions.FarmerTruckBed.items, 0.3)
-
--- Hemp Rope — farm supply, hardware stores, survivalist stashes
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "PhobosChemistryPathways.HempRope")
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 0.3)
-
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, "PhobosChemistryPathways.HempRope")
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, 0.2)
-
-table.insert(VehicleDistributions.SurvivalistTruckBed.items, "PhobosChemistryPathways.HempRope")
-table.insert(VehicleDistributions.SurvivalistTruckBed.items, 0.2)
-
--- Hemp Cloth — sewing/textiles locations, survivalist stashes
-table.insert(ProceduralDistributions.list["ShelfGeneric"].items, "PhobosChemistryPathways.HempCloth")
-table.insert(ProceduralDistributions.list["ShelfGeneric"].items, 0.1)
-
-table.insert(VehicleDistributions.SurvivalistTruckBed.items, "PhobosChemistryPathways.HempCloth")
-table.insert(VehicleDistributions.SurvivalistTruckBed.items, 0.1)
-
--- Hemp Paper — bookstores, classrooms, medical offices (archival paper)
-table.insert(ProceduralDistributions.list["BookstoreBooks"].items, "PhobosChemistryPathways.HempPaper")
-table.insert(ProceduralDistributions.list["BookstoreBooks"].items, 0.2)
-
-table.insert(ProceduralDistributions.list["ClassroomShelves"].items, "PhobosChemistryPathways.HempPaper")
-table.insert(ProceduralDistributions.list["ClassroomShelves"].items, 0.1)
-
--- Hemp Poultice — medical storage, herbal remedy locations
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.HempPoultice")
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.2)
-
-table.insert(ProceduralDistributions.list["MedicalClinicDrugs"].items, "PhobosChemistryPathways.HempPoultice")
-table.insert(ProceduralDistributions.list["MedicalClinicDrugs"].items, 0.1)
-
--- Hemp Tincture — medical storage (herbal medicine)
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.HempTincture")
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.1)
-
--- Seed Press Cake — fertiliser crates, farm storage
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "PhobosChemistryPathways.SeedPressCake")
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 0.4)
-
-table.insert(ProceduralDistributions.list["CrateFarming"].items, "PhobosChemistryPathways.SeedPressCake")
-table.insert(ProceduralDistributions.list["CrateFarming"].items, 0.3)
-
--- Hemp Sack — farm storage, survivalist stashes
-table.insert(ProceduralDistributions.list["CrateFarming"].items, "PhobosChemistryPathways.HempSack")
-table.insert(ProceduralDistributions.list["CrateFarming"].items, 0.1)
-
-table.insert(VehicleDistributions.SurvivalistTruckBed.items, "PhobosChemistryPathways.HempSack")
-table.insert(VehicleDistributions.SurvivalistTruckBed.items, 0.1)
-
--- Oakum — tool stores, garages, fertiliser crates (wood tar product)
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, "PhobosChemistryPathways.Oakum")
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, 0.2)
-
-table.insert(ProceduralDistributions.list["GarageTools"].items, "PhobosChemistryPathways.Oakum")
-table.insert(ProceduralDistributions.list["GarageTools"].items, 0.2)
-
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "PhobosChemistryPathways.Oakum")
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 0.2)
-
--- Hemp Fishing Net — fishing stores, survivalist stashes
-table.insert(ProceduralDistributions.list["FishingStoreGear"].items, "PhobosChemistryPathways.HempFishingNet")
-table.insert(ProceduralDistributions.list["FishingStoreGear"].items, 0.2)
-
-table.insert(VehicleDistributions.SurvivalistTruckBed.items, "PhobosChemistryPathways.HempFishingNet")
-table.insert(VehicleDistributions.SurvivalistTruckBed.items, 0.1)
-
--- Hemp Sheet Rope — tool stores, survivalist stashes
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, "PhobosChemistryPathways.HempSheetRope")
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, 0.2)
-
-table.insert(VehicleDistributions.SurvivalistTruckBed.items, "PhobosChemistryPathways.HempSheetRope")
-table.insert(VehicleDistributions.SurvivalistTruckBed.items, 0.1)
+-- ===== HEMP CONSTRUCTION =====
+-- Tool stores (hempcrete, oakum)
+dist("ToolStoreMisc",        "PhobosChemistryPathways.HempcreteBlock", 0.1)
+dist("ToolStoreMisc",        "PhobosChemistryPathways.Oakum", 0.2)
 
 -- Hemp Snare — survivalist stashes, camping stores
-table.insert(VehicleDistributions.SurvivalistTruckBed.items, "PhobosChemistryPathways.HempSnare")
-table.insert(VehicleDistributions.SurvivalistTruckBed.items, 0.2)
-
-table.insert(ProceduralDistributions.list["CampingStoreGear"].items, "PhobosChemistryPathways.HempSnare")
-table.insert(ProceduralDistributions.list["CampingStoreGear"].items, 0.2)
+vdist(VehicleDistributions.SurvivalistTruckBed, "PhobosChemistryPathways.HempSnare", 0.2)
+dist("CampingStoreGear",    "PhobosChemistryPathways.HempSnare", 0.2)
 
 
 -----------------------------------------------------
@@ -694,96 +255,72 @@ table.insert(ProceduralDistributions.list["CampingStoreGear"].items, 0.2)
 -- Smoke shops, bars, living rooms
 
 -- Smoke shop counters (chewing tobacco, rolled cigars)
-table.insert(ProceduralDistributions.list["StoreCounterSmoke"].items, "PhobosChemistryPathways.ChewingTobacco")
-table.insert(ProceduralDistributions.list["StoreCounterSmoke"].items, 0.5)
-
-table.insert(ProceduralDistributions.list["StoreCounterSmoke"].items, "PhobosChemistryPathways.CigarRolled")
-table.insert(ProceduralDistributions.list["StoreCounterSmoke"].items, 0.3)
+dist("StoreCounterTobacco",  "PhobosChemistryPathways.ChewingTobacco", 0.5)
+dist("StoreCounterTobacco",  "PhobosChemistryPathways.CigarRolled", 0.3)
 
 -- Bar counters (chewing tobacco)
-table.insert(ProceduralDistributions.list["BarCounterMisc"].items, "PhobosChemistryPathways.ChewingTobacco")
-table.insert(ProceduralDistributions.list["BarCounterMisc"].items, 0.3)
+dist("BarCounterMisc",       "PhobosChemistryPathways.ChewingTobacco", 0.3)
 
 -- Residential (occasional find)
-table.insert(ProceduralDistributions.list["LivingRoomShelf"].items, "PhobosChemistryPathways.ChewingTobacco")
-table.insert(ProceduralDistributions.list["LivingRoomShelf"].items, 0.1)
-
-table.insert(ProceduralDistributions.list["KitchenRandom"].items, "PhobosChemistryPathways.ChewingTobacco")
-table.insert(ProceduralDistributions.list["KitchenRandom"].items, 0.1)
+dist("LivingRoomShelf",      "PhobosChemistryPathways.ChewingTobacco", 0.1)
+dist("KitchenRandom",        "PhobosChemistryPathways.ChewingTobacco", 0.1)
 
 
 -- ===== HEMP BUDS =====
 -- Farm supply, garden, medical storage
 
 -- Farm supply (fresh and cured buds)
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "PhobosChemistryPathways.HempBuds")
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 0.5)
-
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, "PhobosChemistryPathways.HempBudsCured")
-table.insert(ProceduralDistributions.list["CrateFertilizer"].items, 0.2)
+dist("CrateFertilizer",     "PhobosChemistryPathways.HempBuds", 0.5)
+dist("CrateFertilizer",     "PhobosChemistryPathways.HempBudsCured", 0.2)
 
 -- Farmer trucks
-table.insert(VehicleDistributions.FarmerTruckBed.items, "PhobosChemistryPathways.HempBuds")
-table.insert(VehicleDistributions.FarmerTruckBed.items, 0.3)
-
--- Garden storage
-table.insert(ProceduralDistributions.list["GardenStorageMisc"].items, "PhobosChemistryPathways.HempBuds")
-table.insert(ProceduralDistributions.list["GardenStorageMisc"].items, 0.2)
+vdist(VehicleDistributions.FarmerTruckBed, "PhobosChemistryPathways.HempBuds", 0.3)
 
 -- Medical storage (cured buds for tincture preparation)
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, "PhobosChemistryPathways.HempBudsCured")
-table.insert(ProceduralDistributions.list["MedicalStorageDrugs"].items, 0.1)
+dist("MedicalStorageDrugs",  "PhobosChemistryPathways.HempBudsCured", 0.1)
 
 
 -- ===== SMOKING ITEMS =====
 -- Smoke shops, bars, bedrooms
 
 -- Smoke shop counters (cigarette packs, rolling papers)
-table.insert(ProceduralDistributions.list["StoreCounterSmoke"].items, "PhobosChemistryPathways.CigarettePackRolled")
-table.insert(ProceduralDistributions.list["StoreCounterSmoke"].items, 0.3)
-
-table.insert(ProceduralDistributions.list["StoreCounterSmoke"].items, "PhobosChemistryPathways.RollingPapers")
-table.insert(ProceduralDistributions.list["StoreCounterSmoke"].items, 0.5)
+dist("StoreCounterTobacco",  "PhobosChemistryPathways.CigarettePackRolled", 0.3)
+dist("StoreCounterTobacco",  "PhobosChemistryPathways.RollingPapers", 0.5)
 
 -- Bar counters (glass pipe — rare novelty)
-table.insert(ProceduralDistributions.list["BarCounterMisc"].items, "PhobosChemistryPathways.SmokingPipeGlass")
-table.insert(ProceduralDistributions.list["BarCounterMisc"].items, 0.1)
+dist("BarCounterMisc",       "PhobosChemistryPathways.SmokingPipeGlass", 0.1)
 
 -- Bedrooms (glass pipe — personal possession)
-table.insert(ProceduralDistributions.list["BedroomDresser"].items, "PhobosChemistryPathways.SmokingPipeGlass")
-table.insert(ProceduralDistributions.list["BedroomDresser"].items, 0.05)
+dist("BedroomDresser",       "PhobosChemistryPathways.SmokingPipeGlass", 0.05)
 
 -- General shelves (rolling papers)
-table.insert(ProceduralDistributions.list["ShelfGeneric"].items, "PhobosChemistryPathways.RollingPapers")
-table.insert(ProceduralDistributions.list["ShelfGeneric"].items, 0.1)
+dist("ShelfGeneric",         "PhobosChemistryPathways.RollingPapers", 0.1)
 
 
 -- ===== PAPERMAKING =====
 -- Hardware stores, classrooms, offices
 
 -- Hardware stores (mould and deckle — artisan tool)
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, "PhobosChemistryPathways.MouldAndDeckle")
-table.insert(ProceduralDistributions.list["ToolStoreMisc"].items, 0.1)
+dist("ToolStoreMisc",        "PhobosChemistryPathways.MouldAndDeckle", 0.1)
 
 -- Classrooms (rolling papers — art supply / craft paper)
-table.insert(ProceduralDistributions.list["ClassroomShelves"].items, "PhobosChemistryPathways.RollingPapers")
-table.insert(ProceduralDistributions.list["ClassroomShelves"].items, 0.2)
+dist("ClassroomShelves",     "PhobosChemistryPathways.RollingPapers", 0.2)
 
 -- Office desks (rolling papers — occasional find)
-table.insert(ProceduralDistributions.list["OfficeDesk"].items, "PhobosChemistryPathways.RollingPapers")
-table.insert(ProceduralDistributions.list["OfficeDesk"].items, 0.1)
+dist("OfficeDesk",           "PhobosChemistryPathways.RollingPapers", 0.1)
 
 
 -- ===== COOKING =====
--- Restaurant kitchens, grocery stores
+-- Restaurant kitchens, bar shelves, cafeterias
 
--- Restaurant kitchens (simple sugar syrup — cocktail/baking ingredient)
-table.insert(ProceduralDistributions.list["RestaurantKitchen"].items, "PhobosChemistryPathways.SimpleSugarSyrup")
-table.insert(ProceduralDistributions.list["RestaurantKitchen"].items, 0.3)
+-- Restaurant kitchen fridges (sugar syrup — cocktail/baking ingredient)
+dist("RestaurantKitchenFridge", "PhobosChemistryPathways.SimpleSugarSyrup", 0.3)
 
--- Grocery store snacks (bottled syrup)
-table.insert(ProceduralDistributions.list["GroceryStoreSnacks"].items, "PhobosChemistryPathways.SimpleSugarSyrup")
-table.insert(ProceduralDistributions.list["GroceryStoreSnacks"].items, 0.2)
+-- Bar shelves (vanilla already stocks SimpleSyrup here — same product class)
+dist("BarShelfLiquor",       "PhobosChemistryPathways.SimpleSugarSyrup", 0.2)
+
+-- Cafeteria snacks (bottled syrup — sweet condiment)
+dist("CafeteriaSnacks",     "PhobosChemistryPathways.SimpleSugarSyrup", 0.2)
 
 
 -----------------------------------------------------
@@ -794,122 +331,58 @@ table.insert(ProceduralDistributions.list["GroceryStoreSnacks"].items, 0.2)
 
 -- ===== GARDEN STORES =====
 -- Garden centres stock agricultural chemistry products
-table.insert(ProceduralDistributions.list["GardenStoreMisc"].items, "PhobosChemistryPathways.SulphurFungicideSpray")
-table.insert(ProceduralDistributions.list["GardenStoreMisc"].items, 0.3)
-
-table.insert(ProceduralDistributions.list["GardenStoreMisc"].items, "PhobosChemistryPathways.InsecticidalSoapSpray")
-table.insert(ProceduralDistributions.list["GardenStoreMisc"].items, 0.3)
-
-table.insert(ProceduralDistributions.list["GardenStoreMisc"].items, "PhobosChemistryPathways.PotashFoliarSpray")
-table.insert(ProceduralDistributions.list["GardenStoreMisc"].items, 0.2)
-
-table.insert(ProceduralDistributions.list["GardenStoreMisc"].items, "PhobosChemistryPathways.BoneMeal")
-table.insert(ProceduralDistributions.list["GardenStoreMisc"].items, 0.3)
-
-table.insert(ProceduralDistributions.list["GardenStoreMisc"].items, "PhobosChemistryPathways.SeedPressCake")
-table.insert(ProceduralDistributions.list["GardenStoreMisc"].items, 0.2)
-
-table.insert(ProceduralDistributions.list["GardenStoreTools"].items, "PhobosChemistryPathways.MouldAndDeckle")
-table.insert(ProceduralDistributions.list["GardenStoreTools"].items, 0.1)
+dist("GardenStoreMisc",      "PhobosChemistryPathways.SulphurFungicideSpray", 0.3)
+dist("GardenStoreMisc",      "PhobosChemistryPathways.InsecticidalSoapSpray", 0.3)
+dist("GardenStoreMisc",      "PhobosChemistryPathways.PotashFoliarSpray", 0.2)
+dist("GardenStoreMisc",      "PhobosChemistryPathways.BoneMeal", 0.3)
+dist("GardenStoreMisc",      "PhobosChemistryPathways.SeedPressCake", 0.2)
+dist("GardenStoreTools",    "PhobosChemistryPathways.MouldAndDeckle", 0.1)
 
 -- ===== GARDEN CRATES =====
-table.insert(ProceduralDistributions.list["CrateGardening"].items, "PhobosChemistryPathways.DilutedCompost")
-table.insert(ProceduralDistributions.list["CrateGardening"].items, 0.3)
-
-table.insert(ProceduralDistributions.list["CrateGardening"].items, "PhobosChemistryPathways.SeedPressCake")
-table.insert(ProceduralDistributions.list["CrateGardening"].items, 0.2)
-
-table.insert(ProceduralDistributions.list["CrateGardening"].items, "PhobosChemistryPathways.BoneMeal")
-table.insert(ProceduralDistributions.list["CrateGardening"].items, 0.2)
+dist("CrateGardening",      "PhobosChemistryPathways.DilutedCompost", 0.3)
+dist("CrateGardening",      "PhobosChemistryPathways.SeedPressCake", 0.2)
+dist("CrateGardening",      "PhobosChemistryPathways.BoneMeal", 0.2)
 
 -- ===== FARMING TOOL STORES =====
-table.insert(ProceduralDistributions.list["ToolStoreFarming"].items, "PhobosChemistryPathways.SeedPressCake")
-table.insert(ProceduralDistributions.list["ToolStoreFarming"].items, 0.2)
-
-table.insert(ProceduralDistributions.list["ToolStoreFarming"].items, "PhobosChemistryPathways.BoneMeal")
-table.insert(ProceduralDistributions.list["ToolStoreFarming"].items, 0.2)
-
-table.insert(ProceduralDistributions.list["ToolStoreFarming"].items, "PhobosChemistryPathways.MineralFeedSupplement")
-table.insert(ProceduralDistributions.list["ToolStoreFarming"].items, 0.1)
+dist("ToolStoreFarming",    "PhobosChemistryPathways.SeedPressCake", 0.2)
+dist("ToolStoreFarming",    "PhobosChemistryPathways.BoneMeal", 0.2)
+dist("ToolStoreFarming",    "PhobosChemistryPathways.MineralFeedSupplement", 0.1)
 
 -- ===== SCIENCE LABS & UNIVERSITY =====
 -- Testing labs and university science storage stock reagents
-table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.PotassiumHydroxide")
-table.insert(ProceduralDistributions.list["TestingLab"].items, 0.2)
-
-table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.ActivatedCarbon")
-table.insert(ProceduralDistributions.list["TestingLab"].items, 0.2)
-
-table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.SulphuricAcidBottle")
-table.insert(ProceduralDistributions.list["TestingLab"].items, 0.1)
-
-table.insert(ProceduralDistributions.list["TestingLab"].items, "PhobosChemistryPathways.WoodMethanol")
-table.insert(ProceduralDistributions.list["TestingLab"].items, 0.1)
-
-table.insert(ProceduralDistributions.list["LaboratoryLockers"].items, "PhobosChemistryPathways.Calcite")
-table.insert(ProceduralDistributions.list["LaboratoryLockers"].items, 0.2)
-
-table.insert(ProceduralDistributions.list["LaboratoryLockers"].items, "PhobosChemistryPathways.BoneChar")
-table.insert(ProceduralDistributions.list["LaboratoryLockers"].items, 0.15)
-
-table.insert(ProceduralDistributions.list["LaboratoryLockers"].items, "PhobosChemistryPathways.WoodMethanol")
-table.insert(ProceduralDistributions.list["LaboratoryLockers"].items, 0.1)
-
-table.insert(ProceduralDistributions.list["LaboratoryGasStorage"].items, "PhobosChemistryPathways.SulphuricAcidJar")
-table.insert(ProceduralDistributions.list["LaboratoryGasStorage"].items, 0.1)
-
-table.insert(ProceduralDistributions.list["LaboratoryGasStorage"].items, "PhobosChemistryPathways.SulphuricAcidBottle")
-table.insert(ProceduralDistributions.list["LaboratoryGasStorage"].items, 0.1)
-
-table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, "PhobosChemistryPathways.BkChemistryPathways")
-table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, 0.05)
-
-table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, "PhobosChemistryPathways.BkLabChemistry")
-table.insert(ProceduralDistributions.list["UniversityStorageScience"].items, 0.1)
+dist("TestingLab",           "PhobosChemistryPathways.PotassiumHydroxide", 0.2)
+dist("TestingLab",           "PhobosChemistryPathways.ActivatedCarbon", 0.2)
+dist("TestingLab",           "PhobosChemistryPathways.SulphuricAcidBottle", 0.1)
+dist("TestingLab",           "PhobosChemistryPathways.WoodMethanol", 0.1)
+dist("LaboratoryLockers",   "PhobosChemistryPathways.Calcite", 0.2)
+dist("LaboratoryLockers",   "PhobosChemistryPathways.BoneChar", 0.15)
+dist("LaboratoryLockers",   "PhobosChemistryPathways.WoodMethanol", 0.1)
+dist("LaboratoryGasStorage", "PhobosChemistryPathways.SulphuricAcidJar", 0.1)
+dist("LaboratoryGasStorage", "PhobosChemistryPathways.SulphuricAcidBottle", 0.1)
+dist("UniversityStorageScience", "PhobosChemistryPathways.BkChemistryPathways", 0.05)
+dist("UniversityStorageScience", "PhobosChemistryPathways.BkLabChemistry", 0.1)
 
 -- ===== MORGUE =====
 -- Morgue chemical cabinets stock caustic reagents
-table.insert(ProceduralDistributions.list["MorgueChemicals"].items, "PhobosChemistryPathways.PotassiumHydroxide")
-table.insert(ProceduralDistributions.list["MorgueChemicals"].items, 0.15)
-
-table.insert(ProceduralDistributions.list["MorgueChemicals"].items, "PhobosChemistryPathways.ActivatedCarbon")
-table.insert(ProceduralDistributions.list["MorgueChemicals"].items, 0.1)
+dist("MorgueChemicals",     "PhobosChemistryPathways.PotassiumHydroxide", 0.15)
+dist("MorgueChemicals",     "PhobosChemistryPathways.ActivatedCarbon", 0.1)
 
 -- ===== METALWORK & FACTORY =====
 -- Metal shops and factories have salvage materials
-table.insert(ProceduralDistributions.list["MetalShopTools"].items, "PhobosChemistryPathways.LeadScrap")
-table.insert(ProceduralDistributions.list["MetalShopTools"].items, 0.2)
-
-table.insert(ProceduralDistributions.list["MetalShopTools"].items, "PhobosChemistryPathways.PlasticScrap")
-table.insert(ProceduralDistributions.list["MetalShopTools"].items, 0.15)
-
-table.insert(ProceduralDistributions.list["ToolFactoryTools"].items, "PhobosChemistryPathways.AcidWashedElectronics")
-table.insert(ProceduralDistributions.list["ToolFactoryTools"].items, 0.1)
-
-table.insert(ProceduralDistributions.list["ToolFactoryTools"].items, "PhobosChemistryPathways.PlasticScrap")
-table.insert(ProceduralDistributions.list["ToolFactoryTools"].items, 0.2)
+dist("MetalShopTools",      "PhobosChemistryPathways.LeadScrap", 0.2)
+dist("MetalShopTools",      "PhobosChemistryPathways.PlasticScrap", 0.15)
+dist("ToolFactoryTools",    "PhobosChemistryPathways.AcidWashedElectronics", 0.1)
+dist("ToolFactoryTools",    "PhobosChemistryPathways.PlasticScrap", 0.2)
 
 -- ===== CONSTRUCTION =====
 -- Construction workers carry building materials
-table.insert(ProceduralDistributions.list["ConstructionWorkerTools"].items, "PhobosChemistryPathways.MortarMix")
-table.insert(ProceduralDistributions.list["ConstructionWorkerTools"].items, 0.15)
-
-table.insert(ProceduralDistributions.list["ConstructionWorkerTools"].items, "PhobosChemistryPathways.StuccoMix")
-table.insert(ProceduralDistributions.list["ConstructionWorkerTools"].items, 0.1)
-
-table.insert(ProceduralDistributions.list["ConstructionWorkerTools"].items, "PhobosChemistryPathways.HempcreteBlock")
-table.insert(ProceduralDistributions.list["ConstructionWorkerTools"].items, 0.1)
+dist("ConstructionWorkerTools", "PhobosChemistryPathways.MortarMix", 0.15)
+dist("ConstructionWorkerTools", "PhobosChemistryPathways.StuccoMix", 0.1)
+dist("ConstructionWorkerTools", "PhobosChemistryPathways.HempcreteBlock", 0.1)
 
 -- ===== CAMPING CRATES =====
 -- Camping supply crates stock survival rope and trapping gear
-table.insert(ProceduralDistributions.list["CrateCamping"].items, "PhobosChemistryPathways.HempRope")
-table.insert(ProceduralDistributions.list["CrateCamping"].items, 0.2)
-
-table.insert(ProceduralDistributions.list["CrateCamping"].items, "PhobosChemistryPathways.HempTwine")
-table.insert(ProceduralDistributions.list["CrateCamping"].items, 0.3)
-
-table.insert(ProceduralDistributions.list["CrateCamping"].items, "PhobosChemistryPathways.HempSnare")
-table.insert(ProceduralDistributions.list["CrateCamping"].items, 0.15)
-
-table.insert(ProceduralDistributions.list["CrateCamping"].items, "PhobosChemistryPathways.HempSheetRope")
-table.insert(ProceduralDistributions.list["CrateCamping"].items, 0.1)
+dist("CrateCamping",        "PhobosChemistryPathways.HempRope", 0.2)
+dist("CrateCamping",        "PhobosChemistryPathways.HempTwine", 0.3)
+dist("CrateCamping",        "PhobosChemistryPathways.HempSnare", 0.15)
+dist("CrateCamping",        "PhobosChemistryPathways.HempSheetRope", 0.1)

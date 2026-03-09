@@ -21,6 +21,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project follows Semantic Versioning.
 
+## [1.5.1] - 2026-03-09
+
+### Fixed
+- **Server crash on startup** — `PCP_Distributions.lua` crashed with `RuntimeException: attempted index: items of non-table: null` when B42 distribution keys were missing. Fixed 4 invalid keys: `StoreCounterSmoke` → `StoreCounterTobacco`, `GardenStorageMisc` removed (duplicate), `RestaurantKitchen` → `RestaurantKitchenFridge`, `GroceryStoreSnacks` → `CafeteriaSnacks`. Added `BarShelfLiquor` for SimpleSugarSyrup (vanilla already stocks SimpleSyrup there).
+- **Nil-guard helper** — All distribution inserts now use `dist()`/`vdist()` helpers that safely skip missing keys instead of crashing. Prevents future breakage if B42 renames or removes distribution tables.
+
 ## [1.5.0] - 2026-03-09
 
 ### Added

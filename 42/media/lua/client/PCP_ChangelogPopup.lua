@@ -26,7 +26,7 @@
 --   3. Push to Workshop.
 ---------------------------------------------------------------
 
-local PCP_VERSION = "1.5.0"
+local PCP_VERSION = "1.5.1"
 
 --- Returns true if `version` (e.g. "0.23") is strictly newer than `baseline`.
 --- If baseline is nil, returns true (show everything).
