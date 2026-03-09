@@ -35,6 +35,7 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 
 ### Changed
 - 3 deprecated items: ChewingTobaccoTin, ChewingTobaccoWaterTin, ChewingTobaccoJar (save migration v1.5.0 converts to ChewingTobacco + teaches new recipes).
+- `Base.Cork` input removed from all 67 lab recipes — aligns with ZVV which no longer uses cork stoppers. No save migration needed.
 - Recipe count: 297 → **301**
 - Item count: 112 → **121**
 - Tradeable items: 67 → **76**
