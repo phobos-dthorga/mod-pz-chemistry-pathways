@@ -75,7 +75,6 @@ module Base
         {
             item 2 [Base.ElectronicsScrap],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 [*],

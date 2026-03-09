@@ -220,7 +220,6 @@ module Base
         {
             item 8 [Base.Soybeans],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -253,7 +252,6 @@ module Base
         {
             item 8 [Base.Soybeans],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 [*],
             -fluid 0.5 [Water],
             item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
@@ -287,7 +285,6 @@ module Base
         {
             item 6 [Base.SunflowerSeeds],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -320,7 +317,6 @@ module Base
         {
             item 6 [Base.SunflowerSeeds],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 [*],
             -fluid 0.5 [Water],
             item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
@@ -354,7 +350,6 @@ module Base
         {
             item 10 [Base.Corn],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -387,7 +382,6 @@ module Base
         {
             item 10 [Base.Corn],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 [*],
             -fluid 0.5 [Water],
             item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
@@ -421,7 +415,6 @@ module Base
         {
             item 30 [Base.FlaxSeed],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -454,7 +447,6 @@ module Base
         {
             item 30 [Base.FlaxSeed],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 [*],
             -fluid 0.5 [Water],
             item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
@@ -488,7 +480,6 @@ module Base
         {
             item 30 [Base.HempSeed],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -521,7 +512,6 @@ module Base
         {
             item 30 [Base.HempSeed],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 [*],
             -fluid 0.5 [Water],
             item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
@@ -555,7 +545,6 @@ module Base
         {
             item 4 [Base.Peanuts],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -588,7 +577,6 @@ module Base
         {
             item 4 [Base.Peanuts],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 [*],
             -fluid 0.5 [Water],
             item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
@@ -1050,7 +1038,6 @@ module Base
         {
             item 2 [Base.Lard;Base.Butter;Base.Margarine],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -1082,7 +1069,6 @@ module Base
         {
             item 2 [Base.Lard;Base.Butter;Base.Margarine],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 [*],
             -fluid 0.5 [Water],
             item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
@@ -1196,7 +1182,6 @@ module Base
         {
             item 4 [Base.Plank;Base.Firewood] mode:destroy,
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
@@ -1230,7 +1215,6 @@ module Base
         {
             item 4 [Base.Plank;Base.Firewood] mode:destroy,
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
             +fluid 1.0 WoodMethanol,
@@ -1275,7 +1259,6 @@ module Base
             item 2 [PhobosChemistryPathways.Potash],
             item 2 [Base.Quicklime],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
@@ -1308,7 +1291,6 @@ module Base
             item 2 [PhobosChemistryPathways.Potash],
             item 2 [Base.Quicklime],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 [*],
@@ -1354,7 +1336,6 @@ module Base
             -fluid 1.5 [WoodMethanol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
@@ -1396,7 +1377,6 @@ module Base
             -fluid 1.5 [WoodMethanol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
@@ -1441,7 +1421,6 @@ module Base
             -fluid 1.5 [WoodMethanol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
@@ -1483,7 +1462,6 @@ module Base
             -fluid 1.5 [WoodMethanol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide] mode:destroy,
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
@@ -1862,7 +1840,6 @@ module Base
             -fluid 1.5 [WoodMethanol],
             item 1 [LabItems.ChSodiumHydroxideBag] mode:destroy,
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
@@ -1904,7 +1881,6 @@ module Base
             -fluid 1.5 [WoodMethanol],
             item 1 [LabItems.ChSodiumHydroxideBag] mode:destroy,
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
@@ -1947,7 +1923,6 @@ module Base
             -fluid 1.5 [WoodMethanol],
             item 1 [LabItems.ChSodiumHydroxideBag] mode:destroy,
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
@@ -1989,7 +1964,6 @@ module Base
             -fluid 1.5 [WoodMethanol],
             item 1 [LabItems.ChSodiumHydroxideBag] mode:destroy,
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
@@ -2365,7 +2339,6 @@ module Base
             item 1 [*],
             -fluid 3.0 [CrudeBiodiesel],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 2.0 [Water],
@@ -2400,7 +2373,6 @@ module Base
             item 1 [*],
             -fluid 3.0 [CrudeBiodiesel],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 [*],
             -fluid 2.0 [Water],
             item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
@@ -2656,7 +2628,6 @@ module Base
             item 1 [*],
             -fluid 4.0 [CrudeBiodiesel],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
             +fluid 1.0 WashedBiodiesel,
             item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
@@ -2694,7 +2665,6 @@ module Base
             item 1 [*],
             -fluid 3.0 [CrudeBiodiesel],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
             +fluid 1.0 WashedBiodiesel,
             item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
@@ -2743,7 +2713,6 @@ module Base
             item 1 [Base.PetrolCan] flags[IsEmpty],
             +fluid 5.0 Petrol,
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
         }
         outputs
         {
@@ -2772,7 +2741,6 @@ module Base
         {
             item 4 [Base.Plank;Base.Firewood] mode:destroy,
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
@@ -2808,7 +2776,6 @@ module Base
         {
             item 4 [Base.Plank;Base.Firewood] mode:destroy,
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
             +fluid 1.0 WoodMethanol,
@@ -2856,7 +2823,6 @@ module Base
             -fluid 1.5 [WoodMethanol],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide;LabItems.ChSodiumHydroxideBag] mode:destroy,
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:acidresistantvessel] flags[IsEmpty],
@@ -2909,7 +2875,6 @@ module Base
             item 1 [Base.PetrolCan] flags[IsEmpty],
             +fluid 5.0 Petrol,
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
         }
         outputs
         {

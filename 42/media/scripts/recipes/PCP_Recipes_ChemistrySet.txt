@@ -69,7 +69,6 @@ module Base
         {
             item 4 [PhobosChemistryPathways.CrushedCharcoal],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -99,7 +98,6 @@ module Base
         {
             item 4 [PhobosChemistryPathways.CrushedCharcoal],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 [*],
             -fluid 0.5 [Water],
         }
@@ -166,7 +164,6 @@ module Base
             item 4 [PhobosChemistryPathways.CrushedCharcoal],
             item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
@@ -198,7 +195,6 @@ module Base
             item 4 [PhobosChemistryPathways.CrushedCharcoal],
             item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -374,7 +370,6 @@ module Base
             item 1 [LabItems.ChSulfuricAcidCan],
             item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
@@ -406,7 +401,6 @@ module Base
             item 1 [LabItems.ChSulfuricAcidCan],
             item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 [*],
@@ -440,7 +434,6 @@ module Base
         {
             item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
@@ -471,7 +464,6 @@ module Base
         {
             item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 [*],
@@ -512,7 +504,6 @@ module Base
             item 3 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
             item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
@@ -544,7 +535,6 @@ module Base
             item 3 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
             item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -613,7 +603,6 @@ module Base
             item 2 [PhobosChemistryPathways.DilutedCompost],
             item 3 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 [Base.PropaneTank] mode:keep flags[MayDegrade],
             item 1 [*],
             -fluid 0.5 [Water],
@@ -643,7 +632,6 @@ module Base
             item 2 [PhobosChemistryPathways.DilutedCompost],
             item 3 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 [*],
             -fluid 0.5 [Water],
         }
@@ -715,7 +703,6 @@ module Base
             item 2 [PhobosChemistryPathways.SulphurPowder],
             item 2 [PhobosChemistryPathways.PurifiedCharcoal;PhobosChemistryPathways.BoneChar],
             item 1 [LabItems.LabFlask],
-            item 1 [Base.Cork],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
         }
         outputs
