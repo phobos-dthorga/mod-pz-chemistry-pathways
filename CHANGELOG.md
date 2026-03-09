@@ -21,6 +21,12 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project follows Semantic Versioning.
 
+## [1.5.2] - 2026-03-09
+
+### Fixed
+- **Filter degradation crash on crafting** — Safe-variant hazard recipes (methanol distillation, KOH synthesis, etc.) produced stack traces on every craft because `degradeFilterFromInputs` tried DrainableComboItem methods on Clothing-type gas masks. Fixed in PhobosLib 1.18.2 — now uses condition-based degradation.
+- Requires **PhobosLib 1.18.2+** (was 1.18.1+)
+
 ## [1.5.1] - 2026-03-09
 
 ### Fixed
