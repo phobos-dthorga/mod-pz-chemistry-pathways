@@ -153,7 +153,7 @@ The **PCP_HempEffects** settings page provides 33 additional per-product stat kn
 - **5 skill books** covering Applied Chemistry levels 1-10
 - **2 occupations** (Chemist, Pharmacist) and **2 traits** (Chemistry Enthusiast, Chemical Aversion)
 - **10 fluids** with Build 42 FluidContainer integration and poison profiles
-- **62 sandbox options** for gameplay customization, vessel replacement, concrete mixer, botanical pathway, hemp effects tuning, and maintenance
+- **66 sandbox options** for gameplay customization, vessel replacement, concrete mixer, botanical pathway, hemp effects tuning, and maintenance
 - **216 OnCreate callbacks** for purity tracking and propane partial consumption
 
 ## License
@@ -171,7 +171,7 @@ Visual guides for understanding recipe chains, sandbox settings, and mod archite
 - [Recipe Pathways](docs/diagrams/recipe-pathways.md) — Complete crafting chain flowcharts for all chemistry pathways
 - [Botanical & Horticulture Pathways](docs/diagrams/botanical-pathways.md) — Hemp processing, textiles, paper, medicinals, and horticulture items
 - [Recipe Variants](docs/diagrams/recipe-variants.md) — Why PCP recipes have multiple versions, naming conventions, and troubleshooting
-- [Sandbox Settings Guide](docs/diagrams/sandbox-gating.md) — How 62 sandbox options control recipe visibility, behavior, hemp effects, and maintenance
+- [Sandbox Settings Guide](docs/diagrams/sandbox-gating.md) — How 66 sandbox options control recipe visibility, behavior, hemp effects, and maintenance
 - [Skill Progression](docs/diagrams/skill-progression.md) — Applied Chemistry skill tiers, XP curve, occupations, and traits
 - [Architecture & Dependencies](docs/diagrams/architecture.md) — Dependency graph, PhobosLib modules, and cross-mod integration
 

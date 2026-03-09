@@ -25,7 +25,7 @@
 -- Registers:
 --   - 1 custom tag ("Chemical")
 --   - 1 trader archetype ("Chemist") with expertTags
---   - 76 tradeable items (reagents, intermediates, fuels, agriculture, botanical, horticulture, books)
+--   - up to 76 tradeable items (botanical categories sandbox-gated)
 --   - Chemical allocations injected into 8 existing DT archetypes
 --
 -- Only runs when PhobosLib.isDynamicTradingActive() returns true.
@@ -36,6 +36,7 @@
 ---------------------------------------------------------------
 
 require "PhobosLib"
+require "PCP_SandboxIntegration"
 
 local _prefix = "[PCP:DynamicTrading]"
 
@@ -72,6 +73,13 @@ local function injectChemicalAllocations()
     end
 
     return injected
+end
+
+---------------------------------------------------------------
+-- Helper: append items from source table to destination table
+---------------------------------------------------------------
+local function appendItems(dest, src)
+    for _, v in ipairs(src) do dest[#dest + 1] = v end
 end
 
 ---------------------------------------------------------------
@@ -174,24 +182,7 @@ local function registerPCPTradeData()
         { item = "PhobosChemistryPathways.ReinforcedConcrete",  basePrice = 50,  tags = { "Chemical", "Material", "Uncommon" },                stockRange = { min = 1, max = 3 } },
         { item = "PhobosChemistryPathways.Fireclay",            basePrice = 35,  tags = { "Chemical", "Material", "Uncommon" },                stockRange = { min = 1, max = 4 } },
 
-        -- Botanical items (botanical fiber, textiles, medical, construction)
-        { item = "PhobosChemistryPathways.HempTwine",          basePrice = 8,   tags = { "Chemical", "Material", "Common" },    stockRange = { min = 3, max = 8 } },
-        { item = "PhobosChemistryPathways.HempRope",           basePrice = 15,  tags = { "Chemical", "Material", "Common" },    stockRange = { min = 2, max = 5 } },
-        { item = "PhobosChemistryPathways.TarredHempRope",     basePrice = 25,  tags = { "Chemical", "Material", "Uncommon" },  stockRange = { min = 1, max = 3 } },
-        { item = "PhobosChemistryPathways.HempCloth",          basePrice = 20,  tags = { "Chemical", "Material", "Common" },    stockRange = { min = 2, max = 5 } },
-        { item = "PhobosChemistryPathways.HempCanvas",         basePrice = 30,  tags = { "Chemical", "Material", "Uncommon" },  stockRange = { min = 1, max = 3 } },
-        { item = "PhobosChemistryPathways.HempPaper",          basePrice = 12,  tags = { "Chemical", "Literature", "Common" },  stockRange = { min = 3, max = 8 } },
-        { item = "PhobosChemistryPathways.HempPoultice",       basePrice = 25,  tags = { "Chemical", "Medical", "Common" },     stockRange = { min = 2, max = 5 } },
-        { item = "PhobosChemistryPathways.HempTincture",       basePrice = 45,  tags = { "Chemical", "Medical", "Uncommon" },   stockRange = { min = 1, max = 3 } },
-        { item = "PhobosChemistryPathways.HempcreteBlock",     basePrice = 35,  tags = { "Chemical", "Material", "Uncommon" },  stockRange = { min = 1, max = 3 } },
-        { item = "PhobosChemistryPathways.SeedPressCake",    basePrice = 5,   tags = { "Chemical", "Material", "Common" },    stockRange = { min = 3, max = 8 } },
-        { item = "PhobosChemistryPathways.HempSack",         basePrice = 40,  tags = { "Chemical", "Material", "Uncommon" },  stockRange = { min = 1, max = 2 } },
-        { item = "PhobosChemistryPathways.Oakum",            basePrice = 12,  tags = { "Chemical", "Material", "Common" },    stockRange = { min = 2, max = 5 } },
-        { item = "PhobosChemistryPathways.HempFishingNet",   basePrice = 35,  tags = { "Chemical", "Survival", "Uncommon" },  stockRange = { min = 1, max = 2 } },
-        { item = "PhobosChemistryPathways.HempSheetRope",    basePrice = 20,  tags = { "Chemical", "Material", "Common" },    stockRange = { min = 1, max = 3 } },
-        { item = "PhobosChemistryPathways.HempSnare",        basePrice = 15,  tags = { "Chemical", "Survival", "Common" },    stockRange = { min = 2, max = 4 } },
-        { item = "PhobosChemistryPathways.HempBastFiber",  basePrice = 10,  tags = { "Chemical", "Material", "Common" },    stockRange = { min = 3, max = 8 } },
-        { item = "PhobosChemistryPathways.HempHurd",        basePrice = 6,   tags = { "Chemical", "Material", "Common" },    stockRange = { min = 3, max = 8 } },
+        -- Botanical items: see sandbox-gated blocks below
 
         -- Horticulture items (tobacco, hemp buds, smoking, papermaking, cooking)
         { item = "PhobosChemistryPathways.ChewingTobacco",      basePrice = 16,  tags = { "Herb", "Common" },                    stockRange = { min = 2, max = 5 } },
@@ -224,6 +215,47 @@ local function registerPCPTradeData()
         { item = "PhobosChemistryPathways.BookAppliedChemistry4", basePrice = 350, tags = { "Literature", "Rare" },                         stockRange = { min = 0, max = 1 } },
         { item = "PhobosChemistryPathways.BookAppliedChemistry5", basePrice = 600, tags = { "Literature", "Legendary" },                    stockRange = { min = 0, max = 1 } },
     }
+
+    ---------------------------------------------------------------
+    -- Botanical items — gated by DT sandbox toggles
+    -- Each sub-category can be independently disabled by the player
+    ---------------------------------------------------------------
+    if PCP_Sandbox.isDTBotanicalMaterialEnabled() then
+        appendItems(items, {
+            { item = "PhobosChemistryPathways.HempTwine",        basePrice = 8,   tags = { "Chemical", "Material", "Common" },    stockRange = { min = 3, max = 8 } },
+            { item = "PhobosChemistryPathways.HempRope",         basePrice = 15,  tags = { "Chemical", "Material", "Common" },    stockRange = { min = 2, max = 5 } },
+            { item = "PhobosChemistryPathways.TarredHempRope",   basePrice = 25,  tags = { "Chemical", "Material", "Uncommon" },  stockRange = { min = 1, max = 3 } },
+            { item = "PhobosChemistryPathways.HempCloth",        basePrice = 20,  tags = { "Chemical", "Material", "Common" },    stockRange = { min = 2, max = 5 } },
+            { item = "PhobosChemistryPathways.HempCanvas",       basePrice = 30,  tags = { "Chemical", "Material", "Uncommon" },  stockRange = { min = 1, max = 3 } },
+            { item = "PhobosChemistryPathways.HempcreteBlock",   basePrice = 35,  tags = { "Chemical", "Material", "Uncommon" },  stockRange = { min = 1, max = 3 } },
+            { item = "PhobosChemistryPathways.SeedPressCake",    basePrice = 5,   tags = { "Chemical", "Material", "Common" },    stockRange = { min = 3, max = 8 } },
+            { item = "PhobosChemistryPathways.HempSack",         basePrice = 40,  tags = { "Chemical", "Material", "Uncommon" },  stockRange = { min = 1, max = 2 } },
+            { item = "PhobosChemistryPathways.Oakum",            basePrice = 12,  tags = { "Chemical", "Material", "Common" },    stockRange = { min = 2, max = 5 } },
+            { item = "PhobosChemistryPathways.HempSheetRope",    basePrice = 20,  tags = { "Chemical", "Material", "Common" },    stockRange = { min = 1, max = 3 } },
+            { item = "PhobosChemistryPathways.HempBastFiber",    basePrice = 10,  tags = { "Chemical", "Material", "Common" },    stockRange = { min = 3, max = 8 } },
+            { item = "PhobosChemistryPathways.HempHurd",         basePrice = 6,   tags = { "Chemical", "Material", "Common" },    stockRange = { min = 3, max = 8 } },
+        })
+    end
+
+    if PCP_Sandbox.isDTBotanicalMedicalEnabled() then
+        appendItems(items, {
+            { item = "PhobosChemistryPathways.HempPoultice",     basePrice = 25,  tags = { "Chemical", "Medical", "Common" },     stockRange = { min = 2, max = 5 } },
+            { item = "PhobosChemistryPathways.HempTincture",     basePrice = 45,  tags = { "Chemical", "Medical", "Uncommon" },   stockRange = { min = 1, max = 3 } },
+        })
+    end
+
+    if PCP_Sandbox.isDTBotanicalSurvivalEnabled() then
+        appendItems(items, {
+            { item = "PhobosChemistryPathways.HempFishingNet",   basePrice = 35,  tags = { "Chemical", "Survival", "Uncommon" },  stockRange = { min = 1, max = 2 } },
+            { item = "PhobosChemistryPathways.HempSnare",        basePrice = 15,  tags = { "Chemical", "Survival", "Common" },    stockRange = { min = 2, max = 4 } },
+        })
+    end
+
+    if PCP_Sandbox.isDTBotanicalLiteratureEnabled() then
+        appendItems(items, {
+            { item = "PhobosChemistryPathways.HempPaper",        basePrice = 12,  tags = { "Chemical", "Literature", "Common" },  stockRange = { min = 3, max = 8 } },
+        })
+    end
 
     local ok, count = PhobosLib.registerTradeItems(items)
 

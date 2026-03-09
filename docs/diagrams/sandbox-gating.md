@@ -17,7 +17,7 @@
 
 # Sandbox Settings Guide
 
-PhobosChemistryPathways provides 62 sandbox options split across five settings pages: gameplay options (recipe gating, purity, yield), concrete mixer options, botanical pathway options, hemp effects options (33 per-product stat knobs + moodle duration), and maintenance/reset options. A debug logging toggle is also available. These settings allow server admins and solo players to tune recipe complexity, difficulty, hemp product effects, and perform version-upgrade housekeeping.
+PhobosChemistryPathways provides 66 sandbox options split across six settings pages: gameplay options (recipe gating, purity, yield), concrete mixer options, botanical pathway options, hemp effects options (33 per-product stat knobs + moodle duration), Dynamic Trading options (4 botanical sub-category toggles), and maintenance/reset options. A debug logging toggle is also available. These settings allow server admins and solo players to tune recipe complexity, difficulty, hemp product effects, and perform version-upgrade housekeeping.
 
 ## Recipe Gating Options
 
@@ -129,6 +129,15 @@ Three options control the concrete mixer workstation:
 - **EnableHempEffects** (default: TRUE) -- Master switch for all hemp product stat effects. When disabled, hemp items have no gameplay effects beyond their base properties.
 - **33 per-product stat knobs** -- Individual stat adjustments (Stress, Boredom, Pain, Fatigue, Hunger, Thirst, Unhappiness) for pipes, cigars, cigarettes, decarbed buds, poultice, tincture, and sugar syrup.
 - **MoodleDuration** (default: 300) -- Duration in seconds for the Medicated custom moodle triggered by poultice and tincture (requires Moodle Framework).
+
+## Dynamic Trading Options
+
+Four options on the dedicated "PCP - Dynamic Trading (Optional Mod)" sandbox settings page. These control which botanical sub-categories are registered with Dynamic Trading vendor inventories. Requires the Dynamic Trading mod to be installed; has no effect without it. Changes require a game restart.
+
+- **EnableDTBotanicalMaterial** (default: TRUE) -- Register 12 botanical material items (twine, rope, cloth, canvas, hempcrete, etc.) with Material and Chemical vendors.
+- **EnableDTBotanicalMedical** (default: TRUE) -- Register 2 botanical medical items (Hemp Poultice, Hemp Tincture) with Medical and Chemical vendors.
+- **EnableDTBotanicalSurvival** (default: TRUE) -- Register 2 botanical survival items (Hemp Fishing Net, Hemp Snare) with Survival and Chemical vendors.
+- **EnableDTBotanicalLiterature** (default: TRUE) -- Register 1 botanical literature item (Hemp Paper) with Literature and Chemical vendors.
 
 ## Debug Logging
 

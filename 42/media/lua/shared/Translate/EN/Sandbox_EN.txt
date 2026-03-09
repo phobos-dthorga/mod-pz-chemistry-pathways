@@ -235,4 +235,20 @@ Sandbox_EN = {
 
     Sandbox_PCP_TinctureMoodleDuration = "TINCTURE MOODLE DURATION:",
     Sandbox_PCP_TinctureMoodleDuration_tooltip = "Duration of the 'Medicated' moodle after taking a dose of hemp tincture, in game minutes.<br> <INDENT:20>-60 game minutes = 1 in-game hour;<br> <INDENT:20>-360 = 6 in-game hours (default);<br> <INDENT:20>-1440 = 1 full in-game day.<br><br> <RGB:0.7,0.7,0.7> Only applies when Moodle Framework mod is installed. <RGB:1,1,1>",
+
+    /* ===== Dynamic Trading Page ===== */
+
+    Sandbox_PCP_DynamicTrading = "PCP - Dynamic Trading (Optional Mod)",
+
+    Sandbox_PCP_EnableDTBotanicalMaterial = "BOTANICAL: MATERIAL ITEMS",
+    Sandbox_PCP_EnableDTBotanicalMaterial_tooltip = "Register botanical material items with Dynamic Trading vendor inventories.<br><br> <INDENT:20>Items: Hemp Twine, Hemp Rope, Tarred Hemp Rope, Hemp Cloth, Hemp Canvas, Hempcrete Block, Seed Press Cake, Hemp Sack, Oakum, Hemp Sheet Rope, Hemp Bast Fiber, Hemp Hurd (12 items).<br><br> <INDENT:20>-ON (default): These items appear at Material and Chemical vendors;<br> <INDENT:20>-OFF: These items are excluded from all vendor inventories.<br><br> <RGB:0.7,0.7,0.7> Requires the Dynamic Trading mod to be installed. Has no effect without it. <RGB:1,1,1><br> <RGB:1,0.6,0.2> Requires a game restart to take effect. <RGB:1,1,1>",
+
+    Sandbox_PCP_EnableDTBotanicalMedical = "BOTANICAL: MEDICAL ITEMS",
+    Sandbox_PCP_EnableDTBotanicalMedical_tooltip = "Register botanical medical items with Dynamic Trading vendor inventories.<br><br> <INDENT:20>Items: Hemp Poultice, Hemp Tincture (2 items).<br><br> <INDENT:20>-ON (default): These items appear at Medical and Chemical vendors;<br> <INDENT:20>-OFF: These items are excluded from all vendor inventories.<br><br> <RGB:0.7,0.7,0.7> Requires the Dynamic Trading mod to be installed. Has no effect without it. <RGB:1,1,1><br> <RGB:1,0.6,0.2> Requires a game restart to take effect. <RGB:1,1,1>",
+
+    Sandbox_PCP_EnableDTBotanicalSurvival = "BOTANICAL: SURVIVAL ITEMS",
+    Sandbox_PCP_EnableDTBotanicalSurvival_tooltip = "Register botanical survival items with Dynamic Trading vendor inventories.<br><br> <INDENT:20>Items: Hemp Fishing Net, Hemp Snare (2 items).<br><br> <INDENT:20>-ON (default): These items appear at Survival and Chemical vendors;<br> <INDENT:20>-OFF: These items are excluded from all vendor inventories.<br><br> <RGB:0.7,0.7,0.7> Requires the Dynamic Trading mod to be installed. Has no effect without it. <RGB:1,1,1><br> <RGB:1,0.6,0.2> Requires a game restart to take effect. <RGB:1,1,1>",
+
+    Sandbox_PCP_EnableDTBotanicalLiterature = "BOTANICAL: LITERATURE ITEMS",
+    Sandbox_PCP_EnableDTBotanicalLiterature_tooltip = "Register botanical literature items with Dynamic Trading vendor inventories.<br><br> <INDENT:20>Items: Hemp Paper (1 item).<br><br> <INDENT:20>-ON (default): Hemp Paper appears at Literature and Chemical vendors;<br> <INDENT:20>-OFF: Hemp Paper is excluded from all vendor inventories.<br><br> <RGB:0.7,0.7,0.7> Requires the Dynamic Trading mod to be installed. Has no effect without it. <RGB:1,1,1><br> <RGB:1,0.6,0.2> Requires a game restart to take effect. <RGB:1,1,1>",
 }

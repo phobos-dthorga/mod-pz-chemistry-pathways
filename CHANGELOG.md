@@ -31,13 +31,14 @@ The format is based on Keep a Changelog, and this project follows Semantic Versi
 - **Pouch of Hemp** — HempLoose drainable integrated into pipe recipes via OR-list quantity override (1 bud OR 3 uses of pouch).
 - **Vanilla tobacco integration** — TobaccoLoose integrated into all 6 PCP tobacco recipes via OR-list.
 - **Farming spray tooltips** — Plain-English descriptions explaining crop problems and usage instructions on all 3 spray items.
+- **4 Dynamic Trading sandbox toggles** — New PCP_DynamicTrading settings page with per-sub-category toggles for botanical trade items (Material, Medical, Survival, Literature). Soft dependency: no effect without Dynamic Trading installed.
 
 ### Changed
 - 3 deprecated items: ChewingTobaccoTin, ChewingTobaccoWaterTin, ChewingTobaccoJar (save migration v1.5.0 converts to ChewingTobacco + teaches new recipes).
 - Recipe count: 297 → **301**
 - Item count: 112 → **121**
 - Tradeable items: 67 → **76**
-- Sandbox options: 52 → **62**
+- Sandbox options: 52 → **66**
 - ZScience specimens: 87 → **91**
 - Save migrations: 8 → **9**
 - Requires PhobosLib **1.18.1+** (was 1.18.0+)

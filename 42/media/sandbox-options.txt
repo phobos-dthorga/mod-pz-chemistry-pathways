@@ -389,3 +389,29 @@ option PCP.MigrateHorticultureItems
 	type = boolean, default = false,
 	page = PCP_Reset, translation = PCP_MigrateHorticultureItems,
 }
+
+/* ===== Dynamic Trading Page ===== */
+
+option PCP.EnableDTBotanicalMaterial
+{
+	type = boolean, default = true,
+	page = PCP_DynamicTrading, translation = PCP_EnableDTBotanicalMaterial,
+}
+
+option PCP.EnableDTBotanicalMedical
+{
+	type = boolean, default = true,
+	page = PCP_DynamicTrading, translation = PCP_EnableDTBotanicalMedical,
+}
+
+option PCP.EnableDTBotanicalSurvival
+{
+	type = boolean, default = true,
+	page = PCP_DynamicTrading, translation = PCP_EnableDTBotanicalSurvival,
+}
+
+option PCP.EnableDTBotanicalLiterature
+{
+	type = boolean, default = true,
+	page = PCP_DynamicTrading, translation = PCP_EnableDTBotanicalLiterature,
+}

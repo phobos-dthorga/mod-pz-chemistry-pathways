@@ -124,6 +124,34 @@ function PCP_Sandbox.isDebugEnabled()
 end
 
 ---------------------------------------------------------------
+-- Dynamic Trading Sandbox Queries (soft dependency)
+---------------------------------------------------------------
+
+--- Check if botanical Material items are enabled for DT.
+-- @return boolean  true if enabled (default true)
+function PCP_Sandbox.isDTBotanicalMaterialEnabled()
+    return PhobosLib.getSandboxVar("PCP", "EnableDTBotanicalMaterial", true) == true
+end
+
+--- Check if botanical Medical items are enabled for DT.
+-- @return boolean  true if enabled (default true)
+function PCP_Sandbox.isDTBotanicalMedicalEnabled()
+    return PhobosLib.getSandboxVar("PCP", "EnableDTBotanicalMedical", true) == true
+end
+
+--- Check if botanical Survival items are enabled for DT.
+-- @return boolean  true if enabled (default true)
+function PCP_Sandbox.isDTBotanicalSurvivalEnabled()
+    return PhobosLib.getSandboxVar("PCP", "EnableDTBotanicalSurvival", true) == true
+end
+
+--- Check if botanical Literature items are enabled for DT.
+-- @return boolean  true if enabled (default true)
+function PCP_Sandbox.isDTBotanicalLiteratureEnabled()
+    return PhobosLib.getSandboxVar("PCP", "EnableDTBotanicalLiterature", true) == true
+end
+
+---------------------------------------------------------------
 -- Hemp Effect Sandbox Queries
 ---------------------------------------------------------------
 
