@@ -26,7 +26,7 @@
 --   3. Push to Workshop.
 ---------------------------------------------------------------
 
-local PCP_VERSION = "1.6.0"
+local PCP_VERSION = "1.6.1"
 
 --- Returns true if `version` (e.g. "0.23") is strictly newer than `baseline`.
 --- If baseline is nil, returns true (show everything).
@@ -52,7 +52,27 @@ local function buildChangelogContent(lastSeenVersion)
           .. " " .. PCP_VERSION .. "  |  " .. getText("IGUI_PCP_Changelog_VersionDate") .. " <LINE> <LINE> "
 
     -- ════════════════════════════════════════════════════════════════ --
-    -- v1.5  ·  current release  (Chewing Tobacco Curing & Tags)
+    -- v1.6  ·  PZ 42.15 Translation Migration
+    -- ════════════════════════════════════════════════════════════════ --
+    if isNewerThan("1.6", lastSeenVersion) then
+    t = t .. "<LEFT> <SIZE:medium> <RGB:0.40,0.80,1.00> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_6_Marker") .. " "
+    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  " .. getText("IGUI_PCP_Changelog_V1_6_Date") .. " <LINE> <LINE> "
+
+    t = t .. "<SIZE:small> <RGB:1.00,0.75,0.20> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_6_TransTitle") .. " <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_6_TransBody") .. " <LINE> "
+    t = t .. "<LINE> "
+
+    t = t .. "<RGB:0.80,0.80,0.80> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_6_Stats1") .. " <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_6_Stats2") .. " <LINE> "
+    t = t .. "<LINE> "
+    end
+
+    -- ════════════════════════════════════════════════════════════════ --
+    -- v1.5  ·  Chewing Tobacco Curing & Tags
     -- ════════════════════════════════════════════════════════════════ --
     if isNewerThan("1.5", lastSeenVersion) then
     t = t .. "<LEFT> <SIZE:medium> <RGB:0.40,0.80,1.00> "

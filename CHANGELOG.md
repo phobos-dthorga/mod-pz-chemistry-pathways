@@ -21,6 +21,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project follows Semantic Versioning.
 
+## [1.6.1] - 2026-03-11
+
+### Fixed
+- **Translation conversion corruption** — The v1.6.0 Lua→JSON converter failed on values starting with `---` (treated as Lua comments) and on `--` within quoted strings. Fixed 14 corrupt `*_Marker` keys, restored 14 missing keys (`*_Date` + `Earlier_Stats1`), and restored truncated `SkillPurityInfluence` tooltip in `Sandbox.json`. Added missing `SkillPurityInfluence_option1` ("None") key.
+- Removed bogus `Chemistry_Description` key (artifact from space-in-key-name in old Lua file).
+
+### Added
+- **In-game changelog** updated with v1.6 entry (PZ 42.15 translation migration).
+
 ## [1.6.0] - 2026-03-10
 
 ### Changed

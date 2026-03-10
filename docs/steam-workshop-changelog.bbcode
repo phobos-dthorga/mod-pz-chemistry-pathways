@@ -1,5 +1,19 @@
 [h1]Phobos' Industrial Pathways: Biomass — Changelog[/h1]
 
+[h2]v1.6.1 — Translation Fix & In-Game Changelog (2026-03-11)[/h2]
+
+[h3]Bug Fixes[/h3]
+[list]
+[*] [b]Translation conversion corruption[/b] — Fixed 14 corrupt Marker keys and 14 missing Date keys in IG_UI.json caused by the v1.6.0 Lua→JSON converter mishandling values starting with "---". Restored truncated SkillPurityInfluence tooltip and missing option1 ("None") key in Sandbox.json.
+[/list]
+
+[h3]Added[/h3]
+[list]
+[*] [b]In-game changelog[/b] updated with v1.6 entry (PZ 42.15 translation migration).
+[/list]
+
+[hr][/hr]
+
 [h2]v1.6.0 — PZ 42.15 Translation Migration (2026-03-10)[/h2]
 
 [h3]Changed[/h3]
@@ -338,6 +352,7 @@
 [*] [b]301 recipes[/b] across 10 pathways — Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture, Concrete Mixer, Botanical
 [*] [b]121 items[/b], [b]76 tradeable items[/b], [b]6 recipe books[/b], [b]5 skill books[/b], [b]10 fluids[/b]
 [*] [b]66 sandbox options[/b], [b]216 OnCreate callbacks[/b], [b]91 ZScience specimens[/b]
+[*] [b]v1.6.1[/b]: Translation conversion fix + in-game changelog update
 [*] [b]v1.6.0[/b]: PZ 42.15 translation migration — all 9 translation files converted from Lua .txt to JSON, versionMin bumped to 42.15.0
 [*] [b]v1.5.2[/b]: Filter degradation fix — safe-variant hazard recipes no longer produce stack traces
 [*] [b]v1.5.1[/b]: Distribution key hotfix — fixed server crash on B42.14.1 MP servers, nil-guard helper for future-proofing
