@@ -1,0 +1,18 @@
+{
+    "Moodles_Medicated_lvl1": "Slightly Medicated",
+    "Moodles_Medicated_desc_lvl1": "A mild herbal remedy is easing some discomfort.",
+    "Moodles_Medicated_lvl2": "Medicated",
+    "Moodles_Medicated_desc_lvl2": "Herbal medicine is actively reducing pain and stress.",
+    "Moodles_Medicated_lvl3": "Well Medicated",
+    "Moodles_Medicated_desc_lvl3": "Strong herbal effects are providing significant relief.",
+    "Moodles_Medicated_lvl4": "Heavily Medicated",
+    "Moodles_Medicated_desc_lvl4": "Powerful herbal medicine is numbing pain and inducing calm.",
+    "Moodles_Medicated_bad_lvl1": "Wearing Off",
+    "Moodles_Medicated_desc_bad_lvl1": "The medicinal effects are fading.",
+    "Moodles_Medicated_bad_lvl2": "Wearing Off",
+    "Moodles_Medicated_desc_bad_lvl2": "The medicinal effects are fading.",
+    "Moodles_Medicated_bad_lvl3": "Wearing Off",
+    "Moodles_Medicated_desc_bad_lvl3": "The medicinal effects are fading.",
+    "Moodles_Medicated_bad_lvl4": "Wearing Off",
+    "Moodles_Medicated_desc_bad_lvl4": "The medicinal effects are fading."
+}

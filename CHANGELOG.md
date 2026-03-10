@@ -21,6 +21,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog, and this project follows Semantic Versioning.
 
+## [1.6.0] - 2026-03-10
+
+### Changed
+- **PZ 42.15 translation migration** — Converted all 9 translation files from Lua `.txt` table format to flat JSON (`.json`). 895 keys across ContextMenu, Fluids, IG_UI, ItemName, Moodles, Recipes, Sandbox, Tooltip, and UI. Files renamed from `*_EN.txt` to `*.json`.
+- **Minimum game version** bumped from 42.14.0 to **42.15.0**.
+- Requires **PhobosLib 1.19.0+** (was 1.18.2+).
+- CI: sandbox completeness check and encoding validation updated for JSON translation files.
+
 ## [1.5.2] - 2026-03-09
 
 ### Fixed
