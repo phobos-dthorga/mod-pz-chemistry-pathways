@@ -1,5 +1,17 @@
 [h1]Phobos' Industrial Pathways: Biomass — Changelog[/h1]
 
+[h2]v1.6.0 — PZ 42.15 Translation Migration (2026-03-10)[/h2]
+
+[h3]Changed[/h3]
+[list]
+[*] [b]PZ 42.15 translation migration[/b] — Converted all 9 translation files (895 keys) from Lua .txt table format to flat JSON (.json): ContextMenu, Fluids, IG_UI, ItemName, Moodles, Recipes, Sandbox, Tooltip, UI.
+[*] [b]Minimum game version[/b] bumped from 42.14.0 to 42.15.0.
+[*] Requires [b]PhobosLib 1.19.0+[/b] (was 1.18.2+).
+[*] CI: sandbox completeness check and encoding validation updated for JSON translation files.
+[/list]
+
+[hr][/hr]
+
 [h2]v1.5.2 — Filter Degradation Fix (2026-03-09)[/h2]
 
 [h3]Bug Fixes[/h3]
@@ -326,11 +338,12 @@
 [*] [b]301 recipes[/b] across 10 pathways — Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture, Concrete Mixer, Botanical
 [*] [b]121 items[/b], [b]76 tradeable items[/b], [b]6 recipe books[/b], [b]5 skill books[/b], [b]10 fluids[/b]
 [*] [b]66 sandbox options[/b], [b]216 OnCreate callbacks[/b], [b]91 ZScience specimens[/b]
+[*] [b]v1.6.0[/b]: PZ 42.15 translation migration — all 9 translation files converted from Lua .txt to JSON, versionMin bumped to 42.15.0
 [*] [b]v1.5.2[/b]: Filter degradation fix — safe-variant hazard recipes no longer produce stack traces
 [*] [b]v1.5.1[/b]: Distribution key hotfix — fixed server crash on B42.14.1 MP servers, nil-guard helper for future-proofing
 [*] [b]v1.4.0[/b]: Medicated moodle, medicinal timed actions, hemp effects system, 33 sandbox options, fermentation tooltip
 [*] [b]v1.3.0[/b]: Hemp expansion (6 new items), vanilla station integration, mechanical hazards, 26 new ZScience specimens
 [*] [b]v1.2.0[/b]: Botanical pathway, 31 horticulture items, 6 recipe books, [B42] Horticulture migration system
 [*] [b]v1.0.0[/b]: Hard dependency migrated from zReVaccin 3 to Zombie Virus Vaccine
-[*] Requires PhobosLib 1.18.2+ and Zombie Virus Vaccine | Optional: Moodle Framework
+[*] Requires PhobosLib 1.19.0+ and Zombie Virus Vaccine | Optional: Moodle Framework
 [/list]
