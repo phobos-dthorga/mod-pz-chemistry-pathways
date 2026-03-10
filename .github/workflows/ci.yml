@@ -27,27 +27,33 @@ jobs:
               echo "::error file=$f::Lua syntax error: $OUTPUT"
               FAIL=1
             fi
-          done < <(find 42/media/lua -name '*.lua' -print0)
+          done < <(find common/media/lua -name '*.lua' -print0)
           exit $FAIL
 
       - name: Luacheck
-        run: luacheck 42/media/lua/
+        run: luacheck common/media/lua/
 
-      - name: Version consistency (4 locations)
+      - name: Version consistency (5 locations)
         run: |
           V_ROOT=$(grep -oP 'modversion=\K[0-9]+\.[0-9]+\.[0-9]+' mod.info)
-          V_42=$(grep -oP 'modversion=\K[0-9]+\.[0-9]+\.[0-9]+' 42/mod.info)
-          V_CHANGELOG=$(grep -oP 'local PCP_VERSION\s*=\s*"\K[0-9]+\.[0-9]+\.[0-9]+' 42/media/lua/client/PCP_ChangelogPopup.lua)
-          V_MIGRATION=$(grep -oP 'local MOD_VERSION\s*=\s*"\K[0-9]+\.[0-9]+\.[0-9]+' 42/media/lua/server/PCP_MigrationSystem.lua)
+          V_4214=$(grep -oP 'modversion=\K[0-9]+\.[0-9]+\.[0-9]+' 42.14/mod.info)
+          V_4215=$(grep -oP 'modversion=\K[0-9]+\.[0-9]+\.[0-9]+' 42.15/mod.info)
+          V_CHANGELOG=$(grep -oP 'local PCP_VERSION\s*=\s*"\K[0-9]+\.[0-9]+\.[0-9]+' common/media/lua/client/PCP_ChangelogPopup.lua)
+          V_MIGRATION=$(grep -oP 'local MOD_VERSION\s*=\s*"\K[0-9]+\.[0-9]+\.[0-9]+' common/media/lua/server/PCP_MigrationSystem.lua)
 
           echo "mod.info (root)       = $V_ROOT"
-          echo "42/mod.info           = $V_42"
+          echo "42.14/mod.info        = $V_4214"
+          echo "42.15/mod.info        = $V_4215"
           echo "PCP_ChangelogPopup    = $V_CHANGELOG"
           echo "PCP_MigrationSystem   = $V_MIGRATION"
 
           FAIL=0
-          if [ "$V_ROOT" != "$V_42" ]; then
-            echo "::error::Version mismatch: mod.info=$V_ROOT vs 42/mod.info=$V_42"
+          if [ "$V_ROOT" != "$V_4214" ]; then
+            echo "::error::Version mismatch: mod.info=$V_ROOT vs 42.14/mod.info=$V_4214"
+            FAIL=1
+          fi
+          if [ "$V_ROOT" != "$V_4215" ]; then
+            echo "::error::Version mismatch: mod.info=$V_ROOT vs 42.15/mod.info=$V_4215"
             FAIL=1
           fi
           if [ "$V_ROOT" != "$V_CHANGELOG" ]; then
@@ -59,27 +65,23 @@ jobs:
             FAIL=1
           fi
           if [ "$FAIL" = "0" ]; then
-            echo "All 4 version locations match: $V_ROOT"
+            echo "All 5 version locations match: $V_ROOT"
           fi
           exit $FAIL
 
-      - name: Sandbox translation completeness
+      - name: Sandbox translation completeness (JSON - 42.15)
         run: |
           python3 <<'PYEOF'
           import re, sys
 
-          # Parse sandbox-options.txt
-          with open("42/media/sandbox-options.txt") as f:
+          with open("common/media/sandbox-options.txt") as f:
               opts_text = f.read()
 
-          # Parse Sandbox_EN.txt
-          with open("42/media/lua/shared/Translate/EN/Sandbox.json") as f:
+          with open("42.15/media/lua/shared/Translate/EN/Sandbox.json") as f:
               trans_text = f.read()
 
           fail = False
 
-          # Check translation keys (label + tooltip for each option)
-          # Also check enum option keys (numValues -> _option1.._optionN)
           option_blocks = re.split(r'\n\s*(?=option\s)', opts_text)
           for block in option_blocks:
               trans_match = re.search(r'translation\s*=\s*(\w+)', block)
@@ -89,32 +91,78 @@ jobs:
               label_key = f"Sandbox_{key}"
               tooltip_key = f"Sandbox_{key}_tooltip"
               if label_key not in trans_text:
-                  print(f"::error::Missing translation key: {label_key}")
+                  print(f"::error::Missing JSON translation key: {label_key}")
                   fail = True
               if tooltip_key not in trans_text:
-                  print(f"::error::Missing translation key: {tooltip_key}")
+                  print(f"::error::Missing JSON translation key: {tooltip_key}")
                   fail = True
 
-              # Check enum option keys
               num_match = re.search(r'numValues\s*=\s*(\d+)', block)
               if num_match:
                   num_values = int(num_match.group(1))
                   for i in range(1, num_values + 1):
                       option_key = f"Sandbox_{key}_option{i}"
                       if option_key not in trans_text:
-                          print(f"::error::Missing enum translation key: {option_key}")
+                          print(f"::error::Missing JSON enum translation key: {option_key}")
                           fail = True
 
-          # Check page title keys
           for m in re.finditer(r'page\s*=\s*(\w+)', opts_text):
               page_key = f"Sandbox_{m.group(1)}"
               if page_key not in trans_text:
-                  print(f"::error::Missing page title key: {page_key}")
+                  print(f"::error::Missing JSON page title key: {page_key}")
                   fail = True
 
           if fail:
               sys.exit(1)
-          print("All sandbox translation keys present.")
+          print("All sandbox translation keys present in JSON (42.15).")
+          PYEOF
+
+      - name: Sandbox translation completeness (Lua - 42.14)
+        run: |
+          python3 <<'PYEOF'
+          import re, sys
+
+          with open("common/media/sandbox-options.txt") as f:
+              opts_text = f.read()
+
+          with open("42.14/media/lua/shared/Translate/EN/Sandbox_EN.txt") as f:
+              trans_text = f.read()
+
+          fail = False
+
+          option_blocks = re.split(r'\n\s*(?=option\s)', opts_text)
+          for block in option_blocks:
+              trans_match = re.search(r'translation\s*=\s*(\w+)', block)
+              if not trans_match:
+                  continue
+              key = trans_match.group(1)
+              label_key = f"Sandbox_{key}"
+              tooltip_key = f"Sandbox_{key}_tooltip"
+              if label_key not in trans_text:
+                  print(f"::error::Missing Lua translation key: {label_key}")
+                  fail = True
+              if tooltip_key not in trans_text:
+                  print(f"::error::Missing Lua translation key: {tooltip_key}")
+                  fail = True
+
+              num_match = re.search(r'numValues\s*=\s*(\d+)', block)
+              if num_match:
+                  num_values = int(num_match.group(1))
+                  for i in range(1, num_values + 1):
+                      option_key = f"Sandbox_{key}_option{i}"
+                      if option_key not in trans_text:
+                          print(f"::error::Missing Lua enum translation key: {option_key}")
+                          fail = True
+
+          for m in re.finditer(r'page\s*=\s*(\w+)', opts_text):
+              page_key = f"Sandbox_{m.group(1)}"
+              if page_key not in trans_text:
+                  print(f"::error::Missing Lua page title key: {page_key}")
+                  fail = True
+
+          if fail:
+              sys.exit(1)
+          print("All sandbox translation keys present in Lua (42.14).")
           PYEOF
 
       - name: Icon coverage
@@ -122,8 +170,7 @@ jobs:
           python3 <<'PYEOF'
           import re, os, sys, glob
 
-          # Collect all Icon = PCP_* references from item scripts
-          script_files = glob.glob("42/media/scripts/*.txt")
+          script_files = glob.glob("common/media/scripts/*.txt")
           pcp_icons = set()
 
           for sf in script_files:
@@ -133,10 +180,9 @@ jobs:
                       if m:
                           pcp_icons.add(m.group(1))
 
-          # Check each PCP icon has a matching texture file
           fail = False
           for icon_name in sorted(pcp_icons):
-              texture_path = f"42/media/textures/Item_{icon_name}.png"
+              texture_path = f"common/media/textures/Item_{icon_name}.png"
               if not os.path.isfile(texture_path):
                   print(f"::error::Missing texture for Icon={icon_name}: expected {texture_path}")
                   fail = True
@@ -151,8 +197,7 @@ jobs:
           python3 <<'PYEOF'
           import re, os, sys, glob
 
-          # Collect all OnCreate = Module.func references from recipe scripts
-          script_files = glob.glob("42/media/scripts/*.txt")
+          script_files = glob.glob("common/media/scripts/*.txt")
           modules = set()
 
           for sf in script_files:
@@ -162,17 +207,16 @@ jobs:
                       if m:
                           modules.add(m.group(1))
 
-          # Check each referenced module has a .lua file under 42/media/lua/
           lua_files = set()
-          for root, dirs, files in os.walk("42/media/lua"):
+          for root, dirs, files in os.walk("common/media/lua"):
               for fn in files:
                   if fn.endswith(".lua"):
-                      lua_files.add(fn[:-4])  # strip .lua extension
+                      lua_files.add(fn[:-4])
 
           fail = False
           for mod_name in sorted(modules):
               if mod_name not in lua_files:
-                  print(f"::error::OnCreate references module '{mod_name}' but {mod_name}.lua not found under 42/media/lua/")
+                  print(f"::error::OnCreate references module '{mod_name}' but {mod_name}.lua not found under common/media/lua/")
                   fail = True
 
           if fail:
@@ -183,12 +227,16 @@ jobs:
       - name: Encoding check (UTF-8)
         run: |
           FAIL=0
-          while IFS= read -r -d '' f; do
-            if ! python3 -c "open('$f', encoding='utf-8').read()" 2>/dev/null; then
-              echo "::error file=$f::Non-UTF-8 encoding detected"
-              FAIL=1
+          for dir in common/media 42.14/media 42.15/media; do
+            if [ -d "$dir" ]; then
+              while IFS= read -r -d '' f; do
+                if ! python3 -c "open('$f', encoding='utf-8').read()" 2>/dev/null; then
+                  echo "::error file=$f::Non-UTF-8 encoding detected"
+                  FAIL=1
+                fi
+              done < <(find "$dir" \( -name '*.lua' -o -name '*.txt' -o -name '*.json' \) -print0)
             fi
-          done < <(find 42/media \( -name '*.lua' -o -name '*.txt' -o -name '*.json' \) -print0)
+          done
           if [ "$FAIL" = "0" ]; then
             echo "All files are valid UTF-8."
           fi

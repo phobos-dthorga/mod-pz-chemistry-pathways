@@ -1,6 +1,6 @@
 #!/bin/bash
 # PCP pre-commit hook
-# Checks version consistency (4 locations) and runs luacheck if available.
+# Checks version consistency (5 locations) and runs luacheck if available.
 # Install: git config core.hooksPath .githooks
 
 set -e
@@ -8,15 +8,16 @@ FAIL=0
 
 echo "[pre-commit] PCP validation..."
 
-# --- Version consistency (4 locations) ---
+# --- Version consistency (5 locations) ---
 V_ROOT=$(grep -oP 'modversion=\K[0-9]+\.[0-9]+\.[0-9]+' mod.info 2>/dev/null || echo "")
-V_42=$(grep -oP 'modversion=\K[0-9]+\.[0-9]+\.[0-9]+' 42/mod.info 2>/dev/null || echo "")
-V_CHANGELOG=$(grep -oP 'local PCP_VERSION\s*=\s*"\K[0-9]+\.[0-9]+\.[0-9]+' 42/media/lua/client/PCP_ChangelogPopup.lua 2>/dev/null || echo "")
-V_MIGRATION=$(grep -oP 'local MOD_VERSION\s*=\s*"\K[0-9]+\.[0-9]+\.[0-9]+' 42/media/lua/server/PCP_MigrationSystem.lua 2>/dev/null || echo "")
+V_4214=$(grep -oP 'modversion=\K[0-9]+\.[0-9]+\.[0-9]+' 42.14/mod.info 2>/dev/null || echo "")
+V_4215=$(grep -oP 'modversion=\K[0-9]+\.[0-9]+\.[0-9]+' 42.15/mod.info 2>/dev/null || echo "")
+V_CHANGELOG=$(grep -oP 'local PCP_VERSION\s*=\s*"\K[0-9]+\.[0-9]+\.[0-9]+' common/media/lua/client/PCP_ChangelogPopup.lua 2>/dev/null || echo "")
+V_MIGRATION=$(grep -oP 'local MOD_VERSION\s*=\s*"\K[0-9]+\.[0-9]+\.[0-9]+' common/media/lua/server/PCP_MigrationSystem.lua 2>/dev/null || echo "")
 
 if [ -n "$V_ROOT" ]; then
     MISMATCH=0
-    for pair in "42/mod.info:$V_42" "PCP_ChangelogPopup.lua:$V_CHANGELOG" "PCP_MigrationSystem.lua:$V_MIGRATION"; do
+    for pair in "42.14/mod.info:$V_4214" "42.15/mod.info:$V_4215" "PCP_ChangelogPopup.lua:$V_CHANGELOG" "PCP_MigrationSystem.lua:$V_MIGRATION"; do
         FILE="${pair%%:*}"
         VER="${pair##*:}"
         if [ "$VER" != "$V_ROOT" ]; then
@@ -25,7 +26,7 @@ if [ -n "$V_ROOT" ]; then
         fi
     done
     if [ "$MISMATCH" -eq 0 ]; then
-        echo "  OK: All 4 version locations match ($V_ROOT)"
+        echo "  OK: All 5 version locations match ($V_ROOT)"
     else
         echo "  Fix: ./scripts/bump-version.sh $V_ROOT"
         FAIL=1
@@ -35,7 +36,7 @@ fi
 # --- Luacheck (if available) ---
 if command -v luacheck &>/dev/null; then
     echo "[pre-commit] Running luacheck..."
-    if ! luacheck 42/media/lua/ --quiet; then
+    if ! luacheck common/media/lua/ --quiet; then
         FAIL=1
     fi
 else

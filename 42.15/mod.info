@@ -1,0 +1,12 @@
+name=Phobos' Industrial Pathways: Biomass
+id=PhobosChemistryPathways
+description=Complete industrial chemistry and biomass processing suite for Project Zomboid Build 42: blackpowder synthesis, biodiesel production, fat rendering, soap-making, bone char, salt extraction, recycling, agriculture, botanical hemp processing, horticulture, hemp edibles (butter and infused oil), water purification, fire starting, leather tanning, construction materials, powered concrete mixer workstation, and advanced lab processes. Features 301 recipes, 121 items, 10 fluids, 66 sandbox options, condition-based purity tracking, tiered reset system, EHR health hazard integration, farming spray integration, Dynamic Trading support with 76 tradeable items, ZScienceSkill specimen integration, vanilla station crafting (Hand Press, Loom, Scutching Board), mechanical hazard system, dual-path chewing tobacco curing (fire-cure or 14-day jar fermentation), [B42] Horticulture migration, and in-game welcome guide and changelog popups. Requires PhobosLib and Zombie Virus Vaccine.
+poster=poster.png
+icon=icon.png
+url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668197831
+authors=phobosgekko
+versionMin=42.15.0
+modversion=1.7.0
+require=\PhobosLib,\ZVirusVaccine42BETA
+loadModAfter=\PhobosLib,\ZVirusVaccine42BETA,\ZScienceSkill,\EHR,\DynamicTradingCommon,\MoodleFramework
+category=features

@@ -111,6 +111,5 @@ read_globals = {
 }
 
 -- Translation files define globals like ItemName_EN, Sandbox_EN, etc.
--- These are PZ convention — exclude from warnings
-files["42/media/lua/shared/Translate/**/*.txt"] = { allow_defined_top = true }
-files["42/media/lua/client/Translate/**/*.txt"] = { allow_defined_top = true }
+-- These are PZ convention — exclude from warnings (42.14 Lua .txt format)
+files["42.14/media/lua/shared/Translate/**/*.txt"] = { allow_defined_top = true }

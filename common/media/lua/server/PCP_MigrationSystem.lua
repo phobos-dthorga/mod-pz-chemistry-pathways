@@ -58,7 +58,7 @@
 require "PhobosLib"
 
 local MOD_ID      = "PCP"
-local MOD_VERSION = "1.6.1"
+local MOD_VERSION = "1.7.0"
 
 ---------------------------------------------------------------
 -- Helpers
