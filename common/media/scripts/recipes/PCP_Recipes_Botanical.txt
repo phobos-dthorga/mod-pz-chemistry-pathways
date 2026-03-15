@@ -22,7 +22,7 @@ module Base
 /* ==================================================================================== */
 /*  Chemistry-enhanced processing of hemp stalks into fiber, textiles,
     paper, medicinal extracts, and construction materials. Builds on top
-    of vanilla hemp farming (Base.HempSeed, Base.HempBroken) with KOH/NaOH
+    of vanilla hemp farming (Base.HempSeed, Base.HempBundle) with KOH/NaOH
     chemical retting for higher-quality outputs tracked by the purity system.
     Cross-pathway integration: hurds feed into charcoal/potash chain,
     fiber feeds into textile and paper chemistry, oil pressing already exists. */
@@ -51,7 +51,7 @@ module Base
 
         inputs
         {
-            item 2 [Base.HempBroken],
+            item 2 [Base.HempBundle;Base.HempBundleDried],
         }
         outputs
         {
@@ -170,7 +170,7 @@ module Base
 
         inputs
         {
-            item 2 [Base.HempBroken],
+            item 2 [Base.HempBundle;Base.HempBundleDried],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide],
             item 1 [*] mode:keep,
             -fluid 1.0 [Water],
@@ -196,7 +196,7 @@ module Base
 
         inputs
         {
-            item 2 [Base.HempBroken],
+            item 2 [Base.HempBundle;Base.HempBundleDried],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide],
             item 1 [*],
             -fluid 1.0 [Water],
@@ -229,7 +229,7 @@ module Base
 
         inputs
         {
-            item 2 [Base.HempBroken],
+            item 2 [Base.HempBundle;Base.HempBundleDried],
             item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [*] mode:keep,
             -fluid 1.0 [Water],
@@ -255,7 +255,7 @@ module Base
 
         inputs
         {
-            item 2 [Base.HempBroken],
+            item 2 [Base.HempBundle;Base.HempBundleDried],
             item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [*],
             -fluid 1.0 [Water],

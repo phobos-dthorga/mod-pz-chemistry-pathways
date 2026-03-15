@@ -26,7 +26,7 @@
 --   3. Push to Workshop.
 ---------------------------------------------------------------
 
-local PCP_VERSION = "1.8.0"
+local PCP_VERSION = "1.8.1"
 
 --- Returns true if `version` (e.g. "0.23") is strictly newer than `baseline`.
 --- If baseline is nil, returns true (show everything).
@@ -50,6 +50,21 @@ local function buildChangelogContent(lastSeenVersion)
     t = t .. "<H1> <CENTRE> " .. getText("IGUI_PCP_Changelog_Title") .. " <LINE> "
     t = t .. "<CENTRE> <SIZE:small> <RGB:0.55,0.65,0.85> " .. getText("IGUI_PCP_Changelog_VersionPrefix")
           .. " " .. PCP_VERSION .. "  |  " .. getText("IGUI_PCP_Changelog_VersionDate") .. " <LINE> <LINE> "
+
+    -- ════════════════════════════════════════════════════════════════ --
+    -- v1.8.1  ·  Hemp Recipe Input Fix
+    -- ════════════════════════════════════════════════════════════════ --
+    if isNewerThan("1.8", lastSeenVersion) then
+    t = t .. "<LEFT> <SIZE:medium> <RGB:0.40,0.80,1.00> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_8_1_Marker") .. " "
+    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  " .. getText("IGUI_PCP_Changelog_V1_8_1_Date") .. " <LINE> <LINE> "
+
+    t = t .. "<SIZE:small> <RGB:1.00,0.75,0.20> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_8_1_HempTitle") .. " <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_8_1_HempBody") .. " <LINE> "
+    t = t .. "<LINE> "
+    end
 
     -- ════════════════════════════════════════════════════════════════ --
     -- v1.8  ·  Gardening Sprays, Hemp Fix, Icons
