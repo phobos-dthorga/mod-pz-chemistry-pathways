@@ -41,13 +41,12 @@ module Base
 /* ==================================================================================== */
 /*  SulphurPowder, CrudeSoap, and Potash have real-world agricultural uses as
     antifungals, insecticidal soaps, and foliar fertiliser sprays respectively.
-    These recipes produce functional B42 gardening sprays via PhobosLib's
-    registerFarmingSpray() API (monkey-patches ISFarmingMenu/CFarming_Interact).        */
+    These recipes produce vanilla B42 gardening sprays directly.                         */
 
 
 /* ----- C1: SULPHUR FUNGICIDE SPRAY ----- */
 /*  Sulphur suspension in water — classic antifungal for crop mildew.
-    Maps to vanilla Mildew cure (replaces GardeningSprayMilk).                          */
+    Produces vanilla GardeningSprayMilk (Mildew cure).                                  */
 
     craftRecipe PCPMakeSulphurFungicideSpray
     {
@@ -70,13 +69,13 @@ module Base
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.SulphurFungicideSpray,
+            item 1 Base.GardeningSprayMilk,
         }
     }
 
 /* ----- C2: INSECTICIDAL SOAP SPRAY ----- */
 /*  Dilute soap solution — disrupts soft-bodied insect cuticles.
-    Maps to vanilla Aphids cure (replaces GardeningSprayAphids).                        */
+    Produces vanilla GardeningSprayAphids (Aphids cure).                                */
 
     craftRecipe PCPMakeInsecticidalSoapSpray
     {
@@ -99,13 +98,13 @@ module Base
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.InsecticidalSoapSpray,
+            item 1 Base.GardeningSprayAphids,
         }
     }
 
 /* ----- C3: POTASH FOLIAR SPRAY ----- */
 /*  Potassium-rich foliar spray — disrupts pest feeding and boosts plant
-    stress resistance. Maps to vanilla Flies cure (replaces GardeningSprayCigarettes).  */
+    stress resistance. Produces vanilla GardeningSprayCigarettes (Flies cure).          */
 
     craftRecipe PCPMakePotashFoliarSpray
     {
@@ -128,7 +127,7 @@ module Base
         }
         outputs
         {
-            item 1 PhobosChemistryPathways.PotashFoliarSpray,
+            item 1 Base.GardeningSprayCigarettes,
         }
     }
 
@@ -973,7 +972,7 @@ module Base
             item 1 [*],
             -fluid 1.0 [SulphuricAcid],
             item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
-            item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
+            item 1 [Base.PropaneTank] mode:keep flags[NotEmpty;ItemCount],
         }
         outputs
         {

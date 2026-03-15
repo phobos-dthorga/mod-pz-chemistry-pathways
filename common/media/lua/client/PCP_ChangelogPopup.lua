@@ -26,7 +26,7 @@
 --   3. Push to Workshop.
 ---------------------------------------------------------------
 
-local PCP_VERSION = "1.7.0"
+local PCP_VERSION = "1.8.0"
 
 --- Returns true if `version` (e.g. "0.23") is strictly newer than `baseline`.
 --- If baseline is nil, returns true (show everything).
@@ -50,6 +50,38 @@ local function buildChangelogContent(lastSeenVersion)
     t = t .. "<H1> <CENTRE> " .. getText("IGUI_PCP_Changelog_Title") .. " <LINE> "
     t = t .. "<CENTRE> <SIZE:small> <RGB:0.55,0.65,0.85> " .. getText("IGUI_PCP_Changelog_VersionPrefix")
           .. " " .. PCP_VERSION .. "  |  " .. getText("IGUI_PCP_Changelog_VersionDate") .. " <LINE> <LINE> "
+
+    -- ════════════════════════════════════════════════════════════════ --
+    -- v1.8  ·  Gardening Sprays, Hemp Fix, Icons
+    -- ════════════════════════════════════════════════════════════════ --
+    if isNewerThan("1.8", lastSeenVersion) then
+    t = t .. "<LEFT> <SIZE:medium> <RGB:0.40,0.80,1.00> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_8_Marker") .. " "
+    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  " .. getText("IGUI_PCP_Changelog_V1_8_Date") .. " <LINE> <LINE> "
+
+    t = t .. "<SIZE:small> <RGB:1.00,0.75,0.20> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_8_SprayTitle") .. " <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_8_SprayBody") .. " <LINE> "
+    t = t .. "<LINE> "
+
+    t = t .. "<SIZE:small> <RGB:1.00,0.75,0.20> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_8_HempTitle") .. " <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_8_HempBody") .. " <LINE> "
+    t = t .. "<LINE> "
+
+    t = t .. "<SIZE:small> <RGB:1.00,0.75,0.20> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_8_IconsTitle") .. " <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_8_IconsBody") .. " <LINE> "
+    t = t .. "<LINE> "
+
+    t = t .. "<RGB:0.80,0.80,0.80> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_8_Stats1") .. " <LINE> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_8_Stats2") .. " <LINE> "
+    t = t .. "<LINE> "
+    end
 
     -- ════════════════════════════════════════════════════════════════ --
     -- v1.6  ·  PZ 42.15 Translation Migration

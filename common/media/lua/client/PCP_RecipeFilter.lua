@@ -158,10 +158,6 @@ local hazardEnabled = {
     -- Mechanical hazards (smoke/dust — light PPE tier)
     "PCPCharHempHurdsSafe",
     "PCPCharHempHurdsUnsafe",
-    "PCPCharHempHurdsCokeSafe",
-    "PCPCharHempHurdsCokeUnsafe",
-    "PCPCharHempHurdsSimpleSafe",
-    "PCPCharHempHurdsSimpleUnsafe",
     "PCPMixHempcreteSafe",
     "PCPMixHempcreteUnsafe",
     "PCPMixReinforcedHempcreteSafe",
@@ -182,8 +178,6 @@ local noHazard = {
     "PCPMakeMatchbox",
     -- Mechanical hazard base recipes (hidden when hazards enabled)
     "PCPCharHempHurds",
-    "PCPCharHempHurdsCoke",
-    "PCPCharHempHurdsSimple",
     "PCPMixHempcrete",
     "PCPMixReinforcedHempcrete",
 }

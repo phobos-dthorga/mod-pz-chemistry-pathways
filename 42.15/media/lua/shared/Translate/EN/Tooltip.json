@@ -1,4 +1,5 @@
 {
+    "__copyright": "Copyright (c) 2026 Phobos A. D'thorga. All rights reserved.",
     "Tooltip_PCP_CrushedCharcoal": "Finely ground charcoal powder, ready for purification.<br>Produced by crushing wood charcoal in a mortar and pestle.",
     "Tooltip_PCP_PurifiedCharcoal": "High-purity carbon powder with mineral impurities removed.<br>Essential reagent for chemical synthesis.",
     "Tooltip_PCP_Potash": "Potassium carbonate (K2CO3) extracted from charcoal during<br>purification. Combined with quicklime to synthesize<br>potassium hydroxide (KOH) for biodiesel production.",
@@ -30,9 +31,6 @@
     "Tooltip_PCP_BoneMeal": "Ground bone char powder.<br>Rich in calcium and phosphorus.<br>Used in animal feed supplements and fertiliser.",
     "Tooltip_PCP_MineralFeedSupplement": "Mineral-enriched animal feed.<br>Provides essential calcium, phosphorus, and potassium.<br>Use to feed livestock.",
     "Tooltip_PCP_ActivatedCarbon": "Chemically activated carbon with high porosity.<br>Excellent adsorbent for water purification<br>and gas mask filtration.",
-    "Tooltip_PCP_SulphurFungicideSpray": "Use on crops to treat mildew. Right-click a<br>growing plant and select Treat Problem to apply.<br>Made from sulphur powder dissolved in water.",
-    "Tooltip_PCP_InsecticidalSoapSpray": "Use on crops to treat aphid infestations.<br>Right-click a growing plant and select Treat<br>Problem to apply. Made from soap and water.",
-    "Tooltip_PCP_PotashFoliarSpray": "Use on crops to treat pest fly infestations.<br>Right-click a growing plant and select Treat<br>Problem to apply. Made from potash and water.",
     "Tooltip_PCP_BrineJar": "Mineral-rich brine water collected from a well.<br>Contains dissolved sodium chloride and trace minerals.<br>Must be concentrated and crystallized to extract salt.",
     "Tooltip_PCP_BrineConcentrate": "Thick brine concentrate produced by evaporating water.<br>Ready for crystallization into crude salt.",
     "Tooltip_PCP_CoarseSalt": "Unrefined salt crystals with mineral impurities.<br>Filter through cheesecloth and recrystallize for table salt.",

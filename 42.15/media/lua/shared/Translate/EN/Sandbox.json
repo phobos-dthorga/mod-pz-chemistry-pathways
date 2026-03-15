@@ -1,4 +1,5 @@
 {
+    "__copyright": "Copyright (c) 2026 Phobos A. D'thorga. All rights reserved.",
     "Sandbox_PCP_Sandbox": "Phobos' Industrial Pathways: Biomass",
     "Sandbox_PCP_YieldMultiplier": "YIELD MULTIPLIER:",
     "Sandbox_PCP_YieldMultiplier_tooltip": "Global multiplier applied to all chemistry recipe output quantities.<br> <INDENT:20>-0.25 = quarter yield (hardcore);<br> <INDENT:20>-1.00 = default yields;<br> <INDENT:20>-2.00 = double yields;<br> <INDENT:20>-4.00 = quadruple yields (easy mode).<br>",

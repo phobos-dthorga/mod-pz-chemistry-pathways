@@ -170,7 +170,8 @@ jobs:
           python3 <<'PYEOF'
           import re, os, sys, glob
 
-          script_files = glob.glob("common/media/scripts/*.txt")
+          script_files = glob.glob("common/media/scripts/*.txt") + \
+                         glob.glob("common/media/scripts/**/*.txt", recursive=True)
           pcp_icons = set()
 
           for sf in script_files:
@@ -197,7 +198,8 @@ jobs:
           python3 <<'PYEOF'
           import re, os, sys, glob
 
-          script_files = glob.glob("common/media/scripts/*.txt")
+          script_files = glob.glob("common/media/scripts/*.txt") + \
+                         glob.glob("common/media/scripts/**/*.txt", recursive=True)
           modules = set()
 
           for sf in script_files:
@@ -222,6 +224,102 @@ jobs:
           if fail:
               sys.exit(1)
           print(f"All {len(modules)} OnCreate module(s) resolved.")
+          PYEOF
+
+      - name: Recipe/Item translation coverage
+        run: |
+          python3 <<'PYEOF'
+          import re, json, sys, glob, os
+
+          MODULE = "PhobosChemistryPathways"
+          fail = False
+
+          # --- Extract recipe names from script files ---
+          recipe_names = set()
+          for sf in glob.glob("common/media/scripts/recipes/*.txt"):
+              with open(sf) as f:
+                  for m in re.finditer(r'craftRecipe\s+(\w+)', f.read()):
+                      recipe_names.add(m.group(1))
+
+          # --- Extract item names from item script files (PCP module only) ---
+          item_names = set()
+          for sf in glob.glob("common/media/scripts/items/*.txt"):
+              with open(sf) as f:
+                  content = f.read()
+              # Only process blocks inside module PhobosChemistryPathways
+              for block in re.finditer(
+                  r'module\s+PhobosChemistryPathways\s*\{(.*?)^\}',
+                  content, re.DOTALL | re.MULTILINE
+              ):
+                  for m in re.finditer(r'\bitem\s+(\w+)\s*\{', block.group(1)):
+                      item_names.add(m.group(1))
+
+          print(f"Found {len(recipe_names)} recipes, {len(item_names)} items in scripts")
+
+          # --- Check 42.15 JSON translations ---
+          with open("42.15/media/lua/shared/Translate/EN/Recipes.json") as f:
+              recipes_json = json.load(f)
+          with open("42.15/media/lua/shared/Translate/EN/ItemName.json") as f:
+              items_json = json.load(f)
+
+          for name in sorted(recipe_names):
+              if name not in recipes_json:
+                  print(f"::error::42.15 Recipes.json missing key: {name}")
+                  fail = True
+
+          for name in sorted(item_names):
+              qualified = f"{MODULE}.{name}"
+              if qualified not in items_json:
+                  print(f"::error::42.15 ItemName.json missing key: {qualified}")
+                  fail = True
+
+          # --- Check 42.14 Lua translations ---
+          with open("42.14/media/lua/shared/Translate/EN/Recipes_EN.txt") as f:
+              recipes_lua = f.read()
+          with open("42.14/media/lua/shared/Translate/EN/ItemName_EN.txt") as f:
+              items_lua = f.read()
+
+          for name in sorted(recipe_names):
+              prefixed = f"Recipe_{name}"
+              if prefixed not in recipes_lua:
+                  print(f"::error::42.14 Recipes_EN.txt missing key: {prefixed}")
+                  fail = True
+
+          for name in sorted(item_names):
+              prefixed = f"ItemName_{MODULE}.{name}"
+              if prefixed not in items_lua:
+                  print(f"::error::42.14 ItemName_EN.txt missing key: {prefixed}")
+                  fail = True
+
+          if fail:
+              sys.exit(1)
+          print("All recipe/item translation keys present in both formats.")
+          PYEOF
+
+      - name: Translation key prefix guard (42.15 JSON)
+        run: |
+          python3 <<'PYEOF'
+          import json, sys
+
+          fail = False
+          checks = [
+              ("42.15/media/lua/shared/Translate/EN/Recipes.json", "Recipe_"),
+              ("42.15/media/lua/shared/Translate/EN/ItemName.json", "ItemName_"),
+          ]
+          for fname, prefix in checks:
+              with open(fname) as f:
+                  data = json.load(f)
+              bad = [k for k in data if k.startswith(prefix)]
+              if bad:
+                  for k in bad[:10]:
+                      print(f"::error file={fname}::Key '{k}' has invalid '{prefix}' prefix (should be bare)")
+                  if len(bad) > 10:
+                      print(f"::error file={fname}::... and {len(bad) - 10} more")
+                  fail = True
+
+          if fail:
+              sys.exit(1)
+          print("No invalid prefixes found in 42.15 JSON translation files.")
           PYEOF
 
       - name: Encoding check (UTF-8)

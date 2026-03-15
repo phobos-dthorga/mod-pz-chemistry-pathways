@@ -649,7 +649,7 @@ module PhobosChemistryPathways {
 	item MineralFeedSupplement {
 		DisplayCategory = Gardening,
 		ItemType = base:drainable,
-		Icon = AnimalFeed,
+		Icon = PCP_MineralFeedSupplement,
 		Weight = 4.0,
 		UseDelta = 0.01,
 		ReplaceOnDeplete = Base.EmptySandbag,
@@ -673,45 +673,6 @@ module PhobosChemistryPathways {
 		Tags = base:charcoal,
 	}
 
-	item SulphurFungicideSpray {
-		DisplayCategory = Gardening,
-		ItemType = base:drainable,
-		Icon = TZ_GardeningSprayCan,
-		Weight = 1.0,
-		UseDelta = 0.1,
-		ReplaceOnDeplete = Base.GardeningSprayEmpty,
-		UseWhileEquipped = false,
-		StaticModel = GardenSpray,
-		WorldStaticModel = GardenSprayGround,
-		Tooltip = Tooltip_PCP_SulphurFungicideSpray,
-	}
-
-	item InsecticidalSoapSpray {
-		DisplayCategory = Gardening,
-		ItemType = base:drainable,
-		Icon = TZ_GardeningSprayCan,
-		Weight = 1.0,
-		UseDelta = 0.1,
-		ReplaceOnDeplete = Base.GardeningSprayEmpty,
-		UseWhileEquipped = false,
-		StaticModel = GardenSpray,
-		WorldStaticModel = GardenSprayGround,
-		Tooltip = Tooltip_PCP_InsecticidalSoapSpray,
-	}
-
-	item PotashFoliarSpray {
-		DisplayCategory = Gardening,
-		ItemType = base:drainable,
-		Icon = TZ_GardeningSprayCan,
-		Weight = 1.0,
-		UseDelta = 0.1,
-		ReplaceOnDeplete = Base.GardeningSprayEmpty,
-		UseWhileEquipped = false,
-		StaticModel = GardenSpray,
-		WorldStaticModel = GardenSprayGround,
-		Tooltip = Tooltip_PCP_PotashFoliarSpray,
-	}
-
 /* ============================== CONCRETE MIXER PRODUCTS ============================== */
 /*  Construction and industrial materials produced in the concrete mixer.
     These bridge chemistry intermediates with structural construction.        */
@@ -719,7 +680,7 @@ module PhobosChemistryPathways {
 	item MortarMix {
 		ItemType = base:normal,
 		DisplayCategory = Material,
-		Icon = PCP_ConstructionMix,
+		Icon = PCP_MortarMix,
 		Weight = 3.0,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_MortarMix,
@@ -729,7 +690,7 @@ module PhobosChemistryPathways {
 	item StuccoMix {
 		ItemType = base:normal,
 		DisplayCategory = Material,
-		Icon = PCP_ConstructionMix,
+		Icon = PCP_StuccoMix,
 		Weight = 2.5,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_StuccoMix,
@@ -739,7 +700,7 @@ module PhobosChemistryPathways {
 	item ReinforcedConcrete {
 		ItemType = base:normal,
 		DisplayCategory = Material,
-		Icon = PCP_ConstructionMix,
+		Icon = PCP_ReinforcedConcrete,
 		Weight = 5.0,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_ReinforcedConcrete,
@@ -749,7 +710,7 @@ module PhobosChemistryPathways {
 	item Fireclay {
 		ItemType = base:normal,
 		DisplayCategory = Material,
-		Icon = PCP_ConstructionMix,
+		Icon = PCP_Fireclay,
 		Weight = 2.0,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_Fireclay,

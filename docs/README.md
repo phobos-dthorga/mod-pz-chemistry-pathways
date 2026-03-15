@@ -29,6 +29,8 @@ Visual documentation for PhobosChemistryPathways (PCP), covering recipe chains, 
 | [Sandbox Settings Guide](diagrams/sandbox-gating.md) | How 66 sandbox options control recipe visibility, behaviour, and maintenance |
 | [Skill Progression](diagrams/skill-progression.md) | Applied Chemistry skill tiers, XP curve, occupations, and traits |
 | [Architecture & Dependencies](diagrams/architecture.md) | Dependency graph, PhobosLib modules, and cross-mod integration |
+| [Art Style Guidelines](art-style-guidelines.md) | 2D inventory icon conventions and AI generation pipeline |
+| [3D Model Pipeline](3d-model-pipeline.md) | Blender → PZ model import workflow, automation, and in-game tuning |
 | [Mermaid Sources](mermaid-src/README.md) | Standalone `.mmd` files for CLI re-rendering |
 
 ## Exported Images

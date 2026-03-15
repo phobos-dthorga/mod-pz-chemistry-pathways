@@ -117,7 +117,7 @@ module Base
 /* ----- H4: CHAR HEMP HURDS ----- */
 /*  Pyrolyse hemp hurds in a sealed vessel to produce charcoal.
     Links the botanical pathway into the existing charcoal → potash →
-    KOH alkali chemistry chain. Requires dome kiln heat source.                          */
+    KOH alkali chemistry chain. Propane heat source (~4% per use).               */
 
     craftRecipe PCPCharHempHurds
     {
@@ -135,54 +135,7 @@ module Base
         inputs
         {
             item 3 [PhobosChemistryPathways.HempHurd],
-            item 3 [Base.Charcoal],
-        }
-        outputs
-        {
-            item 2 PhobosChemistryPathways.CrushedCharcoal,
-        }
-    }
-
-    craftRecipe PCPCharHempHurdsCoke
-    {
-        time = 200,
-        category = Phobos Field Chem,
-        NeedToBeLearn = true,
-        OnCreate = PCP_BotanicalCallbacks.pcpCharHempHurdsPurity,
-
-        Tags = InHandCraft;CannotBeResearched,
-        timedAction = Making,
-        SkillRequired = AppliedChemistry:1,
-        xpAward = AppliedChemistry:10,
-        AutoLearnAll = AppliedChemistry:2,
-
-        inputs
-        {
-            item 3 [PhobosChemistryPathways.HempHurd],
-            item 1 [Base.Coke],
-        }
-        outputs
-        {
-            item 2 PhobosChemistryPathways.CrushedCharcoal,
-        }
-    }
-
-    craftRecipe PCPCharHempHurdsSimple
-    {
-        time = 200,
-        category = Phobos Field Chem,
-        NeedToBeLearn = true,
-        OnCreate = PCP_BotanicalCallbacks.pcpCharHempHurdsPurity,
-
-        Tags = InHandCraft;CannotBeResearched,
-        timedAction = Making,
-        SkillRequired = AppliedChemistry:1,
-        xpAward = AppliedChemistry:10,
-        AutoLearnAll = AppliedChemistry:2,
-
-        inputs
-        {
-            item 3 [PhobosChemistryPathways.HempHurd],
+            item 1 [Base.PropaneTank] mode:keep flags[NotEmpty;ItemCount],
         }
         outputs
         {

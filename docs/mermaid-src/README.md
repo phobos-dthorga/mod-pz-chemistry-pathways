@@ -36,6 +36,7 @@ These are the same diagrams embedded in [`../diagrams/*.md`](../diagrams/), extr
 | `architecture.mmd` | Mod architecture and dependencies |
 | `crossmod-integration.mmd` | Cross-mod integration checks |
 | `purity-system.mmd` | Purity propagation across recipe chains |
+| `model-pipeline.mmd` | 3D model import pipeline stages |
 
 ## Re-render all to PNG
 
