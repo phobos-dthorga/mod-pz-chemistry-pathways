@@ -259,6 +259,7 @@ Recipes_EN = {
 	Recipe_PCPMixHempcrete = "H14. Mix Hempcrete",
 	Recipe_PCPMixReinforcedHempcrete = "H14b. Mix Reinforced Hempcrete",
 	Recipe_PCPPressOilHandPress = "Press Seed Oil (Hand Press)",
+	Recipe_PCPPressHempDryHandPress = "Press-Dry Hemp (Hand Press)",
 	Recipe_PCPPrepareChewingTobaccoMix = "HT1. Prepare Chewing Tobacco Mix",
 	Recipe_PCPSealChewingTobaccoJar = "HT2. Seal Chewing Tobacco Jar",
 	Recipe_PCPOpenCuredTobaccoJar = "HT3. Open Cured Tobacco Jar",
