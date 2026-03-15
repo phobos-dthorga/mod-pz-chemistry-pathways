@@ -170,7 +170,8 @@ jobs:
           python3 <<'PYEOF'
           import re, os, sys, glob
 
-          script_files = glob.glob("common/media/scripts/*.txt")
+          script_files = glob.glob("common/media/scripts/*.txt") + \
+                         glob.glob("common/media/scripts/**/*.txt", recursive=True)
           pcp_icons = set()
 
           for sf in script_files:
@@ -197,7 +198,8 @@ jobs:
           python3 <<'PYEOF'
           import re, os, sys, glob
 
-          script_files = glob.glob("common/media/scripts/*.txt")
+          script_files = glob.glob("common/media/scripts/*.txt") + \
+                         glob.glob("common/media/scripts/**/*.txt", recursive=True)
           modules = set()
 
           for sf in script_files:
