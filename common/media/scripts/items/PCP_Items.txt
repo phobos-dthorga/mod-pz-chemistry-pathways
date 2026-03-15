@@ -673,45 +673,6 @@ module PhobosChemistryPathways {
 		Tags = base:charcoal,
 	}
 
-	item SulphurFungicideSpray {
-		DisplayCategory = Gardening,
-		ItemType = base:drainable,
-		Icon = TZ_GardeningSprayCan,
-		Weight = 1.0,
-		UseDelta = 0.1,
-		ReplaceOnDeplete = Base.GardeningSprayEmpty,
-		UseWhileEquipped = false,
-		StaticModel = GardenSpray,
-		WorldStaticModel = GardenSprayGround,
-		Tooltip = Tooltip_PCP_SulphurFungicideSpray,
-	}
-
-	item InsecticidalSoapSpray {
-		DisplayCategory = Gardening,
-		ItemType = base:drainable,
-		Icon = TZ_GardeningSprayCan,
-		Weight = 1.0,
-		UseDelta = 0.1,
-		ReplaceOnDeplete = Base.GardeningSprayEmpty,
-		UseWhileEquipped = false,
-		StaticModel = GardenSpray,
-		WorldStaticModel = GardenSprayGround,
-		Tooltip = Tooltip_PCP_InsecticidalSoapSpray,
-	}
-
-	item PotashFoliarSpray {
-		DisplayCategory = Gardening,
-		ItemType = base:drainable,
-		Icon = TZ_GardeningSprayCan,
-		Weight = 1.0,
-		UseDelta = 0.1,
-		ReplaceOnDeplete = Base.GardeningSprayEmpty,
-		UseWhileEquipped = false,
-		StaticModel = GardenSpray,
-		WorldStaticModel = GardenSprayGround,
-		Tooltip = Tooltip_PCP_PotashFoliarSpray,
-	}
-
 /* ============================== CONCRETE MIXER PRODUCTS ============================== */
 /*  Construction and industrial materials produced in the concrete mixer.
     These bridge chemistry intermediates with structural construction.        */

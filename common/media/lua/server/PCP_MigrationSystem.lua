@@ -52,13 +52,19 @@
 --   - Teach new chewing tobacco recipes (HT1-HT3) to players who knew old ones
 --   - Update HORT_TO_PCP map entries for old Horticulture tobacco items
 --
+-- v1.8.0 migration:
+--   - Convert custom gardening sprays to vanilla equivalents:
+--     SulphurFungicideSpray → Base.GardeningSprayMilk
+--     InsecticidalSoapSpray → Base.GardeningSprayAphids
+--     PotashFoliarSpray     → Base.GardeningSprayCigarettes
+--
 -- Requires: PhobosLib >= 1.9.0
 ---------------------------------------------------------------
 
 require "PhobosLib"
 
 local MOD_ID      = "PCP"
-local MOD_VERSION = "1.7.0"
+local MOD_VERSION = "1.8.0"
 
 ---------------------------------------------------------------
 -- Helpers
@@ -891,6 +897,81 @@ PhobosLib.registerMigration(
     "1.5.0",     -- to: this version
     migrate_1_5_0,
     "PCP v1.5.0: Convert old chewing tobacco items and teach new recipes"
+)
+
+---------------------------------------------------------------
+-- v1.8.0 Migration — Custom gardening sprays → vanilla
+---------------------------------------------------------------
+
+--- Custom PCP spray fullTypes → vanilla equivalents.
+local SPRAY_TO_VANILLA = {
+    ["PhobosChemistryPathways.SulphurFungicideSpray"] = "Base.GardeningSprayMilk",
+    ["PhobosChemistryPathways.InsecticidalSoapSpray"]  = "Base.GardeningSprayAphids",
+    ["PhobosChemistryPathways.PotashFoliarSpray"]      = "Base.GardeningSprayCigarettes",
+}
+
+--- Convert custom gardening sprays to vanilla equivalents.
+--- Preserves UsedDelta (drainable items).
+---@param player any  IsoGameCharacter
+---@return boolean ok, string msg
+local function migrate_1_8_0(player)
+    local converted = 0
+
+    -- Two-pass approach (collect then convert) to avoid index shifting
+    local pending = {}
+    PhobosLib.iterateInventoryDeep(player, function(item, container)
+        local fullType = item:getFullType()
+        if not fullType then return end
+
+        local replacement = SPRAY_TO_VANILLA[fullType]
+        if replacement then
+            table.insert(pending, {item = item, container = container, replacement = replacement, fullType = fullType})
+        end
+    end)
+
+    for _, entry in ipairs(pending) do
+        local ok, err = pcall(function()
+            local newItem = instanceItem(entry.replacement)
+            if not newItem then
+                PhobosLib.debug("PCP", "[PCP:Migration]", "FAILED: instanceItem(" .. entry.replacement .. ") returned nil for " .. entry.fullType)
+                return
+            end
+
+            -- Preserve UsedDelta (amount remaining in drainable spray can)
+            pcall(function()
+                if entry.item.getUsedDelta and newItem.setUsedDelta then
+                    local delta = entry.item:getUsedDelta()
+                    if delta then newItem:setUsedDelta(delta) end
+                end
+            end)
+
+            entry.container:AddItem(newItem)
+            pcall(function() sendItemStats(newItem) end)
+            pcall(function() sendAddItemToContainer(entry.container, newItem) end)
+
+            entry.container:Remove(entry.item)
+            pcall(function() sendRemoveItemFromContainer(entry.container, entry.item) end)
+
+            PhobosLib.debug("PCP", "[PCP:Migration]", "OK: " .. entry.fullType .. " -> " .. entry.replacement)
+            converted = converted + 1
+        end)
+        if not ok then
+            print("[PCP] Spray migration ERROR on " .. tostring(entry.fullType) .. ": " .. tostring(err))
+        end
+    end
+
+    if converted == 0 then
+        return true, "No custom gardening sprays to convert."
+    end
+    return true, "Converted " .. converted .. " custom gardening spray(s) to vanilla equivalents."
+end
+
+PhobosLib.registerMigration(
+    MOD_ID,
+    "1.5.0",     -- from: v1.5.0
+    "1.8.0",     -- to: this version
+    migrate_1_8_0,
+    "PCP v1.8.0: Convert custom gardening sprays to vanilla equivalents"
 )
 
 ---------------------------------------------------------------

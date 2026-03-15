@@ -195,13 +195,9 @@ dist("MedicalOfficeBooks",   "PhobosChemistryPathways.BkLabChemistry", 0.3)
 dist("CrateFertilizer",     "PhobosChemistryPathways.BoneMeal", 0.5)
 dist("CrateFertilizer",     "PhobosChemistryPathways.Calcite", 0.5)
 dist("CrateFertilizer",     "PhobosChemistryPathways.DilutedCompost", 0.8)
-dist("CrateFertilizer",     "PhobosChemistryPathways.SulphurFungicideSpray", 0.3)
-dist("CrateFertilizer",     "PhobosChemistryPathways.InsecticidalSoapSpray", 0.3)
-dist("CrateFertilizer",     "PhobosChemistryPathways.PotashFoliarSpray", 0.2)
 dist("CrateFarming",        "PhobosChemistryPathways.BoneMeal", 0.3)
 dist("CrateFarming",        "PhobosChemistryPathways.MineralFeedSupplement", 0.1)
 vdist(VehicleDistributions.FarmerTruckBed, "PhobosChemistryPathways.DilutedCompost", 0.3)
-vdist(VehicleDistributions.FarmerTruckBed, "PhobosChemistryPathways.SulphurFungicideSpray", 0.2)
 
 -- ===== SALVAGE =====
 -- Tool stores, garages (scrap materials)
@@ -331,9 +327,6 @@ dist("CafeteriaSnacks",     "PhobosChemistryPathways.SimpleSugarSyrup", 0.2)
 
 -- ===== GARDEN STORES =====
 -- Garden centres stock agricultural chemistry products
-dist("GardenStoreMisc",      "PhobosChemistryPathways.SulphurFungicideSpray", 0.3)
-dist("GardenStoreMisc",      "PhobosChemistryPathways.InsecticidalSoapSpray", 0.3)
-dist("GardenStoreMisc",      "PhobosChemistryPathways.PotashFoliarSpray", 0.2)
 dist("GardenStoreMisc",      "PhobosChemistryPathways.BoneMeal", 0.3)
 dist("GardenStoreMisc",      "PhobosChemistryPathways.SeedPressCake", 0.2)
 dist("GardenStoreTools",    "PhobosChemistryPathways.MouldAndDeckle", 0.1)

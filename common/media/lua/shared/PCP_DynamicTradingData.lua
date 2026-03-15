@@ -171,9 +171,6 @@ local function registerPCPTradeData()
         -- Agriculture & downstream (new pathways connecting PCP to vanilla systems)
         { item = "PhobosChemistryPathways.BoneMeal",               basePrice = 12,  tags = { "Chemical", "Farming", "Common" },              stockRange = { min = 4, max = 10 } },
         { item = "PhobosChemistryPathways.ActivatedCarbon",        basePrice = 40,  tags = { "Chemical", "Survival", "Uncommon" },            stockRange = { min = 2, max = 5 } },
-        { item = "PhobosChemistryPathways.SulphurFungicideSpray",  basePrice = 30,  tags = { "Chemical", "Farming", "Common" },              stockRange = { min = 2, max = 5 } },
-        { item = "PhobosChemistryPathways.InsecticidalSoapSpray",  basePrice = 20,  tags = { "Chemical", "Farming", "Common" },              stockRange = { min = 2, max = 5 } },
-        { item = "PhobosChemistryPathways.PotashFoliarSpray",      basePrice = 20,  tags = { "Chemical", "Farming", "Common" },              stockRange = { min = 2, max = 5 } },
         { item = "PhobosChemistryPathways.MineralFeedSupplement",  basePrice = 35,  tags = { "Farming", "Uncommon" },                        stockRange = { min = 1, max = 3 } },
 
         -- Concrete mixer products (construction materials)

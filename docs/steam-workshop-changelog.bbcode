@@ -1,5 +1,28 @@
 [h1]Phobos' Industrial Pathways: Biomass — Changelog[/h1]
 
+[h2]v1.8.0 — Gardening Spray Simplification (2026-03-16)[/h2]
+
+[h3]Changed[/h3]
+[list]
+[*] [b]Gardening spray recipes now output vanilla items[/b] — Sulphur Fungicide, Insecticidal Soap, and Potash Foliar spray recipes now produce the vanilla gardening sprays (GardeningSprayMilk, GardeningSprayAphids, GardeningSprayCigarettes) directly. No more custom spray items or farming compatibility layer needed.
+[*] [b]Item count[/b] reduced from 121 to 118 (3 custom spray items removed).
+[*] [b]Tradeable items[/b] reduced from 76 to 73 (3 spray entries removed from Dynamic Trading).
+[/list]
+
+[h3]Removed[/h3]
+[list]
+[*] [b]Custom spray items[/b] — SulphurFungicideSpray, InsecticidalSoapSpray, PotashFoliarSpray deleted. Recipes still exist but output vanilla equivalents.
+[*] [b]PCP_FarmingCompat.lua[/b] — Farming spray registration module removed (no longer needed).
+[*] [b]Spray loot distributions[/b] — 7 distribution entries removed (CrateFertilizer, FarmerTruckBed, GardenStoreMisc).
+[/list]
+
+[h3]Added[/h3]
+[list]
+[*] [b]Save migration v1.8.0[/b] — Automatically converts existing custom spray items in player inventories to their vanilla equivalents, preserving remaining uses (UsedDelta).
+[/list]
+
+[hr][/hr]
+
 [h2]v1.7.0 — Multi-Version Support (2026-03-11)[/h2]
 
 [h3]Added[/h3]
