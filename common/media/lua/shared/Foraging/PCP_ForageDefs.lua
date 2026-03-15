@@ -103,7 +103,7 @@ local function generatePCPForageDefs()
         -- Not found in deep forest or developed town centres.
         -----------------------------------------------------------
         PCP_WildHemp = {
-            type            = "Base.HempBroken",
+            type            = "Base.HempBundle",
             minCount        = 1,
             maxCount        = 3,
             skill           = 1,
