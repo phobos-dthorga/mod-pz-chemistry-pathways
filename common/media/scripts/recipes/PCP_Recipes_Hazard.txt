@@ -1173,10 +1173,10 @@ module Base
 /* ================== CHARRING HAZARD VARIANTS (smoke_inhalation) ===================== */
 /* ==================================================================================== */
 /*  Pyrolysing hemp hurds produces smoke and particulate. Light hazard:
-    a DustMask suffices for safe variants. Base recipes in
-    PCP_Recipes_Botanical.txt are hidden when EnableHealthHazards is ON.         */
+    a DustMask suffices for safe variants. Propane heat source (~4% per use).
+    Base recipe in PCP_Recipes_Botanical.txt is hidden when EnableHealthHazards is ON. */
 
-/* ----- CHAR HEMP HURDS (Charcoal) — SAFE ----- */
+/* ----- CHAR HEMP HURDS — SAFE ----- */
 
     craftRecipe PCPCharHempHurdsSafe
     {
@@ -1194,7 +1194,7 @@ module Base
         inputs
         {
             item 3 [PhobosChemistryPathways.HempHurd],
-            item 3 [Base.Charcoal],
+            item 1 [Base.PropaneTank] mode:keep flags[NotEmpty;ItemCount],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
             item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
             item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask;Base.Hat_DustMask] mode:keep flags[NoBrokenItems],
@@ -1205,7 +1205,7 @@ module Base
         }
     }
 
-/* ----- CHAR HEMP HURDS (Charcoal) — UNSAFE ----- */
+/* ----- CHAR HEMP HURDS — UNSAFE ----- */
 
     craftRecipe PCPCharHempHurdsUnsafe
     {
@@ -1223,117 +1223,7 @@ module Base
         inputs
         {
             item 3 [PhobosChemistryPathways.HempHurd],
-            item 3 [Base.Charcoal],
-            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
-        }
-        outputs
-        {
-            item 2 PhobosChemistryPathways.CrushedCharcoal,
-        }
-    }
-
-/* ----- CHAR HEMP HURDS (Coke) — SAFE ----- */
-
-    craftRecipe PCPCharHempHurdsCokeSafe
-    {
-        time = 200,
-        category = Phobos Field Chem,
-        NeedToBeLearn = true,
-        OnCreate = PCP_BotanicalCallbacks.pcpCharHempHurdsSafePurity,
-
-        Tags = InHandCraft;CannotBeResearched,
-        timedAction = Making,
-        SkillRequired = AppliedChemistry:1,
-        xpAward = AppliedChemistry:10,
-        AutoLearnAll = AppliedChemistry:2,
-
-        inputs
-        {
-            item 3 [PhobosChemistryPathways.HempHurd],
-            item 1 [Base.Coke],
-            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
-            item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
-            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask;Base.Hat_DustMask] mode:keep flags[NoBrokenItems],
-        }
-        outputs
-        {
-            item 2 PhobosChemistryPathways.CrushedCharcoal,
-        }
-    }
-
-/* ----- CHAR HEMP HURDS (Coke) — UNSAFE ----- */
-
-    craftRecipe PCPCharHempHurdsCokeUnsafe
-    {
-        time = 200,
-        category = Phobos Field Chem,
-        NeedToBeLearn = true,
-        OnCreate = PCP_BotanicalCallbacks.pcpCharHempHurdsUnsafePurity,
-
-        Tags = InHandCraft;CannotBeResearched,
-        timedAction = Making,
-        SkillRequired = AppliedChemistry:1,
-        xpAward = AppliedChemistry:10,
-        AutoLearnAll = AppliedChemistry:2,
-
-        inputs
-        {
-            item 3 [PhobosChemistryPathways.HempHurd],
-            item 1 [Base.Coke],
-            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
-        }
-        outputs
-        {
-            item 2 PhobosChemistryPathways.CrushedCharcoal,
-        }
-    }
-
-/* ----- CHAR HEMP HURDS (Simple, no fuel) — SAFE ----- */
-
-    craftRecipe PCPCharHempHurdsSimpleSafe
-    {
-        time = 200,
-        category = Phobos Field Chem,
-        NeedToBeLearn = true,
-        OnCreate = PCP_BotanicalCallbacks.pcpCharHempHurdsSafePurity,
-
-        Tags = InHandCraft;CannotBeResearched,
-        timedAction = Making,
-        SkillRequired = AppliedChemistry:1,
-        xpAward = AppliedChemistry:10,
-        AutoLearnAll = AppliedChemistry:2,
-
-        inputs
-        {
-            item 3 [PhobosChemistryPathways.HempHurd],
-            item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
-            item 1 tags[pcp:protectivegoggles] mode:keep flags[NoBrokenItems],
-            item 1 [Base.Hat_GasMask;Base.Hat_NBCmask;Base.Hat_BuildersRespirator;Base.Hat_ImprovisedGasMask;Base.Hat_DustMask] mode:keep flags[NoBrokenItems],
-        }
-        outputs
-        {
-            item 2 PhobosChemistryPathways.CrushedCharcoal,
-        }
-    }
-
-/* ----- CHAR HEMP HURDS (Simple, no fuel) — UNSAFE ----- */
-
-    craftRecipe PCPCharHempHurdsSimpleUnsafe
-    {
-        time = 200,
-        category = Phobos Field Chem,
-        NeedToBeLearn = true,
-        OnCreate = PCP_BotanicalCallbacks.pcpCharHempHurdsUnsafePurity,
-
-        Tags = InHandCraft;CannotBeResearched,
-        timedAction = Making,
-        SkillRequired = AppliedChemistry:1,
-        xpAward = AppliedChemistry:10,
-        AutoLearnAll = AppliedChemistry:2,
-
-        inputs
-        {
-            item 3 [PhobosChemistryPathways.HempHurd],
+            item 1 [Base.PropaneTank] mode:keep flags[NotEmpty;ItemCount],
             item 1 tags[pcp:protectivegloves] mode:keep flags[NoBrokenItems],
         }
         outputs

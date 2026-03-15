@@ -59,7 +59,9 @@ end
 
 --- Char hemp hurds (Field tier, pyrolysis): 35-55
 --- Output is CrushedCharcoal — same range as pcpCrushCharcoalPurity
+--- Propane heat source: return partial propane tank before purity stamp.
 function PCP_BotanicalCallbacks.pcpCharHempHurdsPurity(items, result, player)
+    PCP_RecipeCallbacks.pcpReturnPartialPropane(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(35, 55, player))
 end
