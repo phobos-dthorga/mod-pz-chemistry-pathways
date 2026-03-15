@@ -1216,7 +1216,7 @@ module Base
         }
         outputs
         {
-            item 5 Base.HempBundleDried,
+            item 1 Base.HempBundleDried,
         }
     }
 
