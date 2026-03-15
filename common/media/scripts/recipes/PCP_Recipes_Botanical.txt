@@ -51,7 +51,7 @@ module Base
 
         inputs
         {
-            item 2 [Base.HempBundle;Base.HempBundleDried],
+            item 5 [Base.HempBundle;Base.HempBundleDried],
         }
         outputs
         {
@@ -170,7 +170,7 @@ module Base
 
         inputs
         {
-            item 2 [Base.HempBundle;Base.HempBundleDried],
+            item 5 [Base.HempBundle;Base.HempBundleDried],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide],
             item 1 [*] mode:keep,
             -fluid 1.0 [Water],
@@ -196,7 +196,7 @@ module Base
 
         inputs
         {
-            item 2 [Base.HempBundle;Base.HempBundleDried],
+            item 5 [Base.HempBundle;Base.HempBundleDried],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide],
             item 1 [*],
             -fluid 1.0 [Water],
@@ -229,7 +229,7 @@ module Base
 
         inputs
         {
-            item 2 [Base.HempBundle;Base.HempBundleDried],
+            item 5 [Base.HempBundle;Base.HempBundleDried],
             item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [*] mode:keep,
             -fluid 1.0 [Water],
@@ -255,7 +255,7 @@ module Base
 
         inputs
         {
-            item 2 [Base.HempBundle;Base.HempBundleDried],
+            item 5 [Base.HempBundle;Base.HempBundleDried],
             item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [*],
             -fluid 1.0 [Water],
@@ -925,7 +925,7 @@ module Base
 
         inputs
         {
-            item 2 [Base.HempBundleDried],
+            item 5 [Base.HempBundleDried],
             item 1 tags[base:breakfiber] mode:keep flags[MayDegradeLight],
             item 1 tags[base:dullknife] mode:keep flags[MayDegradeLight],
         }
@@ -1193,6 +1193,30 @@ module Base
         outputs
         {
             item 2 Base.CompostBag,
+        }
+    }
+
+/* ============================== HAND PRESS — HEMP DRYING ============================== */
+/*  Alternative to weather-dependent Drying Rack. Squeezes moisture from fresh
+    hemp bundles using the Hand-Operated Press, producing dried bundles 1:1.       */
+
+    craftRecipe PCPPressHempDryHandPress
+    {
+        time = 80,
+        category = Phobos Field Chem,
+        NeedToBeLearn = false,
+
+        Tags = HandPress;CannotBeResearched,
+        timedAction = UseHandPress,
+
+        inputs
+        {
+            item 5 [Base.HempBundle],
+            item 1 [Base.OilPress] mode:keep,
+        }
+        outputs
+        {
+            item 5 Base.HempBundleDried,
         }
     }
 
