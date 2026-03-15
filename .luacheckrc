@@ -61,6 +61,11 @@ read_globals = {
     -- PZ globals not in JavaDocs (must stay manual)
     "Events",
     "ArrayList",
+    "ProceduralDistributions",
+    "SuburbsDistributions",
+    "VehicleDistributions",
+    "forageSystem",
+    "luautils",
 
     -- Cross-mod (optional, runtime-guarded)
     "MF",
