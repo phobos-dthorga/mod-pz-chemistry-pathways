@@ -1,0 +1,37 @@
+graph LR
+    subgraph INPUT["Input Files"]
+        BLEND[".blend file<br/>(Blender 5.0)"]
+        TEX["Texture .png<br/>(optional)"]
+    end
+
+    subgraph EXPORT["Step 1: Export"]
+        FBX["Blender CLI<br/>export_blender_model.py<br/>&#8594; .fbx"]
+    end
+
+    subgraph PLACE["Step 2: File Placement"]
+        MODELS["common/media/<br/>models_X/PCP/<br/>PCP_Name.fbx"]
+        TEXTURES["common/media/<br/>textures/PCP/<br/>PCP_Name.png"]
+    end
+
+    subgraph DEFINE["Step 3: Definitions"]
+        MODELDEF["models_PCP.txt<br/>model block<br/>(mesh, texture, scale,<br/>attachment)"]
+        ITEMDEF["PCP_Items*.txt<br/>StaticModel /<br/>WorldStaticModel"]
+    end
+
+    subgraph TEST["Step 4: Verify"]
+        INGAME["In-game testing<br/>Spawn item &#8594;<br/>tune offset/scale"]
+    end
+
+    BLEND --> FBX
+    FBX --> MODELS
+    TEX --> TEXTURES
+    MODELS --> MODELDEF
+    TEXTURES --> MODELDEF
+    MODELDEF --> ITEMDEF
+    ITEMDEF --> INGAME
+
+    style INPUT fill:#446,color:#fff
+    style EXPORT fill:#264,color:#fff
+    style PLACE fill:#264,color:#fff
+    style DEFINE fill:#264,color:#fff
+    style TEST fill:#642,color:#fff
