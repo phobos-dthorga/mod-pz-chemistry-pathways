@@ -26,7 +26,7 @@
 --   PotashFoliarSpray      -> Flies   (potassium pest deterrent)
 --
 -- Part of PhobosChemistryPathways >= 0.22.0
--- Requires PhobosLib >= 1.11.0
+-- Requires PhobosLib >= 1.21.0
 ---------------------------------------------------------------
 
 require "PhobosLib"
@@ -37,5 +37,3 @@ PhobosLib.registerFarmingSpray(
     "PhobosChemistryPathways.InsecticidalSoapSpray", "Aphids")
 PhobosLib.registerFarmingSpray(
     "PhobosChemistryPathways.PotashFoliarSpray", "Flies")
-PhobosLib.registerFarmingSpray(
-    "Base.SlugRepellent", "Slugs")
