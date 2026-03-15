@@ -144,8 +144,8 @@ module PhobosChemistryPathways {
 		Tooltip = Tooltip_PCP_HempTincture,
 		FillFromDispenserSound = GetWaterFromDispenserGlass,
 		FillFromTapSound = GetWaterFromTapGlass,
-		StaticModel = BottleCrafted,
-		WorldStaticModel = BottleCrafted,
+		StaticModel = PCP_ChemBottle,
+		WorldStaticModel = PCP_ChemBottle,
 		Tags = base:glass,
 		component FluidContainer
 		{
