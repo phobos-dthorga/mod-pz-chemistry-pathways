@@ -973,7 +973,7 @@ module Base
             item 1 [*],
             -fluid 1.0 [SulphuricAcid],
             item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
-            item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
+            item 1 [Base.PropaneTank] mode:keep flags[NotEmpty;ItemCount],
         }
         outputs
         {

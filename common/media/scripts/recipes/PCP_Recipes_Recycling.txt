@@ -139,7 +139,7 @@ module Base
         inputs
         {
             item 3 [PhobosChemistryPathways.Calcite] mode:destroy,
-            item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
+            item 1 [Base.PropaneTank] mode:keep flags[NotEmpty;ItemCount],
         }
         outputs
         {
@@ -440,7 +440,7 @@ module Base
         inputs
         {
             item 1 [PhobosChemistryPathways.LeadScrap] mode:destroy,
-            item 1 [Base.PropaneTank] mode:destroy flags[NotEmpty],
+            item 1 [Base.PropaneTank] mode:keep flags[NotEmpty;ItemCount],
         }
         outputs
         {
