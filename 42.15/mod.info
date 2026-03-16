@@ -9,4 +9,7 @@ versionMin=42.15.0
 modversion=1.9.0
 require=\PhobosLib,\ZVirusVaccine42BETA
 loadModAfter=\PhobosLib,\ZVirusVaccine42BETA,\ZScienceSkill,\EHR,\DynamicTradingCommon,\MoodleFramework
+tiledef=pcp_tiles 4200
+pack=pcp_tiles
+pack=pcp_tiles2x
 category=features

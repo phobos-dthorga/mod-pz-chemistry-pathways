@@ -1,0 +1,53 @@
+version = 1
+
+tileset
+{
+    file = pcp_tiles_01
+    size = 8,1
+    id = 4200
+
+    tile
+    {
+        xy = 0,0
+        BlocksPlacement =
+        CustomName = Bio-Reactor
+        Facing = S
+        GroupName = PCP
+        IsMoveAble =
+        PickUpWeight = 80
+    }
+
+    tile
+    {
+        xy = 1,0
+        BlocksPlacement =
+        CustomName = Bio-Reactor
+        Facing = E
+        GroupName = PCP
+        IsMoveAble =
+        PickUpWeight = 80
+    }
+
+    tile
+    {
+        xy = 2,0
+        BlocksPlacement =
+        CustomName = Bio-Reactor
+        Facing = N
+        GroupName = PCP
+        IsMoveAble =
+        PickUpWeight = 80
+    }
+
+    tile
+    {
+        xy = 3,0
+        BlocksPlacement =
+        CustomName = Bio-Reactor
+        Facing = W
+        GroupName = PCP
+        IsMoveAble =
+        PickUpWeight = 80
+    }
+
+}

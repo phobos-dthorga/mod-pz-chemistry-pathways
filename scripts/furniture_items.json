@@ -1,0 +1,27 @@
+{
+    "_comment": "PCP custom furniture sprite definitions. Used by generate_furniture_sprite.py, build_tilesheet.py, and generate_tiles_txt.py.",
+    "_tileset": {
+        "name": "pcp_tiles_01",
+        "id": 4200,
+        "grid_columns": 8,
+        "group": "PCP"
+    },
+    "items": [
+        {
+            "id": "BioReactor",
+            "custom_name": "Bio-Reactor",
+            "facings": ["S", "E", "N", "W"],
+            "pickup_weight": 80,
+            "is_moveable": true,
+            "is_surface": false,
+            "blocks_placement": true,
+            "description": "A tall cylindrical bio-reactor tank made from welded scrap steel and salvaged industrial parts. Worn brushed steel exterior with light patina and visible weld seams. Copper pipe fittings on top with a pressure release valve. The tank sits on a crude welded angle-iron frame with four legs. Industrial, improvised, post-apocalyptic. Nearly floor-to-ceiling height, a tall imposing vessel that dominates the tile.",
+            "facing_details": {
+                "S": "Front view showing a round analogue pressure gauge and a temperature dial bolted to the upper front, with a hinged access panel below.",
+                "E": "Right side view showing a copper pipe manifold with three horizontal pipes and a large side-mounted valve wheel.",
+                "N": "Back view showing a rectangular exhaust vent grille at the top, an electrical conduit running down the side, and a faded warning stencil.",
+                "W": "Left side view showing a drain spigot near the bottom, a vertical glass sight tube showing fluid level, and a welded steel repair patch."
+            }
+        }
+    ]
+}

@@ -91,11 +91,77 @@ For AI-generated icons using OpenAI's image API:
 
 ---
 
+## Furniture Sprites (Tilesheets)
+
+Custom placeable furniture uses PZ's tilesheet system — 2D isometric sprites on a grid, not 3D models. These are separate from inventory icons.
+
+### Format Requirements (Furniture)
+
+| Property | Value |
+|----------|-------|
+| **Cell size (1x)** | 128 x 256 pixels |
+| **Cell size (2x)** | 256 x 512 pixels |
+| **Colour mode** | RGBA (32-bit with alpha channel) |
+| **File format** | PNG (source), `.pack` (compiled for PZ) |
+| **Background** | Fully transparent |
+| **Grid layout** | 8 columns, N rows (matching PZ convention) |
+| **Facing order** | S, E, N, W (left to right in grid row) |
+| **Naming** | `{item_id}_{facing}_{resolution}.png` for individual facings |
+
+### Visual Style (Furniture)
+
+- **True isometric perspective** — ~45° from above, matching PZ's world tile rendering (not the flatter inventory icon angle).
+- **Bottom-aligned** — The base of the object sits at the bottom of the cell. This ensures correct ground alignment when placed.
+- **Consistent scale** — A single-tile object should fill roughly 60-80% of the cell width and 40-70% of the cell height, depending on the item's proportions.
+- **All four facings must be consistent** — Same object, same proportions, just rotated 90° between S/E/N/W. Asymmetric details (valves, gauges, labels) should rotate correctly.
+- **Same art rules as inventory icons** — Clean dark outlines, soft shading, muted palette, no text/labels.
+
+### Prompt Prefix (Furniture)
+
+```
+A single piece of furniture or equipment for a 2D isometric survival video game.
+Isometric view at approximately 45 degrees from above, transparent background.
+The object occupies a single floor tile (1x1 grid cell) and is taller than it is wide.
+Clean dark outlines, soft interior shading with light from the top-left.
+Muted post-apocalyptic colour palette — earthy, desaturated tones.
+No text, no labels, no UI elements, no floor or ground surface.
+Consistent with Project Zomboid Build 42 tile art style.
+Facing: {direction description}.
+```
+
+### Generation Pipeline (Furniture)
+
+1. **Define item** in `scripts/furniture_items.json` (name, facings, weight, description)
+2. **Generate sprites**: `py scripts/generate_furniture_sprite.py [ItemId]`
+   - Calls gpt-image-1 once per facing (4 calls for S/E/N/W items)
+   - Outputs raw 1024x1024 + cropped/resized 1x and 2x PNGs to `scripts/sprite_output/`
+3. **Assemble tilesheet**: `py scripts/build_tilesheet.py`
+   - Combines all facing PNGs into grid tilesheets (1x and 2x)
+   - Outputs to `common/media/texturepacks/pcp_tiles_01_src.png` (and 2x variant)
+4. **Generate tile definitions**: `py scripts/generate_tiles_txt.py`
+   - Produces `common/media/pcp_tiles.tiles.txt` with all tile property blocks
+   - Prints sprite name mapping for entity `SpriteConfig` references
+5. **Compile .pack** (if required by PZ): Use TileZed or manual compilation
+6. **Register** in `mod.info`: `tiledef=pcp_tiles 4200` and `pack=pcp_tiles`
+
+### Tilesheet File Locations
+
+| File | Location |
+|------|----------|
+| Item config | `scripts/furniture_items.json` |
+| Source sprites | `scripts/sprite_output/` (gitignored) |
+| Tilesheet source PNG | `common/media/texturepacks/pcp_tiles_01_src.png` |
+| Tile definitions | `common/media/pcp_tiles.tiles.txt` |
+| Compiled atlas (1x) | `common/media/texturepacks/pcp_tiles.pack` |
+| Compiled atlas (2x) | `common/media/texturepacks/pcp_tiles2x.pack` |
+
+---
+
 ## File Location
 
 All item textures live in:
 ```
-42/media/textures/
+common/media/textures/
 ```
 
 Generation scripts live in:

@@ -1,0 +1,21 @@
+module Base
+{
+    xuiSkin default
+    {
+        entity ES_PCP_BioReactor
+        {
+            LuaWindowClass = ISEntityWindow,
+            DisplayName = Bio-Reactor,
+            Icon = default,
+            components
+            {
+                CraftLogic
+                {
+                    LuaPanelClass = ISCraftDefaultPanel,
+                    DisplayName = Bio-Reactor,
+                    Icon = default,
+                }
+            }
+        }
+    }
+}
