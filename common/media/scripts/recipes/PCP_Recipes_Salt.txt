@@ -157,7 +157,7 @@ module Base
         inputs
         {
             item 2 [PhobosChemistryPathways.CoarseSalt],
-            item 1 [Base.CheeseCloth] mode:keep flags[MayDegradeLight],
+            item 1 [Base.CheeseCloth;PhobosChemistryPathways.HempCheeseCloth] mode:keep flags[MayDegradeLight],
             item 1 [*] mode:keep,
             -fluid 0.5 [Water],
         }
@@ -183,7 +183,7 @@ module Base
         inputs
         {
             item 2 [PhobosChemistryPathways.CoarseSalt],
-            item 1 [Base.CheeseCloth] mode:keep flags[MayDegradeLight],
+            item 1 [Base.CheeseCloth;PhobosChemistryPathways.HempCheeseCloth] mode:keep flags[MayDegradeLight],
             item 1 [*],
             -fluid 0.5 [Water],
             item 1 tags[base:cookable] mode:keep,

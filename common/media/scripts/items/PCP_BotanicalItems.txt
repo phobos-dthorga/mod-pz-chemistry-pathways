@@ -66,7 +66,7 @@ module PhobosChemistryPathways {
 		Weight = 0.1,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_HempTwine,
-		WorldStaticModel = RippedSheets_Ground,
+		WorldStaticModel = RippedSheets,
 	}
 
 	item HempRope {
@@ -77,7 +77,7 @@ module PhobosChemistryPathways {
 		ConditionMax = 100,
 		Tags = base:rope,
 		Tooltip = Tooltip_PCP_HempRope,
-		WorldStaticModel = Rope_Ground,
+		WorldStaticModel = Rope_Looped,
 	}
 
 	item HempCloth {
@@ -87,7 +87,16 @@ module PhobosChemistryPathways {
 		Weight = 0.3,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_HempCloth,
-		WorldStaticModel = Sheet_Ground,
+		WorldStaticModel = Sheet,
+	}
+
+	item HempCheeseCloth {
+		ItemType = base:normal,
+		DisplayCategory = Material,
+		Icon = PCP_HempCheeseCloth,
+		Weight = 0.1,
+		ConditionMax = 100,
+		WorldStaticModel = CheeseCloth_Ground,
 	}
 
 	item HempCanvas {
@@ -97,7 +106,7 @@ module PhobosChemistryPathways {
 		Weight = 0.5,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_HempCanvas,
-		WorldStaticModel = Sheet_Ground,
+		WorldStaticModel = Sheet,
 	}
 
 /* ============================== BOTANICAL PROCESSING — CHEMICAL PRODUCTS ============================== */
@@ -121,7 +130,7 @@ module PhobosChemistryPathways {
 		Weight = 0.1,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_HempPaper,
-		WorldStaticModel = Paper_Ground,
+		WorldStaticModel = SheetOfPaper,
 	}
 
 	item HempPoultice {
@@ -131,7 +140,7 @@ module PhobosChemistryPathways {
 		Weight = 0.2,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_HempPoultice,
-		WorldStaticModel = Bandage_Ground,
+		WorldStaticModel = Bandage,
 	}
 
 	item HempTincture {
@@ -144,8 +153,8 @@ module PhobosChemistryPathways {
 		Tooltip = Tooltip_PCP_HempTincture,
 		FillFromDispenserSound = GetWaterFromDispenserGlass,
 		FillFromTapSound = GetWaterFromTapGlass,
-		StaticModel = PCP_ChemBottle,
-		WorldStaticModel = PCP_ChemBottle,
+		StaticModel = BottleCrafted_Ground,
+		WorldStaticModel = BottleCrafted_Ground,
 		Tags = base:glass,
 		component FluidContainer
 		{
@@ -166,7 +175,7 @@ module PhobosChemistryPathways {
 		Weight = 3.0,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_HempcreteBlock,
-		WorldStaticModel = PlasterBag_Ground,
+		WorldStaticModel = BagOfPlasterPowder,
 	}
 
 /* ============================== BOTANICAL PROCESSING — CROSS-PATHWAY PRODUCTS ============================== */
@@ -183,7 +192,7 @@ module PhobosChemistryPathways {
 		Tags = base:rope;base:isfirefuel;base:isfiretinder,
 		FireFuelRatio = 0.5,
 		Tooltip = Tooltip_PCP_TarredHempRope,
-		WorldStaticModel = Rope_Ground,
+		WorldStaticModel = Rope_Looped,
 	}
 
 	item Oakum {
@@ -195,7 +204,7 @@ module PhobosChemistryPathways {
 		Tags = base:isfirefuel;base:isfiretinder,
 		FireFuelRatio = 0.3,
 		Tooltip = Tooltip_PCP_Oakum,
-		WorldStaticModel = RippedSheets_Ground,
+		WorldStaticModel = RippedSheets,
 	}
 
 /* ============================== BOTANICAL PROCESSING — OIL PRESSING BYPRODUCTS ============================== */
@@ -231,7 +240,7 @@ module PhobosChemistryPathways {
 		PutInSound = PutItemInBag,
 		EquipSound = EquipBackpackSmall,
 		Tooltip = Tooltip_PCP_HempSack,
-		WorldStaticModel = Bag_Ground,
+		WorldStaticModel = SeedBag,
 		Tags = base:isfirefuel;base:isfiretinder,
 	}
 

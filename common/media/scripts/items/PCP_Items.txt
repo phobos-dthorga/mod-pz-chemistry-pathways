@@ -48,8 +48,7 @@ module PhobosChemistryPathways {
 		Weight = 0.3,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_BoneChar,
-		StaticModel = PCP_PowderJar,
-		WorldStaticModel = PCP_PowderJar,
+		WorldStaticModel = Charcoal_Ground,
 	}
 
 	item Potash {
@@ -59,8 +58,7 @@ module PhobosChemistryPathways {
 		Weight = 0.2,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_Potash,
-		StaticModel = PCP_PowderJar,
-		WorldStaticModel = PCP_PowderJar,
+		WorldStaticModel = GunpowderJar,
 	}
 
 	item DilutedCompost {
@@ -70,6 +68,7 @@ module PhobosChemistryPathways {
 		Weight = 2.0,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_DilutedCompost,
+		StaticModel = CompostBag,
 		WorldStaticModel = CompostBag,
 	}
 
@@ -84,7 +83,7 @@ module PhobosChemistryPathways {
 		Weight = 1.5,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_LeadScrap,
-		WorldStaticModel = ScrapMetal_Ground,
+		WorldStaticModel = ScrapMetal,
 		MetalValue = 5,
 	}
 
@@ -105,7 +104,7 @@ module PhobosChemistryPathways {
 		Weight = 0.2,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_AcidWashedElectronics,
-		WorldStaticModel = ElectronicsScrap_Ground,
+		WorldStaticModel = ElectronicsScrap,
 	}
 
 /* ============================== CHEMICAL PRODUCTS ============================== */
@@ -117,8 +116,7 @@ module PhobosChemistryPathways {
 		Weight = 0.3,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_SulphurPowder,
-		StaticModel = PCP_PowderJar,
-		WorldStaticModel = PCP_PowderJar,
+		WorldStaticModel = GunpowderJar,
 	}
 
 	item PotassiumNitratePowder {
@@ -128,8 +126,7 @@ module PhobosChemistryPathways {
 		Weight = 0.3,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_PotassiumNitratePowder,
-		StaticModel = PCP_PowderJar,
-		WorldStaticModel = PCP_PowderJar,
+		WorldStaticModel = GunpowderJar,
 	}
 
 /* ============================== SULPHURIC ACID CONTAINERS ============================== */
@@ -145,8 +142,8 @@ module PhobosChemistryPathways {
 		IconFluidMask = Jar_Mask,
 		FillFromDispenserSound = GetWaterFromDispenserGlass,
 		FillFromTapSound = GetWaterFromTapGlass,
-		StaticModel = PCP_ChemJar,
-		WorldStaticModel = PCP_ChemJar,
+		StaticModel = JarGlass_Ground,
+		WorldStaticModel = JarGlass_Ground,
 		Tooltip = Tooltip_PCP_SulphuricAcidVessel,
 		Tags = base:glass,
 		component FluidContainer
@@ -170,8 +167,8 @@ module PhobosChemistryPathways {
 		IconFluidMask = BottleCrafted_Mask,
 		FillFromDispenserSound = GetWaterFromDispenserGlass,
 		FillFromTapSound = GetWaterFromTapGlass,
-		StaticModel = PCP_ChemBottle,
-		WorldStaticModel = PCP_ChemBottle,
+		StaticModel = BottleCrafted_Ground,
+		WorldStaticModel = BottleCrafted_Ground,
 		Tooltip = Tooltip_PCP_SulphuricAcidVessel,
 		Tags = base:glass,
 		component FluidContainer
@@ -193,8 +190,8 @@ module PhobosChemistryPathways {
 		ConditionMax = 100,
 		Icon = PCP_extracted_h2so4_porcelain_crucible,
 		IconFluidMask = Crucible_Mask,
-		StaticModel = SmallCrucibleFired,
-		WorldStaticModel = SmallCrucibleFired_Ground,
+		StaticModel = CeramicCrucibleSmall,
+		WorldStaticModel = CeramicCrucibleSmall,
 		Tooltip = Tooltip_PCP_SulphuricAcidVessel,
 		component FluidContainer
 		{
@@ -213,8 +210,8 @@ module PhobosChemistryPathways {
 		Weight = 4.0,
 		ConditionMax = 100,
 		Icon = PCP_extracted_h2so4_clay_jar,
-		StaticModel = PCP_ClayVessel,
-		WorldStaticModel = PCP_ClayVessel,
+		StaticModel = GlazedClayJar,
+		WorldStaticModel = GlazedClayJar,
 		Tooltip = Tooltip_PCP_SulphuricAcidVessel,
 		component FluidContainer
 		{
@@ -241,8 +238,8 @@ module PhobosChemistryPathways {
 		Tooltip = Tooltip_PCP_CrudeVegetableOil,
 		FillFromDispenserSound = GetWaterFromDispenserGlass,
 		FillFromTapSound = GetWaterFromTapGlass,
-		StaticModel = PCP_ChemJar,
-		WorldStaticModel = PCP_ChemJar,
+		StaticModel = JarGlass_Ground,
+		WorldStaticModel = JarGlass_Ground,
 		Tags = base:glass,
 		component FluidContainer
 		{
@@ -263,8 +260,8 @@ module PhobosChemistryPathways {
 		Weight = 2.5,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_CrudeVegetableOil,
-		StaticModel = PCP_ClayVessel,
-		WorldStaticModel = PCP_ClayVessel,
+		StaticModel = GlazedClayJar,
+		WorldStaticModel = GlazedClayJar,
 		component FluidContainer
 		{
 			ContainerName = ClayJar,
@@ -306,8 +303,8 @@ module PhobosChemistryPathways {
 		Tooltip = Tooltip_PCP_RenderedFat,
 		FillFromDispenserSound = GetWaterFromDispenserGlass,
 		FillFromTapSound = GetWaterFromTapGlass,
-		StaticModel = PCP_ChemJar,
-		WorldStaticModel = PCP_ChemJar,
+		StaticModel = JarGlass_Ground,
+		WorldStaticModel = JarGlass_Ground,
 		Tags = base:glass,
 		component FluidContainer
 		{
@@ -328,8 +325,8 @@ module PhobosChemistryPathways {
 		Weight = 2.5,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_RenderedFat,
-		StaticModel = PCP_ClayVessel,
-		WorldStaticModel = PCP_ClayVessel,
+		StaticModel = GlazedClayJar,
+		WorldStaticModel = GlazedClayJar,
 		component FluidContainer
 		{
 			ContainerName = ClayJar,
@@ -375,8 +372,8 @@ module PhobosChemistryPathways {
 		Tooltip = Tooltip_PCP_WoodMethanol,
 		FillFromDispenserSound = GetWaterFromDispenserGlass,
 		FillFromTapSound = GetWaterFromTapGlass,
-		StaticModel = PCP_ChemBottle,
-		WorldStaticModel = PCP_ChemBottle,
+		StaticModel = BottleCrafted_Ground,
+		WorldStaticModel = BottleCrafted_Ground,
 		Tags = base:glass,
 		component FluidContainer
 		{
@@ -400,8 +397,8 @@ module PhobosChemistryPathways {
 		Tooltip = Tooltip_PCP_WoodTar,
 		FillFromDispenserSound = GetWaterFromDispenserGlass,
 		FillFromTapSound = GetWaterFromTapGlass,
-		StaticModel = PCP_ChemJar,
-		WorldStaticModel = PCP_ChemJar,
+		StaticModel = JarGlass_Ground,
+		WorldStaticModel = JarGlass_Ground,
 		Tags = base:glass,
 		component FluidContainer
 		{
@@ -426,8 +423,7 @@ module PhobosChemistryPathways {
 		Weight = 0.3,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_PotassiumHydroxide,
-		StaticModel = PCP_PowderJar,
-		WorldStaticModel = PCP_PowderJar,
+		WorldStaticModel = GunpowderJar,
 	}
 
 	item Calcite {
@@ -437,8 +433,7 @@ module PhobosChemistryPathways {
 		Weight = 0.4,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_Calcite,
-		StaticModel = PCP_PowderJar,
-		WorldStaticModel = PCP_PowderJar,
+		WorldStaticModel = GunpowderJar,
 	}
 
 /* ============================== BIODIESEL PATHWAY - TRANSESTERIFICATION ============================== */
@@ -455,8 +450,8 @@ module PhobosChemistryPathways {
 		Tooltip = Tooltip_PCP_CrudeBiodiesel,
 		FillFromDispenserSound = GetWaterFromDispenserGlass,
 		FillFromTapSound = GetWaterFromTapGlass,
-		StaticModel = PCP_ChemJar,
-		WorldStaticModel = PCP_ChemJar,
+		StaticModel = JarGlass_Ground,
+		WorldStaticModel = JarGlass_Ground,
 		Tags = base:glass,
 		component FluidContainer
 		{
@@ -477,8 +472,8 @@ module PhobosChemistryPathways {
 		Weight = 2.8,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_CrudeBiodiesel,
-		StaticModel = PCP_ClayVessel,
-		WorldStaticModel = PCP_ClayVessel,
+		StaticModel = GlazedClayJar,
+		WorldStaticModel = GlazedClayJar,
 		component FluidContainer
 		{
 			ContainerName = ClayJar,
@@ -520,8 +515,8 @@ module PhobosChemistryPathways {
 		Tooltip = Tooltip_PCP_Glycerol,
 		FillFromDispenserSound = GetWaterFromDispenserGlass,
 		FillFromTapSound = GetWaterFromTapGlass,
-		StaticModel = PCP_ChemJar,
-		WorldStaticModel = PCP_ChemJar,
+		StaticModel = BottleCrafted_Ground,
+		WorldStaticModel = BottleCrafted_Ground,
 		Tags = base:glass,
 		component FluidContainer
 		{
@@ -549,8 +544,8 @@ module PhobosChemistryPathways {
 		Tooltip = Tooltip_PCP_WashedBiodiesel,
 		FillFromDispenserSound = GetWaterFromDispenserGlass,
 		FillFromTapSound = GetWaterFromTapGlass,
-		StaticModel = PCP_ChemJar,
-		WorldStaticModel = PCP_ChemJar,
+		StaticModel = JarGlass_Ground,
+		WorldStaticModel = JarGlass_Ground,
 		Tags = base:glass,
 		component FluidContainer
 		{
@@ -571,8 +566,8 @@ module PhobosChemistryPathways {
 		Weight = 2.5,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_WashedBiodiesel,
-		StaticModel = PCP_ClayVessel,
-		WorldStaticModel = PCP_ClayVessel,
+		StaticModel = GlazedClayJar,
+		WorldStaticModel = GlazedClayJar,
 		component FluidContainer
 		{
 			ContainerName = ClayJar,
@@ -635,7 +630,8 @@ module PhobosChemistryPathways {
 		Weight = 0.3,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_CrudeSoap,
-		WorldStaticModel = Soap_Ground,
+		StaticModel = Soap,
+		WorldStaticModel = Soap,
 	}
 
 /* ============================== AGRICULTURE & DOWNSTREAM APPLICATIONS ============================== */
@@ -649,8 +645,7 @@ module PhobosChemistryPathways {
 		Weight = 0.2,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_BoneMeal,
-		StaticModel = PCP_PowderJar,
-		WorldStaticModel = PCP_PowderJar,
+		WorldStaticModel = GunpowderJar,
 	}
 
 	item MineralFeedSupplement {
@@ -665,6 +660,7 @@ module PhobosChemistryPathways {
 		SurvivalGear = true,
 		ReplaceInSecondHand = Bag_Sandbag_LHand holdingbagleft,
 		ReplaceInPrimaryHand = Bag_Sandbag_RHand holdingbagright,
+		StaticModel = CompostBag,
 		WorldStaticModel = CompostBag,
 		Tags = base:farmingloot,
 	}
@@ -676,8 +672,7 @@ module PhobosChemistryPathways {
 		Weight = 0.2,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_ActivatedCarbon,
-		StaticModel = PCP_PowderJar,
-		WorldStaticModel = PCP_PowderJar,
+		WorldStaticModel = Charcoal_Ground,
 		Tags = base:charcoal,
 	}
 
@@ -692,6 +687,7 @@ module PhobosChemistryPathways {
 		Weight = 3.0,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_MortarMix,
+		StaticModel = CompostBag,
 		WorldStaticModel = CompostBag,
 	}
 
@@ -702,6 +698,7 @@ module PhobosChemistryPathways {
 		Weight = 2.5,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_StuccoMix,
+		StaticModel = CompostBag,
 		WorldStaticModel = CompostBag,
 	}
 
@@ -712,6 +709,7 @@ module PhobosChemistryPathways {
 		Weight = 5.0,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_ReinforcedConcrete,
+		StaticModel = CompostBag,
 		WorldStaticModel = CompostBag,
 	}
 
@@ -722,6 +720,7 @@ module PhobosChemistryPathways {
 		Weight = 2.0,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_Fireclay,
+		StaticModel = CompostBag,
 		WorldStaticModel = CompostBag,
 	}
 
@@ -739,8 +738,8 @@ module PhobosChemistryPathways {
 		IconFluidMask = Jar_Mask,
 		FillFromDispenserSound = GetWaterFromDispenserGlass,
 		FillFromTapSound = GetWaterFromTapGlass,
-		StaticModel = PCP_ChemJar,
-		WorldStaticModel = PCP_ChemJar,
+		StaticModel = JarGlass_Ground,
+		WorldStaticModel = JarGlass_Ground,
 		Tooltip = Tooltip_PCP_BrineJar,
 		Tags = base:glass,
 		component FluidContainer
@@ -762,8 +761,7 @@ module PhobosChemistryPathways {
 		Weight = 0.4,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_BrineConcentrate,
-		StaticModel = PCP_PowderJar,
-		WorldStaticModel = PCP_PowderJar,
+		WorldStaticModel = GunpowderJar,
 	}
 
 	item CoarseSalt {
@@ -773,8 +771,7 @@ module PhobosChemistryPathways {
 		Weight = 0.15,
 		ConditionMax = 100,
 		Tooltip = Tooltip_PCP_CoarseSalt,
-		StaticModel = PCP_PowderJar,
-		WorldStaticModel = PCP_PowderJar,
+		WorldStaticModel = GunpowderJar,
 	}
 
 /* ============================== BOOKS ============================== */

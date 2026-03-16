@@ -234,6 +234,7 @@ Recipes_EN = {
 	Recipe_PCPFertilizeSeedCake = "Fertilize with Seed Cake",
 	Recipe_PCPScutchHempFiber = "S1. Scutch Hemp Fiber",
 	Recipe_PCPWeaveHempClothLoom = "S2. Weave Hemp Cloth (Loom)",
+	Recipe_PCPWeaveHempCheeseClothLoom = "S2b. Weave Hemp Cheesecloth (Loom)",
 	Recipe_PCPWeaveHempCanvasLoom = "S3. Weave Hemp Canvas (Loom)",
 	Recipe_PCPRetHemp = "H5. Chemical Retting (KOH)",
 	Recipe_PCPRetHempSimple = "H5. Chemical Retting (KOH)",

@@ -1,5 +1,34 @@
 [h1]Phobos' Industrial Pathways: Biomass — Changelog[/h1]
 
+[h2]v1.9.0 — Item Model & Recipe Fixes (2026-03-16)[/h2]
+
+[h3]New Features[/h3]
+[list]
+[*] [b]Hemp Cheesecloth[/b] — New loom-craftable cheesecloth from hemp bast fiber. Accepted as a filter in tincture, oil pressing, and salt extraction recipes alongside vanilla cheesecloth.
+[/list]
+
+[h3]Bug Fixes[/h3]
+[list]
+[*] [b]3D model references[/b] — Fixed ~75 items that displayed oversized placeholder icons when placed on surfaces (ground, tables, shelves). All 118 items now use correct vanilla 3D models: mason jars, bottles, clay jars, crucibles, cooking pots, and more.
+[*] [b]Forged cooking pot model[/b] — Paper pulp forged pot items now use the correct forged pot ground model instead of the regular pot model.
+[*] [b]Wildcard recipe inputs[/b] — Fixed several recipes that incorrectly accepted any item as input (tincture filtering, tar rope, oil pressing).
+[*] [b]Press-dry recipe balance[/b] — Hemp press-dry recipe now correctly outputs 1 dried bundle per craft (5 sub-units = 1 whole bundle).
+[/list]
+
+[h3]Removed[/h3]
+[list]
+[*] [b]Experimental FBX models[/b] — Removed 5 custom 3D model files and their definition script. Items now use vanilla models exclusively.
+[/list]
+
+[h3]Changed[/h3]
+[list]
+[*] Recipe count: 298 to [b]300[/b] (+1 hemp cheesecloth loom, +1 press-dry hand press)
+[*] Item count: 118 to [b]119[/b] (+1 HempCheeseCloth)
+[*] CI: Added StaticModel/WorldStaticModel validation against vanilla model allowlist
+[/list]
+
+[hr][/hr]
+
 [h2]v1.8.1 — Hemp Recipe Input Fix (2026-03-16)[/h2]
 
 [h3]Bug Fixes[/h3]
@@ -393,8 +422,8 @@
 
 [h2]Summary[/h2]
 [list]
-[*] [b]301 recipes[/b] across 10 pathways — Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture, Concrete Mixer, Botanical
-[*] [b]121 items[/b], [b]76 tradeable items[/b], [b]6 recipe books[/b], [b]5 skill books[/b], [b]10 fluids[/b]
+[*] [b]300 recipes[/b] across 10 pathways — Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture, Concrete Mixer, Botanical
+[*] [b]119 items[/b], [b]73 tradeable items[/b], [b]6 recipe books[/b], [b]5 skill books[/b], [b]10 fluids[/b]
 [*] [b]66 sandbox options[/b], [b]216 OnCreate callbacks[/b], [b]91 ZScience specimens[/b]
 [*] [b]v1.6.1[/b]: Translation conversion fix + in-game changelog update
 [*] [b]v1.6.0[/b]: PZ 42.15 translation migration — all 9 translation files converted from Lua .txt to JSON, versionMin bumped to 42.15.0
@@ -404,5 +433,5 @@
 [*] [b]v1.3.0[/b]: Hemp expansion (6 new items), vanilla station integration, mechanical hazards, 26 new ZScience specimens
 [*] [b]v1.2.0[/b]: Botanical pathway, 31 horticulture items, 6 recipe books, [B42] Horticulture migration system
 [*] [b]v1.0.0[/b]: Hard dependency migrated from zReVaccin 3 to Zombie Virus Vaccine
-[*] Requires PhobosLib 1.19.0+ and Zombie Virus Vaccine | Optional: Moodle Framework
+[*] Requires PhobosLib 1.20.0+ and Zombie Virus Vaccine | Optional: Moodle Framework
 [/list]
