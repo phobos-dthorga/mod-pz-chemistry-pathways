@@ -746,7 +746,7 @@ module Base
 
         inputs
         {
-            item 2 [Base.HempBundle;Base.HempBundleDried],
+            item 5 [Base.HempBundle;Base.HempBundleDried],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide],
             item 1 [*] mode:keep,
             -fluid 1.0 [Water],
@@ -779,7 +779,7 @@ module Base
 
         inputs
         {
-            item 2 [Base.HempBundle;Base.HempBundleDried],
+            item 5 [Base.HempBundle;Base.HempBundleDried],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide],
             item 1 [*] mode:keep,
             -fluid 1.0 [Water],
@@ -808,7 +808,7 @@ module Base
 
         inputs
         {
-            item 2 [Base.HempBundle;Base.HempBundleDried],
+            item 5 [Base.HempBundle;Base.HempBundleDried],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide],
             item 1 [*],
             -fluid 1.0 [Water],
@@ -840,7 +840,7 @@ module Base
 
         inputs
         {
-            item 2 [Base.HempBundle;Base.HempBundleDried],
+            item 5 [Base.HempBundle;Base.HempBundleDried],
             item 1 [PhobosChemistryPathways.PotassiumHydroxide],
             item 1 [*],
             -fluid 1.0 [Water],
@@ -872,7 +872,7 @@ module Base
 
         inputs
         {
-            item 2 [Base.HempBundle;Base.HempBundleDried],
+            item 5 [Base.HempBundle;Base.HempBundleDried],
             item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [*] mode:keep,
             -fluid 1.0 [Water],
@@ -905,7 +905,7 @@ module Base
 
         inputs
         {
-            item 2 [Base.HempBundle;Base.HempBundleDried],
+            item 5 [Base.HempBundle;Base.HempBundleDried],
             item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [*] mode:keep,
             -fluid 1.0 [Water],
@@ -934,7 +934,7 @@ module Base
 
         inputs
         {
-            item 2 [Base.HempBundle;Base.HempBundleDried],
+            item 5 [Base.HempBundle;Base.HempBundleDried],
             item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [*],
             -fluid 1.0 [Water],
@@ -966,7 +966,7 @@ module Base
 
         inputs
         {
-            item 2 [Base.HempBundle;Base.HempBundleDried],
+            item 5 [Base.HempBundle;Base.HempBundleDried],
             item 1 [LabItems.ChSodiumHydroxideBag],
             item 1 [*],
             -fluid 1.0 [Water],

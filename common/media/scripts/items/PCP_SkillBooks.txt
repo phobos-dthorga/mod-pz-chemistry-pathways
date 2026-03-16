@@ -37,7 +37,7 @@ module PhobosChemistryPathways
         NumberOfPages = 220,
         SkillTrained = AppliedChemistry,
         StaticModel = BookOpenTINT,
-        WorldStaticModel = BookClosedTINT_Ground,
+        WorldStaticModel = BookClosedGround,
     }
 
     /* ----- Volume 2: Levels 3-4 ----- */
@@ -56,7 +56,7 @@ module PhobosChemistryPathways
         NumberOfPages = 260,
         SkillTrained = AppliedChemistry,
         StaticModel = BookOpenTINT,
-        WorldStaticModel = BookClosedTINT_Ground,
+        WorldStaticModel = BookClosedGround,
     }
 
     /* ----- Volume 3: Levels 5-6 ----- */
@@ -75,7 +75,7 @@ module PhobosChemistryPathways
         NumberOfPages = 300,
         SkillTrained = AppliedChemistry,
         StaticModel = BookOpenTINT,
-        WorldStaticModel = BookClosedTINT_Ground,
+        WorldStaticModel = BookClosedGround,
     }
 
     /* ----- Volume 4: Levels 7-8 ----- */
@@ -94,7 +94,7 @@ module PhobosChemistryPathways
         NumberOfPages = 340,
         SkillTrained = AppliedChemistry,
         StaticModel = BookOpenTINT,
-        WorldStaticModel = BookClosedTINT_Ground,
+        WorldStaticModel = BookClosedGround,
     }
 
     /* ----- Volume 5: Levels 9-10 ----- */
@@ -113,6 +113,6 @@ module PhobosChemistryPathways
         NumberOfPages = 380,
         SkillTrained = AppliedChemistry,
         StaticModel = BookOpenTINT,
-        WorldStaticModel = BookClosedTINT_Ground,
+        WorldStaticModel = BookClosedGround,
     }
 }

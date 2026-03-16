@@ -70,6 +70,7 @@ ItemName_EN = {
 	ItemName_PhobosChemistryPathways.HempTwine = "Hemp Twine",
 	ItemName_PhobosChemistryPathways.HempRope = "Hemp Rope",
 	ItemName_PhobosChemistryPathways.HempCloth = "Hemp Cloth",
+	ItemName_PhobosChemistryPathways.HempCheeseCloth = "Hemp Cheesecloth",
 	ItemName_PhobosChemistryPathways.HempCanvas = "Hemp Canvas",
 	ItemName_PhobosChemistryPathways.HempPulp = "Hemp Pulp",
 	ItemName_PhobosChemistryPathways.HempPaper = "Hemp Paper",
