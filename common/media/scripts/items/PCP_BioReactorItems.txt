@@ -1,0 +1,37 @@
+/*  ________________________________________________________________________
+ * / Copyright (c) 2026 Phobos A. D'thorga                                \
+ * |                                                                        |
+ * |           /\_/\                                                         |
+ * |         =/ o o \=    Phobos' PZ Modding                                |
+ * |          (  V  )     All rights reserved.                              |
+ * |     /\  / \   / \                                                      |
+ * |    /  \/   '-'   \   This source code is part of the Phobos            |
+ * |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+ * |  (__/    \_/ \/  \__)                                                  |
+ * |     |   | |  | |     Unauthorised copying, modification, or            |
+ * |     |___|_|  |_|     distribution of this file is prohibited.          |
+ * |                                                                        |
+ * \________________________________________________________________________/
+ *
+ * Phobos' Industrial Pathways: Biomass - Bio-Reactor Items
+ *
+ * Moveable furniture item for the Bio-Reactor workstation.
+ * Placed in-world, this item binds to the PCP_BioReactor entity
+ * (CraftBench with 4-directional custom sprites).
+ */
+
+module PhobosChemistryPathways {
+	imports {
+		Base
+	}
+
+	item Mov_BioReactor {
+		DisplayCategory = Furniture,
+		ItemType = base:moveable,
+		DisplayName = Bio-Reactor,
+		Weight = 80.0,
+		Icon = default,
+		WorldObjectSprite = pcp_tiles_01_0,
+		Tooltip = Tooltip_PCP_BioReactor,
+	}
+}

@@ -119,4 +119,5 @@ Tooltip_EN = {
 	Tooltip_PCP_SaucepanSyrupCooked = "Cooked sugar syrup ready to be bottled.<br>Pour into a jar to produce simple sugar syrup.",
 	Tooltip_PCP_SaucepanCopperSyrupCooked = "Cooked sugar syrup (copper saucepan) ready to be bottled.<br>Pour into a jar to produce simple sugar syrup.",
 	Tooltip_PCP_SimpleSugarSyrup = "Simple sugar syrup made by dissolving sugar in hot water.<br>A comforting treat that improves mood and relieves boredom.<br>Use as a sweetener in cooking and beverages.",
+	Tooltip_PCP_BioReactor = "A heavy industrial bio-reactor assembled from welded steel,<br>glass sight panels, and salvaged electronics.<br>Place it to create a workstation for biological and chemical processing.<br>Weight: 80 kg — requires significant strength or a vehicle to move.",
 }

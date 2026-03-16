@@ -296,5 +296,6 @@
     "PCPMixHempcreteSafe": "H14. Mix Hempcrete (Protected)",
     "PCPMixHempcreteUnsafe": "H14. Mix Hempcrete (No Mask!)",
     "PCPMixReinforcedHempcreteSafe": "H14b. Mix Reinforced Hempcrete (Protected)",
-    "PCPMixReinforcedHempcreteUnsafe": "H14b. Mix Reinforced Hempcrete (No Mask!)"
+    "PCPMixReinforcedHempcreteUnsafe": "H14b. Mix Reinforced Hempcrete (No Mask!)",
+    "PCPBuildBioReactor": "Build Bio-Reactor"
 }

@@ -134,4 +134,5 @@ ItemName_EN = {
 	ItemName_PhobosChemistryPathways.BookAppliedChemistry3 = "Applied Chemistry Vol. 3",
 	ItemName_PhobosChemistryPathways.BookAppliedChemistry4 = "Applied Chemistry Vol. 4",
 	ItemName_PhobosChemistryPathways.BookAppliedChemistry5 = "Applied Chemistry Vol. 5",
+	ItemName_PhobosChemistryPathways.Mov_BioReactor = "Bio-Reactor",
 }

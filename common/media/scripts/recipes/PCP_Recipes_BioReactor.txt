@@ -1,0 +1,65 @@
+/*  ________________________________________________________________________
+ * / Copyright (c) 2026 Phobos A. D'thorga                                \
+ * |                                                                        |
+ * |           /\_/\                                                         |
+ * |         =/ o o \=    Phobos' PZ Modding                                |
+ * |          (  V  )     All rights reserved.                              |
+ * |     /\  / \   / \                                                      |
+ * |    /  \/   '-'   \   This source code is part of the Phobos            |
+ * |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+ * |  (__/    \_/ \/  \__)                                                  |
+ * |     |   | |  | |     Unauthorised copying, modification, or            |
+ * |     |___|_|  |_|     distribution of this file is prohibited.          |
+ * |                                                                        |
+ * \________________________________________________________________________/
+ *
+ * Phobos' Industrial Pathways: Biomass - Bio-Reactor Construction
+ *
+ * Fabrication recipe for the Bio-Reactor workstation.
+ * Requires Metalworking 6 and welding equipment to assemble
+ * a functional bio-reactor from steel, glass, and electronic
+ * components. The finished unit weighs 80 kg.
+ */
+
+module Base
+{
+
+/* ----- BUILD BIO-REACTOR ----- */
+/*  Fabricate a functional bio-reactor from sheet metal, glass panels,
+    pipes, steel bar stock, and electronic components. Requires welding
+    equipment and Metalworking skill level 6. The assembled unit weighs
+    80 kg and must be placed as a 4-directional CraftBench workstation.   */
+
+    craftRecipe PCPBuildBioReactor
+    {
+        time = 600,
+        category = Phobos Industrial Chem,
+        NeedToBeLearn = false,
+
+        Tags = AnySurfaceCraft;CannotBeResearched,
+        timedAction = Making_Surface,
+        SkillRequired = Metalworking:6,
+        xpAward = Metalworking:50;AppliedChemistry:10,
+
+        inputs
+        {
+            item 12 [Base.SheetMetal] mode:destroy,
+            item 8 [Base.SmallSheetMetal] mode:destroy,
+            item 4 [Base.GlassPanel] mode:destroy,
+            item 6 [Base.ClayPipeSegment] mode:destroy,
+            item 12 [Base.SteelBarQuarter] mode:destroy,
+            item 4 [Base.NutsBolts] mode:destroy,
+            item 2 [Base.Hinge] mode:destroy,
+            item 8 [Base.ScrapMetal] mode:destroy,
+            item 4 [Base.ElectronicsScrap] mode:destroy,
+            item 1 [Base.BlowTorch] mode:keep flags[NoBrokenItems;MayDegrade],
+            item 1 [Base.WeldingMask] mode:keep flags[NoBrokenItems],
+            item 1 [Base.WeldingRods] mode:destroy,
+        }
+        outputs
+        {
+            item 1 PhobosChemistryPathways.Mov_BioReactor,
+        }
+    }
+
+}
