@@ -390,6 +390,12 @@ option PCP.MigrateHorticultureItems
 	page = PCP_Reset, translation = PCP_MigrateHorticultureItems,
 }
 
+option PCP.MigrateZReVaccinToZVV
+{
+	type = boolean, default = false,
+	page = PCP_Reset, translation = PCP_MigrateZReVaccinToZVV,
+}
+
 /* ===== Dynamic Trading Page ===== */
 
 option PCP.EnableDTBotanicalMaterial

@@ -1,0 +1,42 @@
+/*  ________________________________________________________________________
+ * / Copyright (c) 2026 Phobos A. D'thorga                                \
+ * |                                                                        |
+ * |           /\_/\                                                         |
+ * |         =/ o o \=    Phobos' PZ Modding                                |
+ * |          (  V  )     All rights reserved.                              |
+ * |     /\  / \   / \                                                      |
+ * |    /  \/   '-'   \   This source code is part of the Phobos            |
+ * |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+ * |  (__/    \_/ \/  \__)                                                  |
+ * |     |   | |  | |     Unauthorised copying, modification, or            |
+ * |     |___|_|  |_|     distribution of this file is prohibited.          |
+ * |                                                                        |
+ * \________________________________________________________________________/
+ */
+
+/*
+    PCP_ZReVaccinStubs.txt
+    ======================================================
+    Stub trait definition for the zReVaccin antibodies trait.
+    Required for save deserialisation safety — players who
+    have the zrevac:zreantibodies trait in their save data
+    need this definition to load without errors, even after
+    unsubscribing from zReVaccin 3.0.
+
+    The trait is removed at runtime by PCP_ZReVaccinMigration.lua
+    when the sandbox migration toggle is activated.
+
+    Cost 0, hidden from character creation (IsProfessionTrait = true,
+    DisabledInMultiplayer = true) to prevent accidental selection.
+*/
+
+module PhobosChemistryPathways {
+
+    character_trait_definition zrevac:zreantibodies
+    {
+        IsProfessionTrait = true,
+        DisabledInMultiplayer = true,
+        CharacterTrait = zrevac:zreantibodies,
+        Cost = 0,
+    }
+}

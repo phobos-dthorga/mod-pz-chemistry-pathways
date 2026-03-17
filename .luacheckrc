@@ -39,6 +39,7 @@ globals = {
     "PCP_RecipeCallbacks",
     "PCP_Sandbox",
     "PCP_Reset",
+    "PCP_ZReVaccinMigration",
     "PCP_TakeTinctureAction",
     -- PZ globals PCP writes to (skill book registration, DT integration)
     "DynamicTrading",

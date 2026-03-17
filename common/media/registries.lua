@@ -33,6 +33,10 @@ CharacterTrait.register("pcp:pcp_chem_aversion")
 CharacterProfession.register("pcp:pcp_chemist")
 CharacterProfession.register("pcp:pcp_pharmacist")
 
+-- Stub: deserialisation safety for players with zReVaccin antibodies trait.
+-- Removed at runtime by PCP_ZReVaccinMigration.lua when migration runs.
+CharacterTrait.register("zrevac:zreantibodies")
+
 -- Item Tags (PPE & vessel categories for recipe inputs)
 ItemTag.register("pcp:protectivegloves")
 ItemTag.register("pcp:protectivegoggles")
