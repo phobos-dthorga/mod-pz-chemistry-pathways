@@ -75,8 +75,9 @@ PCP_PuritySystem.EQUIP_FACTORS = {
     chromatograph = 1.25,  -- significant improvement
 }
 
---- Random variance range (+/-5 per craft).
-PCP_PuritySystem.VARIANCE = 5
+--- Multiplicative variance percentage (±15% per craft).
+--- Applied as: result * (1.0 + random(-15, +15) / 100).
+PCP_PuritySystem.VARIANCE_PCT = 15
 
 
 ---------------------------------------------------------------
@@ -159,38 +160,43 @@ function PCP_PuritySystem.averageInputPurity(items)
     return PhobosLib.averageStampedQuality(items, PCP_PuritySystem.DEFAULT)
 end
 
---- Get the skill bonus for a player based on sandbox SkillPurityInfluence setting.
---- Reads the divisor from the sandbox option and delegates to PhobosLib.
+--- Get the multiplicative skill multiplier for a player.
+--- Returns 1.0 at level 0; at level 10, returns (1.0 + maxEffect) where
+--- maxEffect is determined by the sandbox SkillPurityInfluence setting:
+---   None=×1.00, Low=×1.22, Standard=×1.44, High=×1.66.
 ---@param player any  IsoPlayer
----@return number     Skill bonus (0 at None/low skill, up to +10 at High/max skill)
-function PCP_PuritySystem.getSkillBonus(player)
-    local divisor = PCP_Sandbox.getSkillPurityDivisor()
-    if divisor == 0 then return 0 end  -- "None" setting
-    return PhobosLib.getSkillBonus(player, Perks.AppliedChemistry, divisor)
+---@return number     Multiplier (≥1.0)
+function PCP_PuritySystem.getSkillMultiplier(player)
+    local maxEffect = PCP_Sandbox.getSkillPurityMaxEffect()
+    if maxEffect <= 0 then return 1.0 end
+    return PhobosLib.getSkillMultiplier(player, Perks.AppliedChemistry, maxEffect)
 end
 
---- Calculate output purity with severity-adjusted equipment factor and skill bonus.
+--- Calculate output purity with severity-adjusted equipment factor,
+--- multiplicative skill scaling, and ±15% multiplicative variance.
+--- Formula: input * adjustedFactor * skillMult * varianceMult, clamped [0, 99].
 ---@param inputPurity number  Average input purity
 ---@param equipFactor number  Base equipment factor (from EQUIP_FACTORS)
----@param player any          IsoPlayer (for skill bonus)
----@return number             Output purity (0-100)
+---@param player any          IsoPlayer (for skill multiplier)
+---@return number             Output purity (0-99)
 function PCP_PuritySystem.calculateOutputPurity(inputPurity, equipFactor, player)
     local severity = PCP_PuritySystem.getSeverity()
     local adjusted = PhobosLib.adjustFactorBySeverity(equipFactor, severity)
-    local bonus = PCP_PuritySystem.getSkillBonus(player)
-    local result = PhobosLib.calculateOutputQuality(inputPurity, adjusted, PCP_PuritySystem.VARIANCE, bonus)
+    local skillMult = PCP_PuritySystem.getSkillMultiplier(player)
+    local result = PhobosLib.calculateOutputQualityV2(
+        inputPurity, adjusted, skillMult, PCP_PuritySystem.VARIANCE_PCT)
     if PhobosLib.isDebugEnabled("PCP") then
         _debug("calculateOutputPurity: input=" .. tostring(inputPurity)
             .. " equipFactor=" .. tostring(equipFactor)
             .. " severity=" .. tostring(severity)
             .. " adjusted=" .. tostring(adjusted)
-            .. " skillBonus=" .. tostring(bonus)
+            .. " skillMult=" .. tostring(skillMult)
             .. " -> output=" .. tostring(result))
     end
     return result
 end
 
---- Generate random base purity for source recipes.
+--- Generate random base purity for source recipes (no skill influence).
 ---@param min number
 ---@param max number
 ---@return number
@@ -199,15 +205,14 @@ function PCP_PuritySystem.randomBasePurity(min, max)
 end
 
 --- Skill-aware random base purity for source recipes.
---- Reads the sandbox divisor and delegates to PhobosLib.
+--- Applies multiplicative skill scaling and ±15% multiplicative variance.
 ---@param min number
 ---@param max number
----@param player any  IsoPlayer (for skill bonus)
+---@param player any  IsoPlayer (for skill multiplier)
 ---@return number
 function PCP_PuritySystem.randomBasePurityWithSkill(min, max, player)
-    local divisor = PCP_Sandbox.getSkillPurityDivisor()
-    if divisor == 0 then return PhobosLib.randomBaseQuality(min, max) end
-    return PhobosLib.randomBaseQualityWithSkill(min, max, player, Perks.AppliedChemistry, divisor)
+    local skillMult = PCP_PuritySystem.getSkillMultiplier(player)
+    return PhobosLib.randomBaseQualityV2(min, max, skillMult, PCP_PuritySystem.VARIANCE_PCT)
 end
 
 --- Announce purity via speech bubble (if enabled).
@@ -219,24 +224,73 @@ function PCP_PuritySystem.announcePurity(player, value)
     PhobosLib.announceQuality(player, value, PCP_PuritySystem.TIERS, "Purity")
 end
 
---- Apply fuel penalty by draining fluid from RefinedBiodieselCan.
+--- Apply fuel penalty by draining fluid from output container.
+--- Incorporates sandbox YieldMultiplier.
 ---@param result any     The output item
 ---@param value number   Purity value
 function PCP_PuritySystem.applyFuelPenalty(result, value)
     if not PCP_PuritySystem.isEnabled() then return end
-    PhobosLib.applyFluidQualityPenalty(result, value, PCP_PuritySystem.YIELD_TABLE)
+    local sandboxMult = PCP_Sandbox.getYieldMultiplier()
+    local yieldMult = PhobosLib.getEffectiveYield(value, PCP_PuritySystem.YIELD_TABLE, sandboxMult)
+    if yieldMult >= 1.0 then return end
+    local fc = PhobosLib.tryGetFluidContainer(result)
+    if not fc then return end
+    local capacity = PhobosLib.tryGetCapacity(fc) or 5.0
+    local drainAmount = capacity * (1.0 - yieldMult)
+    if drainAmount > 0 then
+        PhobosLib.tryDrainFluid(fc, drainAmount)
+    end
 end
 
---- Remove excess items for yield penalty (e.g. GunPowder).
+--- Remove excess items for yield penalty.
+--- Incorporates sandbox YieldMultiplier.
 ---@param player any
 ---@param itemType string  Full type (e.g. "Base.GunPowder")
 ---@param baseCount number Nominal recipe output count
 ---@param purity number    Purity value
 function PCP_PuritySystem.removeExcess(player, itemType, baseCount, purity)
     if not PCP_PuritySystem.isEnabled() then return end
-    local yieldMult = PhobosLib.getQualityYield(purity, PCP_PuritySystem.YIELD_TABLE)
+    local sandboxMult = PCP_Sandbox.getYieldMultiplier()
+    local yieldMult = PhobosLib.getEffectiveYield(purity, PCP_PuritySystem.YIELD_TABLE, sandboxMult)
     local keepCount = math.max(1, math.floor(baseCount * yieldMult + 0.5))
     PhobosLib.removeExcessItems(player, itemType, baseCount, keepCount)
+end
+
+--- Apply yield penalty only if recipe produces multiple items (count ≥ 2).
+--- Single-output recipes are exempt: purity propagation is the penalty.
+---@param player any
+---@param itemType string  Full type (e.g. "PhobosChemistryPathways.BoneMeal")
+---@param baseCount number Nominal recipe output count
+---@param purity number    Purity value
+function PCP_PuritySystem.applyYieldIfMultiOutput(player, itemType, baseCount, purity)
+    if baseCount < 2 then return end
+    PCP_PuritySystem.removeExcess(player, itemType, baseCount, purity)
+end
+
+--- Count unstamped (freshly created) items of a given type in player inventory.
+--- "Unstamped" = condition at ConditionMax (not yet purity-stamped).
+--- Call BEFORE stampOutputs to get the recipe's actual output count.
+---@param player any
+---@param resultType string  Full type (e.g. "PhobosChemistryPathways.BoneChar")
+---@return number  Count of unstamped items (0 if none)
+function PCP_PuritySystem.countUnstampedOutputs(player, resultType)
+    if not player or not resultType then return 0 end
+    local count = 0
+    pcall(function()
+        local inv = player:getInventory()
+        if not inv then return end
+        local items = inv:getItems()
+        for i = 0, items:size() - 1 do
+            local it = items:get(i)
+            if it and it:getFullType() == resultType then
+                local maxCond = it:getConditionMax()
+                if maxCond and maxCond > 0 and it:getCondition() == maxCond then
+                    count = count + 1
+                end
+            end
+        end
+    end)
+    return count
 end
 
 --- Stamp purity (condition) on all unstamped copies of a result type.

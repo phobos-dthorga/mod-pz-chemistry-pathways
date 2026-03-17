@@ -15,7 +15,7 @@
     "Sandbox_PCP_ImpuritySeverity_option2": "Standard",
     "Sandbox_PCP_ImpuritySeverity_option3": "Harsh",
     "Sandbox_PCP_SkillPurityInfluence": "SKILL PURITY INFLUENCE:",
-    "Sandbox_PCP_SkillPurityInfluence_tooltip": "Controls how much the Applied Chemistry skill affects output purity.<br><br> <INDENT:20>-None: Skill has no effect on purity;<br> <INDENT:20>-Low: Small bonus (max +2 at skill level 10);<br> <INDENT:20>-Standard: Moderate bonus (max +5 at skill level 10);<br> <INDENT:20>-High: Large bonus (max +10 at skill level 10).<br><br> <RGB:0.7,0.7,0.7> Even at max skill, random variance still applies -- a skilled chemist can still get unlucky. Only applies when Impurity System is enabled. <RGB:1,1,1>",
+    "Sandbox_PCP_SkillPurityInfluence_tooltip": "Controls how much the Applied Chemistry skill affects output purity (multiplicative scaling).<br><br> <INDENT:20>-None: Skill has no effect on purity;<br> <INDENT:20>-Low: Slight skill influence (up to +22% at Level 10);<br> <INDENT:20>-Standard: Moderate skill influence (up to +44% at Level 10);<br> <INDENT:20>-High: Strong skill influence (up to +66% at Level 10).<br><br> <RGB:0.7,0.7,0.7> Skill bonus scales linearly from 0% at Level 0 to the maximum at Level 10. Random variance (plus/minus 15%) still applies -- a skilled chemist can still get unlucky. Only applies when Impurity System is enabled. <RGB:1,1,1>",
     "Sandbox_PCP_SkillPurityInfluence_option1": "None",
     "Sandbox_PCP_SkillPurityInfluence_option2": "Low",
     "Sandbox_PCP_SkillPurityInfluence_option3": "Standard",

@@ -46,6 +46,20 @@ local function _stampAndAnnounce(result, player, purity)
     PCP_PuritySystem.announcePurity(player, purity)
 end
 
+--- Stamp purity on result + all same-type outputs, announce, then apply yield.
+--- Counts unstamped items BEFORE stamping to get accurate recipe output count.
+--- Used by PROPAGATION callbacks producing multi-output PCP items (Rule 1).
+local function _stampAnnounceAndYield(result, player, purity)
+    if not result then return end
+    local ok, ft = pcall(result.getFullType, result)
+    if not ok or not ft or not string.find(ft, "PhobosChemistryPathways.", 1, true) then return end
+    local baseCount = PCP_PuritySystem.countUnstampedOutputs(player, ft)
+    PCP_PuritySystem.setPurity(result, purity)
+    PCP_PuritySystem.stampOutputs(player, ft, purity)
+    PCP_PuritySystem.announcePurity(player, purity)
+    PCP_PuritySystem.applyYieldIfMultiOutput(player, ft, baseCount, purity)
+end
+
 
 ---------------------------------------------------------------
 -- SOURCE CALLBACKS (7) — Assign base purity, no input tracking
@@ -113,14 +127,17 @@ function PCP_BotanicalCallbacks.pcpBraidHempRopePurity(items, result, player)
 end
 
 --- Extract bast fiber from retted stalk (factor 0.95)
---- Dual output: HempBastFiber (result) + HempHurd (secondary)
+--- Dual output: 2-3× HempBastFiber (result) + HempHurd (secondary)
 function PCP_BotanicalCallbacks.pcpExtractBastFiberPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PCP_PuritySystem.averageInputPurity(items)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, 0.95, player)
-    _stampAndAnnounce(result, player, purity)
-    -- Also stamp secondary output (HempHurd)
-    PCP_PuritySystem.stampOutputs(player, "PhobosChemistryPathways.HempHurd", purity)
+    _stampAnnounceAndYield(result, player, purity)
+    -- Also stamp + yield secondary output (HempHurd)
+    local hurdType = "PhobosChemistryPathways.HempHurd"
+    local hurdCount = PCP_PuritySystem.countUnstampedOutputs(player, hurdType)
+    PCP_PuritySystem.stampOutputs(player, hurdType, purity)
+    PCP_PuritySystem.applyYieldIfMultiOutput(player, hurdType, hurdCount, purity)
 end
 
 --- Weave hemp cloth from fiber (factor 0.90, hand-weaving degradation)
@@ -140,19 +157,21 @@ function PCP_BotanicalCallbacks.pcpMakeHempCanvasPurity(items, result, player)
 end
 
 --- Chemical pulping with NaOH (Lab tier, chemistry set factor 1.00)
+--- Outputs: 3× HempPulp
 function PCP_BotanicalCallbacks.pcpChemicalPulpingPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PCP_PuritySystem.averageInputPurity(items)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
-    _stampAndAnnounce(result, player, purity)
+    _stampAnnounceAndYield(result, player, purity)
 end
 
 --- Press hemp paper from pulp (factor 0.95)
+--- Outputs: 3× HempPaper
 function PCP_BotanicalCallbacks.pcpPressHempPaperPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PCP_PuritySystem.averageInputPurity(items)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, 0.95, player)
-    _stampAndAnnounce(result, player, purity)
+    _stampAnnounceAndYield(result, player, purity)
 end
 
 --- Prepare hemp tincture with alcohol (Lab tier, chemistry set factor 1.00)
@@ -210,26 +229,29 @@ end
 -- HEMP EXPANSION — PROPAGATION CALLBACKS (3)
 ---------------------------------------------------------------
 
---- Weave hemp cloth on loom (station bonus +5): input-averaged
+--- Weave hemp cloth on loom (factor 1.05, station bonus): input-averaged
 function PCP_BotanicalCallbacks.pcpWeaveHempClothLoomPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    local base = PCP_PuritySystem.averageInputPurity(items)
-    local bonus = PCP_PuritySystem.getSkillBonus(player) + 5
-    _stampAndAnnounce(result, player, math.min(100, base + bonus))
+    local input = PCP_PuritySystem.averageInputPurity(items)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, 1.05, player)
+    _stampAndAnnounce(result, player, purity)
 end
 
---- Weave hemp canvas on loom (station bonus +5): input-averaged
+--- Weave hemp canvas on loom (factor 1.05, station bonus): input-averaged
 function PCP_BotanicalCallbacks.pcpWeaveHempCanvasLoomPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    local base = PCP_PuritySystem.averageInputPurity(items)
-    local bonus = PCP_PuritySystem.getSkillBonus(player) + 5
-    _stampAndAnnounce(result, player, math.min(100, base + bonus))
+    local input = PCP_PuritySystem.averageInputPurity(items)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, 1.05, player)
+    _stampAndAnnounce(result, player, purity)
 end
 
 --- Make oakum (tar treatment): input-averaged
+--- Outputs: 3× Oakum
 function PCP_BotanicalCallbacks.pcpMakeOakumPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
-    _stampAndAnnounce(result, player, PCP_PuritySystem.averageInputPurity(items))
+    local input = PCP_PuritySystem.averageInputPurity(items)
+    local purity = PCP_PuritySystem.calculateOutputPurity(input, 0.95, player)
+    _stampAnnounceAndYield(result, player, purity)
 end
 
 

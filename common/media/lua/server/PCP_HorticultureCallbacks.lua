@@ -53,6 +53,21 @@ local function _stampAndAnnounce(result, player, purity)
     PCP_PuritySystem.announcePurity(player, purity)
 end
 
+--- Stamp purity on result + all same-type outputs, announce, then apply yield.
+--- Counts unstamped items BEFORE stamping to get accurate recipe output count.
+--- Used by PROPAGATION callbacks producing multi-output PCP items (Rule 1).
+local function _stampAnnounceAndYield(result, player, purity)
+    if not result then return end
+    local ok, ft = pcall(result.getFullType, result)
+    if not ok or not ft or not string.find(ft, "PhobosChemistryPathways.", 1, true) then return end
+    local baseCount = PCP_PuritySystem.countUnstampedOutputs(player, ft)
+    _debug("_stampAnnounceAndYield: " .. tostring(ft) .. " purity=" .. tostring(purity) .. " baseCount=" .. tostring(baseCount))
+    PCP_PuritySystem.setPurity(result, purity)
+    PCP_PuritySystem.stampOutputs(player, ft, purity)
+    PCP_PuritySystem.announcePurity(player, purity)
+    PCP_PuritySystem.applyYieldIfMultiOutput(player, ft, baseCount, purity)
+end
+
 
 ---------------------------------------------------------------
 -- SOURCE CALLBACKS — Assign base purity, no input tracking
@@ -72,11 +87,12 @@ end
 ---------------------------------------------------------------
 
 --- Press paper sheet: propagate from MouldAndDecklePaperSheet (×0.95)
+--- Outputs: 2× HempPaper
 function PCP_HorticultureCallbacks.pcpPressPaperSheetPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local avgPurity = PCP_PuritySystem.averageInputPurity(items)
     local finalPurity = PCP_PuritySystem.calculateOutputPurity(avgPurity, 0.95, player)
-    _stampAndAnnounce(result, player, finalPurity)
+    _stampAnnounceAndYield(result, player, finalPurity)
 end
 
 

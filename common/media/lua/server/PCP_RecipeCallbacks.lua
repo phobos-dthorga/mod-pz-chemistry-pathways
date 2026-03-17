@@ -94,6 +94,20 @@ local function _stampAndAnnounce(result, player, purity)
     PCP_PuritySystem.announcePurity(player, purity)
 end
 
+--- Stamp purity on result + all same-type outputs, announce, then apply yield.
+--- Counts unstamped items BEFORE stamping to get accurate recipe output count.
+--- Used by PROPAGATION callbacks producing multi-output PCP items (Rule 1).
+local function _stampAnnounceAndYield(result, player, purity)
+    if not result then return end
+    local ok, ft = pcall(result.getFullType, result)
+    if not ok or not ft or not string.find(ft, "PhobosChemistryPathways.", 1, true) then return end
+    local baseCount = PCP_PuritySystem.countUnstampedOutputs(player, ft)
+    PCP_PuritySystem.setPurity(result, purity)
+    PCP_PuritySystem.stampOutputs(player, ft, purity)
+    PCP_PuritySystem.announcePurity(player, purity)
+    PCP_PuritySystem.applyYieldIfMultiOutput(player, ft, baseCount, purity)
+end
+
 --- Recover purity from one of several alternative drained fluid containers.
 --- Used when a recipe accepts alternative fluid types (e.g. CrudeVegetableOil OR RenderedFat).
 --- Returns the first match found, or -1 if none.
@@ -231,51 +245,57 @@ end
 ---------------------------------------------------------------
 
 --- Purify charcoal water wash (Chemistry Set, factor 1.05)
+--- Outputs: 2× PurifiedCharcoal + 1× Potash
 function PCP_RecipeCallbacks.pcpPurifyCharcoalPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PCP_PuritySystem.averageInputPurity(items)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, 1.05, player)
-    _stampAndAnnounce(result, player, purity)
+    _stampAnnounceAndYield(result, player, purity)
 end
 
 --- Purify charcoal NaOH wash (Chemistry Set, factor 1.15)
+--- Outputs: 6× PurifiedCharcoal + 3× Potash
 function PCP_RecipeCallbacks.pcpPurifyCharcoalNaOHPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PCP_PuritySystem.averageInputPurity(items)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, 1.15, player)
-    _stampAndAnnounce(result, player, purity)
+    _stampAnnounceAndYield(result, player, purity)
 end
 
 --- Prepare diluted compost (Chemistry Set, factor 1.00)
+--- Outputs: 3-4× DilutedCompost
 function PCP_RecipeCallbacks.pcpCompostPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PCP_PuritySystem.averageInputPurity(items)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
-    _stampAndAnnounce(result, player, purity)
+    _stampAnnounceAndYield(result, player, purity)
 end
 
 --- Extract sulphur (Chemistry Set, factor 1.00)
+--- Outputs: 4× SulphurPowder
 function PCP_RecipeCallbacks.pcpExtractSulphurPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PCP_PuritySystem.averageInputPurity(items)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
-    _stampAndAnnounce(result, player, purity)
+    _stampAnnounceAndYield(result, player, purity)
 end
 
 --- Synthesize KNO3 (Chemistry Set, factor 1.00)
+--- Outputs: 4-6× PotassiumNitratePowder
 function PCP_RecipeCallbacks.pcpSynthesizeKNO3Purity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PCP_PuritySystem.averageInputPurity(items)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
-    _stampAndAnnounce(result, player, purity)
+    _stampAnnounceAndYield(result, player, purity)
 end
 
 --- Synthesize KOH (Chemistry Set, factor 1.00)
+--- Outputs: 3× PotassiumHydroxide + 2× Calcite
 function PCP_RecipeCallbacks.pcpSynthesizeKOHPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PCP_PuritySystem.averageInputPurity(items)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
-    _stampAndAnnounce(result, player, purity)
+    _stampAnnounceAndYield(result, player, purity)
 end
 
 --- Transesterify — Lab/Chemistry Set tier (factor 1.00)
@@ -370,9 +390,9 @@ function PCP_RecipeCallbacks.pcpChromatographMethanolPurity(items, result, playe
     PCP_PuritySystem.announcePurity(player, purity)
 end
 
---- Make soap — all variants (cosmetic tracking, factor 1.00, no penalty)
---- Glycerol variants: fluid Glycerol + solid KOH/NaOH
---- Fat variants: solid Lard/Butter + solid KOH/NaOH (no PCP fluid)
+--- Make soap — all variants (factor 1.00, yield on multi-output)
+--- Glycerol variants: fluid Glycerol + solid KOH/NaOH → 3-4× CrudeSoap
+--- Fat variants: solid Lard/Butter + solid KOH/NaOH → 3× CrudeSoap
 function PCP_RecipeCallbacks.pcpMakeSoapPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = _averagePurities({
@@ -380,7 +400,7 @@ function PCP_RecipeCallbacks.pcpMakeSoapPurity(items, result, player)
         PCP_PuritySystem.averageInputPurity(items)
     })
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
-    _stampAndAnnounce(result, player, purity)
+    _stampAnnounceAndYield(result, player, purity)
 end
 
 
@@ -398,7 +418,9 @@ function PCP_RecipeCallbacks.pcpRefineBiodieselPurity(items, result, player)
     PCP_PuritySystem.announcePurity(player, purity)
 end
 
---- Mix blackpowder — remove excess GunPowder based on purity
+--- Mix blackpowder — remove excess GunPowder based on purity.
+--- RULE 2 EXCEPTION: Flagship recipe. Yield applies to vanilla GunPowder output
+--- because blackpowder quality is the core gameplay loop for this pathway.
 function PCP_RecipeCallbacks.pcpMixBlackpowderPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PCP_PuritySystem.averageInputPurity(items)
@@ -445,7 +467,7 @@ function PCP_RecipeCallbacks.pcpCutPlasticPurity(items, result, player)
 end
 
 --- Acid wash electronics (Chemistry Set, propagation factor 1.00)
---- Fluid input: SulphuricAcid
+--- Fluid input: SulphuricAcid; Outputs: 4× AcidWashedElectronics
 function PCP_RecipeCallbacks.pcpAcidWashPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = _averagePurities({
@@ -453,7 +475,7 @@ function PCP_RecipeCallbacks.pcpAcidWashPurity(items, result, player)
         PCP_PuritySystem.averageInputPurity(items)
     })
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
-    _stampAndAnnounce(result, player, purity)
+    _stampAnnounceAndYield(result, player, purity)
 end
 
 
@@ -521,8 +543,8 @@ function PCP_RecipeCallbacks.pcpBoneCharSkullPropanePurity(items, result, player
     _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(50, 70, player))
 end
 
---- Make soap (glycerol) + propane (cosmetic, factor 1.00)
---- Fluid input: Glycerol; solid: KOH
+--- Make soap (glycerol) + propane (factor 1.00, yield on multi-output)
+--- Fluid input: Glycerol; solid: KOH → 3-4× CrudeSoap
 function PCP_RecipeCallbacks.pcpMakeSoapPropanePurity(items, result, player)
     PCP_RecipeCallbacks.pcpReturnPartialPropane(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
@@ -531,11 +553,11 @@ function PCP_RecipeCallbacks.pcpMakeSoapPropanePurity(items, result, player)
         PCP_PuritySystem.averageInputPurity(items)
     })
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
-    _stampAndAnnounce(result, player, purity)
+    _stampAnnounceAndYield(result, player, purity)
 end
 
---- Make soap (fat) + propane (cosmetic, factor 1.00)
---- Fluid input: RenderedFat; solid: KOH
+--- Make soap (fat) + propane (factor 1.00, yield on multi-output)
+--- Fluid input: RenderedFat; solid: KOH → 3-4× CrudeSoap
 function PCP_RecipeCallbacks.pcpMakeSoapFatPropanePurity(items, result, player)
     PCP_RecipeCallbacks.pcpReturnPartialPropane(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
@@ -544,7 +566,7 @@ function PCP_RecipeCallbacks.pcpMakeSoapFatPropanePurity(items, result, player)
         PCP_PuritySystem.averageInputPurity(items)
     })
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
-    _stampAndAnnounce(result, player, purity)
+    _stampAnnounceAndYield(result, player, purity)
 end
 
 
@@ -678,18 +700,21 @@ end
 ---------------------------------------------------------------
 
 --- Purify charcoal water/NaOH (Cooking Pot): 60-80
+--- SOURCE callback — no yield (Rule 1: yield requires stamped inputs).
 function PCP_RecipeCallbacks.pcpPurifyCharcoalPotPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(60, 80, player))
 end
 
 --- Synthesize KNO3 fertilizer (Cooking Pot): 35-55
+--- SOURCE callback — no yield (Rule 1: yield requires stamped inputs).
 function PCP_RecipeCallbacks.pcpSynthesizeKNO3PotPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(35, 55, player))
 end
 
 --- Synthesize KNO3 compost (Cooking Pot): 30-50
+--- SOURCE callback — no yield (Rule 1: yield requires stamped inputs).
 function PCP_RecipeCallbacks.pcpSynthesizeKNO3CompostPotPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(30, 50, player))
@@ -712,19 +737,21 @@ end
 ---------------------------------------------------------------
 
 --- A1: Grind BoneChar -> BoneMeal: propagation through mortar (factor 0.90).
+--- Outputs: 4× BoneMeal
 function PCP_RecipeCallbacks.pcpGrindBoneMealPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PCP_PuritySystem.averageInputPurity(items)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.mortar, player)
-    _stampAndAnnounce(result, player, purity)
+    _stampAnnounceAndYield(result, player, purity)
 end
 
 --- B1: Activate Carbon (KOH process): propagation through chemistry set (factor 1.00).
+--- Outputs: 4× ActivatedCarbon
 function PCP_RecipeCallbacks.pcpActivateCarbonPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     local input = PCP_PuritySystem.averageInputPurity(items)
     local purity = PCP_PuritySystem.calculateOutputPurity(input, PCP_PuritySystem.EQUIP_FACTORS.chemistrySet, player)
-    _stampAndAnnounce(result, player, purity)
+    _stampAnnounceAndYield(result, player, purity)
 end
 
 --- D1: Synthesize Epoxy — Safe (filter degrade only, no purity on vanilla output)
@@ -746,14 +773,10 @@ end
 -- callbacks for recipes that output vanilla items directly.
 ---------------------------------------------------------------
 
---- E1: Fire Starter Blocks -- input purity of fat/oil scales yield 2-4
---- Fluid input: CrudeVegetableOil or RenderedFat (triglyceride feedstock)
+--- E1: Fire Starter Blocks -- vanilla output, no yield penalty (Rule 2).
+--- Kept as callback stub for hazard wrappers and future extensions.
 function PCP_RecipeCallbacks.pcpMakeFireStarterYield(items, result, player)
-    if not PCP_PuritySystem.isEnabled() then return end
-    local input = _recoverAnyFluidPurity(player, {"PCP_Purity_CrudeVegetableOil", "PCP_Purity_RenderedFat"})
-    if input < 0 then input = PCP_PuritySystem.DEFAULT end
-    if input <= 0 then return end
-    PCP_PuritySystem.removeExcess(player, "Base.DryFirestarterBlock", 4, input)
+    -- Rule 2: purity does NOT affect yield when output is a final vanilla product.
 end
 
 --- E4: Duct Tape -- award Tailoring XP
@@ -762,12 +785,10 @@ function PCP_RecipeCallbacks.pcpMakeDuctTapeXP(items, result, player)
     PhobosLib.addXP(player, Perks.Tailoring, 3)
 end
 
---- E5: Matchbox -- input purity of SulphurPowder + KNO3 scales yield 2-4
+--- E5: Matchbox -- vanilla output, no yield penalty (Rule 2).
+--- Kept as callback stub for hazard wrappers (Safe/Unsafe variants).
 function PCP_RecipeCallbacks.pcpMakeMatchboxYield(items, result, player)
-    if not PCP_PuritySystem.isEnabled() then return end
-    local input = PCP_PuritySystem.averageInputPurity(items)
-    if input <= 0 then return end
-    PCP_PuritySystem.removeExcess(player, "Base.Matchbox", 4, input)
+    -- Rule 2: purity does NOT affect yield when output is a final vanilla product.
 end
 
 --- E5-Safe: Matchbox -- purity->yield + filter degrade
@@ -790,12 +811,10 @@ function PCP_RecipeCallbacks.pcpDistillVinegarXP(items, result, player)
     PhobosLib.addXP(player, Perks.Cooking, 5)
 end
 
---- F2: Chemical Tanning -- KOH purity affects yield 1-2
+--- F2: Chemical Tanning -- vanilla output, no yield penalty (Rule 2).
+--- Kept as callback stub for future extensions.
 function PCP_RecipeCallbacks.pcpChemicalTanningYield(items, result, player)
-    if not PCP_PuritySystem.isEnabled() then return end
-    local input = PCP_PuritySystem.averageInputPurity(items)
-    if input <= 0 then return end
-    PCP_PuritySystem.removeExcess(player, "Base.BrainTan", 2, input)
+    -- Rule 2: purity does NOT affect yield when output is a final vanilla product.
 end
 
 
@@ -803,6 +822,12 @@ end
 -- CONCRETE MIXER CALLBACKS (7)
 -- Source purity for bulk mixer operations. Lower ranges than
 -- lab equivalents to reflect industrial-scale tradeoffs.
+--
+-- NOTE: PCP_Sandbox.getConcreteMixerYieldBonus() (default 1.25)
+-- exists but is not wired here. Mixer recipes are SOURCE callbacks
+-- (no stamped inputs), so Rule 1 yield does not apply. The bonus
+-- would require a dedicated mechanism (e.g. purity range boost)
+-- to be meaningful. See GitHub issue for future design work.
 ---------------------------------------------------------------
 
 --- Mixer construction items (mortar, stucco, reinforced concrete, fireclay): 60-85
@@ -812,6 +837,8 @@ function PCP_RecipeCallbacks.pcpMixerConstructionPurity(items, result, player)
 end
 
 --- Mixer blackpowder (bulk): 25-45 (lower than lab 50-70)
+--- NOTE: Output is Base.GunPowder (vanilla), so _stampAndAnnounce is a no-op.
+--- Purity stamp is cosmetic only (speech bubble).
 function PCP_RecipeCallbacks.pcpMixerBlackpowderPurity(items, result, player)
     if not PCP_PuritySystem.isEnabled() then return end
     _stampAndAnnounce(result, player, PCP_PuritySystem.randomBasePurityWithSkill(25, 45, player))
