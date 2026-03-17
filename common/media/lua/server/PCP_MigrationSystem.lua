@@ -64,7 +64,7 @@
 require "PhobosLib"
 
 local MOD_ID      = "PCP"
-local MOD_VERSION = "1.9.0"
+local MOD_VERSION = "1.10.0"
 
 ---------------------------------------------------------------
 -- Helpers
@@ -1074,6 +1074,12 @@ local function onGameStart()
 
     -- Horticulture migration (manual sandbox button only)
     runManualHortMigration(players)
+
+    -- zReVaccin → ZVV comprehensive migration (manual sandbox button)
+    pcall(function()
+        require "PCP_ZReVaccinMigration"
+        PCP_ZReVaccinMigration.run(players)
+    end)
 
     print("[PCP] MigrationSystem: loaded [" .. (isServer() and "server" or "local") .. "]")
 end

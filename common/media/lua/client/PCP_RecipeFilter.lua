@@ -315,6 +315,17 @@ for _, name in ipairs(concreteMixer) do
 end
 
 ---------------------------------------------------------------
+-- Experimental features (show only when PhobosLib
+-- EnableExperimentalFeatures = ON; default OFF)
+---------------------------------------------------------------
+local experimental = {
+    "PCPBuildBioReactor",
+}
+for _, name in ipairs(experimental) do
+    filters[name] = PhobosLib.isExperimentalEnabled
+end
+
+---------------------------------------------------------------
 -- Register all filters with PhobosLib
 ---------------------------------------------------------------
 PhobosLib.registerRecipeFilters(filters)

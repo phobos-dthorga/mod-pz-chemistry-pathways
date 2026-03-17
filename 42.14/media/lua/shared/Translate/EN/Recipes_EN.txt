@@ -312,4 +312,5 @@ Recipes_EN = {
 	Recipe_PCPMixHempcreteUnsafe = "H14. Mix Hempcrete (No Mask!)",
 	Recipe_PCPMixReinforcedHempcreteSafe = "H14b. Mix Reinforced Hempcrete (Protected)",
 	Recipe_PCPMixReinforcedHempcreteUnsafe = "H14b. Mix Reinforced Hempcrete (No Mask!)",
+	Recipe_PCPBuildBioReactor = "Build Bio-Reactor",
 }

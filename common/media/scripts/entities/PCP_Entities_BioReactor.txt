@@ -1,0 +1,71 @@
+/*  ________________________________________________________________________
+ * / Copyright (c) 2026 Phobos A. D'thorga                                \
+ * |                                                                        |
+ * |           /\_/\                                                         |
+ * |         =/ o o \=    Phobos' PZ Modding                                |
+ * |          (  V  )     All rights reserved.                              |
+ * |     /\  / \   / \                                                      |
+ * |    /  \/   '-'   \   This source code is part of the Phobos            |
+ * |   /  /  \  ^  /\  \  mod suite for Project Zomboid (Build 42).         |
+ * |  (__/    \_/ \/  \__)                                                  |
+ * |     |   | |  | |     Unauthorised copying, modification, or            |
+ * |     |___|_|  |_|     distribution of this file is prohibited.          |
+ * |                                                                        |
+ * \________________________________________________________________________/
+ *
+ * Phobos' Industrial Pathways: Biomass - Bio-Reactor Station
+ *
+ * Defines the Bio-Reactor as a CraftBench workstation
+ * for bulk chemical and biological processing.
+ *
+ * Uses custom 4-directional sprites from the pcp_tiles_01
+ * tilesheet (tileset ID 4200).
+ */
+
+module Base
+{
+    entity PCP_BioReactor
+    {
+        component UiConfig
+        {
+            xuiSkin = default,
+            entityStyle = ES_PCP_BioReactor,
+            uiEnabled = true,
+        }
+        component CraftBench
+        {
+            Recipes = PCP_BioReactor,
+        }
+        component SpriteConfig
+        {
+            face S
+            {
+                layer
+                {
+                    row = pcp_tiles_01_0,
+                }
+            }
+            face E
+            {
+                layer
+                {
+                    row = pcp_tiles_01_1,
+                }
+            }
+            face N
+            {
+                layer
+                {
+                    row = pcp_tiles_01_2,
+                }
+            }
+            face W
+            {
+                layer
+                {
+                    row = pcp_tiles_01_3,
+                }
+            }
+        }
+    }
+}

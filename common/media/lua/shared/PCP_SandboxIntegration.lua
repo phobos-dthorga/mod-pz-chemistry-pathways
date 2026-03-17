@@ -222,4 +222,9 @@ function PCP_Sandbox.getSugarSyrupBoredom() return PhobosLib.getSandboxVar("PCP"
 function PCP_Sandbox.getPoulticeMoodleDuration()  return PhobosLib.getSandboxVar("PCP", "PoulticeMoodleDuration", 180) end
 function PCP_Sandbox.getTinctureMoodleDuration()   return PhobosLib.getSandboxVar("PCP", "TinctureMoodleDuration", 360) end
 
+-- zReVaccin → ZVV migration toggle
+function PCP_Sandbox.isZReVaccinMigrationRequested()
+    return PhobosLib.getSandboxVar("PCP", "MigrateZReVaccinToZVV", false) == true
+end
+
 print("[PCP] Sandbox: queries loaded [" .. (isServer() and "server" or "local") .. "]")
