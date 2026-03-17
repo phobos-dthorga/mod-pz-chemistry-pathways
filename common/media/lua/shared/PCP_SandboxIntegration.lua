@@ -54,6 +54,7 @@ function PCP_Sandbox.isHeatRequired()
 end
 
 --- Get the skill purity influence divisor from sandbox settings.
+--- @deprecated Use getSkillPurityMaxEffect() for multiplicative skill scaling.
 --- Maps the enum (1=None, 2=Low, 3=Standard, 4=High) to a divisor
 --- for PhobosLib.getSkillBonus(). Returns 0 for "None" (disabled).
 -- @return number  divisor (0=disabled, 5=low, 2=standard, 1=high)
@@ -64,6 +65,20 @@ function PCP_Sandbox.getSkillPurityDivisor()
     if val == 3 then return 2 end     -- Standard: level 10 → +5
     if val == 4 then return 1 end     -- High: level 10 → +10
     return 2                          -- fallback to Standard
+end
+
+--- Get the maximum skill effect for multiplicative purity scaling.
+--- Maps the SkillPurityInfluence enum to a maxEffect for
+--- PhobosLib.getSkillMultiplier(): multiplier = 1.0 + (level/10) * maxEffect.
+--- At level 10: None=×1.00, Low=×1.22, Standard=×1.44, High=×1.66.
+-- @return number  maxEffect (0.0 to 0.66)
+function PCP_Sandbox.getSkillPurityMaxEffect()
+    local val = PhobosLib.getSandboxVar("PCP", "SkillPurityInfluence", 3)
+    if val == 1 then return 0.00 end  -- None: no skill influence
+    if val == 2 then return 0.22 end  -- Low:  ×1.22 at level 10
+    if val == 3 then return 0.44 end  -- Standard: ×1.44 at level 10
+    if val == 4 then return 0.66 end  -- High: ×1.66 at level 10
+    return 0.44                       -- fallback to Standard
 end
 
 --- Check if health hazards are enabled.

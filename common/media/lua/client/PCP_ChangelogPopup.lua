@@ -26,7 +26,7 @@
 --   3. Push to Workshop.
 ---------------------------------------------------------------
 
-local PCP_VERSION = "1.10.1"
+local PCP_VERSION = "1.11.1"
 
 --- Returns true if `version` (e.g. "0.23") is strictly newer than `baseline`.
 --- If baseline is nil, returns true (show everything).
@@ -50,6 +50,30 @@ local function buildChangelogContent(lastSeenVersion)
     t = t .. "<H1> <CENTRE> " .. getText("IGUI_PCP_Changelog_Title") .. " <LINE> "
     t = t .. "<CENTRE> <SIZE:small> <RGB:0.55,0.65,0.85> " .. getText("IGUI_PCP_Changelog_VersionPrefix")
           .. " " .. PCP_VERSION .. "  |  " .. getText("IGUI_PCP_Changelog_VersionDate") .. " <LINE> <LINE> "
+
+    -- ════════════════════════════════════════════════════════════════ --
+    -- v1.11  ·  Purity & Yield System Overhaul
+    -- ════════════════════════════════════════════════════════════════ --
+    if isNewerThan("1.11", lastSeenVersion) then
+    t = t .. "<LEFT> <SIZE:medium> <RGB:0.40,0.80,1.00> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_11_Marker") .. " "
+    t = t .. "<SIZE:small> <RGB:0.55,0.65,0.85>  " .. getText("IGUI_PCP_Changelog_V1_11_Date") .. " <LINE> <LINE> "
+
+    t = t .. "<SIZE:small> <RGB:1.00,0.75,0.20> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_11_PurityTitle") .. " <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_11_PurityBody") .. " <LINE> <LINE> "
+
+    t = t .. "<SIZE:small> <RGB:1.00,0.75,0.20> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_11_YieldTitle") .. " <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_11_YieldBody") .. " <LINE> <LINE> "
+
+    t = t .. "<SIZE:small> <RGB:1.00,0.75,0.20> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_11_VarianceTitle") .. " <LINE> "
+    t = t .. "<RGB:0.88,0.88,0.88> "
+    t = t .. getText("IGUI_PCP_Changelog_V1_11_VarianceBody") .. " <LINE> <LINE> "
+    end
 
     -- ════════════════════════════════════════════════════════════════ --
     -- v1.10.1  ·  Trait Removal CTD Fix

@@ -75,11 +75,17 @@ end
 PhobosLib.registerTooltipProvider("PhobosChemistryPathways.", function(item)
     -- Guard: impurity system must be enabled
     if not isPurityEnabled() then return nil end
+    if type(item) ~= "userdata" then return nil end
 
-    local maxCond = item:getConditionMax()
-    if not maxCond or maxCond <= 0 then return nil end
+    local getCondMaxFn = item.getConditionMax
+    if not getCondMaxFn then return nil end
+    local ok, maxCond = pcall(getCondMaxFn, item)
+    if not ok or not maxCond or maxCond <= 0 then return nil end
 
-    local condition = item:getCondition()
+    local getCondFn = item.getCondition
+    if not getCondFn then return nil end
+    local ok2, condition = pcall(getCondFn, item)
+    if not ok2 or not condition then return nil end
     if condition >= maxCond then return nil end  -- unstamped
 
     -- Normalise condition to 0-100% purity (defensive for any ConditionMax)

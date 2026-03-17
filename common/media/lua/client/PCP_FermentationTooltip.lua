@@ -87,7 +87,8 @@ PhobosLib.registerTooltipProvider("PhobosChemistryPathways.", function(item)
     if dateTable then
         local dateStr = PhobosLib.formatGameDate(dateTable)
         local dateLabel = "Prepared"
-        local fullType = item:getFullType()
+        local ok, fullType = pcall(item.getFullType, item)
+        if not ok or not fullType then fullType = "" end
         if fullType == "PhobosChemistryPathways.CannedHempBuds" then
             dateLabel = "Canned"
         elseif fullType == "PhobosChemistryPathways.SealedChewingTobaccoJar" then

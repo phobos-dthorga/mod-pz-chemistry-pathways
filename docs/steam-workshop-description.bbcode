@@ -1,8 +1,8 @@
 [h1]Phobos' Industrial Pathways: Biomass[/h1]
 
-[b]Version:[/b] 1.9.0 | [b]Requires:[/b] Project Zomboid Build 42.14.0+ | [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865]PhobosLib 1.20.0+[/url] | [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168]Zombie Virus Vaccine[/url]
+[b]Version:[/b] 1.11.1 | [b]Requires:[/b] Project Zomboid Build 42.14.0+ | [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865]PhobosLib 1.30.0+[/url] | [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168]Zombie Virus Vaccine[/url]
 
-A complete industrial chemistry and biomass processing suite for Project Zomboid Build 42. 300 recipes, 119 items, 10 fluids, 66 sandbox options. Realistic crafting pathways for blackpowder, biodiesel, soap, bone char, salt, agriculture, recycling, hemp, horticulture, and lab processes.
+A complete industrial chemistry and biomass processing suite for Project Zomboid Build 42. 301 recipes, 120 items, 10 fluids, 66 sandbox options. Realistic crafting pathways for blackpowder, biodiesel, soap, bone char, salt, agriculture, recycling, hemp, horticulture, and lab processes.
 
 [i]Part of the Phobos' Industrial Pathways mod series.[/i]
 
@@ -69,7 +69,7 @@ Welcome guide on first install. Version-based changelog popup on updates.
 [h2]Optional Systems[/h2]
 
 [h3]Impurity/Purity System[/h3]
-Condition-based purity tracking (0-100%) through recipe chains. Equipment quality factors, severity scaling, yield penalties, skill influence, and player feedback via speech bubbles and tooltips.
+Condition-based purity tracking (0-100%) through recipe chains. Multiplicative skill influence (up to +44% at Level 10), ±15% variance, five yield tiers, equipment quality factors, and player feedback via speech bubbles and tooltips. Yield only penalises PCP multi-output recipes — vanilla outputs are always at full quantity.
 
 [h3]Health Hazard System[/h3]
 11 dangerous recipes split into Protected (mask + goggles, filter degradation) and Unprotected (disease/stat penalty risk) variants. EHR integration when available.
@@ -89,9 +89,9 @@ Six one-shot sandbox options for version upgrades, migration, and mod removal. E
 
 [h2]Cross-Mod Integration[/h2]
 [list]
-[*] [b]ZScienceSkill[/b] ("Science, Bitch!") — Applied Chemistry XP mirrors to Science at 50% rate; 83 items + 8 fluids registered as microscope specimens
+[*] [b]ZScienceSkill[/b] ("Science, Bitch!") — Applied Chemistry XP mirrors to Science at 50% rate; 91 items + 8 fluids registered as microscope specimens
 [*] [b]EHR[/b] (Extensive Health Rework) — Health hazard recipes dispatch EHR diseases instead of vanilla stat penalties
-[*] [b]Dynamic Trading[/b] — 76 PCP items registered for NPC trading with custom "Chemical" tag and "Chemist" trader archetype; chemical allocations injected into 8 existing vendor archetypes
+[*] [b]Dynamic Trading[/b] — 73 PCP items registered for NPC trading with custom "Chemical" tag and "Chemist" trader archetype; chemical allocations injected into 8 existing vendor archetypes
 [*] [b]Neat Crafting[/b] — Recipe visibility filters applied through NC_FilterBar; runtime-detected, no hard dependency
 [*] [b]Moodle Framework[/b] — Medicinal items trigger a Medicated custom moodle with configurable duration; graceful no-op when not installed
 [/list]
@@ -100,7 +100,7 @@ Six one-shot sandbox options for version upgrades, migration, and mod removal. E
 
 [h2]Requirements[/h2]
 [list]
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865]PhobosLib 1.20.0+[/url] — Required shared utility library
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3668598865]PhobosLib 1.30.0+[/url] — Required shared utility library
 [*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3615135168][b]Zombie Virus Vaccine[/b][/url] — Required for lab equipment (chemistry set, centrifuge, chromatograph, microscope, spectrometer)
 [*] [b]EHR[/b] (optional) — Disease system for health hazard integration
 [*] [b]ZScienceSkill[/b] (optional) — Science skill XP mirroring and microscope specimens
