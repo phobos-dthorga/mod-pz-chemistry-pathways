@@ -1,5 +1,72 @@
 [h1]Phobos' Industrial Pathways: Biomass — Changelog[/h1]
 
+[h2]v1.11.1 — PZ 42.15 Compatibility & Bug Fixes (2026-03-18)[/h2]
+
+[h3]Bug Fixes[/h3]
+[list]
+[*] [b]PZ 42.15.3 OnCreate crash[/b] — Fixed hard crash in all purity-tracked recipes caused by PZ 42.15 changing the OnCreate items parameter type. Recipes now use PhobosLib's iterateItems() for cross-version compatibility.
+[*] [b]Tooltip error spam[/b] — Fixed ExceptionLogger stack traces when hovering over fluid containers (purity tooltip, fermentation tooltip). Replaced pcall-closure guards with pre-flight type checks.
+[*] [b]Profession icon overflow[/b] — Resized Chemist and Pharmacist profession icons from 128x128 to 64x64 to match vanilla PZ profession icon dimensions.
+[/list]
+
+[h3]Changed[/h3]
+[list]
+[*] Requires [b]PhobosLib 1.30.0+[/b] (was 1.28.0+)
+[/list]
+
+[hr][/hr]
+
+[h2]v1.11.0 — Purity & Yield System Overhaul (2026-03-17)[/h2]
+
+[h3]Changed[/h3]
+[list]
+[*] [b]Multiplicative skill formula[/b] — Applied Chemistry skill now uses a multiplicative sliding scale (up to +44% at Standard Level 10) instead of a flat additive bonus. Configurable via SkillPurityInfluence sandbox option (None/Low/Standard/High).
+[*] [b]Yield applies to PCP multi-output recipes only[/b] (Rule 1) — Lower input purity reduces output count only on PCP recipes with base count ≥ 2. Single-output recipes are unaffected.
+[*] [b]Vanilla outputs no longer penalised[/b] (Rule 2) — Recipes producing vanilla items (matchboxes, fire starters, brain tan, etc.) always yield full quantity. Exception: blackpowder (flagship recipe).
+[*] [b]±15% multiplicative variance[/b] — Purity results now vary ±15% to model real-world chemistry variance. Even skilled chemists can get lucky or unlucky.
+[*] [b]YieldMultiplier sandbox option[/b] — Now correctly wired to the yield formula.
+[/list]
+
+[h3]Added[/h3]
+[list]
+[*] [b]One-time rebalance notice[/b] — Players upgrading from older versions see a popup explaining the purity system changes.
+[*] [b]Purity system rules documentation[/b] — Formalized design rules in docs/purity-system-rules.md.
+[/list]
+
+[hr][/hr]
+
+[h2]v1.10.1 — Trait Removal CTD Fix (2026-03-17)[/h2]
+
+[h3]Bug Fixes[/h3]
+[list]
+[*] [b]zReVaccin migration crash-to-desktop[/b] — The antibodies trait removal used player:getTraits() which does not exist on IsoGameCharacter in PZ Build 42, causing a CTD. Now uses the correct CharacterTraits API (getCharacterTraits → getKnownTraits → getName → remove).
+[/list]
+
+[hr][/hr]
+
+[h2]v1.10.0 — zReVaccin → ZVV Migration Tool (2026-03-17)[/h2]
+
+[h3]New Features[/h3]
+[list]
+[*] [b]Comprehensive save migration[/b] — New sandbox toggle (Maintenance / Reset > Migrate zReVaccin to ZVV) converts all zReVaccin 3.0 save data to Zombie Virus Vaccine equivalents:
+  — 44 direct item mappings (zReLabItems → LabItems) + 2 vanilla fallbacks
+  — ~20 items with no ZVV equivalent safely removed
+  — 29 learned recipe transfers to ZVV counterparts
+  — Antibodies trait removal with halo text notification
+  — Scans player inventories (deep) and world containers in loaded cells
+[*] [b]Bio-reactor workstation[/b] (experimental) — Powered CraftBench entity built from sheet metal, glass panels, clay pipes, and welding equipment (Metalworking 6). Gated behind PhobosLib experimental features toggle.
+[*] [b]Custom furniture sprite pipeline[/b] — PZPK .pack compiler, binary .tiles compiler, tilesheet grid assembler, and sprite generation tools for creating custom tile-based furniture.
+[/list]
+
+[h3]Changed[/h3]
+[list]
+[*] Recipe count: 300 to [b]301[/b] (+1 bio-reactor construction, experimental-gated)
+[*] Item count: 119 to [b]120[/b] (+1 Mov_BioReactor)
+[*] Requires [b]PhobosLib 1.28.0+[/b] (was 1.20.0+)
+[/list]
+
+[hr][/hr]
+
 [h2]v1.9.0 — Item Model & Recipe Fixes (2026-03-16)[/h2]
 
 [h3]New Features[/h3]
@@ -422,16 +489,18 @@
 
 [h2]Summary[/h2]
 [list]
-[*] [b]300 recipes[/b] across 10 pathways — Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture, Concrete Mixer, Botanical
-[*] [b]119 items[/b], [b]73 tradeable items[/b], [b]6 recipe books[/b], [b]5 skill books[/b], [b]10 fluids[/b]
+[*] [b]301 recipes[/b] across 10 pathways — Blackpowder, Biodiesel, Fat Rendering, Soap, Bone Char, Salt Extraction, Recycling, Agriculture, Concrete Mixer, Botanical
+[*] [b]120 items[/b], [b]73 tradeable items[/b], [b]6 recipe books[/b], [b]5 skill books[/b], [b]10 fluids[/b]
 [*] [b]66 sandbox options[/b], [b]216 OnCreate callbacks[/b], [b]91 ZScience specimens[/b]
-[*] [b]v1.6.1[/b]: Translation conversion fix + in-game changelog update
-[*] [b]v1.6.0[/b]: PZ 42.15 translation migration — all 9 translation files converted from Lua .txt to JSON, versionMin bumped to 42.15.0
-[*] [b]v1.5.2[/b]: Filter degradation fix — safe-variant hazard recipes no longer produce stack traces
-[*] [b]v1.5.1[/b]: Distribution key hotfix — fixed server crash on B42.14.1 MP servers, nil-guard helper for future-proofing
-[*] [b]v1.4.0[/b]: Medicated moodle, medicinal timed actions, hemp effects system, 33 sandbox options, fermentation tooltip
-[*] [b]v1.3.0[/b]: Hemp expansion (6 new items), vanilla station integration, mechanical hazards, 26 new ZScience specimens
-[*] [b]v1.2.0[/b]: Botanical pathway, 31 horticulture items, 6 recipe books, [B42] Horticulture migration system
+[*] [b]v1.11.1[/b]: PZ 42.15.3 OnCreate crash fix, tooltip error spam fix, profession icon resize
+[*] [b]v1.11.0[/b]: Purity & yield system overhaul — multiplicative skill formula, yield rules, ±15% variance
+[*] [b]v1.10.1[/b]: zReVaccin migration CTD fix (trait removal API)
+[*] [b]v1.10.0[/b]: Comprehensive zReVaccin → ZVV save migration tool, bio-reactor (experimental)
+[*] [b]v1.9.0[/b]: Item model fixes (75 items), hemp cheesecloth, recipe wildcard fixes
+[*] [b]v1.8.x[/b]: Gardening spray simplification, hemp recipe input fix
+[*] [b]v1.5.0[/b]: Chewing tobacco dual-path curing, custom ItemTag system
+[*] [b]v1.4.0[/b]: Medicated moodle, medicinal timed actions, hemp effects system
+[*] [b]v1.2.0[/b]: Botanical pathway, 31 horticulture items, 6 recipe books
 [*] [b]v1.0.0[/b]: Hard dependency migrated from zReVaccin 3 to Zombie Virus Vaccine
-[*] Requires PhobosLib 1.20.0+ and Zombie Virus Vaccine | Optional: Moodle Framework
+[*] Requires PhobosLib 1.30.0+ and Zombie Virus Vaccine | Optional: Moodle Framework
 [/list]
