@@ -51,8 +51,7 @@ function PCP_RecipeCallbacks.pcpReturnPartialPropane(items, result, player)
 
     -- Search consumed inputs for the PropaneTank to read its original fuel level
     if items then
-        for i = 0, items:size() - 1 do
-            local item = items:get(i)
+        for i, item in PhobosLib.iterateItems(items) do
             if item and item:getFullType() == "Base.PropaneTank" then
                 -- Use PhobosLib.pcallMethod for B42 API resilience
                 -- DrainableComboItem uses getDelta/setDelta in B42
