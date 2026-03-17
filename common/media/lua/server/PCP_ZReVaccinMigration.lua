@@ -277,20 +277,35 @@ local function transferRecipes(player)
 end
 
 --- Remove the zReVaccin antibodies trait from a player.
---- Handles both possible internal representations of the trait name.
+--- Uses Build 42 CharacterTraits API: getCharacterTraits() → getKnownTraits()
+--- → iterate for CharacterTrait objects by name → remove(CharacterTrait).
 ---@param player any  IsoGameCharacter
 ---@return boolean removed  Whether the trait was found and removed
 local function removeAntibodiesTrait(player)
     local removed = false
     pcall(function()
-        local traits = player:getTraits()
-        if not traits then return end
-        -- Try both the colon-qualified and plain forms
-        for _, name in ipairs({"zrevac:zreantibodies", "zreantibodies"}) do
-            if traits:contains(name) then
-                traits:remove(name)
-                removed = true
+        local charTraits = player:getCharacterTraits()
+        if not charTraits then return end
+
+        local knownTraits = charTraits:getKnownTraits()
+        if not knownTraits then return end
+
+        -- Collect matching trait objects first (avoid mutation during iteration)
+        local toRemove = {}
+        for i = 0, knownTraits:size() - 1 do
+            local trait = knownTraits:get(i)
+            if trait then
+                local name = trait:getName()
+                if name == "zrevac:zreantibodies" or name == "zreantibodies" then
+                    table.insert(toRemove, trait)
+                end
             end
+        end
+
+        -- Remove collected traits
+        for _, trait in ipairs(toRemove) do
+            charTraits:remove(trait)
+            removed = true
         end
     end)
     return removed
