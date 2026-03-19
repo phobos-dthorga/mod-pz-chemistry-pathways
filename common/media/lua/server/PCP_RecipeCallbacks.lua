@@ -27,6 +27,7 @@
 require "PhobosLib"
 require "PCP_PuritySystem"
 require "PCP_HazardSystem"
+require "PCP_CallbackHelpers"
 
 PCP_RecipeCallbacks = {}
 
@@ -82,30 +83,8 @@ end
 -- Internal Helpers for Purity Callbacks
 ---------------------------------------------------------------
 
---- Stamp purity on result + all same-type outputs, then announce.
---- Silently no-ops for non-PCP items (vanilla items don't support condition-as-purity).
-local function _stampAndAnnounce(result, player, purity)
-    if not result then return end
-    local ok, ft = pcall(result.getFullType, result)
-    if not ok or not ft or not string.find(ft, "PhobosChemistryPathways.", 1, true) then return end
-    PCP_PuritySystem.setPurity(result, purity)
-    PCP_PuritySystem.stampOutputs(player, ft, purity)
-    PCP_PuritySystem.announcePurity(player, purity)
-end
-
---- Stamp purity on result + all same-type outputs, announce, then apply yield.
---- Counts unstamped items BEFORE stamping to get accurate recipe output count.
---- Used by PROPAGATION callbacks producing multi-output PCP items (Rule 1).
-local function _stampAnnounceAndYield(result, player, purity)
-    if not result then return end
-    local ok, ft = pcall(result.getFullType, result)
-    if not ok or not ft or not string.find(ft, "PhobosChemistryPathways.", 1, true) then return end
-    local baseCount = PCP_PuritySystem.countUnstampedOutputs(player, ft)
-    PCP_PuritySystem.setPurity(result, purity)
-    PCP_PuritySystem.stampOutputs(player, ft, purity)
-    PCP_PuritySystem.announcePurity(player, purity)
-    PCP_PuritySystem.applyYieldIfMultiOutput(player, ft, baseCount, purity)
-end
+local _stampAndAnnounce = PCP_CallbackHelpers.stampAndAnnounce
+local _stampAnnounceAndYield = PCP_CallbackHelpers.stampAnnounceAndYield
 
 --- Recover purity from one of several alternative drained fluid containers.
 --- Used when a recipe accepts alternative fluid types (e.g. CrudeVegetableOil OR RenderedFat).

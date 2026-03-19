@@ -32,7 +32,9 @@ ignore = {
 globals = {
     "PCP_ApplyPoulticeAction",
     "PCP_BotanicalCallbacks",
+    "PCP_CallbackHelpers",
     "PCP_CollectBrineAction",
+    "PCP_Constants",
     "PCP_HazardSystem",
     "PCP_HorticultureCallbacks",
     "PCP_PuritySystem",

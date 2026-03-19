@@ -27,6 +27,8 @@
 ---------------------------------------------------------------
 
 require "PhobosLib"
+require "PCP_Constants"
+require "PCP_SandboxIntegration"
 
 PCP_PuritySystem = {}
 
@@ -41,17 +43,8 @@ local function _trace(msg) PhobosLib.trace("PCP", _TAG, msg) end
 --- Default purity for items without tracking (mid-save safe).
 PCP_PuritySystem.DEFAULT = 50
 
---- Purity tier definitions (sorted highest-min first).
---- Each tier has: name, min threshold, and RGB colour.
---- DUPLICATED in PCP_PurityTooltip.lua (client) -- keep both in sync.
---- See GitHub Issue: "refactor: Extract shared constants (purity tiers)"
-PCP_PuritySystem.TIERS = {
-    {name = "Lab-Grade",     min = 80, r = 0.4, g = 0.6, b = 1.0},  -- blue
-    {name = "Pure",          min = 60, r = 0.6, g = 1.0, b = 0.6},  -- green
-    {name = "Standard",      min = 40, r = 1.0, g = 1.0, b = 0.4},  -- yellow
-    {name = "Impure",        min = 20, r = 1.0, g = 0.6, b = 0.2},  -- orange
-    {name = "Contaminated",  min = 0,  r = 1.0, g = 0.2, b = 0.2},  -- red
-}
+--- Purity tier definitions — canonical source is PCP_Constants.PURITY_TIERS (shared).
+PCP_PuritySystem.TIERS = PCP_Constants.PURITY_TIERS
 
 --- Yield multiplier table (sorted highest-min first).
 --- Maps purity ranges to yield fractions.
@@ -85,9 +78,10 @@ PCP_PuritySystem.VARIANCE_PCT = 15
 ---------------------------------------------------------------
 
 --- Check if the impurity system is enabled (master toggle).
+--- Delegates to PCP_Sandbox.isPurityEnabled() (shared).
 ---@return boolean
 function PCP_PuritySystem.isEnabled()
-    return PhobosLib.getSandboxVar("PCP", "EnableImpuritySystem", true) == true
+    return PCP_Sandbox.isPurityEnabled()
 end
 
 --- Get the severity setting (1=Mild, 2=Standard, 3=Harsh).

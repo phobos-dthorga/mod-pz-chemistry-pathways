@@ -27,6 +27,7 @@
 ---------------------------------------------------------------
 
 require "PhobosLib"
+require "PCP_Constants"
 require "PCP_SandboxIntegration"
 require "TimedActions/ISBaseTimedAction"
 
@@ -49,15 +50,8 @@ local _ACCEPTED_CONTAINERS = {
     "Base.BucketWood",
 }
 
---- Purity tiers for speech bubble (duplicated from PCP_PurityTooltip.lua).
---- Client cannot require server modules; keep in sync manually.
-local _TIERS = {
-    {name = "Lab-Grade",     min = 80, r = 0.4, g = 0.6, b = 1.0},
-    {name = "Pure",          min = 60, r = 0.6, g = 1.0, b = 0.6},
-    {name = "Standard",      min = 40, r = 1.0, g = 1.0, b = 0.4},
-    {name = "Impure",        min = 20, r = 1.0, g = 0.6, b = 0.2},
-    {name = "Contaminated",  min = 0,  r = 1.0, g = 0.2, b = 0.2},
-}
+--- Purity tiers for speech bubble (from shared PCP_Constants).
+local _TIERS = PCP_Constants.PURITY_TIERS
 
 ---------------------------------------------------------------
 -- Timed Action: PCP_CollectBrineAction

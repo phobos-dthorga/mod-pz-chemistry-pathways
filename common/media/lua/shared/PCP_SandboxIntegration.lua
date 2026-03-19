@@ -35,6 +35,13 @@ PCP_Sandbox = {}
 -- Sandbox variable queries
 ---------------------------------------------------------------
 
+--- Check if the impurity/purity system is enabled (master toggle).
+--- Canonical location for this check — used by both client and server modules.
+-- @return boolean  true if enabled (default true)
+function PCP_Sandbox.isPurityEnabled()
+    return PhobosLib.getSandboxVar("PCP", "EnableImpuritySystem", true) == true
+end
+
 --- Get the current yield multiplier from sandbox settings.
 -- @return number  The multiplier (default 1.0)
 function PCP_Sandbox.getYieldMultiplier()

@@ -30,6 +30,7 @@
 
 require "PhobosLib"
 require "PCP_PuritySystem"
+require "PCP_CallbackHelpers"
 
 PCP_HorticultureCallbacks = {}
 
@@ -38,35 +39,11 @@ local function _debug(msg) PhobosLib.debug("PCP", _TAG, msg) end
 
 
 ---------------------------------------------------------------
--- Internal Helpers (duplicated from PCP_RecipeCallbacks.lua)
+-- Shared Helpers (from PCP_CallbackHelpers.lua)
 ---------------------------------------------------------------
 
---- Stamp purity on result + all same-type outputs, then announce.
---- Silently no-ops for non-PCP items (vanilla items don't support condition-as-purity).
-local function _stampAndAnnounce(result, player, purity)
-    if not result then return end
-    local ok, ft = pcall(result.getFullType, result)
-    if not ok or not ft or not string.find(ft, "PhobosChemistryPathways.", 1, true) then return end
-    _debug("_stampAndAnnounce: " .. tostring(ft) .. " purity=" .. tostring(purity))
-    PCP_PuritySystem.setPurity(result, purity)
-    PCP_PuritySystem.stampOutputs(player, ft, purity)
-    PCP_PuritySystem.announcePurity(player, purity)
-end
-
---- Stamp purity on result + all same-type outputs, announce, then apply yield.
---- Counts unstamped items BEFORE stamping to get accurate recipe output count.
---- Used by PROPAGATION callbacks producing multi-output PCP items (Rule 1).
-local function _stampAnnounceAndYield(result, player, purity)
-    if not result then return end
-    local ok, ft = pcall(result.getFullType, result)
-    if not ok or not ft or not string.find(ft, "PhobosChemistryPathways.", 1, true) then return end
-    local baseCount = PCP_PuritySystem.countUnstampedOutputs(player, ft)
-    _debug("_stampAnnounceAndYield: " .. tostring(ft) .. " purity=" .. tostring(purity) .. " baseCount=" .. tostring(baseCount))
-    PCP_PuritySystem.setPurity(result, purity)
-    PCP_PuritySystem.stampOutputs(player, ft, purity)
-    PCP_PuritySystem.announcePurity(player, purity)
-    PCP_PuritySystem.applyYieldIfMultiOutput(player, ft, baseCount, purity)
-end
+local _stampAndAnnounce = PCP_CallbackHelpers.stampAndAnnounce
+local _stampAnnounceAndYield = PCP_CallbackHelpers.stampAnnounceAndYield
 
 
 ---------------------------------------------------------------

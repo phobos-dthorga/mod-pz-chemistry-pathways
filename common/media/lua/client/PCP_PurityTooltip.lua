@@ -35,22 +35,14 @@
 ---------------------------------------------------------------
 
 require "PhobosLib"
+require "PCP_Constants"
+require "PCP_SandboxIntegration"
 
 ---------------------------------------------------------------
--- Purity tier definitions
+-- Purity tier definitions (from shared PCP_Constants)
 ---------------------------------------------------------------
 
---- Tier definitions -- DUPLICATED from PCP_PuritySystem.lua (server).
---- Client cannot require server modules, so tiers are defined in both places.
---- If you change tiers here, update PCP_PuritySystem.lua to match (and vice versa).
---- See GitHub Issue: "refactor: Extract shared constants (purity tiers)"
-local TIERS = {
-    {name = "Lab-Grade",     min = 80, r = 0.4, g = 0.6, b = 1.0},
-    {name = "Pure",          min = 60, r = 0.6, g = 1.0, b = 0.6},
-    {name = "Standard",      min = 40, r = 1.0, g = 1.0, b = 0.4},
-    {name = "Impure",        min = 20, r = 1.0, g = 0.6, b = 0.2},
-    {name = "Contaminated",  min = 0,  r = 1.0, g = 0.2, b = 0.2},
-}
+local TIERS = PCP_Constants.PURITY_TIERS
 
 --- Look up tier for a purity value.
 local function getTier(purity)
@@ -61,20 +53,12 @@ local function getTier(purity)
 end
 
 ---------------------------------------------------------------
--- Sandbox guard (shared by tooltip and lazy stamper)
----------------------------------------------------------------
-
-local function isPurityEnabled()
-    return PhobosLib.getSandboxVar("PCP", "EnableImpuritySystem", false) == true
-end
-
----------------------------------------------------------------
 -- Tooltip provider
 ---------------------------------------------------------------
 
 PhobosLib.registerTooltipProvider("PhobosChemistryPathways.", function(item)
     -- Guard: impurity system must be enabled
-    if not isPurityEnabled() then return nil end
+    if not PCP_Sandbox.isPurityEnabled() then return nil end
     if type(item) ~= "userdata" then return nil end
 
     local getCondMaxFn = item.getConditionMax
@@ -107,5 +91,5 @@ end)
 PhobosLib.registerLazyConditionStamp(
     "PhobosChemistryPathways.",
     99,
-    isPurityEnabled
+    PCP_Sandbox.isPurityEnabled
 )

@@ -40,6 +40,7 @@
 -- Requires PhobosLib >= 1.8.0
 ---------------------------------------------------------------
 
+require "PCP_Constants"
 require "PCP_PuritySystem"
 
 local _TAG = "[PCP:DTStamp]"
@@ -57,7 +58,7 @@ local function patchAddItemWithCondition()
 
         -- Only stamp PCP items when impurity system is enabled
         if not PCP_PuritySystem.isEnabled() then return items end
-        if not fullType or not string.find(fullType, "PhobosChemistryPathways.", 1, true) then
+        if not fullType or not string.find(fullType, PCP_Constants.MOD_PREFIX, 1, true) then
             return items
         end
 

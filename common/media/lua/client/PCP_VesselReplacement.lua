@@ -27,6 +27,7 @@
 ---------------------------------------------------------------
 
 require "PhobosLib"
+require "PCP_SandboxIntegration"
 
 local _TAG = "[PCP:VesselReplace]"
 
@@ -77,9 +78,7 @@ local VESSEL_MAP = {
 
 --- Guard function: condition reset only runs when the impurity
 --- system is enabled (condition was modified as purity proxy).
-local function isPurityEnabled()
-    return PhobosLib.getSandboxVar("PCP", "EnableImpuritySystem", false) == true
-end
+local isPurityEnabled = PCP_Sandbox.isPurityEnabled
 
 --- Guard function: vessel replacement only runs when sandbox
 --- option PCP.EnableVesselReplacement is true (default: true).
