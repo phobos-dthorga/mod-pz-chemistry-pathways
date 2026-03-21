@@ -34,7 +34,7 @@ local CHANGE_KEY = "PCP_impurity_default_changed"
 ---@return boolean
 local function shouldShow(player)
     local worldMD = nil
-    pcall(function() worldMD = getGameTime():getModData() end)
+    PhobosLib.safecall(function() worldMD = getGameTime():getModData() end)
     if not worldMD or not worldMD[CHANGE_KEY] then return false end
 
     return PhobosLib.isPlayerAdmin(player)

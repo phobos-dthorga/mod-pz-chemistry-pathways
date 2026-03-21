@@ -57,7 +57,7 @@ PCP_Reset.TIERS = {
         label       = "Reset Applied Chemistry XP",
         execute     = function(player)
             local perkEnum = nil
-            pcall(function()
+            PhobosLib.safecall(function()
                 if Perks and Perks.AppliedChemistry then
                     perkEnum = Perks.AppliedChemistry
                 end
@@ -97,7 +97,7 @@ function PCP_Reset.executeTier(tierIndex, player)
     if not tier then return false, "Invalid tier index: " .. tostring(tierIndex) end
 
     local ok, msg = false, "Unknown error"
-    local success, err = pcall(function()
+    local success, err = PhobosLib.safecall(function()
         ok, msg = tier.execute(player)
     end)
 
@@ -137,7 +137,7 @@ end
 ---@param ok boolean
 ---@param msg string
 local function notifyPlayer(player, tierId, ok, msg)
-    pcall(function()
+    PhobosLib.safecall(function()
         sendServerCommand(player, "PCP", "resetResult", {
             tier   = tierId,
             status = ok and "ok" or "fail",
@@ -152,14 +152,14 @@ end
 
 local function getWorldFlag(key)
     local val = nil
-    pcall(function()
+    PhobosLib.safecall(function()
         val = getGameTime():getModData()[key]
     end)
     return val
 end
 
 local function setWorldFlag(key, value)
-    pcall(function()
+    PhobosLib.safecall(function()
         getGameTime():getModData()[key] = value
     end)
 end
@@ -173,7 +173,7 @@ end
 local function getAllPlayers()
     local players = {}
 
-    pcall(function()
+    PhobosLib.safecall(function()
         if isClient() then
             -- Dedicated client should never run reset logic
             return

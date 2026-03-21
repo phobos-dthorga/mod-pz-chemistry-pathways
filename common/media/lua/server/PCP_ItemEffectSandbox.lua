@@ -47,7 +47,7 @@ local _TAG = "[PCP:ItemEffectSandbox]"
 ---@param fullType string   Fully qualified item type (e.g. "PhobosChemistryPathways.SmokingPipeHemp")
 ---@param params table      Array of "PropertyName = value" strings
 local function patchItem(fullType, params)
-    local ok, err = pcall(function()
+    local ok, err = PhobosLib.safecall(function()
         local script = ScriptManager.instance:getItem(fullType)
         if not script then
             print(_TAG .. " WARN: item script not found: " .. tostring(fullType))
@@ -196,7 +196,7 @@ end
 ---------------------------------------------------------------
 
 Events.OnGameStart.Add(function()
-    pcall(applyItemEffectPatches)
+    PhobosLib.safecall(applyItemEffectPatches)
 end)
 
 print(_TAG .. " loaded")

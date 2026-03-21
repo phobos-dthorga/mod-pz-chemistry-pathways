@@ -116,7 +116,7 @@ function PCP_CollectBrineAction:perform()
     end
 
     -- Fill the container with Brine fluid to its full capacity
-    pcall(function()
+    PhobosLib.safecall(function()
         local fc = PhobosLib.tryGetFluidContainer(self.containerItem)
         if not fc then return end
         local capacity = PhobosLib.tryGetCapacity(fc) or 1.0
@@ -125,11 +125,11 @@ function PCP_CollectBrineAction:perform()
 
     -- Sync item fields locally (vanilla pattern: addFluid → syncItemFields → sendItemStats).
     -- Required for the recipe system to detect the new fluid contents.
-    pcall(function() self.containerItem:syncItemFields() end)
+    PhobosLib.safecall(function() self.containerItem:syncItemFields() end)
 
     -- Stamp purity (client-side; PCP_PuritySystem is server-only).
-    -- Wrapped in pcall so purity failure never prevents the fill.
-    pcall(function()
+    -- Wrapped in safecall so purity failure never prevents the fill.
+    PhobosLib.safecall(function()
         local enabled = PhobosLib.getSandboxVar("PCP", "EnableImpuritySystem", true) == true
         if enabled then
             local divisor = PCP_Sandbox.getSkillPurityDivisor()
@@ -153,7 +153,7 @@ function PCP_CollectBrineAction:perform()
     end)
 
     -- Sync for MP
-    pcall(sendItemStats, self.containerItem)
+    PhobosLib.safecall(sendItemStats, self.containerItem)
 
     -- Refresh inventory UI
     local inv = self.character:getInventory()

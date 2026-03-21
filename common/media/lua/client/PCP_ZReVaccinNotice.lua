@@ -40,7 +40,7 @@ require "PhobosLib"
 local function shouldShow(player)
     -- Only show if zReVaccin is currently loaded
     local zreActive = false
-    pcall(function()
+    PhobosLib.safecall(function()
         zreActive = getActivatedMods():contains("zReModVaccin30bykERHUS")
     end)
     if not zreActive then return false end
@@ -109,7 +109,7 @@ local function onServerCommand(module, command, args)
 
     if command == "zrevacTraitRemoved" then
         -- Show halo text advising player to re-vaccinate
-        pcall(function()
+        PhobosLib.safecall(function()
             if HaloTextHelper and HaloTextHelper.addTextWithArrow then
                 HaloTextHelper.addTextWithArrow(
                     player,

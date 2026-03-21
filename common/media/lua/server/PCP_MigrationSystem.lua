@@ -223,7 +223,7 @@ end
 local function migrate_0_19_1(player)
     -- Skip if DynamicTrading is not installed
     local dtActive = false
-    pcall(function()
+    PhobosLib.safecall(function()
         dtActive = PhobosLib.isDynamicTradingActive()
     end)
     if not dtActive then
@@ -232,7 +232,7 @@ local function migrate_0_19_1(player)
 
     -- Access DT's live ModData
     local data = nil
-    pcall(function()
+    PhobosLib.safecall(function()
         data = DynamicTrading.Manager.GetData()
     end)
     if not data or not data.Traders then
@@ -248,7 +248,7 @@ local function migrate_0_19_1(player)
     end
 
     if patched > 0 then
-        pcall(function()
+        PhobosLib.safecall(function()
             ModData.transmit("DynamicTrading_Engine_v1.3")
         end)
     end
@@ -279,7 +279,7 @@ local function migrate_0_19_2(player)
 
     -- Check if impurity system is enabled
     local enabled = false
-    pcall(function()
+    PhobosLib.safecall(function()
         enabled = PCP_PuritySystem and PCP_PuritySystem.isEnabled()
     end)
     if not enabled then
@@ -322,7 +322,7 @@ end
 local function migrate_0_19_3(player)
     -- Check if impurity system is enabled
     local enabled = false
-    pcall(function()
+    PhobosLib.safecall(function()
         enabled = PCP_PuritySystem and PCP_PuritySystem.isEnabled()
     end)
     if not enabled then
@@ -388,7 +388,7 @@ local FLUID_ITEMS = {
 local function migrate_0_20_0(player)
     -- Check if impurity system is enabled
     local enabled = false
-    pcall(function()
+    PhobosLib.safecall(function()
         enabled = PCP_PuritySystem and PCP_PuritySystem.isEnabled()
     end)
     if not enabled then
@@ -547,24 +547,24 @@ local function migrate_1_0_0(player)
                 end
 
                 -- Preserve fluid contents for FluidContainer items
-                local ok1, fc    = pcall(function() return item:getFluidContainer() end)
-                local ok2, newFc = pcall(function() return newItem:getFluidContainer() end)
+                local ok1, fc    = PhobosLib.safecall(function() return item:getFluidContainer() end)
+                local ok2, newFc = PhobosLib.safecall(function() return newItem:getFluidContainer() end)
                 if ok1 and fc and ok2 and newFc then
                     local amount = fc:getAmount()
                     if amount and amount > 0 then
-                        local fluidOk, fluidName = pcall(function()
+                        local fluidOk, fluidName = PhobosLib.safecall(function()
                             local pf = fc:getPrimaryFluid()
                             return pf and pf:getName()
                         end)
                         if fluidOk and fluidName then
-                            pcall(function() newFc:addFluid(fluidName, amount) end)
+                            PhobosLib.safecall(function() newFc:addFluid(fluidName, amount) end)
                         end
                     end
                 end
 
                 container:AddItem(newItem)
-                pcall(function() sendItemStats(newItem) end)
-                pcall(function() sendAddItemToContainer(container, newItem) end)
+                PhobosLib.safecall(function() sendItemStats(newItem) end)
+                PhobosLib.safecall(function() sendAddItemToContainer(container, newItem) end)
                 converted = converted + 1
             end
         else
@@ -573,7 +573,7 @@ local function migrate_1_0_0(player)
 
         -- Remove the orphaned zReLabItems item
         container:Remove(item)
-        pcall(function() sendRemoveItemFromContainer(container, item) end)
+        PhobosLib.safecall(function() sendRemoveItemFromContainer(container, item) end)
     end)
 
     if converted == 0 and removed == 0 then
@@ -679,7 +679,7 @@ local function convertHorticultureItems(player)
 
     -- Pass 2: convert collected items (safe to modify containers now)
     for _, entry in ipairs(pending) do
-        local ok, err = pcall(function()
+        local ok, err = PhobosLib.safecall(function()
             local newItem = instanceItem(entry.replacement)
             if not newItem then
                 PhobosLib.debug("PCP", "[PCP:Migration]", "FAILED: instanceItem(" .. entry.replacement .. ") returned nil for " .. entry.fullType)
@@ -692,9 +692,9 @@ local function convertHorticultureItems(player)
 
             -- Drainable items: preserve UsedDelta (best-effort).
             -- Orphaned drainable items from unsubscribed mods can throw
-            -- RuntimeException on getUsedDelta/setUsedDelta — inner pcall
+            -- RuntimeException on getUsedDelta/setUsedDelta — inner safecall
             -- ensures conversion continues even if state can't be preserved.
-            pcall(function()
+            PhobosLib.safecall(function()
                 if item.getUsedDelta and newItem.setUsedDelta then
                     local delta = item:getUsedDelta()
                     if delta then newItem:setUsedDelta(delta) end
@@ -702,7 +702,7 @@ local function convertHorticultureItems(player)
             end)
 
             -- Food items: preserve age (best-effort, same defensive pattern)
-            pcall(function()
+            PhobosLib.safecall(function()
                 if instanceof(item, "Food") and instanceof(newItem, "Food") then
                     newItem:setAge(item:getAge())
                 end
@@ -725,11 +725,11 @@ local function convertHorticultureItems(player)
             end
 
             container:AddItem(newItem)
-            pcall(function() sendItemStats(newItem) end)
-            pcall(function() sendAddItemToContainer(container, newItem) end)
+            PhobosLib.safecall(function() sendItemStats(newItem) end)
+            PhobosLib.safecall(function() sendAddItemToContainer(container, newItem) end)
 
             container:Remove(item)
-            pcall(function() sendRemoveItemFromContainer(container, item) end)
+            PhobosLib.safecall(function() sendRemoveItemFromContainer(container, item) end)
 
             PhobosLib.debug("PCP", "[PCP:Migration]", "OK: " .. entry.fullType .. " -> " .. entry.replacement)
             converted = converted + 1
@@ -777,20 +777,20 @@ local function migrate_1_3_0(player)
         if fullType ~= "PhobosChemistryPathways.HempTincture" then return end
 
         -- Check if FluidContainer exists and is empty
-        local ok, fc = pcall(function() return item:getFluidContainer() end)
+        local ok, fc = PhobosLib.safecall(function() return item:getFluidContainer() end)
         if not ok or not fc then return end
 
         local amount = 0
-        pcall(function() amount = fc:getAmount() or 0 end)
+        PhobosLib.safecall(function() amount = fc:getAmount() or 0 end)
         if amount > 0 then return end  -- already filled, skip
 
         -- Fill to capacity with HempTincture fluid
         local capacity = 0.5
-        pcall(function() capacity = fc:getCapacity() or 0.5 end)
-        pcall(function() fc:addFluid("HempTincture", capacity) end)
+        PhobosLib.safecall(function() capacity = fc:getCapacity() or 0.5 end)
+        PhobosLib.safecall(function() fc:addFluid("HempTincture", capacity) end)
 
         -- Sync in MP
-        pcall(function() sendItemStats(item) end)
+        PhobosLib.safecall(function() sendItemStats(item) end)
 
         filled = filled + 1
     end)
@@ -849,7 +849,7 @@ local function migrate_1_5_0(player)
         if not newItem then return end
 
         -- Preserve UsedDelta (amount remaining)
-        pcall(function()
+        PhobosLib.safecall(function()
             if item.getUsedDelta and newItem.setUsedDelta then
                 local delta = item:getUsedDelta()
                 if delta then newItem:setUsedDelta(delta) end
@@ -857,11 +857,11 @@ local function migrate_1_5_0(player)
         end)
 
         container:AddItem(newItem)
-        pcall(function() sendItemStats(newItem) end)
-        pcall(function() sendAddItemToContainer(container, newItem) end)
+        PhobosLib.safecall(function() sendItemStats(newItem) end)
+        PhobosLib.safecall(function() sendAddItemToContainer(container, newItem) end)
 
         container:Remove(item)
-        pcall(function() sendRemoveItemFromContainer(container, item) end)
+        PhobosLib.safecall(function() sendRemoveItemFromContainer(container, item) end)
 
         converted = converted + 1
     end)
@@ -930,7 +930,7 @@ local function migrate_1_8_0(player)
     end)
 
     for _, entry in ipairs(pending) do
-        local ok, err = pcall(function()
+        local ok, err = PhobosLib.safecall(function()
             local newItem = instanceItem(entry.replacement)
             if not newItem then
                 PhobosLib.debug("PCP", "[PCP:Migration]", "FAILED: instanceItem(" .. entry.replacement .. ") returned nil for " .. entry.fullType)
@@ -938,7 +938,7 @@ local function migrate_1_8_0(player)
             end
 
             -- Preserve UsedDelta (amount remaining in drainable spray can)
-            pcall(function()
+            PhobosLib.safecall(function()
                 if entry.item.getUsedDelta and newItem.setUsedDelta then
                     local delta = entry.item:getUsedDelta()
                     if delta then newItem:setUsedDelta(delta) end
@@ -946,11 +946,11 @@ local function migrate_1_8_0(player)
             end)
 
             entry.container:AddItem(newItem)
-            pcall(function() sendItemStats(newItem) end)
-            pcall(function() sendAddItemToContainer(entry.container, newItem) end)
+            PhobosLib.safecall(function() sendItemStats(newItem) end)
+            PhobosLib.safecall(function() sendAddItemToContainer(entry.container, newItem) end)
 
             entry.container:Remove(entry.item)
-            pcall(function() sendRemoveItemFromContainer(entry.container, entry.item) end)
+            PhobosLib.safecall(function() sendRemoveItemFromContainer(entry.container, entry.item) end)
 
             PhobosLib.debug("PCP", "[PCP:Migration]", "OK: " .. entry.fullType .. " -> " .. entry.replacement)
             converted = converted + 1
@@ -988,7 +988,7 @@ local function runManualHortMigration(players)
 
     -- Check sandbox button
     local requested = false
-    pcall(function()
+    PhobosLib.safecall(function()
         require "PCP_SandboxIntegration"
         requested = PCP_Sandbox.isHorticultureMigrationRequested()
     end)
@@ -1035,7 +1035,7 @@ end
 
 local function getAllPlayers()
     local players = {}
-    pcall(function()
+    PhobosLib.safecall(function()
         if isClient() then return end
         local online = getOnlinePlayers()
         if online and online:size() > 0 then
@@ -1076,7 +1076,7 @@ local function onGameStart()
     runManualHortMigration(players)
 
     -- zReVaccin → ZVV comprehensive migration (manual sandbox button)
-    pcall(function()
+    PhobosLib.safecall(function()
         require "PCP_ZReVaccinMigration"
         PCP_ZReVaccinMigration.run(players)
     end)

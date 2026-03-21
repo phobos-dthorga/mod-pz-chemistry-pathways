@@ -72,7 +72,7 @@ end
 local function onCreatePlayer(playerNum)
     if not PhobosLib.isMoodleFrameworkActive() then return end
 
-    pcall(function()
+    PhobosLib.safecall(function()
         local moodle = MF.getMoodle("Medicated", playerNum)
         if moodle then
             -- setThresholds(bad4, bad3, bad2, bad1, good1, good2, good3, good4)

@@ -31,7 +31,7 @@
 -- with the base item so only one research credit per substance.
 --
 -- Only runs when PhobosLib.isModActive("ZScienceSkill") is true.
--- All calls pcall-wrapped for safety if mod is removed mid-save.
+-- All calls safecall-wrapped for safety if mod is removed mid-save.
 ---------------------------------------------------------------
 
 require "PhobosLib"
@@ -42,7 +42,7 @@ local function registerPCPSpecimens()
     if not PhobosLib.isModActive("ZScienceSkill") then return end
 
     -- Guard: verify the real API exists
-    local ok = pcall(function()
+    local ok = PhobosLib.safecall(function()
         return ZScienceSkill and ZScienceSkill.Data and ZScienceSkill.Data.add
     end)
     if not ok then return end
@@ -50,7 +50,7 @@ local function registerPCPSpecimens()
 
     -- Guard: verify AppliedChemistry perk exists (it should, from our perks.txt)
     local acPerk = "AppliedChemistry"
-    local hasPerk = pcall(function() return Perks[acPerk] end)
+    local hasPerk = PhobosLib.safecall(function() return Perks[acPerk] end)
     if not hasPerk or not Perks[acPerk] then
         -- Fallback: award Science only if our perk isn't loaded yet
         acPerk = nil
@@ -68,7 +68,7 @@ local function registerPCPSpecimens()
         return t
     end
 
-    local success, err = pcall(function()
+    local success, err = PhobosLib.safecall(function()
         ZScienceSkill.Data.add({
 
             -------------------------------------------------------

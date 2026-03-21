@@ -36,7 +36,7 @@ local function onGameStart()
     if isClient() then return end
 
     local worldMD = nil
-    pcall(function() worldMD = getGameTime():getModData() end)
+    PhobosLib.safecall(function() worldMD = getGameTime():getModData() end)
     if not worldMD then return end
 
     -- Already migrated — skip

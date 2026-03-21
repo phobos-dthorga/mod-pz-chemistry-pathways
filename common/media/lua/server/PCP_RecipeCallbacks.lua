@@ -122,7 +122,7 @@ local function _applyFluidFuelPenalty(player, fluidName, purity, count)
     if not player or not fluidName then return end
     count = count or 1
     local applied = 0
-    pcall(function()
+    PhobosLib.safecall(function()
         local inv = player:getInventory()
         if not inv then return end
         local items = inv:getItems()

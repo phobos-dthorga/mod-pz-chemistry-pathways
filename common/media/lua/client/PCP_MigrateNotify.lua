@@ -75,7 +75,7 @@ local function showModal()
 
     local text = table.concat(lines)
 
-    pcall(function()
+    PhobosLib.safecall(function()
         local modal = ISModalRichText:new(
             getCore():getScreenWidth() / 2 - 250,
             getCore():getScreenHeight() / 2 - 120,

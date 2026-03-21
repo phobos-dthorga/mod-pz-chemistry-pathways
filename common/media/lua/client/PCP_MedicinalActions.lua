@@ -49,12 +49,12 @@ local TINCTURE_DOSE = 0.1
 ---------------------------------------------------------------
 
 --- Reduce pain on all body parts by a fixed amount.
---- Uses the B42 BodyDamage API via pcall for safety.
+--- Uses the B42 BodyDamage API via safecall for safety.
 ---@param character any    IsoGameCharacter
 ---@param amount number    Pain reduction per body part
 local function reduceAllPain(character, amount)
     if not character or amount <= 0 then return end
-    pcall(function()
+    PhobosLib.safecall(function()
         local bd = character:getBodyDamage()
         if not bd then return end
         for i = 0, bd:getBodyParts():size() - 1 do
@@ -75,7 +75,7 @@ end
 ---@param amount number    Reduction amount (positive = reduce)
 local function reduceStat(character, statName, amount)
     if not character or amount <= 0 then return end
-    pcall(function()
+    PhobosLib.safecall(function()
         local stats = character:getStats()
         if not stats then return end
         if statName == "stress" then
@@ -93,7 +93,7 @@ end
 ---@param amount number    Reduction amount (positive = reduce unhappiness)
 local function reduceUnhappiness(character, amount)
     if not character or amount <= 0 then return end
-    pcall(function()
+    PhobosLib.safecall(function()
         local bd = character:getBodyDamage()
         if not bd then return end
         local current = bd:getUnhappynessLevel()
@@ -106,7 +106,7 @@ end
 ---@param amount number    Reduction amount (positive = reduce boredom)
 local function reduceBoredom(character, amount)
     if not character or amount <= 0 then return end
-    pcall(function()
+    PhobosLib.safecall(function()
         local bd = character:getBodyDamage()
         if not bd then return end
         local current = bd:getBoredomLevel()
@@ -168,13 +168,13 @@ function PCP_ApplyPoulticeAction:perform()
     reduceStat(self.character, "stress", stressAmount)
 
     -- Consume the poultice
-    pcall(function()
+    PhobosLib.safecall(function()
         local inv = self.character:getInventory()
         if inv then inv:Remove(self.poulticeItem) end
     end)
 
     -- Trigger Medicated moodle (no-ops if MF absent)
-    pcall(function()
+    PhobosLib.safecall(function()
         local playerNum = self.character:getPlayerNum()
         local duration = PCP_Sandbox.getPoulticeMoodleDuration()
         PhobosLib.stackMoodleValue(playerNum, "Medicated", 0.7, duration)
@@ -184,7 +184,7 @@ function PCP_ApplyPoulticeAction:perform()
     PhobosLib.say(self.character, getText("IGUI_PCP_Medicated_Applied"))
 
     -- Refresh inventory
-    pcall(function()
+    PhobosLib.safecall(function()
         local inv = self.character:getInventory()
         if inv then inv:setDrawDirty(true) end
     end)
@@ -254,7 +254,7 @@ function PCP_TakeTinctureAction:perform()
     end
 
     -- Drain one dose of fluid
-    pcall(function()
+    PhobosLib.safecall(function()
         local fc = PhobosLib.tryGetFluidContainer(self.tinctureItem)
         if fc then
             PhobosLib.tryDrainFluid(fc, TINCTURE_DOSE)
@@ -276,7 +276,7 @@ function PCP_TakeTinctureAction:perform()
     reduceStat(self.character, "fatigue", fatigueAmount)  -- adds drowsiness
 
     -- Trigger Medicated moodle (no-ops if MF absent)
-    pcall(function()
+    PhobosLib.safecall(function()
         local playerNum = self.character:getPlayerNum()
         local duration = PCP_Sandbox.getTinctureMoodleDuration()
         PhobosLib.stackMoodleValue(playerNum, "Medicated", 0.85, duration)
@@ -286,9 +286,9 @@ function PCP_TakeTinctureAction:perform()
     PhobosLib.say(self.character, getText("IGUI_PCP_Medicated_Tincture"))
 
     -- Sync item for MP and refresh UI
-    pcall(function() self.tinctureItem:syncItemFields() end)
-    pcall(sendItemStats, self.tinctureItem)
-    pcall(function()
+    PhobosLib.safecall(function() self.tinctureItem:syncItemFields() end)
+    PhobosLib.safecall(sendItemStats, self.tinctureItem)
+    PhobosLib.safecall(function()
         local inv = self.character:getInventory()
         if inv then inv:setDrawDirty(true) end
     end)
@@ -322,7 +322,7 @@ local function onFillInventoryObjectContextMenu(playerNum, context, items)
 
         if item then
             local fullType = nil
-            pcall(function() fullType = item:getFullType() end)
+            PhobosLib.safecall(function() fullType = item:getFullType() end)
 
             if fullType then
                 -- Hemp Poultice: "Apply Poultice"

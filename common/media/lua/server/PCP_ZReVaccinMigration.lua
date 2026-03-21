@@ -197,7 +197,7 @@ local function convertItem(item, container)
         end
 
         -- Preserve condition (purity proxy) as percentage
-        local ok1 = pcall(function()
+        local ok1 = PhobosLib.safecall(function()
             local cond    = item:getCondition()
             local maxCond = item:getConditionMax()
             if cond and maxCond and maxCond > 0 and cond < maxCond then
@@ -211,7 +211,7 @@ local function convertItem(item, container)
         end
 
         -- Preserve fluid contents for FluidContainer items
-        pcall(function()
+        PhobosLib.safecall(function()
             local fc    = item:getFluidContainer()
             local newFc = newItem:getFluidContainer()
             if fc and newFc then
@@ -229,17 +229,17 @@ local function convertItem(item, container)
         end)
 
         container:AddItem(newItem)
-        pcall(function() sendItemStats(newItem) end)
-        pcall(function() sendAddItemToContainer(container, newItem) end)
+        PhobosLib.safecall(function() sendItemStats(newItem) end)
+        PhobosLib.safecall(function() sendAddItemToContainer(container, newItem) end)
         container:Remove(item)
-        pcall(function() sendRemoveItemFromContainer(container, item) end)
+        PhobosLib.safecall(function() sendRemoveItemFromContainer(container, item) end)
         return "converted"
     end
 
     -- Explicitly marked for removal
     if ZRE_REMOVE[fullType] then
         container:Remove(item)
-        pcall(function() sendRemoveItemFromContainer(container, item) end)
+        PhobosLib.safecall(function() sendRemoveItemFromContainer(container, item) end)
         return "removed"
     end
 
@@ -247,7 +247,7 @@ local function convertItem(item, container)
     if string.find(fullType, "zReLabItems.", 1, true) then
         print(_TAG .. " removing unknown zReLabItems item: " .. fullType)
         container:Remove(item)
-        pcall(function() sendRemoveItemFromContainer(container, item) end)
+        PhobosLib.safecall(function() sendRemoveItemFromContainer(container, item) end)
         return "removed"
     end
 
@@ -259,11 +259,11 @@ end
 ---@return number taught  Number of new ZVV recipes taught
 local function transferRecipes(player)
     local taught = 0
-    local ok, known = pcall(function() return player:getKnownRecipes() end)
+    local ok, known = PhobosLib.safecall(function() return player:getKnownRecipes() end)
     if not ok or not known then return 0 end
 
     for zreName, zvvName in pairs(ZRE_TO_ZVV_RECIPES) do
-        pcall(function()
+        PhobosLib.safecall(function()
             if known:contains(zreName) then
                 if not known:contains(zvvName) then
                     player:learnRecipe(zvvName)
@@ -283,7 +283,7 @@ end
 ---@return boolean removed  Whether the trait was found and removed
 local function removeAntibodiesTrait(player)
     local removed = false
-    pcall(function()
+    PhobosLib.safecall(function()
         local charTraits = player:getCharacterTraits()
         if not charTraits then return end
 
@@ -324,7 +324,7 @@ function PCP_ZReVaccinMigration.run(players)
 
     -- Check if the migration was actually requested
     local requested = false
-    pcall(function()
+    PhobosLib.safecall(function()
         require "PCP_SandboxIntegration"
         requested = PCP_Sandbox.isZReVaccinMigrationRequested()
     end)
@@ -405,7 +405,7 @@ function PCP_ZReVaccinMigration.run(players)
     for _, player in ipairs(players) do
         if removeAntibodiesTrait(player) then
             stats.traitsRemoved = stats.traitsRemoved + 1
-            pcall(function()
+            PhobosLib.safecall(function()
                 sendServerCommand(player, "PCP", "zrevacTraitRemoved", {})
             end)
         end

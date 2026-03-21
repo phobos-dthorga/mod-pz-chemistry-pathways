@@ -41,7 +41,7 @@ local function _debug(msg) PhobosLib.debug("PCP", _TAG, msg) end
 ---@param purity number    Purity value (0-100)
 function PCP_CallbackHelpers.stampAndAnnounce(result, player, purity)
     if not result then return end
-    local ok, ft = pcall(result.getFullType, result)
+    local ok, ft = PhobosLib.safecall(result.getFullType, result)
     if not ok or not ft or not string.find(ft, PCP_Constants.MOD_PREFIX, 1, true) then return end
     _debug("stampAndAnnounce: " .. tostring(ft) .. " purity=" .. tostring(purity))
     PCP_PuritySystem.setPurity(result, purity)
@@ -57,7 +57,7 @@ end
 ---@param purity number    Purity value (0-100)
 function PCP_CallbackHelpers.stampAnnounceAndYield(result, player, purity)
     if not result then return end
-    local ok, ft = pcall(result.getFullType, result)
+    local ok, ft = PhobosLib.safecall(result.getFullType, result)
     if not ok or not ft or not string.find(ft, PCP_Constants.MOD_PREFIX, 1, true) then return end
     local baseCount = PCP_PuritySystem.countUnstampedOutputs(player, ft)
     _debug("stampAnnounceAndYield: " .. tostring(ft) .. " purity=" .. tostring(purity) .. " baseCount=" .. tostring(baseCount))

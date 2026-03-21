@@ -35,7 +35,7 @@ local PCP_ResetNotify = {}
 ---@param msg string
 ---@param isOk boolean
 local function showModal(msg, isOk)
-    pcall(function()
+    PhobosLib.safecall(function()
         local header
         if isOk then
             header = " <SIZE:medium> <RGB:0.3,0.8,0.3> " .. getText("IGUI_PCP_Reset_CompleteHeader") .. " <RGB:1,1,1> "
@@ -76,7 +76,7 @@ end
 ---@param player any
 ---@param msg string
 local function showHaloText(player, msg)
-    pcall(function()
+    PhobosLib.safecall(function()
         if HaloTextHelper and HaloTextHelper.addTextWithArrow then
             HaloTextHelper.addTextWithArrow(player, true, msg)
         elseif HaloTextHelper and HaloTextHelper.addText then
@@ -102,7 +102,7 @@ local function onServerCommand(module, command, args)
     -- Also show halo text if player exists and it was successful
     if isOk then
         local player = nil
-        pcall(function()
+        PhobosLib.safecall(function()
             player = getSpecificPlayer(0)
         end)
         if player then

@@ -107,7 +107,7 @@ end
 ---@return number  purity 0-100
 function PCP_PuritySystem.getPurity(item)
     if not item then return PCP_PuritySystem.DEFAULT end
-    local ok, result = pcall(function()
+    local ok, result = PhobosLib.safecall(function()
         local maxCond = item:getConditionMax()
         if not maxCond or maxCond <= 0 then return PCP_PuritySystem.DEFAULT end
         return math.floor(item:getCondition() / maxCond * 100 + 0.5)
@@ -125,13 +125,13 @@ function PCP_PuritySystem.setPurity(item, value)
     if not PCP_PuritySystem.isEnabled() then return false end
     if not item then return false end
     value = math.max(0, math.min(100, math.floor(value + 0.5)))
-    local ok = pcall(function()
+    local ok = PhobosLib.safecall(function()
         local maxCond = item:getConditionMax()
         if maxCond and maxCond > 0 then
             local scaledValue = math.floor(value / 100 * maxCond + 0.5)
             scaledValue = math.max(0, math.min(maxCond - 1, scaledValue))
             item:setCondition(scaledValue)
-            pcall(sendItemStats, item)  -- sync to client for immediate UI refresh
+            PhobosLib.safecall(sendItemStats, item)  -- sync to client for immediate UI refresh
         end
     end)
     return ok
@@ -270,7 +270,7 @@ end
 function PCP_PuritySystem.countUnstampedOutputs(player, resultType)
     if not player or not resultType then return 0 end
     local count = 0
-    pcall(function()
+    PhobosLib.safecall(function()
         local inv = player:getInventory()
         if not inv then return end
         local items = inv:getItems()
@@ -300,7 +300,7 @@ function PCP_PuritySystem.stampOutputs(player, resultType, value)
     if PhobosLib.isDebugEnabled("PCP") then
         _debug("stampOutputs: type=" .. tostring(resultType) .. " purity=" .. tostring(value))
     end
-    pcall(function()
+    PhobosLib.safecall(function()
         local inv = player:getInventory()
         if not inv then return end
         local items = inv:getItems()
@@ -314,7 +314,7 @@ function PCP_PuritySystem.stampOutputs(player, resultType, value)
                         local scaledValue = math.floor(value / 100 * maxCond + 0.5)
                         scaledValue = math.max(0, math.min(maxCond - 1, scaledValue))
                         it:setCondition(scaledValue)
-                        pcall(sendItemStats, it)  -- sync to client for immediate UI refresh
+                        PhobosLib.safecall(sendItemStats, it)  -- sync to client for immediate UI refresh
                     end
                 end
             end
