@@ -350,6 +350,9 @@ jobs:
           print(f"All {checked} StaticModel/WorldStaticModel references are valid.")
           PYEOF
 
+      - name: PZ API deny-list scan
+        run: python3 .github/pz-api-denylist.py common/media/lua/
+
       - name: Encoding check (UTF-8)
         run: |
           FAIL=0
