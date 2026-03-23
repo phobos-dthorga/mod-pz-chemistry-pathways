@@ -38,7 +38,7 @@ A complete industrial chemistry and biomass processing suite for Project Zomboid
 This project is open-source, but the Steam Workshop upload is the official distribution channel. The goal of this repository is to allow collaboration, compatibility extensions, and dependency usage while preserving authorship identity.
 
 <p align="center">
-  <img src="docs/images/feature-banner.png" alt="Chemistry workshop banner">
+  <img src="docs/architecture/images/feature-banner.png" alt="Chemistry workshop banner">
 </p>
 
 ## Features
@@ -46,10 +46,10 @@ This project is open-source, but the Steam Workshop upload is the official distr
 ### Applied Chemistry Skill System
 Custom `AppliedChemistry` perk under the Crafting parent with a steeper XP curve (75-9000). Two occupations (Chemist and Pharmacist) and two traits (Chemistry Enthusiast and Chemical Aversion) provide starting skill bonuses. Five skill book volumes cover levels 1-10, distributed in loot from common (Vol 1-2) to very rare (Vol 5). Six category recipe books (Field, Kitchen, Lab, Industrial, Horticulture, plus Complete Chemistry Compendium) unlock pathway-specific recipes. All 301 recipes award Applied Chemistry XP with 7 tiers of skill requirements.
 
-### <img src="docs/images/pathway-blackpowder.png" width="24"> Blackpowder Pathway
+### <img src="docs/architecture/images/pathway-blackpowder.png" width="24"> Blackpowder Pathway
 Seven-step chain from raw charcoal to gunpowder: crush, purify (water or alkaline wash), prepare compost, extract battery acid, extract sulphur, synthesize potassium nitrate, and mix blackpowder.
 
-### <img src="docs/images/pathway-biodiesel.png" width="24"> Biodiesel Pathway
+### <img src="docs/architecture/images/pathway-biodiesel.png" width="24"> Biodiesel Pathway
 Five-step chain from raw crops to refined fuel. Extract oil from 6 crop types (soybeans, sunflower, corn, flax, hemp, peanuts) using 3 equipment tiers (mortar and pestle, chemistry set, metal drum). Transesterify with methanol and KOH or NaOH catalyst, water-wash, and refine into usable vehicle fuel.
 
 ### Fat Rendering and Oil Conversion
@@ -61,10 +61,10 @@ Two soap pathways: glycerol-based crude soap from biodiesel by-products, and tra
 ### Bone Char Production
 Pyrolyse animal bones and skulls in metal drums to produce bone char, an alternative to purified charcoal in filtration and reagent recipes.
 
-### <img src="docs/images/pathway-salt.png" width="24"> Salt Extraction Pathway
+### <img src="docs/architecture/images/pathway-salt.png" width="24"> Salt Extraction Pathway
 Collect brine from water wells via right-click context menu, concentrate through evaporation, crystallize into rock salt, and purify into table salt. Six-recipe chain using condition-based purity tracking. Uses PhobosLib_WorldAction for well interaction.
 
-### <img src="docs/images/pathway-botanical.png" width="24"> Botanical Pathway
+### <img src="docs/architecture/images/pathway-botanical.png" width="24"> Botanical Pathway
 Thirty-one recipes for hemp processing: chemical retting with KOH or NaOH, fiber/hurd splitting, then branching into textiles (twine, rope, tarred rope, cloth, canvas), papermaking (pulp, chemical pulping, paper sheets), medicinals (poultice, tincture), and hurd processing (charcoal, hempcrete blocks, compost, fire bundles). Reinforced hempcrete (H14b) embeds tarred rope for higher yield (3 blocks vs 2). HempRope and TarredHempRope are tagged `base:rope` for vanilla recipe substitution; TarredHempRope is also usable as campfire fuel. Cross-links to blackpowder (charcoal from hurds), biodiesel (wood tar for tarring), and construction (hempcrete via concrete mixer). Vanilla station integration (Scutching Board, Looms, Hand Press) for fiber extraction, weaving, and oil pressing. Gated by `EnableBotanicalPathway` sandbox option.
 
 ### Horticulture Items
@@ -82,7 +82,7 @@ Nine-step recycling chain (R1-R9): wood tar to wood glue and tar-pitch torches, 
 ### Agriculture & Downstream Applications
 Six pathways connecting PCP intermediates to vanilla gameplay systems: garden pest sprays (sulphur fungicide, insecticidal soap, potash foliar — functional B42 crop cures), mineral feed supplements, water purification and gas mask filter recharging, epoxy resin synthesis, fire-starting materials (lighter fluid, matchboxes), and chemical leather tanning and plaster powder.
 
-### <img src="docs/images/pathway-concrete.png" width="24"> Concrete Mixer Workstation
+### <img src="docs/architecture/images/pathway-concrete.png" width="24"> Concrete Mixer Workstation
 Powered CraftBench entity for industrial-scale material processing. Build a concrete mixer from a metal drum, salvaged motor, scrap metal, and welding equipment (Metalworking 4). Requires electricity (grid, generator, or custom power source). 13 recipes: concrete, clay cement, mortar, stucco, reinforced concrete, fireclay, bulk blackpowder, bulk biodiesel, bulk soap, bulk compost, plaster, and wood vinegar. Generator fuel drain during crafting.
 
 ### In-Game Guide & Changelog
@@ -168,14 +168,14 @@ Forks and addons are encouraged. Code is permissively licensed for integration. 
 
 Visual guides for understanding recipe chains, sandbox settings, and mod architecture:
 
-- [Recipe Pathways](docs/diagrams/recipe-pathways.md) — Complete crafting chain flowcharts for all chemistry pathways
-- [Botanical & Horticulture Pathways](docs/diagrams/botanical-pathways.md) — Hemp processing, textiles, paper, medicinals, and horticulture items
-- [Recipe Variants](docs/diagrams/recipe-variants.md) — Why PCP recipes have multiple versions, naming conventions, and troubleshooting
-- [Sandbox Settings Guide](docs/diagrams/sandbox-gating.md) — How 66 sandbox options control recipe visibility, behavior, hemp effects, and maintenance
-- [Skill Progression](docs/diagrams/skill-progression.md) — Applied Chemistry skill tiers, XP curve, occupations, and traits
-- [Architecture & Dependencies](docs/diagrams/architecture.md) — Dependency graph, PhobosLib modules, and cross-mod integration
+- [Recipe Pathways](docs/architecture/diagrams/recipe-pathways.md) — Complete crafting chain flowcharts for all chemistry pathways
+- [Botanical & Horticulture Pathways](docs/architecture/diagrams/botanical-pathways.md) — Hemp processing, textiles, paper, medicinals, and horticulture items
+- [Recipe Variants](docs/architecture/diagrams/recipe-variants.md) — Why PCP recipes have multiple versions, naming conventions, and troubleshooting
+- [Sandbox Settings Guide](docs/architecture/diagrams/sandbox-gating.md) — How 66 sandbox options control recipe visibility, behavior, hemp effects, and maintenance
+- [Skill Progression](docs/architecture/diagrams/skill-progression.md) — Applied Chemistry skill tiers, XP curve, occupations, and traits
+- [Architecture & Dependencies](docs/architecture/diagrams/architecture.md) — Dependency graph, PhobosLib modules, and cross-mod integration
 
-See [docs/README.md](docs/README.md) for the full index. See `docs/art-style-guidelines.md` for icon contribution guidelines.
+See [docs/architecture/README.md](docs/architecture/README.md) for the full architecture index, or [docs/guides/](docs/guides/) for player guides. See `docs/architecture/art-style-guidelines.md` for icon contribution guidelines.
 
 ## Verification Checklist
 
