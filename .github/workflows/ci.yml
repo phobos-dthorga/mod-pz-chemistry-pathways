@@ -370,3 +370,54 @@ jobs:
             echo "All files are valid UTF-8."
           fi
           exit $FAIL
+
+      - name: JSON duplicate key check
+        run: |
+          python3 <<'PYEOF'
+          import json, sys, os, glob
+
+          class DuplicateKeyChecker(json.JSONDecoder):
+              """JSONDecoder that detects duplicate keys."""
+              def __init__(self, *args, **kwargs):
+                  super().__init__(*args, object_pairs_hook=self._check_pairs, **kwargs)
+                  self.duplicates = []
+
+              def _check_pairs(self, pairs):
+                  seen = {}
+                  for key, value in pairs:
+                      if key in seen:
+                          self.duplicates.append(key)
+                      seen[key] = value
+                  return seen
+
+          fail = False
+          patterns = [
+              "42/media/lua/shared/Translate/**/*.json",
+              "42.14/media/lua/shared/Translate/**/*.json",
+              "42.15/media/lua/shared/Translate/**/*.json",
+              "common/media/lua/shared/Translate/**/*.json",
+          ]
+          checked = 0
+          for pattern in patterns:
+              for filepath in glob.glob(pattern, recursive=True):
+                  checked += 1
+                  with open(filepath, encoding="utf-8") as f:
+                      content = f.read()
+                  decoder = DuplicateKeyChecker()
+                  try:
+                      decoder.decode(content)
+                  except json.JSONDecodeError as e:
+                      print(f"::error file={filepath}::JSON parse error: {e}")
+                      fail = True
+                      continue
+                  if decoder.duplicates:
+                      for dup in decoder.duplicates:
+                          print(f"::error file={filepath}::Duplicate key: \"{dup}\"")
+                      fail = True
+
+          if checked == 0:
+              print("No translation JSON files found — skipping.")
+          elif not fail:
+              print(f"All {checked} translation JSON file(s) clean — no duplicate keys.")
+          sys.exit(1 if fail else 0)
+          PYEOF
